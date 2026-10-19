@@ -1,13 +1,13 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
- id:"capacitacion", mode:"dia", title:"Un día como Analista de Capacitación", role:"analista-capacitacion",
+ id:"capacitacion", kind:"dia", scene:"cooperativa", orgType:"med", level:"intermedio", title:"Un día como Analista de Capacitación", role:"analista-capacitacion",
  areas:["capacitacion","desempeno","sst","analytics"], sector:"privado", size:"Mediana empresa · 140 trabajadores", place:"Tacna, Moquegua y Puno", mins:22,
  hook:"Quedan S/ 18,000 de presupuesto para el año, un gerente quiere gastarlo casi todo en un curso de liderazgo en Lima y faltan dos capacitaciones obligatorias de SST.",
  org:"<b>Cooperativa de Ahorro y Crédito Sur Andino</b> (ficticia). 140 trabajadores en 9 agencias de Tacna, Moquegua y Puno. El principal reto del negocio: la mora de la cartera de créditos subió 1.2 puntos en el año.",
  you:"Eres la analista de capacitación y desarrollo. Llevas el plan anual, coordinas proveedores, preparas cursos internos y evalúas resultados.",
  goal:"Cerrar el año usando bien el presupuesto restante: cumplir lo obligatorio y atacar las brechas que más afectan al negocio.",
  limits:["Presupuesto restante del año: S/ 18,000.","Se han realizado 2 de las 4 capacitaciones anuales de SST que exige la Ley 29783.","Las agencias de Puno tienen mala conexión a internet."],
- people:[{n:"Ing. Paola Ríos",r:"Jefa de Gestión Humana",d:"Te pide que llegues con números."},{n:"Lic. Jorge Arenas",r:"Gerente de Negocios",d:"Quiere formar a sus jefes de agencia."},{n:"Mg. Luis Ccama",r:"Jefe de Riesgos",d:"Conoce el problema de la mora; tiene poco tiempo."},{n:"Proveedores",r:"Consultoras de capacitación",d:"Ficticias."}],
+ people:[{av:{g:"f",s:3,h:"lacio",hc:0,c:1,gl:true},n:"Ing. Paola Ríos",r:"Jefa de Gestión Humana",d:"Te pide que llegues con números."},{av:{g:"m",s:2,h:"raya",hc:2,c:3},n:"Lic. Jorge Arenas",r:"Gerente de Negocios",d:"Quiere formar a sus jefes de agencia."},{av:{g:"m",s:4,h:"corto",hc:0,c:5,gl:true},n:"Mg. Luis Ccama",r:"Jefe de Riesgos",d:"Conoce el problema de la mora; tiene poco tiempo."},{av:{g:"f",s:1,h:"colita",hc:3,c:6},n:"Proveedores",r:"Consultoras de capacitación",d:"Ficticias."}],
  nodes:[
  {id:"c1", t:"08:15", ch:"correo", from:"Lic. Jorge Arenas · Gerente de Negocios", title:"Liderazgo en Lima",
   body:"<p>Encontré un programa de liderazgo excelente en Lima: 3 días, S/ 2,500 por persona. Quiero enviar a los 6 jefes de agencia. Con pasajes y viáticos serán unos S/ 17,000. Ya hablé con ellos y están entusiasmados.</p>",

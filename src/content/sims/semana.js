@@ -1,13 +1,13 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
- id:"semana", mode:"semana", title:"Una semana como Generalista de RR.HH. en una pequeña empresa", role:"generalista",
+ id:"semana", kind:"semana", scene:"hotel", orgType:"peq", level:"intermedio", title:"Una semana como Generalista de RR.HH. en una pequeña empresa", role:"generalista",
  areas:["onboarding","adm-personal","sst","clima","relaciones","reclutamiento","analytics","estrategica"], sector:"privado", size:"Pequeña empresa · 46 trabajadores", place:"Tacna", mins:35,
  hook:"Eres el área de RR.HH. completa de un hotel con alta rotación, un accidente en cocina y una dueña que quiere recortar costos antes de la temporada alta.",
  org:"<b>Hotel Mirador del Caplina</b> (ficticio), hotel de 42 habitaciones en el centro de Tacna. Buena parte de sus huéspedes son turistas chilenos que vienen de compras y por servicios de salud; la ocupación se dispara en fines de semana largos y en diciembre. 46 trabajadores: recepción, housekeeping, cocina, restaurante, mantenimiento y administración.",
  you:"Eres la única persona de RR.HH. (generalista). Reportas al administrador y, en la práctica, a la dueña. Haces de todo: selección, planilla con apoyo del contador, SST, clima y conflictos.",
  goal:"Pasar la semana resolviendo lo urgente sin perder de vista el problema de fondo: la rotación.",
  limits:["No hay presupuesto aprobado para RR.HH.: todo gasto se pide a la dueña.","El contador externo procesa la planilla con lo que le envías hasta el día 25.","La temporada alta de diciembre está a siete semanas."],
- people:[{n:"Sra. Gladys Cornejo",r:"Dueña y gerente",d:"Fundó el hotel hace 18 años. Decide rápido."},{n:"Sr. Renzo Villalobos",r:"Administrador",d:"Tu jefe directo."},{n:"Chef Marco Aguilar",r:"Jefe de cocina",d:"Excelente cocinero, temperamento difícil."},{n:"Personal",r:"46 personas",d:"Datos ficticios."}],
+ people:[{av:{g:"f",s:3,h:"moño",hc:5,c:2,age:"mayor"},n:"Sra. Gladys Cornejo",r:"Dueña y gerente",d:"Fundó el hotel hace 18 años. Decide rápido."},{av:{g:"m",s:2,h:"raya",hc:1,c:7},n:"Sr. Renzo Villalobos",r:"Administrador",d:"Tu jefe directo."},{av:{g:"m",s:4,h:"corto",hc:0,c:"#F4F4F4",acc:"cofia",b:true},n:"Chef Marco Aguilar",r:"Jefe de cocina",d:"Excelente cocinero, temperamento difícil."},{av:{g:"f",s:4,h:"colita",hc:0,c:1},n:"Personal",r:"46 personas",d:"Datos ficticios."}],
  nodes:[
  {id:"w1", t:"Lunes · 07:45", ch:"presencial", from:"Recepción", title:"La nueva recepcionista llega antes que su jefa",
   body:"<p>Valeria empieza hoy en recepción. La jefa de recepción está de descanso; la recepcionista de turno está atendiendo un check-out de un grupo de 12 chilenos. Nadie preparó nada.</p>",
@@ -46,7 +46,7 @@ export default {
     out:"El restaurante queda con un mozo menos en la semana de mayor ocupación. El administrador te lo reclama.",
     pro:"Cuidar a la persona no significa ignorar al servicio. La mejor solución suele ser una tercera opción."}
   ]},
- {id:"w4", t:"Martes · 09:10", ch:"llamada", from:"Cocina", title:"Quemadura en cocina",
+ {id:"w4", t:"Martes · 09:10", ch:"llamada", guide:{mood:"preocupado", say:"¿Pasta dental en una quemadura? No. Primero la persona, luego el registro y la causa."}, from:"Cocina", title:"Quemadura en cocina",
   body:"<p>Una ayudante de cocina se quemó el antebrazo con aceite al retirar una sartén. La quemadura parece de primer o segundo grado. El chef dice: «No es nada, que se ponga pasta dental y siga».</p>",
   ask:{prompt:"¿Qué verificas?", max:2, opts:[
    {id:"k1", label:"Si el hotel tiene Comité de SST", info:"El hotel tiene un «supervisor de SST» elegido hace dos años. Con 46 trabajadores, la Ley 29783 exige Comité de SST paritario (20 o más trabajadores)."},

@@ -1,15 +1,15 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
- id:"relaciones", mode:"dia", title:"Un día como Analista de Relaciones Laborales", role:"analista-relaciones",
+ id:"relaciones", kind:"dia", scene:"planta", orgType:"gra", level:"intermedio", title:"Un día como Analista de Relaciones Laborales", role:"analista-relaciones",
  areas:["relaciones","laboral","sst","nomina"], sector:"privado", size:"Gran empresa · 620 trabajadores", place:"Ilo, Moquegua", mins:26,
  hook:"Un operario llega con aliento a alcohol a la línea de cocción, 30 trabajadores reclaman horas extras y el sindicato amenaza con paralizar.",
  org:"<b>Conservas Litoral Sur S.A.</b> (ficticia) procesa y enlata pescado en una planta en Ilo. 620 trabajadores en tres turnos; 240 afiliados al sindicato de trabajadores, con convenio colectivo vigente. Tiene Comité de SST y Reglamento Interno de Trabajo.",
  you:"Eres analista de relaciones laborales. Investigas faltas, preparas cartas, atiendes reclamos, acompañas negociaciones y respondes ante SUNAFIL. Reportas a la jefa de relaciones laborales.",
  goal:"Resolver los conflictos del día con apego a la ley y sin quemar la relación con el sindicato.",
  limits:["Toda medida disciplinaria debe seguir el procedimiento del TUO del D.Leg. 728 y del Reglamento Interno.","El convenio colectivo vigente establece reuniones de la comisión paritaria con 48 horas de aviso.","La planta no puede detenerse: hay 40 toneladas de materia prima en cámara."],
- people:[{n:"Lic. Andrea Salinas",r:"Jefa de Relaciones Laborales",d:"Pragmática; odia las sorpresas."},{n:"Ing. Óscar Benítez",r:"Gerente de Planta",d:"Quiere soluciones inmediatas."},{n:"Sr. Félix Choque",r:"Secretario General del Sindicato",d:"Duro pero de palabra."},{n:"Supervisores de línea",r:"Primera línea",d:"Datos ficticios."}],
+ people:[{av:{g:"f",s:2,h:"melena",hc:2,c:8},n:"Lic. Andrea Salinas",r:"Jefa de Relaciones Laborales",d:"Pragmática; odia las sorpresas."},{av:{g:"m",s:3,h:"calvo",hc:1,c:"#5E6B7A",acc:"casco"},n:"Ing. Óscar Benítez",r:"Gerente de Planta",d:"Quiere soluciones inmediatas."},{av:{g:"m",s:5,h:"corto",hc:0,c:6,b:true,age:"mayor"},n:"Sr. Félix Choque",r:"Secretario General del Sindicato",d:"Duro pero de palabra."},{av:{g:"m",s:4,h:"corto",hc:0,c:4,acc:"casco"},n:"Supervisores de línea",r:"Primera línea",d:"Datos ficticios."}],
  nodes:[
- {id:"r1", t:"07:20", ch:"llamada", from:"Supervisor del turno noche", title:"«Huamán llegó mareado»",
+ {id:"r1", t:"07:20", ch:"llamada", guide:{mood:"sorpresa", say:"7:20 a.m. y ya hay un caso disciplinario. Seguridad primero, pruebas después, decisiones al final."}, from:"Supervisor del turno noche", title:"«Huamán llegó mareado»",
   body:"<blockquote>Huamán, de la línea de cocción, llegó a las 6:50 con olor a trago, caminando raro. Lo saqué de la línea. Está en el comedor. ¿Qué hago? El gerente dice que lo bote ya.</blockquote>",
   ask:{prompt:"¿Qué revisas?", max:2, opts:[
    {id:"h1", label:"La causal en el TUO del D.Leg. 728", info:"El art. 25 considera falta grave la concurrencia reiterada en estado de embriaguez o bajo influencia de drogas, y también una sola vez si, por la naturaleza de la función, reviste excepcional gravedad. La negativa a someterse a la prueba se considera reconocimiento del estado. La autoridad policial presta su concurso para la verificación."},
@@ -51,7 +51,7 @@ export default {
    {id:"c", label:"S/ 243.00", fx:{calidad:-4}, sig:{dat:1}, q:"aceptable", tags:["calcular"], out:"Aplicaste 35% a todas las horas. Esa tasa corresponde desde la tercera hora del día.", pro:"25% en las dos primeras horas diarias y 35% en las siguientes."},
    {id:"d", label:"S/ 60.00", fx:{calidad:-8}, sig:{}, q:"riesgosa", tags:["calcular"], out:"Calculaste solo la sobretasa, sin el valor de la hora.", pro:"El pago es la hora completa más la sobretasa."}
   ]},
- {id:"r4", t:"11:30", ch:"presencial", from:"Operaria de envasado", title:"«El supervisor me grita delante de todos»",
+ {id:"r4", t:"11:30", ch:"presencial", mood:"triste", guide:{mood:"indignado", say:"«Inútil» delante de todos no es «carácter fuerte». Escucha, investiga y protege."}, from:"Operaria de envasado", title:"«El supervisor me grita delante de todos»",
   body:"<p>Una operaria de envasado se presenta llorando: su supervisor la insultó delante del equipo por un error de etiquetado («inútil, por eso estás donde estás»). Dice que no es la primera vez. Dos compañeras estaban presentes.</p>",
   choices:[
    {id:"a", label:"Escucharla, registrar su relato, entrevistar por separado a las testigos y al supervisor, y proponer medidas según lo que resulte (desde una amonestación hasta un plan de liderazgo).", fx:{personas:12,cumplimiento:8,agenda:-8}, sig:{per:3,res:2,pro:1}, q:"buena", tags:["investigar","mediar","entrevistar"],

@@ -1,13 +1,13 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
- id:"municipal", mode:"dia", title:"Un día como Especialista de RR.HH. en una municipalidad", role:"especialista-orh",
+ id:"municipal", kind:"dia", scene:"municipalidad", orgType:"pub", level:"intermedio", title:"Un día como Especialista de RR.HH. en una municipalidad", role:"especialista-orh",
  areas:["adm-personal","reclutamiento","laboral","relaciones","estrategica"], sector:"publico", size:"Municipalidad distrital · 412 servidores", place:"Sur del Perú", mins:28,
  hook:"Mesa de partes llena, un gerente que quiere contratar a su sobrino sin concurso, una queja de hostigamiento sexual y un informe técnico para mañana.",
  org:"<b>Municipalidad Distrital de Vista Alegre del Sur</b> (ficticia). 412 servidores en cuatro regímenes: 58 nombrados del D.Leg. 276, 96 obreros municipales en el régimen privado (D.Leg. 728), 214 servidores CAS (D.Leg. 1057) y 44 practicantes (D.Leg. 1401). Además hay locadores con órdenes de servicio, que no son servidores. La entidad aún no ha transitado al régimen de la Ley 30057.",
  you:"Eres especialista en recursos humanos (contrato CAS) en la Subgerencia de Recursos Humanos. Tu jefe es el subgerente, un cargo de confianza. Son cuatro personas para 412 servidores.",
  goal:"Atender el día cumpliendo la normativa de cada régimen, sin ceder a presiones indebidas y dejando todo documentado.",
  limits:["Todo se tramita por expediente y queda registrado en el sistema de trámite documentario.","El presupuesto de personal está fijado en el Presupuesto Institucional; contratar exige certificación presupuestal y registro en el AIRHSP.","Es año de cambio de gestión: las nuevas autoridades asumen el 1 de enero."],
- people:[{n:"Abg. Raúl Contreras",r:"Subgerente de RR.HH. (confianza)",d:"Cuidadoso; firma lo que tú preparas."},{n:"Lic. Mario Benavides",r:"Gerente Municipal",d:"La autoridad administrativa más alta después del alcalde."},{n:"Secretaría Técnica del PAD",r:"Apoya a las autoridades del procedimiento disciplinario",d:"Una abogada a tiempo parcial."},{n:"Servidores",r:"Cuatro regímenes",d:"Datos ficticios."}],
+ people:[{av:{g:"m",s:2,h:"raya",hc:1,c:5,gl:true},n:"Abg. Raúl Contreras",r:"Subgerente de RR.HH. (confianza)",d:"Cuidadoso; firma lo que tú preparas."},{av:{g:"m",s:3,h:"corto",hc:4,c:7,age:"mayor"},n:"Lic. Mario Benavides",r:"Gerente Municipal",d:"La autoridad administrativa más alta después del alcalde."},{av:{g:"f",s:3,h:"moño",hc:0,c:0},n:"Secretaría Técnica del PAD",r:"Apoya a las autoridades del procedimiento disciplinario",d:"Una abogada a tiempo parcial."},{av:{g:"f",s:4,h:"trenza",hc:0,c:1},n:"Servidores",r:"Cuatro regímenes",d:"Datos ficticios."}],
  nodes:[
  {id:"m1", t:"08:00", ch:"mesa", from:"Mesa de partes · 7 expedientes nuevos", title:"La bandeja de la mañana",
   body:"<p>El sistema de trámite te deriva siete expedientes. Ordénalos según cómo los atenderías hoy.</p>",
@@ -27,7 +27,7 @@ export default {
   sig:{pro:2,nor:2,pre:1}, tags:["planificar","documentos"],
   outBy:{buena:"Tu orden respeta los plazos legales más cortos y el impacto en las personas. La queja tiene prioridad absoluta.",aceptable:"El orden es razonable, pero algún expediente con plazo corto quedó atrás.",riesgosa:"La queja de hostigamiento no quedó primera. Su plazo de medidas de protección corre desde ayer."},
   pro:"En una ORH, la prioridad la ordenan los plazos legales y los derechos en juego, no el cargo de quien pide. Todo expediente tiene un plazo, y su incumplimiento puede generar responsabilidad administrativa."},
- {id:"m2", t:"08:40", ch:"presencial", from:"Practicante de la Unidad de Catastro", title:"La queja",
+ {id:"m2", t:"08:40", ch:"presencial", mood:"preocupado", guide:{mood:"indignado", say:"Lo que cuenta es grave. Primero protegerla, en plazo; después todo lo demás. Y nada de moverla a ella sin que lo pida."}, from:"Practicante de la Unidad de Catastro", title:"La queja",
   body:"<p>La practicante (21 años) vino a ratificar su queja. Relata que su jefe de unidad hace comentarios sobre su cuerpo y le escribe por WhatsApp de noche. Tiene capturas. Está nerviosa y pregunta si la van a cambiar de oficina, porque «no quiere perder sus prácticas».</p>",
   ask:{prompt:"Antes de actuar puedes revisar:", max:2, opts:[
    {id:"n1", label:"Plazos del procedimiento", info:"Según el reglamento de la Ley 27942 (D.S. 014-2019-MIMP), la oficina de recursos humanos dicta medidas de protección en un plazo máximo de 3 días hábiles desde que se presenta la queja. En el sector público, la investigación disciplinaria se tramita en el marco del PAD, con participación de la Secretaría Técnica."},
@@ -48,7 +48,7 @@ export default {
     out:"La practicante no vuelve. El caso queda sin atender y sin medidas.",
     pro:"Exigir formalidades excesivas desalienta la denuncia. La norma establece canales accesibles; las pruebas se recaban en la investigación."}
   ]},
- {id:"m3", t:"10:10", ch:"presencial", from:"Lic. Mario Benavides · Gerente Municipal", title:"«Mi sobrino es ingeniero ambiental»",
+ {id:"m3", t:"10:10", ch:"presencial", guide:{mood:"sorpresa", say:"¿Contratar al sobrino sin concurso? Revisa qué dice la norma antes de responder: tu firma también cuenta."}, from:"Lic. Mario Benavides · Gerente Municipal", title:"«Mi sobrino es ingeniero ambiental»",
   body:"<blockquote>Oye, en la Gerencia de Medio Ambiente necesitan un especialista ya. Mi sobrino es ingeniero ambiental, muy capaz. Hazle un CAS por necesidad transitoria, y para enero ya vemos un concurso. Prepárame eso para hoy.</blockquote>",
   ask:{prompt:"¿Verificas algo antes de responder?", max:2, opts:[
    {id:"x1", label:"Revisar la prohibición de nepotismo", info:"La Ley 26771 y su reglamento prohíben que funcionarios con facultad de nombramiento o contratación, o con injerencia directa o indirecta en el proceso, contraten a parientes hasta el cuarto grado de consanguinidad, segundo de afinidad, por razón de matrimonio o unión de hecho (ámbito ampliado por la Ley 31299)."},
@@ -89,7 +89,7 @@ export default {
   body:"<p>El sindicato pide que la municipalidad confirme por escrito que en diciembre pagará a los CAS una gratificación igual a una remuneración completa, «como dice la Ley 32563».</p>",
   ask:{prompt:"¿Qué revisas?", max:2, opts:[
    {id:"g1", label:"Qué dice la Ley 32563", info:"La Ley 32563 (publicada el 23 de marzo de 2026) modificó el D.Leg. 1057: reconoce gratificaciones de julio y diciembre equivalentes a una remuneración mensual y CTS que se paga al término del vínculo."},
-   {id:"g2", label:"Cómo se implementa", info:"El reglamento aprobado por el D.S. 142-2026-EF dispone una implementación progresiva hasta 2030 por razones de sostenibilidad fiscal. Los porcentajes por año dependen de ese cronograma y del financiamiento."},
+   {id:"g2", label:"Cómo se implementa", info:"El reglamento aprobado por el D.S. 142-2026-EF dispone una implementación progresiva hasta 2030. Según el cronograma difundido, la gratificación equivale al 10% de la remuneración mensual en 2026, 20% en 2027, 30% en 2028, 50% en 2029 y 100% desde 2030 (la CTS sigue el mismo esquema). Hay una demanda admitida a trámite contra la gradualidad: el cronograma podría cambiar. Verifica siempre la versión vigente en El Peruano."},
    {id:"g3", label:"Qué dice Presupuesto", info:"La Oficina de Presupuesto indica que para diciembre solo hay recursos para el porcentaje que fija el cronograma oficial."}
   ]},
   choices:[

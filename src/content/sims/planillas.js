@@ -1,13 +1,13 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
- id:"planillas", mode:"dia", title:"Un día como Asistente de Administración de Personal y Planillas", role:"asistente-personal",
+ id:"planillas", kind:"dia", scene:"oficina", orgType:"med", level:"entrada", title:"Un día como Asistente de Administración de Personal y Planillas", role:"asistente-personal",
  areas:["adm-personal","nomina","legajos","laboral"], sector:"privado", size:"Mediana empresa · 85 trabajadores", place:"Tacna", mins:22,
  hook:"Octubre de 2026: la Remuneración Mínima Vital acaba de subir, hay un ingreso hoy sin papeles completos y dos trabajadores no recibieron su sueldo por un error tuyo.",
  org:"<b>Comercial Ferrosur S.A.C.</b> (ficticia) vende materiales de construcción y ferretería en tres tiendas de Tacna. 85 trabajadores en régimen laboral general. La planilla se procesa en un software local y se declara en PLAME; la contabilidad la lleva una contadora interna.",
  you:"Eres asistente de administración de personal. Te encargas de ingresos, asistencia, novedades de planilla, consultas de trabajadores y legajos. Reportas al jefe de administración.",
  goal:"Mantener la planilla correcta y a tiempo, atender a los trabajadores y no generar contingencias legales.",
  limits:["Desde el 1 de octubre de 2026 la RMV es S/ 1,230 (D.S. 015-2026-TR).","El cierre de novedades de planilla de octubre es el día 25.","Trabajas sola en el área; tu jefe está en una auditoría hasta las 4 p.m."],
- people:[{n:"Héctor Valdivia",r:"Jefe de Administración",d:"Tu jefe; prefiere que le lleves soluciones."},{n:"Carmen Ayca",r:"Contadora",d:"Exigente con los plazos."},{n:"Diego Choque",r:"Almacenero que ingresa hoy",d:"Datos ficticios."},{n:"Trabajadores",r:"85 personas",d:"Te escriben por WhatsApp a cualquier hora."}],
+ people:[{id:"hector",n:"Héctor Valdivia",r:"Jefe de Administración",d:"Tu jefe; prefiere que le lleves soluciones.",av:{g:"m",s:2,h:"raya",hc:4,c:7,gl:true,age:"mayor"}},{id:"carmen",n:"Carmen Ayca",r:"Contadora",d:"Exigente con los plazos.",av:{g:"f",s:3,h:"melena",hc:0,c:0,gl:true}},{id:"diego",n:"Diego Choque",r:"Almacenero que ingresa hoy",d:"Datos ficticios.",av:{g:"m",s:4,h:"corto",hc:0,c:4,age:"joven"}},{id:"rosa",n:"Rosa Pari",r:"Cajera (T-031)",d:"Ficticia.",av:{g:"f",s:4,h:"trenza",hc:0,c:2}},{id:"jefet2",n:"Jefe de la Tienda 2",r:"Jefe de tienda",d:"Ficticio.",av:{g:"m",s:3,h:"corto",hc:1,c:3,b:true}},{id:"gg",n:"Gerente general",r:"Gerencia",d:"Ficticio.",av:{g:"m",s:1,h:"raya",hc:2,c:5,age:"adulto"}},{id:"wilmer",n:"Wilmer Condori",r:"Vendedor, Tienda 3",d:"Ficticio.",av:{g:"m",s:4,h:"rizado",hc:0,c:1}}],
  nodes:[
  {id:"p1", t:"08:00", ch:"sistema", from:"Reporte del reloj biométrico", title:"Marcaciones de ayer",
   body:"<p>El reporte muestra <b>6 marcaciones incompletas</b> (entradas sin salida) y <b>2 tardanzas de más de 15 minutos</b>. El Reglamento Interno de Trabajo dice que las tardanzas no justificadas se descuentan proporcionalmente y que las omisiones de marcación deben justificarse con el jefe inmediato en 48 horas.</p>",
@@ -50,8 +50,20 @@ export default {
   sig:{dat:2,pro:2,nor:2}, tags:["calcular","normativa","analizar"],
   outBy:{buena:"Carmen responde: «Perfecto, eso cuadra con mi cálculo». Dejas listo el reajuste para el cierre.",aceptable:"Carmen detecta un caso que se te pasó. Lo corriges, pero ella anota que hay que revisar dos veces tu trabajo.",riesgosa:"Tu lista tiene errores que, de llegar a la boleta, serían un pago por debajo del mínimo legal: una infracción que SUNAFIL fiscaliza."},
   pro:"Un cambio de RMV toca tres cosas que suelen olvidarse: (1) quienes ganaban entre la RMV antigua y la nueva, (2) la asignación familiar de todos los que la perciben, aunque ganen bien, y (3) el mínimo proporcional de quienes tienen jornada parcial. También impacta conceptos ligados a la RMV, como la subvención de practicantes."},
- {id:"p4", t:"10:30", ch:"whatsapp", from:"Rosa Pari · Cajera (T-031)", title:"«¿Cuánto me toca de gratificación?»",
-  body:"<blockquote>Buenos días señorita, una consulta: entré en mayo, ¿me toca gratificación completa en diciembre o solo una parte? Es para saber si me alcanza para un préstamo 🙏</blockquote>",
+ {id:"p3c", t:"09:50", ch:"sistema", from:"Software de planillas · Hoja de reajuste", title:"Cuadra el impacto del reajuste",
+  body:"<p>Carmen necesita el impacto mensual exacto para su provisión. Usa el extracto de setiembre: RMV nueva S/ 1,230 (antes S/ 1,130) y asignación familiar nueva S/ 123 (antes S/ 113).</p>",
+  type:"calc", revisable:true,
+  calc:{prompt:"Calcula los montos de octubre (S/).", key:["total"], fields:[
+   {id:"t040",label:"Nuevo básico de T-040 (despachador, ganaba 1,200)",v:1230,why:"Queda por debajo de la nueva RMV: sube a 1,230."},
+   {id:"t058",label:"Nuevo básico de T-058 (limpieza, 4 h diarias)",v:615,why:"Mínimo proporcional: 1,230 × 4 ÷ 8 = 615."},
+   {id:"total",label:"Aumento mensual total de la planilla por el reajuste",v:310,tol:.5,why:"T-014: +100 básico +10 asig. = 110; T-022: +100; T-031: +10; T-040: +30; T-052: +10; T-058: +50. Total = 310."}]},
+  fxBy:{buena:{calidad:8,cumplimiento:4},aceptable:{calidad:2},riesgosa:{calidad:-6,confianza:-4}},
+  sig:{dat:3,pro:1}, tags:["calcular"],
+  outBy:{buena:"Carmen: «Cuadra al sol». Te pide que guardes la hoja como sustento del cierre.",aceptable:"Carmen encuentra una diferencia y te la devuelve con un círculo rojo.",riesgosa:"Tu cifra no cuadra con la de contabilidad: el cierre se retrasa un día."},
+  pro:"Un reajuste no termina en «quién cambia»: hay que cuantificarlo para que contabilidad provisione y para que la planilla y la contabilidad concilien.",
+  mind:{ok:"Guardar la hoja de cálculo como sustento y conciliar con contabilidad antes del cierre.",risk:"Olvidar a quienes tienen jornada parcial o la asignación familiar de quienes ganan bien.",law:"D.S. 015-2026-TR (RMV S/ 1,230 desde el 1 de octubre de 2026); Ley 25129 (asignación familiar)."}},
+ {id:"p4", t:"10:30", ch:"whatsapp", who:"rosa", from:"Rosa Pari · Cajera (T-031)", title:"«¿Cuánto me toca de gratificación?»",
+  msgs:[{text:"Buenos días señorita, disculpe que le escriba por aquí 🙏",t:"10:27"},{text:"Una consulta: entré en mayo, ¿me toca gratificación completa en diciembre o solo una parte?",t:"10:28"},{text:"Es para saber si me alcanza para un préstamo en la caja municipal",t:"10:30"}],
   choices:[
    {id:"a", label:"«Te corresponde la gratificación de diciembre completa si laboras todo el semestre de julio a diciembre, más la bonificación extraordinaria del 9%. Te paso el estimado con tu remuneración actual y te confirmo el monto final en tu boleta.»", fx:{personas:8,cumplimiento:4,agenda:-3}, sig:{per:2,nor:2}, q:"buena", tags:["atender","normativa"],
     out:"Rosa agradece. Le envías el cálculo: S/ 1,350 + S/ 123 de asignación familiar = S/ 1,473 de gratificación, más 9% (S/ 132.57).",
@@ -63,8 +75,9 @@ export default {
     out:"Carmen le responde tres días después. Rosa siente que la pasaron de un lado a otro.",
     pro:"Las consultas de beneficios son parte central de tu puesto. Derivar lo que te corresponde atender desgasta la relación con los trabajadores."}
   ]},
- {id:"p5", t:"11:20", ch:"llamada", from:"Jefe de la Tienda 2", title:"«Descuéntale el día y amonéstalo»",
-  body:"<blockquote>Ramírez no vino hoy y no avisó. Descuéntale el día y ponle una amonestación por escrito, que ya es la segunda vez este año.</blockquote><p>Revisas tu WhatsApp: a las 7:02 Ramírez te envió la foto de un certificado de descanso médico de 3 días de una clínica particular.</p>",
+ {id:"p5", t:"11:20", ch:"llamada", who:"jefet2", mood:"molesto", from:"Jefe de la Tienda 2 · Jefe de tienda", title:"«Descuéntale el día y amonéstalo»",
+  dlg:[{who:"Jefe de la Tienda 2",text:"Ramírez no vino hoy y no avisó, ah. Ya es la segunda vez este año."},{who:"Jefe de la Tienda 2",text:"Descuéntale el día y ponle una amonestación por escrito. Que aprenda."}],
+  after:"<p>Revisas tu WhatsApp: a las 7:02 Ramírez te envió la foto de un certificado de descanso médico de 3 días de una clínica particular. Nadie se lo reenvió a su jefe.</p>",
   choices:[
    {id:"a", label:"Explicarle al jefe que hay un descanso médico, registrarlo como tal, pedir a Ramírez el certificado original al reincorporarse y no aplicar descuento ni amonestación.", fx:{personas:8,cumplimiento:8,confianza:-2,agenda:-3}, sig:{per:1,nor:2,pro:2}, q:"buena", tags:["atender","normativa","coordinar"],
     out:"El jefe dice que «estos siempre se enferman los lunes». Le pides que, si sospecha algo, lo canalice formalmente; mientras tanto, el certificado es válido.",
@@ -76,8 +89,9 @@ export default {
     out:"El jefe se entera en la boleta de que no hubo descuento y siente que lo ignoraste.",
     pro:"Hacer lo correcto también incluye comunicarlo. Los jefes necesitan entender por qué una regla se aplica de cierta forma."}
   ]},
- {id:"p6", t:"12:10", ch:"whatsapp", from:"Dos trabajadores de la Tienda 3", title:"«No nos llegó el sueldo»",
-  body:"<blockquote>Señorita, a mí y a Pedro no nos depositaron. Los demás sí cobraron. Tengo que pagar el alquiler hoy.</blockquote><p>Revisas el archivo que enviaste al banco: copiaste mal dos números de cuenta al actualizar la base la semana pasada. <b>El error es tuyo.</b></p>",
+ {id:"p6", t:"12:10", ch:"whatsapp", who:"wilmer", mood:"preocupado", from:"Wilmer Condori · Vendedor, Tienda 3", title:"«No nos llegó el sueldo»", guide:{mood:"preocupado", say:"Uy. Revisa el archivo del banco antes de responder… y prepárate: a veces el error es nuestro."},
+  msgs:[{text:"Señorita buenas tardes",t:"12:08"},{text:"A mí y a Pedro no nos depositaron 😟 los demás sí cobraron",t:"12:09"},{text:"Tengo que pagar el alquiler hoy, la dueña ya me escribió",t:"12:10"}],
+  after:"<p>Revisas el archivo que enviaste al banco: copiaste mal dos números de cuenta al actualizar la base la semana pasada. <b>El error es tuyo.</b></p>",
   choices:[
    {id:"a", label:"Reconocer el error ante ellos y ante tu jefe, coordinar con tesorería un pago manual hoy y proponer una doble verificación para los cambios de cuentas.", fx:{personas:10,confianza:6,agenda:-8,calidad:6}, sig:{res:3,per:1,pro:1}, q:"buena", set:["error"], tags:["coordinar","atender"],
     out:"Tesorería hace la transferencia a las 15:00. Héctor te dice: «Errores pasan; lo importante es que lo agarraste y propusiste cómo evitarlo»."},

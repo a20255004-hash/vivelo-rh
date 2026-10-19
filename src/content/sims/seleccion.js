@@ -79,7 +79,7 @@ export default {
   choices:[
    {id:"a", label:"Hacerle caso: es su equipo y él será el jefe.", fx:{confianza:6,cumplimiento:-18,personas:-10,calidad:-6}, sig:{per:-1}, q:"riesgosa", tags:["negociar"],
     out:"Retiras a Lucía. Nadie se entera… hasta que en la entrevista de salida de otra trabajadora aparece la frase «aquí no contratan mujeres con hijos». Rocío te pregunta qué pasó con ese proceso.",
-    pro:"RR.HH. no es un ejecutor de preferencias personales. Excluir a una candidata por tener hijos o por su sexo es discriminación en el acceso al empleo. Ceder aquí también enseña al jefe que el criterio de RR.HH. es negociable."},
+    mind:{risk:"Excluir a una candidata por sexo o maternidad expone a la empresa a un reclamo por discriminación y daña la confianza en RR.HH.",law:"Constitución, art. 2.2 (igualdad); Ley 26772 (no discriminación en el acceso al empleo); Ley 30709 (igualdad entre varones y mujeres).",ok:"Mantener criterios iguales para todos, documentar y ofrecer al jefe ver la evidencia."}, pro:"RR.HH. no es un ejecutor de preferencias personales. Excluir a una candidata por tener hijos o por su sexo es discriminación en el acceso al empleo. Ceder aquí también enseña al jefe que el criterio de RR.HH. es negociable."},
    {id:"b", label:"Mantenerla en la terna y explicarle a Walter, con calma, que la decisión se basará en evidencia de competencias; ofrecerle ver la entrevista de ella el jueves.", fx:{confianza:-3,cumplimiento:10,personas:6,calidad:6,agenda:-4}, sig:{per:2,nor:2,res:2}, q:"buena", set:["defendio"], tags:["negociar","normativa"],
     out:"Walter refunfuña: «Bueno, pero si no aguanta, es tu responsabilidad». Le dices que la evaluación será con los mismos criterios para los tres. Después informas a Rocío en un correo breve, sin adjetivos.",
     pro:"El argumento que funciona con jefes operativos no es el sermón, es el método: mismos criterios, misma entrevista, evidencia escrita. Dejar constancia con tu jefa protege a la empresa y a ti. Mendoza no cumple el requisito de supervisión: incluirlo por amistad debilita la terna."},
@@ -119,6 +119,19 @@ export default {
     out:"Sigues adelante, pero si Marco realmente tuviera problemas de relación, lo sabrías tarde.",
     pro:"Ignorar señales tampoco es neutral. En un supervisor, la forma de manejar el conflicto con jefes y equipo es parte central del puesto."}
   ]},
+ {id:"s7c", t:"15:40", ch:"sistema", from:"Tu hoja de cálculo · Oferta", title:"Antes de proponer: ¿cuánto gana Marco al año con S/ 3,900?",
+  body:"<p>Marco pide S/ 4,200 mensuales porque compara «sueldo contra sueldo». Antes de hablar con Rocío, arma el argumento de <b>compensación anual</b> con el tope de banda (S/ 3,900), régimen general, afiliado a EsSalud, sin asignación familiar (no tiene hijos).</p><p class='small muted'>Gratificaciones: julio y diciembre, una remuneración cada una (Ley 27735) + bonificación extraordinaria de 9% (Ley 30334). CTS anual aproximada: remuneración computable + 1/6 de la gratificación.</p>",
+  type:"calc",
+  calc:{prompt:"Completa las cifras anuales (S/).", hint:"Usa S/ 3,900 como remuneración mensual.", key:["total"], fields:[
+   {id:"grat",label:"Gratificaciones del año (julio + diciembre)",v:7800,why:"3,900 × 2 = 7,800."},
+   {id:"bonif",label:"Bonificación extraordinaria (9% de las gratificaciones)",v:702,why:"7,800 × 9% = 702."},
+   {id:"cts",label:"CTS del año (aprox.)",v:4550,tol:1,why:"Remuneración computable 3,900 + 1/6 de gratificación (650) = 4,550, depositada en mayo y noviembre."},
+   {id:"total",label:"Compensación anual total (12 sueldos + lo anterior)",v:59852,tol:2,why:"46,800 + 7,800 + 702 + 4,550 = 59,852. Con S/ 4,200 «solo sueldo», Marco imaginaba 50,400 al año."}]},
+  fxBy:{buena:{calidad:8,confianza:4},aceptable:{calidad:2},riesgosa:{calidad:-4}},
+  sig:{dat:3,pro:1}, tags:["calcular","negociar"],
+  outBy:{buena:"Tienes un argumento sólido: con S/ 3,900, Marco percibe casi S/ 60 mil al año. Rocío lo usará en la llamada.",aceptable:"Parte de tus cifras no cuadra. Rocío las corrige antes de la llamada.",riesgosa:"Con estas cifras la oferta perdería credibilidad: un candidato que hace cuentas lo notaría."},
+  pro:"Negociar en términos de compensación total anual cambia la conversación: gratificaciones, bonificación y CTS suelen representar más de dos sueldos adicionales en el régimen general.",
+  mind:{ok:"Presentar el paquete completo por escrito, con cifras verificables.",risk:"Prometer montos exactos de CTS antes de calcular la remuneración computable real (puede incluir otros conceptos).",law:"Ley 27735 (gratificaciones), Ley 30334 (bonificación 9%), D.S. 001-97-TR (CTS).",info:"Si el candidato tiene hijos, la asignación familiar cambia la base de todos estos cálculos."}},
  {id:"s8", t:"16:00", ch:"reunion", from:"Rocío Mamani · Jefa de RR.HH.", title:"La oferta",
   body:"<p>Tras las entrevistas, tu evaluación queda así: <b>Marco 4.4/5</b>, <b>Patricia 4.1/5</b>, <b>Lucía 3.8/5</b>. Marco pide S/ 4,200; la banda llega a S/ 3,900. Patricia pide S/ 3,700 y necesita tres semanas para mudarse; el inventario empieza en 12 días. Rocío te pregunta: «¿Qué propones?»</p>",
   choices:[
