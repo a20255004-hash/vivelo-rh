@@ -86,3 +86,19 @@ export const roles = [
   next:["Líder de analítica de personas","Planificación de talento"],
   dil:[{q:"Un gerente te pide la lista de trabajadores con más descansos médicos «para ver a quién no renovar».",o:[["Enviarla.","riesgosa","Usar datos de salud para decidir no renovar puede ser discriminatorio y contrario a la Ley 29733."],["Explicar el riesgo y ofrecer un análisis agregado del ausentismo por área y causas, para acciones preventivas.","buena","Los datos de salud son sensibles: se usan agregados y con finalidad legítima."],["Enviarla anonimizada.","aceptable","Mejor, pero la finalidad declarada sigue siendo problemática."]]}]}
 ];
+
+/* «Mismo caso, tres sillas»: cómo cambia la responsabilidad según el nivel del puesto. */
+export const levelCases = [
+ {id:"lc-sueldo", n:"Dos trabajadores no cobraron", ctx:"Es día de pago y dos trabajadores te escriben: no les llegó el depósito.",
+  e:{who:"Practicante o asistente", do:"Verifica el archivo enviado al banco, identifica el error y lo reporta de inmediato a su analista con los datos exactos. Responde a los trabajadores que ya se está revisando, sin prometer horas.", resp:"Responde por la exactitud del dato y por avisar a tiempo."},
+  i:{who:"Analista", do:"Coordina con Tesorería un pago manual hoy, informa a su jefatura, explica a los trabajadores qué pasó y cuándo cobran, y propone una doble verificación para los cambios de cuentas.", resp:"Responde por resolver el impacto en las personas y corregir el proceso."},
+  s:{who:"Jefatura de RR.HH.", do:"Revisa si el error es aislado o sistémico, decide si se requiere una auditoría del proceso de cambios bancarios y comunica a Gerencia el riesgo y la medida. Respalda al analista frente al área.", resp:"Responde ante la dirección por el control del proceso."}},
+ {id:"lc-queja", n:"Llega una queja de maltrato", ctx:"Una operaria cuenta que su supervisor la insultó delante del equipo.",
+  e:{who:"Practicante o asistente", do:"Escucha con respeto, registra lo que la persona quiera contar y la deriva de inmediato a quien investiga. No promete resultados ni confidencialidad absoluta.", resp:"Responde por recibir bien y derivar rápido."},
+  i:{who:"Analista de relaciones laborales", do:"Investiga: entrevista por separado a las partes y testigos, documenta, propone medidas preventivas y una sanción proporcional si se confirma.", resp:"Responde por una investigación justa y documentada."},
+  s:{who:"Jefatura o HRBP", do:"Decide con el informe, cuida que la medida sea coherente con casos similares y revisa si el problema es de un supervisor o de cómo se forma a todos los supervisores.", resp:"Responde por la coherencia de las decisiones y por las causas de fondo."}},
+ {id:"lc-vacante", n:"Un gerente quiere contratar «ya»", ctx:"Un gerente necesita cubrir una vacante en una semana y propone a un conocido.",
+  e:{who:"Practicante o asistente", do:"Publica el aviso con el perfil aprobado, filtra CV contra requisitos y coordina entrevistas. Si nota algo irregular, lo comenta con su analista.", resp:"Responde por la calidad del filtro y la puntualidad."},
+  i:{who:"Analista de selección", do:"Negocia plazos realistas, incluye al candidato del gerente en el proceso con los mismos criterios que a los demás y presenta una terna con evidencia.", resp:"Responde por un proceso justo y a tiempo."},
+  s:{who:"Jefatura de talento", do:"Define la política de referidos y excepciones, protege el criterio del analista frente a la presión y revisa indicadores de tiempo de cobertura del área.", resp:"Responde por las reglas del juego."}}
+];

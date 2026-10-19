@@ -598,3 +598,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.topnav,.dock,.guide,.foot{display:none}}
+/* bloque de razonamiento heredado del Taller original */
+.pro{border-left:4px solid var(--brand);background:color-mix(in srgb,var(--brand) 7%,var(--card));padding:12px 14px;border-radius:0 14px 14px 0;display:grid;gap:6px}
+.pro .label{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-ink)}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.callout>div,.callout>span{min-width:0}
