@@ -1,0 +1,66 @@
+/* VÍVELO RH · tokens de diseño
+   Paleta: crema cálida (papel), tinta berenjena, violeta "fotocheck" (marca), coral "chispa",
+   amarillo sol y menta. Cada familia de especialidades tiene su color.
+   Tipografía: Bricolage Grotesque (titulares con carácter), Figtree (texto), JetBrains Mono
+   (horas, expedientes, cifras) y Caveat (notas a mano). */
+:root{
+  color-scheme: light;
+  --paper:#FBF5EC; --paper-2:#F4EADB; --card:#FFFFFF; --card-2:#FFFBF4;
+  --ink:#1E1A2E; --ink-2:#4A4560; --ink-3:#6B6680; --line:#E7DCCB; --line-2:#D9CBB4;
+  --brand:#4B34C8; --brand-2:#7B61F0; --brand-soft:#ECE8FF; --on-brand:#FFFFFF; --brand-ink:#3A27A6;
+  --spark:#FF6B4A; --spark-ink:#C2401F; --spark-soft:#FFE6DE;
+  --sun:#FFC53D; --sun-soft:#FFF2CC; --sun-ink:#7A5200;
+  --mint:#13A58A; --mint-ink:#0B7A66; --mint-soft:#DDF5EE;
+  --ok:#137A55; --ok-soft:#DDF3E7; --warn:#9A5B00; --warn-soft:#FBEBCF; --bad:#B42318; --bad-soft:#FBE1DD;
+  --c-atraer:#2F6FEB; --c-admin:#B7791F; --c-desarrollar:#0E9F80; --c-cuidar:#D9467A; --c-estrategia:#6B4BE0;
+  --shadow-ink:#2A1C14;
+  --sh-1:0 1px 2px rgba(42,28,20,.06),0 2px 6px rgba(42,28,20,.05);
+  --sh-2:0 1px 2px rgba(42,28,20,.06),0 6px 16px -4px rgba(42,28,20,.10),0 18px 40px -16px rgba(42,28,20,.16);
+  --sh-3:0 2px 4px rgba(42,28,20,.06),0 14px 28px -8px rgba(42,28,20,.16),0 40px 80px -24px rgba(60,40,140,.22);
+  --glass:rgba(255,251,244,.72); --glass-line:rgba(255,255,255,.7);
+  /* escenas */
+  --sc-sky1:#FFE9C9; --sc-sky2:#FFF6E6; --sc-wall1:#F6E7D2; --sc-wall2:#EED8BC; --sc-floor:#E3CBA8; --sc-floor-d:#CDB28C;
+  --sc-wood:#C98E5A; --sc-wood-d:#A9713F; --sc-dark:#3B3350; --sc-screen:#EAF3FF; --sc-frame:#FFFFFF;
+  --sc-mount1:#C9B6E4; --sc-mount2:#DCCDF0; --sc-city:#B9A7D6; --sc-window-lit:#FFF6D6; --sc-glass:#9EC5E8; --sc-board:#2F5D50; --sc-night:#221C3A;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --f-hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  --r-s:10px; --r:16px; --r-l:26px; --r-xl:34px;
+  --ease:cubic-bezier(.2,.8,.2,1); --ease-pop:cubic-bezier(.2,1.5,.4,1);
+  --maxw:1200px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme: dark;
+  --paper:#15121F; --paper-2:#1C1829; --card:#211C31; --card-2:#262039;
+  --ink:#F4F0FF; --ink-2:#C7C0DD; --ink-3:#A39CBB; --line:#352E4B; --line-2:#463D60;
+  --brand:#9C88FF; --brand-2:#B5A6FF; --brand-soft:#2E2752; --on-brand:#15121F; --brand-ink:#C2B6FF;
+  --spark:#FF8566; --spark-ink:#FFAA93; --spark-soft:#3E2420;
+  --sun:#FFCF5C; --sun-soft:#3A3018; --sun-ink:#FFD98A;
+  --mint:#3FD3B3; --mint-ink:#6FE3CA; --mint-soft:#163A33;
+  --ok:#5FD39C; --ok-soft:#173A2B; --warn:#F2B455; --warn-soft:#3B2D15; --bad:#FF8B7E; --bad-soft:#40201D;
+  --c-atraer:#7DA6FF; --c-admin:#E2B456; --c-desarrollar:#4FD6B5; --c-cuidar:#FF86B2; --c-estrategia:#AE98FF;
+  --shadow-ink:#000;
+  --sh-1:0 1px 2px rgba(0,0,0,.4); --sh-2:0 2px 6px rgba(0,0,0,.35),0 16px 36px -14px rgba(0,0,0,.6); --sh-3:0 4px 10px rgba(0,0,0,.4),0 30px 70px -24px rgba(0,0,0,.75);
+  --glass:rgba(33,28,49,.72); --glass-line:rgba(255,255,255,.08);
+  --sc-sky1:#2A2346; --sc-sky2:#3A2F55; --sc-wall1:#2C2640; --sc-wall2:#251F37; --sc-floor:#3A3148; --sc-floor-d:#2E273D;
+  --sc-wood:#7A5134; --sc-wood-d:#5E3D27; --sc-dark:#120F1C; --sc-screen:#2B3A55; --sc-frame:#3B3452;
+  --sc-mount1:#4A3F70; --sc-mount2:#3A3159; --sc-city:#5A4D85; --sc-window-lit:#FFD27A; --sc-glass:#3C5A7A; --sc-board:#1F3D35; --sc-night:#100D1B;
+}}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#15121F; --paper-2:#1C1829; --card:#211C31; --card-2:#262039;
+  --ink:#F4F0FF; --ink-2:#C7C0DD; --ink-3:#A39CBB; --line:#352E4B; --line-2:#463D60;
+  --brand:#9C88FF; --brand-2:#B5A6FF; --brand-soft:#2E2752; --on-brand:#15121F; --brand-ink:#C2B6FF;
+  --spark:#FF8566; --spark-ink:#FFAA93; --spark-soft:#3E2420;
+  --sun:#FFCF5C; --sun-soft:#3A3018; --sun-ink:#FFD98A;
+  --mint:#3FD3B3; --mint-ink:#6FE3CA; --mint-soft:#163A33;
+  --ok:#5FD39C; --ok-soft:#173A2B; --warn:#F2B455; --warn-soft:#3B2D15; --bad:#FF8B7E; --bad-soft:#40201D;
+  --c-atraer:#7DA6FF; --c-admin:#E2B456; --c-desarrollar:#4FD6B5; --c-cuidar:#FF86B2; --c-estrategia:#AE98FF;
+  --shadow-ink:#000;
+  --sh-1:0 1px 2px rgba(0,0,0,.4); --sh-2:0 2px 6px rgba(0,0,0,.35),0 16px 36px -14px rgba(0,0,0,.6); --sh-3:0 4px 10px rgba(0,0,0,.4),0 30px 70px -24px rgba(0,0,0,.75);
+  --glass:rgba(33,28,49,.72); --glass-line:rgba(255,255,255,.08);
+  --sc-sky1:#2A2346; --sc-sky2:#3A2F55; --sc-wall1:#2C2640; --sc-wall2:#251F37; --sc-floor:#3A3148; --sc-floor-d:#2E273D;
+  --sc-wood:#7A5134; --sc-wood-d:#5E3D27; --sc-dark:#120F1C; --sc-screen:#2B3A55; --sc-frame:#3B3452;
+  --sc-mount1:#4A3F70; --sc-mount2:#3A3159; --sc-city:#5A4D85; --sc-window-lit:#FFD27A; --sc-glass:#3C5A7A; --sc-board:#1F3D35; --sc-night:#100D1B;
+}
