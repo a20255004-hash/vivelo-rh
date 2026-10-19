@@ -1,0 +1,56 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="/styles/tokens.css"><link rel="stylesheet" href="/styles/app.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@700&family=Figtree:wght@400..800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:var(--paper)}
+body::before{display:none}
+#stage{position:relative;width:1280px;height:720px;overflow:hidden}
+.layer{position:absolute;inset:0;display:grid;place-items:center;opacity:0}
+.layer>.scene{position:absolute;inset:0;width:100%;height:100%}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,var(--paper) 92%,transparent),color-mix(in srgb,var(--paper) 40%,transparent) 65%,transparent)}
+.copy{position:absolute;left:80px;top:150px;width:640px;display:grid;gap:18px}
+.copy h1{font-size:64px;line-height:1.02}
+.copy p{font-size:26px;color:var(--ink-2)}
+.cc{position:absolute;right:110px;bottom:70px}
+.bubble2{background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--sh-2);font-size:20px;max-width:420px}
+.sub{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);background:rgba(20,14,30,.82);color:#fff;font:600 22px/1.35 var(--f-body);padding:10px 18px;border-radius:12px;max-width:1080px;text-align:center;display:none}
+</style></head><body><div id="stage"></div>
+<script type="module">
+import { scene } from "/src/brand/scenes.js";
+import { coco } from "/src/brand/coco.js";
+import { mark } from "/src/brand/logo.js";
+import { avatar } from "/src/brand/people.js";
+import { SCENES } from "/scripts/video/timeline.js";
+const st = document.getElementById("stage");
+const L = {
+  logo: `<div class="layer" data-l="logo" style="background:radial-gradient(circle at 50% 45%,var(--brand-soft),var(--paper) 70%)"><div style="display:grid;justify-items:center;gap:22px"><div data-pop>${mark(170, false)}</div><div style="font-family:var(--f-display);font-weight:800;font-size:96px;letter-spacing:-.02em;display:flex;gap:18px;align-items:baseline">VÍVELO <span style="font-size:58px;background:var(--brand);color:#fff;padding:6px 18px;border-radius:22px">RH</span></div><div style="font-size:30px;color:var(--ink-2)" data-rise>Laboratorio interactivo de Recursos Humanos</div></div></div>`,
+  coco: `<div class="layer" data-l="coco">${scene("viaje")}<div class="shade"></div><div class="copy"><span class="eyebrow" style="font-size:16px">Tu guía</span><h1>¡Hola! Soy Coco</h1><p>Un ronsoco explorador. Los ronsocos nos llevamos bien con todos y mantenemos la calma en el conflicto.</p></div><div class="cc" data-coco></div></div>`,
+  jornada: `<div class="layer" data-l="jornada">${scene("oficina")}<div class="shade"></div><div class="copy"><span class="eyebrow" style="font-size:16px">Jornadas</span><h1>Vive el día a día de un puesto</h1><div style="display:grid;gap:12px" data-msgs><div class="bubble2"><b>Ing. Walter Quispe</b> · 08:05<br>¿Y el supervisor? Necesito saber hoy.</div><div class="bubble2" style="background:#DCF8C6"><b>WhatsApp</b> · 09:30<br>Pásame los CV que tengas 😎</div><div class="bubble2"><b>Mesa de partes</b> · 10:10<br>Queja: plazo de 3 días hábiles</div></div></div><div class="cc" data-coco></div></div>`,
+  mente: `<div class="layer" data-l="mente">${scene("reunion")}<div class="shade"></div><div class="copy"><span class="eyebrow" style="font-size:16px">Después de cada decisión</span><h1>Cómo lo razona una profesional</h1><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" data-msgs>${[["✓ Buena práctica","var(--ok)"],["⚠ Riesgo","var(--bad)"],["⚖ Norma","var(--brand-ink)"],["? Falta información","var(--warn)"]].map(([k,c]) => `<div class="bubble2" style="font-weight:800;color:${c}">${k}</div>`).join("")}</div></div><div class="cc" data-coco></div></div>`,
+  mapa: `<div class="layer" data-l="mapa">${scene("brujula")}<div class="copy" style="color:#F4F0FF"><span class="eyebrow" style="font-size:16px;color:#C7C0DD">Mapa · Taller · Retos · Brújula</span><h1>26 especialidades por descubrir</h1><p style="color:#D9D3EE">Y una brújula que pesa lo que sentiste, no tus aciertos.</p></div><div class="cc" data-coco></div></div>`,
+  peru: `<div class="layer" data-l="peru">${scene("sectores")}<div class="shade"></div><div class="copy"><span class="eyebrow" style="font-size:16px">Hecho para el Perú</span><h1>Privado y público, pymes y grandes empresas</h1><div style="display:flex;gap:10px" data-msgs>${["Ana","Walter","Rocío","Félix"].map((n,i) => avatar(n, { s: i + 2, g: i % 2 ? "m" : "f" }, { size: 72, decorative: true })).join("")}</div></div><div class="cc" data-coco></div></div>`,
+  fin: `<div class="layer" data-l="fin" style="background:linear-gradient(150deg,var(--brand),var(--brand-2));color:#fff"><div style="display:grid;justify-items:center;gap:20px;text-align:center"><div data-coco></div><div style="font-family:var(--f-display);font-weight:800;font-size:64px">Vive el trabajo antes de elegirlo.</div><div style="font-size:26px;opacity:.9">VÍVELO RH · Empieza tu viaje</div></div></div>`
+};
+st.innerHTML = Object.values(L).join("") + `<div class="sub" id="sub"></div>`;
+const ease = x => x < 0 ? 0 : x > 1 ? 1 : 1 - Math.pow(1 - x, 3);
+let lastMood = {};
+window.setTime = t => {
+  SCENES.forEach(s => {
+    const el = st.querySelector(`[data-l="${s.id}"]`);
+    const fin = ease((t - s.t0) / .6), fout = s.id === "fin" ? 1 : 1 - ease((t - (s.t1 - .5)) / .5);
+    const o = Math.max(0, Math.min(fin, fout));
+    el.style.opacity = o; el.style.zIndex = o > 0 ? 2 : 1;
+    const k = ease((t - s.t0) / 1.2);
+    const copy = el.querySelector(".copy"); if (copy) copy.style.transform = `translateY(${(1 - k) * 30}px)`;
+    const sc = el.querySelector(".scene"); if (sc) sc.style.transform = `scale(${1.04 + (t - s.t0) * .006}) translateX(${-(t - s.t0) * 4}px)`;
+    el.querySelectorAll("[data-msgs]>*").forEach((m, i) => { const q = ease((t - s.t0 - .8 - i * .7) / .5); m.style.opacity = q; m.style.transform = `translateY(${(1 - q) * 18}px)`; });
+    const pop = el.querySelector("[data-pop]"); if (pop) { const q = ease((t - .2) / .8); pop.style.transform = `scale(${.6 + q * .4}) rotate(${(1 - q) * -12}deg)`; pop.style.opacity = q; }
+    const rise = el.querySelector("[data-rise]"); if (rise) { const q = ease((t - 1.2) / .8); rise.style.opacity = q; }
+    const cslot = el.querySelector("[data-coco]");
+    if (cslot && s.mood) { const mood = s.mood; if (lastMood[s.id] !== mood) { cslot.innerHTML = coco(mood, { size: s.id === "fin" ? 170 : 230, label: false }); lastMood[s.id] = mood; } const q = ease((t - s.t0 - .3) / .7); const bob = Math.sin(t * 3) * 4; cslot.style.transform = `translateY(${(1 - q) * 60 + bob}px)`; cslot.style.opacity = q;
+      const eyes = cslot.querySelector(".cc-eyes"); if (eyes) { const blink = (t % 3.3) < .12; eyes.style.transformOrigin = "100px 76px"; eyes.style.transform = blink ? "scaleY(.1)" : ""; }
+      const sp = cslot.querySelector(".cc-sprout"); if (sp) { sp.style.transformOrigin = "100px 38px"; sp.style.transform = `rotate(${Math.sin(t * 2.2) * 8}deg)`; } }
+  });
+};
+window.ready = document.fonts.ready.then(() => true);
+</script></body></html>
