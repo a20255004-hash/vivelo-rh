@@ -134,7 +134,7 @@ function playView(sim, st){
       const oc = $(".outcome", root); if (oc) { oc.scrollIntoView({ behavior: "smooth", block: "start" }); oc.focus({ preventScroll: true }); }
     }, () => draw(root));
     const nx = $("[data-next]", box);
-    if (nx) nx.addEventListener("click", () => { st.pending = null; st.i = idx + 1; save(); render(); });
+    if (nx) nx.addEventListener("click", () => { if (!st.pending) return; nx.disabled = true; st.pending = null; st.i = idx + 1; save(); render(); });
     const rv = $("[data-revise]", box);
     if (rv) rv.addEventListener("click", () => {
       // Se revierte el efecto de la primera respuesta; la corrección suma solo la mitad de lo positivo.

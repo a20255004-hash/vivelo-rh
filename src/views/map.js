@@ -9,30 +9,25 @@ import { coco } from "../brand/coco.js";
 import { areaChip } from "./sims.js";
 import { lensSeg, lensBody, bindLens } from "./lens.js";
 
-const W = 1000, H = 660, CX = 500, CY = 330;
+const W = 1100, H = 830, CX = 550, CY = 420;
 function layout(){
   const pos = {};
   const k = C.clusters.length;
   C.clusters.forEach((c, i) => {
     const ang = -Math.PI / 2 + i * 2 * Math.PI / k;
-    const cx = CX + Math.cos(ang) * 315, cy = CY + Math.sin(ang) * 215;
+    const cx = CX + Math.cos(ang) * 350, cy = CY + Math.sin(ang) * 255;
     pos["c:" + c.id] = [cx, cy];
     const as = C.areas.filter(a => a.c === c.id);
-    as.forEach((a, j) => {
-      const sub = ang + Math.PI + (j - (as.length - 1) / 2) * .62;
-      const r = 70 + (j % 2) * 34;
-      pos[a.id] = [cx + Math.cos(sub) * r * -1, cy + Math.sin(sub) * r * -1];
-    });
+    as.forEach((a, j) => { const t = -Math.PI / 2 + j * 2 * Math.PI / as.length + i * .4; pos[a.id] = [cx + Math.cos(t) * 92, cy + Math.sin(t) * 78]; });
   });
   return pos;
 }
-
 function constellation(ctx){
   const pos = layout();
   const edges = new Set(); let es = "";
   C.areas.forEach(a => a.links.forEach(l => { if (!area(l)) return; const key = [a.id, l].sort().join("|"); if (edges.has(key)) return; edges.add(key); const [x1, y1] = pos[a.id], [x2, y2] = pos[l]; es += `<path class="edge" data-e="${a.id} ${l}" d="M${x1} ${y1} Q${(x1 + x2) / 2 + (y2 - y1) * .12} ${(y1 + y2) / 2 - (x2 - x1) * .12} ${x2} ${y2}" fill="none"/>`; }));
-  const fam = C.clusters.map(c => { const [x, y] = pos["c:" + c.id]; return `<g><circle cx="${x}" cy="${y}" r="118" fill="${c.color}" opacity=".07"/><text class="fam-label" x="${x}" y="${y + (y < CY ? -128 : 140)}" text-anchor="middle" fill="${c.color}">${esc(c.n)}</text></g>`; }).join("");
-  const nodes = C.areas.map(a => { const [x, y] = pos[a.id]; const c = cluster(a.c); const pr = a.exists[ctx][0]; const r = 7 + pr * 2.4; const lab = a.n.length > 22 ? a.n.replace(/ (y|de|del) .*/, "…") : a.n; return `<a href="#area.${a.id}" class="node" data-area="${a.id}" aria-label="${esc(a.n)} · presencia ${pr} de 3 en este tipo de organización"><circle class="dot" cx="${x}" cy="${y}" r="${r}" fill="${c.color}" stroke="var(--card)" stroke-width="3"/><text x="${x}" y="${y - r - 7}" text-anchor="middle">${esc(lab)}</text></a>`; }).join("");
+  const fam = C.clusters.map(c => { const [x, y] = pos["c:" + c.id]; return `<g><ellipse cx="${x}" cy="${y}" rx="150" ry="132" fill="${c.color}" opacity=".07"/><text class="fam-label" x="${x}" y="${y < CY ? y - 140 : y + 152}" text-anchor="middle" fill="${c.color}">${esc(c.n)}</text></g>`; }).join("");
+  const nodes = C.areas.map(a => { const [x, y] = pos[a.id]; const c = cluster(a.c); const pr = a.exists[ctx][0]; const r = 7 + pr * 2.4; const words = a.n.split(" "); const half = Math.ceil(words.length / 2); const l1 = words.length > 2 ? words.slice(0, half).join(" ") : a.n, l2 = words.length > 2 ? words.slice(half).join(" ") : ""; return `<a href="#area.${a.id}" class="node" data-area="${a.id}" aria-label="${esc(a.n)} · presencia ${pr} de 3 en este tipo de organización"><circle class="dot" cx="${x}" cy="${y}" r="${r}" fill="${c.color}" stroke="var(--card)" stroke-width="3"/><text x="${x}" y="${y + r + 14}" text-anchor="middle"><tspan x="${x}">${esc(l1)}</tspan>${l2 ? `<tspan x="${x}" dy="13">${esc(l2)}</tspan>` : ""}</text></a>`; }).join("");
   return `<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="Constelación de especialidades de RR.HH.">${fam}${es}${nodes}</svg>`;
 }
 

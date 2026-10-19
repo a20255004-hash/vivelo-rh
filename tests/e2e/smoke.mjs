@@ -6,11 +6,12 @@ let pw; try { pw = require("playwright"); } catch (e) { pw = require(require("ch
 const BASE = process.argv[2] || "http://localhost:8080/";
 const OUT = process.argv[3] || null;
 const ROUTES = ["inicio", "viaje", "sims", "sim.seleccion", "mapa", "area.nomina", "cargos", "cargo.hrbp", "academia", "concepto.feriados", "concepto.planilla", "taller", "tool.boleta", "tool.cvs", "retos", "reto.r-planilla", "sectores", "brujula", "medios", "fuentes", "perfil"];
-const browser = await pw.chromium.launch({ executablePath: process.env.CHROME || undefined });
+const _b = 0; const browser = await pw.chromium.launch({ executablePath: process.env.CHROME || undefined });
 const errors = [];
 async function run(viewport, theme, tag){
   const ctx = await browser.newContext({ viewport, colorScheme: theme });
-  const page = await ctx.newPage();
+  const page = await ctx.newPage(); page.setDefaultTimeout(8000);
+  await ctx.addInitScript(() => { const o = localStorage.getItem("vivelo-rh:v2"); });
   page.on("pageerror", e => errors.push(`[${tag}] pageerror: ${e.message}`));
   page.on("console", m => { if (m.type() === "error" && !/fonts\.g|net::ERR|Failed to load resource/.test(m.text())) errors.push(`[${tag}] console: ${m.text()}`); });
   await page.goto(BASE + "#inicio");
@@ -29,23 +30,33 @@ async function run(viewport, theme, tag){
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     if (overflow > 2) errors.push(`[${tag}] desborde horizontal de ${overflow}px en #${r}`);
   }
-  // juega la primera jornada completa con la primera opción disponible
-  await page.evaluate(() => { location.hash = "sim.practicante"; });
-  await page.waitForSelector("[data-start]"); await page.click("[data-start]");
-  for (let k = 0; k < 20; k++) {
-    await page.waitForTimeout(250);
-    if (await page.$("#reflbox")) break;
-    if (OUT && [1, 4, 9].includes(k)) await page.screenshot({ path: `${OUT}/${tag}-play${k}.png`, fullPage: true });
-    if (await page.$("[data-next]")) { await page.click("[data-next]"); continue; }
-    const ch = await page.$("[data-choice]"); if (ch) { await ch.click(); await page.click("[data-confirm]"); continue; }
-    const pk = await page.$$("[data-pick]"); if (pk.length) { const min = 3; for (let i = 0; i < Math.min(min, pk.length); i++) await (await page.$$("[data-pick]"))[i].click(); const c = await page.$("[data-confirm]:not([disabled])"); if (c) { await c.click(); continue; } }
-    const fl = await page.$("[data-flag]"); if (fl) { await fl.click(); await page.click("[data-confirm]"); continue; }
-    const ta = await page.$("[data-write]"); if (ta) { await ta.fill("Hola, te convocamos a la entrevista para el puesto de motorizado el miércoles 21 a las 9:00 en el centro de distribución de Ate. Trae tu DNI y licencia. Por favor confirma tu asistencia respondiendo este correo. Cualquier consulta escríbenos aquí. Saludos cordiales del equipo."); await page.click("[data-review]"); await page.click("[data-confirm]"); continue; }
-    const cl = await page.$$("[data-calc]"); if (cl.length) { for (const i of cl) await i.fill("1"); await page.click("[data-confirm]"); continue; }
-    const od = await page.$("[data-mv]"); if (od) { await page.click("[data-confirm]"); continue; }
+  // juega cada jornada completa eligiendo la primera opción disponible
+  const sims = tag === "desktop" ? ["practicante","seleccion","planillas","feriados","hrbp","campana","discriminacion","relaciones","capacitacion","semana","municipal","concursocas"] : ["practicante"];
+  for (const id of sims) {
+    await page.evaluate(h => { location.hash = h; }, "sim." + id);
+    await page.waitForSelector("[data-start]"); await page.click("[data-start]");
+    let guard = 0;
+    try { while (guard++ < 60) {
+      await page.waitForTimeout(120);
+      if (await page.$("#reflbox")) break;
+      if (OUT && id === "practicante" && [1, 4, 9].includes(guard)) await page.screenshot({ path: `${OUT}/${tag}-play${guard}.png` });
+      if (await page.$("[data-next]:not([disabled])")) { await page.click("[data-next]"); await page.waitForTimeout(450); continue; }
+      const ask = await page.$("[data-ask]:not([disabled])"); if (ask && guard % 3 === 0) { await ask.click(); continue; }
+      if (await page.$("[data-choice]")) { await page.click("[data-choice]"); await page.click("[data-confirm]"); continue; }
+      const pk = await page.$$("[data-pick]"); if (pk.length) { for (let i = 0; i < pk.length; i++) { const c = await page.$("[data-confirm]:not([disabled])"); if (c) break; await (await page.$$("[data-pick]"))[i].click(); } const c = await page.$("[data-confirm]:not([disabled])"); if (c) { await c.click(); continue; } }
+      if (await page.$("[data-bud]:not([disabled])")) { await page.click("[data-bud]:not([disabled])"); await page.click("[data-confirm]"); continue; }
+      if (await page.$("[data-flag]")) { await page.click("[data-flag]"); await page.click("[data-confirm]"); continue; }
+      const ta = await page.$("[data-write]"); if (ta) { await ta.fill(Array(130).fill("texto").join(" ")); await page.click("[data-review]"); await page.click("[data-confirm]"); continue; }
+      const cl = await page.$$("[data-calc]"); if (cl.length) { for (const i of cl) await i.fill("1"); await page.click("[data-confirm]"); continue; }
+      if (await page.$("[data-mv]")) { await page.click("[data-confirm]"); continue; }
+    } } catch (e) { errors.push(`[${tag}] ${id}: ${e.message.split("\n")[0]} en ${await page.evaluate(() => location.hash + " · " + (document.querySelector(".msg h2,.msg-head b")||{}).textContent)}`); }
+    if (!(await page.$("#reflbox"))) errors.push(`[${tag}] la jornada ${id} no llegó al informe`);
+    else { await page.click('[data-rate="enjoy"][data-v="4"]'); await page.click('[data-rate="see"][data-v="3"]'); await page.click("[data-saverefl]"); }
   }
-  if (!(await page.$("#reflbox"))) errors.push(`[${tag}] la jornada practicante no llegó al informe`);
   if (OUT) await page.screenshot({ path: `${OUT}/${tag}-debrief.png`, fullPage: true });
+  // talleres y retos
+  for (const t of ["cvs","preguntas","induccion","bandeja","rotacion","clima","legajo","boleta","presupuesto","comunicado"]) { await page.evaluate(h => { location.hash = h; }, "tool." + t); await page.waitForTimeout(300); if (!(await page.$("#toolbox *"))) errors.push(`[${tag}] taller ${t} vacío`); }
+  for (const r of ["brujula", "viaje", "perfil"]) { await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(300); }
   await ctx.close();
 }
 await run({ width: 1366, height: 860 }, "light", "desktop");

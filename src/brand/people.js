@@ -67,6 +67,7 @@ function face(mood, skinD){
   return `${br}${eyes}<path d="M50 48 q-1.6 4 0 5.4" stroke="${skinD}" stroke-width="1.6" fill="none" stroke-linecap="round"/>${mouth}`;
 }
 function shade(hex, k){
+  if (typeof hex !== "string" || hex[0] !== "#" || hex.length !== 7) return hex || "#888888";
   const n = parseInt(hex.slice(1), 16); let r = n >> 16, g = (n >> 8) & 255, b = n & 255;
   r = Math.round(r * k); g = Math.round(g * k); b = Math.round(b * k);
   return "#" + [r, g, b].map(v => Math.max(0, Math.min(255, v)).toString(16).padStart(2, "0")).join("");
@@ -75,9 +76,9 @@ function shade(hex, k){
 /* avatar(nombre, ficha, {size, mood, ring}) */
 export function avatar(name, base = {}, o = {}){
   const sp = specFor(name, base);
-  const skin = SKIN[sp.s % SKIN.length], skinD = shade(skin, .82);
+  const skin = SKIN[Math.abs(+sp.s || 0) % SKIN.length], skinD = shade(skin, .82);
   const hc = sp.age === "mayor" ? HAIR[sp.fem ? 5 : 4] : HAIR[sp.hc % HAIR.length];
-  const cloth = typeof sp.c === "string" ? sp.c : CLOTH[sp.c % CLOTH.length];
+  const cloth = typeof sp.c === "string" && sp.c[0] === "#" ? sp.c : CLOTH[Math.abs(+sp.c || 0) % CLOTH.length];
   const mood = o.mood || sp.mood || "neutral";
   const size = o.size || 44;
   const bg = o.bg || `color-mix(in srgb, ${cloth} 18%, var(--card))`;
