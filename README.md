@@ -76,7 +76,7 @@ legacy/               el artefacto original «Legajo Vivo», como referencia
 
 | Recurso | Estado |
 |---|---|
-| Video de bienvenida (`assets/video/bienvenida.mp4`, 0:38, subtítulos VTT) | **Listo**. Animación generada, sin voz. |
+| Video de bienvenida (`assets/video/bienvenida.mp4`, 0:38, subtítulos WebVTT en `bienvenida-subtitulos.txt`) | **Listo**. Animación generada, sin voz. |
 | Narración de textos y cápsulas | **Voz sintética del navegador**, rotulada como tal, con transcripción. |
 | Grabaciones humanas | **Pendientes**. Los guiones están en `src/content/media.js`. |
 

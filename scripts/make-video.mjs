@@ -16,6 +16,7 @@ for (let i = 0; i < N; i++) { await p.evaluate(t => window.setTime(t), i / FPS);
 await p.evaluate(t => window.setTime(t), 7); await p.screenshot({ path: "assets/video/bienvenida-poster.png" });
 await b.close();
 execSync(`ffmpeg -y -loglevel error -framerate ${FPS} -i ${tmp}/f%05d.jpg -c:v libx264 -pix_fmt yuv420p -crf 30 -preset slow -movflags +faststart -vf "fps=${FPS}" assets/video/bienvenida.mp4`);
-writeFileSync("assets/video/bienvenida.vtt", vtt());
+// WebVTT guardado como .txt: algunos hostings estáticos no sirven .vtt; la vista lo convierte en pista.
+writeFileSync("assets/video/bienvenida-subtitulos.txt", vtt());
 rmSync(tmp, { recursive: true, force: true });
 console.log("Video listo: assets/video/bienvenida.mp4");

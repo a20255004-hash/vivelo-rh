@@ -7,7 +7,7 @@
      reproductor lo usará en lugar de la voz sintética. */
 export const media = {
   video: [
-    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", src: "assets/video/bienvenida.mp4", poster: "assets/video/bienvenida-poster.png", vtt: "assets/video/bienvenida.vtt", mins: "0:38", status: "listo",
+    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", src: "assets/video/bienvenida.mp4", poster: "assets/video/bienvenida-poster.png", vtt: "assets/video/bienvenida-subtitulos.txt", mins: "0:38", status: "listo",
       d: "Video animado (sin narración) con subtítulos: Coco presenta la plataforma y sus secciones. Generado a partir de las ilustraciones del proyecto." }
   ],
   capsules: [
