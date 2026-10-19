@@ -28,6 +28,7 @@ export function mountGuide(){
   document.body.appendChild(el);
   render("neutral", null);
   on("route", ({ name: r }) => {
+    el.hidden = !S.state.profile.name || !S.state.profile.tourDone;
     if (S.state.profile.guide !== "activo" || !SECTION[r]) { setMood(r === "inicio" ? "feliz" : "neutral"); return; }
     const k = "sec:" + r;
     if (S.state.seen[k]) { setMood(SECTION[r][0]); return; }
@@ -58,7 +59,7 @@ function render(mood, msg, opts = {}){
   const mode = S.state.profile.guide || "activo";
   el.className = "guide " + mode + (msg ? "" : " min");
   el.innerHTML = `${msg ? `<div class="bubble" role="status" aria-live="polite"><div class="row between"><b class="who">Coco</b><span class="mood">${esc(MOODS[mood] ? MOODS[mood].n : "")}</span></div><p>${msg}</p><div class="row">${opts.actions || ""}<button type="button" class="btn ghost sm" data-g="close">Entendido</button><button type="button" class="btn ghost sm" data-g="mute" title="Coco dejará de comentar; podrás llamarlo cuando quieras">${mode === "activo" ? "Menos comentarios" : "Silenciar"}</button></div></div>` : ""}
-  <button type="button" class="guide-btn" data-g="toggle" aria-label="${msg ? "Ocultar a Coco" : "Hablar con Coco"}" aria-expanded="${!!msg}">${coco(mood, { size: 96, cls: "anim enter", label: false })}</button>`;
+  <button type="button" class="guide-btn" data-g="toggle" aria-label="${msg ? "Ocultar a Coco" : "Hablar con Coco"}" aria-expanded="${!!msg}">${coco(mood, { size: 84, cls: "anim enter", label: false })}</button>`;
   el.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => {
     const a = b.dataset.g;
     if (a === "close") render(mood, null);
@@ -84,6 +85,6 @@ export function say(mood, text, opts = {}){
 export function setMood(mood){
   if (!el) return;
   const btn = el.querySelector(".guide-btn");
-  if (btn && !el.querySelector(".bubble")) btn.innerHTML = coco(MOODS[mood] ? mood : "neutral", { size: 96, cls: "anim", label: false });
+  if (btn && !el.querySelector(".bubble")) btn.innerHTML = coco(MOODS[mood] ? mood : "neutral", { size: 84, cls: "anim", label: false });
 }
 export const guideModes = [["activo", "Activo", "Comenta momentos relevantes"], ["discreto", "Discreto", "Solo inicio, cierre y casos graves"], ["silencio", "Silencio", "No comenta; lo llamas cuando quieras"]];

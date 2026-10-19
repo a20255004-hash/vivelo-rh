@@ -15,8 +15,8 @@ export const NAV = [
   { id: "academia", n: "Academia", ic: "academia" },
   { id: "taller", n: "Taller", ic: "taller" },
   { id: "retos", n: "Retos", ic: "retos" },
-  { id: "sectores", n: "Público y privado", ic: "sectores" },
-  { id: "brujula", n: "Mi brújula", ic: "brujula" }
+  { id: "sectores", n: "Sectores", ic: "sectores" },
+  { id: "brujula", n: "Brújula", ic: "brujula" }
 ];
 const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
 const DOCK = ["inicio", "viaje", "sims", "brujula"];
