@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:05.400
+VÍVELO RH · Laboratorio interactivo de Recursos Humanos
+
+2
+00:00:05.700 --> 00:00:10.900
+¡Hola! Soy Coco, un ronsoco explorador. Te acompaño en este viaje.
+
+3
+00:00:11.200 --> 00:00:17.400
+Vive jornadas de trabajo: correos, chats, llamadas y urgencias reales del día a día.
+
+4
+00:00:17.700 --> 00:00:23.900
+Después de cada decisión, mira cómo lo piensa y razona una profesional.
+
+5
+00:00:24.200 --> 00:00:29.900
+Explora 26 especialidades, practica en el taller y ponte a prueba en los retos.
+
+6
+00:00:30.200 --> 00:00:34.900
+Hecho para el Perú: sector privado y público, normativa verificada y feriados 2026.
+
+7
+00:00:35.200 --> 00:00:37.900
+Vive el trabajo antes de elegirlo. Todo caso es una simulación.

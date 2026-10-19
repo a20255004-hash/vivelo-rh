@@ -1,0 +1,14 @@
+{
+  "name": "vivelo-rh",
+  "version": "2.0.0",
+  "description": "VÍVELO RH · Laboratorio interactivo de Recursos Humanos. Vive el trabajo antes de elegirlo.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/unit/*.test.js",
+    "test:e2e": "node tests/e2e/smoke.mjs http://localhost:8080/",
+    "video": "node scripts/make-video.mjs"
+  },
+  "license": "UNLICENSED"
+}
