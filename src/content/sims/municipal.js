@@ -1,13 +1,13 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
  id:"municipal", kind:"dia", scene:"municipalidad", orgType:"pub", level:"intermedio", title:"Un día como Especialista de RR.HH. en una municipalidad", role:"especialista-orh",
- areas:["adm-personal","reclutamiento","laboral","relaciones","estrategica"], sector:"publico", size:"Municipalidad distrital · 412 servidores", place:"Sur del Perú", mins:28,
+ areas:["adm-personal","reclutamiento","laboral","relaciones","estrategica"], sector:"publico", size:"Municipalidad distrital · 412 servidores", place:"Sur del Perú", mins:36,
  hook:"Mesa de partes llena, un gerente que quiere contratar a su sobrino sin concurso, una queja de hostigamiento sexual y un informe técnico para mañana.",
  org:"<b>Municipalidad Distrital de Vista Alegre del Sur</b> (ficticia). 412 servidores en cuatro regímenes: 58 nombrados del D.Leg. 276, 96 obreros municipales en el régimen privado (D.Leg. 728), 214 servidores CAS (D.Leg. 1057) y 44 practicantes (D.Leg. 1401). Además hay locadores con órdenes de servicio, que no son servidores. La entidad aún no ha transitado al régimen de la Ley 30057.",
  you:"Eres especialista en recursos humanos (contrato CAS) en la Subgerencia de Recursos Humanos. Tu jefe es el subgerente, un cargo de confianza. Son cuatro personas para 412 servidores.",
  goal:"Atender el día cumpliendo la normativa de cada régimen, sin ceder a presiones indebidas y dejando todo documentado.",
  limits:["Todo se tramita por expediente y queda registrado en el sistema de trámite documentario.","El presupuesto de personal está fijado en el Presupuesto Institucional; contratar exige certificación presupuestal y registro en el AIRHSP.","Es año de cambio de gestión: las nuevas autoridades asumen el 1 de enero."],
- people:[{av:{g:"m",s:2,h:"raya",hc:1,c:5,gl:true},n:"Abg. Raúl Contreras",r:"Subgerente de RR.HH. (confianza)",d:"Cuidadoso; firma lo que tú preparas."},{av:{g:"m",s:3,h:"corto",hc:4,c:7,age:"mayor"},n:"Lic. Mario Benavides",r:"Gerente Municipal",d:"La autoridad administrativa más alta después del alcalde."},{av:{g:"f",s:3,h:"moño",hc:0,c:0},n:"Secretaría Técnica del PAD",r:"Apoya a las autoridades del procedimiento disciplinario",d:"Una abogada a tiempo parcial."},{av:{g:"f",s:4,h:"trenza",hc:0,c:1},n:"Servidores",r:"Cuatro regímenes",d:"Datos ficticios."}],
+ people:[{av:{g:"m",s:2,h:"raya",hc:1,c:5,gl:true},n:"Abg. Raúl Contreras",r:"Subgerente de RR.HH. (confianza)",d:"Cuidadoso; firma lo que tú preparas."},{av:{g:"m",s:3,h:"corto",hc:4,c:7,age:"mayor"},n:"Lic. Mario Benavides",r:"Gerente Municipal",d:"La autoridad administrativa más alta después del alcalde."},{av:{g:"f",s:3,h:"moño",hc:0,c:0},n:"Secretaría Técnica del PAD",r:"Apoya a las autoridades del procedimiento disciplinario",d:"Una abogada a tiempo parcial."},{av:{g:"f",s:4,h:"trenza",hc:0,c:1},n:"Servidores",r:"Cuatro regímenes",d:"Datos ficticios."},{id:"pomareda",av:{g:"m",s:3,h:"raya",hc:0,c:3,age:"adulto"},n:"Julio Pomareda",r:"Asesor del alcalde electo",d:"Ficticio. Aún no es funcionario de la entidad."}],
  nodes:[
  {id:"m1", t:"08:00", ch:"mesa", from:"Mesa de partes · 7 expedientes nuevos", title:"La bandeja de la mañana",
   body:"<p>El sistema de trámite te deriva siete expedientes. Ordénalos según cómo los atenderías hoy.</p>",
@@ -26,6 +26,7 @@ export default {
   fxBy:{buena:{cumplimiento:10,agenda:4},aceptable:{cumplimiento:2},riesgosa:{cumplimiento:-12,personas:-6}},
   sig:{pro:2,nor:2,pre:1}, tags:["planificar","documentos"],
   outBy:{buena:"Tu orden respeta los plazos legales más cortos y el impacto en las personas. La queja tiene prioridad absoluta.",aceptable:"El orden es razonable, pero algún expediente con plazo corto quedó atrás.",riesgosa:"La queja de hostigamiento no quedó primera. Su plazo de medidas de protección corre desde ayer."},
+  mind:{ok:"Paso a paso: 1) identificar en cada expediente su plazo legal y desde cuándo corre; 2) poner primero lo que protege a una persona; 3) luego lo que vence antes; 4) planificar en la semana lo que tiene plazo más largo (OCI) en vez de dejarlo para el último día.",risk:"Ordenar por jerarquía de quien firma el oficio: la Gerencia pesa, pero el plazo de medidas de protección corre desde ayer a las 16:40.",law:"Reglamento de la Ley 27942 (D.S. 014-2019-MIMP): medidas de protección en un plazo máximo de 3 días hábiles. Los requerimientos del Órgano de Control Institucional se atienden en el plazo que fijan.",info:"Revisa a qué hora ingresó cada expediente en el sistema de trámite: los plazos se cuentan desde el ingreso, no desde que llega a tu bandeja."},
   pro:"En una ORH, la prioridad la ordenan los plazos legales y los derechos en juego, no el cargo de quien pide. Todo expediente tiene un plazo, y su incumplimiento puede generar responsabilidad administrativa."},
  {id:"m2", t:"08:40", ch:"presencial", mood:"preocupado", guide:{mood:"indignado", say:"Lo que cuenta es grave. Primero protegerla, en plazo; después todo lo demás. Y nada de moverla a ella sin que lo pida."}, from:"Practicante de la Unidad de Catastro", title:"La queja",
   body:"<p>La practicante (21 años) vino a ratificar su queja. Relata que su jefe de unidad hace comentarios sobre su cuerpo y le escribe por WhatsApp de noche. Tiene capturas. Está nerviosa y pregunta si la van a cambiar de oficina, porque «no quiere perder sus prácticas».</p>",
@@ -34,6 +35,7 @@ export default {
    {id:"n2", label:"Medidas de protección posibles", info:"Entre otras: rotación o cambio de lugar del presunto hostigador; rotación de la víctima solo si ella lo solicita; impedimento de acercamiento o de comunicación; otras que aseguren su bienestar."},
    {id:"n3", label:"Si las practicantes están protegidas", info:"Sí: la Ley 27942 alcanza a las personas en modalidades formativas."}
   ]},
+  mind:{ok:"Paso a paso: 1) escuchar sin juzgar y registrar el relato; 2) informar sus derechos y el procedimiento; 3) proteger dentro del plazo, restringiendo al presunto hostigador y no a ella; 4) derivar a la Secretaría Técnica para la investigación; 5) garantizar la reserva del expediente.",risk:"Revictimizar: moverla «para protegerla», pedirle formalidades que la ley no exige o avisar al jefe sin medidas vigentes.",law:"Ley 27942 y su reglamento (D.S. 014-2019-MIMP): la oficina de recursos humanos dicta medidas de protección en un plazo máximo de 3 días hábiles; en el sector público, la investigación y la sanción se tramitan en el procedimiento administrativo disciplinario, que tiene sus propios plazos.",info:"Pregúntale qué necesita para sentirse segura en su oficina: la medida de protección se diseña con ella, no para ella."},
   choices:[
    {id:"a", label:"Hablar informalmente con el jefe para que «se calme» y archivar si deja de pasar.", fx:{cumplimiento:-18,personas:-14}, sig:{per:1}, q:"riesgosa", tags:["mediar"],
     out:"El jefe se entera de la queja sin ninguna medida de protección vigente. Esa tarde le asigna a la practicante tareas fuera de la oficina «para que aprenda campo».",
@@ -55,6 +57,7 @@ export default {
    {id:"x2", label:"Revisar cómo se accede al CAS", info:"El acceso al régimen CAS es por concurso público de méritos. La excepción son los cargos de confianza, que no corresponden a un especialista técnico."},
    {id:"x3", label:"Preguntar a Planeamiento si hay presupuesto", info:"Planeamiento: «Para esa plaza no hay certificación presupuestal este año; habría que modificar el presupuesto»."}
   ]},
+  mind:{ok:"Paso a paso: 1) informar el impedimento sin acusar (nepotismo y acceso por concurso); 2) ofrecer la vía legal (concurso CAS, si hay presupuesto); 3) dejar constancia escrita a tu jefe inmediato; 4) si el pariente concursa, asegurar que el gerente se abstenga de intervenir.",risk:"Firmar un informe que sustenta una contratación irregular: en el Estado, quien firma responde.",law:"Ley 26771 y su reglamento (prohibición de nepotismo); el acceso al régimen CAS es por concurso público de méritos.",info:"Si no hay certificación presupuestal, ni siquiera el concurso puede convocarse: averígualo antes de ofrecerlo."},
   choices:[
    {id:"a", label:"Prepararle el contrato: es el Gerente Municipal.", fx:{cumplimiento:-22,confianza:4}, sig:{}, q:"riesgosa", tags:[],
     out:"Firmas el informe que sustenta la contratación. Tres meses después, el OCI identifica el caso. Los informes con tu nombre forman parte del expediente de responsabilidades.",
@@ -84,7 +87,39 @@ export default {
   fxBy:{buena:{cumplimiento:8,calidad:6,confianza:4},aceptable:{cumplimiento:2},riesgosa:{cumplimiento:-8,calidad:-4}},
   sig:{pro:3,nor:2}, tags:["normativa","planificar"],
   outBy:{buena:"Envías la ruta con un cronograma estimado de cuatro a cinco semanas. Desarrollo Social se sorprende («¿tanto?»), pero ahora puede planificar.",aceptable:"La ruta es casi correcta; tu jefe corrige un paso antes de enviarla.",riesgosa:"Tu ruta omite o desordena un paso clave. Si se convoca sin certificación presupuestal, el concurso puede caerse."},
+  mind:{ok:"Paso a paso: 1) perfil aprobado; 2) presupuesto certificado y plaza registrada en el AIRHSP; 3) bases y cronograma; 4) difusión pública; 5) evaluaciones con actas; 6) resultados publicados; 7) contrato.",risk:"Convocar sin certificación presupuestal o sin bases aprobadas: el concurso puede declararse nulo y alguien tendrá que responder.",law:"El acceso al régimen CAS es por concurso público de méritos; en las evaluaciones se aplican las bonificaciones de ley que correspondan (por ejemplo, 15% para personas con discapacidad, Ley 29973, y 10% para licenciados de las FF.AA., Ley 29248).",info:"Pregunta al área usuaria cuándo necesita realmente a los promotores: con cuatro a cinco semanas de concurso, la fecha de inicio del programa puede tener que moverse."},
   pro:"En el sector público la selección es un procedimiento reglado: cada paso deja constancia y puede ser revisado por Control. La gran diferencia con el sector privado no es la entrevista, es todo lo que la rodea."},
+ {id:"m2b", if:"hsok", t:"12:20", ch:"sistema", from:"Sistema de trámite · Proyecto de resolución", title:"La resolución, antes de la firma",
+  body:"<p>Un compañero del área preparó el proyecto de resolución de medidas de protección con una plantilla antigua. El subgerente lo firmará a las 13:00. Revísalo con calma: lo que firme será lo que se ejecute.</p>",
+  type:"review", revisable:true,
+  review:{prompt:"Marca las líneas que deben corregirse.", title:"Resolución Subgerencial N.° ___-2026-SGRH/MDVAS (proyecto)", folio:"Proyecto", key:["l3","l6"], lines:[
+   {id:"l1", text:"VISTO: la queja presentada ayer, a las 16:40, por una practicante de la Unidad de Catastro (su identidad consta solo en el expediente reservado).", why:"Fecha y hora de la queja, con reserva de identidad."},
+   {id:"l2", text:"CONSIDERANDO: que la Ley 27942 y su reglamento, aprobado por D.S. 014-2019-MIMP, disponen que la oficina de recursos humanos dicte medidas de protección.", why:"Base legal pertinente."},
+   {id:"l3", text:"Artículo 1.- Disponer la rotación temporal de la practicante a la Unidad de Archivo, para su tranquilidad.", bad:true, why:"La rotación de la víctima solo procede si ella la solicita, y ella pidió expresamente quedarse. Moverla es revictimizarla."},
+   {id:"l4", text:"Artículo 2.- Disponer que el jefe de la Unidad de Catastro se abstenga de comunicarse con la quejosa por cualquier medio, incluidas la mensajería y las redes sociales.", why:"Medida pertinente: los mensajes nocturnos por WhatsApp son parte de la queja."},
+   {id:"l5", text:"Artículo 3.- Asignar temporalmente al jefe de la Unidad de Catastro a otra sede, mientras dure el procedimiento.", why:"La regla general es restringir o mover al presunto hostigador."},
+   {id:"l6", text:"Artículo 4.- Notificar la presente resolución a todo el personal de la Unidad de Catastro, para su conocimiento.", bad:true, why:"El procedimiento es reservado. Se notifica a las partes y a los órganos competentes, no a toda la unidad."},
+   {id:"l7", text:"Artículo 5.- Remitir los actuados a la Secretaría Técnica de las autoridades del procedimiento administrativo disciplinario, para la precalificación.", why:"Es el órgano que apoya la investigación en el sector público."},
+   {id:"l8", text:"Artículo 6.- Las medidas quedarán sin efecto si la quejosa no presenta, en 48 horas, una declaración jurada con firma legalizada.", bad:true, why:"Ella ya ratificó su queja. Condicionar la protección a formalidades que la norma no exige desalienta la denuncia."},
+   {id:"l9", text:"Artículo 7.- Poner a disposición de la quejosa los canales de atención médica y psicológica con que cuenta la entidad o los servicios especializados del Estado.", why:"Medida de bienestar adecuada."},
+   {id:"l10", text:"Artículo 8.- Encargar al jefe de la Unidad de Catastro que informe sobre los hechos en cinco días.", bad:true, why:"Al presunto hostigador no se le encarga informar: presentará sus descargos en el procedimiento. Pedirle un «informe» le da el control del relato."}]},
+  fxBy:{buena:{cumplimiento:12,personas:8,calidad:6},aceptable:{cumplimiento:3,personas:2},riesgosa:{cumplimiento:-12,personas:-10}},
+  sig:{nor:3,pro:2,per:1}, tags:["documentos","normativa","redactar"],
+  outBy:{buena:"Corriges el proyecto y le explicas al subgerente cada cambio en dos líneas. Firma a las 13:00. La practicante recibe la notificación en sobre cerrado y sigue en su oficina.",aceptable:"Corriges parte del proyecto, pero se firma con una disposición que habrá que rectificar mañana.",riesgosa:"La resolución sale como estaba. A las 15:00, toda la Unidad de Catastro sabe quién denunció."},
+  pro:"Una resolución de medidas de protección se revisa con dos preguntas: ¿protege a la víctima sin quitarle nada? y ¿respeta la reserva y las garantías del procedimiento? Las plantillas antiguas suelen fallar en ambas.",
+  mind:{ok:"Paso a paso: 1) cada medida, ¿protege a la víctima o la afecta?; 2) ¿quién se entera? (reserva); 3) ¿se le exige algo que la norma no pide?; 4) ¿cada órgano hace lo que le corresponde?",risk:"Firmar con una plantilla sin leerla: la resolución es un acto administrativo y su contenido se ejecuta tal cual.",law:"Ley 27942 y D.S. 014-2019-MIMP: medidas de protección en 3 días hábiles; la rotación de la víctima solo a su solicitud; reserva del procedimiento."}},
+ {id:"m2x", ifnot:"hsok", t:"12:20", ch:"correo", from:"Secretaría Técnica del PAD", to:"Especialista de RR.HH.", cc:"Subgerente de RR.HH.", title:"«¿Qué medidas se tomaron?»",
+  body:"<p>La Secretaría Técnica recibió por mesa de partes un escrito de la madre de la practicante, con las capturas de los mensajes, preguntando qué hizo la municipalidad. Te escriben: <i>«Según el sistema, la queja ingresó ayer a las 16:40 y no hay resolución de medidas de protección. El plazo es de tres días hábiles. ¿Qué pasó?»</i></p>",
+  choices:[
+   {id:"a", label:"Reconocer el error ante el subgerente, preparar hoy la resolución de medidas de protección (aún dentro del plazo), revertir cualquier medida que haya afectado a la practicante sin que ella la pidiera y remitir el caso a la Secretaría Técnica con reserva.", fx:{cumplimiento:10,personas:8,agenda:-8}, sig:{res:3,nor:2}, q:"buena", tags:["normativa","redactar","coordinar"],
+    out:"El subgerente firma a las 16:00. La practicante vuelve a su oficina; el jefe es asignado a otra sede. La Secretaría Técnica anota el retraso, pero el plazo se cumplió."},
+   {id:"b", label:"Responder que el caso se resolvió en una conversación y que no hace falta resolución.", fx:{cumplimiento:-16,personas:-10}, sig:{}, q:"riesgosa", tags:[],
+    out:"La Secretaría Técnica eleva el caso: no hay mediación posible en hostigamiento sexual y el plazo de medidas sigue corriendo."},
+   {id:"c", label:"Derivar el escrito al subgerente sin comentarios.", fx:{cumplimiento:-4,confianza:-4}, sig:{pro:1}, q:"aceptable", tags:["coordinar"],
+    out:"El subgerente lo lee a las 17:30 y te llama: «¿Por qué no me dijiste nada en la mañana?». La resolución sale al día siguiente, al límite del plazo."}
+  ],
+  pro:"Cuando una omisión tuya pone en riesgo un plazo de protección, la prioridad no es justificarte: es proteger hoy y dejar constancia de lo que se hizo.",
+  mind:{ok:"Paso a paso: 1) calcular cuánto queda del plazo; 2) proteger dentro de él; 3) deshacer lo que la perjudicó; 4) informar con honestidad.",risk:"Defender una «solución informal» ante el órgano que investiga: agrava la responsabilidad.",law:"Ley 27942 y su reglamento (D.S. 014-2019-MIMP): medidas de protección en un plazo máximo de 3 días hábiles desde la queja."}},
  {id:"m5", t:"13:30", ch:"correo", from:"Sindicato de Trabajadores CAS", title:"«¿Cuánto será la gratificación de diciembre?»",
   body:"<p>El sindicato pide que la municipalidad confirme por escrito que en diciembre pagará a los CAS una gratificación igual a una remuneración completa, «como dice la Ley 32563».</p>",
   ask:{prompt:"¿Qué revisas?", max:2, opts:[
@@ -98,13 +133,19 @@ export default {
     pro:"Leer solo la ley, sin su reglamento y sin verificar el presupuesto, lleva a compromisos que la entidad no puede cumplir."},
    {id:"b", label:"Responder que se aplicará conforme a la Ley 32563 y al cronograma progresivo de su reglamento (D.S. 142-2026-EF), sujeto a disponibilidad presupuestal, y precisar el porcentaje cuando Presupuesto lo confirme.", fx:{cumplimiento:10,confianza:6,personas:2,agenda:-4}, sig:{nor:3,pro:1,res:1}, q:"buena", tags:["normativa","redactar"],
     out:"El sindicato no está satisfecho con el cronograma, pero no puede objetar la información. Pide una reunión, que tu jefe agenda.",
+    mind:{ok:"Paso a paso: 1) leer la ley y su reglamento juntos; 2) verificar el cronograma de implementación vigente; 3) confirmar con Presupuesto; 4) responder dentro del plazo, diciendo lo que se sabe y lo que falta definir.",risk:"Comprometer por escrito un pago que la entidad no puede hacer: el oficio se convierte en prueba de incumplimiento.",law:"Ley 32563 (gratificaciones y CTS para los servidores CAS) y su reglamento, D.S. 142-2026-EF, que dispone una implementación gradual.",info:"Hay una demanda contra la gradualidad: revisa si hubo cambios en El Peruano antes de enviar la respuesta."},
     pro:"En el Estado, toda respuesta con efectos económicos se sustenta en la ley, su reglamento y la disponibilidad presupuestal. Dar información correcta, aunque no guste, evita conflictos mayores después."},
    {id:"c", label:"No responder hasta que el MEF emita algo más claro.", fx:{personas:-8,cumplimiento:-4}, sig:{}, q:"aceptable", tags:[],
     out:"El sindicato reitera su pedido y pide una audiencia con el alcalde.",
     pro:"El derecho de petición obliga a responder dentro del plazo. Puedes responder lo que se sabe y lo que falta definir."}
   ]},
  {id:"m6", t:"15:00", ch:"sistema", from:"Reporte de asistencia · octubre", title:"Tardanzas reiteradas",
-  body:"<p>Un servidor CAS acumula 9 tardanzas en el mes (en total 3 horas 40 minutos). Su jefe no ha dicho nada. El Reglamento Interno de los Servidores Civiles (RIS) de la municipalidad establece descuento proporcional por tardanza.</p>",
+  body:"<p>Edwin Mamani (ficticio), promotor CAS de Desarrollo Social, acumula 9 tardanzas en octubre (en total 3 horas 40 minutos). Su jefe no ha dicho nada. El Reglamento Interno de los Servidores Civiles (RIS) de la municipalidad establece descuento proporcional por tardanza.</p>",
+  ask:{prompt:"Antes de decidir puedes revisar:", max:1, opts:[
+   {id:"t1", label:"El detalle de las marcaciones", info:"Todas las tardanzas son de entre 15 y 35 minutos, en días de lluvia o de paro de transportistas. Edwin vive en un anexo a una hora de la sede."},
+   {id:"t2", label:"Qué hizo RR.HH. con casos similares", info:"En agosto se descontó a otros tres servidores con el mismo criterio del RIS. No hacerlo ahora sería un trato distinto sin sustento."}
+  ]},
+  mind:{ok:"Paso a paso: 1) aplicar el RIS igual para todos; 2) notificar el descuento con su cálculo; 3) informar al jefe para que converse con el servidor; 4) explorar, dentro de la jornada, soluciones como un horario de ingreso distinto.",risk:"No descontar porque «nadie se quejó»: Control puede observar pagos por tiempo no trabajado. Abrir un PAD por lo que el RIS ya resuelve recarga el sistema.",law:"El descuento por tardanza se aplica según el Reglamento Interno: no es una sanción, es no pagar el tiempo no trabajado.",info:"Si la causa es el transporte desde un anexo, un horario de ingreso escalonado puede resolver el problema mejor que cualquier descuento."},
   choices:[
    {id:"a", label:"Aplicar el descuento proporcional según el RIS, notificarlo al servidor y comunicar el caso a su jefe para que lo aborde.", fx:{cumplimiento:8,personas:-2}, sig:{pro:2,nor:2}, q:"buena", tags:["documentos","calcular"],
     out:"El servidor reclama, pero el descuento está sustentado en el RIS. Su jefe conversa con él: tiene un problema de transporte desde su anexo. Acuerdan un horario de ingreso dentro de lo que permite la jornada.",
@@ -116,6 +157,18 @@ export default {
     out:"En una auditoría, Control observa que la entidad pagó horas no trabajadas sin descuento.",
     pro:"En el sector público, pagar tiempo no laborado sin sustento puede ser observado por Control. RR.HH. administra el registro aunque el jefe no reclame."}
   ]},
+ {id:"m6c", t:"15:20", ch:"sistema", from:"Módulo de planillas CAS", title:"El descuento, bien calculado",
+  body:"<p>Para notificar a Edwin, el módulo te pide el cálculo. Su remuneración mensual CAS es <b>S/ 2,400</b>. El RIS dice: «la tardanza se descuenta por minuto; valor hora = remuneración mensual ÷ 30 ÷ 8». Acumuló <b>3 horas 40 minutos</b> en el mes.</p>",
+  type:"calc", revisable:true,
+  calc:{prompt:"Calcula el descuento (S/).", hint:"No redondees el valor del minuto antes de multiplicar.", key:["desc"], fields:[
+   {id:"vh",label:"Valor hora",v:10,why:"2,400 ÷ 30 ÷ 8 = 10.00."},
+   {id:"desc",label:"Descuento por los 220 minutos de tardanza",v:36.67,why:"3 h 40 min = 220 minutos. 10.00 ÷ 60 × 220 = 36.67. Si redondeas el minuto a 0.17 antes de multiplicar, obtienes 37.40: un descuento mayor al debido."},
+   {id:"rem",label:"Remuneración del mes luego del descuento (antes de retenciones)",v:2363.33,why:"2,400.00 − 36.67 = 2,363.33."}]},
+  fxBy:{buena:{cumplimiento:6,calidad:6},aceptable:{calidad:2},riesgosa:{cumplimiento:-6,personas:-4}},
+  sig:{dat:3,nor:1}, tags:["calcular","documentos"],
+  outBy:{buena:"Notificas a Edwin con el cálculo detallado. Lo revisa, no encuentra error y pregunta por la opción de horario que conversó su jefe.",aceptable:"Una cifra no cuadra; Edwin la reclama y hay que rehacer la notificación.",riesgosa:"El descuento sale mayor al debido. Edwin presenta un recurso y tiene razón."},
+  pro:"Un descuento correcto es pequeño, exacto y explicado. El error típico no es la fórmula, sino el redondeo intermedio: en planilla, los centavos mal calculados se convierten en reclamos legítimos.",
+  mind:{ok:"Calcular con el valor exacto, redondear solo el resultado final y adjuntar el cálculo a la notificación.",risk:"Redondear el valor del minuto o usar 31 días en lugar de lo que dice el RIS: el descuento deja de ser proporcional.",info:"Verifica que no haya tardanzas justificadas (comisiones de servicio, permisos) antes de descontar."}},
  {id:"m7", t:"16:00", ch:"correo", from:"Para: Subgerente de RR.HH.", title:"Redacta el informe técnico",
   body:"<p>Prepara el esquema del informe técnico para la Gerencia Municipal sobre el pedido del sindicato CAS (gratificación de diciembre). Tu jefe lo firmará mañana.</p>",
   type:"write",
@@ -132,11 +185,28 @@ export default {
   fxBy:{buena:{calidad:10,cumplimiento:6,confianza:6},aceptable:{calidad:3},riesgosa:{calidad:-6,confianza:-4}},
   sig:{pro:2,nor:2}, tags:["redactar","normativa"],
   outBy:{buena:"Tu jefe hace dos correcciones de forma y lo firma. «Así da gusto revisar.»",aceptable:"Tu jefe te pide completar secciones antes de firmarlo.",riesgosa:"Tu jefe lo devuelve: un informe técnico sin base legal ni recomendaciones no se puede elevar."},
+  mind:{ok:"Estructura: asunto y referencia; antecedentes; base legal; análisis; conclusiones; recomendaciones. Cada conclusión debe poder rastrearse a una norma o a un dato.",risk:"Un informe sin base legal o que concluye más de lo que la norma dice: cuando Control lo revise, la responsabilidad será de quien lo firmó.",law:"Ley 32563 y D.S. 142-2026-EF; Ley de Presupuesto del Sector Público para el Año Fiscal 2026."},
   pro:"El informe técnico es la herramienta principal de una ORH: así se sustentan las decisiones y así se revisan después. Antecedentes, base legal, análisis, conclusiones y recomendaciones es la estructura que esperan la Gerencia, Asesoría Jurídica y Control."},
  {id:"m8", if:"nepok", t:"17:20", ch:"llamada", from:"Lic. Mario Benavides", title:"Un cambio de tono",
   body:"<blockquote>Oye, lo de mi sobrino… mejor que postule al concurso como cualquiera. Prepara el requerimiento con Medio Ambiente.</blockquote><p>Lo que hiciste en la mañana tuvo efecto: con la información clara, el gerente optó por la vía legal.</p>",
   choices:[{id:"a", label:"Agradecer y coordinar el requerimiento con Medio Ambiente, recordando que el proceso será el mismo para todos los postulantes.", fx:{confianza:8,cumplimiento:4}, sig:{per:1,nor:1}, q:"buena", tags:["coordinar"],
    out:"Cierras el día con una relación intacta y un problema evitado.",
-   pro:"Un «no» bien explicado, con una alternativa legal, muchas veces es aceptado. Además, si el sobrino concursa, el parentesco con el gerente sigue exigiendo que este se abstenga de intervenir en el proceso."}]}
+   pro:"Un «no» bien explicado, con una alternativa legal, muchas veces es aceptado. Además, si el sobrino concursa, el parentesco con el gerente sigue exigiendo que este se abstenga de intervenir en el proceso."}]},
+ {id:"m9", t:"17:40", ch:"whatsapp", who:"pomareda", from:"Julio Pomareda · Asesor del alcalde electo", title:"«Mándame la planilla por aquí»",
+  msgs:[{text:"Buenas tardes, soy Julio Pomareda, del equipo del alcalde electo 🙂",t:"17:36"},{text:"Para ir preparando la transferencia necesito la planilla completa: nombres, DNI, régimen, sueldo y quiénes son de confianza.",t:"17:38"},{text:"Mándamela por aquí en Excel, es para hoy. Ya hablé con el gerente.",t:"17:40"}],
+  ask:{prompt:"Antes de responder puedes verificar:", max:1, opts:[
+   {id:"sub", label:"Consultar al subgerente", info:"Raúl Contreras: «La comisión de transferencia se instala formalmente la próxima semana, con acta. Antes de eso, nadie del equipo entrante recibe información de la entidad, y menos por WhatsApp»."},
+   {id:"ger", label:"Preguntarle al Gerente Municipal", info:"Lic. Benavides: «Le dije que coordine con RR.HH. por los canales formales, no que le manden todo»."}
+  ]},
+  choices:[
+   {id:"a", label:"Responderle con cordialidad que la información se entregará a través de la comisión de transferencia de gestión, en el formato oficial y con la reserva de los datos personales, e informar del pedido al subgerente por escrito.", fx:{cumplimiento:10,confianza:4}, sig:{nor:3,res:1,per:1}, q:"buena", tags:["normativa","redactar"],
+    out:"Pomareda contesta: «Ok, entendido, lo vemos en la comisión». Tu jefe te agradece el correo: en enero, ese registro mostrará que el área cuidó la información en plena transición."},
+   {id:"b", label:"Enviarle el Excel: es el equipo del próximo alcalde y lo pidió con el visto bueno del gerente.", fx:{cumplimiento:-18,personas:-8}, sig:{}, q:"riesgosa", tags:[],
+    out:"Una semana después, la lista de sueldos de los 412 servidores circula en un grupo de WhatsApp del distrito. El sindicato pregunta quién la filtró."},
+   {id:"c", label:"Dejar el mensaje sin responder.", fx:{confianza:-4}, sig:{}, q:"aceptable", tags:[],
+    out:"Pomareda llama al gerente para quejarse de que «RR.HH. no colabora». El pedido llega igual, ahora con más presión."}
+  ],
+  pro:"La transferencia de gestión es un procedimiento formal: la información de la entidad se entrega por la comisión, con acta y en el formato establecido. Los datos personales de los servidores no pasan a manos de terceros por mensajería, aunque quien los pida vaya a ser autoridad en enero.",
+  mind:{ok:"Paso a paso: 1) no confrontar: el equipo entrante tiene un interés legítimo; 2) derivar al canal formal (comisión de transferencia); 3) proteger los datos personales; 4) dejar constancia escrita a tu jefe.",risk:"Entregar datos personales de 412 personas por un canal personal a alguien que todavía no es funcionario de la entidad.",law:"Ley 29733: los datos personales se tratan con medidas de seguridad y solo para finalidades legítimas; la transferencia de gestión entre autoridades sigue un procedimiento formal.",info:"Pregunta al subgerente qué información sí puede adelantarse (por ejemplo, número de servidores por régimen, sin datos personales) para mostrar colaboración."}}
  ]
 };
