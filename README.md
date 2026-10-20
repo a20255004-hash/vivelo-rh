@@ -38,8 +38,10 @@ Es un sitio 100 % estático. Opciones:
 
 ```
 index.html            armazón: fuentes, estilos y src/main.js
-styles/               tokens.css (paleta, sombras, modo oscuro) · app.css (componentes y vistas)
-src/core/             util, bus de eventos, store versionado, router por hash, narrador
+styles/               tokens.css (paleta 60·30·10, tipografía, espacio, modo oscuro) · app.css (componentes y vistas)
+                      · luxe.css (capa visual «Galería del Trabajo»; ver docs/DISENO.md)
+docs/DISENO.md        dirección de arte, sistema de diseño, héroe y micro-interacciones
+src/core/             util, bus de eventos, store versionado, router por hash, narrador, motion (micro-interacciones)
 src/brand/            logo, íconos, Coco (10 estados de ánimo), retratos 2D, escenas SVG
 src/engine/           payroll.js (única fuente de verdad de cálculos), nodes.js (motor de jornadas), profile.js (brújula)
 src/content/          contenidos separados de la lógica: áreas, cargos, conceptos, sectores, fuentes,

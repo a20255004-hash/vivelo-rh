@@ -90,7 +90,7 @@ export function route(){
   const done = new Set(Object.keys(st.runs));
   const pendRefl = [...done].find(id => !st.refl.some(r => r.kind === "sim" && r.ref === id));
   if (pendRefl && sim(pendRefl)) out.push({ h: "#sim." + pendRefl, t: "Registra cómo te sentiste en «" + sim(pendRefl).title + "»", why: "Sin tu registro, la brújula no puede usar esa experiencia.", pre: () => { st.debrief = pendRefl; }, ic: "brujula" });
-  if (!done.size && !st.active.practicante) out.push({ h: "#sim.practicante", t: "Vive tu primera mañana como practicante", why: "Nueve minutos para sentir el oficio por dentro.", ic: "sims" });
+  if (!done.size && !st.active.practicante) out.push({ h: "#sim.practicante", t: "Vive tu primera mañana como practicante", why: "Unos catorce minutos para sentir el oficio por dentro.", ic: "sims" });
   const hasPub = [...done].some(id => sim(id) && sim(id).sector === "publico");
   if (done.size && !hasPub) out.push({ h: "#sim.municipal", t: "Prueba el sector público: un día en una municipalidad", why: "Aún no has experimentado cómo se trabaja RR.HH. en el Estado.", ic: "sectores" });
   const hasBig = [...done].some(id => sim(id) && sim(id).orgType === "gra");

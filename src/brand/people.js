@@ -5,7 +5,7 @@ import { hash, esc } from "../core/util.js";
 
 const SKIN = ["#F3D3B6", "#E7BC94", "#D6A177", "#C08559", "#9F6941", "#7A4E2E"];
 const HAIR = ["#1D1612", "#2F2018", "#4A2E1D", "#6B4426", "#8A8A8A", "#C9C4BE", "#7A3B22"];
-const CLOTH = ["#4B34C8", "#0E9F80", "#D9467A", "#2F6FEB", "#B7791F", "#2A2540", "#E0522F", "#5E6B7A", "#8E5BD6", "#1F7A8C"];
+const CLOTH = ["#2B2A33", "#3E5C76", "#8E1B2C", "#4F6B58", "#85683D", "#5B4B6E", "#6B645B", "#1F3A4A", "#7A3E48", "#3D4A3F"];
 const STYLES_F = ["lacio", "moño", "colita", "rizado", "melena", "trenza"];
 const STYLES_M = ["corto", "raya", "rizado", "calvo", "corto"];
 

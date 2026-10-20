@@ -1,7 +1,7 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
  id:"seleccion", kind:"dia", scene:"almacen", orgType:"med", level:"intermedio", title:"Un día como Analista de Selección", role:"analista-seleccion",
- areas:["reclutamiento","compensaciones","onboarding"], sector:"privado", size:"Mediana empresa · 180 trabajadores", place:"Tacna", mins:25,
+ areas:["reclutamiento","compensaciones","onboarding"], sector:"privado", size:"Mediana empresa · 180 trabajadores", place:"Tacna", mins:33,
  hook:"Una vacante crítica lleva tres semanas abierta, el jefe que la pidió está perdiendo la paciencia y el mejor candidato pide más de lo que permite la banda.",
  org:"<b>Distribuidora Pacífico Sur S.A.C.</b> (ficticia) distribuye productos de consumo masivo a bodegas y minimarkets de Tacna, Moquegua y Puno. Tiene un almacén central en el Parque Industrial de Tacna, 180 trabajadores en régimen laboral general y un área de RR.HH. de tres personas.",
  you:"Eres analista de selección desde hace ocho meses. Llevas a la vez seis procesos abiertos. Reportas a la jefa de RR.HH.",
@@ -10,7 +10,12 @@ export default {
  people:[{id:"rocio",n:"Rocío Mamani",r:"Jefa de RR.HH.",d:"Te respalda, pero quiere que resuelvas sin escalar todo.",av:{g:"f",s:3,h:"moño",hc:0,c:2,gl:true}},{id:"walter",n:"Ing. Walter Quispe",r:"Jefe de Operaciones",d:"Pidió la vacante; presionado por el inventario.",av:{g:"m",s:4,h:"raya",hc:1,c:"#5E6B7A",acc:"chaleco",age:"adulto"}},{id:"fernando",n:"Fernando Salas",r:"Gerente Comercial",d:"Necesita tres vendedores y suele saltarse los procesos.",av:{g:"m",s:2,h:"corto",hc:2,c:3,b:true}},{id:"marco",n:"Marco Ticona",r:"Postulante A",d:"Supervisor con 6 años de experiencia. Ficticio.",av:{g:"m",s:4,h:"corto",hc:0,c:7}},{id:"lucia",n:"Lucía Flores",r:"Postulante B",d:"Jefa de turno en retail local. Ficticia.",av:{g:"f",s:3,h:"colita",hc:1,c:1}},{id:"patricia",n:"Patricia Huanca",r:"Postulante E",d:"Supervisora en agroexportadora de Ica. Ficticia.",av:{g:"f",s:4,h:"trenza",hc:0,c:4}}],
  nodes:[
  {id:"s1", t:"08:05", ch:"correo", who:"walter", mood:"molesto", to:"Analista de Selección", cc:"Rocío Mamani", from:"Ing. Walter Quispe · Jefe de Operaciones", title:"¿Y el supervisor?", guide:{mood:"curioso", say:"Primer correo del día y ya viene con tono. Fíjate qué te pide de verdad: una fecha."},
-  body:"<p>Buenos días. Van tres semanas desde que renunció Pacheco y sigo cubriendo el almacén yo mismo. El inventario empieza el 28. <b>Necesito saber hoy cuándo tengo al nuevo supervisor.</b> Si RR.HH. no puede, me consigo uno por mi cuenta.</p>",
+  body:"<p>Buenos días. Van tres semanas desde que renunció Pacheco y sigo cubriendo el almacén yo mismo. El inventario empieza el 28. <b>Necesito saber hoy cuándo tengo al nuevo supervisor.</b> Si RR.HH. no puede, me consigo uno por mi cuenta.</p><p class='small muted'>Ticket RQ-2026-041 · «Supervisor de almacén, reemplazo de Pacheco» · abierto hace 22 días · prioridad alta. Hoy tienes además otros cinco procesos abiertos.</p>",
+  ask:{prompt:"Antes de responder puedes revisar una cosa:", max:1, opts:[
+   {id:"agenda", label:"Tu agenda y la de los finalistas", info:"Lucía Flores puede hoy a las 10:15; Marco Ticona, hoy a las 15:00; Patricia Huanca, por videollamada mañana a las 8:00. En el calendario compartido, Walter tiene libre el jueves de 9:00 a 11:00."},
+   {id:"ticket", label:"El requerimiento original (ticket RQ-2026-041)", info:"Walter pidió «ingreso antes del inventario». Nadie le confirmó nunca un cronograma: desde su lado, el proceso es una caja negra desde hace tres semanas."}
+  ]},
+  mind:{ok:"Paso a paso: 1) separar el tono del pedido: lo que Walter necesita es una fecha; 2) comprometer solo hitos que controlas (terna hoy, entrevistas finales el jueves); 3) pedirle algo a cambio, su tiempo, para que el proceso sea compartido; 4) dejarlo por escrito con copia a tu jefa.",risk:"Prometer una fecha de ingreso que depende de terceros (aceptación, examen médico, preaviso del candidato) o quedarse en silencio: ambas cosas empujan a Walter a «conseguirse uno por su cuenta», sin perfil ni evaluación.",info:"Pregunta qué significa exactamente «antes del inventario»: a veces basta con que el supervisor llegue dos días antes para conocer el almacén."},
   choices:[
    {id:"a", label:"Responder con un plan concreto: hoy armas la terna, le propones entrevistas finales el jueves y le pides que te reserve dos horas.", fx:{confianza:8,agenda:-4,calidad:4}, sig:{per:1,res:2,pro:1}, q:"buena", tags:["planificar","negociar"],
     out:"Walter responde con un seco «ok, jueves 9 a.m.». No está contento, pero ahora tiene una fecha y un compromiso suyo: estar en la entrevista.",
@@ -41,10 +46,16 @@ export default {
   fxBy:{buena:{calidad:10,cumplimiento:4,agenda:-5},aceptable:{calidad:3,agenda:-5},riesgosa:{calidad:-8,agenda:-5}},
   sig:{dat:1,pro:2,res:1}, tags:["analizar","entrevistar"],
   outBy:{buena:"Tu terna cumple el perfil aprobado y tiene variedad: un candidato fuerte pero caro, una candidata local con liderazgo de turno y una candidata con experiencia en operaciones exigentes.",aceptable:"Tu selección es defendible, pero dejaste fuera a alguien que cumplía mejor el perfil que uno de tus elegidos.",riesgosa:"Pasaste a entrevista a alguien que no cumple un requisito central. Walter lo notará en la entrevista final y tu criterio quedará en duda."},
-  pro:"El filtro curricular compara contra el perfil aprobado, no contra la intuición. Los factores que no son requisitos (pretensión, lugar de residencia, situación familiar) se conversan después o no se consideran en absoluto. Descartar por pretensión demasiado temprano es uno de los errores más caros en selección."},
+  pro:"El filtro curricular compara contra el perfil aprobado, no contra la intuición. Los factores que no son requisitos (pretensión, lugar de residencia, situación familiar) se conversan después o no se consideran en absoluto. Descartar por pretensión demasiado temprano es uno de los errores más caros en selección.",
+  mind:{ok:"Paso a paso: 1) leer primero el perfil aprobado, no los CV; 2) separar requisitos excluyentes (3 años supervisando equipos de 8 o más) de deseables (WMS); 3) marcar «cumple / no cumple» por requisito en cada CV; 4) recién después mirar pretensión, residencia o disponibilidad, como riesgos a gestionar y no como filtros.",risk:"Que la pretensión alta, la mudanza o la mención de los hijos pesen en el filtro. Lo primero es prematuro; lo último, discriminatorio.",law:"La Ley 26772 prohíbe criterios discriminatorios en el acceso al empleo. La Ley 29733 obliga a usar los datos de los CV solo para la finalidad del proceso.",info:"Pregúntale a tu practicante con qué criterio descartó a los otros 58: un filtro mal hecho arriba arrastra errores hacia abajo."}},
  {id:"s3", t:"09:30", ch:"whatsapp", who:"fernando", from:"Fernando Salas · Gerente Comercial", title:"«Pásame los CV que tengas»",
   msgs:[{text:"Hola!! 👋",t:"09:28"},{text:"Necesito 3 vendedores pal lunes, se abre la ruta de Ilo 🚚",t:"09:28"},{text:"Pásame por aquí todos los CV que tengas de ventas y yo veo a quién llamo",t:"09:29"},{text:"No te compliques con pruebas, yo sé reconocer a un vendedor 😎",t:"09:30"}],
   after:"<p class='small muted'>Mientras lees, en tu bandeja entran dos correos más y suena el anexo.</p>",
+  ask:{prompt:"Antes de contestar puedes revisar una cosa:", max:1, opts:[
+   {id:"base", label:"Qué hay en la base de CV de ventas", info:"Hay 40 CV de vendedores. 22 tienen más de un año de antigüedad y todos se recibieron para convocatorias específicas, con un aviso de privacidad que dice que se usarán «para el proceso al que postulas»."},
+   {id:"pol", label:"La política interna de datos de RR.HH.", info:"La política (ficticia) de Pacífico Sur dice que los CV se comparten solo por el sistema de selección o por correo corporativo, con acceso restringido a quienes deciden, y nunca por mensajería personal."}
+  ]},
+  mind:{ok:"Paso a paso: 1) reconocer la urgencia del gerente (la ruta de Ilo es real); 2) ofrecer velocidad dentro del método: filtro telefónico hoy, finalistas el viernes; 3) mover los datos solo por canales corporativos; 4) acordar quién decide y cuándo.",risk:"Convertirte en «repartidora de CV»: pierdes el control de datos personales y el gerente elige por impresión.",law:"Ley 29733 y su reglamento: los datos personales se tratan para la finalidad informada y con medidas de seguridad."},
   choices:[
    {id:"a", label:"Reenviarle por WhatsApp los 40 CV de vendedores que tienes en la base.", fx:{confianza:6,cumplimiento:-12,calidad:-4}, sig:{per:1,pre:1}, q:"riesgosa", tags:["coordinar"],
     out:"Fernando queda feliz. Dos días después, uno de esos CV aparece reenviado en un grupo de WhatsApp de vendedores de la competencia.",
@@ -77,10 +88,11 @@ export default {
  {id:"s5", t:"11:30", ch:"llamada", who:"walter", mood:"molesto", from:"Ing. Walter Quispe · Jefe de Operaciones", title:"«A la señora Flores no»", guide:{mood:"indignado", say:"Esto no es una preferencia de gestión: es discriminación por sexo y por maternidad. Respira y responde con método."},
   dlg:[{who:"Ing. Walter Quispe",text:"Oye, vi el CV de Flores que me mandaste."},{who:"Ing. Walter Quispe",text:"Tiene dos hijos, va a faltar a cada rato y en el almacén se necesita alguien que aguante. Prefiero un hombre para ese puesto."},{who:"Ing. Walter Quispe",text:"Sácala y pon a Mendoza, que ya lo conozco. ¿Ya?"}],
   choices:[
-   {id:"a", label:"Hacerle caso: es su equipo y él será el jefe.", fx:{confianza:6,cumplimiento:-18,personas:-10,calidad:-6}, sig:{per:-1}, q:"riesgosa", tags:["negociar"],
+   {id:"a", label:"Hacerle caso: es su equipo y él será el jefe.", fx:{confianza:6,cumplimiento:-18,personas:-10,calidad:-6}, sig:{per:-1}, q:"riesgosa", set:["excluyo"], tags:["negociar"],
     out:"Retiras a Lucía. Nadie se entera… hasta que en la entrevista de salida de otra trabajadora aparece la frase «aquí no contratan mujeres con hijos». Rocío te pregunta qué pasó con ese proceso.",
     mind:{risk:"Excluir a una candidata por sexo o maternidad expone a la empresa a un reclamo por discriminación y daña la confianza en RR.HH.",law:"Constitución, art. 2.2 (igualdad); Ley 26772 (no discriminación en el acceso al empleo); Ley 30709 (igualdad entre varones y mujeres).",ok:"Mantener criterios iguales para todos, documentar y ofrecer al jefe ver la evidencia."}, pro:"RR.HH. no es un ejecutor de preferencias personales. Excluir a una candidata por tener hijos o por su sexo es discriminación en el acceso al empleo. Ceder aquí también enseña al jefe que el criterio de RR.HH. es negociable."},
    {id:"b", label:"Mantenerla en la terna y explicarle a Walter, con calma, que la decisión se basará en evidencia de competencias; ofrecerle ver la entrevista de ella el jueves.", fx:{confianza:-3,cumplimiento:10,personas:6,calidad:6,agenda:-4}, sig:{per:2,nor:2,res:2}, q:"buena", set:["defendio"], tags:["negociar","normativa"],
+    mind:{ok:"Paso a paso: 1) no discutir la intención de Walter, sino el criterio; 2) recordar el perfil aprobado: Mendoza no cumple la supervisión formal; 3) ofrecer evidencia: que vea la entrevista el jueves; 4) informar a tu jefa por escrito, con hechos y sin adjetivos.",risk:"Que Walter sienta que RR.HH. lo acusa: habla de método y de riesgo para la empresa, no de su moral.",law:"Constitución, art. 2.2 (igualdad); Ley 26772 (no discriminación en el acceso al empleo); Ley 30709 (igualdad entre varones y mujeres)."},
     out:"Walter refunfuña: «Bueno, pero si no aguanta, es tu responsabilidad». Le dices que la evaluación será con los mismos criterios para los tres. Después informas a Rocío en un correo breve, sin adjetivos.",
     pro:"El argumento que funciona con jefes operativos no es el sermón, es el método: mismos criterios, misma entrevista, evidencia escrita. Dejar constancia con tu jefa protege a la empresa y a ti. Mendoza no cumple el requisito de supervisión: incluirlo por amistad debilita la terna."},
    {id:"c", label:"No discutir con Walter y escalar el caso a Rocío para que ella lo resuelva.", fx:{confianza:-2,cumplimiento:6,agenda:-2}, sig:{nor:1,pro:1}, q:"aceptable", tags:["coordinar"],
@@ -92,6 +104,7 @@ export default {
   choices:[
    {id:"a", label:"Usar tu plantilla para responder a los descartados y actualizar el tracker antes de almorzar.", fx:{agenda:-8,personas:8,calidad:4}, sig:{pro:2,per:1}, q:"buena", tags:["redactar","documentos"],
     out:"Almuerzas tarde y rápido. A las 13:30 todo el mundo tiene respuesta y tu tracker está al día; si Rocío pide el estado de los procesos, lo tienes en un minuto.",
+    mind:{ok:"Bloques fijos y plantillas para lo repetitivo; personalizar solo a quienes llegaron a entrevista.",risk:"Que el tracker desactualizado te haga dar a Rocío o a Walter un estado equivocado de los procesos.",info:"Revisa la plantilla antes de usarla: un «Estimado postulante» genérico a quien te dio dos horas de entrevista se siente como un portazo."},
     pro:"Responder a todos los postulantes cuida la marca empleadora: en una ciudad como Tacna, un candidato maltratado hoy es el cliente o el proveedor de mañana. Es tarea repetitiva, sí: por eso las profesionales tienen plantillas y bloques fijos para hacerla."},
    {id:"b", label:"Dejarlo para el viernes; hoy hay cosas más urgentes.", fx:{agenda:4,personas:-6}, sig:{pre:1}, q:"aceptable", set:["pendientes"], tags:["planificar"],
     out:"Ganas tiempo hoy. El viernes, la pila será más grande.",
@@ -100,6 +113,25 @@ export default {
     out:"Una postulante publica en un grupo de Facebook de empleos de Tacna que la empresa «ni siquiera responde». Tiene 40 comentarios.",
     pro:"Que una mala práctica sea común no la vuelve aceptable. El silencio hacia los candidatos es una de las quejas más frecuentes sobre los procesos de selección y daña la capacidad de atraer talento."}
   ]},
+ {id:"s6b", t:"13:15", ch:"correo", who:"fernando", to:"Analista de Selección", from:"Fernando Salas · Gerente Comercial", title:"«Ya hice el aviso, súbelo hoy»",
+  body:"<p>Fernando no esperó: redactó él mismo el aviso para la ruta de Ilo y te pide publicarlo hoy en Facebook y en las bolsas de empleo. «Lo copié de uno de la competencia, para no perder tiempo. Súbelo con el correo de RR.HH. como contacto.»</p><p class='small muted'>Si sale publicado con tu área como contacto, el aviso es responsabilidad de RR.HH.</p>",
+  type:"review", revisable:true,
+  review:{prompt:"Revisa el aviso antes de publicarlo.", title:"Aviso · Vendedores para la nueva ruta de Ilo", folio:"Borrador de Fernando", key:["l2","l7"], lines:[
+   {id:"l1", text:"Distribuidora de consumo masivo busca 3 vendedores para su nueva ruta en Ilo (bodegas y minimarkets).", why:"Describe la empresa y la vacante sin problemas."},
+   {id:"l2", text:"Requisito: varones de 22 a 30 años.", bad:true, why:"Sexo y edad no predicen el desempeño en ventas. Un aviso de empleo no puede contener requisitos discriminatorios (Ley 26772)."},
+   {id:"l3", text:"Experiencia mínima de un año en venta a bodegas o canal tradicional.", why:"Requisito vinculado al puesto."},
+   {id:"l4", text:"Licencia de conducir vigente para moto: la ruta se cubre en moto de la empresa.", why:"Es una condición real del puesto, no una preferencia."},
+   {id:"l5", text:"Enviar CV con foto de cuerpo entero e indicar estado civil.", bad:true, why:"Ni la foto de cuerpo entero ni el estado civil sirven para evaluar a un vendedor. Pedirlos abre la puerta a decidir por apariencia o situación familiar, y recoge datos que no son necesarios para la finalidad del proceso (principio de proporcionalidad de la Ley 29733)."},
+   {id:"l6", text:"Buena presencia indispensable.", bad:true, why:"«Buena presencia» es un filtro subjetivo que suele encubrir discriminación por apariencia u origen. Si lo que se busca es trato con clientes, se describe la competencia: comunicación y trato cordial."},
+   {id:"l7", text:"Abstenerse postulantes de otras regiones.", bad:true, why:"Excluir por lugar de origen es discriminatorio. Lo legítimo es pedir disponibilidad para trabajar en Ilo."},
+   {id:"l8", text:"Sueldo básico S/ 1,100 más comisiones.", bad:true, why:"La RMV vigente es S/ 1,230 desde el 1 de octubre de 2026. No publiques un monto por debajo del mínimo: primero valida con planillas cómo se garantiza que la remuneración nunca quede por debajo de la RMV."},
+   {id:"l9", text:"Ingreso a planilla desde el primer día, con beneficios de ley.", why:"Correcto y, además, atractivo para el candidato."},
+   {id:"l10", text:"Postula hasta el viernes por el formulario de la empresa, indicando «Vendedor Ilo».", why:"Canal formal: permite informar para qué se usarán los datos."}]},
+  fxBy:{buena:{cumplimiento:10,calidad:6,confianza:2,agenda:-4},aceptable:{cumplimiento:3,agenda:-4},riesgosa:{cumplimiento:-12,personas:-6,agenda:-4}},
+  sig:{nor:3,pro:2,per:1}, tags:["normativa","redactar","analizar"],
+  outBy:{buena:"Le devuelves el aviso corregido con una línea por cada cambio: «varones de 22 a 30» pasa a «disponibilidad para ruta en moto»; «buena presencia», a «trato cordial con clientes». Fernando responde: «Ya, tú sabes. Pero que salga hoy». Sale a las 15:00.",aceptable:"Corriges lo más evidente, pero se te pasa un requisito problemático. Una postulante lo comenta en los comentarios de Facebook.",riesgosa:"El aviso sale casi como lo escribió Fernando. En dos horas tiene capturas en un grupo de empleos de Tacna con el comentario «¿en pleno 2026?»."},
+  pro:"Revisar un aviso es preguntarse, línea por línea: ¿esto predice el desempeño en el puesto? Lo que no lo predice y además excluye a un grupo (sexo, edad, origen, apariencia) no puede quedar. El trabajo de RR.HH. no es borrar el pedido del gerente, sino traducirlo a requisitos legítimos.",
+  mind:{ok:"Paso a paso: 1) leer cada línea con la pregunta «¿predice desempeño?»; 2) traducir la intención del gerente a requisitos legítimos («joven» suele querer decir «disponible para ruta en moto»); 3) verificar los montos con planillas; 4) devolverlo con una explicación breve, no con un sermón.",risk:"Publicar con el correo de RR.HH. un aviso que no revisaste: frente a un reclamo, la empresa no podrá decir que «lo hizo el gerente».",law:"Ley 26772: las ofertas de empleo no pueden contener requisitos discriminatorios. RMV vigente: S/ 1,230.",info:"Si copiaron el aviso de la competencia, revisa también que no tenga su logo, su dirección ni sus beneficios."}},
  {id:"s7", t:"14:30", ch:"llamada", from:"Exjefe de Marco Ticona · Referencia laboral", title:"Una referencia ambigua", av:{g:"m",s:2,h:"calvo",hc:4,age:"mayor"},
   dlg:[{me:true,text:"Buenas tardes, le llamo de Distribuidora Pacífico Sur. Marco Ticona nos autorizó a verificar sus referencias. ¿Tiene cinco minutos?"},{who:"Exjefe de Marco",text:"Sí, claro. Marco es muy bueno en lo técnico, ordenado, el almacén funcionaba."},{who:"Exjefe de Marco",text:"Renunció porque tuvo problemas con el gerente nuevo… bueno, yo no me meto en eso."}],
   after:"<p class='small muted'>Marco autorizó por escrito la verificación de referencias en su ficha de postulación.</p>",
@@ -114,6 +146,7 @@ export default {
     pro:"Una referencia ambigua es un dato a contrastar, no un veredicto. Decidir con una sola fuente y sin escuchar al candidato es injusto con él y malo para la empresa."},
    {id:"b", label:"Contrastar: una segunda referencia y la versión de Marco en la entrevista, con una pregunta conductual sobre desacuerdos con su jefe.", fx:{calidad:8,agenda:-5,cumplimiento:2}, sig:{dat:1,per:1,pro:1}, q:"buena", tags:["entrevistar","investigar"],
     out:"En la entrevista Marco cuenta que se opuso a que su equipo hiciera sobretiempo sin pago y que, cuando no logró cambiarlo, renunció. Su relato coincide con el de las referencias.",
+    mind:{ok:"Paso a paso: 1) al menos dos fuentes; 2) preguntas sobre hechos laborales verificables (equipo, resultados, motivo de salida); 3) contrastar con la versión del candidato; 4) anotar qué dijo cada fuente y qué es opinión.",risk:"Que una referencia castigue a quien defendió a su equipo: lo que para un exjefe es «problema con el gerente» puede ser integridad. También es un riesgo preguntar por salud, vida privada o afiliación sindical.",law:"La verificación de referencias requiere autorización del candidato y debe limitarse a información laboral pertinente (Ley 29733)."},
     pro:"Triangular fuentes es la regla de oro con referencias. Y recuerda que la verificación solo procede con autorización del candidato y debe limitarse a información laboral pertinente."},
    {id:"c", label:"Ignorar la referencia: lo técnico es lo que importa.", fx:{calidad:-2}, sig:{dat:1}, q:"aceptable", tags:[],
     out:"Sigues adelante, pero si Marco realmente tuviera problemas de relación, lo sabrías tarde.",
@@ -134,6 +167,12 @@ export default {
   mind:{ok:"Presentar el paquete completo por escrito, con cifras verificables.",risk:"Prometer montos exactos de CTS antes de calcular la remuneración computable real (puede incluir otros conceptos).",law:"Ley 27735 (gratificaciones), Ley 30334 (bonificación 9%), D.S. 001-97-TR (CTS).",info:"Si el candidato tiene hijos, la asignación familiar cambia la base de todos estos cálculos."}},
  {id:"s8", t:"16:00", ch:"reunion", from:"Rocío Mamani · Jefa de RR.HH.", title:"La oferta",
   body:"<p>Tras las entrevistas, tu evaluación queda así: <b>Marco 4.4/5</b>, <b>Patricia 4.1/5</b>, <b>Lucía 3.8/5</b>. Marco pide S/ 4,200; la banda llega a S/ 3,900. Patricia pide S/ 3,700 y necesita tres semanas para mudarse; el inventario empieza en 12 días. Rocío te pregunta: «¿Qué propones?»</p>",
+  ask:{prompt:"Antes de proponer puedes revisar:", max:2, opts:[
+   {id:"eqi", label:"Cuánto ganan los otros supervisores", info:"Los dos supervisores de almacén actuales ganan S/ 3,600 y S/ 3,750; ambos con más de cuatro años en la empresa y evaluaciones buenas."},
+   {id:"disp", label:"Cuándo puede empezar cada finalista", info:"Marco está sin empleo desde agosto: empieza en cuanto tenga el examen médico y firme. Patricia debe presentar su renuncia con 30 días de anticipación (su empleador podría exonerarla) y mudarse desde Ica: en el mejor caso, llega en tres semanas."},
+   {id:"paq", label:"Qué incluye el paquete además del sueldo", info:"EPS con la mayor parte de la prima a cargo de la empresa, almuerzo en comedor, bono anual por inventario sin diferencias (sujeto a resultados) y revisión salarial a los 12 meses."}
+  ]},
+  mind:{ok:"Paso a paso: 1) la banda es la regla; la excepción se sustenta y la aprueba Gerencia; 2) mirar la equidad interna (3,600 y 3,750 con más antigüedad); 3) negociar en compensación total anual; 4) llamar al primero con el plan B ya conversado.",risk:"Pagar fuera de banda a un recién llegado sin aprobación: mañana tienes dos reclamos de supervisores con más años.",law:"La Ley 30709 prohíbe la discriminación remunerativa entre varones y mujeres y exige que las diferencias se expliquen con criterios objetivos (cuadro de categorías y funciones).",info:"Si Marco no acepta, ¿Patricia llega a tiempo? Con 30 días de preaviso, probablemente no: el inventario arrancaría con un supervisor interino."},
   choices:[
    {id:"a", label:"Ofrecer a Marco los S/ 4,200: es el mejor y no hay tiempo.", fx:{calidad:2,cumplimiento:-8,confianza:-6}, sig:{res:1,pre:1}, q:"riesgosa", tags:["negociar"],
     out:"Rocío te frena: «Si pagamos 4,200 a un supervisor nuevo, ¿qué les digo a los otros dos supervisores que ganan 3,600? Mañana tengo dos reclamos». Además no tienes autorización.",
@@ -145,6 +184,25 @@ export default {
     out:"Patricia acepta, pero llega tres semanas después: el inventario arranca sin supervisor y Walter lo cubre él solo otra vez.",
     pro:"Decidir solo por facilidad de negociación ignora la restricción que más importaba aquí: la fecha. Antes de descartar al primero, se intenta cerrar con él."}
   ]},
+ {id:"s8b", if:"ofertaok", t:"16:35", ch:"chat", who:"rocio", from:"Rocío Mamani · Jefa de RR.HH.", title:"«Si Marco acepta, que llegue listo»",
+  msgs:[{text:"Aprobado lo de los 3,900 👍",t:"16:31"},{text:"Si Marco acepta mañana, quiero el ingreso armado para que esté en el almacén antes del inventario.",t:"16:32"},{text:"Pásame el orden de pasos. La vez pasada avisamos a los demás finalistas antes de que el elegido firmara… y se nos cayó 🙃",t:"16:34"}],
+  type:"order",
+  order:{prompt:"Ordena los pasos del ingreso de Marco, del primero al último.", mustTop:["ofe"],
+   items:[
+    {id:"ofe",label:"Enviar la carta oferta por escrito (puesto, remuneración, fecha de ingreso) y recibir su aceptación"},
+    {id:"med",label:"Coordinar el examen médico de ingreso que la empresa aplica para el puesto"},
+    {id:"con",label:"Firmar el contrato de trabajo y entregarle el Reglamento Interno"},
+    {id:"cie",label:"Comunicar el resultado a Patricia y Lucía, con agradecimiento y retroalimentación"},
+    {id:"alta",label:"Darlo de alta en el T-Registro el mismo día en que empieza a trabajar"},
+    {id:"sst",label:"Inducción de SST y entrega de EPP antes de que entre a la zona de almacén"},
+    {id:"eq",label:"Presentarlo al equipo y acordar con Walter su plan de los primeros 30 días (inventario incluido)"}],
+   ideal:["ofe","med","con","cie","alta","sst","eq"],
+   explain:{ofe:"Sin aceptación escrita no hay nada que organizar. La carta evita malentendidos sobre monto y fecha.",med:"Se agenda apenas acepta: es el paso que más demora y depende de la clínica.",con:"El contrato se firma antes de empezar; con él se entrega el Reglamento Interno.",cie:"Recién con el contrato firmado se comunica a los demás finalistas. Si lo haces antes y el elegido se cae, pierdes tu plan B.",alta:"El plazo es el mismo día del ingreso: no antes de que exista la relación, no después.",sst:"Nadie entra a una zona de riesgo sin inducción ni EPP. La Ley 29783 exige capacitar en SST al momento de la contratación.",eq:"La incorporación no termina en los papeles: el plan de 30 días con su jefe es lo que reduce la rotación temprana."}},
+  fxBy:{buena:{calidad:8,cumplimiento:6,confianza:4},aceptable:{calidad:2,cumplimiento:2},riesgosa:{cumplimiento:-8,calidad:-4}},
+  sig:{pro:3,nor:1,res:1}, tags:["planificar","coordinar","documentos"],
+  outBy:{buena:"Rocío: «Así sí. Agenda la clínica para mañana a primera hora». Marco empezaría el lunes y tendría tres días para conocer el almacén antes del inventario.",aceptable:"El orden funciona, pero un paso quedó fuera de lugar. Rocío lo mueve y te explica por qué.",riesgosa:"Con este orden, Marco podría pisar el almacén sin inducción o los demás finalistas sabrían el resultado antes de que él firme."},
+  pro:"El ingreso es una cadena: oferta, requisitos previos, contrato, comunicación al resto, alta, seguridad y equipo. Cada eslabón fuera de orden genera un riesgo distinto: legal (alta tardía), físico (sin inducción) o de negocio (perder al plan B).",
+  mind:{ok:"Paso a paso: 1) aceptación por escrito; 2) lo que más demora, primero (examen médico); 3) contrato antes del primer día; 4) recién entonces cerrar con los demás finalistas; 5) primer día: alta, SST, equipo.",risk:"Avisar a Patricia y a Lucía antes de que Marco firme. Si él se arrepiente, ya no tienes alternativa.",law:"Alta en el T-Registro el día de ingreso; capacitación de SST al momento de la contratación (Ley 29783).",info:"Pregunta a Marco si necesita algo para su primer día (horario de ingreso, movilidad, talla de EPP): son detalles que un nuevo supervisor recuerda."}},
  {id:"s9", t:"17:10", ch:"correo", from:"Para: Walter Quispe · CC: Rocío Mamani", title:"Redacta el informe de terna",
   body:"<p>Escribe el correo con el que presentas la terna a Walter (con copia a Rocío). Debe permitir decidir sin abrir otros archivos.</p>",
   type:"write",
@@ -170,6 +228,34 @@ export default {
    {id:"b", label:"No decir nada y esperar que todo salga rápido.", fx:{confianza:-14}, sig:{pre:1}, q:"riesgosa", tags:[],
     out:"El viernes no hay supervisor. Walter le dice a su gerente que «RR.HH. le mintió».",
     pro:"Ocultar un incumplimiento previsible convierte un problema de plazos en uno de confianza."}
-  ]}
+  ]},
+ {id:"s11", if:"defendio", t:"17:55", ch:"correo", who:"lucia", to:"Analista de Selección", from:"Lucía Flores · Postulante B", title:"«Me dijeron que ya eligieron»",
+  body:"<p>Buenas tardes. Un conocido que trabaja en su almacén me comentó que «ya está decidido» quién será el supervisor y que yo no quedé. ¿Es cierto? Si es así, me gustaría saber en qué debo mejorar. Gracias por la entrevista de hoy.</p><p class='small muted'>Marco aún no acepta la oferta. Nadie de RR.HH. ha comunicado resultados.</p>",
+  ask:{prompt:"Antes de responder puedes revisar una cosa:", max:1, opts:[
+   {id:"fuga", label:"Preguntarle a Walter si comentó la terna", info:"Walter, incómodo: «Lo comenté en el almacén con los muchachos, nomás… no pensé que le llegara». Ya sabes de dónde salió la fuga."},
+   {id:"notas", label:"Revisar tus notas de la entrevista de Lucía", info:"Fortalezas con evidencia: un control de vencimientos que redujo mermas y firmeza con un almacenero que firmaba guías sin contar. Brecha frente a los otros finalistas: un año liderando (ellos, cuatro y seis) y sin experiencia con WMS."}
+  ]},
+  choices:[
+   {id:"a", label:"Responderle con cordialidad que el proceso sigue en curso y que todos los finalistas recibirán el resultado por escrito esta semana; comprometer una retroalimentación basada en las competencias evaluadas y pedirle a Walter que no comente procesos abiertos.", fx:{personas:8,confianza:4,cumplimiento:4,agenda:-3}, sig:{per:2,pro:2,res:1}, q:"buena", tags:["atender","redactar"],
+    out:"Lucía responde: «Gracias por contestarme». El viernes, al cerrar el proceso, le das su retroalimentación: fortalezas concretas y la brecha de experiencia liderando. Te pregunta si puede postular a la próxima vacante de jefe de turno. Le dices que sí."},
+   {id:"b", label:"Contarle que el elegido es Marco Ticona y que ella quedó tercera.", fx:{cumplimiento:-10,confianza:-8,personas:-2}, sig:{per:1}, q:"riesgosa", tags:["atender"],
+    out:"Lucía lo agradece… y al día siguiente Marco, que aún no había aceptado, recibe el mensaje de un excompañero: «¿Así que te vas a Pacífico Sur?». Revelaste datos de otro candidato antes de cerrar."},
+   {id:"c", label:"No responder hasta que el proceso cierre.", fx:{personas:-6,agenda:2}, sig:{pro:1}, q:"aceptable", tags:[],
+    out:"Lucía no recibe respuesta y asume lo peor: que la descartaron por sus hijos. Se lo comenta a otras postulantes."}
+  ],
+  pro:"La retroalimentación a un finalista es parte del proceso, no un favor. Se da cuando el proceso cierra, sobre las competencias evaluadas y sin datos de otros candidatos. Mientras tanto, se responde: el silencio también comunica.",
+  mind:{ok:"Paso a paso: 1) no confirmar ni negar datos de otros candidatos; 2) dar una fecha concreta de respuesta; 3) al cierre, retroalimentación sobre competencias, nunca sobre características personales; 4) cerrar la fuga: quien participa del proceso no lo comenta.",risk:"El silencio, con una candidata a la que un jefe quiso excluir, alimenta la sospecha de discriminación aunque la decisión final haya sido justa.",law:"Los datos de los postulantes se tratan con confidencialidad y solo para la finalidad del proceso (Ley 29733)."}},
+ {id:"s11x", if:"excluyo", t:"17:55", ch:"llamada", who:"rocio", mood:"preocupado", from:"Rocío Mamani · Jefa de RR.HH.", title:"«¿Por qué sacaste a Lucía Flores?»",
+  dlg:[{who:"Rocío Mamani",text:"Me acaba de llamar Lucía Flores. Dice que alguien del almacén le contó que «el ingeniero no quiere mujeres con hijos» y que por eso la sacaron de la terna."},{who:"Rocío Mamani",text:"Ella ya tuvo su entrevista y tu nota fue buena. ¿Qué pasó? Necesito la verdad antes de devolverle la llamada."}],
+  choices:[
+   {id:"a", label:"Contarle exactamente lo que pasó (el pedido de Walter y que cediste), proponer reincorporar a Lucía a la evaluación final con los mismos criterios que a los demás y dejar constancia escrita.", fx:{confianza:4,cumplimiento:10,personas:6,agenda:-4}, sig:{res:3,nor:2,per:1}, q:"buena", tags:["normativa","coordinar"],
+    out:"Rocío respira hondo: «Gracias por decírmelo. Lo arreglamos hoy». Habla con Walter, Lucía vuelve a la terna y el jueves se evalúa a los tres con la misma guía. Te toca explicar tu error en la reunión de equipo: duele, pero se corrige."},
+   {id:"b", label:"Decirle que Lucía salió porque no alcanzó el puntaje.", fx:{confianza:-14,cumplimiento:-16}, sig:{}, q:"riesgosa", tags:[],
+    out:"Tus notas de entrevista dicen lo contrario. Cuando Rocío las revisa, el problema ya no es solo la discriminación: es que le mentiste."},
+   {id:"c", label:"Decirle que fue decisión de Walter y que tú solo la ejecutaste.", fx:{confianza:-4,cumplimiento:2}, sig:{pro:1}, q:"aceptable", tags:["coordinar"],
+    out:"Es verdad a medias. Rocío corrige el caso, pero te recuerda que el filtro lo firma RR.HH.: «Si un jefe te pide algo ilegal, me avisas en ese momento»."}
+  ],
+  pro:"Cuando te equivocas en algo con riesgo legal, lo que más daño hace es encubrirlo. Reconocer, corregir el efecto en la persona y documentar protege a la candidata, a la empresa y a ti.",
+  mind:{ok:"Paso a paso: 1) contar los hechos sin adornos; 2) corregir el efecto: reincorporar a la candidata con los mismos criterios; 3) documentar; 4) acordar con tu jefa cómo responder la próxima vez que un jefe presione.",risk:"Falsear el motivo de la exclusión convierte un error corregible en una falta de integridad.",law:"La Constitución (art. 2.2) reconoce el derecho a la igualdad; la Ley 26772 prohíbe la discriminación en el acceso al empleo."}}
  ]
 };
