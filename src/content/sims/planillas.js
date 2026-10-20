@@ -1,16 +1,22 @@
 /* Contenido migrado desde la versión original (legacy/index-original.html) y ampliado. */
 export default {
  id:"planillas", kind:"dia", scene:"oficina", orgType:"med", level:"entrada", title:"Un día como Asistente de Administración de Personal y Planillas", role:"asistente-personal",
- areas:["adm-personal","nomina","legajos","laboral"], sector:"privado", size:"Mediana empresa · 85 trabajadores", place:"Tacna", mins:22,
+ areas:["adm-personal","nomina","legajos","laboral"], sector:"privado", size:"Mediana empresa · 85 trabajadores", place:"Tacna", mins:30,
  hook:"Octubre de 2026: la Remuneración Mínima Vital acaba de subir, hay un ingreso hoy sin papeles completos y dos trabajadores no recibieron su sueldo por un error tuyo.",
  org:"<b>Comercial Ferrosur S.A.C.</b> (ficticia) vende materiales de construcción y ferretería en tres tiendas de Tacna. 85 trabajadores en régimen laboral general. La planilla se procesa en un software local y se declara en PLAME; la contabilidad la lleva una contadora interna.",
  you:"Eres asistente de administración de personal. Te encargas de ingresos, asistencia, novedades de planilla, consultas de trabajadores y legajos. Reportas al jefe de administración.",
  goal:"Mantener la planilla correcta y a tiempo, atender a los trabajadores y no generar contingencias legales.",
  limits:["Desde el 1 de octubre de 2026 la RMV es S/ 1,230 (D.S. 015-2026-TR).","El cierre de novedades de planilla de octubre es el día 25.","Trabajas sola en el área; tu jefe está en una auditoría hasta las 4 p.m."],
- people:[{id:"hector",n:"Héctor Valdivia",r:"Jefe de Administración",d:"Tu jefe; prefiere que le lleves soluciones.",av:{g:"m",s:2,h:"raya",hc:4,c:7,gl:true,age:"mayor"}},{id:"carmen",n:"Carmen Ayca",r:"Contadora",d:"Exigente con los plazos.",av:{g:"f",s:3,h:"melena",hc:0,c:0,gl:true}},{id:"diego",n:"Diego Choque",r:"Almacenero que ingresa hoy",d:"Datos ficticios.",av:{g:"m",s:4,h:"corto",hc:0,c:4,age:"joven"}},{id:"rosa",n:"Rosa Pari",r:"Cajera (T-031)",d:"Ficticia.",av:{g:"f",s:4,h:"trenza",hc:0,c:2}},{id:"jefet2",n:"Jefe de la Tienda 2",r:"Jefe de tienda",d:"Ficticio.",av:{g:"m",s:3,h:"corto",hc:1,c:3,b:true}},{id:"gg",n:"Gerente general",r:"Gerencia",d:"Ficticio.",av:{g:"m",s:1,h:"raya",hc:2,c:5,age:"adulto"}},{id:"wilmer",n:"Wilmer Condori",r:"Vendedor, Tienda 3",d:"Ficticio.",av:{g:"m",s:4,h:"rizado",hc:0,c:1}}],
+ people:[{id:"hector",n:"Héctor Valdivia",r:"Jefe de Administración",d:"Tu jefe; prefiere que le lleves soluciones.",av:{g:"m",s:2,h:"raya",hc:4,c:7,gl:true,age:"mayor"}},{id:"carmen",n:"Carmen Ayca",r:"Contadora",d:"Exigente con los plazos.",av:{g:"f",s:3,h:"melena",hc:0,c:0,gl:true}},{id:"diego",n:"Diego Choque",r:"Almacenero que ingresa hoy",d:"Datos ficticios.",av:{g:"m",s:4,h:"corto",hc:0,c:4,age:"joven"}},{id:"rosa",n:"Rosa Pari",r:"Cajera (T-031)",d:"Ficticia.",av:{g:"f",s:4,h:"trenza",hc:0,c:2}},{id:"jefet2",n:"Jefe de la Tienda 2",r:"Jefe de tienda",d:"Ficticio.",av:{g:"m",s:3,h:"corto",hc:1,c:3,b:true}},{id:"gg",n:"Gerente general",r:"Gerencia",d:"Ficticio.",av:{g:"m",s:1,h:"raya",hc:2,c:5,age:"adulto"}},{id:"wilmer",n:"Wilmer Condori",r:"Vendedor, Tienda 3",d:"Ficticio.",av:{g:"m",s:4,h:"rizado",hc:0,c:1}},{id:"teodoro",n:"Teodoro Maquera",r:"Jefe de Almacén",d:"Ficticio. Directo y apurado.",av:{g:"m",s:3,h:"corto",hc:1,c:4,acc:"chaleco",age:"adulto"}},{id:"pedro",n:"Pedro Ancco",r:"Vendedor, Tienda 3",d:"Ficticio.",av:{g:"m",s:5,h:"corto",hc:0,c:3,age:"joven"}}],
  nodes:[
  {id:"p1", t:"08:00", ch:"sistema", from:"Reporte del reloj biométrico", title:"Marcaciones de ayer",
   body:"<p>El reporte muestra <b>6 marcaciones incompletas</b> (entradas sin salida) y <b>2 tardanzas de más de 15 minutos</b>. El Reglamento Interno de Trabajo dice que las tardanzas no justificadas se descuentan proporcionalmente y que las omisiones de marcación deben justificarse con el jefe inmediato en 48 horas.</p>",
+  ask:{prompt:"Antes de decidir puedes revisar:", max:2, opts:[
+   {id:"falla", label:"El registro de incidencias del biométrico", info:"Mantenimiento anotó el jueves: «Lector de la Tienda 2 no reconoce algunas huellas desde que lo movieron de pared». Cuatro de las seis omisiones son de la Tienda 2."},
+   {id:"quien", label:"Quiénes tienen las tardanzas", info:"Las dos tardanzas son de la misma persona, que en agosto pidió por escrito un cambio de horario por estudios. Nadie le respondió."},
+   {id:"hist", label:"Cómo se manejó el mes pasado", info:"En setiembre se descontó todo «de frente» al cierre y hubo nueve reclamos; tres terminaron en devolución en la planilla siguiente."}
+  ]},
+  mind:{ok:"Paso a paso: 1) separar fallas del sistema de conductas; 2) aplicar el plazo de justificación que el propio RIT establece; 3) llevar un control con estado (pendiente, justificado, descontado); 4) descontar solo lo que quedó sin justificar.",risk:"Descontar por una falla del lector o ignorar un pedido de cambio de horario que nadie respondió: ambos generan reclamos legítimos.",law:"El empleador debe llevar un registro de control de asistencia que refleje la jornada real (D.S. 004-2006-TR); los descuentos se aplican según el Reglamento Interno.",info:"Si la Tienda 2 concentra las omisiones, pide a mantenimiento revisar el lector antes de que el problema se repita en el cierre."},
   choices:[
    {id:"a", label:"Enviar a cada jefe de tienda la lista de su personal con omisiones y tardanzas, pidiendo justificación en 48 horas, y registrar el estado en tu control.", fx:{cumplimiento:6,agenda:-6,calidad:4}, sig:{pro:3,nor:1}, q:"buena", tags:["documentos","coordinar"],
     out:"Tres jefes responden antes del mediodía. Una omisión era una salida de emergencia por un familiar enfermo: bien que no la descontaste.",
@@ -30,11 +36,13 @@ export default {
   choices:[
    {id:"a", label:"Darle de alta hoy en el T-Registro con los datos que tienes, entregarle por escrito la lista de documentos faltantes con fecha límite y dejar la asignación familiar pendiente hasta que traiga la partida.", fx:{cumplimiento:10,agenda:-6,personas:4}, sig:{pro:2,nor:2,res:1}, q:"buena", set:["altaok"], tags:["documentos","normativa"],
     out:"Diego empieza a las 9:00 en el almacén. Se lleva la lista y vuelve el viernes con todo.",
+    mind:{ok:"Paso a paso: 1) alta el mismo día con los datos disponibles (DNI y contrato bastan para empezar); 2) lista escrita de faltantes con fecha límite; 3) asignación familiar desde que acredite el derecho; 4) registrar el seguimiento en tu control.",risk:"Que trabaje «unos días» sin registro: si hay un accidente, no figura como trabajador y la empresa responde sin cobertura.",law:"Alta en el T-Registro dentro del día de ingreso (orientación de SUNAT). Asignación familiar: Ley 25129, 10% de la RMV (S/ 123).",info:"Pregúntale a Diego si ya eligió sistema pensionario: si no lo hace, hay reglas para la elección y conviene explicárselas hoy."},
     pro:"El alta no espera a que el legajo esté perfecto: el plazo es el día de ingreso. Lo faltante se gestiona con seguimiento y fecha límite. La asignación familiar se paga desde que se acredita el derecho."},
    {id:"b", label:"Que empiece a trabajar y lo das de alta cuando complete los documentos.", fx:{agenda:2,cumplimiento:-14}, sig:{}, q:"riesgosa", set:["sinalta"], tags:[],
     out:"Diego trabaja sin estar registrado. Si sufre un accidente en el almacén esta semana, no figura como trabajador ante SUNAT ni EsSalud.",
     pro:"Trabajar sin registro es la definición de informalidad, aunque sea por días. Expone al trabajador (sin cobertura) y a la empresa (infracción y responsabilidad por el accidente)."},
    {id:"c", label:"No dejarlo empezar hasta que traiga todo.", fx:{confianza:-8,personas:-6,cumplimiento:2}, sig:{pro:2}, q:"aceptable", tags:["documentos"],
+    mind:{ok:"Separar lo que la norma exige hoy (alta) de lo que se puede completar con seguimiento (legajo).",risk:"Bloquear el ingreso traslada el problema a operaciones y no mejora el cumplimiento."},
     out:"El jefe del almacén te llama molesto: hoy llegan dos camiones de cemento y contaba con Diego.",
     pro:"Ser rigurosa está bien, pero la norma no exige el legajo completo para empezar; exige registrar. Bloquear el ingreso traslada el problema a operaciones sin necesidad."}
   ]},
@@ -62,11 +70,28 @@ export default {
   outBy:{buena:"Carmen: «Cuadra al sol». Te pide que guardes la hoja como sustento del cierre.",aceptable:"Carmen encuentra una diferencia y te la devuelve con un círculo rojo.",riesgosa:"Tu cifra no cuadra con la de contabilidad: el cierre se retrasa un día."},
   pro:"Un reajuste no termina en «quién cambia»: hay que cuantificarlo para que contabilidad provisione y para que la planilla y la contabilidad concilien.",
   mind:{ok:"Guardar la hoja de cálculo como sustento y conciliar con contabilidad antes del cierre.",risk:"Olvidar a quienes tienen jornada parcial o la asignación familiar de quienes ganan bien.",law:"D.S. 015-2026-TR (RMV S/ 1,230 desde el 1 de octubre de 2026); Ley 25129 (asignación familiar)."}},
+ {id:"p3r", t:"10:10", ch:"sistema", from:"Software de planillas · Vista previa", title:"La boleta de prueba de T-014",
+  body:"<p>Antes del cierre generas una boleta de prueba de octubre para <b>T-014</b> (vendedor de mostrador, con hijos, afiliado a la ONP). En octubre hizo <b>4 horas extras</b> autorizadas por escrito: 2 horas el día 8 y 2 horas el día 15. El proveedor del software te advirtió que «el parche del reajuste se carga el viernes».</p>",
+  type:"review", revisable:true,
+  review:{prompt:"Revisa la boleta antes de aprobar el cierre.", title:"Boleta de pago · octubre 2026 · T-014 (borrador)", folio:"Vista previa del sistema", key:["l3","l6"], lines:[
+   {id:"l1", text:"Trabajador: T-014 · Vendedor de mostrador · Régimen general · Sistema pensionario: ONP", why:"Datos de cabecera correctos."},
+   {id:"l2", text:"Periodo: 1 al 31 de octubre de 2026 · Abono en la cuenta sueldo registrada", why:"Sin problema."},
+   {id:"l3", text:"Remuneración básica: S/ 1,230.00 · Asignación familiar: S/ 113.00", bad:true, why:"El básico ya refleja la nueva RMV, pero la asignación familiar sigue con el 10% de la RMV anterior. Desde octubre es S/ 123.00."},
+   {id:"l4", text:"Horas extras (4 h al 25%): S/ 25.63", bad:true, why:"El software calculó el valor hora solo con el básico (1,230 ÷ 30 ÷ 8 = 5.125). Se calcula con básico + asignación familiar: (1,230 + 123) ÷ 30 ÷ 8 = 5.6375; con 25% = 7.0469; × 4 horas = S/ 28.19."},
+   {id:"l5", text:"Descuento ONP (13%): calculado sobre básico y asignación familiar, sin incluir las horas extras", bad:true, why:"Las horas extras son remuneración y forman parte de la base del aporte: el 13% se aplica sobre todo lo remunerativo del mes."},
+   {id:"l6", text:"Descuento EsSalud (9%): retenido de la remuneración del trabajador", bad:true, why:"EsSalud es un aporte de cargo del empleador: no se descuenta al trabajador. En la boleta figura como aporte del empleador."},
+   {id:"l7", text:"Sin retención de renta de quinta categoría", why:"Con esa remuneración anual no corresponde retención."}]},
+  fxBy:{buena:{calidad:10,cumplimiento:8},aceptable:{calidad:3,cumplimiento:2},riesgosa:{calidad:-6,cumplimiento:-8,personas:-4}},
+  sig:{dat:3,pro:2,nor:1}, tags:["calcular","documentos","normativa"],
+  outBy:{buena:"Marcas los cuatro errores y le escribes al proveedor con capturas. Mientras llega el parche, dejas los ajustes manuales documentados. Carmen: «Esto me ahorra un rectificatorio del PLAME».",aceptable:"Detectas parte de los errores. El resto lo encuentra Carmen al cuadrar, con un día menos de margen.",riesgosa:"La boleta sale con descuentos indebidos. T-014 reclama en noviembre y hay que reprocesar a toda la tienda."},
+  pro:"El software calcula lo que le configuraron. Por eso la boleta de prueba se revisa línea por línea con tres preguntas: ¿los montos usan los parámetros vigentes?, ¿la base de cada cálculo es la correcta?, ¿cada concepto está a cargo de quien corresponde?",
+  mind:{ok:"Paso a paso: 1) parámetros vigentes (RMV y asignación familiar); 2) bases de cálculo (valor hora con básico + asignación familiar; aportes sobre todo lo remunerativo); 3) quién asume cada concepto (ONP, trabajador; EsSalud, empleador); 4) documentar los ajustes manuales hasta que el sistema se corrija.",risk:"Confiar en que «el sistema ya lo hace»: un parámetro desactualizado se replica en las 85 boletas.",law:"Horas extras: sobretasa mínima de 25% las dos primeras horas y 35% las siguientes. ONP: 13% a cargo del trabajador. EsSalud: 9% a cargo del empleador.",info:"Si una boleta tiene estos errores, revisa al menos una de cada tienda y una de cada tipo de jornada antes de aprobar el cierre."}},
  {id:"p4", t:"10:30", ch:"whatsapp", who:"rosa", from:"Rosa Pari · Cajera (T-031)", title:"«¿Cuánto me toca de gratificación?»",
   msgs:[{text:"Buenos días señorita, disculpe que le escriba por aquí 🙏",t:"10:27"},{text:"Una consulta: entré en mayo, ¿me toca gratificación completa en diciembre o solo una parte?",t:"10:28"},{text:"Es para saber si me alcanza para un préstamo en la caja municipal",t:"10:30"}],
   choices:[
    {id:"a", label:"«Te corresponde la gratificación de diciembre completa si laboras todo el semestre de julio a diciembre, más la bonificación extraordinaria del 9%. Te paso el estimado con tu remuneración actual y te confirmo el monto final en tu boleta.»", fx:{personas:8,cumplimiento:4,agenda:-3}, sig:{per:2,nor:2}, q:"buena", tags:["atender","normativa"],
     out:"Rosa agradece. Le envías el cálculo: S/ 1,350 + S/ 123 de asignación familiar = S/ 1,473 de gratificación, más 9% (S/ 132.57).",
+    mind:{ok:"Paso a paso: 1) ubicar el semestre que corresponde (julio a diciembre); 2) verificar la remuneración computable (básico + asignación familiar); 3) sumar la bonificación extraordinaria; 4) dar un estimado por escrito y aclarar que el monto final sale en la boleta.",risk:"Responder rápido y mal: la trabajadora toma una decisión financiera con tu dato.",law:"Ley 27735 (gratificaciones de julio y diciembre); Ley 30334 (bonificación extraordinaria de 9%, o 6.75% si la trabajadora está afiliada a una EPS).",info:"Confirma que Rosa no tenga licencias sin goce u otros días no computables en el semestre: cambian el cálculo."},
     pro:"La gratificación de diciembre (Ley 27735) se calcula sobre el semestre julio–diciembre: quien ingresó en mayo completa ese semestre. Responder con precisión, pero sin comprometer un monto exacto antes del cálculo final, genera confianza y evita malentendidos."},
    {id:"b", label:"«Como entraste en mayo te toca solo la mitad.»", fx:{personas:-6,cumplimiento:-4}, sig:{per:1}, q:"riesgosa", tags:["atender"],
     out:"Rosa toma un préstamo menor del que necesitaba. En diciembre recibe más de lo que le dijiste y te pregunta, con razón, por qué le informaste mal.",
@@ -81,6 +106,7 @@ export default {
   choices:[
    {id:"a", label:"Explicarle al jefe que hay un descanso médico, registrarlo como tal, pedir a Ramírez el certificado original al reincorporarse y no aplicar descuento ni amonestación.", fx:{personas:8,cumplimiento:8,confianza:-2,agenda:-3}, sig:{per:1,nor:2,pro:2}, q:"buena", tags:["atender","normativa","coordinar"],
     out:"El jefe dice que «estos siempre se enferman los lunes». Le pides que, si sospecha algo, lo canalice formalmente; mientras tanto, el certificado es válido.",
+    mind:{ok:"Paso a paso: 1) verificar la información completa antes de ejecutar una sanción; 2) registrar el descanso médico; 3) explicarle al jefe por qué no hay descuento; 4) si hay sospecha, verificar con la clínica por la vía formal.",risk:"Sancionar por estar enfermo, o dejar al jefe sin explicación y que se entere por la boleta.",law:"Los primeros 20 días de incapacidad en el año los paga el empleador; desde el día 21 corresponde el subsidio de EsSalud.",info:"Si los descansos de Ramírez en el año se acercan a 20 días, el certificado particular deberá canjearse en EsSalud para tramitar el subsidio."},
     pro:"Un descanso médico justifica la inasistencia; descontar o sancionar por eso sería indebido. Si hay sospecha de certificados falsos, se verifica con la clínica de forma formal, no se presume."},
    {id:"b", label:"Hacer lo que pide el jefe: él conoce a su personal.", fx:{personas:-12,cumplimiento:-10,confianza:4}, sig:{}, q:"riesgosa", tags:[],
     out:"Ramírez recibe una amonestación por estar enfermo. Presenta su reclamo con el certificado y la empresa tiene que anularla.",
@@ -89,6 +115,18 @@ export default {
     out:"El jefe se entera en la boleta de que no hubo descuento y siente que lo ignoraste.",
     pro:"Hacer lo correcto también incluye comunicarlo. Los jefes necesitan entender por qué una regla se aplica de cierta forma."}
   ]},
+ {id:"p2b", if:"sinalta", t:"11:45", ch:"llamada", who:"teodoro", mood:"preocupado", from:"Teodoro Maquera · Jefe de Almacén", title:"«El nuevo se cortó la mano»",
+  dlg:[{who:"Teodoro Maquera",text:"Oye, el nuevo, Diego, se cortó la mano con el fleje de una paleta de cemento. Le sangra harto."},{who:"Teodoro Maquera",text:"Lo iba a llevar a EsSalud, pero los chicos dicen que todavía no figura en ningún lado. ¿Qué hago? ¿Lo mando a su casa?"}],
+  choices:[
+   {id:"a", label:"Que lo lleven de inmediato a atención médica (la empresa asume el costo si hace falta), darlo de alta hoy mismo en el T-Registro con su fecha real de ingreso, registrar el accidente e informar a Héctor de todo, incluido tu error de la mañana.", fx:{cumplimiento:6,personas:10,confianza:2,agenda:-8}, sig:{res:3,nor:2,per:1}, q:"buena", tags:["normativa","coordinar","documentos"],
+    out:"Diego recibe cuatro puntos en la mano. El alta queda registrada hoy con su fecha real: como el plazo vence al final del día de ingreso, todavía estás dentro, aunque al límite. Héctor: «Esto no puede volver a pasar, pero hiciste bien en decírmelo»."},
+   {id:"b", label:"Darlo de alta con fecha de mañana, para que el accidente «no sea de la empresa».", fx:{cumplimiento:-20,confianza:-10}, sig:{}, q:"riesgosa", tags:[],
+    out:"La fecha del registro no cambia lo que pasó: Diego estaba trabajando, con testigos y cámaras en el almacén. Ahora además hay un dato falso en un registro oficial."},
+   {id:"c", label:"Mandarlo a su casa para que se atienda por su cuenta y darlo de alta mañana.", fx:{personas:-14,cumplimiento:-12}, sig:{}, q:"riesgosa", tags:[],
+    out:"La herida se infecta. Diego no vuelve el viernes y su familia llama a preguntar quién paga la clínica. El alta de mañana ya será tardía."}
+  ],
+  pro:"Un error de registro se corrige con la verdad y a tiempo, no con otra irregularidad. Primero la persona, después el papel: atención médica, alta con la fecha real, registro e investigación del accidente.",
+  mind:{ok:"Paso a paso: 1) primero la atención de la persona; 2) regularizar hoy con datos verdaderos; 3) registrar e investigar el accidente (fleje sin guantes, ¿falta de EPP o de inducción?); 4) informar al jefe, incluido el propio error.",risk:"Alterar fechas en un registro oficial convierte una omisión de horas en una falta grave de integridad.",law:"Alta en el T-Registro dentro del día de ingreso. Los accidentes de trabajo se registran e investigan conforme a la Ley 29783.",info:"Pregunta si Diego recibió inducción de seguridad y guantes antes de manipular paletas: probablemente no."}},
  {id:"p6", t:"12:10", ch:"whatsapp", who:"wilmer", mood:"preocupado", from:"Wilmer Condori · Vendedor, Tienda 3", title:"«No nos llegó el sueldo»", guide:{mood:"preocupado", say:"Uy. Revisa el archivo del banco antes de responder… y prepárate: a veces el error es nuestro."},
   msgs:[{text:"Señorita buenas tardes",t:"12:08"},{text:"A mí y a Pedro no nos depositaron 😟 los demás sí cobraron",t:"12:09"},{text:"Tengo que pagar el alquiler hoy, la dueña ya me escribió",t:"12:10"}],
   after:"<p>Revisas el archivo que enviaste al banco: copiaste mal dos números de cuenta al actualizar la base la semana pasada. <b>El error es tuyo.</b></p>",
@@ -100,7 +138,20 @@ export default {
    {id:"c", label:"Pagarles hoy con un pago manual, sin contarle a tu jefe para no quedar mal.", fx:{personas:8,confianza:-4,calidad:-2,agenda:-6}, sig:{res:1}, q:"aceptable", tags:["coordinar"],
     out:"El problema se resuelve, pero tesorería le pregunta a Héctor por qué hubo un pago fuera de fecha. Él se entera por otro lado."}
   ],
+  mind:{ok:"Paso a paso: 1) confirmar la causa en el archivo antes de responder; 2) resolver hoy el impacto en las personas (pago manual); 3) informar a tu jefe con la causa y la solución; 4) cambiar el proceso: doble verificación de cuentas.",risk:"Culpar al banco: el trabajador lo verifica en diez minutos y la credibilidad del área cae.",law:"La remuneración se paga en la oportunidad pactada; un error administrativo del empleador no la posterga."},
   pro:"La remuneración se paga en la fecha acordada; un error en el abono no cambia esa obligación. En administración de personal los errores son inevitables: lo profesional es reconocerlos, corregir el impacto en las personas hoy y cambiar el proceso para que no se repita."},
+ {id:"p6x", if:"error", t:"13:40", ch:"whatsapp", who:"pedro", from:"Pedro Ancco · Vendedor, Tienda 3", title:"«Me cobraron penalidad»",
+  msgs:[{text:"Señorita, ya me llegó el pago, gracias 🙏",t:"13:36"},{text:"Pero como ayer no tenía saldo, mi cuota de la caja rebotó y me cobraron S/ 35 de penalidad 😔",t:"13:37"},{text:"Le mando la captura. ¿Eso lo ven ustedes o me lo como yo?",t:"13:40"}],
+  choices:[
+   {id:"a", label:"Pedirle el comprobante de la penalidad y proponer a Héctor reembolsarla como un gasto causado por el error de la empresa, con sustento escrito; preguntarle también a Wilmer si tuvo un costo similar.", fx:{personas:8,confianza:4,agenda:-3}, sig:{res:2,per:2}, q:"buena", tags:["atender","coordinar"],
+    out:"Héctor aprueba el reembolso: «Es lo justo, el error fue nuestro». Wilmer confiesa que su casera le cobró mora por el alquiler; también le reembolsan, con recibo."},
+   {id:"b", label:"«Eso ya es tema tuyo con la caja.»", fx:{personas:-10,confianza:-4}, sig:{}, q:"riesgosa", tags:[],
+    out:"Pedro paga la penalidad. En la Tienda 3 se comenta que «Administración se equivoca y el que paga es uno»."},
+   {id:"c", label:"Pagárselo de tu bolsillo para cerrar el tema.", fx:{personas:4,confianza:-2,agenda:-1}, sig:{res:1}, q:"aceptable", tags:[],
+    out:"Pedro queda tranquilo, pero el costo de un error de proceso se pagó sin registro: la organización no aprende y tú cargas con algo que no te corresponde."}
+  ],
+  pro:"Hacerse cargo de un error incluye sus efectos en las personas, no solo el pago tardío. Un reembolso pequeño, sustentado y aprobado por quien corresponde dice más sobre el área que cualquier comunicado.",
+  mind:{ok:"Paso a paso: 1) pedir sustento del costo; 2) proponerlo por el canal formal, con aprobación; 3) revisar si hay otros afectados; 4) incluirlo en el informe del incidente para justificar el control nuevo.",risk:"Resolverlo «por debajo de la mesa»: el incidente desaparece de los registros y el proceso no cambia.",info:"Los costos indirectos de un error (penalidades, moras) suelen ser los que más resentimiento generan, porque nadie los ve."}},
  {id:"p7", t:"14:00", ch:"sistema", from:"Tu lista de la tarde", title:"Todo es para hoy",
   body:"<p>Tu jefe vuelve a las 4 p.m. Ordena las tareas de la tarde de la primera a la última.</p>",
   type:"order",
@@ -144,6 +195,20 @@ export default {
    {id:"c", label:"Decirle que no se puede y no ofrecer alternativas.", fx:{cumplimiento:6,confianza:-6}, sig:{nor:2}, q:"aceptable", tags:["normativa"],
     out:"Correcto en el fondo, pero el gerente siente que RR.HH. solo pone trabas."}
   ],
-  pro:"El principio de primacía de la realidad hace que importe cómo se trabaja, no cómo se llama el contrato: prestación personal, remuneración y subordinación configuran relación laboral. RR.HH. aporta valor cuando, además de señalar el riesgo, ofrece alternativas legales con sus costos."}
+  mind:{ok:"Paso a paso: 1) entender el problema de fondo del gerente (costo); 2) explicar el riesgo con el criterio de primacía de la realidad; 3) ofrecer alternativas legales con su costo; 4) llevar números, no solo un «no».",risk:"Una locación de servicios que en los hechos tiene horario, órdenes y continuidad es una relación laboral encubierta: beneficios adeudados y multa.",law:"Prestación personal, remuneración y subordinación configuran contrato de trabajo (TUO del D.Leg. 728); los contratos sujetos a modalidad requieren una causa objetiva.",info:"Antes de proponer contratos por temporada, confirma con el jefe de almacén si la necesidad de noviembre es realmente temporal."},
+  pro:"El principio de primacía de la realidad hace que importe cómo se trabaja, no cómo se llama el contrato: prestación personal, remuneración y subordinación configuran relación laboral. RR.HH. aporta valor cuando, además de señalar el riesgo, ofrece alternativas legales con sus costos."},
+ {id:"p10", t:"17:50", ch:"correo", who:"carmen", to:"Asistente de Administración de Personal", from:"Carmen Ayca · Contadora", title:"«Cuádrame la boleta de T-014»",
+  body:"<p>Ya corregida, la boleta de octubre de T-014 tiene: básico <b>S/ 1,230.00</b>, asignación familiar <b>S/ 123.00</b> y horas extras <b>S/ 28.19</b>. T-014 está en la ONP y no tiene otros descuentos. Necesito los montos para cuadrar con el PLAME antes del cierre del 25. Gracias. — Carmen</p>",
+  type:"calc", revisable:true,
+  calc:{prompt:"Calcula los montos de la boleta (S/).", hint:"Redondea cada concepto a dos decimales.", key:["tot","neto"], fields:[
+   {id:"tot",label:"Total remunerativo del mes",v:1381.19,why:"1,230.00 + 123.00 + 28.19 = 1,381.19."},
+   {id:"onp",label:"Aporte ONP (13%, a cargo del trabajador)",v:179.55,why:"1,381.19 × 13% = 179.55. Las horas extras sí forman parte de la base."},
+   {id:"ess",label:"Aporte EsSalud (9%, a cargo del empleador)",v:124.31,why:"1,381.19 × 9% = 124.31. No se descuenta al trabajador."},
+   {id:"neto",label:"Neto a pagar a T-014",v:1201.64,why:"1,381.19 − 179.55 = 1,201.64. EsSalud no se resta: lo paga la empresa."}]},
+  fxBy:{buena:{calidad:8,confianza:6},aceptable:{calidad:2},riesgosa:{calidad:-6,confianza:-4}},
+  sig:{dat:3,pro:1}, tags:["calcular"],
+  outBy:{buena:"Carmen: «Cuadra con el PLAME». Cierras el día con la planilla de octubre lista para revisión de Héctor.",aceptable:"Una cifra no cuadra; Carmen te la devuelve con el cálculo correcto al margen.",riesgosa:"Tus cifras no cuadran con contabilidad: el cierre se retrasa y Héctor tiene que revisarlo contigo mañana temprano."},
+  pro:"Cuadrar la boleta con contabilidad es la última línea de defensa: confirma que los conceptos están bien clasificados (remunerativo, aporte del trabajador, aporte del empleador) antes de declarar.",
+  mind:{ok:"Calcular cada concepto con su base, redondear al final de cada línea y conciliar con contabilidad antes de declarar.",risk:"Restar EsSalud del neto o excluir las horas extras de la base: dos errores frecuentes que generan reclamos y rectificatorias.",law:"ONP: 13% a cargo del trabajador. EsSalud: 9% a cargo del empleador. Asignación familiar: S/ 123 (10% de la RMV de S/ 1,230)."}}
  ]
 };
