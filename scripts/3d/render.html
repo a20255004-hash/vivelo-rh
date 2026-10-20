@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Kusi render</title>
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style></head>
+<body>
+<script type="module">
+import * as THREE from "../../assets/vendor/three.module.min.js";
+import { buildKusi, addKusiStudio } from "../../src/brand/kusi-model.js";
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true, premultipliedAlpha: false });
+renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.VSMShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+addKusiStudio(THREE, scene, renderer, { shadows: true, shadowMapSize: 2048 });
+const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 50);
+let kusi = buildKusi(THREE, { mood: "feliz" });
+scene.add(kusi);
+
+const VIEWS = {
+  front: { pos: [0, 1.55, 6.4], target: [0, 1.06, 0], fov: 24 },
+  hero:  { pos: [3.1, 1.75, 5.4], target: [0.02, 1.05, 0], fov: 24 },
+  side:  { pos: [6.4, 1.3, 0], target: [0, 1.0, 0], fov: 24 },
+  close: { pos: [0, 1.5, 3.6], target: [0, 1.3, 0], fov: 24 },
+};
+function setView(v) {
+  const V = VIEWS[v] || VIEWS.front;
+  camera.fov = V.fov; camera.position.set(...V.pos); camera.lookAt(...V.target); camera.updateProjectionMatrix();
+}
+
+// Render estático: devuelve dataURL PNG.
+window.renderKusi = ({ mood = "feliz", size = 1024, view = "front", bg = null, t = 0, opts = {} } = {}) => {
+  renderer.setSize(size, size, false);
+  kusi.userData.setMood(mood);
+  kusi.userData.update(t, { animate: false, ...opts });
+  setView(view);
+  if (bg) { scene.background = new THREE.Color(bg); renderer.setClearColor(bg, 1); } else { scene.background = null; renderer.setClearColor(0x000000, 0); }
+  renderer.render(scene, camera);
+  return renderer.domElement.toDataURL("image/png");
+};
+
+// Fotograma de la animación "hola" (t en segundos, 0..dur).
+const ease = (x) => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
+const bump = (t, a, b) => { if (t < a || t > b) return 0; const u = (t - a) / (b - a); return Math.sin(u * Math.PI); };
+window.holaFrame = ({ t, size = 1080, bg = "#F5F0E8" }) => {
+  renderer.setSize(size, size, false);
+  // guion: 0-1.6 neutral/feliz mirando, 1.6-2.6 parpadeo y ladeo (curioso), 3.2-4.4 orejas, 4.6-5.6 saltito feliz, resto respirando
+  const mood = t > 4.4 && t < 6.2 ? "feliz" : (t > 1.8 && t < 3.6 ? "curioso" : "neutral");
+  kusi.userData.setMood(mood);
+  const blink = Math.max(bump(t, 0.9, 1.08), bump(t, 3.9, 4.08), bump(t, 6.6, 6.78));
+  const hop = 0.16 * Math.max(bump(t, 4.75, 5.15), 0.6 * bump(t, 5.2, 5.5));
+  const earWiggle = 0.08 * bump(t, 3.0, 4.2);
+  const look = { x: 0.25 * Math.sin(Math.min(t, 7) * 0.9) * (1 - bump(t, 4.4, 6.2)), y: 0.05 * Math.sin(t * 0.6) };
+  kusi.userData.update(t + 0.001, { blink, hop, earWiggle, look });
+  // giro suave de cámara (turntable parcial)
+  const ang = Math.sin(t / 7.5 * Math.PI * 2) * 0.42;
+  const R = 6.3; camera.fov = 24;
+  camera.position.set(Math.sin(ang) * R, 1.6, Math.cos(ang) * R); camera.lookAt(0, 1.08, 0); camera.updateProjectionMatrix();
+  scene.background = new THREE.Color(bg); renderer.setClearColor(bg, 1);
+  renderer.render(scene, camera);
+  return renderer.domElement.toDataURL("image/png");
+};
+window.kusiReady = true;
+</script>
+</body></html>
