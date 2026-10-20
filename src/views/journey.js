@@ -33,7 +33,7 @@ register("viaje", () => {
     }
     if (s.id === "primera") {
       const runs = S.state.runs.practicante; const act = S.state.active.practicante;
-      return `<div class="row">${runs ? `<span class="chip ok">${icon("check")}Ya la viviste</span><a class="btn ghost sm" href="#sim.practicante">Ver tu informe</a>` : `<button type="button" class="btn brand" data-start-first>${act ? "Continuar mi primera mañana" : "Empezar mi primera mañana"} ${icon("arrow")}</button>`}<span class="small muted">≈ 9 minutos · Logística Andina Express (ficticia)</span></div>`;
+      return `<div class="row">${runs ? `<span class="chip ok">${icon("check")}Ya la viviste</span><a class="btn ghost sm" href="#sim.practicante">Ver tu informe</a>` : `<button type="button" class="btn brand" data-start-first>${act ? "Continuar mi primera mañana" : "Empezar mi primera mañana"} ${icon("arrow")}</button>`}<span class="small muted">≈ ${sim("practicante").mins} minutos · Logística Andina Express (ficticia)</span></div>`;
     }
     if (s.id === "camino") return `<div class="doors" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))">${C.journey.paths.map(p => { const target = p.h === "jornada" ? sim(C.journey.famSim[j.family || "atraer"]) : null; return `<button type="button" class="door" data-path="${p.id}"><div class="art">${scene(p.scene)}</div><b style="font-family:var(--f-display);font-size:1.05rem">${icon(p.ic)} ${esc(p.n)}</b><span class="small muted">${esc(target ? target.title : p.d)}</span></button>`; }).join("")}</div>`;
     if (s.id === "brujula") {
