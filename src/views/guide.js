@@ -1,6 +1,6 @@
-/* Coco como guía: reacciona a lo que pasa en la experiencia.
+/* Kusi como guía: reacciona a lo que pasa en la experiencia.
    Modos: "activo" (comenta momentos relevantes), "discreto" (solo hitos: inicio, cierre, casos
-   graves) y "silencio" (no habla; queda disponible si lo llamas). Nunca bloquea la pantalla. */
+   graves) y "silencio" (no habla; queda disponible si la llamas). Nunca bloquea la pantalla. */
 import { $, esc } from "../core/util.js";
 import { S, save } from "../core/store.js";
 import { on } from "../core/bus.js";
@@ -24,7 +24,7 @@ const SECTION = {
 
 export function mountGuide(){
   el = document.createElement("aside");
-  el.className = "guide"; el.id = "guide"; el.setAttribute("aria-label", "Coco, tu guía");
+  el.className = "guide"; el.id = "guide"; el.setAttribute("aria-label", "Kusi, tu guía");
   document.body.appendChild(el);
   render("neutral", null);
   on("route", ({ name: r }) => {
@@ -58,8 +58,8 @@ export function mountGuide(){
 function render(mood, msg, opts = {}){
   const mode = S.state.profile.guide || "activo";
   el.className = "guide " + mode + (msg ? "" : " min");
-  el.innerHTML = `${msg ? `<div class="bubble" role="status" aria-live="polite"><div class="row between"><b class="who">Coco</b><span class="mood">${esc(MOODS[mood] ? MOODS[mood].n : "")}</span></div><p>${msg}</p><div class="row">${opts.actions || ""}<button type="button" class="btn ghost sm" data-g="close">Entendido</button><button type="button" class="btn ghost sm" data-g="mute" title="Coco dejará de comentar; podrás llamarlo cuando quieras">${mode === "activo" ? "Menos comentarios" : "Silenciar"}</button></div></div>` : ""}
-  <button type="button" class="guide-btn" data-g="toggle" aria-label="${msg ? "Ocultar a Coco" : "Hablar con Coco"}" aria-expanded="${!!msg}">${coco(mood, { size: 84, cls: "anim enter", label: false })}</button>`;
+  el.innerHTML = `${msg ? `<div class="bubble" role="status" aria-live="polite"><div class="row between"><b class="who">Kusi</b><span class="mood">${esc(MOODS[mood] ? MOODS[mood].n : "")}</span></div><p>${msg}</p><div class="row">${opts.actions || ""}<button type="button" class="btn ghost sm" data-g="close">Entendido</button><button type="button" class="btn ghost sm" data-g="mute" title="Kusi dejará de comentar; podrás llamarla cuando quieras">${mode === "activo" ? "Menos comentarios" : "Silenciar"}</button></div></div>` : ""}
+  <button type="button" class="guide-btn" data-g="toggle" aria-label="${msg ? "Ocultar a Kusi" : "Hablar con Kusi"}" aria-expanded="${!!msg}">${coco(mood, { size: 84, cls: "anim enter", label: false })}</button>`;
   el.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => {
     const a = b.dataset.g;
     if (a === "close") render(mood, null);

@@ -8,7 +8,7 @@
 export const media = {
   video: [
     { id: "bienvenida", n: "Bienvenida a VÍVELO RH", src: "assets/video/bienvenida.mp4", poster: "assets/video/bienvenida-poster.png", vtt: "assets/video/bienvenida-subtitulos.txt", mins: "0:38", status: "listo",
-      d: "Video animado (sin narración) con subtítulos: Coco presenta la plataforma y sus secciones. Generado a partir de las ilustraciones del proyecto." }
+      d: "Video animado (sin narración) con subtítulos: Kusi presenta la plataforma y sus secciones. Generado a partir de las ilustraciones del proyecto." }
   ],
   capsules: [
     { id: "boleta", n: "Cómo se arma una boleta", d: "De la remuneración básica al neto, paso a paso.", steps: [
@@ -32,7 +32,7 @@ export const media = {
       { k: "Resultados", t: "Resultados publicados y suscripción del contrato.", big: "6" }] }
   ],
   audio: [
-    { id: "intro", n: "Bienvenida de Coco", status: "sintetica", file: null },
+    { id: "intro", n: "Bienvenida de Kusi", status: "sintetica", file: null },
     { id: "tour", n: "Recorrido por la plataforma", status: "sintetica", file: null },
     { id: "capsulas", n: "Narración de las cápsulas animadas", status: "sintetica", file: null },
     { id: "razonamiento", n: "«Cómo lo razona una profesional» (todas las simulaciones)", status: "sintetica", file: null },
@@ -40,7 +40,7 @@ export const media = {
       d: "Los guiones están en src/content/media.js y en las propias simulaciones. Falta una locutora o locutor que los grabe con autorización de uso." }
   ],
   scripts: {
-    intro: "¡Hola! Soy Coco, un ronsoco explorador. Los ronsocos somos los animales más sociables que existen: nos llevamos bien con casi todos y mantenemos la calma cuando hay conflicto. Por eso me gusta Recursos Humanos. En VÍVELO RH vas a vivir el trabajo antes de elegirlo: vas a recibir correos, mensajes y urgencias de puestos reales, vas a decidir, a equivocarte sin riesgo, y vas a ver cómo lo razonaría una profesional con experiencia. Mientras tanto, tu brújula irá registrando qué te entusiasma y qué te desgasta.",
+    intro: "¡Hola! Soy Kusi, una alpaca bebé. En quechua, «kusi» quiere decir alegre. Las alpacas vivimos en grupo, nos cuidamos entre todas y nos comunicamos con calma: por eso me gusta Recursos Humanos. En VÍVELO RH vas a vivir el trabajo antes de elegirlo: vas a recibir correos, mensajes y urgencias de puestos reales, vas a decidir, a equivocarte sin riesgo, y vas a ver cómo lo razonaría una profesional con experiencia. Mientras tanto, tu brújula irá registrando qué te entusiasma y qué te desgasta.",
     tour: "Te cuento rápido dónde está cada cosa. En Jornadas vives un día, una semana o un caso urgente en un puesto. En el Mapa exploras las especialidades y cómo se conectan. En Cargos ves qué hace cada puesto, de practicante a jefatura. La Academia explica cada concepto en dos niveles, sencillo y profesional. En el Taller haces tareas reales con datos ficticios. Retos tiene cuestionarios para practicar. Público y privado compara dos mundos que no funcionan igual. Y en tu Brújula ves lo que has descubierto. Yo voy a estar por aquí, pero puedes silenciarme cuando quieras."
   }
 };

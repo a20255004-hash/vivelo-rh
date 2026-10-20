@@ -1,137 +1,158 @@
-/* Coco, el ronsoco explorador: guía de VÍVELO RH.
-   El ronsoco (capibara amazónica, Hydrochoerus hydrochaeris) es el roedor más sociable que existe:
-   convive en calma con casi cualquier especie. Esa es la actitud de un buen profesional de RR.HH.:
-   escuchar a todos, mantener la calma en el conflicto y no perder de vista a las personas.
-   Lleva su fotocheck de "practicante eterno", un brote en la cabeza (siempre está aprendiendo)
-   y un morral con expedientes.
+/* Kusi, la alpaca guía de VÍVELO RH.
+   «Kusi» significa «alegre» en quechua. Es una cría de alpaca: dulce, curiosa y serena, como una
+   buena profesional de RR.HH. que escucha a todos y no pierde la calma. Lleva una chalina tejida
+   en carmín con listas de latón y su fotocheck de invitada.
 
-   Cada estado de ánimo cambia de verdad la ilustración: ojos, cejas, boca, patas, color y extras. */
+   La versión 2D vive aquí (SVG ligero, funciona sin red). La versión 3D está en src/brand/kusi3d.js
+   y comparte la misma ficha de diseño (colores y proporciones).
+   Cada estado de ánimo cambia de verdad la ilustración: ojos, cejas, boca, orejas, rubor y extras.
+   El módulo conserva el nombre de archivo y la función coco() por compatibilidad con las vistas. */
 
 export const MOODS = {
-  neutral:   { n: "Tranquilo",  d: "Escucha con atención" },
-  feliz:     { n: "Contento",   d: "Le alegra verte" },
-  curioso:   { n: "Curioso",    d: "Quiere saber más" },
-  sorpresa:  { n: "Sorprendido", d: "No lo esperaba" },
-  preocupado:{ n: "Preocupado", d: "Ve un riesgo" },
-  triste:    { n: "Triste",     d: "Le duele lo que pasó" },
-  indignado: { n: "Indignado",  d: "Esto es injusto" },
-  pensando:  { n: "Pensativo",  d: "Está razonando" },
+  neutral:   { n: "Tranquila",   d: "Escucha con atención" },
+  feliz:     { n: "Contenta",    d: "Le alegra verte" },
+  curioso:   { n: "Curiosa",     d: "Quiere saber más" },
+  sorpresa:  { n: "Sorprendida", d: "No lo esperaba" },
+  preocupado:{ n: "Preocupada",  d: "Ve un riesgo" },
+  triste:    { n: "Triste",      d: "Le duele lo que pasó" },
+  indignado: { n: "Indignada",   d: "Esto es injusto" },
+  pensando:  { n: "Pensativa",   d: "Está razonando" },
   animo:     { n: "Dando ánimo", d: "Sabe que puedes" },
-  celebra:   { n: "Celebrando", d: "¡Lo lograste!" }
+  celebra:   { n: "Celebrando",  d: "¡Lo lograste!" }
 };
+export const NAME = "Kusi";
 
-const FUR = "#B07A4F", FUR_D = "#8C5A35", FUR_L = "#D9AE84", SNOUT = "#9A6640", NOSE = "#3F2717", INK = "#2A1C14";
+/* ficha de color compartida con el modelo 3D */
+const WOOL = "#F6EADB", WOOL_D = "#E8D8C3", LINE = "#C9B193", MUZ = "#FFF8EF", INNER = "#F3BFB3",
+  BLUSH = "#F6A9A0", EYE = "#2B2320", NOSE = "#6B4A3E", HOOF = "#8A6E5A", SCARF = "#8E1B2C", BRASS = "#C9A46A";
+
+/* silueta esponjosa: se traza el contorno de todos los círculos y luego el relleno encima,
+   así solo queda delineado el borde exterior del vellón */
+const fluff = (circles, fill = WOOL, sw = 3.4) =>
+  `<g>${circles.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${LINE}" stroke="${LINE}" stroke-width="${sw}"/>`).join("")}${circles.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>`).join("")}</g>`;
+
+const BODY = [[100, 160, 34], [68, 160, 21], [132, 160, 21], [78, 143, 17], [122, 143, 17], [100, 139, 21], [62, 173, 14], [138, 173, 14], [84, 177, 16], [116, 177, 16]];
+const HEAD = [[100, 84, 40], [70, 92, 20], [130, 92, 20], [100, 108, 24]];
+const TUFT = [[84, 48, 13], [100, 41, 15], [117, 46, 13], [72, 58, 10], [129, 58, 10], [92, 55, 11], [109, 55, 11]];
+
+function ear(side, m){
+  const flip = side === "R";
+  const rot = { triste: 26, preocupado: 18, indignado: 34, curioso: flip ? 0 : 22, sorpresa: -6, celebra: -4 }[m] ?? 0;
+  const ang = flip ? -rot : rot;
+  const ox = flip ? 128 : 72;
+  const outer = flip ? "M124 60 C138 50 146 30 142 10 C132 16 120 34 118 56 Z" : "M76 60 C62 50 54 30 58 10 C68 16 80 34 82 56 Z";
+  const inner = flip ? "M124 52 C133 44 138 30 136 18 C130 24 124 36 122 50 Z" : "M76 52 C67 44 62 30 64 18 C70 24 76 36 78 50 Z";
+  return `<g transform="rotate(${ang} ${ox} 58)"><path d="${outer}" fill="${WOOL}" stroke="${LINE}" stroke-width="2.4" stroke-linejoin="round"/><path d="${inner}" fill="${INNER}"/></g>`;
+}
 
 function eyes(m){
-  const L = 79, R = 121, Y = 76;
-  const dot = (x, y, r = 5.2, look = [0, 0]) => `<g class="cc-eye"><ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r * 1.12}" fill="${INK}"/><circle cx="${x + 1.6 + look[0]}" cy="${y - 1.8 + look[1]}" r="${r * .36}" fill="#fff"/></g>`;
-  const arc = (x, y, up = true) => `<path d="M${x - 6} ${y + (up ? 1 : -1)} Q${x} ${y + (up ? -6 : 6)} ${x + 6} ${y + (up ? 1 : -1)}" fill="none" stroke="${INK}" stroke-width="3.2" stroke-linecap="round"/>`;
+  const L = 82, R = 118, Y = 84;
+  const dot = (x, y, s = 1, look = [0, 0]) => `<g class="cc-eye"><ellipse cx="${x}" cy="${y}" rx="${6.6 * s}" ry="${7.8 * s}" fill="${EYE}"/><circle cx="${x + 2.2 + look[0]}" cy="${y - 2.6 + look[1]}" r="${2.5 * s}" fill="#fff"/><circle cx="${x - 2 + look[0]}" cy="${y + 2.8 + look[1]}" r="${1.1 * s}" fill="#fff" opacity=".85"/></g>`;
+  const lash = (x, y, dir) => `<path d="M${x + dir * 5.6} ${y - 4.6} l${dir * 3.2} -2.2" stroke="${EYE}" stroke-width="1.7" stroke-linecap="round" fill="none"/>`;
+  const arc = (x, y) => `<path d="M${x - 7} ${y + 1} Q${x} ${y - 7} ${x + 7} ${y + 1}" fill="none" stroke="${EYE}" stroke-width="3.2" stroke-linecap="round"/>`;
+  const lashes = lash(L, Y, -1) + lash(R, Y, 1);
   switch (m) {
     case "feliz": case "celebra": return arc(L, Y) + arc(R, Y);
-    case "animo": return arc(L, Y) + dot(R, Y);
-    case "sorpresa": return `<g class="cc-eye"><circle cx="${L}" cy="${Y}" r="7.5" fill="#fff" stroke="${INK}" stroke-width="2.4"/><circle cx="${L}" cy="${Y}" r="3.6" fill="${INK}"/></g><g class="cc-eye"><circle cx="${R}" cy="${Y}" r="7.5" fill="#fff" stroke="${INK}" stroke-width="2.4"/><circle cx="${R}" cy="${Y}" r="3.6" fill="${INK}"/></g>`;
-    case "triste": return dot(L, Y + 2, 4.4, [0, 1.5]) + dot(R, Y + 2, 4.4, [0, 1.5]) + `<path d="M${L - 7} ${Y - 3} Q${L} ${Y - 1} ${L + 7} ${Y - 3}" stroke="${FUR_D}" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M${R - 7} ${Y - 3} Q${R} ${Y - 1} ${R + 7} ${Y - 3}" stroke="${FUR_D}" stroke-width="3.5" fill="none" stroke-linecap="round"/>`;
-    case "pensando": return dot(L, Y, 5, [1.6, -2]) + dot(R, Y, 5, [1.6, -2]);
-    case "curioso": return dot(L, Y, 4.6) + dot(R, Y - 1, 6.4);
-    case "indignado": return dot(L, Y + 1, 4.8) + dot(R, Y + 1, 4.8);
-    default: return dot(L, Y) + dot(R, Y);
+    case "animo": return arc(L, Y) + dot(R, Y) + lash(R, Y, 1);
+    case "sorpresa": return dot(L, Y, 1.15) + dot(R, Y, 1.15) + lashes;
+    case "triste": return dot(L, Y + 2, .9, [0, 1.6]) + dot(R, Y + 2, .9, [0, 1.6]) + lashes;
+    case "pensando": return dot(L, Y, 1, [1.6, -2.2]) + dot(R, Y, 1, [1.6, -2.2]) + lashes;
+    case "curioso": return dot(L, Y, .92) + dot(R, Y - 1, 1.12) + lashes;
+    case "indignado": return dot(L, Y + 1, .9) + dot(R, Y + 1, .9);
+    default: return dot(L, Y) + dot(R, Y) + lashes;
   }
 }
 
 function brows(m){
-  const s = `stroke="${FUR_D}" stroke-width="4" stroke-linecap="round" fill="none"`;
+  const s = `stroke="${LINE}" stroke-width="3.4" stroke-linecap="round" fill="none"`;
   switch (m) {
-    case "preocupado": return `<path d="M71 64 L87 59" ${s}/><path d="M129 64 L113 59" ${s}/>`;
-    case "triste": return `<path d="M71 65 L86 60" ${s}/><path d="M129 65 L114 60" ${s}/>`;
-    case "indignado": return `<path d="M70 59 L88 66" ${s} stroke-width="5"/><path d="M130 59 L112 66" ${s} stroke-width="5"/>`;
-    case "sorpresa": return `<path d="M71 58 Q79 52 87 58" ${s}/><path d="M113 58 Q121 52 129 58" ${s}/>`;
-    case "curioso": return `<path d="M72 65 L86 64" ${s}/><path d="M112 59 Q121 52 130 58" ${s}/>`;
-    case "pensando": return `<path d="M72 63 L86 61" ${s}/><path d="M113 60 L128 64" ${s}/>`;
-    default: return `<path d="M72 64 Q79 61 86 64" ${s} opacity=".55"/><path d="M114 64 Q121 61 128 64" ${s} opacity=".55"/>`;
+    case "preocupado": return `<path d="M74 70 L89 65" ${s}/><path d="M126 70 L111 65" ${s}/>`;
+    case "triste": return `<path d="M74 71 L88 66" ${s}/><path d="M126 71 L112 66" ${s}/>`;
+    case "indignado": return `<path d="M73 64 L90 72" stroke="${NOSE}" stroke-width="4" stroke-linecap="round"/><path d="M127 64 L110 72" stroke="${NOSE}" stroke-width="4" stroke-linecap="round"/>`;
+    case "sorpresa": return `<path d="M74 66 Q82 60 90 66" ${s}/><path d="M110 66 Q118 60 126 66" ${s}/>`;
+    case "curioso": return `<path d="M75 71 L89 70" ${s}/><path d="M110 66 Q118 59 127 65" ${s}/>`;
+    default: return "";
   }
 }
 
 function mouth(m){
-  const s = `stroke="${INK}" stroke-width="3" stroke-linecap="round" fill="none"`;
+  const s = `stroke="${NOSE}" stroke-width="2.6" stroke-linecap="round" fill="none"`;
+  const y = 112;
   switch (m) {
-    case "feliz": case "animo": return `<path d="M88 117 Q100 127 112 117" ${s}/>`;
-    case "celebra": return `<path d="M86 115 Q100 133 114 115 Z" fill="${INK}"/><path d="M93 123 Q100 129 107 123" fill="#E8735A"/>`;
-    case "sorpresa": return `<ellipse cx="100" cy="121" rx="6" ry="7.5" fill="${INK}"/>`;
-    case "preocupado": return `<path d="M89 121 Q94 117 100 120 Q106 123 111 119" ${s}/>`;
-    case "triste": return `<path d="M89 123 Q100 114 111 123" ${s}/>`;
-    case "indignado": return `<path d="M88 123 Q100 115 112 123" ${s} stroke-width="3.4"/><path d="M92 121 L108 121" stroke="${INK}" stroke-width="1" opacity=".0"/>`;
-    case "pensando": return `<path d="M93 120 L109 118" ${s}/>`;
-    case "curioso": return `<path d="M92 119 Q100 123 108 118" ${s}/>`;
-    default: return `<path d="M91 118 Q100 123 109 118" ${s}/>`;
-  }
-}
-
-function arms(m){
-  const paw = (x, y, r = 0) => `<g transform="translate(${x} ${y}) rotate(${r})"><ellipse cx="0" cy="0" rx="10" ry="13" fill="${FUR}" stroke="${FUR_D}" stroke-width="1.5"/><path d="M-4 9v3M0 10v3M4 9v3" stroke="${FUR_D}" stroke-width="1.6" stroke-linecap="round"/></g>`;
-  switch (m) {
-    case "celebra": return `<path d="M58 150 Q40 120 44 96" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/><path d="M142 150 Q160 120 156 96" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/>${paw(44, 92, -15)}${paw(156, 92, 15)}`;
-    case "animo": return `<path d="M144 152 Q166 138 160 112" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/>${paw(160, 108, 10)}<path d="M156 98 q4 -10 9 -2" stroke="${FUR_D}" stroke-width="5" stroke-linecap="round" fill="none"/>`;
-    case "pensando": return `<path d="M140 156 Q128 140 120 136" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/>${paw(116, 134, -30)}`;
-    case "sorpresa": return `<path d="M58 154 Q46 136 60 122" stroke="${FUR}" stroke-width="16" stroke-linecap="round" fill="none"/>${paw(62, 120, 20)}<path d="M142 154 Q154 136 140 122" stroke="${FUR}" stroke-width="16" stroke-linecap="round" fill="none"/>${paw(138, 120, -20)}`;
-    case "indignado": return `<path d="M56 160 Q42 150 52 136" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/>${paw(54, 136, 30)}<path d="M144 160 Q158 150 148 136" stroke="${FUR}" stroke-width="17" stroke-linecap="round" fill="none"/>${paw(146, 136, -30)}`;
-    default: return "";
+    case "feliz": case "animo": return `<path d="M92 ${y - 2} Q100 ${y + 7} 108 ${y - 2}" ${s}/>`;
+    case "celebra": return `<path d="M91 ${y - 3} Q100 ${y + 12} 109 ${y - 3} Z" fill="${NOSE}"/><path d="M95 ${y + 3} Q100 ${y + 7} 105 ${y + 3}" fill="#E8857A"/>`;
+    case "sorpresa": return `<ellipse cx="100" cy="${y + 1}" rx="4.4" ry="5.4" fill="${NOSE}"/>`;
+    case "preocupado": return `<path d="M93 ${y + 1} Q97 ${y - 2} 100 ${y} Q103 ${y + 2} 107 ${y - 1}" ${s}/>`;
+    case "triste": case "indignado": return `<path d="M93 ${y + 3} Q100 ${y - 4} 107 ${y + 3}" ${s}/>`;
+    case "pensando": return `<path d="M95 ${y} L106 ${y - 1.5}" ${s}/>`;
+    default: return `<path d="M94 ${y - 1} Q100 ${y + 4} 106 ${y - 1}" ${s}/>`;
   }
 }
 
 function extras(m){
   switch (m) {
-    case "celebra": return `<g class="cc-confetti">${[[30,40,"var(--spark)"],[170,34,"var(--sun)"],[24,90,"var(--mint)"],[178,84,"var(--brand-2)"],[60,20,"var(--sun)"],[146,16,"var(--spark)"]].map(([x,y,c],i)=>`<rect x="${x}" y="${y}" width="8" height="5" rx="1.5" fill="${c}" transform="rotate(${i*37} ${x} ${y})"/>`).join("")}</g>`;
-    case "sorpresa": return `<g class="cc-pop"><path d="M160 46 l6 -12 M170 58 l13 -4 M150 38 l-1 -13" stroke="var(--spark)" stroke-width="4" stroke-linecap="round"/></g>`;
-    case "curioso": return `<text x="160" y="56" class="cc-q" font-family="var(--f-display)" font-weight="800" font-size="34" fill="var(--brand)">?</text>`;
-    case "pensando": return `<g class="cc-dots"><circle cx="150" cy="44" r="4" fill="var(--ink-3)"/><circle cx="162" cy="32" r="5.5" fill="var(--ink-3)"/><circle cx="178" cy="18" r="7" fill="var(--ink-3)"/></g>`;
-    case "triste": return `<path class="cc-tear" d="M75 86 q-4 8 0 11 q4 -3 0 -11z" fill="#6CB8F0"/>`;
-    case "preocupado": return `<path class="cc-sweat" d="M146 56 q-6 10 0 14 q6 -4 0 -14z" fill="#8FD0F7" stroke="#4A9AD0" stroke-width="1"/>`;
-    case "indignado": return `<g class="cc-steam"><path d="M48 40 q-6 -8 0 -16 q6 -8 0 -16" stroke="var(--spark)" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M152 40 q6 -8 0 -16 q-6 -8 0 -16" stroke="var(--spark)" stroke-width="4" fill="none" stroke-linecap="round"/></g>`;
-    case "animo": return `<path class="cc-spark" d="M170 70c.6 4 1.8 5.2 5.8 5.8-4 .6-5.2 1.8-5.8 5.8-.6-4-1.8-5.2-5.8-5.8 4-.6 5.2-1.8 5.8-5.8z" fill="var(--sun)"/>`;
+    case "celebra": return `<g class="cc-confetti">${[[28, 44, SCARF], [170, 36, BRASS], [22, 96, "#4F6B58"], [178, 90, SCARF], [58, 18, BRASS], [146, 14, "#3E5C76"], [36, 140, BRASS], [166, 134, "#8E4A5A"]].map(([x, y, c], i) => `<rect x="${x}" y="${y}" width="8" height="5" rx="1.5" fill="${c}" transform="rotate(${i * 37} ${x} ${y})"/>`).join("")}</g>`;
+    case "sorpresa": return `<g class="cc-pop"><path d="M160 54 l7 -11 M171 66 l13 -3 M151 44 l-1 -13" stroke="${BRASS}" stroke-width="3.6" stroke-linecap="round"/></g>`;
+    case "curioso": return `<text x="160" y="62" class="cc-q" font-family="var(--f-display)" font-weight="700" font-size="32" fill="var(--brand)">?</text>`;
+    case "pensando": return `<g class="cc-dots"><circle cx="152" cy="52" r="3.6" fill="var(--ink-3)"/><circle cx="163" cy="40" r="5" fill="var(--ink-3)"/><circle cx="177" cy="26" r="6.6" fill="var(--ink-3)"/></g>`;
+    case "triste": return `<path class="cc-tear" d="M76 96 q-4 8 0 11 q4 -3 0 -11z" fill="#8CC3EA"/>`;
+    case "preocupado": return `<path class="cc-sweat" d="M146 66 q-6 10 0 14 q6 -4 0 -14z" fill="#A9D5F2" stroke="#6AA7D1" stroke-width="1"/>`;
+    case "indignado": return `<g class="cc-steam"><path d="M44 52 q-6 -8 0 -16 q6 -8 0 -16" stroke="${SCARF}" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M156 52 q6 -8 0 -16 q-6 -8 0 -16" stroke="${SCARF}" stroke-width="3.6" fill="none" stroke-linecap="round"/></g>`;
+    case "animo": return `<path class="cc-spark" d="M170 76c.6 4 1.8 5.2 5.8 5.8-4 .6-5.2 1.8-5.8 5.8-.6-4-1.8-5.2-5.8-5.8 4-.6 5.2-1.8 5.8-5.8z" fill="${BRASS}"/><path class="cc-spark" d="M30 70c.4 2.6 1.2 3.4 3.8 3.8-2.6.4-3.4 1.2-3.8 3.8-.4-2.6-1.2-3.4-3.8-3.8 2.6-.4 3.4-1.2 3.8-3.8z" fill="${BRASS}"/>`;
     default: return "";
   }
 }
 
 const cheeks = m => {
-  const c = m === "indignado" ? "#E2483A" : "#F08A6E";
-  const o = m === "indignado" ? .55 : (m === "feliz" || m === "celebra" || m === "animo") ? .55 : .28;
-  return `<ellipse cx="68" cy="97" rx="9" ry="5.5" fill="${c}" opacity="${o}"/><ellipse cx="132" cy="97" rx="9" ry="5.5" fill="${c}" opacity="${o}"/>`;
+  const c = m === "indignado" ? "#E0695E" : BLUSH;
+  const o = (m === "feliz" || m === "celebra" || m === "animo" || m === "indignado") ? .7 : .45;
+  return `<ellipse cx="68" cy="100" rx="9" ry="5.6" fill="${c}" opacity="${o}"/><ellipse cx="132" cy="100" rx="9" ry="5.6" fill="${c}" opacity="${o}"/>`;
 };
+
+/* chalina tejida: banda con listas de latón y rombos, y una punta que cuelga con flecos */
+const scarf = () => `<g class="cc-scarf">
+  <path d="M62 124 Q100 140 138 124 L140 138 Q100 154 60 138 Z" fill="${SCARF}" stroke="#6E1422" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M63 129 Q100 144 137 129" stroke="${BRASS}" stroke-width="1.6" fill="none"/><path d="M61 134 Q100 149 139 134" stroke="${BRASS}" stroke-width="1.6" fill="none"/>
+  ${[74, 88, 100, 112, 126].map(x => `<path d="M${x} ${x === 100 ? 140 : 137} l3 -3 l3 3 l-3 3z" fill="${BRASS}" opacity=".9"/>`).join("")}
+  <path d="M128 136 L138 172 L124 174 L118 140 Z" fill="${SCARF}" stroke="#6E1422" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M121 150 L136 148 M122 158 L137 156" stroke="${BRASS}" stroke-width="1.5"/>
+  ${[125, 129, 133, 137].map(x => `<path d="M${x} 173 l-.5 7" stroke="${BRASS}" stroke-width="1.8" stroke-linecap="round"/>`).join("")}
+</g>`;
+
+const badge = () => `<g class="cc-badge">
+  <path d="M86 140 L100 156 L112 141" fill="none" stroke="${SCARF}" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="88" y="153" width="24" height="29" rx="4" fill="#FBF8F3" stroke="#DCCFBD" stroke-width="1.4"/>
+  <rect x="88" y="153" width="24" height="7" rx="3.5" fill="${SCARF}"/><rect x="96.5" y="155.6" width="7" height="1.8" rx=".9" fill="#FBF8F3"/>
+  <circle cx="100" cy="167" r="4.4" fill="${WOOL_D}"/><rect x="92" y="174" width="16" height="2.4" rx="1.2" fill="#CFC5B6"/><rect x="95" y="178" width="10" height="1.8" rx=".9" fill="#E2D9CC"/>
+</g>`;
 
 export function coco(mood = "neutral", opts = {}){
   const m = MOODS[mood] ? mood : "neutral";
   const size = opts.size || 120;
-  const tilt = m === "curioso" ? -7 : m === "triste" ? 4 : m === "pensando" ? -4 : 0;
-  const label = opts.label === false ? 'aria-hidden="true"' : `role="img" aria-label="Coco, ${MOODS[m].n.toLowerCase()}: ${MOODS[m].d.toLowerCase()}"`;
-  return `<svg class="coco mood-${m} ${opts.cls || ""}" width="${size}" height="${Math.round(size * 1.05)}" viewBox="0 0 200 210" ${label} focusable="false">
-  <ellipse cx="100" cy="202" rx="62" ry="7" fill="var(--shadow-ink)" opacity=".18"/>
+  const tilt = m === "curioso" ? -8 : m === "triste" ? 5 : m === "pensando" ? -5 : m === "indignado" ? 0 : 0;
+  const label = opts.label === false ? 'aria-hidden="true"' : `role="img" aria-label="Kusi, la alpaca guía, ${MOODS[m].n.toLowerCase()}: ${MOODS[m].d.toLowerCase()}"`;
+  return `<svg class="coco kusi mood-${m} ${opts.cls || ""}" width="${size}" height="${Math.round(size * 1.05)}" viewBox="0 0 200 210" ${label} focusable="false">
+  <ellipse cx="100" cy="196" rx="56" ry="6" fill="var(--shadow-ink)" opacity=".16"/>
   <g class="cc-body">
-    <ellipse cx="100" cy="160" rx="62" ry="44" fill="${FUR}"/>
-    <ellipse cx="100" cy="170" rx="36" ry="27" fill="${FUR_L}" opacity=".8"/>
-    <rect x="62" y="186" width="22" height="18" rx="9" fill="${FUR_D}"/><rect x="116" y="186" width="22" height="18" rx="9" fill="${FUR_D}"/>
-    <path d="M40 150 Q28 168 50 180" fill="none" stroke="#6D4A2B" stroke-width="6" stroke-linecap="round"/>
-    <rect x="30" y="160" width="30" height="26" rx="7" fill="#5C7A3A" transform="rotate(-10 45 173)"/><rect x="33" y="163" width="24" height="7" rx="2" fill="#7B9C52" transform="rotate(-10 45 173)"/><rect x="40" y="157" width="16" height="6" rx="1" fill="#fff" opacity=".9" transform="rotate(-14 45 173)"/>
-    ${arms(m)}
+    ${[[72, 184], [88, 188], [112, 188], [128, 184]].map(([x, y], i) => `<rect x="${x - 7}" y="${y - 8}" width="14" height="18" rx="7" fill="${i === 0 || i === 3 ? WOOL_D : WOOL}" stroke="${LINE}" stroke-width="2"/><rect x="${x - 7}" y="${y + 4}" width="14" height="6" rx="3" fill="${HOOF}"/>`).join("")}
+    ${fluff(BODY)}
+    <path d="M76 170 q6 4 12 0 M112 170 q6 4 12 0" stroke="${WOOL_D}" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    ${scarf()}
+    ${badge()}
   </g>
-  <g class="cc-head" transform="rotate(${tilt} 100 90)">
-    <g class="cc-ears"><circle cx="64" cy="44" r="12" fill="${FUR_D}"/><circle cx="64" cy="45" r="5.5" fill="#E9A88D"/><circle cx="136" cy="44" r="12" fill="${FUR_D}"/><circle cx="136" cy="45" r="5.5" fill="#E9A88D"/></g>
-    <rect x="50" y="36" width="100" height="100" rx="44" fill="${FUR}"/>
-    <path d="M58 70 Q100 52 142 70" stroke="${FUR_D}" stroke-width="2" fill="none" opacity=".25"/>
-    <g class="cc-sprout"><path d="M100 38 q-1 -10 3 -16" stroke="#3E8E4E" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M103 24 q10 -10 20 -4 q-8 10 -20 4z" fill="#58B368"/><path d="M101 28 q-12 -8 -18 0 q8 8 18 0z" fill="#7CCB7E"/></g>
+  <g class="cc-head" transform="rotate(${tilt} 100 118)">
+    <g class="cc-ears">${ear("L", m)}${ear("R", m)}</g>
+    ${fluff(HEAD)}
+    <g class="cc-tuft cc-sprout">${fluff(TUFT, WOOL, 3)}<path d="M88 50 q4 -4 8 0 M104 46 q4 -4 8 0" stroke="${WOOL_D}" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+    <ellipse cx="100" cy="104" rx="25" ry="17" fill="${MUZ}"/>
     ${brows(m)}
     <g class="cc-eyes">${eyes(m)}</g>
-    <rect x="66" y="88" width="68" height="46" rx="23" fill="${SNOUT}"/>
     ${cheeks(m)}
-    <rect x="85" y="95" width="30" height="13" rx="6.5" fill="${NOSE}"/><ellipse cx="93" cy="101" rx="3" ry="2.2" fill="#000" opacity=".5"/><ellipse cx="107" cy="101" rx="3" ry="2.2" fill="#000" opacity=".5"/>
-    <path d="M100 108 v4" stroke="${INK}" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M95 99 q5 4 10 0" stroke="${NOSE}" stroke-width="2.6" stroke-linecap="round" fill="none"/><path d="M100 101 v5" stroke="${NOSE}" stroke-width="2.4" stroke-linecap="round"/>
+    <ellipse cx="94.5" cy="97" rx="2.2" ry="1.5" fill="${NOSE}"/><ellipse cx="105.5" cy="97" rx="2.2" ry="1.5" fill="${NOSE}"/>
     ${mouth(m)}
-  </g>
-  <g class="cc-badge">
-    <path d="M78 132 L100 152 L122 132" fill="none" stroke="var(--spark)" stroke-width="4" stroke-linecap="round"/>
-    <rect x="86" y="148" width="28" height="34" rx="5" fill="#fff" stroke="#E2D6C3" stroke-width="1.5"/>
-    <rect x="86" y="148" width="28" height="8" rx="4" fill="var(--brand)"/><rect x="96" y="151" width="8" height="2" rx="1" fill="#fff"/>
-    <circle cx="100" cy="165" r="5" fill="${FUR}"/><rect x="91" y="173" width="18" height="2.6" rx="1.3" fill="#C9BCA8"/><rect x="94" y="177" width="12" height="2" rx="1" fill="#DCD1C0"/>
   </g>
   ${extras(m)}
 </svg>`;
 }
+export const kusi = coco;

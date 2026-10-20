@@ -2,7 +2,7 @@
 
 **Laboratorio interactivo de Recursos Humanos** · *Vive el trabajo antes de elegirlo.*
 
-VÍVELO RH es una plataforma para explorar las familias de Recursos Humanos. La persona vive jornadas simuladas con correos, WhatsApp, llamadas, documentos, giros, cálculos y revisiones. Tras cada decisión ve **cómo lo piensa y razona una profesional**. Coco, un ronsoco guía, la acompaña y se puede silenciar.
+VÍVELO RH es una plataforma para explorar las familias de Recursos Humanos. La persona vive jornadas simuladas con correos, WhatsApp, llamadas, documentos, giros, cálculos y revisiones. Tras cada decisión ve **cómo lo piensa y razona una profesional**. Kusi, una alpaca guía (en 2D y 3D), la acompaña y se puede silenciar.
 
 > Casos, personas y organizaciones: **ficticios** (se marcan siempre). La normativa peruana se verificó al **19 de octubre de 2026**. **No es asesoría legal.**
 
@@ -42,7 +42,7 @@ styles/               tokens.css (paleta 60·30·10, tipografía, espacio, modo 
                       · luxe.css (capa visual «Galería del Trabajo»; ver docs/DISENO.md)
 docs/DISENO.md        dirección de arte, sistema de diseño, héroe y micro-interacciones
 src/core/             util, bus de eventos, store versionado, router por hash, narrador, motion (micro-interacciones)
-src/brand/            logo, íconos, Coco (10 estados de ánimo), retratos 2D, escenas SVG
+src/brand/            logo, íconos, Kusi (10 estados de ánimo), retratos 2D, escenas SVG
 src/engine/           payroll.js (única fuente de verdad de cálculos), nodes.js (motor de jornadas), profile.js (brújula)
 src/content/          contenidos separados de la lógica: áreas, cargos, conceptos, sectores, fuentes,
                       retos, viaje, feriados, medios y sims/*.js (una jornada por archivo)
@@ -59,7 +59,7 @@ legacy/               el artefacto original «Legajo Vivo», como referencia
 2. Cada nodo usa uno de estos tipos: `choice`, `pick`, `order`, `write`, `budget`, `calc` o `review`. Puede incluir:
    - `ask`: información que cuesta tiempo.
    - `twist`: un giro de la historia.
-   - `guide`: la reacción de Coco.
+   - `guide`: la reacción de Kusi.
    - `mind`: el razonamiento profesional, con los tipos `ok`, `risk`, `law` e `info`.
    - `if`: nodos condicionales.
 3. Regístrela en `src/content/index.js`.

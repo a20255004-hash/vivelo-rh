@@ -10,5 +10,8 @@
     "test:e2e": "node tests/e2e/smoke.mjs http://localhost:8080/",
     "video": "node scripts/make-video.mjs"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "three": "^0.169.0"
+  }
 }

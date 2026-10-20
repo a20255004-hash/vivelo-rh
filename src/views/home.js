@@ -1,4 +1,4 @@
-/* Bienvenida (nombre de invitado), recorrido de Coco y portada con las tres puertas. */
+/* Bienvenida (nombre de invitado), recorrido de Kusi y portada con las tres puertas. */
 import { $, $$, esc, toast } from "../core/util.js";
 import { S, save, hasProgress } from "../core/store.js";
 import { register, go, render } from "../core/router.js";
@@ -13,7 +13,7 @@ import { syncTools } from "./shell.js";
 import { say } from "./guide.js";
 
 const TOUR = [
-  { mood: "feliz", t: "Soy Coco, un ronsoco explorador", d: "Los ronsocos somos los animales más sociables del mundo: nos llevamos bien con casi todos y mantenemos la calma en el conflicto. Por eso me encanta Recursos Humanos. Te acompañaré sin estorbarte." },
+  { mood: "feliz", t: "Soy Kusi, una alpaca bebé", d: "En quechua, «kusi» quiere decir alegre. Las alpacas vivimos en grupo, nos cuidamos entre todas y nos comunicamos con calma: por eso me encanta Recursos Humanos. Te acompañaré sin estorbarte." },
   { mood: "curioso", t: "Jornadas: vives el trabajo", d: "Un día, una semana o un caso urgente en un puesto real: correos, chats, llamadas, documentos con errores y jefes con prisa. Decides y ves las consecuencias." },
   { mood: "pensando", t: "Cómo lo piensa una profesional", d: "Después de cada decisión verás el razonamiento de alguien con experiencia: buenas prácticas, riesgos, obligaciones y lo que falta averiguar." },
   { mood: "animo", t: "Mapa, Academia, Taller y Retos", d: "Explora especialidades y cómo se conectan, aprende cada concepto en versión sencilla y profesional, practica tareas reales y ponte a prueba." },
@@ -58,7 +58,7 @@ function welcome(){
     <div><span>III · Elegir</span><h3>Tu brújula</h3><p class="small muted">Pesa lo que sentiste al experimentar, no tus aciertos. Equivocarse no dice nada de tu vocación.</p></div>
     <div><span>IV · Practicar</span><h3>Taller y retos</h3><p class="small muted">Boletas, matrices, concursos y desafíos por niveles, con explicación en cada respuesta.</p></div>
   </section>
-  <section class="quote"><div class="coco-inline" style="justify-content:center">${coco("feliz", { size: 110, cls: "anim enter" })}</div><blockquote>«Soy Coco, un ronsoco. Los ronsocos mantenemos la calma en el conflicto: por eso <em>me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarlo cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Coco" })}</section>
+  <section class="quote"><div class="coco-inline" style="justify-content:center">${coco("feliz", { size: 110, cls: "anim enter" })}</div><blockquote>«Soy Kusi, una alpaca. Las alpacas vivimos en manada y nos cuidamos entre todas: <em>por eso me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarla cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Kusi" })}</section>
   <section class="hero compact">${scene("oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">Hecho para el Perú</span><h2>Sector privado y público, pymes, corporaciones y municipalidades</h2><p class="muted">Normativa peruana verificada al ${VERIFIED}: RMV de S/ 1,230, feriados 2026, régimen CAS, SERVIR, SUNAFIL. Todo caso es una simulación y lo dice siempre.</p></div></div></section>`,
   mount(root){
     bindNarr(root);
@@ -118,7 +118,7 @@ function home(){
         <p class="lead">${progress ? "Tu progreso está guardado en este navegador. Sigue donde lo dejaste o abre una puerta nueva." : "Te propongo un viaje guiado por las cinco familias de Recursos Humanos. Si prefieres, entra directo a un puesto."}</p>
         <div class="ctas"><a class="btn ivory lg" href="${cont ? cont.h : "#viaje"}">${cont ? "Continuar" : "Hacer el viaje"} ${icon("arrow")}</a><a class="btn line-ivory lg" href="#sims">Probar un puesto</a></div>
       </div>
-      <div class="aside">${coco(progress ? "feliz" : "curioso", { size: 112, cls: "anim enter" })}<p>${cont ? esc(cont.t) + "." : "Coco te acompaña sin estorbar. Puedes silenciarlo cuando quieras."}</p></div>
+      <div class="aside">${coco(progress ? "feliz" : "curioso", { size: 112, cls: "anim enter" })}<p>${cont ? esc(cont.t) + "." : "Kusi te acompaña sin estorbar. Puedes silenciarla cuando quieras."}</p></div>
       <div class="meta" aria-label="Lo que hay dentro"><span><b>${C.sims.length}</b>Jornadas</span><span><b>${C.roles.length}</b>Cargos</span><span><b>${C.areas.length}</b>Especialidades</span><span><b>${C.tools.length}</b>Tareas de taller</span></div>
     </div>
     <span class="scroll-cue" aria-hidden="true">Explorar</span>

@@ -9,7 +9,7 @@
    - review : revisar un documento y marcar las líneas con problemas
    Campos opcionales del nodo: who (persona), mood (ánimo de quien escribe), to/cc, msgs (chat),
    dlg (diálogo de llamada/reunión), docs, ask, twist (giro que aparece después), mind (razonamiento
-   estructurado: ok / risk / law / info), guide ({mood, say}) para Coco, revisable (permitir corregir). */
+   estructurado: ok / risk / law / info), guide ({mood, say}) para Kusi, revisable (permitir corregir). */
 import { esc, clamp, money, shuffle, words } from "../core/util.js";
 import { icon, chLabel } from "../brand/icons.js";
 import { avatar } from "../brand/people.js";

@@ -4,7 +4,7 @@
      30 % soporte          — Tinta #14110F, Grafito #4A443D, Piedra #D8CFC2, Arena #ECE5DA
      10 % acento exclusivo — Carmín cochinilla #8E1B2C (CTA, foco, cifras clave)
      Latón #A7834E: solo filetes y ornamentos, NUNCA texto sobre fondo claro (contraste 3.1).
-   Tipografía: Bodoni Moda (display, alto contraste) + Jost (texto, geométrica) + JetBrains Mono (datos).
+   Tipografía: Fraunces «suave» (display cálido, eje SOFT 100) + Plus Jakarta Sans (texto) + JetBrains Mono (datos).
    Todos los pares texto/fondo cumplen WCAG AA (≥ 4.5:1); se verificaron con scripts de contraste. */
 :root{
   color-scheme: light;
@@ -26,10 +26,10 @@
   --sc-sky1:#EDE4D6; --sc-sky2:#F5F0E8; --sc-wall1:#EAE2D5; --sc-wall2:#DFD4C4; --sc-floor:#D3C6B2; --sc-floor-d:#BFB09A;
   --sc-wood:#9C7B57; --sc-wood-d:#7D5F41; --sc-dark:#2A2622; --sc-screen:#F2EEE7; --sc-frame:#FBF8F3;
   --sc-mount1:#C9BFB1; --sc-mount2:#DCD3C6; --sc-city:#BDB2A3; --sc-window-lit:#F4E7C8; --sc-glass:#B9C2C4; --sc-board:#3B4A42; --sc-night:#14110F;
-  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
-  --f-body:"Jost","Futura","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"Plus Jakarta Sans","Avenir Next","Segoe UI",system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  --f-hand:"Bodoni Moda",Georgia,serif;
+  --f-hand:"Fraunces",Georgia,serif;
   /* espacio: escala 8 pt con saltos áureos para que la página respire */
   --s-1:8px; --s-2:16px; --s-3:24px; --s-4:40px; --s-5:64px; --s-6:104px; --s-7:168px;
   --gutter:clamp(16px,4.2vw,72px);
