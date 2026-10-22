@@ -6,6 +6,7 @@ import { C, role, sim, area, cluster } from "../content/index.js";
 import { levelCases } from "../content/roles.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { avatar } from "../brand/people.js";
 import { qLabel, qChip } from "../engine/nodes.js";
 import { areaChip } from "./sims.js";
@@ -18,7 +19,7 @@ register("cargos", () => {
   const roles = C.roles.filter(r => f === "todos" || r.lvl === f);
   const ci = Math.min(+(S.state.prefs.lcase || 0), levelCases.length - 1), lc = levelCases[ci];
   return { section: "cargos", docTitle: "Cargos", html: `
-  <section class="hero compact">${scene("reunion")}<div class="hero-in"><div class="copy"><span class="eyebrow">Cargos profesionales</span><h1>Qué hace realmente cada puesto</h1><p class="muted">De practicante a jefatura, en empresas y en el Estado: un día típico, lo que nadie cuenta del puesto y dilemas para probar tu criterio.</p></div></div></section>
+  <section class="hero compact">${art("reunion")}<div class="hero-in"><div class="copy"><span class="eyebrow">Cargos profesionales</span><h1>Qué hace realmente cada puesto</h1><p class="muted">De practicante a jefatura, en empresas y en el Estado: un día típico, lo que nadie cuenta del puesto y dilemas para probar tu criterio.</p></div></div></section>
   <section class="stack-lg"><div class="stack"><h2>Mismo caso, tres sillas</h2><p class="small muted">La diferencia entre niveles no es solo el sueldo: es de qué respondes. Elige un caso y compara qué hace cada nivel.</p></div>
     <div class="seg" role="group" aria-label="Elegir caso">${levelCases.map((c, i) => `<button type="button" data-lc="${i}" aria-pressed="${i === ci}">${esc(c.n)}</button>`).join("")}</div>
     <div class="callout sun">${icon("info")}<span>${esc(lc.ctx)}</span></div>
@@ -38,7 +39,7 @@ register("cargo", id => {
   const s = r.sim ? sim(r.sim) : null;
   const c = cluster(area(r.areas[0]).c);
   return { section: "cargos", docTitle: r.n, html: `
-  <section class="hero compact">${scene(s ? s.scene : "oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">${LVL[r.lvl]} · ${esc(r.sector)}</span><div class="row">${roleAv(r)}<h1 style="font-size:clamp(1.8rem,1.3rem + 2vw,2.8rem)">${esc(r.n)}</h1></div><p class="muted">${esc(r.mission)}</p><div class="row"><a class="btn ghost sm" href="#cargos">${icon("back")}Cargos</a>${r.areas.map(a => areaChip(a)).join("")}</div></div></div></section>
+  <section class="hero compact">${art(s ? s.scene : "oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">${LVL[r.lvl]} · ${esc(r.sector)}</span><div class="row">${roleAv(r)}<h1 style="font-size:clamp(1.8rem,1.3rem + 2vw,2.8rem)">${esc(r.n)}</h1></div><p class="muted">${esc(r.mission)}</p><div class="row"><a class="btn ghost sm" href="#cargos">${icon("back")}Cargos</a>${r.areas.map(a => areaChip(a)).join("")}</div></div></div></section>
   <div class="split"><div class="stack-lg">
     <section class="card stack"><h2>Un día típico</h2><div class="steps">${r.day.map(([h, t]) => `<div><span class="when">${h}</span><span>${esc(t)}</span></div>`).join("")}</div><p class="xs muted">Recorrido orientativo construido a partir de funciones habituales del puesto.</p></section>
     <section class="callout warn">${icon("warn")}<span><b>El lado B del puesto.</b> ${esc(r.hard)}</span></section>

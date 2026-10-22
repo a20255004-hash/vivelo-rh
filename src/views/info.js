@@ -5,13 +5,14 @@ import { register, render, go } from "../core/router.js";
 import { C, sim, tool, VERIFIED } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { guideModes } from "./guide.js";
 import { syncTools, applyTheme } from "./shell.js";
 
 register("fuentes", () => {
   const K = { norma: "Normas", guia: "Guías e informes institucionales o especializados", noticia: "Noticias de medios oficiales o especializados", caso: "Casos documentados" };
   return { section: "fuentes", docTitle: "Fuentes y método", html: `
-  <section class="hero compact">${scene("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Fuentes y método</span><h1>Cómo distinguir lo real de lo simulado</h1><p class="muted">La autenticidad es el criterio central de VÍVELO RH. Aquí está qué es verificable y qué es construido.</p></div></div></section>
+  <section class="hero compact">${art("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Fuentes y método</span><h1>Cómo distinguir lo real de lo simulado</h1><p class="muted">La autenticidad es el criterio central de VÍVELO RH. Aquí está qué es verificable y qué es construido.</p></div></div></section>
   <div class="grid g4">
     <section class="card stack"><span class="tag norm" style="justify-self:start">Normativa vigente</span><p class="small"><b>Normas, informes de SERVIR, guías institucionales.</b> Verificadas el ${VERIFIED}. Las normas cambian: antes de aplicar una regla en el trabajo, revisa su versión vigente en El Peruano.</p></section>
     <section class="card stack"><span class="tag doc" style="justify-self:start">Caso documentado</span><p class="small"><b>Casaciones y resoluciones</b> con enlace a su fuente. Son los únicos «casos reales» de la plataforma.</p></section>
@@ -27,7 +28,7 @@ register("perfil", () => {
   const st = S.state;
   const pers = adapterName() === "local";
   return { section: "perfil", docTitle: "Mis datos", html: `
-  <section class="hero compact">${scene("brujula")}<div class="hero-in"><div class="copy" style="color:#F4F0FF"><span class="eyebrow" style="color:#C7C0DD">Mis datos</span><h1>Tu fotocheck de invitado</h1><p style="color:#D9D3EE">Sin cuentas ni contraseñas. ${st.createdAt ? "Exploras VÍVELO RH desde el " + fmtDate(st.createdAt) + "." : ""}</p></div></div></section>
+  <section class="hero compact">${art("brujula")}<div class="hero-in"><div class="copy" style="color:#F4F0FF"><span class="eyebrow" style="color:#C7C0DD">Mis datos</span><h1>Tu fotocheck de invitado</h1><p style="color:#D9D3EE">Sin cuentas ni contraseñas. ${st.createdAt ? "Exploras VÍVELO RH desde el " + fmtDate(st.createdAt) + "." : ""}</p></div></div></section>
   <div class="callout ${pers ? "" : "warn"}">${icon("shield")}<span>${pers ? `Tu progreso se guarda <b>solo en este navegador y en este dispositivo</b>. No se envía a ningún servidor ni se sincroniza con otros dispositivos. Si borras los datos del navegador, se pierde: exporta un respaldo de vez en cuando.` : `Tu navegador bloquea el almacenamiento: el progreso <b>solo durará mientras esta pestaña esté abierta</b>. Exporta un respaldo antes de cerrarla.`}</span></div>
   <div class="grid g2">
     <section class="card stack"><h2>Cómo te llamamos</h2><form class="row" data-name><input type="text" id="pn" value="${esc(st.profile.name)}" maxlength="40" aria-label="Nombre" style="flex:1;min-width:180px"><button class="btn brand sm" type="submit">Guardar</button></form></section>

@@ -5,6 +5,7 @@ import { register, render } from "../core/router.js";
 import { C, concept, area, cluster, sim, tool } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 import { viz } from "./diagrams.js";
 import { areaChip } from "./sims.js";
@@ -17,7 +18,7 @@ register("academia", () => {
   const q = (S.state.prefs.acq || "").toLowerCase();
   const list = C.concepts.filter(c => (f === "todas" || c.areas.some(a => area(a).c === f)) && (!q || (c.n + " " + c.simple).toLowerCase().includes(q)));
   return { section: "academia", docTitle: "Academia", html: `
-  <section class="hero compact">${scene("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Academia · cada concepto en dos niveles</span><h1>Entender antes de hacer</h1><p class="muted">Primero como se lo explicarías a alguien que nunca trabajó en RR.HH.; después como lo usa una profesional: criterios, indicadores, documentos y normas. Con diagramas, demostraciones, errores frecuentes y cómo se ve hecho mal y hecho bien.</p></div><div class="coco-slot">${coco("pensando", { size: 120, cls: "anim", label: false })}</div></div></section>
+  <section class="hero compact">${art("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Academia · cada concepto en dos niveles</span><h1>Entender antes de hacer</h1><p class="muted">Primero como se lo explicarías a alguien que nunca trabajó en RR.HH.; después como lo usa una profesional: criterios, indicadores, documentos y normas. Con diagramas, demostraciones, errores frecuentes y cómo se ve hecho mal y hecho bien.</p></div><div class="coco-slot">${coco("pensando", { size: 120, cls: "anim", label: false })}</div></div></section>
   <div class="row"><div class="seg" role="group" aria-label="Filtrar por familia"><button type="button" data-acf="todas" aria-pressed="${f === "todas"}">Todas</button>${C.clusters.map(c => `<button type="button" data-acf="${c.id}" aria-pressed="${f === c.id}">${esc(c.n)}</button>`).join("")}</div><div class="field" style="flex:1;min-width:220px"><input type="search" id="acq" placeholder="Buscar concepto…" value="${esc(S.state.prefs.acq || "")}" aria-label="Buscar concepto"></div></div>
   ${list.length ? `<div class="lib">${list.map(c => { const cc = cluster(area(c.areas[0]).c); const st = S.state.concepts[c.id]; return `<a class="ficha" href="#concepto.${c.id}" style="border-top:6px solid ${cc.color}"><div class="viz">${viz(c.viz)}</div><div class="row between"><span class="eyebrow">${esc(area(c.areas[0]).n)}</span>${st ? `<span class="chip ${st.ok ? "ok" : "st"}">${st.ok ? "Comprobado" : "Leído"}</span>` : ""}</div><h3>${esc(c.n)}</h3><p class="small muted">${esc(c.simple.replace(/<[^>]+>/g, "").slice(0, 120))}…</p></a>`; }).join("")}</div>` : `<div class="empty">No hay conceptos que coincidan. Prueba otra palabra o quita el filtro.</div>`}
   <section class="card stack"><div class="row between"><h2>Cápsulas animadas</h2><a class="btn ghost sm" href="#medios">${icon("film")}Ver todas</a></div><p class="small muted">Explicaciones visuales paso a paso, con narración sintética opcional y transcripción.</p><div class="row">${C.media.capsules.map(k => `<a class="chip st" href="#medios.${k.id}">${icon("play")}${esc(k.n)}</a>`).join("")}</div></section>`,
@@ -57,7 +58,7 @@ register("concepto", id => {
   const st = S.state.concepts[id], ck = c.check;
   const cc = cluster(area(c.areas[0]).c);
   return { section: "academia", docTitle: c.n, html: `
-  <section class="hero compact">${scene("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow" style="color:${cc.color}">Academia · ${c.areas.map(a => esc(area(a).n)).join(" · ")}</span><h1>${esc(c.n)}</h1><div class="row"><a class="btn ghost sm" href="#academia">${icon("back")}Academia</a>${lensSeg()}</div></div></div></section>
+  <section class="hero compact">${art("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow" style="color:${cc.color}">Academia · ${c.areas.map(a => esc(area(a).n)).join(" · ")}</span><h1>${esc(c.n)}</h1><div class="row"><a class="btn ghost sm" href="#academia">${icon("back")}Academia</a>${lensSeg()}</div></div></div></section>
   ${narr("con-" + c.id, c.simple + " " + c.tech, { title: "Escuchar la explicación" })}
   <div class="grid g2">${lensBody(c.simple, c.tech)}</div>
   ${c.viz ? `<section class="diagram"><div class="row between"><span class="eyebrow">${icon("mapa")} Organizador visual</span></div>${viz(c.viz)}</section>` : ""}

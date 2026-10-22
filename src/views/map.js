@@ -5,6 +5,7 @@ import { register, render } from "../core/router.js";
 import { C, area, cluster } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 import { areaChip } from "./sims.js";
 import { lensSeg, lensBody, bindLens } from "./lens.js";
@@ -36,7 +37,7 @@ register("mapa", () => {
   const cx = C.contexts.find(x => x.id === ctx);
   const a1 = S.state.prefs.cmpA || "reclutamiento", a2 = S.state.prefs.cmpB || "nomina";
   return { section: "mapa", docTitle: "Mapa de especialidades", html: `
-  <section class="hero compact">${scene("viaje")}<div class="hero-in"><div class="copy"><span class="eyebrow">Mapa de especialidades</span><h1>RR.HH. son muchos trabajos que se tocan</h1><p class="muted">${C.areas.length} especialidades en cinco familias. Pasa el cursor (o el foco) por un área para ver con cuáles se conecta; ábrela para conocer sus tareas, herramientas, entregables y carrera.</p></div><div class="coco-slot">${coco("curioso", { size: 120, cls: "anim", label: false })}</div></div></section>
+  <section class="hero compact">${art("viaje")}<div class="hero-in"><div class="copy"><span class="eyebrow">Mapa de especialidades</span><h1>RR.HH. son muchos trabajos que se tocan</h1><p class="muted">${C.areas.length} especialidades en cinco familias. Pasa el cursor (o el foco) por un área para ver con cuáles se conecta; ábrela para conocer sus tareas, herramientas, entregables y carrera.</p></div><div class="coco-slot">${coco("curioso", { size: 120, cls: "anim", label: false })}</div></div></section>
   <div class="stack"><span class="eyebrow">Tipo de organización</span><div class="seg" role="group" aria-label="Tipo de organización">${C.contexts.map(c => `<button type="button" data-ctx="${c.id}" aria-pressed="${c.id === ctx}">${c.n}</button>`).join("")}</div><p class="small muted">${esc(cx.d)} El tamaño de cada punto indica cuánto pesa el área en este contexto.</p></div>
   <div class="constellation" id="const">${constellation(ctx)}</div>
   <div id="peek" aria-live="polite"></div>
@@ -79,7 +80,7 @@ register("area", id => {
   const list = arr => `<ul style="margin:0;padding-left:1.1rem;display:grid;gap:4px">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
   const d = S.state.declared[a.id];
   return { section: "mapa", docTitle: a.n, html: `
-  <section class="hero compact" style="--cc:${c.color}">${scene(sims[0] ? sims[0].scene : "oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow" style="color:${c.color}">${esc(c.n)} · ${esc(a.sub)}</span><h1>${esc(a.n)}</h1><div class="row"><a class="btn ghost sm" href="#mapa">${icon("back")}Mapa</a>${lensSeg()}</div></div></div></section>
+  <section class="hero compact" style="--cc:${c.color}">${art(sims[0] ? sims[0].scene : "oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow" style="color:${c.color}">${esc(c.n)} · ${esc(a.sub)}</span><h1>${esc(a.n)}</h1><div class="row"><a class="btn ghost sm" href="#mapa">${icon("back")}Mapa</a>${lensSeg()}</div></div></div></section>
   <div class="grid g2" style="border-top:8px solid ${c.color};padding-top:16px;border-radius:4px">${lensBody(`<p>${a.simple}</p>`, `<p>${a.tech}</p>`)}</div>
   <div class="bento">
     <section class="tile w2"><span class="eyebrow">${icon("doc")} Entregables</span>${list(a.delivers)}</section>

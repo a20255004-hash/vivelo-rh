@@ -5,6 +5,7 @@ import { register, render } from "../core/router.js";
 import { C, VERIFIED } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 
 const EXTRA = [
@@ -18,7 +19,7 @@ register("sectores", () => {
   const Sx = C.sectors;
   const ci = Math.min(+(S.state.prefs.case || 0), Sx.cases.length - 1), cs = Sx.cases[ci];
   return { section: "sectores", docTitle: "Público y privado", html: `
-  <section class="hero">${scene("sectores")}<div class="hero-in"><div class="copy"><span class="eyebrow">Público y privado</span><h1>Dos mundos que no funcionan igual</h1><p class="muted">En una empresa, RR.HH. busca que el negocio tenga el talento que necesita. En el Estado, busca que la entidad tenga servidores idóneos elegidos por mérito y gestionados conforme a ley. Las diferencias empiezan ahí.</p></div><div class="coco-slot">${coco("pensando", { size: 120, cls: "anim", label: false })}</div></div></section>
+  <section class="hero">${art("sectores")}<div class="hero-in"><div class="copy"><span class="eyebrow">Público y privado</span><h1>Dos mundos que no funcionan igual</h1><p class="muted">En una empresa, RR.HH. busca que el negocio tenga el talento que necesita. En el Estado, busca que la entidad tenga servidores idóneos elegidos por mérito y gestionados conforme a ley. Las diferencias empiezan ahí.</p></div><div class="coco-slot">${coco("pensando", { size: 120, cls: "anim", label: false })}</div></div></section>
   <section class="stack-lg"><h2>Lado a lado</h2><div class="versus">
     <div class="side-col pri"><h3>${icon("cargos")}Empresa privada</h3>${Sx.dims.concat(EXTRA).map(d => `<div class="small"><b>${esc(d.n)}.</b> ${esc(d.pri)}</div>`).join("")}</div>
     <div class="side-col pub"><h3>${icon("sectores")}Entidad pública</h3>${Sx.dims.concat(EXTRA).map(d => `<div class="small"><b>${esc(d.n)}.</b> ${esc(d.pub)}</div>`).join("")}</div>

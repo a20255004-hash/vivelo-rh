@@ -6,10 +6,22 @@
      archivo, basta con colocarlo en assets/audio/<id>.mp3 y cambiar status a "grabado"; el
      reproductor lo usará en lugar de la voz sintética. */
 export const media = {
+  /* Videos animados generados con `npm run video` (scripts/video/): sin voz ni música, con texto en
+     pantalla y subtítulos WebVTT (guardados como .txt). Los guiones viven en scripts/video/videos/. */
   video: [
-    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", src: "assets/video/bienvenida.mp4", poster: "assets/video/bienvenida-poster.png", vtt: "assets/video/bienvenida-subtitulos.txt", mins: "0:38", status: "listo",
-      d: "Video animado (sin narración) con subtítulos: Kusi presenta la plataforma y sus secciones. Generado a partir de las ilustraciones del proyecto." }
-  ],
+    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", mins: "0:40", status: "listo", related: ["#viaje", "#mapa"],
+      d: "Kusi presenta la plataforma: jornadas, razonamiento profesional, especialidades y el enfoque peruano." },
+    { id: "familias", n: "Las cinco familias de Recursos Humanos", mins: "0:46", status: "listo", related: ["#mapa", "#cargos"],
+      d: "Atraer, administrar, desarrollar, cuidar y decidir con datos: las 26 especialidades agrupadas por propósito." },
+    { id: "boleta", n: "Cómo se arma una boleta", mins: "0:46", status: "listo", related: ["#concepto.planilla", "#tool.boleta", "#sim.planillas"],
+      d: "Del básico de S/ 1,500 al neto de S/ 1,456.14: asignación familiar, valor hora, horas extras, ONP y EsSalud." },
+    { id: "feriados", n: "Trabajar un feriado: cuánto se paga", mins: "0:36", status: "listo", related: ["#concepto.feriados", "#sim.feriados"],
+      d: "Los 16 feriados de 2026, el descanso sustitutorio y por qué se dice que se paga «triple», con la RMV de S/ 1,230." },
+    { id: "concurso", n: "Un concurso CAS, paso a paso", mins: "0:41", status: "listo", related: ["#concepto.concurso", "#sim.concursocas", "#sectores"],
+      d: "Del requerimiento al contrato, con las bonificaciones de ley de 15% y 10% sobre el puntaje final." },
+    { id: "hostigamiento", n: "Ante una queja de hostigamiento sexual", mins: "0:41", status: "listo", related: ["#concepto.hostigamiento", "#sim.municipal"],
+      d: "Escuchar, proteger, derivar e investigar con reserva y sin revictimizar (Ley 27942 y D.S. 014-2019-MIMP)." }
+  ].map(v => ({ ...v, src: `assets/video/${v.id}.mp4`, webm: `assets/video/${v.id}.webm`, poster: `assets/video/${v.id}-poster.jpg`, posterWebp: `assets/video/${v.id}-poster.webp`, vtt: `assets/video/${v.id}-subtitulos.txt` })),
   capsules: [
     { id: "boleta", n: "Cómo se arma una boleta", d: "De la remuneración básica al neto, paso a paso.", steps: [
       { k: "Ingresos", t: "Primero se suman todos los ingresos remunerativos: básico, asignación familiar (10% de la RMV) y horas extras.", big: "S/ 1,500 + 123 + 50.72" },

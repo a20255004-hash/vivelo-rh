@@ -6,6 +6,7 @@ import { emit } from "../core/bus.js";
 import { C, sim as getSim, area, cluster, task, trait, KIND, VERIFIED } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { avatar } from "../brand/people.js";
 import { coco } from "../brand/coco.js";
 import * as N from "../engine/nodes.js";
@@ -43,7 +44,7 @@ register("sims", () => {
   const list = C.sims.filter(s => f === "todas" || (f === "publico" ? s.sector === "publico" : f === "gra" ? s.orgType === "gra" : s.kind === f));
   const without = C.roles.filter(r => !r.sim);
   return { section: "sims", docTitle: "Jornadas", html: `
-  <section class="hero compact">${scene("oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">Jornadas · simulaciones de trabajo</span><h1>Entra a un puesto y vive su día</h1><p class="muted">Correos, chats, llamadas, documentos imperfectos y jefes con prisa. Decide, equivócate y mira cómo lo razonaría una profesional.</p></div><div class="coco-slot">${coco("curioso", { size: 120, cls: "anim", label: false })}</div></div></section>
+  <section class="hero compact">${art("oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">Jornadas · simulaciones de trabajo</span><h1>Entra a un puesto y vive su día</h1><p class="muted">Correos, chats, llamadas, documentos imperfectos y jefes con prisa. Decide, equivócate y mira cómo lo razonaría una profesional.</p></div><div class="coco-slot">${coco("curioso", { size: 120, cls: "anim", label: false })}</div></div></section>
   <div class="callout">${icon("info")}<span><b>Todo lo que vivas aquí es una simulación.</b> Organizaciones, personas, conversaciones y datos son ficticios, construidos a partir de prácticas profesionales habituales. Las normas citadas son reales y se verificaron el ${VERIFIED}. Las grandes empresas de los casos no representan a ninguna empresa real.</span></div>
   <div class="row between"><div class="seg" role="group" aria-label="Filtrar jornadas">${[["todas","Todas"],["micro","Para empezar"],["dia","Un día"],["semana","Una semana"],["urgente","Casos urgentes"],["gra","Gran empresa"],["publico","Sector público"]].map(([v, n]) => `<button type="button" data-f="${v}" aria-pressed="${f === v}">${n}</button>`).join("")}</div><span class="small muted">${list.length} de ${C.sims.length} jornadas</span></div>
   <div class="badges">${list.map(simCard).join("")}</div>
@@ -64,7 +65,7 @@ register("sim", id => {
 function briefView(sim, runs){
   const nid = "brief-" + sim.id;
   return { section: "sims", docTitle: sim.title, html: `
-  <section class="hero">${scene(sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · ${ORG[sim.orgType] || ""} · ≈ ${sim.mins} min</span><h1>${esc(sim.title)}</h1><p class="muted">${esc(sim.hook)}</p><div class="row"><button type="button" class="btn brand lg" data-start>${runs.length ? "Vivirlo de nuevo" : "Empezar"} ${icon("arrow")}</button>${runs.length ? `<button type="button" class="btn ghost" data-last>Ver mi último informe (${fmtDate(runs[runs.length - 1].end)})</button>` : ""}<a class="btn ghost" href="#sims">${icon("back")}Jornadas</a></div></div><div class="coco-slot">${coco("feliz", { size: 130, cls: "anim", label: false })}</div></div></section>
+  <section class="hero">${art(sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · ${ORG[sim.orgType] || ""} · ≈ ${sim.mins} min</span><h1>${esc(sim.title)}</h1><p class="muted">${esc(sim.hook)}</p><div class="row"><button type="button" class="btn brand lg" data-start>${runs.length ? "Vivirlo de nuevo" : "Empezar"} ${icon("arrow")}</button>${runs.length ? `<button type="button" class="btn ghost" data-last>Ver mi último informe (${fmtDate(runs[runs.length - 1].end)})</button>` : ""}<a class="btn ghost" href="#sims">${icon("back")}Jornadas</a></div></div><div class="coco-slot">${coco("feliz", { size: 130, cls: "anim", label: false })}</div></div></section>
   ${narr(nid, `${sim.title}. ${sim.hook} ${sim.org} ${sim.you} Tu objetivo: ${sim.goal}`, { title: "Escucha el briefing" })}
   <div class="split"><div class="stack-lg">
     <section class="card stack"><span class="eyebrow">La organización <span class="tag sim">Ficticia</span></span><p>${sim.org}</p><p class="small muted">${esc(sim.size)} · ${esc(sim.place)}</p></section>
@@ -151,7 +152,7 @@ function playView(sim, st){
     });
   };
   return { section: "sims", docTitle: sim.title, html: `
-    <div class="sim-top">${scene(sim.scene)}<div class="in"><div class="stack" style="gap:4px"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · <span class="tag sim">Simulación</span></span><h1 style="font-size:clamp(1.5rem,1.1rem + 1.6vw,2.3rem)">${esc(sim.title.replace(/^(Un día como|Una semana|Caso urgente:|Tu primera mañana como) ?/, m => m))}</h1></div><div class="people-row">${sim.people.slice(0, 4).map(p => `<span class="person">${avatar(p.n, p.av, { size: 34, decorative: true })}<span><b>${esc(p.n.split(" ").slice(-2).join(" "))}</b><span>${esc(p.r)}</span></span></span>`).join("")}</div></div></div>
+    <div class="sim-top">${art(sim.scene)}<div class="in"><div class="stack" style="gap:4px"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · <span class="tag sim">Simulación</span></span><h1 style="font-size:clamp(1.5rem,1.1rem + 1.6vw,2.3rem)">${esc(sim.title.replace(/^(Un día como|Una semana|Caso urgente:|Tu primera mañana como) ?/, m => m))}</h1></div><div class="people-row">${sim.people.slice(0, 4).map(p => `<span class="person">${avatar(p.n, p.av, { size: 34, decorative: true })}<span><b>${esc(p.n.split(" ").slice(-2).join(" "))}</b><span>${esc(p.r)}</span></span></span>`).join("")}</div></div></div>
     <div id="simbox"></div>`,
     mount(root){ draw(root); if (!st.pending) emit("sim:node", { sim, node }); } };
 }
@@ -176,7 +177,7 @@ function debriefView(sim, run){
   const form = { enjoy: 0, see: 0, energy: 0, repeat: [], avoid: [], note: "" };
   const mood = qc.riesgosa > run.log.length / 2 ? "animo" : qc.buena >= run.log.length / 2 ? "celebra" : "feliz";
   return { section: "sims", docTitle: "Informe · " + sim.title, html: `
-    <section class="hero compact">${scene(sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">Informe de la experiencia · ${fmtDate(run.end)}</span><h1>${esc(sim.title)}</h1><p class="muted">Lo que pasó con tus decisiones y cómo las razonaría una profesional con experiencia. <b>Los aciertos y errores son aprendizaje: no miden tu vocación.</b> Un error de principiante no es falta de talento.</p></div><div class="coco-slot" style="display:grid;justify-items:center;gap:8px"><span class="stamp">Experiencia<br>registrada<br><small>${fmtDate(run.end)}</small></span>${coco(mood, { size: 110, cls: "anim", label: false })}</div></div></section>
+    <section class="hero compact">${art(sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">Informe de la experiencia · ${fmtDate(run.end)}</span><h1>${esc(sim.title)}</h1><p class="muted">Lo que pasó con tus decisiones y cómo las razonaría una profesional con experiencia. <b>Los aciertos y errores son aprendizaje: no miden tu vocación.</b> Un error de principiante no es falta de talento.</p></div><div class="coco-slot" style="display:grid;justify-items:center;gap:8px"><span class="stamp">Experiencia<br>registrada<br><small>${fmtDate(run.end)}</small></span>${coco(mood, { size: 110, cls: "anim", label: false })}</div></div></section>
     <div class="bento">
       <section class="tile w3"><span class="eyebrow">Indicadores al cierre</span>${gaugesHTML(run.m, N.START)}<p class="xs muted">Comparados con el inicio del día.</p></section>
       <section class="tile w3"><span class="eyebrow">Tus decisiones</span><div class="row"><span class="chip ok">${qc.buena} sólidas</span><span class="chip warn">${qc.aceptable} discutibles</span><span class="chip bad">${qc.riesgosa} riesgosas</span></div><p class="small">Pediste información antes de decidir en <b>${asked}</b> ${asked === 1 ? "situación" : "situaciones"}. ${asked ? "Buscar datos antes de actuar es un hábito profesional." : "La próxima vez prueba a pedir información: muchas decisiones cambian con un dato más."}</p>${run.log.some(l => l.revised) ? `<p class="small">Corregiste ${run.log.filter(l => l.revised).length} respuesta(s): revisar el propio trabajo también es oficio.</p>` : ""}</section>

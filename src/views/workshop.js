@@ -7,6 +7,7 @@ import { emit } from "../core/bus.js";
 import { C, tool as getTool, area, cluster } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { avatar } from "../brand/people.js";
 import { coco } from "../brand/coco.js";
 import * as N from "../engine/nodes.js";
@@ -26,7 +27,7 @@ function boletaExpected(t){
 }
 
 register("taller", () => ({ section: "taller", docTitle: "Taller", html: `
-  <section class="hero compact">${scene("taller")}<div class="hero-in"><div class="copy"><span class="eyebrow">Taller · trabajar, no solo leer</span><h1>Manos a la obra</h1><p class="muted">Tareas reales del oficio con datos ficticios: matrices de selección, boletas, legajos, encuestas, planes de inducción. Equivócate, mira por qué y vuelve a intentarlo.</p></div><div class="coco-slot">${coco("animo", { size: 120, cls: "anim", label: false })}</div></div></section>
+  <section class="hero compact">${art("taller")}<div class="hero-in"><div class="copy"><span class="eyebrow">Taller · trabajar, no solo leer</span><h1>Manos a la obra</h1><p class="muted">Tareas reales del oficio con datos ficticios: matrices de selección, boletas, legajos, encuestas, planes de inducción. Equivócate, mira por qué y vuelve a intentarlo.</p></div><div class="coco-slot">${coco("animo", { size: 120, cls: "anim", label: false })}</div></div></section>
   <div class="bench">${C.tools.map(t => { const r = S.state.tools[t.id]; const c = cluster(area(t.areas[0]).c); return `<a class="tool-card" href="#tool.${t.id}" style="--cc:${c.color}">${r ? `<span class="score chip ${N.qChip[r.q]}">Mejor: ${r.best}/100</span>` : ""}<span class="eyebrow">≈ ${t.mins} min</span><h3 style="padding-right:96px">${esc(t.n)}</h3><p class="small">${esc(t.d)}</p><div class="row" style="gap:6px">${t.areas.slice(0, 2).map(a => areaChip(a, false)).join("")}</div></a>`; }).join("")}</div>` }));
 
 register("tool", id => {
@@ -34,7 +35,7 @@ register("tool", id => {
   if (!t) return { title: "Herramienta no encontrada", html: `<div class="empty">Vuelve al <a href="#taller">Taller</a>.</div>` };
   const r = S.state.tools[id];
   return { section: "taller", docTitle: t.n, html: `
-  <section class="hero compact">${scene("taller")}<div class="hero-in"><div class="copy"><span class="eyebrow">Taller · ${t.areas.map(a => esc(area(a).n)).join(" · ")}</span><h1>${esc(t.n)}</h1><p class="muted">${esc(t.d)}</p><div class="row"><a class="btn ghost sm" href="#taller">${icon("back")}Taller</a>${r ? `<span class="chip">Intentos: ${r.attempts} · Mejor puntaje: ${r.best}/100</span><span data-resetbox><button type="button" class="btn ghost sm" data-reset>${icon("trash")}Borrar mi historial aquí</button></span>` : ""}</div></div></div></section>
+  <section class="hero compact">${art("taller")}<div class="hero-in"><div class="copy"><span class="eyebrow">Taller · ${t.areas.map(a => esc(area(a).n)).join(" · ")}</span><h1>${esc(t.n)}</h1><p class="muted">${esc(t.d)}</p><div class="row"><a class="btn ghost sm" href="#taller">${icon("back")}Taller</a>${r ? `<span class="chip">Intentos: ${r.attempts} · Mejor puntaje: ${r.best}/100</span><span data-resetbox><button type="button" class="btn ghost sm" data-reset>${icon("trash")}Borrar mi historial aquí</button></span>` : ""}</div></div></div></section>
   <div id="toolbox"></div>`,
   mount(root){
     const box = $("#toolbox", root); const draw = () => KINDS[t.kind](box, t, draw); draw();

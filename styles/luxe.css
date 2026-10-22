@@ -318,3 +318,42 @@ body{word-spacing:.05em;letter-spacing:0}
 .eyebrow,.chip,.btn,.textlink{word-spacing:.08em}
 .lockup small{letter-spacing:.1em;white-space:nowrap}
 @media (max-width:1500px){.lockup small{display:none}}
+
+/* ---------- renders 3D (dioramas originales) ---------- */
+img.art3d{display:block;object-fit:cover;filter:none;max-width:none}
+.hero:has(>img.art3d){background:#F2EDE4}
+.hero>img.art3d{inset:0 0 0 auto;width:min(68%,980px);height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply}
+.hero:has(>img.art3d)::after{background:linear-gradient(90deg,#F2EDE4 0%,#F2EDE4 30%,rgba(242,237,228,.86) 44%,rgba(242,237,228,0) 66%)}
+.tile>img.art3d{position:absolute;inset:auto 0 0 0;height:150px;width:100%;object-fit:cover;object-position:center 40%;mask-image:linear-gradient(transparent,#000 35%);-webkit-mask-image:linear-gradient(transparent,#000 35%);z-index:-1;transition:transform var(--t-slow) var(--ease)}
+.tile:has(>img.art3d){padding-bottom:160px}
+.tile:hover>img.art3d{transform:scale(1.05)}
+.tile.dark>img.art3d{filter:brightness(.92);mix-blend-mode:normal}
+.index-row .peek img.art3d,.door .art img.art3d{width:100%;height:100%;object-fit:cover}
+.compass-hero>img.art3d{position:absolute;inset:0 0 0 auto;width:55%;height:100%;object-fit:cover;z-index:-1;opacity:.5;filter:grayscale(.2)}
+/* en modo oscuro el diorama se presenta como una lámina enmarcada a la derecha */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero:has(>img.art3d){background:var(--card)}
+  :root:not([data-theme="light"]) .hero>img.art3d{mix-blend-mode:normal;inset:18px 18px 18px auto;height:calc(100% - 36px);width:min(52%,760px);border-radius:var(--r-l);box-shadow:var(--sh-2)}
+  :root:not([data-theme="light"]) .hero:has(>img.art3d)::after{background:none}}
+:root[data-theme="dark"] .hero:has(>img.art3d){background:var(--card)}
+:root[data-theme="dark"] .hero>img.art3d{mix-blend-mode:normal;inset:18px 18px 18px auto;height:calc(100% - 36px);width:min(52%,760px);border-radius:var(--r-l);box-shadow:var(--sh-2)}
+:root[data-theme="dark"] .hero:has(>img.art3d)::after{background:none}
+@media (max-width:720px){.hero>img.art3d{position:relative;inset:auto;width:100%;height:220px;order:-1}.hero:has(>img.art3d){display:flex;flex-direction:column;align-items:stretch}.hero:has(>img.art3d)::after{display:none}
+  :root[data-theme="dark"] .hero>img.art3d{inset:auto;width:calc(100% - 24px);margin:12px;height:200px}}
+img.kusi3d{display:block;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(20,17,15,.18))}
+@media (min-width:721px){.hero:has(>img.art3d) .hero-in .copy{max-width:min(62ch,48%)}.hero:has(>img.art3d) .coco-slot{display:none}}
+.kusi-pair{display:flex;align-items:flex-end;justify-content:center;gap:4px}
+.lux-hero .aside img.kusi3d{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.tour img.kusi3d{justify-self:center}
+
+/* ---------- galería de lugares (dioramas 3D) ---------- */
+.places{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(250px,26vw,360px);gap:clamp(14px,1.6vw,24px);overflow-x:auto;padding:4px var(--gutter) 18px;scroll-snap-type:x mandatory;scrollbar-width:thin;scroll-padding-inline:var(--gutter)}
+.place{scroll-snap-align:start;display:grid;gap:14px;text-decoration:none;color:var(--ink)}
+.place img.art3d{width:100%;aspect-ratio:1;height:auto;border-radius:var(--r-l);background:#F2EDE4;transition:transform 1s var(--ease),box-shadow .8s var(--ease)}
+.place:hover img.art3d,.place:focus-visible img.art3d{transform:translateY(-4px) scale(1.015);box-shadow:var(--sh-3)}
+.place-cap{display:grid;gap:6px}
+.place-cap b{font-family:var(--f-display);font-weight:560;font-size:1.15rem;line-height:1.2;font-variation-settings:"SOFT" 100}
+.place:hover .place-cap b{color:var(--brand-ink)}
+.guide-btn img.kusi3d{width:92px;height:92px;filter:drop-shadow(0 14px 18px rgba(20,17,15,.22));transition:transform .6s var(--ease)}
+.guide-btn:hover img.kusi3d{transform:translateY(-3px) rotate(-3deg)}
+@media (max-width:1060px){.guide-btn img.kusi3d{width:70px;height:70px}}
+.hero:has(>img.art3d) h1{font-size:clamp(2.1rem,1.4rem + 2.6vw,4rem)}

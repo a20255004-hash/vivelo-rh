@@ -159,7 +159,7 @@ function earGeometry(THREE, w, h, d, bend) {
   for (let i = 0; i < pos.count; i++) {
     let x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
     const t = (y + 1) / 2; // 0 base, 1 punta
-    const taper = 1 - 0.35 * t * t; // la punta un poco más fina
+    const taper = 1 - 0.22 * t * t; // la punta un poco más fina
     x *= w * taper; z *= d * (1 - 0.2 * t); y *= h;
     z += bend * t * t; // curva hacia adelante
     x += -0.25 * bend * t * t;
@@ -206,10 +206,10 @@ function buildFace(THREE, G, M, mood) {
       eyeG.add(tube(THREE, M.line, pts, 0.017));
       void s;
     } else {
-      const big = P.eyes === "wide" ? 1.12 : 1;
+      const big = P.eyes === "wide" ? 1.2 : 1.08;
       const s = headSurface(THREE, x, EY, -0.012);
       const eye = new THREE.Group(); placeOn(eye, s);
-      const ball = new THREE.Mesh(G.sphere, M.eye); ball.scale.set(0.085 * big, 0.098 * big, 0.045); ball.castShadow = true;
+      const ball = new THREE.Mesh(G.sphere, M.eye); ball.scale.set(0.085 * big, 0.098 * big, 0.046); ball.castShadow = true;
       eye.add(ball);
       // brillo inferior cálido (profundidad del iris)
       const iris = new THREE.Mesh(G.sphereLo, M.iris); iris.scale.set(0.05 * big, 0.04 * big, 0.02); iris.position.set(look[0] * 0.02, -0.042 * big + look[1] * 0.02, 0.03);
@@ -221,10 +221,10 @@ function buildFace(THREE, G, M, mood) {
       eye.add(h1, h2);
       // pestañas en el borde exterior
       for (let k = 0; k < 2; k++) {
-        const lash = new THREE.Mesh(new THREE.CapsuleGeometry(0.0085, 0.03, 4, 8), M.line);
+        const lash = new THREE.Mesh(new THREE.CapsuleGeometry(0.008, 0.02, 4, 8), M.line);
         const a = 0.55 + k * 0.38;
-        lash.position.set(side * Math.cos(a) * 0.09, Math.sin(a) * 0.1, 0.012);
-        lash.rotation.z = side * (a - Math.PI / 2) * 1.0 + side * 0.25;
+        lash.position.set(side * Math.cos(a) * 0.092 * big, Math.sin(a) * 0.104 * big, 0.01);
+        lash.rotation.z = side * (a - Math.PI / 2) - side * 0.35;
         eye.add(lash);
       }
       if (P.eyes === "sad") {
@@ -419,49 +419,49 @@ export function buildKusi(THREE, { mood = "feliz" } = {}) {
 
   // cuerpo
   const body = new THREE.Group(); body.name = "body"; rig.add(body);
-  const BC = [0, 0.6, -0.04], BR = [0.4, 0.34, 0.47];
+  const BC = [0, 0.6, -0.1], BR = [0.4, 0.34, 0.46];
   body.add(ellipsoid(THREE, G, M.woolSolid, BC, BR.map((v) => v * 0.97)));
-  body.add(woolCluster(THREE, G, M, { center: BC, radii: BR, count: 120, size: 0.12, seed: 3 }));
+  body.add(woolCluster(THREE, G, M, { center: BC, radii: BR, count: 230, size: 0.085, seed: 3, push: 0.93 }));
   // pecho esponjoso
-  body.add(woolCluster(THREE, G, M, { center: [0, 0.68, 0.24], radii: [0.29, 0.25, 0.22], count: 46, size: 0.11, seed: 5, filter: (d) => d.z > -0.2, colors: [0xfbf6ee, 0xf9f2e8, 0xf7eee2] }));
+  body.add(woolCluster(THREE, G, M, { center: [0, 0.68, 0.14], radii: [0.26, 0.23, 0.2], count: 70, size: 0.075, seed: 5, filter: (d) => d.z > -0.2, colors: [0xfbf6ee, 0xf9f2e8, 0xf7eee2] }));
   // colita
-  body.add(woolCluster(THREE, G, M, { center: [0, 0.72, -0.52], radii: [0.08, 0.09, 0.07], count: 12, size: 0.07, seed: 9, push: 1 }));
+  body.add(woolCluster(THREE, G, M, { center: [0, 0.72, -0.58], radii: [0.08, 0.09, 0.07], count: 12, size: 0.07, seed: 9, push: 1 }));
 
   // cuello
-  const neck = ellipsoid(THREE, G, M.woolSolid, [0, 0.92, 0.04], [0.2, 0.18, 0.2]); body.add(neck);
+  const neck = ellipsoid(THREE, G, M.woolSolid, [0, 0.93, 0.12], [0.2, 0.18, 0.2]); body.add(neck);
 
   // chalina
   const scarf = new THREE.Group(); scarf.name = "chalina"; body.add(scarf);
   const ring = new THREE.Mesh(new THREE.TorusGeometry(0.255, 0.075, 24, 72), M.scarf);
-  ring.rotation.x = Math.PI / 2 - 0.22; ring.position.set(0, 0.92, 0.05); ring.scale.set(1, 1.02, 1.0);
+  ring.rotation.x = Math.PI / 2 - 0.22; ring.position.set(0, 0.92, 0.13); ring.scale.set(1, 1.02, 1.0);
   ring.material.map && (ring.material.map.repeat.set(3, 1));
   ring.castShadow = true; ring.receiveShadow = true; scarf.add(ring);
   // nudo + caída lateral
-  const knot = ellipsoid(THREE, G, M.carmin, [0.17, 0.86, 0.27], [0.07, 0.065, 0.055]); scarf.add(knot);
-  const tailShape = new THREE.CatmullRomCurve3([new THREE.Vector3(0.17, 0.84, 0.29), new THREE.Vector3(0.2, 0.72, 0.36), new THREE.Vector3(0.23, 0.6, 0.38)]);
-  const tailGeo = new THREE.TubeGeometry(tailShape, 24, 0.055, 16, false);
-  const tailMesh = new THREE.Mesh(tailGeo, M.scarf); tailMesh.scale.set(1, 1, 1); tailMesh.castShadow = true; scarf.add(tailMesh);
-  // aplanar la caída
-  tailMesh.geometry.translate(0, 0, 0);
-  const tailEnd = ellipsoid(THREE, G, M.carmin, [0.23, 0.6, 0.38], [0.056, 0.02, 0.056]); scarf.add(tailEnd);
+  const knot = ellipsoid(THREE, G, M.carmin, [0.17, 0.86, 0.36], [0.07, 0.065, 0.055]); scarf.add(knot);
+  // caída de la chalina: banda plana con franjas transversales
+  const tailMat = M.scarf.clone();
+  if (tailMat.map) { tailMat.map = tailMat.map.clone(); tailMat.map.center.set(0.5, 0.5); tailMat.map.rotation = Math.PI / 2; tailMat.map.repeat.set(1, 1.4); tailMat.map.needsUpdate = true; }
+  const tailMesh = new THREE.Mesh(new THREE.CapsuleGeometry(0.058, 0.2, 8, 20), tailMat);
+  tailMesh.scale.set(1, 1, 0.32); tailMesh.position.set(0.215, 0.7, 0.43); tailMesh.rotation.set(-0.32, 0.25, 0.14);
+  tailMesh.castShadow = true; tailMesh.receiveShadow = true; scarf.add(tailMesh);
   // dos borlas
-  for (const dx of [-0.025, 0.028]) {
-    const tas = new THREE.Group(); tas.position.set(0.23 + dx, 0.58, 0.385);
-    const knotB = new THREE.Mesh(G.sphereLo, M.laton); knotB.scale.setScalar(0.018); tas.add(knotB);
-    const fr = new THREE.Mesh(new THREE.ConeGeometry(0.022, 0.07, 14), M.carmin); fr.position.y = -0.045; fr.rotation.x = Math.PI; tas.add(fr);
-    const band = new THREE.Mesh(new THREE.TorusGeometry(0.012, 0.004, 6, 16), M.laton); band.rotation.x = Math.PI / 2; band.position.y = -0.02; tas.add(band);
-    tas.rotation.z = dx * 3; scarf.add(tas);
+  for (const dx of [-0.026, 0.026]) {
+    const tas = new THREE.Group(); tas.position.set(0.2 + dx, 0.55, 0.47);
+    const knotB = new THREE.Mesh(G.sphereLo, M.laton); knotB.scale.setScalar(0.016); tas.add(knotB);
+    const fr = new THREE.Mesh(new THREE.CapsuleGeometry(0.019, 0.035, 6, 14), M.carmin); fr.position.y = -0.038; tas.add(fr);
+    const band = new THREE.Mesh(new THREE.TorusGeometry(0.0185, 0.005, 6, 18), M.laton); band.rotation.x = Math.PI / 2; band.position.y = -0.02; tas.add(band);
+    tas.rotation.z = dx * 2.5; tas.rotation.x = -0.3; scarf.add(tas);
   }
 
   // cordón (lanyard) + fotocheck
-  const BADGE_POS = [-0.02, 0.6, 0.47];
+  const BADGE_POS = [-0.03, 0.6, 0.5];
   for (const side of [-1, 1]) {
-    scarf.add(tube(THREE, M.carmin, [[side * 0.11, 0.84, 0.3], [side * 0.075, 0.76, 0.42], [side * 0.012 - 0.02, 0.71, 0.462]], 0.011));
+    scarf.add(tube(THREE, M.carmin, [[side * 0.11, 0.85, 0.4], [side * 0.07, 0.77, 0.48], [side * 0.012 - 0.03, 0.72, 0.5]], 0.011));
   }
   const bd = badge(THREE, M); bd.position.set(...BADGE_POS); bd.rotation.set(-0.18, 0, 0.06); bd.scale.setScalar(0.95); body.add(bd);
 
   // cabeza (pivote en el cuello)
-  const headPivot = new THREE.Group(); headPivot.name = "headPivot"; headPivot.position.set(0, 0.95, 0.03); rig.add(headPivot);
+  const headPivot = new THREE.Group(); headPivot.name = "headPivot"; headPivot.position.set(0, 0.95, 0.1); rig.add(headPivot);
   const head = new THREE.Group(); head.name = "head"; head.position.set(0, 0.44, 0.04); headPivot.add(head);
   head.add(ellipsoid(THREE, G, M.woolSolid, [0, 0, 0], [HEAD.R * HEAD.sx, HEAD.R * HEAD.sy, HEAD.R * HEAD.sz]));
   // melena: lana alrededor de la cara (atrás, lados y arriba)
@@ -476,13 +476,22 @@ export function buildKusi(THREE, { mood = "feliz" } = {}) {
     for (let k = 0; k < 4; k++) { const a = tr() * Math.PI * 2; const mini = ellipsoid(THREE, G, M.woolSolid, [x + Math.cos(a) * s * 0.6, y + s * 0.45 + tr() * 0.03, z + Math.sin(a) * s * 0.6], [s * 0.45, s * 0.42, s * 0.45]); topk.add(mini); }
   }
 
+  // flequillo: fila de motas que enmarca la frente y une con el copete
+  const bangsR = rng(31);
+  for (let i = 0; i < 11; i++) {
+    const u = i / 10 * 2 - 1; const x = u * 0.36; const y = 0.3 + (1 - u * u) * 0.06 + bangsR() * 0.02;
+    const sp = headSurface(THREE, x, y, -0.02);
+    const sz = 0.065 + bangsR() * 0.02;
+    topk.add(ellipsoid(THREE, G, M.woolSolid, [sp.p.x, sp.p.y, sp.p.z], [sz, sz * 0.9, sz * 0.8]));
+  }
+
   // orejas
   const ears = [];
   for (const side of [-1, 1]) {
-    const pivot = new THREE.Group(); pivot.position.set(side * 0.27, 0.34, -0.06); head.add(pivot);
-    const geo = earGeometry(THREE, 0.085, 0.2, 0.06, 0.07);
+    const pivot = new THREE.Group(); pivot.position.set(side * 0.29, 0.3, -0.08); head.add(pivot);
+    const geo = earGeometry(THREE, 0.095, 0.3, 0.065, 0.09);
     const outer = new THREE.Mesh(geo, M.woolSolid); outer.castShadow = true; outer.receiveShadow = true; outer.scale.x = side;
-    const inner = new THREE.Mesh(earGeometry(THREE, 0.05, 0.16, 0.03, 0.07), M.earInner); inner.position.set(0, 0.04, 0.04); inner.scale.x = side;
+    const inner = new THREE.Mesh(earGeometry(THREE, 0.058, 0.25, 0.03, 0.09), M.earInner); inner.position.set(0, 0.06, 0.045); inner.scale.x = side;
     pivot.add(outer, inner);
     pivot.userData.side = side;
     ears.push(pivot);
@@ -508,7 +517,7 @@ export function buildKusi(THREE, { mood = "feliz" } = {}) {
     const anim = o.animate !== false && t !== 0;
     const breathe = anim ? Math.sin(t * 2.1) : 0;
     body.scale.set(1 + breathe * 0.006, 1 + breathe * 0.012, 1 + breathe * 0.006);
-    const hop = (o.hop ?? (P.hop || 0));
+    const hop = o.hop ?? (P.hop ? (anim ? P.hop * Math.max(0, Math.sin(t * 4.5)) : P.hop) : 0);
     rig.position.y = hop;
     shadowBlob.scale.setScalar(1 - hop * 1.6);
     shadowBlob.material.opacity = 0.55 * (1 - hop * 2.2);
@@ -562,7 +571,7 @@ export function disposeTree(o) {
 export function addKusiStudio(THREE, scene, renderer, { shadows = true, shadowMapSize = 2048 } = {}) {
   const lights = new THREE.Group(); lights.name = "studio";
   const hemi = new THREE.HemisphereLight(0xfff8ef, 0xcfc5b6, 0.9); lights.add(hemi);
-  const key = new THREE.DirectionalLight(0xfff1e0, 2.3); key.position.set(2.2, 4.2, 3.4); key.target.position.set(0, 0.9, 0);
+  const key = new THREE.DirectionalLight(0xfff6ec, 2.3); key.position.set(1.4, 6, 3.6); key.target.position.set(0, 0.9, 0);
   if (shadows) {
     key.castShadow = true; key.shadow.mapSize.set(shadowMapSize, shadowMapSize); key.shadow.radius = 6; key.shadow.blurSamples = 16; key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
     const c = key.shadow.camera; c.left = -1.6; c.right = 1.6; c.top = 2.6; c.bottom = -0.6; c.near = 0.5; c.far = 12;
@@ -588,7 +597,7 @@ export function addKusiStudio(THREE, scene, renderer, { shadows = true, shadowMa
     pm.dispose();
   }
   if (shadows) {
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.ShadowMaterial({ opacity: 0.16, color: 0x3a2a20 }));
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.ShadowMaterial({ opacity: 0.1, color: 0x3a2a20 }));
     ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; ground.name = "ground"; scene.add(ground);
   }
   return lights;
