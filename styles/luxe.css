@@ -466,3 +466,10 @@ html::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .mind-mini{margin:6px 0 0;padding-left:1.2rem;display:grid;gap:4px}
 .mind-mini li::marker{color:var(--brand-ink);font-weight:700}
 @media (max-width:640px){.mind-card{grid-template-columns:48px minmax(0,1fr)}.mind-card img{width:48px;height:48px}}
+
+/* ---------- banda del quiz en la portada ---------- */
+.qz-band{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(24px,4vw,48px);border-radius:var(--r-xl);background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 10%,var(--card)),var(--card) 60%);border:1px solid var(--line);position:relative;overflow:hidden}
+.qz-band::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:1px solid color-mix(in srgb,var(--brass) 45%,transparent);pointer-events:none}
+.qz-band-art img{width:clamp(150px,18vw,220px);height:auto}
+.qz-band-copy{display:grid;gap:14px;max-width:60ch}
+@media (max-width:700px){.qz-band{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}.qz-band .row{justify-content:center}}

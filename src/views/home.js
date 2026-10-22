@@ -151,6 +151,11 @@ function home(){
     </nav>
   </section>
 
+  <section class="qz-band" aria-label="Quiz rápido">
+    <div class="qz-band-art" aria-hidden="true">${kusi3dImg("curioso", { size: 220, decorative: true })}</div>
+    <div class="qz-band-copy"><span class="eyebrow">Quiz rápido · 3 minutos</span><h2 data-split>¿Cuánto sabes de <em>Recursos Humanos?</em></h2><p>Escoge imágenes, completa palabras, explica con otras palabras, ordena pasos y calcula. Cada respuesta trae su porqué.</p><div class="row"><a class="btn brand lg" href="#quiz">Hacer el quiz ${icon("arrow")}</a><a class="textlink" href="#retos">Retos por niveles ${icon("arrow")}</a></div></div>
+  </section>
+
   <section class="stack-lg" aria-label="Lugares de trabajo">
     <div class="sec-head"><h2 data-split>Dónde trabaja <em>Recursos Humanos</em></h2><p>Oficinas, almacenes, plantas, fundos, hospitales y municipalidades. Cada lugar tiene su jornada: entra y vívela. <span class="small muted">Ilustraciones 3D originales; lugares ficticios.</span></p></div>
     <div class="places bleed" role="list">${PLACES.filter(([k]) => has3d(k)).map(([k, t, simId, d]) => { const x = sim(simId); return `<a class="place" role="listitem" href="#sim.${simId}">${art(k, { sq: true })}<span class="place-cap"><span class="eyebrow">${esc(t)}</span><b>${esc(x ? x.title : "")}</b><span class="small muted">${esc(d)}</span></span></a>`; }).join("")}</div>

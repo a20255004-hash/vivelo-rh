@@ -16,10 +16,12 @@ export const NAV = [
   { id: "academia", n: "Academia", ic: "academia" },
   { id: "taller", n: "Taller", ic: "taller" },
   { id: "retos", n: "Retos", ic: "retos" },
+  { id: "quiz", n: "Quiz", ic: "bulb" },
+  { id: "empresas", n: "Empresas", ic: "cargos" },
   { id: "sectores", n: "Sectores", ic: "sectores" },
   { id: "brujula", n: "Brújula", ic: "brujula" }
 ];
-const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
+const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", empresa: "empresas", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
 const DOCK = ["inicio", "viaje", "sims", "brujula"];
 
 export function applyTheme(){
