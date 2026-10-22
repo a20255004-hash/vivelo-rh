@@ -9,6 +9,7 @@ import { art, kusi3dImg, has3d } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 import { mark, SLOGAN, DESCRIPTOR } from "../brand/logo.js";
 import { narr, bindNarr } from "../core/narrator.js";
+import { playBrand } from "../core/sound.js";
 import * as P from "../engine/profile.js";
 import { syncTools } from "./shell.js";
 import { say } from "./guide.js";
@@ -80,7 +81,7 @@ function welcome(){
       e.preventDefault();
       const v = $("#nm", root).value.trim().replace(/\s+/g, " ").slice(0, 40);
       if (!v) { $("#nm", root).focus(); return; }
-      S.state.profile.name = v; S.state.profile.createdAt = S.state.profile.createdAt || Date.now(); save(); syncTools();
+      S.state.profile.name = v; S.state.profile.createdAt = S.state.profile.createdAt || Date.now(); save(); syncTools(); playBrand();
       render();
     });
     setTimeout(() => { const i = $("#nm", root); if (i && innerWidth > 900) i.focus({ preventScroll: true }); }, 900);

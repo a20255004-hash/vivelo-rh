@@ -1,5 +1,6 @@
 /* Fuentes y método · Mis datos (perfil de invitado, guía, respaldo y reinicios parciales). */
 import { $, $$, esc, toast, fmtDate } from "../core/util.js";
+import { playBrand } from "../core/sound.js";
 import { S, save, reset, exportJSON, replace, validateBackup, adapterName } from "../core/store.js";
 import { register, render, go } from "../core/router.js";
 import { C, sim, tool, VERIFIED } from "../content/index.js";
@@ -33,6 +34,7 @@ register("perfil", () => {
   <div class="grid g2">
     <section class="card stack"><h2>Cómo te llamamos</h2><form class="row" data-name><input type="text" id="pn" value="${esc(st.profile.name)}" maxlength="40" aria-label="Nombre" style="flex:1;min-width:180px"><button class="btn brand sm" type="submit">Guardar</button></form></section>
     <section class="card stack" data-guide-mode><h2>Kusi, tu guía</h2><div class="seg" role="group" aria-label="Modo de la guía">${guideModes.map(([v, n]) => `<button type="button" data-gm="${v}" aria-pressed="${st.profile.guide === v}">${n}</button>`).join("")}</div><p class="small muted">${esc((guideModes.find(g => g[0] === st.profile.guide) || guideModes[0])[2])}.</p><button type="button" class="btn ghost sm" data-tour style="justify-self:start">${icon("replay")}Ver otra vez el recorrido de bienvenida</button></section>
+    <section class="card stack"><h2>Sonido de la marca</h2><p class="small muted">Un sonido breve de charango y quena (sintetizado, original) que suena al entrar. Nunca se repite solo.</p><div class="row"><div class="seg" role="group" aria-label="Sonido de la marca"><button type="button" data-snd="on" aria-pressed="${st.prefs.sound !== false}">Activado</button><button type="button" data-snd="off" aria-pressed="${st.prefs.sound === false}">Desactivado</button></div><button type="button" class="btn ghost sm" data-snd-play>♪ Escuchar</button></div></section>
     <section class="card stack"><h2>Tema</h2><div class="seg" role="group" aria-label="Tema">${[["auto", "Automático"], ["light", "Claro"], ["dark", "Oscuro"]].map(([v, n]) => `<button type="button" data-th="${v}" aria-pressed="${(st.prefs.theme || "auto") === v}">${n}</button>`).join("")}</div></section>
     <section class="card stack"><h2>Respaldo</h2><p class="small muted">Descarga un archivo .json con todo tu progreso y cárgalo en otro navegador o dispositivo.</p><div class="row"><button type="button" class="btn sm" data-export>${icon("download")}Exportar respaldo</button><label class="btn ghost sm" style="cursor:pointer">${icon("upload")}Importar respaldo<input type="file" accept="application/json,.json" data-import hidden></label></div></section>
   </div>
@@ -47,6 +49,8 @@ register("perfil", () => {
     <div class="row"><button type="button" class="btn ghost sm" data-r="all">${icon("trash")}Borrar todo mi progreso (conservar mi nombre)</button><button type="button" class="btn ghost sm" data-r="everything">Empezar de cero como otra persona</button></div></section>
   <section class="card stack"><h2>Preparado para cuentas en el futuro</h2><p class="small muted">La aplicación guarda el estado a través de un adaptador intercambiable (src/core/store.js). Para sincronizar entre dispositivos bastará con añadir un adaptador conectado a un servicio con cuentas de usuario; el formato de datos ya está versionado y el respaldo .json sirve como puente de migración. Hoy no hay autenticación, pagos ni servicios externos.</p></section>`,
   mount(root){
+    $$("[data-snd]", root).forEach(b => b.addEventListener("click", () => { S.state.prefs.sound = b.dataset.snd === "on"; save(); $$("[data-snd]", root).forEach(x => x.setAttribute("aria-pressed", String(x === b))); if (b.dataset.snd === "on") playBrand(true); }));
+    const sp = $("[data-snd-play]", root); if (sp) sp.addEventListener("click", () => playBrand(true));
     $("[data-name]", root).addEventListener("submit", e => { e.preventDefault(); const v = $("#pn", root).value.trim().slice(0, 40); if (!v) return; S.state.profile.name = v; save(); syncTools(); toast("Nombre actualizado"); });
     $$("[data-gm]", root).forEach(b => b.addEventListener("click", () => { S.state.profile.guide = b.dataset.gm; save(); render(true); }));
     $("[data-tour]", root).addEventListener("click", () => { reset.tour(); go("#inicio"); });
