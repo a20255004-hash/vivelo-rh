@@ -116,13 +116,13 @@ function body(it, st){
     case "number":
       return `<div class="qz-num"><label for="qz-in" class="small"><b>Tu respuesta</b></label><div class="qz-num-row">${it.unit === "S/" ? `<span class="qz-unit" aria-hidden="true">S/</span>` : ""}<input type="text" inputmode="decimal" id="qz-in" class="qz-in ${done ? (st.score ? "is-right" : "is-wrong") : ""}" autocomplete="off" value="${esc(a || "")}" ${done ? "readonly" : ""} aria-describedby="qz-hint">${it.unit === "%" ? `<span class="qz-unit" aria-hidden="true">%</span>` : ""}</div><p class="xs muted" id="qz-hint">${it.hint ? esc(it.hint) + ". " : ""}Usa punto decimal (p. ej., 6.76).${it.unit === "S/" ? " En soles." : it.unit === "%" ? " En porcentaje." : ""}</p></div>`;
     case "order":
-      return `<ol class="qz-order" aria-label="Pasos en el orden actual">${a.map((x, i) => { const pos = it.items.indexOf(x); return `<li class="qz-ord ${done ? (pos === i ? "is-right" : "is-wrong") : ""}"><span class="qz-pos" aria-hidden="true">${i + 1}</span><span class="qz-ord-t">${esc(x)}${done && pos !== i ? ` <span class="xs qz-should">va en el ${pos + 1}.º lugar</span>` : ""}</span>${done ? "" : `<span class="qz-mv"><button type="button" class="qz-mvb" data-mv="${i}" data-d="-1" aria-label="Subir «${esc(x)}» (está en el lugar ${i + 1})" ${i === 0 ? "disabled" : ""}>${icon("up")}</button><button type="button" class="qz-mvb" data-mv="${i}" data-d="1" aria-label="Bajar «${esc(x)}» (está en el lugar ${i + 1})" ${i === a.length - 1 ? "disabled" : ""}>${icon("down")}</button></span>`}</li>`; }).join("")}</ol><p class="xs muted">Usa las flechas para mover cada paso.</p>`;
+      return `<ol class="qz-order" aria-label="Pasos en el orden actual">${a.map((x, i) => { const pos = it.items.indexOf(x); return `<li class="qz-ord ${done ? (pos === i ? "is-right" : "is-wrong") : ""}"><span class="qz-pos" aria-hidden="true">${i + 1}</span><span class="qz-ord-t">${esc(x)}${done && pos !== i ? ` <span class="xs qz-should">va en el ${pos + 1}.º lugar</span>` : ""}</span>${done ? "" : `<span class="qz-mv"><button type="button" class="qz-mvb" data-mv="${i}" data-d="-1" aria-label="Subir «${esc(x)}» (está en el lugar ${i + 1})" ${i === 0 ? "disabled" : ""}>${icon("up")}</button><button type="button" class="qz-mvb" data-mv="${i}" data-d="1" aria-label="Bajar «${esc(x)}» (está en el lugar ${i + 1})" ${i === a.length - 1 ? "disabled" : ""}>${icon("down")}</button></span>`}</li>`; }).join("")}</ol>${done ? "" : `<p class="xs muted">Usa las flechas para mover cada paso.</p>`}`;
     case "match": {
       const used = Object.values(a);
       const termOf = d => Object.keys(a).find(k => a[k] === d);
       return `<div class="qz-match">
         <div class="qz-col"><p class="xs qz-colh">Términos</p>${it.pairs.map(([l, r], i) => { const has = a[i] != null; const ok = done ? a[i] === r : null; return `<button type="button" class="qz-term ${st.pick === i ? "is-pick" : ""} ${has ? "is-paired" : ""} ${ok === true ? "is-right" : ok === false ? "is-wrong" : ""}" data-term="${i}" aria-pressed="${st.pick === i}" ${done ? "disabled" : ""}>${has ? `<span class="qz-badge" aria-hidden="true">${i + 1}</span>` : `<span class="qz-badge empty" aria-hidden="true">${i + 1}</span>`}<span><b>${esc(l)}</b>${has ? `<span class="xs qz-paired">→ ${esc(a[i])}</span>` : ""}${done && !ok ? `<span class="xs qz-should">Correcto: ${esc(r)}</span>` : ""}</span></button>`; }).join("")}</div>
-        <div class="qz-col"><p class="xs qz-colh">Definiciones</p>${st.defs.map(d => { const k = termOf(d); return `<button type="button" class="qz-def ${k != null ? "is-paired" : ""}" data-def="${esc(d)}" ${done || st.pick == null && k == null ? (done ? "disabled" : "aria-disabled=\"true\"") : ""}>${k != null ? `<span class="qz-badge" aria-hidden="true">${+k + 1}</span>` : ""}<span>${esc(d)}</span></button>`; }).join("")}</div>
+        <div class="qz-col"><p class="xs qz-colh">Definiciones</p>${st.defs.map(d => { const k = termOf(d); return `<button type="button" class="qz-def ${k != null ? "is-paired" : ""}" data-def="${esc(d)}" ${done ? "disabled" : st.pick == null ? 'aria-disabled="true"' : ""}>${k != null ? `<span class="qz-badge" aria-hidden="true">${+k + 1}</span>` : ""}<span>${esc(d)}</span></button>`; }).join("")}</div>
       </div><p class="xs muted" id="qz-match-help">${done ? "" : used.length === it.pairs.length ? "Todas las parejas están unidas. Toca un término para deshacer su pareja." : st.pick != null ? `Ahora elige la definición para «${esc(it.pairs[st.pick][0])}».` : "Toca un término y luego su definición."}</p>`;
     }
   }
@@ -172,7 +172,7 @@ function question(){
         <h2 id="qz-q" tabindex="-1">${it.t === "cloze" ? "Completa la palabra que falta" : esc(it.q)}</h2>
         ${it.t === "paraphrase" ? `<p class="small muted">${it.dir === "term" ? "Lee la explicación sencilla y elige el concepto." : "Elige la opción que dice lo mismo con palabras sencillas."}</p>` : ""}
         ${body(it, st)}
-        <div class="qz-live" aria-live="polite">${st.checked ? feedback(it, st) : ""}</div>
+        <div class="qz-live">${st.checked ? feedback(it, st) : ""}</div>
         <div class="qz-actions">${st.checked ? `<button type="button" class="btn brand" data-next>${last ? "Ver resultado" : "Siguiente"} ${icon("arrow")}</button>` : `<button type="button" class="btn brand" data-check ${answered(it, st) ? "" : "disabled"}>Comprobar</button>${it.t !== "order" ? `<span class="xs muted qz-keyhint">${it.t === "cloze" || it.t === "number" ? "Pulsa Enter para comprobar" : ""}</span>` : ""}`}</div>
       </section>
       <aside class="qz-kusi" aria-hidden="true">${kusi3dImg(m, { size: 180, decorative: true, cls: "qz-kusi-run" + (st.checked ? " pop" : "") })}<p class="qz-bubble">${esc(kusiLine(m))}</p></aside>
@@ -305,6 +305,7 @@ function bind(){
     st.checked = true; st.score = gradeItem(it, st.ans);
     R.streak = st.score >= .99 ? R.streak + 1 : 0;
     paint("[data-next]");
+    const fb = $(".qz-fb", root); if (fb) announce(fb.textContent.replace(/\s+/g, " ").trim());
   });
   const nx = $("[data-next]", root);
   if (nx) nx.addEventListener("click", () => {
@@ -314,7 +315,7 @@ function bind(){
 }
 
 function announce(msg){
-  const l = $(".qz-live", root); if (!l) return;
+  const l = document.getElementById("qz-announce"); if (!l) return;
   l.textContent = ""; setTimeout(() => { l.textContent = msg; }, 30);
 }
 
@@ -325,7 +326,7 @@ register("quiz", () => {
   if (lastRoute !== "quiz") R = null;
   return {
     section: "quiz", docTitle: "Quiz rápido",
-    html: `<div id="qz-root"></div>`,
+    html: `<div id="qz-root"></div><p id="qz-announce" class="qz-sr" aria-live="polite" aria-atomic="true"></p>`,
     mount(view){ root = $("#qz-root", view); paint(); }
   };
 });
