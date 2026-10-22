@@ -14,7 +14,9 @@ No requiere instalación ni proceso de compilación: son módulos ES servidos de
 npm start            # servidor estático sin dependencias en http://localhost:8080
 npm test             # pruebas unitarias (node:test): nómina, esquema de contenidos, migración
 npm run test:e2e     # prueba de humo con Playwright (requiere el servidor encendido)
-npm run video        # regenera assets/video/bienvenida.mp4 (Playwright + ffmpeg)
+npm run video        # regenera los 6 videos de assets/video (o: node scripts/make-video.mjs boleta)
+node scripts/3d/scenes/render-all.mjs [nombre]   # regenera los dioramas 3D (con el servidor en :8094)
+node scripts/3d/render-kusi.mjs                   # regenera los renders 3D de Kusi
 ```
 
 Requisitos:
@@ -49,7 +51,9 @@ src/content/          contenidos separados de la lógica: áreas, cargos, concep
 src/views/            una vista por sección (inicio, viaje, jornadas, mapa, cargos, academia,
                       taller, retos, sectores, brújula, medios, fuentes, perfil) + guía y armazón
 tests/                unit/ (node:test) · e2e/smoke.mjs (todas las rutas, jornadas y talleres)
-scripts/              serve.mjs · make-video.mjs + video/ (línea de tiempo y página animada)
+scripts/              serve.mjs · make-video.mjs + video/ (un módulo por video, página de composición, fuentes)
+                      · 3d/ (modelo de Kusi y dioramas en three.js, render con Chromium)
+assets/3d/            renders 3D originales: kusi/ (10 estados de ánimo) y scenes/ (15 lugares y conceptos)
 legacy/               el artefacto original «Legajo Vivo», como referencia
 ```
 
@@ -78,7 +82,8 @@ legacy/               el artefacto original «Legajo Vivo», como referencia
 
 | Recurso | Estado |
 |---|---|
-| Video de bienvenida (`assets/video/bienvenida.mp4`, 0:38, subtítulos WebVTT en `bienvenida-subtitulos.txt`) | **Listo**. Animación generada, sin voz. |
+| 6 videos explicativos (`assets/video/*.mp4` + `.webm`, 0:36–0:46, subtítulos WebVTT en `*-subtitulos.txt`): bienvenida, familias de RR.HH., boleta, feriados, concurso CAS y hostigamiento | **Listos**. Animaciones generadas con el sistema de diseño, sin voz ni música. |
+| Imágenes 3D (dioramas y Kusi) | **Listas**. Ilustraciones 3D originales; no son fotos ni lugares reales. |
 | Narración de textos y cápsulas | **Voz sintética del navegador**, rotulada como tal, con transcripción. |
 | Grabaciones humanas | **Pendientes**. Los guiones están en `src/content/media.js`. |
 

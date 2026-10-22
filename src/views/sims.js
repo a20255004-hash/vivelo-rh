@@ -1,5 +1,6 @@
 /* Jornadas: catálogo, briefing, espacio de trabajo y debrief. */
 import { $, $$, esc, clamp, fmtDate, toast } from "../core/util.js";
+import { videoFor } from "./videocard.js";
 import { S, save, reset } from "../core/store.js";
 import { register, go, render } from "../core/router.js";
 import { emit } from "../core/bus.js";
@@ -65,8 +66,9 @@ register("sim", id => {
 function briefView(sim, runs){
   const nid = "brief-" + sim.id;
   return { section: "sims", docTitle: sim.title, html: `
-  <section class="hero">${art(sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · ${ORG[sim.orgType] || ""} · ≈ ${sim.mins} min</span><h1>${esc(sim.title)}</h1><p class="muted">${esc(sim.hook)}</p><div class="row"><button type="button" class="btn brand lg" data-start>${runs.length ? "Vivirlo de nuevo" : "Empezar"} ${icon("arrow")}</button>${runs.length ? `<button type="button" class="btn ghost" data-last>Ver mi último informe (${fmtDate(runs[runs.length - 1].end)})</button>` : ""}<a class="btn ghost" href="#sims">${icon("back")}Jornadas</a></div></div><div class="coco-slot">${coco("feliz", { size: 130, cls: "anim", label: false })}</div></div></section>
+  <section class="hero">${art(sim.art || sim.scene)}<div class="hero-in"><div class="copy"><span class="eyebrow">${KIND[sim.kind].n} · ${sim.sector === "publico" ? "Sector público" : "Sector privado"} · ${ORG[sim.orgType] || ""} · ≈ ${sim.mins} min</span><h1>${esc(sim.title)}</h1><p class="muted">${esc(sim.hook)}</p><div class="row"><button type="button" class="btn brand lg" data-start>${runs.length ? "Vivirlo de nuevo" : "Empezar"} ${icon("arrow")}</button>${runs.length ? `<button type="button" class="btn ghost" data-last>Ver mi último informe (${fmtDate(runs[runs.length - 1].end)})</button>` : ""}<a class="btn ghost" href="#sims">${icon("back")}Jornadas</a></div></div><div class="coco-slot">${coco("feliz", { size: 130, cls: "anim", label: false })}</div></div></section>
   ${narr(nid, `${sim.title}. ${sim.hook} ${sim.org} ${sim.you} Tu objetivo: ${sim.goal}`, { title: "Escucha el briefing" })}
+  ${videoFor("#sim." + sim.id)}
   <div class="split"><div class="stack-lg">
     <section class="card stack"><span class="eyebrow">La organización <span class="tag sim">Ficticia</span></span><p>${sim.org}</p><p class="small muted">${esc(sim.size)} · ${esc(sim.place)}</p></section>
     <section class="card stack"><span class="eyebrow">Tu puesto · ${LVL[sim.level] || ""}</span><p>${sim.you}</p><span class="eyebrow">Tu objetivo</span><p>${esc(sim.goal)}</p></section>

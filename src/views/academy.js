@@ -1,5 +1,6 @@
 /* Academia: fichas con diagramas, dos niveles de explicación, demostraciones interactivas y comprobación. */
 import { $, $$, esc, money } from "../core/util.js";
+import { videoFor } from "./videocard.js";
 import { S, save } from "../core/store.js";
 import { register, render } from "../core/router.js";
 import { C, concept, area, cluster, sim, tool } from "../content/index.js";
@@ -60,6 +61,7 @@ register("concepto", id => {
   return { section: "academia", docTitle: c.n, html: `
   <section class="hero compact">${art("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow" style="color:${cc.color}">Academia · ${c.areas.map(a => esc(area(a).n)).join(" · ")}</span><h1>${esc(c.n)}</h1><div class="row"><a class="btn ghost sm" href="#academia">${icon("back")}Academia</a>${lensSeg()}</div></div></div></section>
   ${narr("con-" + c.id, c.simple + " " + c.tech, { title: "Escuchar la explicación" })}
+  ${videoFor("#concepto." + c.id)}
   <div class="grid g2">${lensBody(c.simple, c.tech)}</div>
   ${c.viz ? `<section class="diagram"><div class="row between"><span class="eyebrow">${icon("mapa")} Organizador visual</span></div>${viz(c.viz)}</section>` : ""}
   ${demoHTML(c.id)}

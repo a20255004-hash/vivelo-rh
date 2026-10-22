@@ -1,6 +1,6 @@
 /* Un concurso CAS, paso a paso (redacción alineada con concepts.js, municipal.js y concursocas.js). */
 export default {
-  id: "concurso", title: "Un concurso CAS, paso a paso", duration: 41, poster: 16,
+  id: "concurso", title: "Un concurso CAS, paso a paso", duration: 41, poster: 21.5,
   scenes: [
     { t0: 0, t1: 5, layout: "title", eyebrow: "Sector público · mérito e igualdad", title: "Un concurso CAS,|<em>paso a paso</em>", lead: "En el Estado se ingresa por concurso: reglas públicas, puntajes y actas.", mood: "curioso",
       sub: "Un concurso CAS, paso a paso. En el Estado se ingresa por concurso público de méritos." },

@@ -106,7 +106,7 @@ async function main() {
       save(url, join(fdir, `f${String(i).padStart(4, "0")}.png`));
       if (i % 24 === 0) console.log(`frame ${i}/${N}`);
     }
-    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", String(FPS), "-i", join(fdir, "f%04d.png"), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "slow", "-crf", "20", "-movflags", "+faststart", join(out, "kusi-hola.mp4")], { stdio: "inherit" });
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", String(FPS), "-i", join(fdir, "f%04d.png"), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "veryslow", "-tune", "animation", "-crf", "27", "-movflags", "+faststart", join(out, "kusi-hola.mp4")], { stdio: "inherit" });
     // póster: fotograma del saltito feliz
     const posterUrl = await page.evaluate((o) => window.holaFrame(o), { t: 5.0, size: 1080 });
     const pr = join(tmp, "poster.png"); save(posterUrl, pr);
