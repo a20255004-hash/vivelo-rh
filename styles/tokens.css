@@ -8,7 +8,7 @@
    Todos los pares texto/fondo cumplen WCAG AA (≥ 4.5:1); se verificaron con scripts de contraste. */
 :root{
   color-scheme: light;
-  --paper:#F5F0E8; --paper-2:#ECE5DA; --card:#FBF8F3; --card-2:#F8F3EB;
+  --paper:#F7F4EF; --paper-2:#EEE8E0; --card:#FDFBF8; --card-2:#F9F5EF;
   --ink:#14110F; --ink-2:#4A443D; --ink-3:#6B645B; --line:#E2D9CC; --line-2:#CFC5B6;
   --brand:#8E1B2C; --brand-2:#6E1422; --brand-soft:#F1E3E1; --on-brand:#F5F0E8; --brand-ink:#7A1626;
   --spark:#A7834E; --spark-ink:#7A5B2E; --spark-soft:#EFE6D6;

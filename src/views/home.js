@@ -72,7 +72,7 @@ function welcome(){
     <div><span>III · Elegir</span><h3>Tu brújula</h3><p class="small muted">Pesa lo que sentiste al experimentar, no tus aciertos. Equivocarse no dice nada de tu vocación.</p></div>
     <div><span>IV · Practicar</span><h3>Taller y retos</h3><p class="small muted">Boletas, matrices, concursos y desafíos por niveles, con explicación en cada respuesta.</p></div>
   </section>
-  <section class="quote"><div class="kusi-pair"><div class="kusi-live" data-kusi3d title="Mueve el cursor: Kusi te sigue con la mirada">${kusi3dImg("feliz", { size: 260 })}</div>${coco("animo", { size: 120, cls: "anim", label: false })}</div><p class="xs muted" style="margin-top:-8px">Kusi en 3D y en 2D. Mueve el cursor: te sigue con la mirada.</p><blockquote>«Soy Kusi, una alpaca. Las alpacas vivimos en manada y nos cuidamos entre todas: <em>por eso me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarla cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Kusi" })}</section>
+  <section class="quote"><div class="kusi-pair"><div class="kusi-live" data-kusi3d title="Mueve el cursor: Kusi te sigue con la mirada">${kusi3dImg("feliz", { size: 360 })}</div></div><p class="xs muted" style="margin-top:-8px">Mueve el cursor: Kusi te sigue con la mirada.</p><blockquote>«Soy Kusi, una alpaca. Las alpacas vivimos en manada y nos cuidamos entre todas: <em>por eso me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarla cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Kusi" })}</section>
   <section class="hero compact">${art("oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">Hecho para el Perú</span><h2>Sector privado y público, pymes, corporaciones y municipalidades</h2><p class="muted">Normativa peruana verificada al ${VERIFIED}: RMV de S/ 1,230, feriados 2026, régimen CAS, SERVIR, SUNAFIL. Todo caso es una simulación y lo dice siempre.</p></div></div></section>`,
   mount(root){
     bindNarr(root);
@@ -134,7 +134,7 @@ function home(){
         <p class="lead">${progress ? "Tu progreso está guardado en este navegador. Sigue donde lo dejaste o abre una puerta nueva." : "Te propongo un viaje guiado por las cinco familias de Recursos Humanos. Si prefieres, entra directo a un puesto."}</p>
         <div class="ctas"><a class="btn ivory lg" href="${cont ? cont.h : "#viaje"}">${cont ? "Continuar" : "Hacer el viaje"} ${icon("arrow")}</a><a class="btn line-ivory lg" href="#sims">Probar un puesto</a></div>
       </div>
-      <div class="aside">${kusi3dImg(progress ? "feliz" : "curioso", { size: 170, eager: true })}<p>${cont ? esc(cont.t) + "." : "Kusi te acompaña sin estorbar. Puedes silenciarla cuando quieras."}</p></div>
+      <div class="aside">${kusi3dImg(progress ? "feliz" : "curioso", { size: 320, eager: true, cls: "hero-kusi" })}<p>${cont ? esc(cont.t) + "." : "Kusi te acompaña sin estorbar. Puedes silenciarla cuando quieras."}</p></div>
       <div class="meta" aria-label="Lo que hay dentro"><span><b>${C.sims.length}</b>Jornadas</span><span><b>${C.roles.length}</b>Cargos</span><span><b>${C.areas.length}</b>Especialidades</span><span><b>${C.tools.length}</b>Tareas de taller</span></div>
     </div>
     <span class="scroll-cue" aria-hidden="true">Explorar</span>
