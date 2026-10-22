@@ -72,7 +72,7 @@ function welcome(){
     <div><span>III · Elegir</span><h3>Tu brújula</h3><p class="small muted">Pesa lo que sentiste al experimentar, no tus aciertos. Equivocarse no dice nada de tu vocación.</p></div>
     <div><span>IV · Practicar</span><h3>Taller y retos</h3><p class="small muted">Boletas, matrices, concursos y desafíos por niveles, con explicación en cada respuesta.</p></div>
   </section>
-  <section class="quote"><div class="kusi-pair" aria-hidden="true">${kusi3dImg("feliz", { size: 190, decorative: true })}${coco("animo", { size: 120, cls: "anim", label: false })}</div><blockquote>«Soy Kusi, una alpaca. Las alpacas vivimos en manada y nos cuidamos entre todas: <em>por eso me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarla cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Kusi" })}</section>
+  <section class="quote"><div class="kusi-pair"><div class="kusi-live" data-kusi3d title="Mueve el cursor: Kusi te sigue con la mirada">${kusi3dImg("feliz", { size: 260 })}</div>${coco("animo", { size: 120, cls: "anim", label: false })}</div><p class="xs muted" style="margin-top:-8px">Kusi en 3D y en 2D. Mueve el cursor: te sigue con la mirada.</p><blockquote>«Soy Kusi, una alpaca. Las alpacas vivimos en manada y nos cuidamos entre todas: <em>por eso me encanta Recursos Humanos.</em>»</blockquote><cite>Tu guía · puedes silenciarla cuando quieras</cite>${narr("intro", C.media.scripts.intro, { title: "Escucha a Kusi" })}</section>
   <section class="hero compact">${art("oficina")}<div class="hero-in"><div class="copy"><span class="eyebrow">Hecho para el Perú</span><h2>Sector privado y público, pymes, corporaciones y municipalidades</h2><p class="muted">Normativa peruana verificada al ${VERIFIED}: RMV de S/ 1,230, feriados 2026, régimen CAS, SERVIR, SUNAFIL. Todo caso es una simulación y lo dice siempre.</p></div></div></section>`,
   mount(root){
     bindNarr(root);
@@ -84,6 +84,8 @@ function welcome(){
       render();
     });
     setTimeout(() => { const i = $("#nm", root); if (i && innerWidth > 900) i.focus({ preventScroll: true }); }, 900);
+    const live = $("[data-kusi3d]", root);
+    if (live) import("../brand/kusi3d.js").then(m => m.mountKusi3D(live, { mood: "feliz", fallbackSrc: "assets/3d/kusi/kusi-feliz.webp" })).catch(() => {});
   } };
 }
 
