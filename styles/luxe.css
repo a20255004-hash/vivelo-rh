@@ -428,3 +428,41 @@ html::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 :root[data-theme="dark"]::after{opacity:.35}
 @media (max-width:720px){html::after{mask-image:linear-gradient(180deg,#000,transparent 18%,transparent 82%,#000);-webkit-mask-image:linear-gradient(180deg,#000,transparent 18%,transparent 82%,#000)}}
 @media (forced-colors:active){html::after,body::before{display:none}}
+
+/* ---------- «Cómo lo piensa y razona una profesional» (visual) ---------- */
+.mind{border-radius:var(--r-l);border:1px solid var(--line);background:linear-gradient(160deg,color-mix(in srgb,var(--brand) 6%,var(--card)) 0%,var(--card) 55%);padding:clamp(18px,2.4vw,28px);display:grid;gap:18px}
+.mind-head .eyebrow{color:var(--brand-ink)}
+.mind-head h4{font-family:var(--f-display);font-weight:560;font-size:1.25rem;font-variation-settings:"SOFT" 100;letter-spacing:-.01em}
+.mind-body{display:grid;grid-template-columns:120px minmax(0,1fr);gap:clamp(14px,2.4vw,28px);align-items:start}
+.mind-side{display:grid;justify-items:center;gap:4px;color:var(--ink);position:sticky;top:90px}
+.mind-compass{width:120px;height:120px}
+.mind-compass g circle{fill:var(--card);stroke:var(--line-2)}
+.mind-compass g text{font:700 11px var(--f-body);fill:var(--ink-3)}
+.mind-compass g.on circle{stroke-width:2}
+.mind-compass .mc-ok.on circle{fill:var(--ok-soft);stroke:var(--ok)} .mind-compass .mc-ok.on text{fill:var(--ok)}
+.mind-compass .mc-risk.on circle{fill:var(--bad-soft);stroke:var(--bad)} .mind-compass .mc-risk.on text{fill:var(--bad)}
+.mind-compass .mc-law.on circle{fill:var(--brand-soft);stroke:var(--brand)} .mind-compass .mc-law.on text{fill:var(--brand-ink)}
+.mind-compass .mc-info.on circle{fill:var(--warn-soft);stroke:var(--warn)} .mind-compass .mc-info.on text{fill:var(--warn)}
+.mind-main{display:grid;gap:16px;min-width:0}
+.mind-quote{font-family:var(--f-display);font-size:1.12rem;line-height:1.5;font-variation-settings:"SOFT" 100}
+.mind-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.mind-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:0 0 14px;position:relative}
+.mind-steps li::before{content:"";position:absolute;left:16.5px;top:30px;bottom:0;width:1px;background:var(--line-2)}
+.mind-steps li:last-child::before{display:none}
+.mind-steps .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-family:var(--f-display);font-weight:600;font-size:.95rem}
+.mind-steps li:first-child .n{background:var(--brand);color:var(--on-brand)}
+.mind-steps li>span:last-child{padding-top:5px}
+.mind-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.mind-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:start;padding:12px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--line-2)}
+.mind-card img{width:72px;height:72px;object-fit:contain;border-radius:var(--r-s);background:color-mix(in srgb,var(--paper-2) 60%,transparent)}
+.mind-card .k{display:flex;gap:6px;align-items:center;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.mind-card .k .ic{width:15px;height:15px}
+.mind-card .mind-txt{font-size:.94rem}
+.mind-card.ok{border-top-color:var(--ok)} .mind-card.ok .k{color:var(--ok)}
+.mind-card.risk{border-top-color:var(--bad)} .mind-card.risk .k{color:var(--bad)}
+.mind-card.law{border-top-color:var(--brand)} .mind-card.law .k{color:var(--brand-ink)}
+.mind-card.info{border-top-color:var(--warn)} .mind-card.info .k{color:var(--warn)}
+@media (max-width:640px){.mind-body{grid-template-columns:minmax(0,1fr)}.mind-side{position:static;grid-auto-flow:column;justify-content:start;align-items:center;gap:10px}.mind-compass{width:84px;height:84px}}
+.mind-mini{margin:6px 0 0;padding-left:1.2rem;display:grid;gap:4px}
+.mind-mini li::marker{color:var(--brand-ink);font-weight:700}
+@media (max-width:640px){.mind-card{grid-template-columns:48px minmax(0,1fr)}.mind-card img{width:48px;height:48px}}
