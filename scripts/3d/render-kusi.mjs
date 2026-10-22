@@ -44,9 +44,21 @@ b = np.asarray(pm).astype(np.float32)/255.0
 al = b[...,3:4]
 col = np.where(al > 1e-4, b[...,:3]/np.maximum(al,1e-4), 0)
 res = Image.fromarray((np.clip(np.concatenate([col, al], -1),0,1)*255).round().astype('uint8'), 'RGBA')
-res.save(dst + ".png", optimize=True)
-q = res.quantize(colors=256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG) if False else None
 res.save(dst + ".webp", "WEBP", quality=90, method=6)
+# PNG: paleta con libimagequant (pip install imagequant) hasta quedar <= 250 KB
+import io, os
+LIMIT = 250 * 1024
+try:
+    import imagequant
+    best = None
+    for mq in (95, 90, 85, 80, 75, 70):
+        q = imagequant.quantize_pil_image(res, dithering_level=1.0, max_quality=mq, min_quality=0)
+        buf = io.BytesIO(); q.save(buf, "PNG", optimize=True); best = buf.getvalue()
+        if len(best) <= LIMIT: break
+    open(dst + ".png", "wb").write(best)
+except ImportError:
+    print("  (aviso: sin 'imagequant'; PNG truecolor sin cuantizar)")
+    res.save(dst + ".png", optimize=True)
 `;
 
 async function main() {
@@ -65,6 +77,13 @@ async function main() {
     const mood = process.argv[3] || "feliz", view = process.argv[4] || "front", size = +(process.argv[5] || 768);
     const url = await page.evaluate((o) => window.renderKusi(o), { mood, view, size, bg: process.env.BG || null });
     const f = process.env.OUT || join(tmp, `preview-${mood}-${view}.png`); save(url, f); console.log(f);
+  }
+
+  if (what === "sheet") {
+    const files = [];
+    for (const m of MOODS) { const url = await page.evaluate((o) => window.renderKusi(o), { mood: m, view: process.argv[3] || "front", size: 512 }); const f = join(tmp, `sheet-${m}.png`); save(url, f); files.push(f); }
+    execFileSync("montage", [...files, "-tile", "5x2", "-geometry", "320x320+4+4", "-background", "#F5F0E8", join(tmp, "sheet.png")]);
+    console.log(join(tmp, "sheet.png"));
   }
 
   if (what === "all" || what === "stills") {
@@ -95,7 +114,7 @@ async function main() {
     console.log("video:", (statSync(join(out, "kusi-hola.mp4")).size / 1024).toFixed(0), "KB");
   }
   await browser.close();
-  if (what !== "preview") rmSync(tmp, { recursive: true, force: true });
+  if (["all", "stills", "video"].includes(what)) rmSync(tmp, { recursive: true, force: true });
   if (server) server.kill();
 }
 main().catch((e) => { console.error(e); process.exit(1); });

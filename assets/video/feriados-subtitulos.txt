@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:04.900
+Trabajar un feriado: cuánto se paga en el régimen privado.
+
+2
+00:00:05.200 --> 00:00:10.400
+En 2026 hay 16 feriados nacionales. Si no lo trabajas, el día se paga igual: ya está en tu remuneración mensual.
+
+3
+00:00:10.700 --> 00:00:17.400
+Si te dan otro día de descanso, no hay sobretasa. Sin descanso sustitutorio, se paga el día trabajado más 100% adicional.
+
+4
+00:00:17.700 --> 00:00:24.900
+Ejemplo: con la RMV de S/ 1,230, el día vale S/ 41. Por trabajar el feriado se suman S/ 82: el día trabajado más la sobretasa.
+
+5
+00:00:25.200 --> 00:00:31.400
+Por eso se dice «triple»: S/ 41 ya incluidos en el sueldo más S/ 82 adicionales, S/ 123 por ese día.
+
+6
+00:00:31.700 --> 00:00:35.900
+Vive la jornada de feriados. Todo caso es una simulación.

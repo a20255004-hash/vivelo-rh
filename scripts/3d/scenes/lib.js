@@ -122,8 +122,39 @@ export const FONT = "Helvetica, Arial, sans-serif";
 export function base(root, w, d, o = {}) {
   const top = o.top ?? C.arena, side = o.side ?? C.piedra;
   box(w, 0.55, d, side, { p: root, y: -0.55, r: 0.26, seg: 5 });
-  box(w - 0.08, 0.14, d - 0.08, top, { p: root, y: -0.06, r: 0.07, seg: 4 });
+  const ft = o.floor ? floorTex(o.floor, w, d) : null;
+  box(w - 0.08, 0.14, d - 0.08, ft ? M(0xffffff, { map: ft, rough: 0.8 }) : top, { p: root, y: -0.06, r: 0.07, seg: 4 });
   return 0.08; // altura del piso
+}
+
+export function floorTex(kind, w, d) {
+  const px = 120;
+  return tex(Math.round(w * px), Math.round(d * px), (c, W, H) => {
+    if (kind === "wood") {
+      c.fillStyle = "#E4D6C0"; c.fillRect(0, 0, W, H);
+      const pw = 0.42 * px;
+      for (let x = 0, i = 0; x < W; x += pw, i++) {
+        const shade = [0, 6, -4, 3, -7, 2][i % 6];
+        c.fillStyle = `rgb(${228 + shade},${214 + shade},${192 + shade})`; c.fillRect(x, 0, pw, H);
+        c.fillStyle = "rgba(150,125,95,0.25)"; c.fillRect(x, 0, 2, H);
+        let y = ((i * 0.37) % 1) * 2.2 * px;
+        while (y < H) { c.fillRect(x, y, pw, 2); y += 2.2 * px; }
+      }
+    } else if (kind === "tile") {
+      c.fillStyle = "#EDE7DD"; c.fillRect(0, 0, W, H);
+      const t = 0.6 * px; c.fillStyle = "rgba(160,145,125,0.28)";
+      for (let x = 0; x < W; x += t) c.fillRect(x, 0, 2, H);
+      for (let y = 0; y < H; y += t) c.fillRect(0, y, W, 2);
+    } else if (kind === "concrete") {
+      c.fillStyle = "#DCD4C7"; c.fillRect(0, 0, W, H);
+      const t = 2 * px; c.fillStyle = "rgba(120,110,95,0.2)";
+      for (let x = 0; x < W; x += t) c.fillRect(x, 0, 3, H);
+      for (let y = 0; y < H; y += t) c.fillRect(0, y, W, 3);
+    } else if (kind === "checker") {
+      const t = 0.7 * px;
+      for (let x = 0, i = 0; x < W; x += t, i++) for (let y = 0, j = 0; y < H; y += t, j++) { c.fillStyle = (i + j) % 2 ? "#E6DED1" : "#F3EEE6"; c.fillRect(x, y, t, t); }
+    }
+  });
 }
 
 /** Muros de recorte (izquierda = -x, fondo = -z). openings: [{wall:'back'|'left', a, b, y0, y1}] */
@@ -254,9 +285,8 @@ export function figure(p, o = {}) {
     if (o.bun) sphere(0.08, hc, { p: g, y: headY + 0.12, z: -0.14 });
   }
   if (hat === "helmet") {
-    sphere(0.19, o.helmetColor ?? C.laton, { p: g, y: headY + 0.03, theta: Math.PI / 2, m: { rough: 0.45 } });
-    cyl(0.235, 0.235, 0.03, o.helmetColor ?? C.laton, { p: g, y: headY + 0.02, z: 0.03, m: { rough: 0.45 } });
-    box(0.05, 0.05, 0.36, o.helmetColor ?? C.laton, { p: g, y: headY + 0.19, r: 0.02, m: { rough: 0.45 } });
+    sphere(0.19, o.helmetColor ?? C.laton, { p: g, y: headY + 0.03, theta: Math.PI / 2, sy: 1.15, m: { rough: 0.45 } });
+    cyl(0.215, 0.215, 0.03, o.helmetColor ?? C.laton, { p: g, y: headY + 0.02, z: 0.03, m: { rough: 0.45 } });
   } else if (hat === "cofia") {
     sphere(0.195, C.marfil, { p: g, y: headY + 0.02, theta: Math.PI * 0.55, sy: 0.95 });
     cyl(0.2, 0.2, 0.04, C.marfil, { p: g, y: headY - 0.02 });
@@ -445,4 +475,137 @@ export function docTex(o = {}) {
     c.fillStyle = "#CFC5B6";
     for (let i = 0; i < (o.lines ?? 9); i++) c.fillRect(24, 60 + i * 26, i % 3 === 2 ? 130 : 205, 8);
   });
+}
+
+/* ------------------------------------------------------------------ */
+/* Extras                                                              */
+/* ------------------------------------------------------------------ */
+export function cone(r, h, color, o = {}) {
+  const mat = color instanceof THREE.Material ? color : M(color, o.m);
+  const mesh = new THREE.Mesh(new THREE.ConeGeometry(r, h, o.seg ?? 32), mat);
+  return place(mesh, { ...o, y: (o.y ?? 0) + h / 2 });
+}
+/** Muro con vanos (arcos o rectángulos) extruido. Plano XY, profundidad z. holes: [{x, y, w, h, arch}] (x,y = esquina inferior izq.) */
+export function holedWall(w, h, depth, holes, color, o = {}) {
+  const s = new THREE.Shape();
+  s.moveTo(-w / 2, 0); s.lineTo(w / 2, 0); s.lineTo(w / 2, h); s.lineTo(-w / 2, h); s.closePath();
+  for (const q of holes) {
+    const p = new THREE.Path();
+    if (q.arch) {
+      const r = q.w / 2, yh = q.h - r;
+      p.moveTo(q.x, q.y); p.lineTo(q.x + q.w, q.y); p.lineTo(q.x + q.w, q.y + yh);
+      p.absarc(q.x + r, q.y + yh, r, 0, Math.PI, false); p.lineTo(q.x, q.y); 
+    } else { p.moveTo(q.x, q.y); p.lineTo(q.x + q.w, q.y); p.lineTo(q.x + q.w, q.y + q.h); p.lineTo(q.x, q.y + q.h); p.lineTo(q.x, q.y); }
+    s.holes.push(p);
+  }
+  const g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.03, bevelSegments: 3, curveSegments: 24 });
+  g.translate(0, 0, -depth / 2);
+  const mesh = new THREE.Mesh(g, color instanceof THREE.Material ? color : M(color, o.m));
+  return place(mesh, o);
+}
+/** Prisma extruido de una forma 2D arbitraria (pts en XY). */
+export function extrude(pts, depth, color, o = {}) {
+  const s = new THREE.Shape(pts.map(([x, y]) => new THREE.Vector2(x, y)));
+  const g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: o.bevel ?? true, bevelSize: o.bs ?? 0.02, bevelThickness: o.bs ?? 0.02, bevelSegments: 3, curveSegments: 24 });
+  g.translate(0, 0, -depth / 2);
+  const mesh = new THREE.Mesh(g, color instanceof THREE.Material ? color : M(color, o.m));
+  return place(mesh, o);
+}
+/** Montaña low-poly facetada */
+export function mountain(p, o = {}) {
+  const r = o.r ?? 2, h = o.h ?? 2.5;
+  const geo = new THREE.ConeGeometry(r, h, o.seg ?? 7, 1);
+  const pos = geo.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const y = pos.getY(i);
+    if (y > -h / 2 + 0.01 && y < h / 2 - 0.01) { pos.setX(i, pos.getX(i) * (0.85 + rnd() * 0.3)); pos.setZ(i, pos.getZ(i) * (0.85 + rnd() * 0.3)); pos.setY(i, y + (rnd() - 0.5) * h * 0.08); }
+  }
+  geo.computeVertexNormals();
+  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: o.color ?? C.piedra, roughness: 0.95, flatShading: true }));
+  place(mesh, { p, x: o.x, y: (o.y ?? 0) + h / 2, z: o.z, ry: o.ry });
+  if (o.snow) {
+    const sh = h * (o.snow);
+    const sg = new THREE.ConeGeometry(r * o.snow * 1.02, sh, o.seg ?? 7, 1);
+    const sm = new THREE.Mesh(sg, new THREE.MeshStandardMaterial({ color: C.marfil, roughness: 0.9, flatShading: true }));
+    place(sm, { p, x: o.x, y: (o.y ?? 0) + h - sh / 2 + 0.01, z: o.z, ry: o.ry });
+  }
+  return mesh;
+}
+/** Letrero con texto (solo palabras genéricas). */
+export function signTex(text, o = {}) {
+  const W = o.w ?? 512, H = o.h ?? 128;
+  return tex(W, H, (c) => {
+    c.fillStyle = o.bg ?? "#4A443D"; c.fillRect(0, 0, W, H);
+    c.fillStyle = o.fg ?? "#FBF8F3"; c.font = `600 ${o.size ?? 54}px ${FONT}`; c.textAlign = "center"; c.textBaseline = "middle";
+    if (o.letterSpacing) c.letterSpacing = o.letterSpacing;
+    c.fillText(text, W / 2, H / 2 + 2);
+  });
+}
+export function lampPost(p, o = {}) {
+  const g = group({ p, x: o.x, y: o.y, z: o.z });
+  cyl(0.06, 0.08, 0.12, C.grafito, { p: g });
+  cyl(0.03, 0.035, 1.9, C.grafito, { p: g });
+  cyl(0.11, 0.06, 0.2, C.grafito, { p: g, y: 1.9 });
+  sphere(0.11, C.marfil, { p: g, y: 2.18, m: { emissive: 0xFFF3DA, ei: 0.4 } });
+  cone(0.13, 0.12, C.grafito, { p: g, y: 2.27 });
+  return g;
+}
+export function bench(p, o = {}) {
+  const g = group({ p, x: o.x, y: o.y, z: o.z, ry: o.ry });
+  const w = o.w ?? 1.4;
+  box(w, 0.06, 0.42, o.color ?? C.madera, { p: g, y: 0.4, r: 0.02 });
+  box(w, 0.32, 0.05, o.color ?? C.madera, { p: g, y: 0.5, z: -0.2, r: 0.02, rx: -0.12 });
+  for (const sx of [-1, 1]) box(0.06, 0.4, 0.38, C.grafito, { p: g, x: sx * (w / 2 - 0.12), r: 0.02 });
+  return g;
+}
+export function sofa(p, o = {}) {
+  const g = group({ p, x: o.x, y: o.y, z: o.z, ry: o.ry });
+  const w = o.w ?? 2, col = o.color ?? C.pizarra;
+  box(w, 0.28, 0.85, col, { p: g, y: 0.1, r: 0.1 });
+  box(w, 0.5, 0.25, col, { p: g, y: 0.25, z: -0.33, r: 0.1 });
+  for (const sx of [-1, 1]) box(0.22, 0.42, 0.85, col, { p: g, x: sx * (w / 2 - 0.11), y: 0.1, r: 0.1 });
+  for (const sx of [-1, 1]) cyl(0.03, 0.03, 0.1, C.grafito, { p: g, x: sx * (w / 2 - 0.15), z: 0.3 });
+  box(w - 0.5, 0.1, 0.6, col, { p: g, y: 0.38, z: 0.07, r: 0.05 });
+  return g;
+}
+export function hanger(p, o = {}) { // perchero con ropa
+  const g = group({ p, x: o.x, y: o.y, z: o.z, ry: o.ry });
+  const w = o.w ?? 1.6, h = o.h ?? 1.5;
+  for (const sx of [-1, 1]) { cyl(0.02, 0.02, h, C.grafito, { p: g, x: sx * w / 2 }); box(0.06, 0.03, 0.5, C.grafito, { p: g, x: sx * w / 2, r: 0.01 }); }
+  cyl(0.018, 0.018, w, C.grafito, { p: g, y: h, rz: Math.PI / 2, center: true });
+  const cols = o.colors ?? [C.pizarra, C.vino, C.salvia, C.marfil, C.ciruela, C.piedra];
+  const n = o.n ?? 9;
+  for (let i = 0; i < n; i++) {
+    const x = -w / 2 + 0.12 + i * (w - 0.24) / (n - 1);
+    const len = 0.6 + (i % 3) * 0.12;
+    box(0.06, len, 0.42, cols[i % cols.length], { p: g, x, y: h - 0.06 - len, r: 0.025 });
+  }
+  return g;
+}
+export function xmasTree(p, o = {}) {
+  const g = group({ p, x: o.x, y: o.y, z: o.z, s: o.s ?? 1 });
+  cyl(0.2, 0.18, 0.25, C.carmin, { p: g });
+  cyl(0.06, 0.06, 0.25, C.latonOsc, { p: g, y: 0.2 });
+  const tiers = [[0.75, 0.75, 0.4], [0.6, 0.65, 0.8], [0.42, 0.55, 1.15]];
+  tiers.forEach(([r, h, y]) => cone(r, h, C.salvia, { p: g, y, seg: 9, m: { rough: 0.9 } }));
+  const balls = [[0.5, 0.6, 0.35], [-0.45, 0.55, 0.3], [0.1, 0.62, 0.62], [-0.2, 1.0, 0.42], [0.35, 1.0, 0.25], [0.05, 1.35, 0.3], [-0.55, 0.6, -0.2], [0.55, 0.62, -0.25]];
+  balls.forEach(([x, y, z], i) => sphere(0.065, i % 2 ? C.laton : C.carmin, { p: g, x, y, z, seg: 16, m: i % 2 ? { rough: 0.35, metal: 0.5 } : {} }));
+  const st = extrude(Array.from({ length: 10 }, (_, i) => { const a = Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 0.07 : 0.16; return [Math.cos(a) * r, Math.sin(a) * r]; }), 0.04, C.laton, { p: g, y: 1.82, m: { rough: 0.3, metal: 0.6 } });
+  return g;
+}
+export function truck(p, o = {}) { // camión minero / de carga
+  const g = group({ p, x: o.x, y: o.y, z: o.z, ry: o.ry, s: o.s ?? 1 });
+  const body = o.color ?? C.laton;
+  box(3.2, 0.35, 1.5, C.grafito, { p: g, y: 0.55, r: 0.06 });
+  // cabina
+  box(0.95, 0.95, 1.3, body, { p: g, x: 1.05, y: 0.9, r: 0.1 });
+  box(0.04, 0.45, 1.1, C.pizarraClara, { p: g, x: 1.53, y: 1.3, r: 0.02, m: { rough: 0.25 } });
+  // tolva
+  extrude([[-1.55, 0], [0.55, 0], [0.75, 0.95], [-1.65, 1.1]], 1.6, body, { p: g, y: 0.9, ry: 0, bs: 0.04 });
+  box(1.8, 0.05, 1.45, C.piedraOsc, { p: g, x: -0.45, y: 1.88, r: 0.02 });
+  for (const [x, z] of [[1.0, 0.75], [1.0, -0.75], [-0.9, 0.75], [-0.9, -0.75]]) {
+    const w = cyl(0.42, 0.42, 0.32, C.tinta, { p: g, x, y: 0.42, z, rx: Math.PI / 2, center: true, seg: 28 });
+    cyl(0.2, 0.2, 0.34, C.piedra, { p: g, x, y: 0.42, z, rx: Math.PI / 2, center: true, seg: 20 });
+  }
+  return g;
 }

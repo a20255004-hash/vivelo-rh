@@ -3,7 +3,7 @@ import { THREE, tex } from "./lib.js";
 
 export async function renderScene(name, W, H) {
   const mod = await import(`./${name}.js`);
-  const def = mod.default;
+  const def = { ...mod.default, ...(window.__override || {}) };
   const scene = new THREE.Scene();
   const root = new THREE.Group();
   scene.add(root);
@@ -17,7 +17,7 @@ export async function renderScene(name, W, H) {
   renderer.toneMapping = THREE.NeutralToneMapping;
   renderer.toneMappingExposure = def.exposure ?? 1.0;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.VSMShadowMap;
+  renderer.shadowMap.type = (def.pcf ? THREE.PCFSoftShadowMap : THREE.VSMShadowMap);
   document.body.appendChild(renderer.domElement);
 
   // Caja de la escena
@@ -28,17 +28,17 @@ export async function renderScene(name, W, H) {
   const R = size.length() / 2;
 
   // Luces
-  const hemi = new THREE.HemisphereLight(0xFFFDF8, 0xD9CFC0, def.hemi ?? 1.55);
+  const hemi = new THREE.HemisphereLight(0xFFFDF8, 0xD9CFC0, def.hemi ?? 0.8);
   scene.add(hemi);
-  const key = new THREE.DirectionalLight(0xFFF6EA, def.key ?? 2.3);
-  const kd = new THREE.Vector3(...(def.keyDir ?? [0.55, 1.25, 0.85])).normalize();
+  const key = new THREE.DirectionalLight(0xFFF6EA, def.key ?? 2.6);
+  const kd = new THREE.Vector3(...(def.keyDir ?? [0.8, 1.2, 0.55])).normalize();
   key.position.copy(ctr).addScaledVector(kd, R * 3);
   key.target.position.copy(ctr);
   key.castShadow = true;
-  key.shadow.mapSize.set(4096, 4096);
+  key.shadow.mapSize.set(def.mapSize ?? 2048, def.mapSize ?? 2048);
   const sc = key.shadow.camera;
-  sc.left = sc.bottom = -R * 1.05; sc.right = sc.top = R * 1.05; sc.near = R * 0.5; sc.far = R * 6;
-  key.shadow.radius = def.shadowRadius ?? 7;
+  sc.left = sc.bottom = -R * 1.05; sc.right = sc.top = R * 1.05; sc.near = R * 0.5; sc.far = R * 6; sc.updateProjectionMatrix();
+  key.shadow.radius = def.shadowRadius ?? 10;
   key.shadow.blurSamples = 20;
   key.shadow.bias = -0.0004;
   key.shadow.normalBias = 0.01;
@@ -80,9 +80,9 @@ export async function renderScene(name, W, H) {
   minY -= blobDrop;
   const aspect = W / H;
   let cw = maxX - minX, ch = maxY - minY;
-  const pad = def.pad ?? 1.12;
+  const pad = def.pad ?? 1.06;
   const sq = aspect < 1.2;
-  const padF = sq ? (def.padSq ?? pad) : pad;
+  const padF = sq ? (def.padSq ?? 1.1) : pad;
   if (cw / ch > aspect) ch = cw / aspect; else cw = ch * aspect;
   cw *= padF; ch *= padF;
   const cx = (minX + maxX) / 2 + (sq ? (def.offSq?.[0] ?? 0) : (def.off?.[0] ?? 0)) * cw;
@@ -92,6 +92,7 @@ export async function renderScene(name, W, H) {
   cam.zoom = zoom;
   cam.updateProjectionMatrix();
 
+  window.__dbg = { scene, cam, renderer, key, THREE };
   renderer.render(scene, cam);
   return renderer.domElement.toDataURL("image/png");
 }

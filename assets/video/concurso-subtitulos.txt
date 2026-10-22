@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:04.900
+Un concurso CAS, paso a paso. En el Estado se ingresa por concurso público de méritos.
+
+2
+00:00:05.200 --> 00:00:12.900
+Antes de convocar: el área usuaria presenta el perfil, se certifica el presupuesto y se aprueban bases y cronograma.
+
+3
+00:00:13.200 --> 00:00:21.900
+Luego vienen la convocatoria pública, la evaluación curricular, la entrevista y la publicación de resultados.
+
+4
+00:00:22.200 --> 00:00:26.100
+Según las bases, las bonificaciones se aplican sobre el puntaje final, a quienes aprueban todas las etapas.
+
+5
+00:00:26.400 --> 00:00:30.400
+15% para personas con discapacidad (Ley 29973) y 10% para licenciados de las Fuerzas Armadas (Ley 29248).
+
+6
+00:00:30.700 --> 00:00:36.400
+Todo queda en actas y se publica. El régimen CAS cambió en 2026 con la Ley 32563: revisa siempre la norma vigente.
+
+7
+00:00:36.700 --> 00:00:40.900
+Vive la jornada del concurso CAS. Todo caso es una simulación.

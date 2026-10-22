@@ -1,0 +1,53 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:05.400
+Recursos Humanos no es un solo trabajo: son 26 especialidades agrupadas en cinco familias.
+
+2
+00:00:05.700 --> 00:00:10.900
+Atraer, administrar, desarrollar, cuidar y decidir con datos: cada familia cumple un propósito distinto.
+
+3
+00:00:11.200 --> 00:00:13.900
+Atraer e incorporar: que entren las personas correctas y empiecen bien.
+
+4
+00:00:14.200 --> 00:00:16.900
+Por ejemplo: Reclutamiento y selección · Atracción de talento · Marca empleadora.
+
+5
+00:00:17.200 --> 00:00:19.900
+Administrar y cumplir: que cada vínculo laboral sea legal, se pague bien y quede documentado.
+
+6
+00:00:20.200 --> 00:00:22.900
+Por ejemplo: Administración de personal · Contratación y legajos · Planillas y remuneraciones.
+
+7
+00:00:23.200 --> 00:00:25.900
+Desarrollar: que las personas y la organización crezcan en capacidades.
+
+8
+00:00:26.200 --> 00:00:28.900
+Por ejemplo: Capacitación y desarrollo · Gestión del desempeño · Desarrollo organizacional.
+
+9
+00:00:29.200 --> 00:00:31.900
+Cuidar y retener: que trabajar aquí sea justo, sano y valga la pena.
+
+10
+00:00:32.200 --> 00:00:34.900
+Por ejemplo: Compensaciones y beneficios · Clima laboral · Cultura organizacional.
+
+11
+00:00:35.200 --> 00:00:37.900
+Estrategia y datos: que las decisiones sobre personas sirvan a los objetivos.
+
+12
+00:00:38.200 --> 00:00:40.900
+Por ejemplo: Planificación de la fuerza laboral · People analytics · HR Business Partner.
+
+13
+00:00:41.200 --> 00:00:45.400
+Explora el mapa y descubre qué familia te entusiasma. Vive el trabajo antes de elegirlo.

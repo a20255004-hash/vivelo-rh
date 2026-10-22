@@ -11,6 +11,7 @@
   import { renderScene } from "./stage.js";
   const q = new URLSearchParams(location.search);
   const name = q.get("scene") || "oficina";
+  if (q.get("o")) window.__override = JSON.parse(q.get("o"));
   const W = +(q.get("w") || 1600), H = +(q.get("h") || 1000);
   try {
     window.__png = await renderScene(name, W, H);
