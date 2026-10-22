@@ -473,3 +473,4 @@ html::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .qz-band-art img{width:clamp(150px,18vw,220px);height:auto}
 .qz-band-copy{display:grid;gap:14px;max-width:60ch}
 @media (max-width:700px){.qz-band{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}.qz-band .row{justify-content:center}}
+@media (max-width:720px) and (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero>img.art3d{inset:auto;width:calc(100% - 24px);margin:12px;height:200px}}

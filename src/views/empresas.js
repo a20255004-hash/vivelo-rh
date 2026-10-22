@@ -44,6 +44,7 @@ const areasOf = e => [...new Set(e.practices.map(p => p.area))];
 const counts = () => AREA_IDS.map(a => ({ a, n: LIST.filter(e => areasOf(e).includes(a)).length })).sort((x, y) => y.n - x.n || AREA_IDS.indexOf(x.a) - AREA_IDS.indexOf(y.a));
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
 const ext = (u, label) => `<a class="emp-src-link" href="${esc(u)}" target="_blank" rel="noopener">${label || "Fuente"} <span class="sr-only">(se abre en una pestaña nueva)</span>${icon("ext")}</a>`;
+const tail = n => { const i = n.indexOf(" · "); return i < 0 ? "" : n.slice(i + 3).replace(/\.\s.*$/, ""); };
 const mono = (e, cls = "") => `<span class="emp-mono t-${e.tone} ${cls}" aria-hidden="true">${esc(e.mono)}</span>`;
 const areaChip = a => `<span class="chip emp-achip">${ic(AREA_IC[a])}${esc(AREAS[a].s)}</span>`;
 const allSources = e => { const m = new Map(); e.recognitions.concat(e.practices).forEach(x => { if (!m.has(x.url)) m.set(x.url, x.name || x.t); }); return [...m]; };
@@ -70,7 +71,7 @@ function layout(){
 }
 const POS = layout();
 
-function mapSvg(focusId){
+function mapSvg(){
   const grat = [];
   for (let lo = -80; lo <= -68; lo += 4) grat.push(`<path d="M${px(lo)} 0V${H}"/>`);
   for (let la = -2; la >= -18; la -= 4) grat.push(`<path d="M0 ${py(la)}H${W}"/>`);
@@ -81,16 +82,24 @@ function mapSvg(focusId){
     <title id="atlas-svg-t">Mapa del Perú con la ubicación aproximada de las organizaciones</title>
     <defs><pattern id="emp-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V7" class="hatch"/></pattern></defs>
     <g class="grat">${grat.join("")}</g>
-    ${focusId ? "" : `<g class="wave"><path d="M20 610c18-6 30 6 48 0s30 6 48 0"/><path d="M34 660c18-6 30 6 48 0s30 6 48 0"/><path d="M58 300c18-6 30 6 48 0s30 6 48 0"/></g>`}
+    <g class="wave"><path d="M40 700c18-6 30 6 48 0s30 6 48 0"/><path d="M90 736c18-6 30 6 48 0s30 6 48 0"/><path d="M14 236c14-5 24 5 38 0s24 5 38 0"/></g>
     <path class="land" d="${PERU_D}"/><path class="land-hatch" d="${PERU_D}"/>
     <ellipse class="lake" cx="${px(-69.45)}" cy="${py(-15.8)}" rx="15" ry="8" transform="rotate(-38 ${px(-69.45)} ${py(-15.8)})"/>
-    ${label(40, 480, "OCÉANO PACÍFICO", "sea")}
-    ${label(px(-79.6), py(-1.6), "ECUADOR", "ctry")}${label(px(-72.6), py(-0.9), "COLOMBIA", "ctry")}${label(px(-71.2), py(-6.2), "BRASIL", "ctry")}${label(px(-69.6), py(-12.6), "BOLIVIA", "ctry")}${label(px(-70.6), py(-18.9) - 2, "CHILE", "ctry")}
+    ${label(40, 676, "OCÉANO PACÍFICO", "sea")}
+    ${label(px(-79.6), py(-1.6), "ECUADOR", "ctry")}${label(px(-72.6), py(-0.9), "COLOMBIA", "ctry")}${label(px(-71.2), py(-6.2), "BRASIL", "ctry")}<text x="536" y="560" class="ctry" transform="rotate(90 536 560)">BOLIVIA</text>${label(478, 752, "CHILE", "ctry")}
     ${label(px(-74.2), py(-5.6), "Amazonía", "zone")}${label(px(-74.6), py(-13.3), "Andes", "zone")}
     ${lines}${others}
     <circle class="city" cx="${LIMA[0]}" cy="${LIMA[1]}" r="5"/>${label(LIMA[0] + 10, LIMA[1] + 4, "Lima", "cityname")}
-    ${focusId && !POS[focusId].lima ? "" : ""}
   </svg>`;
+}
+
+/* mapa pequeño de ubicación para la ficha */
+function miniMap(e){
+  const x = px(e.coords[1]), y = py(e.coords[0]);
+  return `<svg viewBox="0 0 ${W} ${H}" class="mini-svg"><defs><pattern id="emp-hatch-m" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V14" class="hatch"/></pattern></defs><path class="land" d="${PERU_D}"/><path class="land-hatch" fill="url(#emp-hatch-m)" d="${PERU_D}"/>
+    <ellipse class="lake" cx="${px(-69.45)}" cy="${py(-15.8)}" rx="15" ry="8" transform="rotate(-38 ${px(-69.45)} ${py(-15.8)})"/>
+    <circle class="ring" cx="${x}" cy="${y}" r="46"/><circle class="ring r2" cx="${x}" cy="${y}" r="24"/><circle class="city" cx="${x}" cy="${y}" r="9"/>
+    <text x="${x + (x > 300 ? -18 : 18)}" y="${y + 6}" text-anchor="${x > 300 ? "end" : "start"}" class="cityname big">${esc(e.city)}</text></svg>`;
 }
 
 function pin(e){
@@ -99,11 +108,11 @@ function pin(e){
 }
 
 function cardPreview(e){
-  if (!e) return `<div class="atlas-empty">${kusi3dImg("curioso", { size: 120, decorative: true })}<p><b>Explora el mapa.</b> Pasa el cursor o navega con <kbd>Tab</kbd> por los puntos para ver cada organización. Las sedes en Lima se abren en abanico sobre el océano.</p></div>`;
+  if (!e) return `<div class="atlas-empty">${kusi3dImg("curioso", { size: 120, decorative: true })}<p><b>Explora el mapa.</b> Pasa el cursor por un punto o por la lista, o navega con <kbd>Tab</kbd>. Las sedes en Lima se abren en abanico sobre el océano.</p></div>`;
   return `<div class="atlas-pv">
     <div class="row" style="gap:14px;flex-wrap:nowrap">${mono(e, "lg")}<div class="stack" style="gap:2px"><span class="eyebrow">${ic(SECTOR_IC[e.sectorIcon])}${esc(e.sector)}</span><h3>${esc(e.n)}</h3></div></div>
     <p class="small muted">${icon("pin")} ${esc(e.region)}</p>
-    <ul class="pv-rec">${e.recognitions.map(r => `<li>${ic(RECOG_IC[r.k])}<span><b>${esc(RECOG[r.k].n)} · ${r.year}</b> ${esc(r.name)}</span></li>`).join("")}</ul>
+    <ul class="pv-rec">${e.recognitions.map(r => `<li>${ic(RECOG_IC[r.k])}<span><b>${esc(RECOG[r.k].n)} · ${r.year}</b> ${esc(tail(r.name) || r.name)}</span></li>`).join("")}</ul>
     <div class="row" style="gap:6px">${areasOf(e).map(areaChip).join("")}</div>
     <a class="btn ghost sm" href="#empresa.${e.id}">Ver análisis ${icon("arrow")}</a>
   </div>`;
@@ -112,12 +121,12 @@ function cardPreview(e){
 function card(e){
   return `<article class="emp-card" data-id="${e.id}" data-areas="${areasOf(e).join(" ")}">
     <a class="emp-card-a" href="#empresa.${e.id}" aria-label="${esc(e.n)}: ver análisis">
-      <figure class="emp-art">${art(e.scene, { sq: true, decorative: true })}${mono(e, "lg")}<span class="emp-sector-ic" aria-hidden="true">${ic(SECTOR_IC[e.sectorIcon])}</span></figure>
-      <div class="emp-card-b">
+      <figure class="emp-art">${art(e.scene, { sq: true, decorative: true })}<span class="emp-sector-ic" aria-hidden="true">${ic(SECTOR_IC[e.sectorIcon])}</span></figure>
+      <div class="emp-card-b">${mono(e, "lg card-mono")}
         <span class="eyebrow">${esc(e.sector)}</span>
         <h3>${esc(e.n)}</h3>
         <p class="xs muted emp-where">${icon("pin")} ${esc(e.region)}</p>
-        <ul class="emp-rec">${e.recognitions.map(r => `<li><span class="yr">${r.year}</span><span>${esc(RECOG[r.k].n)}</span></li>`).join("")}</ul>
+        <ul class="emp-rec">${e.recognitions.map(r => `<li><span class="yr">${r.year}</span><span><b>${esc(RECOG[r.k].n)}</b>${tail(r.name) ? `<span class="tl2">${esc(tail(r.name))}</span>` : ""}</span></li>`).join("")}</ul>
         <div class="row emp-chips">${areasOf(e).map(areaChip).join("")}</div>
         <span class="emp-more">Ver análisis ${icon("arrow")}</span>
       </div>
@@ -173,7 +182,10 @@ register("empresas", () => {
     <p class="sr-only" aria-live="polite" data-live></p>
     <div class="atlas">
       <div class="atlas-map">${mapSvg()}${LIST.map(pin).join("")}</div>
-      <aside class="atlas-card card" aria-live="polite" data-pv>${cardPreview(null)}</aside>
+      <div class="atlas-side">
+        <aside class="atlas-card card" aria-live="polite" data-pv>${cardPreview(null)}</aside>
+        <ol class="atlas-list" aria-label="Organizaciones del mapa">${LIST.map(e => `<li><a class="al-i" href="#empresa.${e.id}" data-id="${e.id}" data-areas="${areasOf(e).join(" ")}">${mono(e)}<span><b>${esc(e.n)}</b><span class="xs muted">${esc(e.sector)}</span></span><span class="xs al-city">${esc(e.city)}</span></a></li>`).join("")}</ol>
+      </div>
     </div>
   </section>
 
@@ -185,13 +197,24 @@ register("empresas", () => {
 
   <section class="emp-sec" aria-labelledby="cards-h">
     <header class="sec-head"><h2 id="cards-h">${LIST.length} organizaciones, <em>${LIST.length} lecciones</em></h2><p>Cada ficha resume reconocimientos y prácticas documentadas. Las imágenes son dioramas 3D originales de VÍVELO RH que representan el sector, no las instalaciones de la empresa.</p></header>
-    <div class="emp-cards">${LIST.map(card).join("")}</div>
+    <div class="emp-cards">${LIST.map(card).join("")}
+      <aside class="emp-how">
+        <span class="eyebrow">Cómo elegimos</span>
+        <h3>Criterios de <em>esta selección</em></h3>
+        <ol class="how-list">
+          <li><span><b>Un reconocimiento verificable.</b> Rankings y premios públicos de 2022 a 2026: Great Place to Work, Merco Talento, Premio ABE o el concurso de Buenas Prácticas Laborales del MTPE.</span></li>
+          <li><span><b>Prácticas descritas en una fuente.</b> Cada práctica enlaza a la nota o página que la menciona; si no pudimos contrastarla, no la incluimos.</span></li>
+          <li><span><b>Variedad.</b> Banca, microfinanzas, agro, minería, retail, servicios y sector público, dentro y fuera de Lima.</span></li>
+        </ol>
+        <p class="xs muted">No es un ranking ni una recomendación: es material de estudio. Faltan muchas organizaciones valiosas, por ejemplo del sector salud, que no pudimos documentar con el mismo rigor.</p>
+      </aside>
+    </div>
   </section>
 
   <section class="emp-sec card emp-sources" id="emp-fuentes" aria-labelledby="src-h">
     <h2 id="src-h">Fuentes generales</h2>
     <p class="small muted">Consultadas el ${esc(E.consulted)}. Cada ficha incluye además sus propias fuentes. Qué mide cada reconocimiento:</p>
-    <dl class="emp-recdefs">${Object.entries(RECOG).filter(([k]) => k !== "otro").map(([k, r]) => `<div>${ic(RECOG_IC[k])}<dt>${esc(r.n)}</dt><dd class="small muted">${esc(r.d)}</dd></div>`).join("")}</dl>
+    <dl class="emp-recdefs">${Object.entries(RECOG).filter(([k]) => k !== "otro").map(([k, r]) => `<div><dt>${ic(RECOG_IC[k])}${esc(r.n)}</dt><dd class="small muted">${esc(r.d)}</dd></div>`).join("")}</dl>
     <ul class="emp-srclist">${E.sources.map(s => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}<span class="sr-only"> (se abre en una pestaña nueva)</span></a> <span class="xs muted">${esc(host(s.u))}</span></li>`).join("")}</ul>
   </section>`,
   mount(root){ mountIndex(root, f); } };
@@ -200,12 +223,12 @@ register("empresas", () => {
 function mountIndex(root, f0){
   const pv = $("[data-pv]", root), live = $("[data-live]", root);
   let cur = f0;
-  const show = id => { pv.innerHTML = cardPreview(getEmp(id)); $$(".pin", root).forEach(p => p.classList.toggle("on", p.dataset.id === id)); $$(".lead,.halo", root).forEach(l => l.classList.toggle("on", l.dataset.for === id)); };
-  $$(".pin", root).forEach(p => { p.addEventListener("mouseenter", () => show(p.dataset.id)); p.addEventListener("focus", () => show(p.dataset.id)); });
+  const show = id => { pv.innerHTML = cardPreview(getEmp(id)); $$(".pin,.al-i", root).forEach(p => p.classList.toggle("on", p.dataset.id === id)); $$(".lead,.halo", root).forEach(l => l.classList.toggle("on", l.dataset.for === id)); };
+  $$(".pin,.al-i", root).forEach(p => { p.addEventListener("mouseenter", () => show(p.dataset.id)); p.addEventListener("focus", () => show(p.dataset.id)); });
   const apply = (f, announce) => {
     cur = f;
     const has = el => !f || (el.dataset.areas || "").split(" ").includes(f);
-    $$(".pin,.emp-card,.mx-row[data-id]", root).forEach(el => el.classList.toggle("dim", !has(el)));
+    $$(".pin,.al-i,.emp-card,.mx-row[data-id]", root).forEach(el => el.classList.toggle("dim", !has(el)));
     $$(".lead,.halo", root).forEach(l => l.classList.toggle("dim", !!f && !(getEmp(l.dataset.for) && areasOf(getEmp(l.dataset.for)).includes(f))));
     $$(".mx-c", root).forEach(c => c.classList.toggle("hl", !!f && c.dataset.a === f));
     $$("[data-f]", root).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
@@ -234,6 +257,18 @@ register("empresa", id => {
     <p class="muted">${icon("pin")} ${esc(e.region)}</p>
     <div class="row" style="gap:6px">${ar.map(areaChip).join("")}</div>
   </div></div></section>
+
+  <section class="emp-loc" aria-label="Ficha resumen">
+    <div class="loc-map" aria-hidden="true">${miniMap(e)}</div>
+    <dl class="loc-facts">
+      <div><dt>Sector</dt><dd>${esc(e.sector)}</dd></div>
+      <div><dt>Dónde</dt><dd>${esc(e.region)}</dd></div>
+      <div><dt>Reconocimientos</dt><dd class="numeral">${e.recognitions.length}</dd></div>
+      <div><dt>Prácticas documentadas</dt><dd class="numeral">${e.practices.length}</dd></div>
+      <div><dt>Fuentes</dt><dd class="numeral">${src.length}</dd></div>
+      <div><dt>Periodo</dt><dd>${Math.min(...e.recognitions.map(r => r.year))}${Math.max(...e.recognitions.map(r => r.year)) !== Math.min(...e.recognitions.map(r => r.year)) ? "–" + Math.max(...e.recognitions.map(r => r.year)) : ""}</dd></div>
+    </dl>
+  </section>
 
   <section class="emp-sec" aria-labelledby="rec-h">
     <header class="sec-head"><h2 id="rec-h">Reconocida <em>por</em></h2><p>${e.recognitions.length} ${e.recognitions.length > 1 ? "reconocimientos" : "reconocimiento"} documentado${e.recognitions.length > 1 ? "s" : ""}. Haz clic en «Fuente» para leer la nota original.</p></header>
@@ -272,7 +307,7 @@ register("empresa", id => {
 
   <section class="emp-sec card emp-sources" aria-labelledby="dsrc-h">
     <h2 id="dsrc-h">Fuentes de esta ficha</h2>
-    <p class="small muted">Consultadas el ${esc(E.consulted)}. ${esc(E.disclaimer)}</p>
+    <p class="small muted">${esc(E.disclaimer)}</p>
     <ol class="emp-srclist">${src.map(([u, t]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}<span class="sr-only"> (se abre en una pestaña nueva)</span></a> <span class="xs muted">${esc(host(u))}</span></li>`).join("")}</ol>
   </section>
 
