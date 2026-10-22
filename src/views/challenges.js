@@ -6,6 +6,7 @@ import { emit } from "../core/bus.js";
 import { C, challenge } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 
 const run = {}; // estado en memoria del reto en curso

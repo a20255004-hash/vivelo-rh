@@ -2,7 +2,7 @@
 
 **Laboratorio interactivo de Recursos Humanos** · *Vive el trabajo antes de elegirlo.*
 
-VÍVELO RH es una plataforma para explorar las familias de Recursos Humanos. La persona vive jornadas simuladas con correos, WhatsApp, llamadas, documentos, giros, cálculos y revisiones. Tras cada decisión ve **cómo lo piensa y razona una profesional**. Coco, un ronsoco guía, la acompaña y se puede silenciar.
+VÍVELO RH es una plataforma para explorar las familias de Recursos Humanos. La persona vive jornadas simuladas con correos, WhatsApp, llamadas, documentos, giros, cálculos y revisiones. Tras cada decisión ve **cómo lo piensa y razona una profesional**. Kusi, una alpaca guía (en 2D y 3D), la acompaña y se puede silenciar.
 
 > Casos, personas y organizaciones: **ficticios** (se marcan siempre). La normativa peruana se verificó al **19 de octubre de 2026**. **No es asesoría legal.**
 
@@ -14,7 +14,9 @@ No requiere instalación ni proceso de compilación: son módulos ES servidos de
 npm start            # servidor estático sin dependencias en http://localhost:8080
 npm test             # pruebas unitarias (node:test): nómina, esquema de contenidos, migración
 npm run test:e2e     # prueba de humo con Playwright (requiere el servidor encendido)
-npm run video        # regenera assets/video/bienvenida.mp4 (Playwright + ffmpeg)
+npm run video        # regenera los 6 videos de assets/video (o: node scripts/make-video.mjs boleta)
+node scripts/3d/scenes/render-all.mjs [nombre]   # regenera los dioramas 3D (con el servidor en :8094)
+node scripts/3d/render-kusi.mjs                   # regenera los renders 3D de Kusi
 ```
 
 Requisitos:
@@ -42,14 +44,16 @@ styles/               tokens.css (paleta 60·30·10, tipografía, espacio, modo 
                       · luxe.css (capa visual «Galería del Trabajo»; ver docs/DISENO.md)
 docs/DISENO.md        dirección de arte, sistema de diseño, héroe y micro-interacciones
 src/core/             util, bus de eventos, store versionado, router por hash, narrador, motion (micro-interacciones)
-src/brand/            logo, íconos, Coco (10 estados de ánimo), retratos 2D, escenas SVG
+src/brand/            logo, íconos, Kusi (10 estados de ánimo), retratos 2D, escenas SVG
 src/engine/           payroll.js (única fuente de verdad de cálculos), nodes.js (motor de jornadas), profile.js (brújula)
 src/content/          contenidos separados de la lógica: áreas, cargos, conceptos, sectores, fuentes,
                       retos, viaje, feriados, medios y sims/*.js (una jornada por archivo)
 src/views/            una vista por sección (inicio, viaje, jornadas, mapa, cargos, academia,
                       taller, retos, sectores, brújula, medios, fuentes, perfil) + guía y armazón
 tests/                unit/ (node:test) · e2e/smoke.mjs (todas las rutas, jornadas y talleres)
-scripts/              serve.mjs · make-video.mjs + video/ (línea de tiempo y página animada)
+scripts/              serve.mjs · make-video.mjs + video/ (un módulo por video, página de composición, fuentes)
+                      · 3d/ (modelo de Kusi y dioramas en three.js, render con Chromium)
+assets/3d/            renders 3D originales: kusi/ (10 estados de ánimo) y scenes/ (15 lugares y conceptos)
 legacy/               el artefacto original «Legajo Vivo», como referencia
 ```
 
@@ -59,7 +63,7 @@ legacy/               el artefacto original «Legajo Vivo», como referencia
 2. Cada nodo usa uno de estos tipos: `choice`, `pick`, `order`, `write`, `budget`, `calc` o `review`. Puede incluir:
    - `ask`: información que cuesta tiempo.
    - `twist`: un giro de la historia.
-   - `guide`: la reacción de Coco.
+   - `guide`: la reacción de Kusi.
    - `mind`: el razonamiento profesional, con los tipos `ok`, `risk`, `law` e `info`.
    - `if`: nodos condicionales.
 3. Regístrela en `src/content/index.js`.
@@ -78,7 +82,8 @@ legacy/               el artefacto original «Legajo Vivo», como referencia
 
 | Recurso | Estado |
 |---|---|
-| Video de bienvenida (`assets/video/bienvenida.mp4`, 0:38, subtítulos WebVTT en `bienvenida-subtitulos.txt`) | **Listo**. Animación generada, sin voz. |
+| 6 videos explicativos (`assets/video/*.mp4` + `.webm`, 0:36–0:46, subtítulos WebVTT en `*-subtitulos.txt`): bienvenida, familias de RR.HH., boleta, feriados, concurso CAS y hostigamiento | **Listos**. Animaciones generadas con el sistema de diseño, sin voz ni música. |
+| Imágenes 3D (dioramas y Kusi) | **Listas**. Ilustraciones 3D originales; no son fotos ni lugares reales. |
 | Narración de textos y cápsulas | **Voz sintética del navegador**, rotulada como tal, con transcripción. |
 | Grabaciones humanas | **Pendientes**. Los guiones están en `src/content/media.js`. |
 

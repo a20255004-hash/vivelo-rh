@@ -5,13 +5,14 @@ import { register, render, go } from "../core/router.js";
 import { C, sim, tool, VERIFIED } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { guideModes } from "./guide.js";
 import { syncTools, applyTheme } from "./shell.js";
 
 register("fuentes", () => {
   const K = { norma: "Normas", guia: "Guías e informes institucionales o especializados", noticia: "Noticias de medios oficiales o especializados", caso: "Casos documentados" };
   return { section: "fuentes", docTitle: "Fuentes y método", html: `
-  <section class="hero compact">${scene("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Fuentes y método</span><h1>Cómo distinguir lo real de lo simulado</h1><p class="muted">La autenticidad es el criterio central de VÍVELO RH. Aquí está qué es verificable y qué es construido.</p></div></div></section>
+  <section class="hero compact">${art("academia")}<div class="hero-in"><div class="copy"><span class="eyebrow">Fuentes y método</span><h1>Cómo distinguir lo real de lo simulado</h1><p class="muted">La autenticidad es el criterio central de VÍVELO RH. Aquí está qué es verificable y qué es construido.</p></div></div></section>
   <div class="grid g4">
     <section class="card stack"><span class="tag norm" style="justify-self:start">Normativa vigente</span><p class="small"><b>Normas, informes de SERVIR, guías institucionales.</b> Verificadas el ${VERIFIED}. Las normas cambian: antes de aplicar una regla en el trabajo, revisa su versión vigente en El Peruano.</p></section>
     <section class="card stack"><span class="tag doc" style="justify-self:start">Caso documentado</span><p class="small"><b>Casaciones y resoluciones</b> con enlace a su fuente. Son los únicos «casos reales» de la plataforma.</p></section>
@@ -31,7 +32,7 @@ register("perfil", () => {
   <div class="callout ${pers ? "" : "warn"}">${icon("shield")}<span>${pers ? `Tu progreso se guarda <b>solo en este navegador y en este dispositivo</b>. No se envía a ningún servidor ni se sincroniza con otros dispositivos. Si borras los datos del navegador, se pierde: exporta un respaldo de vez en cuando.` : `Tu navegador bloquea el almacenamiento: el progreso <b>solo durará mientras esta pestaña esté abierta</b>. Exporta un respaldo antes de cerrarla.`}</span></div>
   <div class="grid g2">
     <section class="card stack"><h2>Cómo te llamamos</h2><form class="row" data-name><input type="text" id="pn" value="${esc(st.profile.name)}" maxlength="40" aria-label="Nombre" style="flex:1;min-width:180px"><button class="btn brand sm" type="submit">Guardar</button></form></section>
-    <section class="card stack" data-guide-mode><h2>Coco, tu guía</h2><div class="seg" role="group" aria-label="Modo de la guía">${guideModes.map(([v, n]) => `<button type="button" data-gm="${v}" aria-pressed="${st.profile.guide === v}">${n}</button>`).join("")}</div><p class="small muted">${esc((guideModes.find(g => g[0] === st.profile.guide) || guideModes[0])[2])}.</p><button type="button" class="btn ghost sm" data-tour style="justify-self:start">${icon("replay")}Ver otra vez el recorrido de bienvenida</button></section>
+    <section class="card stack" data-guide-mode><h2>Kusi, tu guía</h2><div class="seg" role="group" aria-label="Modo de la guía">${guideModes.map(([v, n]) => `<button type="button" data-gm="${v}" aria-pressed="${st.profile.guide === v}">${n}</button>`).join("")}</div><p class="small muted">${esc((guideModes.find(g => g[0] === st.profile.guide) || guideModes[0])[2])}.</p><button type="button" class="btn ghost sm" data-tour style="justify-self:start">${icon("replay")}Ver otra vez el recorrido de bienvenida</button></section>
     <section class="card stack"><h2>Tema</h2><div class="seg" role="group" aria-label="Tema">${[["auto", "Automático"], ["light", "Claro"], ["dark", "Oscuro"]].map(([v, n]) => `<button type="button" data-th="${v}" aria-pressed="${(st.prefs.theme || "auto") === v}">${n}</button>`).join("")}</div></section>
     <section class="card stack"><h2>Respaldo</h2><p class="small muted">Descarga un archivo .json con todo tu progreso y cárgalo en otro navegador o dispositivo.</p><div class="row"><button type="button" class="btn sm" data-export>${icon("download")}Exportar respaldo</button><label class="btn ghost sm" style="cursor:pointer">${icon("upload")}Importar respaldo<input type="file" accept="application/json,.json" data-import hidden></label></div></section>
   </div>

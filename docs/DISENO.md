@@ -11,7 +11,7 @@
 - **Hace visible el valor del oficio.** Recursos Humanos suele verse como trámite. La estética editorial dice lo contrario: decidir sobre personas es delicado, serio y valioso.
 - **Separa la marca de los LMS y dashboards genéricos.** No hay degradados de colores, no hay íconos por todas partes y no hay tarjetas idénticas en serie. Hay jerarquía, silencio y foco.
 - **El lujo bien entendido es calma.** El contenido ya es intenso: hostigamiento, despidos, planillas con errores. Una interfaz serena ayuda a pensar, como pide «cómo lo piensa una profesional».
-- **Mantiene la calidez.** Coco, el ronsoco, se queda: es el gesto humano dentro de una galería sobria, como el detalle artesanal en una pieza de alta gama.
+- **Mantiene la calidez.** Kusi, la alpaca guía, es el gesto humano dentro de una galería sobria, como el detalle artesanal en una pieza de alta gama.
 
 ## 2. Sistema de diseño
 
@@ -48,8 +48,8 @@ El carmín viene de la **cochinilla**, el tinte que los textiles Paracas usaban 
 
 | Papel | Fuente | Ajustes |
 |---|---|---|
-| Display | **Bodoni Moda** (didona de alto contraste, eje óptico 6–96) | Peso 400–500, interletrado −0.02 a −0.035 em, interlínea 0.96–1.06. Cursiva solo para la palabra emocional del título: *«antes de elegirlo»*. |
-| Lectura e interfaz | **Jost** (geométrica, heredera de Futura) | 17 px, interlínea 1.68, peso 400. Etiquetas en versalitas: 0.66–0.76 rem, interletrado 0.16–0.26 em. |
+| Display | **Fraunces «suave»** (serif cálida con eje SOFT 100 y eje óptico 9–144: trazos firmes, sin filetes que se rompan) | Peso 480–560, interletrado −0.015 a −0.03 em, interlínea 1.0–1.06. Cursiva solo para la palabra emocional del título: *«antes de elegirlo»*. |
+| Lectura e interfaz | **Plus Jakarta Sans** (geométrica humanista, muy legible) | 17 px, interlínea 1.68, peso 400. Etiquetas en versalitas: 0.66–0.76 rem, interletrado 0.16–0.26 em. |
 | Datos | **JetBrains Mono** | Solo horas, expedientes y montos. Cifras tabulares. |
 
 **Coreografía:** un solo titular gigante por pantalla (hasta 8 rem). Debajo, un párrafo guía de 56 caracteres por línea como máximo. El resto en tamaño de lectura. El contraste de escala entre titular y texto es lo que hace que se sienta caro.
@@ -68,12 +68,12 @@ El carmín viene de la **cochinilla**, el tinte que los textiles Paracas usaban 
 1. **Lienzo:** pantalla completa (hasta 940 px de alto), a sangre, en obsidiana. La barra de navegación flota encima en marfil.
 2. **Imagen dominante:** la escena ilustrada de oficina, tratada como **grabado monocromo** (escala de grises, sepia leve, brillo 34 %). Tiene un **Ken Burns** muy lento (28 s, escala 1 → 1.08). Encima, **luz de persianas** que se desplaza en diagonal en modo *soft light*. Es luz de mañana entrando a la oficina, la metáfora de «tu primer día».
 3. **Profundidad:** viñeta inferior hacia negro y degradado lateral para que el texto viva sobre la zona más oscura. Un halo de latón muy tenue sigue al cursor.
-4. **Titular:** marfil sobre obsidiana, contraste 16.5:1, en Bodoni a gran escala. La palabra emocional va en cursiva latón claro (`#D7B98A`). Entra palabra por palabra con máscara de línea.
+4. **Titular:** marfil sobre obsidiana, contraste 16.5:1, en Fraunces a gran escala. La palabra emocional va en cursiva latón claro (`#D7B98A`). Entra palabra por palabra con máscara de línea.
 5. **Llamadas a la acción:**
    - Una principal, sólida marfil: «Hacer el viaje».
    - Una secundaria de filete fino: «Probar un puesto».
    - En la bienvenida, el **fotocheck de invitado** de vidrio esmerilado reemplaza a la secundaria.
-6. **Pie del héroe:** cifras editoriales (jornadas, cargos, especialidades) en Bodoni, separadas por un filete, y un indicador vertical «Explorar» con línea animada.
+6. **Pie del héroe:** cifras editoriales (jornadas, cargos, especialidades) en Fraunces, separadas por un filete, y un indicador vertical «Explorar» con línea animada.
 
 **¿Por qué no un video?** Hoy la plataforma no tiene material filmado propio, y usar video de stock rompería la regla de no presentar como real lo que no lo es. El tratamiento de grabado y luz consigue el efecto cinematográfico con recursos propios. Cuando haya rodaje real, el contenedor `.lux-hero .media` admite un `<video muted loop playsinline>` sin cambiar nada más.
 

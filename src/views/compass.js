@@ -5,6 +5,7 @@ import { register, render } from "../core/router.js";
 import { C, sim, tool, area, cluster, task, concept } from "../content/index.js";
 import { icon } from "../brand/icons.js";
 import { scene } from "../brand/scenes.js";
+import { art, kusi3dImg } from "../brand/art.js";
 import { coco } from "../brand/coco.js";
 import * as P from "../engine/profile.js";
 import { mind } from "../engine/nodes.js";

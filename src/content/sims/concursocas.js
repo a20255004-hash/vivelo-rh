@@ -1,6 +1,6 @@
 /* Simulación nueva (VÍVELO RH). Entidad, personas y datos ficticios. */
 export default {
- id:"concursocas", kind:"urgente", scene:"municipalidad", orgType:"pub", level:"intermedio",
+ id:"concursocas", kind:"urgente", scene:"municipalidad", art:"hospital", orgType:"pub", level:"intermedio",
  title:"Caso urgente: un error en los resultados de un concurso CAS", role:"especialista-orh",
  areas:["reclutamiento","laboral","adm-personal","dei"], sector:"publico", size:"Hospital regional · 1,100 servidores", place:"Sierra central del Perú", mins:26,
  hook:"Ayer se publicaron los resultados finales de un concurso CAS. Hoy, a las 8:00, llega un reclamo: no se aplicó la bonificación por discapacidad y el ganador firma contrato mañana. Antes de que acabe el día, el Órgano de Control Institucional pedirá el expediente.",

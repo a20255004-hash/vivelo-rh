@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kusi 3D demo</title><link rel="icon" href="data:,">
+<style>
+  :root{--lino:#F5F0E8;--tinta:#14110F;--carmin:#8E1B2C}
+  body{margin:0;background:var(--lino);color:var(--tinta);font:16px/1.4 system-ui,sans-serif;padding:16px}
+  #stage{width:min(480px,100%);aspect-ratio:1;margin:auto}
+  nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+  button{border:1px solid var(--carmin);background:#fff;color:var(--carmin);border-radius:999px;padding:6px 12px;cursor:pointer}
+</style></head>
+<body>
+<div id="stage"></div>
+<nav id="moods"></nav>
+<script type="module">
+import { mountKusi3D } from "../../src/brand/kusi3d.js";
+import { KUSI_MOODS } from "../../src/brand/kusi-model.js";
+const mood = new URLSearchParams(location.search).get("mood") || "feliz";
+const k = await mountKusi3D(document.getElementById("stage"), { mood, fallbackSrc: `../../assets/3d/kusi/kusi-${mood}.png` });
+window.kusi = k;
+for (const m of KUSI_MOODS) { const b = document.createElement("button"); b.textContent = m; b.onclick = () => k.setMood(m); document.getElementById("moods").append(b); }
+window.kusiDemoReady = true;
+</script>
+</body></html>

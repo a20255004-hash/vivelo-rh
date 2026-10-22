@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:04.900
+Cómo se arma una boleta de pago: un ejemplo con datos ficticios, paso a paso.
+
+2
+00:00:05.200 --> 00:00:11.900
+Primero se suman los ingresos: básico S/ 1,500, asignación familiar S/ 123 y horas extras S/ 50.72. Total: S/ 1,673.72.
+
+3
+00:00:12.200 --> 00:00:18.900
+Las horas extras se pagan sobre el valor hora: (básico + asignación familiar) ÷ 30 ÷ 8 = S/ 6.7625.
+
+4
+00:00:19.200 --> 00:00:25.900
+Seis horas extras en tres días, dos por día: todas llevan 25%. Resultado: S/ 50.72.
+
+5
+00:00:26.200 --> 00:00:32.900
+Del total se descuenta la ONP, 13%: S/ 217.58. El neto que recibe el trabajador es S/ 1,456.14.
+
+6
+00:00:33.200 --> 00:00:38.400
+Aparte, el empleador aporta a EsSalud el 9%: S/ 150.63. No se descuenta al trabajador.
+
+7
+00:00:38.700 --> 00:00:41.900
+La asignación familiar es el 10% de la RMV. Si la RMV sube, revisa la base del cálculo.
+
+8
+00:00:42.200 --> 00:00:45.900
+Practica en el Taller. Vive el trabajo antes de elegirlo. Todo caso es una simulación.

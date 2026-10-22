@@ -6,10 +6,22 @@
      archivo, basta con colocarlo en assets/audio/<id>.mp3 y cambiar status a "grabado"; el
      reproductor lo usará en lugar de la voz sintética. */
 export const media = {
+  /* Videos animados generados con `npm run video` (scripts/video/): sin voz ni música, con texto en
+     pantalla y subtítulos WebVTT (guardados como .txt). Los guiones viven en scripts/video/videos/. */
   video: [
-    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", src: "assets/video/bienvenida.mp4", poster: "assets/video/bienvenida-poster.png", vtt: "assets/video/bienvenida-subtitulos.txt", mins: "0:38", status: "listo",
-      d: "Video animado (sin narración) con subtítulos: Coco presenta la plataforma y sus secciones. Generado a partir de las ilustraciones del proyecto." }
-  ],
+    { id: "bienvenida", n: "Bienvenida a VÍVELO RH", mins: "0:40", status: "listo", related: ["#viaje", "#mapa"],
+      d: "Kusi presenta la plataforma: jornadas, razonamiento profesional, especialidades y el enfoque peruano." },
+    { id: "familias", n: "Las cinco familias de Recursos Humanos", mins: "0:46", status: "listo", related: ["#mapa", "#cargos"],
+      d: "Atraer, administrar, desarrollar, cuidar y decidir con datos: las 26 especialidades agrupadas por propósito." },
+    { id: "boleta", n: "Cómo se arma una boleta", mins: "0:46", status: "listo", related: ["#concepto.planilla", "#tool.boleta", "#sim.planillas"],
+      d: "Del básico de S/ 1,500 al neto de S/ 1,456.14: asignación familiar, valor hora, horas extras, ONP y EsSalud." },
+    { id: "feriados", n: "Trabajar un feriado: cuánto se paga", mins: "0:36", status: "listo", related: ["#concepto.feriados", "#sim.feriados"],
+      d: "Los 16 feriados de 2026, el descanso sustitutorio y por qué se dice que se paga «triple», con la RMV de S/ 1,230." },
+    { id: "concurso", n: "Un concurso CAS, paso a paso", mins: "0:41", status: "listo", related: ["#concepto.concurso", "#sim.concursocas", "#sectores"],
+      d: "Del requerimiento al contrato, con las bonificaciones de ley de 15% y 10% sobre el puntaje final." },
+    { id: "hostigamiento", n: "Ante una queja de hostigamiento sexual", mins: "0:41", status: "listo", related: ["#concepto.hostigamiento", "#sim.municipal"],
+      d: "Escuchar, proteger, derivar e investigar con reserva y sin revictimizar (Ley 27942 y D.S. 014-2019-MIMP)." }
+  ].map(v => ({ ...v, src: `assets/video/${v.id}.mp4`, webm: `assets/video/${v.id}.webm`, poster: `assets/video/${v.id}-poster.jpg`, posterWebp: `assets/video/${v.id}-poster.webp`, vtt: `assets/video/${v.id}-subtitulos.txt` })),
   capsules: [
     { id: "boleta", n: "Cómo se arma una boleta", d: "De la remuneración básica al neto, paso a paso.", steps: [
       { k: "Ingresos", t: "Primero se suman todos los ingresos remunerativos: básico, asignación familiar (10% de la RMV) y horas extras.", big: "S/ 1,500 + 123 + 50.72" },
@@ -32,7 +44,7 @@ export const media = {
       { k: "Resultados", t: "Resultados publicados y suscripción del contrato.", big: "6" }] }
   ],
   audio: [
-    { id: "intro", n: "Bienvenida de Coco", status: "sintetica", file: null },
+    { id: "intro", n: "Bienvenida de Kusi", status: "sintetica", file: null },
     { id: "tour", n: "Recorrido por la plataforma", status: "sintetica", file: null },
     { id: "capsulas", n: "Narración de las cápsulas animadas", status: "sintetica", file: null },
     { id: "razonamiento", n: "«Cómo lo razona una profesional» (todas las simulaciones)", status: "sintetica", file: null },
@@ -40,7 +52,7 @@ export const media = {
       d: "Los guiones están en src/content/media.js y en las propias simulaciones. Falta una locutora o locutor que los grabe con autorización de uso." }
   ],
   scripts: {
-    intro: "¡Hola! Soy Coco, un ronsoco explorador. Los ronsocos somos los animales más sociables que existen: nos llevamos bien con casi todos y mantenemos la calma cuando hay conflicto. Por eso me gusta Recursos Humanos. En VÍVELO RH vas a vivir el trabajo antes de elegirlo: vas a recibir correos, mensajes y urgencias de puestos reales, vas a decidir, a equivocarte sin riesgo, y vas a ver cómo lo razonaría una profesional con experiencia. Mientras tanto, tu brújula irá registrando qué te entusiasma y qué te desgasta.",
+    intro: "¡Hola! Soy Kusi, una alpaca bebé. En quechua, «kusi» quiere decir alegre. Las alpacas vivimos en grupo, nos cuidamos entre todas y nos comunicamos con calma: por eso me gusta Recursos Humanos. En VÍVELO RH vas a vivir el trabajo antes de elegirlo: vas a recibir correos, mensajes y urgencias de puestos reales, vas a decidir, a equivocarte sin riesgo, y vas a ver cómo lo razonaría una profesional con experiencia. Mientras tanto, tu brújula irá registrando qué te entusiasma y qué te desgasta.",
     tour: "Te cuento rápido dónde está cada cosa. En Jornadas vives un día, una semana o un caso urgente en un puesto. En el Mapa exploras las especialidades y cómo se conectan. En Cargos ves qué hace cada puesto, de practicante a jefatura. La Academia explica cada concepto en dos niveles, sencillo y profesional. En el Taller haces tareas reales con datos ficticios. Retos tiene cuestionarios para practicar. Público y privado compara dos mundos que no funcionan igual. Y en tu Brújula ves lo que has descubierto. Yo voy a estar por aquí, pero puedes silenciarme cuando quieras."
   }
 };

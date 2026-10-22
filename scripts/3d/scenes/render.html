@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Dioramas 3D · render</title>
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{ "imports": { "three": "/assets/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+<script type="module">
+  import { renderScene } from "./stage.js";
+  const q = new URLSearchParams(location.search);
+  const name = q.get("scene") || "oficina";
+  if (q.get("o")) window.__override = JSON.parse(q.get("o"));
+  const W = +(q.get("w") || 1600), H = +(q.get("h") || 1000);
+  try {
+    window.__png = await renderScene(name, W, H);
+    window.__ready = true;
+  } catch (e) { window.__err = String(e && e.stack || e); console.error(e); }
+</script>
+</body>
+</html>
