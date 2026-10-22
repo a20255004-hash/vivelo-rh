@@ -1,5 +1,6 @@
 // Genera los videos explicativos de VÍVELO RH a partir del sistema de diseño del propio sitio.
-// Uso: node scripts/make-video.mjs [id|all]      (npm run video  →  all)
+// Uso: node scripts/make-video.mjs [id|id1,id2|all] [--posters]   (npm run video  →  all)
+//      --posters: solo regenera pósteres y subtítulos (sin volver a codificar el video).
 // Cada guion vive en scripts/video/videos/<id>.js; la página scripts/video/index.html lo compone y
 // se captura cuadro a cuadro con Playwright (Chromium). ffmpeg codifica H.264 (yuv420p, +faststart).
 // Salidas en assets/video/: <id>.mp4 (+ <id>.webm VP9 de respaldo), <id>-poster.jpg, <id>-poster.webp y <id>-subtitulos.txt
@@ -18,7 +19,8 @@ const require = createRequire(import.meta.url);
 let pw; try { pw = require("playwright"); } catch (e) { pw = require(execSync("npm root -g").toString().trim() + "/playwright"); }
 
 const FPS = 24, W = 1280, H = 720, CRF = 24, OUT = "assets/video";
-const arg = process.argv[2] || "all";
+const POSTERS_ONLY = process.argv.includes("--posters");
+const arg = process.argv.slice(2).find(x => !x.startsWith("--")) || "all";
 const ids = arg === "all" ? IDS : arg.split(",");
 for (const id of ids) if (!IDS.includes(id)) { console.error(`Video desconocido: ${id}. Opciones: ${IDS.join(", ")}, all`); process.exit(1); }
 mkdirSync(OUT, { recursive: true });
@@ -41,23 +43,23 @@ try {
     await page.goto(`${base}/scripts/video/index.html?v=${id}`);
     await page.waitForFunction(() => window.ready === true, null, { timeout: 30000 });
     if (errors.length) throw new Error(`Errores en la página de ${id}: ${errors.join(" | ")}`);
-    const N = Math.round(video.duration * FPS);
+    const N = POSTERS_ONLY ? 0 : Math.round(video.duration * FPS);
     const t0 = Date.now();
     for (let i = 0; i < N; i++) {
       await page.evaluate(t => window.setTime(t), i / FPS);
       await page.screenshot({ path: join(tmp, `f${String(i).padStart(5, "0")}.png`), type: "png" });
       if (i % (FPS * 5) === 0) process.stdout.write(`\r${id}: ${i}/${N} cuadros`);
     }
-    process.stdout.write(`\r${id}: ${N}/${N} cuadros en ${Math.round((Date.now() - t0) / 1000)} s\n`);
+    if (N) process.stdout.write(`\r${id}: ${N}/${N} cuadros en ${Math.round((Date.now() - t0) / 1000)} s\n`);
     await page.evaluate(t => window.setTime(t), video.poster ?? video.duration / 3);
     const posterPng = join(tmp, "poster.png");
     await page.screenshot({ path: posterPng, type: "png" });
     await page.close();
 
     const mp4 = `${OUT}/${id}.mp4`;
-    execSync(`ffmpeg -y -loglevel error -framerate ${FPS} -i ${tmp}/f%05d.png -c:v libx264 -preset slow -crf ${CRF} -tune animation -pix_fmt yuv420p -r ${FPS} -g ${FPS * 4} -movflags +faststart -an ${mp4}`);
+    if (N) execSync(`ffmpeg -y -loglevel error -framerate ${FPS} -i ${tmp}/f%05d.png -c:v libx264 -preset slow -crf ${CRF} -tune animation -pix_fmt yuv420p -r ${FPS} -g ${FPS * 4} -movflags +faststart -an ${mp4}`);
     // Alternativa VP9/WebM para navegadores sin decodificador H.264 (p. ej., algunos Chromium de código abierto).
-    execSync(`ffmpeg -y -loglevel error -framerate ${FPS} -i ${tmp}/f%05d.png -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 1 -deadline good -cpu-used 2 -pix_fmt yuv420p -r ${FPS} -g ${FPS * 4} -an ${OUT}/${id}.webm`);
+    if (N) execSync(`ffmpeg -y -loglevel error -framerate ${FPS} -i ${tmp}/f%05d.png -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 1 -deadline good -cpu-used 2 -pix_fmt yuv420p -r ${FPS} -g ${FPS * 4} -an ${OUT}/${id}.webm`);
     execSync(`ffmpeg -y -loglevel error -i ${posterPng} -q:v 4 ${OUT}/${id}-poster.jpg`);
     execSync(`ffmpeg -y -loglevel error -i ${posterPng} -c:v libwebp -quality 80 ${OUT}/${id}-poster.webp`);
     writeFileSync(`${OUT}/${id}-subtitulos.txt`, vtt(video));

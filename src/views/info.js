@@ -28,7 +28,7 @@ register("perfil", () => {
   const st = S.state;
   const pers = adapterName() === "local";
   return { section: "perfil", docTitle: "Mis datos", html: `
-  <section class="hero compact">${art("brujula")}<div class="hero-in"><div class="copy" style="color:#F4F0FF"><span class="eyebrow" style="color:#C7C0DD">Mis datos</span><h1>Tu fotocheck de invitado</h1><p style="color:#D9D3EE">Sin cuentas ni contraseñas. ${st.createdAt ? "Exploras VÍVELO RH desde el " + fmtDate(st.createdAt) + "." : ""}</p></div></div></section>
+  <section class="hero compact">${scene("brujula")}<div class="hero-in"><div class="copy" style="color:#F4F0FF"><span class="eyebrow" style="color:#C7C0DD">Mis datos</span><h1>Tu fotocheck de invitado</h1><p style="color:#D9D3EE">Sin cuentas ni contraseñas. ${st.createdAt ? "Exploras VÍVELO RH desde el " + fmtDate(st.createdAt) + "." : ""}</p></div></div></section>
   <div class="callout ${pers ? "" : "warn"}">${icon("shield")}<span>${pers ? `Tu progreso se guarda <b>solo en este navegador y en este dispositivo</b>. No se envía a ningún servidor ni se sincroniza con otros dispositivos. Si borras los datos del navegador, se pierde: exporta un respaldo de vez en cuando.` : `Tu navegador bloquea el almacenamiento: el progreso <b>solo durará mientras esta pestaña esté abierta</b>. Exporta un respaldo antes de cerrarla.`}</span></div>
   <div class="grid g2">
     <section class="card stack"><h2>Cómo te llamamos</h2><form class="row" data-name><input type="text" id="pn" value="${esc(st.profile.name)}" maxlength="40" aria-label="Nombre" style="flex:1;min-width:180px"><button class="btn brand sm" type="submit">Guardar</button></form></section>

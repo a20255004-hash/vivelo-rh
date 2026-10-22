@@ -14,7 +14,7 @@ export const ART3D = {
   boleta: "boleta", balanza: "balanza"
 };
 /* los que ya están renderizados (se completa al generar nuevos con scripts/3d/scenes) */
-export const READY = new Set(["oficina", "almacen", "municipalidad", "planta", "cooperativa", "retail", "agro", "reunion", "hospital"]);
+export const READY = new Set(["oficina", "almacen", "municipalidad", "planta", "cooperativa", "retail", "agro", "reunion", "hospital", "corporativo", "academia", "mineria", "brujula", "balanza", "boleta"]);
 
 export const ALT = {
   oficina: "Ilustración 3D de una oficina de RR.HH. con escritorio, archivadores y una ventana",

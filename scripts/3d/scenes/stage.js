@@ -92,7 +92,6 @@ export async function renderScene(name, W, H) {
   cam.zoom = zoom;
   cam.updateProjectionMatrix();
 
-  window.__dbg = { scene, cam, renderer, key, THREE };
   renderer.render(scene, cam);
   return renderer.domElement.toDataURL("image/png");
 }

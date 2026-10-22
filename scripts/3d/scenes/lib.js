@@ -609,3 +609,17 @@ export function truck(p, o = {}) { // camión minero / de carga
   }
   return g;
 }
+
+/** Pedestal redondo para renders conceptuales; devuelve la altura de apoyo. */
+export function pedestal(root, r = 3, o = {}) {
+  cyl(r, r, 0.5, o.side ?? C.piedra, { p: root, y: -0.5, seg: 96 });
+  cyl(r - 0.05, r - 0.05, 0.1, o.top ?? C.arena, { p: root, y: -0.04, seg: 96 });
+  torus(r - 0.02, 0.05, o.side ?? C.piedra, { p: root, y: 0.0, rx: Math.PI / 2 });
+  return 0.06;
+}
+/** Pila de papeles ligeramente desordenados. */
+export function paperStack(p, o = {}) {
+  const n = o.n ?? 6, w = o.w ?? 2.2, d = o.d ?? 2.8;
+  for (let i = 0; i < n; i++) box(w, 0.035, d, i % 3 === 1 ? C.lino : C.marfil, { p, x: (o.x ?? 0) + (rnd() - 0.5) * 0.12, y: (o.y ?? 0) + i * 0.04, z: (o.z ?? 0) + (rnd() - 0.5) * 0.12, ry: (o.ry ?? 0) + (rnd() - 0.5) * 0.12, r: 0.012, seg: 2 });
+  return (o.y ?? 0) + n * 0.04;
+}
