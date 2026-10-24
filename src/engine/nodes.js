@@ -237,15 +237,45 @@ function focusSame(root, sel){ const el = root.querySelector(sel); if (el && !el
 
 /* ---------- razonamiento profesional ---------- */
 const MENTOR = avatar("La profesional", { g: "f", s: 3, h: "moño", hc: 0, c: 0, gl: true, age: "adulto" }, { size: 50, alt: "Retrato ilustrado de una profesional de RR.HH. con experiencia (personaje ficticio)" });
+/* «Cómo lo piensa y razona una profesional»: el razonamiento se muestra como pasos numerados sobre
+   una línea, una brújula de criterios que marca cuáles aplican y una tarjeta ilustrada por criterio. */
+const LENS = [
+  ["ok", "Buena práctica", "check", "assets/3d/kusi/kusi-feliz.webp"],
+  ["risk", "Riesgo", "warn", "assets/3d/kusi/kusi-preocupado.webp"],
+  ["law", "Obligación o norma", "scale", "assets/3d/scenes/balanza-sq.webp"],
+  ["info", "Falta información", "question", "assets/3d/kusi/kusi-curioso.webp"]
+];
+function steps(pro){
+  const t = String(pro).trim();
+  if (/<(ul|ol|li|table)/i.test(t)) return `<div class="mind-pro">${t}</div>`;
+  const parts = t.split(/(?<=[.!?»])\s+(?=[A-ZÁÉÍÓÚÑ¿¡«(])/).map(x => x.trim()).filter(Boolean);
+  if (parts.length < 2) return `<p class="mind-quote">${t}</p>`;
+  const merged = [];
+  parts.forEach(x => { if (merged.length < 5) merged.push(x); else merged[merged.length - 1] += " " + x; });
+  return `<ol class="mind-steps">${merged.map((x, i) => `<li><span class="n" aria-hidden="true">${i + 1}</span><span>${x}</span></li>`).join("")}</ol>`;
+}
+function compass(m){
+  const on = k => !!(m && m[k]);
+  const pos = [["ok", 60, 16], ["risk", 104, 60], ["law", 60, 104], ["info", 16, 60]];
+  return `<svg class="mind-compass" viewBox="0 0 120 120" role="img" aria-label="Criterios que aplican: ${LENS.filter(([k]) => on(k)).map(l => l[1].toLowerCase()).join(", ") || "ninguno"}">
+    <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-opacity=".18"/><circle cx="60" cy="60" r="28" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-dasharray="2 4"/>
+    <path d="M60 22 L66 60 L60 98 L54 60 Z" fill="var(--brand)" opacity=".85"/><circle cx="60" cy="60" r="4" fill="var(--brass)"/>
+    ${pos.map(([k, x, y]) => `<g class="mc-${k} ${on(k) ? "on" : ""}"><circle cx="${x}" cy="${y}" r="11"/><text x="${x}" y="${y + 4}" text-anchor="middle">${({ ok: "✓", risk: "!", law: "§", info: "?" })[k]}</text></g>`).join("")}
+  </svg>`;
+}
+function fmtList(t){
+  const s = String(t);
+  const m = s.split(/\s*(?:^|\s)(\d)\)\s+/);
+  if (m.length < 5 || /<(ul|ol|li)/i.test(s)) return s;
+  const head = m[0].trim(), items = [];
+  for (let i = 1; i < m.length; i += 2) items.push((m[i + 1] || "").trim().replace(/;$/, ""));
+  return `${head ? `<span>${head}</span>` : ""}<ol class="mind-mini">${items.map(x => `<li>${x}</li>`).join("")}</ol>`;
+}
 export function mind(pro, m, opts = {}){
   if (!pro && !m) return "";
-  const parts = m ? [
-    m.ok ? `<div class="ok"><span class="k">${icon("check")}Buena práctica</span>${m.ok}</div>` : "",
-    m.risk ? `<div class="risk"><span class="k">${icon("warn")}Riesgo</span>${m.risk}</div>` : "",
-    m.law ? `<div class="law"><span class="k">${icon("scale")}Obligación o norma</span>${m.law}</div>` : "",
-    m.info ? `<div class="info"><span class="k">${icon("question")}Falta información / consultar</span>${m.info}</div>` : ""
-  ].join("") : "";
-  return `<section class="mind"><div class="mind-head">${MENTOR}<div><span class="eyebrow">Cómo lo piensa y razona una profesional</span><h4>${opts.title || "El criterio detrás de la decisión"}</h4></div>${opts.listen ? `<span style="margin-left:auto" data-narr-slot="${opts.listen}"></span>` : ""}</div>${pro ? `<p>${pro}</p>` : ""}${parts ? `<div class="mind-grid">${parts}</div>` : ""}</section>`;
+  const cards = m ? LENS.filter(([k]) => m[k]).map(([k, n, ic, img]) => `<div class="mind-card ${k}"><img src="${img}" alt="" aria-hidden="true" loading="lazy" decoding="async" width="72" height="72"><div><span class="k">${icon(ic)}${n}</span><div class="mind-txt">${fmtList(m[k])}</div></div></div>`).join("") : "";
+  return `<section class="mind"><div class="mind-head">${MENTOR}<div><span class="eyebrow">Cómo lo piensa y razona una profesional</span><h4>${opts.title || "El criterio detrás de la decisión"}</h4></div>${opts.listen ? `<span style="margin-left:auto" data-narr-slot="${opts.listen}"></span>` : ""}</div>
+  <div class="mind-body">${m ? `<div class="mind-side">${compass(m)}<span class="xs muted">Brújula de criterios</span></div>` : ""}<div class="mind-main">${pro ? steps(pro) : ""}${cards ? `<div class="mind-cards">${cards}</div>` : ""}</div></div></section>`;
 }
 
 export function outcome(res, opts = {}){

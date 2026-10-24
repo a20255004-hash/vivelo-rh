@@ -64,3 +64,95 @@ export const VIZ = {
   igualdad: () => boxes([["Sí se evalúa","Experiencia, conocimientos, competencias, requisitos legales del puesto"],["No se evalúa","Sexo, edad, origen, idioma, religión, embarazo, apariencia"],["Ajustes razonables","Para personas con discapacidad"],["Si pasa","Proteger, investigar, reparar, prevenir"]], "Igualdad y no discriminación")
 };
 export const viz = key => (VIZ[key] ? VIZ[key]() : "");
+
+/* ---------- Organizadores interactivos compartidos (Mapa, Academia, Sectores) ---------- */
+import { icon } from "../brand/icons.js";
+import { reducedMotion } from "../core/util.js";
+
+/* imagen 3D representativa de cada familia de especialidades */
+export const FAM_ART = { atraer: "reunion", admin: "boleta", desarrollar: "academia", cuidar: "balanza", estrategia: "corporativo" };
+
+/* íconos por tarea, herramienta y momento del día (heurística visual, no dato normativo) */
+export const TASK_IC = { entrevistar: "chat", analizar: "brujula", redactar: "correo", normativa: "scale", negociar: "reunion", mediar: "presencial", documentos: "doc", calcular: "calc", disenar: "sparkle", presentar: "sims", atender: "llamada", investigar: "eye", planificar: "calendar", coordinar: "link", ensenar: "academia" };
+export function toolIcon(t){
+  const s = String(t).toLowerCase();
+  if (/excel|hoja|calcul|planilla|plame|tabla/.test(s)) return "calc";
+  if (/encuesta|test|prueba|psicom|cuestion/.test(s)) return "question";
+  if (/sistema|software|ats|hris|t-registro|portal|plataforma|linkedin|app|erp|sap|power|tablero|dashboard|lms|aula/.test(s)) return "sistema";
+  if (/guía|guia|manual|reglamento|norma|ley|directiva|formato|plantilla|contrato|matriz|perfil|política|politica|registro|legajo|expediente|informe/.test(s)) return "doc";
+  if (/calendario|cronograma|plan\b/.test(s)) return "calendar";
+  if (/entrevista|focus|reuni|comité|comite|mesa/.test(s)) return "reunion";
+  return "taller";
+}
+export function dayIcon(t){
+  const s = String(t).toLowerCase();
+  if (/whatsapp/.test(s)) return "whatsapp";
+  if (/correo|mail|bandeja/.test(s)) return "correo";
+  if (/llam|teléfono|telefono/.test(s)) return "llamada";
+  if (/entrevist/.test(s)) return "chat";
+  if (/reuni|comité|comite|mesa|presenta|sindicato|gerencia|jefe/.test(s)) return "reunion";
+  if (/planilla|calcul|excel|boleta|presupuesto|indicador|dato|reporte|tablero/.test(s)) return "calc";
+  if (/archiv|foli|document|legajo|expediente|informe|redact|contrato|carta|resoluci/.test(s)) return "doc";
+  if (/capacit|inducci|taller|charla|curso|facilit/.test(s)) return "academia";
+  if (/visita|recorr|campo|planta|sede|inspecci/.test(s)) return "presencial";
+  if (/sistema|registro|base|t-registro|plataforma/.test(s)) return "sistema";
+  return "clock";
+}
+
+/* Radar de rasgos: series = [{ v:{id:0..3}, color, name }] */
+export function radarPts(traits, v, R = 120, cx = 180, cy = 170){
+  return traits.map((t, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / traits.length, r = R * ((v[t.id] || 0) / 3); return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; });
+}
+const ptsStr = p => p.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+export function radar(traits, series, label){
+  const R = 120, cx = 180, cy = 170, n = traits.length;
+  const rings = [1, 2, 3].map(k => `<polygon points="${ptsStr(traits.map((t, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + Math.cos(a) * R * k / 3, cy + Math.sin(a) * R * k / 3]; }))}" fill="none" stroke="var(--line-2)" stroke-width="1" ${k < 3 ? 'stroke-dasharray="3 5"' : ""}/>`).join("");
+  const axes = traits.map((t, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / n, x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R, lx = cx + Math.cos(a) * (R + 22), ly = cy + Math.sin(a) * (R + 18); const anchor = Math.abs(Math.cos(a)) < .2 ? "middle" : Math.cos(a) > 0 ? "start" : "end"; return `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${lx.toFixed(1)}" y="${(ly + 4).toFixed(1)}" text-anchor="${anchor}" font-size="11.5" font-weight="600" fill="var(--ink-2)">${esc(t.n)}</text>`; }).join("");
+  const polys = series.map((s, k) => `<polygon class="rd-poly" data-rs="${k}" points="${ptsStr(radarPts(traits, s.v, R, cx, cy))}" fill="${s.color}" fill-opacity=".18" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" ${k ? 'stroke-dasharray="7 4"' : ""}/>` + radarPts(traits, s.v, R, cx, cy).map(([x, y], i) => `<circle class="rd-dot" data-rs="${k}" data-ri="${i}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="${s.color}" stroke="var(--card)" stroke-width="1.5"/>`).join("")).join("");
+  return `<svg class="radar" viewBox="-78 0 516 340" role="img" aria-label="${esc(label)}">${rings}${axes}${polys}</svg>`;
+}
+/* anima los polígonos del radar desde valores previos (respeta reduced-motion) */
+export function tweenRadar(svgEl, traits, from, to){
+  if (!svgEl) return;
+  const set = (k, pts) => { const p = svgEl.querySelector(`.rd-poly[data-rs="${k}"]`); if (p) p.setAttribute("points", ptsStr(pts)); svgEl.querySelectorAll(`.rd-dot[data-rs="${k}"]`).forEach(c => { const q = pts[+c.dataset.ri]; c.setAttribute("cx", q[0].toFixed(1)); c.setAttribute("cy", q[1].toFixed(1)); }); };
+  if (reducedMotion() || !from) return;
+  const A = from.map(v => radarPts(traits, v)), B = to.map(v => radarPts(traits, v));
+  const t0 = performance.now(), D = 650, ease = x => 1 - Math.pow(1 - x, 3);
+  const step = now => { const t = Math.min(1, (now - t0) / D), e = ease(t); B.forEach((b, k) => { const a = A[k] || b; set(k, b.map(([x, y], i) => [a[i][0] + (x - a[i][0]) * e, a[i][1] + (y - a[i][1]) * e])); }); if (t < 1 && svgEl.isConnected) requestAnimationFrame(step); };
+  B.forEach((b, k) => set(k, A[k] || b));
+  requestAnimationFrame(step);
+}
+
+/* Revela elementos .rv al entrar en pantalla */
+export function reveal(root){
+  const els = root.querySelectorAll(".rv");
+  if (!els.length) return;
+  if (reducedMotion() || typeof IntersectionObserver !== "function") { els.forEach(e => e.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .08 });
+  els.forEach(e => io.observe(e));
+}
+
+/* Recursos externos curados (YouTube oficial): se cargan de forma defensiva */
+let RP = null;
+export const recursos = () => (RP || (RP = import("../content/recursos.js").then(m => ((m.recursos && m.recursos.items) || m.default?.items || [])).catch(() => [])));
+export const extSlot = (topics, title = "Para reforzar fuera de VÍVELO RH") => `<section class="ext-slot stack" data-ext="${esc(topics.join(" "))}" data-ext-title="${esc(title)}" hidden aria-label="${esc(title)}"></section>`;
+export function bindExt(root){
+  root.querySelectorAll("[data-ext]").forEach(box => {
+    const want = box.dataset.ext.split(" ").filter(Boolean);
+    recursos().then(items => {
+      if (!box.isConnected) return;
+      const hits = (items || []).filter(it => it && /^https:\/\//.test(it.url || "") && (it.topics || []).some(t => want.includes(t))).slice(0, 6);
+      if (!hits.length) return;
+      box.innerHTML = `<div class="row between"><span class="eyebrow">${icon("link")} ${esc(box.dataset.extTitle)}</span><span class="xs muted">Enlaces externos · se abren en una pestaña nueva</span></div><div class="ext-grid">${hits.map(it => `<a class="ext-card" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer"><span class="ext-ic" aria-hidden="true">${icon(it.kind === "web" || it.kind === "doc" ? "doc" : "play")}</span><span class="ext-copy"><span class="eyebrow">Para reforzar · ${it.kind === "web" || it.kind === "doc" ? "recurso externo" : "video externo"}</span><b>${esc(it.t)}</b>${it.by ? `<span class="xs muted">${esc(it.by)}</span>` : ""}${it.d ? `<span class="small muted">${esc(it.d)}</span>` : ""}</span><span class="ext-go" aria-hidden="true">${icon("arrow")}</span><span class="sr-only"> (abre un sitio externo en una pestaña nueva)</span></a>`).join("")}</div>`;
+      box.hidden = false;
+    });
+  });
+}
+
+/* Videos propios relacionados con varias rutas (sin duplicados) y fila de pósteres */
+import { C as CC } from "../content/index.js";
+export const videosRelated = hashes => (CC.media.video || []).filter(v => v.status === "listo" && (v.related || []).some(h => hashes.includes(h)));
+export function videoCards(vs){
+  if (!vs.length) return "";
+  return `<div class="vid-row">${vs.map(v => `<a class="vid-card" href="#medios.v-${v.id}"><span class="vid-media"><img src="${v.posterWebp || v.poster}" alt="" loading="lazy" decoding="async" width="1280" height="720"><span class="vid-play" aria-hidden="true">${icon("play")}</span><span class="vid-dur">${esc(v.mins)}</span></span><span class="vid-copy"><b>${esc(v.n)}</b><span class="xs muted">${esc(v.d || "")}</span></span></a>`).join("")}</div>`;
+}

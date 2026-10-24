@@ -19,6 +19,8 @@ import "./views/compass.js";
 import "./views/challenges.js";
 import "./views/media.js";
 import "./views/info.js";
+import "./views/quiz.js";
+import "./views/empresas.js";
 
 init();
 // Grabaciones humanas: si existen, el narrador las usa en lugar de la voz sintética.

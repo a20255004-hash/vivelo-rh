@@ -373,3 +373,104 @@ img.kusi3d{display:block;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(
 .kusi-live{width:260px;height:260px;display:grid;place-items:center}
 .kusi-live canvas{width:100%!important;height:100%!important;display:block}
 @media (max-width:520px){.kusi-live{width:200px;height:200px}}
+
+/* ---------- logotipo v3: sello carmín + rombo andino ---------- */
+.logo-mark{filter:drop-shadow(0 6px 14px rgba(142,27,44,.22))}
+.wordmark{font-family:var(--f-display);font-weight:620;font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:.015em;gap:.5em;align-items:center}
+.wm-i::after{width:.26em;height:.26em;top:-.16em;left:50%;transform:translateX(-50%) rotate(45deg);border-radius:.03em;background:var(--brass)}
+.wm-rh{border:0;padding:0 0 0 .55em;margin:0;border-left:1px solid color-mix(in srgb,currentColor 35%,transparent);font-family:var(--f-body);font-weight:600;font-size:.46em;letter-spacing:.32em;color:var(--brand-ink);transform:none;line-height:1.6}
+html.on-dark:not(.scrolled) .topnav .wm-rh{color:#D7B98A}
+html.on-dark:not(.scrolled) .topnav .logo-mark{filter:drop-shadow(0 6px 16px rgba(0,0,0,.4))}
+/* Kusi más grande: portada, bienvenida y guía flotante */
+.kusi-live{width:360px;height:360px}
+@media (max-width:520px){.kusi-live{width:260px;height:260px}}
+.lux-hero .aside{align-self:end}
+.lux-hero .aside img.hero-kusi{width:clamp(220px,22vw,340px);height:auto;margin:-40px 0 -10px -10px;filter:drop-shadow(0 40px 50px rgba(0,0,0,.55))}
+.guide-btn img.kusi3d{width:132px;height:132px}
+@media (max-width:1060px){.guide-btn img.kusi3d{width:96px;height:96px}}
+
+/* ---------- celular: todas las secciones a la vista (fila deslizable bajo la barra) ---------- */
+@media (max-width:1060px){
+  .topnav-in{flex-wrap:wrap;row-gap:0;padding-bottom:0}
+  .topnav .navpill{display:flex;order:3;flex:1 0 100%;margin:6px calc(-1 * var(--gutter)) 0;padding:4px var(--gutter) 10px;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+    mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .topnav .navpill a{flex:none;scroll-snap-align:start;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:.84rem;background:color-mix(in srgb,var(--card) 70%,transparent)!important}
+  .topnav .navpill a .ic{display:inline-block;width:15px;height:15px}
+  .topnav .navpill a span{display:inline}
+  .topnav .navpill a::after{display:none}
+  .topnav .navpill a[aria-current="page"]{background:var(--ink)!important;color:var(--paper);border-color:var(--ink)}
+  html.on-dark:not(.scrolled) .topnav .navpill a{border-color:rgba(245,240,232,.3);background:rgba(14,13,12,.35)!important}
+  html.on-dark:not(.scrolled) .topnav .navpill a[aria-current="page"]{background:var(--ivory)!important;color:var(--obsidian)}
+  .lux-hero{margin-top:calc(-32px - 124px);padding-top:calc(124px + 40px)}
+  html{scroll-padding-top:140px}
+}
+@media (max-width:900px){.lux-hero .aside{display:grid;justify-items:center;border:0;padding:0;order:-1;margin:-10px 0 -20px}.lux-hero .aside p{display:none}.lux-hero .aside img.hero-kusi{width:210px;margin:0}}
+/* héroes con texto claro: velo oscuro en lugar del velo lino */
+.hero.hero-dark{background:var(--obsidian);border-color:transparent}
+.hero.hero-dark>.scene{filter:saturate(.5) brightness(.75)}
+.hero.hero-dark::after{background:linear-gradient(90deg,rgba(14,13,12,.94) 0%,rgba(14,13,12,.82) 48%,rgba(14,13,12,.25) 85%)}
+.hero.hero-dark h1{color:#F5F0E8}
+.hero.hero-dark .eyebrow{color:#D4CBBD!important}
+.hero.hero-dark p{color:#E2D9CC!important}
+@media (max-width:720px){.hero.hero-dark::after{background:linear-gradient(180deg,rgba(14,13,12,.6),rgba(14,13,12,.92))}}
+
+/* ---------- fondo con alma: halos de la paleta + textil andino en los bordes ---------- */
+body{background:var(--paper)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(60vw 50vh at 100% 0%,color-mix(in srgb,var(--brand) 9%,transparent),transparent 70%),
+  radial-gradient(55vw 55vh at 0% 100%,color-mix(in srgb,var(--mint) 11%,transparent),transparent 70%),
+  radial-gradient(40vw 40vh at 50% 55%,color-mix(in srgb,var(--c-atraer) 5%,transparent),transparent 70%)}
+html::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%238E1B2C' stroke-opacity='.11' stroke-width='1.2'%3E%3Cpath d='M36 8 L64 36 L36 64 L8 36 Z'/%3E%3Cpath d='M36 22 L50 36 L36 50 L22 36 Z'/%3E%3Cpath d='M0 0 L8 0 L8 8 L16 8 L16 16 M72 72 L64 72 L64 64 L56 64 L56 56 M72 0 L64 0 L64 8 L56 8 L56 16 M0 72 L8 72 L8 64 L16 64 L16 56'/%3E%3C/g%3E%3Cpath d='M36 32 L40 36 L36 40 L32 36 Z' fill='%23A7834E' fill-opacity='.22'/%3E%3C/svg%3E");
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 62% 70% at 50% 45%,transparent 55%,#000 100%);-webkit-mask-image:radial-gradient(ellipse 62% 70% at 50% 45%,transparent 55%,#000 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"])::after{opacity:.35}}
+:root[data-theme="dark"]::after{opacity:.35}
+@media (max-width:720px){html::after{mask-image:linear-gradient(180deg,#000,transparent 18%,transparent 82%,#000);-webkit-mask-image:linear-gradient(180deg,#000,transparent 18%,transparent 82%,#000)}}
+@media (forced-colors:active){html::after,body::before{display:none}}
+
+/* ---------- «Cómo lo piensa y razona una profesional» (visual) ---------- */
+.mind{border-radius:var(--r-l);border:1px solid var(--line);background:linear-gradient(160deg,color-mix(in srgb,var(--brand) 6%,var(--card)) 0%,var(--card) 55%);padding:clamp(18px,2.4vw,28px);display:grid;gap:18px}
+.mind-head .eyebrow{color:var(--brand-ink)}
+.mind-head h4{font-family:var(--f-display);font-weight:560;font-size:1.25rem;font-variation-settings:"SOFT" 100;letter-spacing:-.01em}
+.mind-body{display:grid;grid-template-columns:120px minmax(0,1fr);gap:clamp(14px,2.4vw,28px);align-items:start}
+.mind-side{display:grid;justify-items:center;gap:4px;color:var(--ink);position:sticky;top:90px}
+.mind-compass{width:120px;height:120px}
+.mind-compass g circle{fill:var(--card);stroke:var(--line-2)}
+.mind-compass g text{font:700 11px var(--f-body);fill:var(--ink-3)}
+.mind-compass g.on circle{stroke-width:2}
+.mind-compass .mc-ok.on circle{fill:var(--ok-soft);stroke:var(--ok)} .mind-compass .mc-ok.on text{fill:var(--ok)}
+.mind-compass .mc-risk.on circle{fill:var(--bad-soft);stroke:var(--bad)} .mind-compass .mc-risk.on text{fill:var(--bad)}
+.mind-compass .mc-law.on circle{fill:var(--brand-soft);stroke:var(--brand)} .mind-compass .mc-law.on text{fill:var(--brand-ink)}
+.mind-compass .mc-info.on circle{fill:var(--warn-soft);stroke:var(--warn)} .mind-compass .mc-info.on text{fill:var(--warn)}
+.mind-main{display:grid;gap:16px;min-width:0}
+.mind-quote{font-family:var(--f-display);font-size:1.12rem;line-height:1.5;font-variation-settings:"SOFT" 100}
+.mind-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.mind-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:0 0 14px;position:relative}
+.mind-steps li::before{content:"";position:absolute;left:16.5px;top:30px;bottom:0;width:1px;background:var(--line-2)}
+.mind-steps li:last-child::before{display:none}
+.mind-steps .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-family:var(--f-display);font-weight:600;font-size:.95rem}
+.mind-steps li:first-child .n{background:var(--brand);color:var(--on-brand)}
+.mind-steps li>span:last-child{padding-top:5px}
+.mind-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.mind-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:start;padding:12px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--line-2)}
+.mind-card img{width:72px;height:72px;object-fit:contain;border-radius:var(--r-s);background:color-mix(in srgb,var(--paper-2) 60%,transparent)}
+.mind-card .k{display:flex;gap:6px;align-items:center;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.mind-card .k .ic{width:15px;height:15px}
+.mind-card .mind-txt{font-size:.94rem}
+.mind-card.ok{border-top-color:var(--ok)} .mind-card.ok .k{color:var(--ok)}
+.mind-card.risk{border-top-color:var(--bad)} .mind-card.risk .k{color:var(--bad)}
+.mind-card.law{border-top-color:var(--brand)} .mind-card.law .k{color:var(--brand-ink)}
+.mind-card.info{border-top-color:var(--warn)} .mind-card.info .k{color:var(--warn)}
+@media (max-width:640px){.mind-body{grid-template-columns:minmax(0,1fr)}.mind-side{position:static;grid-auto-flow:column;justify-content:start;align-items:center;gap:10px}.mind-compass{width:84px;height:84px}}
+.mind-mini{margin:6px 0 0;padding-left:1.2rem;display:grid;gap:4px}
+.mind-mini li::marker{color:var(--brand-ink);font-weight:700}
+@media (max-width:640px){.mind-card{grid-template-columns:48px minmax(0,1fr)}.mind-card img{width:48px;height:48px}}
+
+/* ---------- banda del quiz en la portada ---------- */
+.qz-band{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(24px,4vw,48px);border-radius:var(--r-xl);background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 10%,var(--card)),var(--card) 60%);border:1px solid var(--line);position:relative;overflow:hidden}
+.qz-band::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:1px solid color-mix(in srgb,var(--brass) 45%,transparent);pointer-events:none}
+.qz-band-art img{width:clamp(150px,18vw,220px);height:auto}
+.qz-band-copy{display:grid;gap:14px;max-width:60ch}
+@media (max-width:700px){.qz-band{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}.qz-band .row{justify-content:center}}
+@media (max-width:720px) and (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero>img.art3d{inset:auto;width:calc(100% - 24px);margin:12px;height:200px}}

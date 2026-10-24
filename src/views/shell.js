@@ -1,6 +1,7 @@
 /* Armazón: menú flotante (escritorio), dock inferior (móvil), pie y preferencias de tema. */
 import { $, $$, esc } from "../core/util.js";
 import { S, save } from "../core/store.js";
+import { playBrand } from "../core/sound.js";
 import { onBeforeRender } from "../core/router.js";
 import { lockup, SLOGAN, DESCRIPTOR } from "../brand/logo.js";
 import { icon } from "../brand/icons.js";
@@ -15,10 +16,12 @@ export const NAV = [
   { id: "academia", n: "Academia", ic: "academia" },
   { id: "taller", n: "Taller", ic: "taller" },
   { id: "retos", n: "Retos", ic: "retos" },
+  { id: "quiz", n: "Quiz", ic: "bulb" },
+  { id: "empresas", n: "Empresas", ic: "cargos" },
   { id: "sectores", n: "Sectores", ic: "sectores" },
   { id: "brujula", n: "Brújula", ic: "brujula" }
 ];
-const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
+const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", empresa: "empresas", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
 const DOCK = ["inicio", "viaje", "sims", "brujula"];
 
 export function applyTheme(){
@@ -40,10 +43,11 @@ export function mountShell(){
     </div>
   </div></header>
   <main class="view" id="view" tabindex="-1"></main>
-  <footer class="foot"><div class="stack" style="gap:4px"><b style="font-family:var(--f-display);color:var(--ink)">VÍVELO RH</b><span>${DESCRIPTOR} · ${SLOGAN}</span><span>Casos, personas y organizaciones: ficticios. Normativa peruana verificada al ${VERIFIED}. No es asesoría legal.</span></div><nav class="row" aria-label="Pie de página"><a href="#fuentes">Fuentes y método</a><a href="#medios">Audio y video</a><a href="#perfil">Mis datos y respaldo</a></nav></footer>
+  <footer class="foot"><div class="stack" style="gap:4px"><b style="font-family:var(--f-display);color:var(--ink)">VÍVELO RH</b><span>${DESCRIPTOR} · ${SLOGAN}</span><span>Casos, personas y organizaciones: ficticios. Normativa peruana verificada al ${VERIFIED}. No es asesoría legal.</span></div><nav class="row" aria-label="Pie de página"><button type="button" class="textlink" data-brand-sound style="background:none;border:0;cursor:pointer">♪ Sonido de VÍVELO RH</button><a href="#fuentes">Fuentes y método</a><a href="#medios">Audio y video</a><a href="#perfil">Mis datos y respaldo</a></nav></footer>
   <nav class="dock" aria-label="Secciones principales">${DOCK.map(id => { const n = NAV.find(x => x.id === id); return `<a href="#${id}" data-nav="${id}">${icon(n.ic)}<span>${n.n.replace("Mi brújula", "Brújula")}</span></a>`; }).join("")}<button type="button" data-more aria-expanded="false">${icon("mas")}<span>Más</span></button></nav>
   <div class="scrim" data-scrim hidden></div><div class="sheet" data-sheet role="dialog" aria-label="Todas las secciones" hidden>${NAV.concat([{ id: "fuentes", n: "Fuentes", ic: "fuentes" }, { id: "medios", n: "Audio y video", ic: "film" }, { id: "perfil", n: "Mis datos", ic: "user" }]).map(n => `<a href="#${n.id}">${icon(n.ic)}${n.n}</a>`).join("")}</div>`;
   const sheet = $("[data-sheet]"), scrim = $("[data-scrim]");
+  const bs = $("[data-brand-sound]"); if (bs) bs.addEventListener("click", () => playBrand(true));
   const close = () => { sheet.hidden = true; scrim.hidden = true; $$("[data-more]").forEach(b => b.setAttribute("aria-expanded", "false")); };
   $$("[data-more]").forEach(b => b.addEventListener("click", () => { const open = sheet.hidden; sheet.hidden = !open; scrim.hidden = !open; $$("[data-more]").forEach(x => x.setAttribute("aria-expanded", String(open))); if (open) sheet.querySelector("a").focus(); }));
   scrim.addEventListener("click", close);

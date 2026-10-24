@@ -126,7 +126,7 @@ const badge = () => `<g class="cc-badge">
   <circle cx="100" cy="167" r="4.4" fill="${WOOL_D}"/><rect x="92" y="174" width="16" height="2.4" rx="1.2" fill="#CFC5B6"/><rect x="95" y="178" width="10" height="1.8" rx=".9" fill="#E2D9CC"/>
 </g>`;
 
-export function coco(mood = "neutral", opts = {}){
+export function coco2d(mood = "neutral", opts = {}){
   const m = MOODS[mood] ? mood : "neutral";
   const size = opts.size || 120;
   const tilt = m === "curioso" ? -8 : m === "triste" ? 5 : m === "pensando" ? -5 : m === "indignado" ? 0 : 0;
@@ -154,5 +154,13 @@ export function coco(mood = "neutral", opts = {}){
   </g>
   ${extras(m)}
 </svg>`;
+}
+/* Kusi en 3D (versión preferida): se usa en toda la plataforma. coco2d() queda para los videos
+   y para contextos sin imágenes. Mantiene la firma coco(mood, {size, cls, label}). */
+export function coco(mood = "neutral", opts = {}){
+  const m = MOODS[mood] ? mood : "neutral";
+  const size = Math.round((opts.size || 120) * 1.15);
+  const deco = opts.label === false;
+  return `<img class="coco kusi kusi3d mood-${m} ${opts.cls || ""}" src="assets/3d/kusi/kusi-${m}.webp" width="${size}" height="${size}" ${deco ? 'alt="" aria-hidden="true"' : `alt="Kusi, la alpaca guía, ${MOODS[m].n.toLowerCase()}: ${MOODS[m].d.toLowerCase()}"`} loading="lazy" decoding="async">`;
 }
 export const kusi = coco;
