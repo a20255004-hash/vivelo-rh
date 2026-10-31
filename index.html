@@ -32,6 +32,25 @@ h2 em{color:var(--accent)}
 .btn--go:hover{box-shadow:0 10px 30px rgba(242,169,0,.35)}
 .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 
+/* El Laboratorio: directorio del edificio con las secciones clásicas */
+.lab{padding:clamp(90px,11vw,150px) var(--gut);background:var(--bg)}
+.lab__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;max-width:1240px;margin:0 auto}
+.lab__head p:not(.eyebrow){margin:0;color:var(--ink-2)}
+.lab__board{max-width:1240px;margin:clamp(36px,5vw,64px) auto 0;border-radius:28px;padding:clamp(18px,3vw,36px);background:radial-gradient(70% 90% at 100% 0%,rgba(242,169,0,.30),transparent 60%),radial-gradient(60% 80% at 0% 100%,rgba(124,198,234,.28),transparent 60%),#1E4A2B;color:#F6FBFE}
+.lab__cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#FBE3A6;margin:0;padding:0 6px 16px;border-bottom:1px solid rgba(246,251,254,.22)}
+.lab__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,3vw,40px)}
+.lab__list a{display:grid;grid-template-columns:44px 64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 6px;border-bottom:1px solid rgba(246,251,254,.16);color:inherit;text-decoration:none;border-radius:12px;transition:background .25s}
+.lab__list a:hover,.lab__list a:focus-visible{background:rgba(246,251,254,.08)}
+.lab__piso{font:600 13px/1 var(--f-mono);color:#F2A900}
+.lab__list img{width:64px;height:48px;object-fit:cover;border-radius:10px;transition:transform .35s var(--spring)}
+.lab__list a:hover img{transform:scale(1.08) rotate(-2deg)}
+.lab__t{display:grid;gap:3px;min-width:0}
+.lab__t b{font:800 clamp(18px,1.6vw,22px)/1.1 var(--f-display);letter-spacing:-.01em}
+.lab__t span{font-size:14px;line-height:1.4;color:#CFE6D5}
+.lab__n{font:600 12px/1.2 var(--f-mono);color:#FBE3A6;text-align:right;white-space:nowrap}
+@media (max-width:860px){.lab__head{grid-template-columns:1fr}.lab__list{grid-template-columns:1fr}}
+@media (max-width:480px){.lab__list a{grid-template-columns:34px 52px minmax(0,1fr)}.lab__list img{width:52px;height:40px}.lab__n{display:none}}
+@media (prefers-reduced-motion:reduce){.lab__list img{transition:none}.lab__list a:hover img{transform:none}}
 /* Logo provisional: huella + persona */
 .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo svg{width:30px;height:30px;flex:none}
@@ -508,6 +527,7 @@ h2 em{color:var(--accent)}
   <a class="logo" href="#" aria-label="VÍVELO RH, inicio"><svg aria-hidden="true"><use href="#marca"/></svg><b>VÍVELO RH</b></a>
   <nav>
     <button class="chip who" id="who" type="button" hidden aria-haspopup="true"><i aria-hidden="true"></i><span id="whoTxt"></span></button>
+    <a class="chip" href="#laboratorio">Laboratorio</a>
     <a class="chip" href="brujula.html">Mi brújula</a>
     <button class="chip" id="tema" type="button">Modo oscuro</button>
     <a class="chip" href="#temporadas">Puestos</a>
@@ -679,15 +699,36 @@ h2 em{color:var(--accent)}
     <li><a href="#temporadas" data-img="assets/foto2/reunion-circulos.webp"><span class="reune__n">01</span><span class="reune__t">Temporadas</span><span class="reune__d">Un mes de trabajo por puesto, con personajes, correos, WhatsApp, llamadas y decisiones que cambian la historia.</span></a></li>
     <li><a href="#temporadas" data-img="assets/foto2/collage.webp"><span class="reune__n">02</span><span class="reune__t">30 puestos, 30 historias</span><span class="reune__d">Qué hace cada cargo de verdad, un día típico y lo que nadie te cuenta.</span></a></li>
     <li><a href="#que-es" data-img="assets/r-brujula.webp"><span class="reune__n">03</span><span class="reune__t">Tu brújula</span><span class="reune__d">Registra qué te entusiasma y qué te desgasta para orientarte con experiencia, no con suposiciones.</span></a></li>
-    <li><a href="#orbita" data-img="assets/c-escaleras.webp"><span class="reune__n">04</span><span class="reune__t">Mapa de 26 especialidades</span><span class="reune__d">Selección, compensaciones, clima, SST, analytics… y cómo se conectan entre sí.</span></a></li>
+    <li><a href="laboratorio.html#mapa" data-img="assets/c-escaleras.webp"><span class="reune__n">04</span><span class="reune__t">Mapa de 26 especialidades</span><span class="reune__d">Selección, compensaciones, clima, SST, analytics… y cómo se conectan entre sí.</span></a></li>
     <li><a href="#kusi" data-img="assets/cargos/analista-capacitacion.webp"><span class="reune__n">05</span><span class="reune__t">Glosario vivo</span><span class="reune__d">Más de 40 términos con ejemplos de las historias. Los descubres mientras juegas.</span></a></li>
-    <li><a href="#caso" data-img="assets/foto2/tablet-equipo.webp"><span class="reune__n">06</span><span class="reune__t">Taller y retos</span><span class="reune__d">Boletas, matrices y concursos públicos para practicar, con desafíos por niveles.</span></a></li>
-    <li><a href="#temporadas" data-img="assets/foto2/acuerdo-manos.webp"><span class="reune__n">07</span><span class="reune__t">Empresas y Estado</span><span class="reune__d">Sector privado y público, pymes, corporaciones y municipalidades, con normativa peruana verificada.</span></a></li>
+    <li><a href="laboratorio.html#taller" data-img="assets/foto2/tablet-equipo.webp"><span class="reune__n">06</span><span class="reune__t">Taller y retos</span><span class="reune__d">Boletas, matrices y concursos públicos para practicar, con desafíos por niveles.</span></a></li>
+    <li><a href="laboratorio.html#empresas" data-img="assets/foto2/acuerdo-manos.webp"><span class="reune__n">07</span><span class="reune__t">Empresas y Estado</span><span class="reune__d">Sector privado y público, pymes, corporaciones y municipalidades, con normativa peruana verificada.</span></a></li>
     <li><a href="#temporadas" data-img="assets/cargos/talent-acquisition.webp"><span class="reune__n">08</span><span class="reune__t">Dónde buscar oportunidades</span><span class="reune__d">Un directorio de fuentes oficiales y privadas para tus prácticas y tu primer empleo.</span></a></li>
     <li><a href="#kusi" data-img="assets/kusi-animo.webp" data-contain=""><span class="reune__n">09</span><span class="reune__t">Kusi, tu compañera</span><span class="reune__d">Te guía, te anima y te explica, con voz para escucharla cuando quieras.</span></a></li>
   </ol>
   <div class="reune__float" id="reuneFloat" aria-hidden="true"><img alt=""></div>
   <div class="reune__cta"><a class="btn btn--go" href="#temporadas">Empezar mi mes <span class="arr" aria-hidden="true">→</span></a></div>
+</section>
+<section class="lab" id="laboratorio" aria-labelledby="labt" data-kusi="feliz|Aquí están las secciones de siempre: el quiz, la academia, el taller… ¡Elige un piso!">
+  <div class="lab__head">
+    <div><p class="eyebrow">El Laboratorio</p><h2 id="labt">Diez pisos para <em>explorar</em> RR.HH.</h2></div>
+    <p>Además de vivir un mes en un puesto, puedes recorrer el oficio por tu cuenta: jugar el quiz, practicar con calculadoras, comparar cargos o conocer empresas y sectores del Perú. Las normas citadas vienen de fuentes oficiales y tienen fecha de verificación.</p>
+  </div>
+  <div class="lab__board">
+    <p class="lab__cap"><span>Directorio · Edificio VÍVELO RH</span><span>Elige un piso</span></p>
+    <ol class="lab__list">
+      <li><a href="laboratorio.html#viaje"><span class="lab__piso">P-01</span><img src="assets/esc/camino.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Viaje</b><span>Cinco estaciones para conocer el oficio y vivir tu primera mañana de trabajo.</span></span><span class="lab__n">5 estaciones</span></a></li>
+      <li><a href="laboratorio.html#sims"><span class="lab__piso">P-02</span><img src="assets/foto2/reunion-circulos.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Jornadas</b><span>Doce simulaciones cortas: un día, una semana o un caso urgente.</span></span><span class="lab__n">12 jornadas</span></a></li>
+      <li><a href="laboratorio.html#mapa"><span class="lab__piso">P-03</span><img src="assets/c-rompecabezas.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Mapa</b><span>Las 26 especialidades de RR.HH. y cómo se conectan.</span></span><span class="lab__n">26 áreas</span></a></li>
+      <li><a href="laboratorio.html#cargos"><span class="lab__piso">P-04</span><img src="assets/foto2/collage.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Cargos</b><span>Qué hace cada cargo, cuánto se gana y cómo se llega.</span></span><span class="lab__n">36 cargos</span></a></li>
+      <li><a href="laboratorio.html#academia"><span class="lab__piso">P-05</span><img src="assets/foto/capacitacion.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Academia</b><span>Conceptos clave explicados con diagramas y casos.</span></span><span class="lab__n">22 conceptos</span></a></li>
+      <li><a href="laboratorio.html#taller"><span class="lab__piso">P-06</span><img src="assets/esc/planilla.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Taller</b><span>Calculadoras y herramientas: boletas, CTS, gratificación y matrices.</span></span><span class="lab__n">10 herramientas</span></a></li>
+      <li><a href="laboratorio.html#retos"><span class="lab__piso">P-07</span><img src="assets/esc/meta.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Retos</b><span>Desafíos por niveles para poner a prueba tu criterio.</span></span><span class="lab__n">6 retos</span></a></li>
+      <li><a href="laboratorio.html#quiz"><span class="lab__piso">P-08</span><img src="assets/foto2/celebra-laptop.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Quiz</b><span>Preguntas con tiempo, rachas y puntaje, al estilo Kahoot.</span></span><span class="lab__n">94 preguntas</span></a></li>
+      <li><a href="laboratorio.html#empresas"><span class="lab__piso">P-09</span><img src="assets/foto2/acuerdo-manos.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Empresas</b><span>Organizaciones del Perú reconocidas por cómo tratan a su gente.</span></span><span class="lab__n">Fichas con fuente</span></a></li>
+      <li><a href="laboratorio.html#sectores"><span class="lab__piso">P-10</span><img src="assets/c-oficina.webp" alt="" loading="lazy" width="64" height="48"><span class="lab__t"><b>Sectores</b><span>RR.HH. en minería, agro, banca, retail, Estado y más.</span></span><span class="lab__n">Privado y público</span></a></li>
+    </ol>
+  </div>
 </section>
 </main>
 
@@ -712,7 +753,7 @@ h2 em{color:var(--accent)}
 <footer class="pie">
   <div class="pie__marca"><a class="logo" href="#"><svg aria-hidden="true"><use href="#marca"/></svg><b>VÍVELO RH</b></a><p>Vive el trabajo antes de elegirlo.</p></div>
   <nav class="pie__nav" aria-label="Pie de página">
-    <div><b>Explora</b><a href="#temporadas">Puestos</a><a href="#semana">Temporadas</a><a href="#reune">Academia y taller</a></div>
+    <div><b>Explora</b><a href="#temporadas">Puestos</a><a href="#semana">Temporadas</a><a href="laboratorio.html#academia">Academia</a><a href="laboratorio.html#taller">Taller</a><a href="laboratorio.html#quiz">Quiz</a><a href="laboratorio.html#cargos">Cargos</a><a href="laboratorio.html#empresas">Empresas</a></div>
     <div><b>VÍVELO RH</b><a href="#kusi">Conoce a Kusi</a><a href="quien-soy.html">Quién soy</a><a href="quien-soy.html#servicios">Servicios</a><a href="#faq">Preguntas frecuentes</a></div>
     <div><b>Legal</b><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Libro de reclamaciones</a></div>
   </nav>

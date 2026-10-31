@@ -40,7 +40,7 @@ export function render(keepScroll){
     document.title = (v.docTitle ? v.docTitle + " · " : "") + "VÍVELO RH";
     emit("route", { name: r.name, param: r.param, view: v });
   };
-  if (!keepScroll && document.startViewTransition && !reducedMotion()) document.startViewTransition(paint);
+  if (!keepScroll && document.startViewTransition && !reducedMotion()) { const vt = document.startViewTransition(paint); vt.ready.catch(() => {}); vt.finished.catch(() => {}); vt.updateCallbackDone.catch(() => {}); }
   else paint();
 }
 

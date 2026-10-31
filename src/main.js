@@ -29,5 +29,7 @@ mountShell();
 initMotion();
 on("route", () => scan(document.getElementById("view")));
 mountGuide();
+// En el Laboratorio la portada es index.html: sin sección, se abre el Viaje.
+if (!location.hash || location.hash === "#inicio") history.replaceState(null, "", "#viaje");
 start();
 document.documentElement.classList.add("ready");

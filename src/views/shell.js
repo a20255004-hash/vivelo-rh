@@ -8,7 +8,7 @@ import { icon } from "../brand/icons.js";
 import { VERIFIED } from "../content/index.js";
 
 export const NAV = [
-  { id: "inicio", n: "Inicio", ic: "inicio" },
+  { id: "inicio", n: "Inicio", ic: "inicio", href: "index.html" },
   { id: "viaje", n: "Viaje", ic: "viaje" },
   { id: "sims", n: "Jornadas", ic: "sims" },
   { id: "mapa", n: "Mapa", ic: "mapa" },
@@ -19,7 +19,7 @@ export const NAV = [
   { id: "quiz", n: "Quiz", ic: "bulb" },
   { id: "empresas", n: "Empresas", ic: "cargos" },
   { id: "sectores", n: "Sectores", ic: "sectores" },
-  { id: "brujula", n: "Brújula", ic: "brujula" }
+  { id: "brujula", n: "Brújula", ic: "brujula", href: "brujula.html" }
 ];
 const PARENT = { area: "mapa", cargo: "cargos", sim: "sims", concepto: "academia", tool: "taller", reto: "retos", empresa: "empresas", medios: "inicio", fuentes: "inicio", perfil: "brujula" };
 const DOCK = ["inicio", "viaje", "sims", "brujula"];
@@ -34,8 +34,8 @@ export function mountShell(){
   const root = $("#root");
   root.innerHTML = `<a class="skip" href="#view">Saltar al contenido</a>
   <header class="topnav"><div class="topnav-in">
-    <a class="lockup" href="#inicio" aria-label="VÍVELO RH, ir al inicio">${lockup("", true).replace(/^<span class="lockup ">|<\/span>$/g, "")}</a>
-    <nav class="navpill" aria-label="Secciones">${NAV.map(n => `<a href="#${n.id}" data-nav="${n.id}">${icon(n.ic)}<span>${n.n}</span></a>`).join("")}</nav>
+    <a class="lockup nuevo" href="index.html" aria-label="VÍVELO RH, ir a la portada"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M9 43v-9a15 15 0 0 1 30 0v9"/><path d="M15.5 43v-8.5a8.5 8.5 0 0 1 17 0V43"/><path d="M22 43v-8a2 2 0 0 1 4 0v8"/></g><circle cx="24" cy="12" r="5.5" fill="#F2A900"/></svg><b>VÍVELO RH</b></a>
+    <nav class="navpill" aria-label="Secciones">${NAV.map(n => `<a href="${n.href || "#" + n.id}" data-nav="${n.id}">${icon(n.ic)}<span>${n.n}</span></a>`).join("")}</nav>
     <div class="nav-tools">
       <button type="button" class="iconbtn" data-theme-toggle aria-label="Cambiar tema claro u oscuro">${icon("moon")}</button>
       <a class="userchip" href="#perfil" data-userchip><span class="initial">?</span><span>Invitado</span></a>
@@ -44,8 +44,8 @@ export function mountShell(){
   </div></header>
   <main class="view" id="view" tabindex="-1"></main>
   <footer class="foot"><div class="stack" style="gap:4px"><b style="font-family:var(--f-display);color:var(--ink)">VÍVELO RH</b><span>${DESCRIPTOR} · ${SLOGAN}</span><span>Casos, personas y organizaciones: ficticios. Normativa peruana verificada al ${VERIFIED}. No es asesoría legal.</span></div><nav class="row" aria-label="Pie de página"><button type="button" class="textlink" data-brand-sound style="background:none;border:0;cursor:pointer">♪ Sonido de VÍVELO RH</button><a href="#fuentes">Fuentes y método</a><a href="#medios">Audio y video</a><a href="#perfil">Mis datos y respaldo</a></nav></footer>
-  <nav class="dock" aria-label="Secciones principales">${DOCK.map(id => { const n = NAV.find(x => x.id === id); return `<a href="#${id}" data-nav="${id}">${icon(n.ic)}<span>${n.n.replace("Mi brújula", "Brújula")}</span></a>`; }).join("")}<button type="button" data-more aria-expanded="false">${icon("mas")}<span>Más</span></button></nav>
-  <div class="scrim" data-scrim hidden></div><div class="sheet" data-sheet role="dialog" aria-label="Todas las secciones" hidden>${NAV.concat([{ id: "fuentes", n: "Fuentes", ic: "fuentes" }, { id: "medios", n: "Audio y video", ic: "film" }, { id: "perfil", n: "Mis datos", ic: "user" }]).map(n => `<a href="#${n.id}">${icon(n.ic)}${n.n}</a>`).join("")}</div>`;
+  <nav class="dock" aria-label="Secciones principales">${DOCK.map(id => { const n = NAV.find(x => x.id === id); return `<a href="${n.href || "#" + id}" data-nav="${id}">${icon(n.ic)}<span>${n.n.replace("Mi brújula", "Brújula")}</span></a>`; }).join("")}<button type="button" data-more aria-expanded="false">${icon("mas")}<span>Más</span></button></nav>
+  <div class="scrim" data-scrim hidden></div><div class="sheet" data-sheet role="dialog" aria-label="Todas las secciones" hidden>${NAV.concat([{ id: "fuentes", n: "Fuentes", ic: "fuentes" }, { id: "medios", n: "Audio y video", ic: "film" }, { id: "perfil", n: "Mis datos", ic: "user" }]).map(n => `<a href="${n.href || "#" + n.id}">${icon(n.ic)}${n.n}</a>`).join("")}</div>`;
   const sheet = $("[data-sheet]"), scrim = $("[data-scrim]");
   const bs = $("[data-brand-sound]"); if (bs) bs.addEventListener("click", () => playBrand(true));
   const close = () => { sheet.hidden = true; scrim.hidden = true; $$("[data-more]").forEach(b => b.setAttribute("aria-expanded", "false")); };
