@@ -173,7 +173,7 @@ export const DATOS = {
   'asistente-rrhh': {
     PUESTO: {
       id: 'asistente-rrhh', nombre: 'Asistente de RR.HH.', temporada: 'La tienda 13', foto: 'assets/cargos/asistente-rrhh.webp',
-      completa: false, listos: 0, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
+      completa: false, listos: 1, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
       sinopsis: 'Una cadena de supermercados de Piura abre su tienda 13 en cuatro semanas. Eres la asistente de RR.HH. que hace que todo pase: contratos, exámenes médicos, uniformes, credenciales, inducción y la cola de dudas de 45 personas nuevas. Nadie ve tu trabajo hasta que algo falla.',
       escenario: 'Supermercados Norte S.A.C. (ficticia) · Piura · 12 tiendas · 900 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -214,7 +214,7 @@ export const DATOS = {
   'reclutador-masivo': {
     PUESTO: {
       id: 'reclutador-masivo', nombre: 'Reclutador/a de selección masiva', temporada: 'Ciento veinte voces', foto: 'assets/cargos/reclutador-masivo.webp',
-      completa: false, listos: 0, primero: 'jessica', ciudad: 'Lima', nota: ['Lima', 'Centro de contacto, 1,800 asesores.'], correo: 'reclutamiento@contactaperu.pe',
+      completa: false, listos: 1, primero: 'jessica', ciudad: 'Lima', nota: ['Lima', 'Centro de contacto, 1,800 asesores.'], correo: 'reclutamiento@contactaperu.pe',
       sinopsis: 'Un centro de contacto de Lima gana una campaña nueva: necesita 120 asesores en tres semanas. Tú recluta, filtra, cita y vuelve a citar. Aprendes que en selección masiva los números mandan, pero detrás de cada número hay alguien que necesita trabajar.',
       escenario: 'Contacta Perú S.A.C. (ficticia) · Cercado de Lima · 1,800 asesores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -255,7 +255,7 @@ export const DATOS = {
   'asistente-sst': {
     PUESTO: {
       id: 'asistente-sst', nombre: 'Asistente de Seguridad y Salud en el Trabajo', temporada: 'El piso doce', foto: 'assets/cargos/asistente-sst.webp',
-      completa: false, listos: 0, primero: 'ingrid', ciudad: 'Chiclayo', nota: ['Chiclayo', 'Constructora: edificio de 14 pisos en obra.'], correo: 'sst@constructoralambayeque.pe',
+      completa: false, listos: 1, primero: 'ingrid', ciudad: 'Chiclayo', nota: ['Chiclayo', 'Constructora: edificio de 14 pisos en obra.'], correo: 'sst@constructoralambayeque.pe',
       sinopsis: 'Una constructora de Chiclayo levanta un edificio de 14 pisos. El vaciado del piso doce está programado y la presión por avanzar es enorme. Tú haces charlas, inspecciones, matrices y registros; y un día, un accidente leve pone a prueba todo lo que el papel decía.',
       escenario: 'Constructora Lambayeque S.A.C. (ficticia) · Chiclayo · 140 trabajadores en obra',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
