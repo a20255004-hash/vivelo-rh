@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analista de Selección · VÍVELO RH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--noche:#0F2A3D;--cielo:#EEF7FC;--celeste:#7CC6EA;--verde:#2F6B3F;--verde-p:#1E4A2B;--azafran:#F2A900;
+  --bg:#EEF7FC;--surface:#FFFFFF;--ink:#0F2A3D;--ink-2:#3C5568;--line:rgba(15,42,61,.14);--accent:#1F6F9E;
+  --f-display:'Bricolage Grotesque',system-ui,sans-serif;--f-voice:'Newsreader',Georgia,serif;--f-body:'Onest',system-ui,sans-serif;--f-mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);--spring:cubic-bezier(.34,1.56,.64,1);--gut:clamp(16px,4vw,48px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}}
+:root[data-theme="dark"]{--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}
+*{box-sizing:border-box}html{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}img{display:block;max-width:100%}:focus-visible{outline:2px solid var(--azafran);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;letter-spacing:-.035em;margin:0}
+h2{font-size:clamp(36px,5vw,72px);line-height:.95}
+.v{color:var(--verde)}
+:root[data-theme="dark"] .v{color:#9FD3AE}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font:600 16px/1 var(--f-body);text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn--go{background:var(--azafran);color:var(--noche)}
+.btn--go:hover{box-shadow:0 12px 30px rgba(242,169,0,.35)}
+.btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.glow{position:relative;isolation:isolate;overflow:clip}
+.glow::before,.glow::after{content:"";position:absolute;border-radius:50%;z-index:-1;pointer-events:none}
+.glow::before{width:70vw;height:70vw;right:-22vw;top:-28vw;background:radial-gradient(closest-side,var(--g1,rgba(242,169,0,.22)),transparent)}
+.glow::after{width:55vw;height:55vw;left:-18vw;bottom:-24vw;background:radial-gradient(closest-side,var(--g2,rgba(47,107,63,.16)),transparent)}
+
+/* Barra */
+.top{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--gut);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:inline-flex;gap:10px;align-items:center;text-decoration:none;font:800 18px/1 var(--f-display)}
+.logo svg{width:30px;height:30px}
+.top nav{display:flex;gap:8px}
+.chip{font:500 13px/1 var(--f-body);border:1px solid currentColor;border-radius:999px;padding:0 14px;min-height:40px;display:inline-flex;align-items:center;background:transparent;color:inherit;cursor:pointer;text-decoration:none;white-space:nowrap}
+
+/* Héroe */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,72px);align-items:center;padding:clamp(48px,7vw,96px) var(--gut) clamp(60px,8vw,110px)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--f-body);background:var(--azafran);color:var(--noche);padding:8px 14px;border-radius:999px;margin:0 0 22px}
+.hero h1{font-size:clamp(54px,8.6vw,148px);line-height:.86;letter-spacing:-.05em}
+.hero h1 span{display:block}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.05em}
+.hero h1 .w>span{display:inline-block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
+.hero h1 .w:nth-child(2)>span{animation-delay:.1s}
+@keyframes rise{to{transform:none}}
+.hero__sub{font:italic 400 clamp(26px,3vw,42px)/1.1 var(--f-voice);color:var(--verde);margin:16px 0 22px}
+:root[data-theme="dark"] .hero__sub{color:var(--celeste)}
+.hero__txt{max-width:48ch;color:var(--ink-2);margin:0 0 10px}
+.hero__dur{max-width:48ch;margin:0 0 30px;font-weight:600}
+.hero__acts{display:flex;gap:12px;flex-wrap:wrap}
+.foto{position:relative;justify-self:center;width:min(100%,460px)}
+.foto__img{aspect-ratio:4/5;border-radius:28px;overflow:hidden;transform:rotate(2.5deg);box-shadow:0 40px 80px rgba(15,42,61,.28);border:8px solid var(--surface)}
+.foto__img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.foto__nota{position:absolute;right:-14px;top:30px;background:var(--surface);color:var(--ink);border-radius:16px;padding:12px 16px;box-shadow:0 14px 30px rgba(15,42,61,.18);font-size:14px;line-height:1.35;max-width:220px;transform:rotate(-3deg)}
+.foto__nota b{display:block;font:800 18px/1.1 var(--f-display)}
+.foto__kusi{position:absolute;left:-40px;bottom:-30px;width:150px;filter:drop-shadow(0 16px 20px rgba(15,42,61,.25));animation:flota 6s ease-in-out infinite}
+@keyframes flota{50%{transform:translateY(-10px) rotate(-2deg)}}
+
+/* La piel del puesto */
+.piel{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);padding:clamp(80px,10vw,140px) var(--gut);background:var(--surface);border-block:1px solid var(--line)}
+.piel__head{position:sticky;top:110px;align-self:start}
+.piel__head p{color:var(--ink-2);max-width:36ch;margin:18px 0 0}
+.verdades{list-style:none;margin:0;padding:0}
+.verdades li{padding:22px 0;border-top:1px solid var(--line);transition:opacity .5s var(--ease)}
+.verdades li:last-child{border-bottom:1px solid var(--line)}
+.verdades b{display:block;font:800 clamp(22px,2.2vw,32px)/1.1 var(--f-display);letter-spacing:-.025em;margin-bottom:6px}
+.verdades span{color:var(--ink-2)}
+.verdades.anim li{opacity:.18}
+.verdades.anim li.on{opacity:1}
+.fuente{font-size:14px;color:var(--ink-2);margin:18px 0 0}
+.mercado{margin-top:40px;border-radius:24px;padding:26px;background:var(--celeste);color:var(--noche)}
+.mercado h3{font-size:26px;margin-bottom:14px}
+.mercado dl{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;margin:0}
+.mercado dt{font-weight:600}
+.mercado dd{margin:0}
+
+/* Tu gente */
+.gente{padding:clamp(80px,10vw,140px) var(--gut)}
+.gente__head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.gente__head p{max-width:40ch;color:var(--ink-2);margin:0}
+.retratos{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:14px}
+.ret{border:0;background:none;padding:0;cursor:pointer;text-align:center;color:var(--ink);font:inherit}
+.ret svg{width:100%;height:auto;transition:transform .4s var(--spring)}
+.ret:hover svg{transform:translateY(-6px) rotate(-3deg)}
+.ret[aria-expanded="true"] svg{transform:scale(1.06);filter:drop-shadow(0 0 0 var(--azafran))}
+.ret[aria-expanded="true"] svg .bg{stroke:var(--azafran);stroke-width:5}
+.ret b{display:block;font:600 15px/1.2 var(--f-body);margin-top:10px}
+.ret span{display:block;font-size:13px;color:var(--ink-2)}
+.ficha{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;margin-top:28px;padding:24px;border-radius:24px;background:var(--surface);border:1px solid var(--line);min-height:170px}
+.ficha h3{font-size:30px}
+.ficha p{margin:4px 0 0}
+.ficha dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 0 0}
+.ficha dt{font-weight:600;font-size:14px;color:var(--accent)}
+.ficha dd{margin:4px 0 0;font:400 16.5px/1.45 var(--f-body)}
+.gente__nota{font-size:14px;color:var(--ink-2);margin:14px 0 0}
+
+/* El trimestre */
+.trim{position:relative;height:420vh;background:var(--verde-p);color:var(--cielo)}
+.trim__pin{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;isolation:isolate}
+.trim__pin::before{content:"";position:absolute;width:70vw;height:70vw;right:-20vw;top:-30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(242,169,0,.25),transparent);z-index:-1}
+.trim__pin::after{content:"";position:absolute;width:60vw;height:60vw;left:-20vw;bottom:-30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(124,198,234,.25),transparent);z-index:-1}
+.trim__head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;padding:96px var(--gut) 20px}
+.trim__head h2 .v{color:var(--azafran)}
+.trim__head p{max-width:34ch;margin:0;color:#CFE6D5}
+.trim__semana{font:500 15px/1 var(--f-mono);color:var(--azafran)}
+.trim__rail{position:relative;align-self:center;overflow:visible}
+.trim__track{display:flex;gap:26px;padding:0 var(--gut);width:max-content;will-change:transform;align-items:stretch}
+.cap{position:relative;width:min(78vw,330px);flex:none;border-radius:24px;padding:24px 24px 26px;background:rgba(238,247,252,.08);border:1px solid rgba(238,247,252,.18);display:grid;gap:10px;align-content:start;min-height:330px}
+.cap--abierto{background:var(--cielo);color:var(--noche);border-color:var(--cielo)}
+.cap__dia{font:500 13px/1 var(--f-mono);color:var(--azafran)}
+.cap--abierto .cap__dia{color:var(--verde)}
+.cap__n{font:800 64px/.8 var(--f-display);letter-spacing:-.05em;opacity:.9}
+.cap h3{font-size:30px;line-height:1}
+.cap__comp{font:600 14px/1.3 var(--f-body);color:var(--azafran)}
+.cap--abierto .cap__comp{color:var(--verde)}
+.cap p{margin:0;font-size:15px;color:#CFE6D5}
+.cap--abierto p{color:var(--ink-2)}
+.cap__estado{margin-top:auto;font-size:14px;display:flex;align-items:center;gap:8px;color:#CFE6D5}
+.cap__estado svg{width:16px;height:16px}
+.cap--abierto .btn{margin-top:auto;justify-self:start}
+.regla{position:relative;margin:0 var(--gut) 44px;height:44px}
+.regla__linea{position:absolute;left:0;right:0;top:20px;height:2px;background:rgba(238,247,252,.2)}
+.regla__fill{position:absolute;left:0;right:0;top:20px;height:2px;background:var(--azafran);transform-origin:0 50%;transform:scaleX(0)}
+.regla__s{position:absolute;top:0;transform:translateX(-50%);font:500 11px/1 var(--f-mono);color:#CFE6D5}
+.regla__s::after{content:"";position:absolute;left:50%;top:16px;width:2px;height:10px;background:rgba(238,247,252,.4)}
+.regla__s.cap-en::after{background:var(--azafran);height:14px;top:14px;width:4px;margin-left:-1px;border-radius:2px}
+
+/* Aprendizaje */
+.aprende{padding:clamp(80px,10vw,140px) var(--gut);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,5vw,72px)}
+.aprende h2{margin-bottom:28px}
+.matriz{width:100%;border-collapse:collapse;font-size:15px}
+.matriz th,.matriz td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:center}
+.matriz th:first-child,.matriz td:first-child{text-align:left;padding-left:0}
+.matriz thead th{font:500 12px/1 var(--f-mono);color:var(--ink-2)}
+.punto{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--verde)}
+.punto--nueva{background:var(--azafran);box-shadow:0 0 0 3px rgba(242,169,0,.25)}
+.leyenda{display:flex;gap:18px;font-size:14px;color:var(--ink-2);margin:14px 0 0;flex-wrap:wrap}
+.leyenda span{display:inline-flex;align-items:center;gap:8px}
+.entregables{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.entregables li{padding:12px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+.entregables__nota{font-size:14px;color:var(--ink-2);margin:12px 0 0}
+
+/* Cierre */
+.fin{background:var(--verde);color:var(--cielo);padding:clamp(80px,10vw,140px) var(--gut);text-align:center}
+.fin h2 .v{color:var(--azafran)}
+.fin p{max-width:44ch;margin:20px auto 32px;color:#DCEFE1}
+.fin .reloj{font:500 clamp(48px,8vw,110px)/1 var(--f-mono);color:var(--azafran);display:block;margin-bottom:18px;letter-spacing:-.04em}
+footer{padding:36px var(--gut);color:var(--ink-2);font-size:14px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero,.piel,.aprende{grid-template-columns:1fr}
+  .piel__head{position:static}
+  .retratos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ficha{grid-template-columns:1fr}.ficha dl{grid-template-columns:1fr}
+  .foto{width:min(84%,380px)}.foto__kusi{width:110px;left:-24px}
+  .mercado dl{grid-template-columns:1fr}
+  .top .logo b{display:none}
+}
+.rm *,.rm *::before,.rm *::after{animation:none!important;transition:none!important}
+.rm .hero h1 .w>span{transform:none}
+.rm .trim{height:auto}.rm .trim__pin{position:static;height:auto;padding-bottom:40px}
+.rm .trim__track{flex-wrap:wrap;width:auto}.rm .regla{display:none}
+.rm .verdades li{opacity:1}
+</style>
+<script>if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('rm');
+try { const t = localStorage.getItem('vivelo-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="index.html" aria-label="VÍVELO RH, inicio"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M9 43v-9a15 15 0 0 1 30 0v9"/><path d="M15.5 43v-8.5a8.5 8.5 0 0 1 17 0V43"/><path d="M22 43v-8a2 2 0 0 1 4 0v8"/></g><circle cx="24" cy="12" r="5.5" fill="#F2A900"/></svg><b>VÍVELO RH</b></a>
+  <nav><a class="chip" href="index.html#temporadas">Todos los puestos</a><button class="chip" id="tema" type="button">Modo oscuro</button></nav>
+</header>
+
+<main>
+<section class="hero glow" aria-labelledby="h">
+  <div>
+    <p class="tag" id="tag">Temporada</p>
+    <h1 id="h"></h1>
+    <p class="hero__sub" id="sub"></p>
+    <p class="hero__txt" id="sinopsis"></p>
+    <p class="hero__dur" id="duracion"></p>
+    <div class="hero__acts"><a class="btn btn--go" id="cta1" href="#trimestre">Empezar el capítulo 1</a><a class="btn btn--ghost" href="#trimestre">Ver los capítulos</a></div><p class="hero__dur" id="pronto" hidden></p>
+  </div>
+  <figure class="foto" style="margin:0">
+    <div class="foto__img"><img id="foto" alt=""></div>
+    <p class="foto__nota" id="nota"></p>
+    <img class="foto__kusi" src="assets/kusi-curioso.webp" alt="Kusi te acompaña en la temporada">
+  </figure>
+</section>
+
+<section class="piel" aria-labelledby="pt">
+  <div class="piel__head">
+    <h2 id="pt">Así es el puesto <span class="v">de verdad</span></h2>
+    <p id="pielTxt">Lo que vas a vivir en la temporada es lo que vive quien hace este trabajo en el Perú. Sin adornos.</p>
+  </div>
+  <div>
+    <ol class="verdades" id="verdades"></ol>
+    <p class="fuente" id="fuente"></p>
+    <section class="mercado" aria-labelledby="mt">
+      <h3 id="mt">La realidad del mercado</h3>
+      <dl id="mercado"></dl>
+    </section>
+  </div>
+</section>
+
+<section class="gente glow" aria-labelledby="gt" style="--g1:rgba(124,198,234,.28);--g2:rgba(242,169,0,.16)">
+  <div class="gente__head">
+    <h2 id="gt">Tu gente <span class="v" id="ciudad"></span></h2>
+    <p>Cada persona quiere algo distinto y recuerda cómo la trataste. Toca un retrato para conocerla.</p>
+  </div>
+  <div class="retratos" id="retratos"></div>
+  <div class="ficha" id="ficha" aria-live="polite"></div>
+  <p class="gente__nota">Personajes ficticios. Ilustraciones provisionales.</p>
+</section>
+
+<section class="trim" id="trimestre" aria-labelledby="tt">
+  <div class="trim__pin">
+    <div class="trim__head">
+      <div><h2 id="tt">Tu primer <span class="v">mes</span></h2></div>
+      <p>Nueve días que marcan tus primeras cuatro semanas. Cada capítulo se abre al terminar el anterior.</p>
+    </div>
+    <div class="trim__rail"><div class="trim__track" id="track"></div></div>
+    <div class="regla" id="regla" aria-hidden="true"><div class="regla__linea"></div><div class="regla__fill" id="reglaFill"></div></div>
+  </div>
+</section>
+
+<section class="aprende glow" aria-labelledby="at">
+  <div>
+    <h2 id="at">Lo que vas a <span class="v">aprender</span></h2>
+    <div style="overflow-x:auto"><table class="matriz" id="matriz"></table></div>
+    <p class="leyenda"><span><i class="punto punto--nueva"></i>La aprendes en ese capítulo</span><span><i class="punto"></i>La vuelves a usar</span></p>
+  </div>
+  <div>
+    <h3 style="font-size:28px;margin:0 0 18px">Lo que vas a construir</h3>
+    <ul class="entregables" id="entregables"></ul>
+    <p class="entregables__nota">Quedan guardados en tu perfil para que los revises cuando quieras.</p>
+  </div>
+</section>
+
+<section class="fin" aria-labelledby="ft">
+  <span class="reloj" aria-hidden="true" id="finHora"></span>
+  <h2 id="ft"></h2>
+  <p id="finTxt"></p>
+  <a class="btn btn--go" id="cta2" href="#trimestre">Empezar el capítulo 1</a>
+</section>
+</main>
+<footer><span>VÍVELO RH · Laboratorio de Gestión del Talento Humano</span><span>Empresas, personas y casos ficticios. Las normas citadas se resumen con fines educativos.</span></footer>
+
+<script type="module">
+import { avatar } from './assets/seleccion.js';
+import { PUESTOS, ORDEN, cargarPuesto } from './assets/puestos.js';
+import('./assets/cuenta.js').then(m => m.iniciar()).catch(() => {});
+const pid = PUESTOS[location.hash.slice(1)] ? location.hash.slice(1) : 'analista-seleccion';
+addEventListener('hashchange', () => location.reload());
+const { PUESTO: P, PERSONAS } = await cargarPuesto(pid);
+const REG = PUESTOS[pid];
+const linkCap = k => pid === 'analista-seleccion' ? `capitulo.html#c${k}` : `capitulo.html#${pid}-c${k}`;
+const reduced = document.documentElement.classList.contains('rm');
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// Tema
+const root = document.documentElement, temaBtn = $('tema');
+const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const syncTema = () => (temaBtn.textContent = isDark() ? 'Modo claro' : 'Modo oscuro');
+temaBtn.addEventListener('click', () => { root.dataset.theme = isDark() ? 'light' : 'dark'; try { localStorage.setItem('vivelo-tema', root.dataset.theme); } catch {} syncTema(); });
+syncTema();
+
+// Contenido
+document.title = `${P.nombre} · VÍVELO RH`;
+$('tag').textContent = P.completa ? 'Mes completo, gratis' : 'El capítulo 1 es gratis';
+const palabras = P.nombre.split(' ');
+const corte = palabras.length > 2 ? Math.ceil(palabras.length / 2) : 1;
+$('h').innerHTML = [palabras.slice(0, corte).join(' '), palabras.slice(corte).join(' ')].filter(Boolean).map(t => `<span class="w"><span>${esc(t)}</span></span>`).join('');
+if (P.nombre.length > 34) $('h').style.fontSize = 'clamp(40px,6.4vw,92px)';
+$('foto').alt = `Retrato ilustrativo del puesto ${P.nombre}`;
+$('nota').innerHTML = `<b>${esc(P.nota[0])}</b>${esc(P.nota[1])}`;
+$('ciudad').textContent = `en ${P.ciudad}`;
+$('finHora').textContent = P.fin.hora;
+$('ft').textContent = P.fin.titulo;
+$('finTxt').textContent = P.fin.txt;
+const listos = P.listos || 0;
+if (listos >= 1) { $('cta1').href = linkCap(1); $('cta2').href = linkCap(1); }
+else { [$('cta1'), $('cta2')].forEach(a => { a.textContent = 'Ver los capítulos'; a.href = '#trimestre'; }); $('pronto').hidden = false; $('pronto').textContent = 'Estamos escribiendo esta temporada capítulo por capítulo. Ya puedes conocer el puesto, su gente y su mes.'; }
+$('sub').textContent = P.temporada;
+$('sinopsis').textContent = P.sinopsis;
+$('duracion').textContent = P.duracion;
+$('foto').src = P.foto;
+$('verdades').innerHTML = P.piel.map(([b, t]) => `<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join('');
+$('fuente').textContent = P.fuentesPiel;
+const M = P.mercado;
+$('mercado').innerHTML = [['Qué tan común', M.comun], ['Otros nombres', M.nombres], ['Formación', M.formacion], ['Dónde trabaja', M.donde], ['Sueldo', M.sueldo]].map(([t, d]) => `<dt>${t}</dt><dd>${esc(d)}</dd>`).join('');
+
+// Gente
+const ids = Object.keys(PERSONAS);
+$('retratos').innerHTML = ids.map(id => { const p = PERSONAS[id]; return `<button class="ret" type="button" data-id="${id}" aria-expanded="false" aria-controls="ficha">${avatar(p, 120, '')}<b>${esc(p.n.replace('Ing. ', ''))}</b><span>${esc(p.r.split(' · ')[0])}</span></button>`; }).join('');
+const verFicha = id => {
+  const p = PERSONAS[id];
+  document.querySelectorAll('.ret').forEach(b => b.setAttribute('aria-expanded', String(b.dataset.id === id)));
+  $('ficha').innerHTML = `${avatar(p, 120)}<div><h3>${esc(p.n)}</h3><p>${esc(p.r)}</p><dl><div><dt>Quiere</dt><dd>${esc(p.quiere)}</dd></div><div><dt>Le preocupa</dt><dd>${esc(p.preocupa)}</dd></div><div><dt>Cómo habla</dt><dd>${esc(p.habla)}</dd></div></dl></div>`;
+};
+document.querySelectorAll('.ret').forEach(b => b.addEventListener('click', () => verFicha(b.dataset.id)));
+verFicha(P.primero || ids[0]);
+
+// Capítulos
+let hecho = 0; try { hecho = +(JSON.parse(localStorage.getItem(REG.clave) || '{}').hecho || 0); } catch {}
+const LOCK = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+const estado = c => {
+  if (c.n <= hecho && c.n <= listos) return `<span class="cap__estado">Completado</span><a class="btn btn--go" href="${linkCap(c.n)}">Volver a jugar</a>`;
+  if (!P.completa && c.n > 1) return `<span class="cap__estado">${LOCK}Incluido en el pase anual</span>`;
+  if (c.n > listos) return `<span class="cap__estado">${LOCK}Se está escribiendo</span>`;
+  if (c.n === hecho + 1) return `<a class="btn btn--go" href="${linkCap(c.n)}">Empezar</a>`;
+  return `<span class="cap__estado">${LOCK}Se abre al terminar el capítulo ${c.n - 1}</span>`;
+};
+$('track').innerHTML = P.capitulos.map(c => `
+  <article class="cap ${c.n === hecho + 1 && c.n <= listos && (P.completa || c.n === 1) ? 'cap--abierto' : ''}" data-semana="${c.semana}" aria-label="Capítulo ${c.n}: ${esc(c.titulo)}">
+    <span class="cap__dia">${esc(c.dia)}</span>
+    <span class="cap__n" aria-hidden="true">${c.n}</span>
+    <h3>${esc(c.titulo)}</h3>
+    <span class="cap__comp">${esc(c.comp)}</span>
+    <p>${esc(c.resumen)}</p>
+    ${estado(c)}
+  </article>`).join('');
+const semanasCap = new Set(P.capitulos.map(c => c.semana));
+$('regla').insertAdjacentHTML('beforeend', Array.from({ length: 4 }, (_, i) => `<span class="regla__s ${semanasCap.has(i + 1) ? 'cap-en' : ''}" style="left:${(i / 3) * 100}%">Semana ${i + 1}</span>`).join(''));
+
+// Matriz de competencias
+$('matriz').innerHTML = `<thead><tr><th scope="col">Competencia</th>${P.capitulos.map(c => `<th scope="col" title="${esc(c.titulo)}">${c.n}</th>`).join('')}</tr></thead><tbody>${P.competencias.map(([nombre, caps]) => `<tr><th scope="row" style="font-weight:500">${esc(nombre)}</th>${P.capitulos.map(c => { const i = caps.indexOf(c.n); return `<td>${i === 0 ? '<i class="punto punto--nueva" title="La aprendes aquí"></i>' : i > 0 ? '<i class="punto" title="La vuelves a usar"></i>' : ''}</td>`; }).join('')}</tr>`).join('')}</tbody>`;
+$('entregables').innerHTML = P.entregables.map(e => `<li>${esc(e)}</li>`).join('');
+
+// Movimiento
+if (!reduced) {
+  const lis = [...document.querySelectorAll('#verdades li')];
+  $('verdades').classList.add('anim');
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('on', e.isIntersecting)), { rootMargin: '-35% 0px -35% 0px' });
+  lis.forEach(li => io.observe(li));
+  try {
+    const { animate, scroll } = await import('https://cdn.jsdelivr.net/npm/motion@12.0.0/+esm');
+    scroll(animate('.foto__img img', { transform: ['scale(1.08)', 'scale(1.2) translateY(-4%)'] }, { ease: 'linear' }), { target: document.querySelector('.hero'), offset: ['start start', 'end start'] });
+    const trim = document.querySelector('.trim'), track = $('track'), fill = $('reglaFill');
+    const caps = [...track.children];
+    scroll(p => {
+      const dist = track.scrollWidth - innerWidth;
+      track.style.transform = `translateX(${-Math.max(0, dist) * p}px)`;
+      fill.style.transform = `scaleX(${p})`;
+    }, { target: trim, offset: ['start start', 'end end'] });
+  } catch {}
+}
+</script>
+</body>
+</html>

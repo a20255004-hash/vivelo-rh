@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quién soy · VÍVELO RH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Mrs+Saint+Delafield&display=swap">
+<style>
+:root{--noche:#0F2A3D;--cielo:#EEF7FC;--celeste:#7CC6EA;--verde:#2F6B3F;--azafran:#F2A900;--bg:#EEF7FC;--surface:#FFFFFF;--ink:#0F2A3D;--ink-2:#3C5568;--line:rgba(15,42,61,.14);--accent:#1F6F9E;
+  --f-display:'Bricolage Grotesque',system-ui,sans-serif;--f-voice:'Newsreader',Georgia,serif;--f-body:'Onest',system-ui,sans-serif;--f-mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.2,.7,.1,1);--spring:cubic-bezier(.34,1.56,.64,1);--gut:clamp(16px,4vw,48px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}}
+:root[data-theme="dark"]{--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+.cinta-wrap{overflow:hidden;padding:30px 0}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}img{display:block;max-width:100%}:focus-visible{outline:2px solid var(--azafran);outline-offset:3px}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+h1,h2{font:800 clamp(40px,6vw,96px)/.92 var(--f-display);letter-spacing:-.04em;margin:0}
+h1 em,h2 em{font:400 1em/1 var(--f-voice);color:var(--accent);letter-spacing:-.01em}
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gut);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:inline-flex;gap:10px;align-items:center;text-decoration:none;font:800 18px/1 var(--f-display)}
+.logo svg{width:30px;height:30px}
+.chip{font:500 13px/1 var(--f-body);border:1px solid currentColor;border-radius:999px;padding:10px 14px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--azafran);transform-origin:0 50%;transform:scaleX(0);z-index:30}
+
+/* Portada: abanico de fotos */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;min-height:calc(100svh - 72px);padding:clamp(40px,6vw,80px) var(--gut)}
+.hero h1{font-size:clamp(56px,8.5vw,150px)}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.hero h1 .w>span{display:inline-block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
+.hero h1 .w:nth-of-type(2)>span{animation-delay:.1s}.hero h1 .w:nth-of-type(3)>span{animation-delay:.2s}
+@keyframes rise{to{transform:none}}
+.lead{font:400 clamp(20px,2.2vw,30px)/1.3 var(--f-voice);margin:26px 0 30px;max-width:30ch;opacity:0;animation:fade .9s .5s var(--ease) forwards}
+.lead b{font-weight:400;color:var(--azafran);font-style:normal}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wa{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;border-radius:999px;background:var(--verde);color:#fff;font:600 16px/1 var(--f-body);text-decoration:none;box-shadow:0 14px 30px rgba(47,107,63,.3);transition:transform .3s var(--ease);opacity:0;animation:fade .9s .7s var(--ease) forwards}
+.wa:hover{transform:translateY(-3px)}
+.wa svg{width:22px;height:22px}
+.abanico{position:relative;height:min(70svh,620px);display:grid;place-items:center;cursor:pointer}
+.abanico figure{position:absolute;margin:0;width:min(62%,330px);aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgba(15,42,61,.28);border:6px solid var(--surface);transition:transform .9s var(--spring),z-index 0s .3s;will-change:transform}
+.abanico img{width:100%;height:100%;object-fit:cover}
+.abanico__hint{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);font:500 12px/1 var(--f-mono);letter-spacing:.1em;color:var(--ink-2);white-space:nowrap}
+.sello{position:absolute;right:4%;top:2%;width:120px;height:120px;z-index:20;animation:spin 20s linear infinite;color:var(--azafran);pointer-events:none}
+.sello text{font:500 11px var(--f-mono);letter-spacing:3px;fill:currentColor}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Cinta */
+.cinta{overflow:hidden;background:var(--azafran);color:var(--noche);padding:18px 0;transform:rotate(-2deg);margin:20px -20px}
+.cinta div{display:flex;width:max-content;animation:cinta 28s linear infinite}
+.cinta span{font:800 clamp(28px,3.6vw,52px)/1 var(--f-display);letter-spacing:-.03em;padding-right:40px;white-space:nowrap}
+.cinta i{font:400 1em/1 var(--f-voice)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+
+
+/* Brillos de la paleta (azafrán, celeste, verde) */
+.glow{position:relative;isolation:isolate;overflow:clip}
+.glow::before,.glow::after{content:"";position:absolute;border-radius:50%;z-index:-1;pointer-events:none}
+.glow::before{width:70vw;height:70vw;right:-22vw;top:-28vw;background:radial-gradient(closest-side,var(--g1,rgba(242,169,0,.32)),transparent)}
+.glow::after{width:55vw;height:55vw;left:-18vw;bottom:-24vw;background:radial-gradient(closest-side,var(--g2,rgba(124,198,234,.35)),transparent)}
+.glow--verde{--g1:rgba(242,169,0,.30);--g2:rgba(124,198,234,.30)}
+.glow--celeste{--g1:rgba(242,169,0,.45);--g2:rgba(47,107,63,.30)}
+.glow--claro{--g1:rgba(242,169,0,.18);--g2:rgba(47,107,63,.14)}
+
+/* Carta */
+.carta{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,5vw,80px);padding:clamp(90px,11vw,160px) var(--gut);align-items:start;max-width:1320px;margin:0 auto}
+.carta__foto{position:sticky;top:110px;border-radius:26px;overflow:hidden;aspect-ratio:4/5;clip-path:inset(12% 12% 12% 12% round 26px);transition:clip-path 1.2s var(--ease)}
+.carta__foto.on{clip-path:inset(0 0 0 0 round 26px)}
+.carta__foto img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.6s var(--ease)}
+.carta__foto.on img{transform:none}
+.carta__txt p{font:400 clamp(21px,2vw,28px)/1.5 var(--f-voice);margin:0 0 1em}
+.carta__txt .word{opacity:.16;transition:opacity .25s}
+.carta__txt em{color:var(--accent)}
+.firma{display:block;width:min(360px,80%);margin:6px 0 0;color:var(--azafran)}
+.firma text{font:400 92px 'Mrs Saint Delafield',cursive;fill:transparent;stroke:currentColor;stroke-width:1.2;stroke-dasharray:900;stroke-dashoffset:900}
+.firma.dibuja text{animation:firma 3s var(--ease) forwards}
+@keyframes firma{70%{stroke-dashoffset:0;fill:transparent}100%{stroke-dashoffset:0;fill:currentColor}}
+
+/* Lo que creo: tarjetas que giran */
+.creo{padding:clamp(80px,10vw,140px) var(--gut);background:#1E4A2B;color:var(--cielo);overflow:hidden}
+.creo h2{font-size:clamp(36px,4.6vw,68px)}
+.creo h2 em{color:var(--azafran)}
+.creo__head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.creo__head p{margin:0;color:#CFE6D5;max-width:34ch}
+.cartas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;perspective:1400px}
+.crw{will-change:transform}
+.cr{position:relative;width:100%;display:block;aspect-ratio:3/4.3;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;transition:transform .8s var(--spring);font:inherit;color:inherit;text-align:left}
+.cr.flip{transform:rotateY(180deg)}
+.cr__f,.cr__b{position:absolute;inset:0;border-radius:20px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cr__f img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.cr:hover .cr__f img{transform:scale(1.07)}
+.cr__f::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,61,0) 35%,rgba(15,42,61,.92))}
+.cr__f span{position:absolute;left:16px;right:16px;bottom:16px;z-index:1;font:800 clamp(17px,1.5vw,22px)/1.1 var(--f-display);letter-spacing:-.02em}
+.cr__f b{position:absolute;left:14px;top:14px;z-index:1;font:500 11px/1 var(--f-mono);background:var(--azafran);color:var(--noche);padding:6px 8px;border-radius:999px}
+.cr__b{transform:rotateY(180deg);background:var(--c,var(--azafran));color:var(--noche);padding:20px;display:grid;align-content:end;gap:10px}
+.cr__b p{margin:0;font:400 clamp(17px,1.4vw,21px)/1.35 var(--f-voice)}
+.cr__b small{font:500 11px/1 var(--f-mono);letter-spacing:.1em}
+.creo__hint{margin:18px 0 0;font-size:14px;color:#CFE6D5}
+@media (max-width:1000px){.cartas{grid-template-columns:repeat(2,minmax(0,1fr))}.cartas .crw:last-child{grid-column:1/-1}.cartas .crw:last-child .cr{aspect-ratio:16/10}}
+
+/* Servicios */
+.serv{position:relative;padding:clamp(90px,11vw,150px) var(--gut);background:var(--celeste);color:var(--noche);color:var(--cielo);overflow:hidden;isolation:isolate}
+.serv::before{content:"";position:absolute;width:70vw;height:70vw;right:-20vw;top:-30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(242,169,0,.35),rgba(242,169,0,0));z-index:-1}
+.serv .eyebrow{color:#0F4E73}.serv h2 em{color:#7A5200}
+.serv__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:48px}
+.s{position:relative;border-radius:26px;padding:28px;background:var(--c);color:var(--noche);display:grid;gap:12px;align-content:start;box-shadow:0 24px 50px rgba(0,0,0,.22);transition:transform .5s var(--ease)}
+.s:hover{transform:translateY(-8px) rotate(-1deg)}
+.s b{font:500 12px/1 var(--f-mono);letter-spacing:.12em}
+.s h3{font:800 clamp(28px,2.6vw,38px)/.95 var(--f-display);letter-spacing:-.03em;margin:0}
+.s p{margin:0}
+.s ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.s li{display:flex;gap:10px;align-items:baseline}
+.s li::before{content:"✦";color:var(--verde)}
+.serv__cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:44px}
+.serv__cta .wa{opacity:1;animation:none;background:var(--verde);color:#fff}
+.serv__cta p{margin:0;color:#1D3C52;font-size:15px}
+footer{padding:40px var(--gut);color:var(--ink-2);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:860px){.hero,.carta,.serv__grid{grid-template-columns:1fr}.abanico{height:460px}.carta__foto{position:relative;top:0;max-width:380px}}
+.rm *,.rm *::before,.rm *::after{animation:none!important;transition:none!important}
+.rm .hero h1 .w>span,.rm .lead,.rm .wa{transform:none;opacity:1}
+.rm .carta__foto{clip-path:none}.rm .carta__foto img{transform:none}.rm .carta__txt .word{opacity:1}
+.rm .firma text{stroke-dashoffset:0;fill:currentColor}
+</style>
+<script>if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('rm');</script>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="top">
+  <a class="logo" href="index.html" aria-label="VÍVELO RH, volver al inicio"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M9 43v-9a15 15 0 0 1 30 0v9"/><path d="M15.5 43v-8.5a8.5 8.5 0 0 1 17 0V43"/><path d="M22 43v-8a2 2 0 0 1 4 0v8"/></g><circle cx="24" cy="12" r="5.5" fill="#F2A900"/></svg>VÍVELO RH</a>
+  <a class="chip" href="index.html">← Volver al inicio</a>
+</header>
+
+<main>
+<section class="hero glow glow--claro" aria-labelledby="h">
+  <div>
+    <p class="eyebrow">Quién soy</p>
+    <h1 id="h"><span class="w"><span>Hola,</span></span> <span class="w"><span>soy</span></span><br><span class="w"><span><em>Luzmila.</em></span></span></h1>
+    <p class="lead">Estudio Ciencias Administrativas y creé VÍVELO RH. Si algo me emociona, lo vas a notar: <b>«¡qué bacán!»</b>, <b>«¡qué divino!»</b>, <b>«¡qué chulo!»</b>… y si me propones algo, <b>«¡dale!»</b>.</p>
+    <a class="wa" href="https://wa.me/51916973788?text=Hola%20Luzmila%2C%20vengo%20de%20V%C3%8DVELO%20RH%20y%20quiero%20saber%20m%C3%A1s." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Conversemos por WhatsApp</a>
+  </div>
+  <div class="abanico" id="abanico" role="button" tabindex="0" aria-label="Fotos de Luzmila. Toca para ver la siguiente">
+    <figure><img src="assets/yo/jardin.webp" alt="Luzmila en un jardín"></figure>
+    <figure><img src="assets/yo/pro2.webp" alt="Luzmila al atardecer en una terraza de Lima"></figure>
+    <figure><img src="assets/yo/pro1.webp" alt="Luzmila en una terraza frente al mar de Lima"></figure>
+    <figure><img src="assets/yo/bacan.webp" alt="Luzmila con los brazos abiertos en un parque"></figure>
+    <svg class="sello" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cs" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#cs">QUÉ BACÁN · QUÉ BACÁN · QUÉ BACÁN ·</textPath></text></svg>
+    <span class="abanico__hint">TOCA PARA VER MÁS</span>
+  </div>
+</section>
+
+<div class="cinta-wrap"><div class="cinta" aria-hidden="true"><div><span>qué bacán ✦ <i>qué divino</i> ✦ qué chulo ✦ <i>¡dale!</i> ✦ personas ✦ <i>clima laboral</i> ✦ crecer ✦&nbsp;</span><span>qué bacán ✦ <i>qué divino</i> ✦ qué chulo ✦ <i>¡dale!</i> ✦ personas ✦ <i>clima laboral</i> ✦ crecer ✦&nbsp;</span></div></div>
+
+<section class="carta glow glow--claro" aria-labelledby="c">
+  <figure class="carta__foto" id="cartaFoto" style="margin:0"><img src="assets/yo/pro3.webp" alt="Retrato de Luzmila al atardecer"></figure>
+  <div class="carta__txt" id="carta">
+    <p class="eyebrow" id="c">Mi carta</p>
+    <p>Lo que más me enamoró de la Gestión del Talento Humano es algo muy simple: desde aquí se puede mejorar la vida de las personas. Cómo se sienten al llegar al trabajo, cuánto pueden crecer y si el lugar donde pasan tantas horas es alegre y cómodo para cada una. Cuando entendí eso, pensé: <em>qué bacán.</em></p>
+    <p>Pero creo que mucha gente elige, o descarta, esta profesión sin haberla vivido. Por eso hice VÍVELO RH: un lugar donde puedes pasar una semana en el escritorio de una analista, abrir su bandeja, equivocarte con una planilla y escuchar cómo lo habría pensado alguien con experiencia. Sin riesgo, sin vergüenza y con Kusi al lado.</p>
+    <p>Si al terminar sabes un poco mejor hacia dónde ir, VÍVELO RH cumplió su trabajo. Y si descubres que esto también te apasiona… <em>qué bacán.</em></p>
+    <svg class="firma" id="firma" viewBox="0 0 420 130" role="img" aria-label="Firma de Luzmila"><text x="10" y="100">Luzmila</text></svg>
+  </div>
+</section>
+
+<section class="creo glow glow--verde" aria-labelledby="m">
+  <div class="creo__head">
+    <div><p class="eyebrow" style="color:var(--celeste)">Mi manifiesto</p><h2 id="m">Lo que <em>creo</em></h2></div>
+    <p>Cinco ideas que guían todo lo que hago. Toca cada una para darle la vuelta.</p>
+  </div>
+  <div class="cartas" id="cartas">
+    <div class="crw"><button class="cr" type="button" aria-pressed="false"><div class="cr__f"><img src="assets/yo/m-ciegas.webp" alt="" loading="lazy"><b>01</b><span>Nadie debería elegir su carrera a ciegas.</span></div><div class="cr__b" style="--c:#F2A900"><small>01</small><p>Por eso aquí vives el trabajo antes de decidir.</p></div></button></div>
+    <div class="crw"><button class="cr" type="button" aria-pressed="false"><div class="cr__f"><img src="assets/cargos/asistente-personal.webp" alt="" loading="lazy"><b>02</b><span>Detrás de cada planilla hay una persona.</span></div><div class="cr__b" style="--c:#7CC6EA"><small>02</small><p>Un error en una boleta es un mes difícil para alguien.</p></div></button></div>
+    <div class="crw"><button class="cr" type="button" aria-pressed="false"><div class="cr__f"><img src="assets/kusi-pensando.webp" alt="" loading="lazy" style="object-fit:contain;background:#EEF7FC"><b>03</b><span>Equivocarse enseña, si alguien te explica por qué.</span></div><div class="cr__b" style="--c:#EEF7FC"><small>03</small><p>Kusi y una profesional te muestran cómo lo pensarían.</p></div></button></div>
+    <div class="crw"><button class="cr" type="button" aria-pressed="false"><div class="cr__f"><img src="assets/c-manos.webp" alt="" loading="lazy"><b>04</b><span>Un buen clima laboral no es un lujo: se construye.</span></div><div class="cr__b" style="--c:#F2A900"><small>04</small><p>Decisión a decisión, día a día.</p></div></button></div>
+    <div class="crw"><button class="cr" type="button" aria-pressed="false"><div class="cr__f"><img src="assets/yo/m-peru.webp" alt="" loading="lazy"><b>05</b><span>El Perú merece herramientas pensadas desde aquí.</span></div><div class="cr__b" style="--c:#7CC6EA"><small>05</small><p>Con nuestras normas, nuestras empresas y nuestra forma de hablar.</p></div></button></div>
+  </div>
+  <p class="creo__hint">Toca o pasa el cursor por cada tarjeta.</p>
+</section>
+
+<section class="serv" id="servicios" aria-labelledby="s">
+  <p class="eyebrow">Servicios</p>
+  <h2 id="s">Te acompaño<br><em>en persona</em></h2>
+  <div class="serv__grid">
+    <article class="s" style="--c:#F2A900"><b>01</b><h3>Talleres</h3><p>Sesiones prácticas para grupos, aulas y centros de estudio, con casos peruanos y dinámicas.</p><ul><li>Selección por competencias</li><li>Clima laboral y bienestar</li><li>Primeros pasos en planillas</li></ul></article>
+    <article class="s" style="--c:#FFFFFF"><b>02</b><h3>Casos y materiales</h3><p>Casos de estudio y recursos listos para practicar o enseñar, basados en situaciones del Perú.</p><ul><li>Para docentes y estudiantes</li><li>Con guía de solución</li></ul></article>
+    <article class="s" style="--c:#EEF7FC"><b>03</b><h3>Preparación para prácticas</h3><p>Te ayudo a dar tus primeros pasos en RR.HH.</p><ul><li>CV y perfil profesional</li><li>Simulación de entrevistas</li><li>Dónde y cómo postular</li></ul></article>
+  </div>
+  <div class="serv__cta">
+    <a class="wa" href="https://wa.me/51916973788?text=Hola%20Luzmila%2C%20vengo%20de%20V%C3%8DVELO%20RH%20y%20quiero%20saber%20m%C3%A1s." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Escríbeme por WhatsApp</a>
+    <p>Te respondo personalmente por WhatsApp.</p>
+  </div>
+</section>
+</main>
+
+<footer><span>VÍVELO RH · Laboratorio de Gestión del Talento Humano</span><a href="index.html">Volver al inicio</a></footer>
+
+<script type="module">
+const reduced = document.documentElement.classList.contains('rm');
+try { const t = localStorage.getItem('vivelo-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}
+
+// Abanico de fotos: se abre y rota al tocar
+const ab = document.getElementById('abanico'), figs = [...ab.querySelectorAll('figure')];
+let orden = figs.map((_, i) => i);
+const POS = [[-26, -14, -9], [-9, -4, -3], [9, 4, 4], [24, 12, 10]];
+const pintar = () => orden.forEach((fi, k) => {
+  const [x, y, r] = POS[k], el = figs[fi];
+  el.style.transform = `translate(${x}%, ${y}%) rotate(${r}deg)`;
+  el.style.zIndex = String(k + 1);
+});
+pintar();
+const rotar = () => { orden.unshift(orden.pop()); pintar(); };
+ab.addEventListener('click', rotar);
+ab.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); rotar(); } });
+if (!reduced) {
+  ab.addEventListener('pointermove', e => {
+    const r = ab.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    figs.forEach((f, i) => f.style.translate = `${x * (6 + i * 6)}px ${y * (6 + i * 6)}px`);
+  });
+  ab.addEventListener('pointerleave', () => figs.forEach(f => (f.style.translate = '')));
+}
+
+// Carta: foto que se revela y palabras que se encienden
+const cartaFoto = document.getElementById('cartaFoto');
+new IntersectionObserver(([e]) => { if (e.isIntersecting) cartaFoto.classList.add('on'); }, { threshold: .3 }).observe(cartaFoto);
+const carta = document.getElementById('carta');
+carta.querySelectorAll('p:not(.eyebrow)').forEach(p => {
+  const wrap = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const fr = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(t => { if (!t) return; if (/^\s+$/.test(t)) fr.append(t); else { const s = document.createElement('span'); s.className = 'word'; s.textContent = t; fr.append(s); } });
+      c.replaceWith(fr);
+    } else if (c.nodeType === 1) c.classList.add('word');
+  });
+  wrap(p);
+});
+const firma = document.getElementById('firma');
+new IntersectionObserver(([e], o) => { if (e.isIntersecting) { firma.classList.add('dibuja'); o.disconnect(); } }, { threshold: .6 }).observe(firma);
+
+// Tarjetas del manifiesto
+document.querySelectorAll('.cr').forEach(c => {
+  c.addEventListener('click', () => { c.classList.toggle('flip'); c.setAttribute('aria-pressed', c.classList.contains('flip')); });
+  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { c.classList.add('flip'); c.setAttribute('aria-pressed', 'true'); } });
+  c.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { c.classList.remove('flip'); c.setAttribute('aria-pressed', 'false'); } });
+});
+
+if (!reduced) {
+  try {
+    const { animate, scroll } = await import('https://cdn.jsdelivr.net/npm/motion@12.0.0/+esm');
+    scroll(animate('#progress', { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' }));
+    const words = [...carta.querySelectorAll('.word')];
+    scroll(p => { const lit = p * words.length * 1.1; words.forEach((w, i) => (w.style.opacity = Math.min(1, Math.max(.16, lit - i)))); }, { target: carta, offset: ['start 75%', 'end 60%'] });
+    // Las tarjetas entran como un abanico que se ordena
+    document.querySelectorAll('.crw').forEach((c, i) => {
+      const r = (i - 2) * 9;
+      scroll(animate(c, { transform: [`translateY(${120 + Math.abs(i - 2) * 30}px) rotate(${r}deg)`, 'translateY(0px) rotate(0deg)'] }, { ease: 'linear' }), { target: document.getElementById('cartas'), offset: ['start end', 'start 45%'] });
+    });
+  } catch { carta.querySelectorAll('.word').forEach(w => (w.style.opacity = 1)); }
+} else { carta.querySelectorAll('.word').forEach(w => (w.style.opacity = 1)); }
+</script>
+</body>
+</html>
