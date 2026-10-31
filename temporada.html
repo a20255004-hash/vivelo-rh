@@ -171,7 +171,7 @@ try { const t = localStorage.getItem('vivelo-tema'); if (t) document.documentEle
 <body>
 <header class="top">
   <a class="logo" href="index.html" aria-label="VÍVELO RH, inicio"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M9 43v-9a15 15 0 0 1 30 0v9"/><path d="M15.5 43v-8.5a8.5 8.5 0 0 1 17 0V43"/><path d="M22 43v-8a2 2 0 0 1 4 0v8"/></g><circle cx="24" cy="12" r="5.5" fill="#F2A900"/></svg><b>VÍVELO RH</b></a>
-  <nav><a class="chip" href="index.html#temporadas">Todos los puestos</a><button class="chip" id="tema" type="button">Modo oscuro</button></nav>
+  <nav><a class="chip" href="index.html#temporadas">Todos los puestos</a><a class="chip" href="brujula.html">Mi brújula</a><button class="chip" id="tema" type="button">Modo oscuro</button></nav>
 </header>
 
 <main>
@@ -296,9 +296,13 @@ $('mercado').innerHTML = [['Qué tan común', M.comun], ['Otros nombres', M.nomb
 
 // Gente
 const ids = Object.keys(PERSONAS);
-$('retratos').innerHTML = ids.map(id => { const p = PERSONAS[id]; return `<button class="ret" type="button" data-id="${id}" aria-expanded="false" aria-controls="ficha">${avatar(p, 120, '')}<b>${esc(p.n.replace('Ing. ', ''))}</b><span>${esc(p.r.split(' · ')[0])}</span></button>`; }).join('');
+let hechoP = 0; try { hechoP = +(JSON.parse(localStorage.getItem(REG.clave) || '{}').hecho || 0); } catch {}
+const SILUETA = '<svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="var(--surface-2)" stroke="var(--line)" stroke-dasharray="6 6"/><circle cx="60" cy="50" r="18" fill="var(--line)"/><path d="M26 104a34 34 0 0 1 68 0" fill="var(--line)"/><text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="var(--ink-2)">?</text></svg>';
+const oculto = id => PERSONAS[id].desde && PERSONAS[id].desde > hechoP + 1;
+$('retratos').innerHTML = ids.map(id => { const p = PERSONAS[id]; return oculto(id) ? `<button class="ret" type="button" data-id="${id}" aria-expanded="false" aria-controls="ficha">${SILUETA}<b>Por conocer</b><span>Llega en el capítulo ${p.desde}</span></button>` : `<button class="ret" type="button" data-id="${id}" aria-expanded="false" aria-controls="ficha">${avatar(p, 120, '')}<b>${esc(p.n.replace('Ing. ', ''))}</b><span>${esc(p.r.split(' · ')[0])}</span></button>`; }).join('');
 const verFicha = id => {
   const p = PERSONAS[id];
+  if (oculto(id)) { document.querySelectorAll('.ret').forEach(x => x.setAttribute('aria-expanded', String(x.dataset.id === id))); $('ficha').innerHTML = `${SILUETA}<div><h3>Alguien nuevo llegará</h3><p>Esta persona entra a la historia en el capítulo ${p.desde}. Sigue avanzando para conocerla.</p></div>`; return; }
   document.querySelectorAll('.ret').forEach(b => b.setAttribute('aria-expanded', String(b.dataset.id === id)));
   $('ficha').innerHTML = `${avatar(p, 120)}<div><h3>${esc(p.n)}</h3><p>${esc(p.r)}</p><dl><div><dt>Quiere</dt><dd>${esc(p.quiere)}</dd></div><div><dt>Le preocupa</dt><dd>${esc(p.preocupa)}</dd></div><div><dt>Cómo habla</dt><dd>${esc(p.habla)}</dd></div></dl></div>`;
 };

@@ -398,6 +398,24 @@ dialog.glo::backdrop{background:rgba(15,42,61,.5)}
 .comp__prev p:empty::before{content:"Tu mensaje aparecerá aquí…";color:var(--ink-2)}
 @media (max-width:860px){.comp{grid-template-columns:1fr}.comp__prev{position:static}}
 
+
+/* Para tu brújula (cierre) */
+.bru{display:grid;gap:18px;padding:22px 24px;border-radius:24px;background:radial-gradient(60% 120% at 100% 0%,rgba(124,198,234,.35),transparent 60%),var(--surface);border:1px solid var(--line)}
+.bru__q p{margin:0 0 10px;font-weight:600}
+.escala{display:flex;gap:6px;flex-wrap:wrap}
+.escala button{min-width:56px;min-height:44px;padding:0 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;font:600 14px/1.1 var(--f-body);display:grid;justify-items:center;gap:2px}
+.escala button small{font-weight:400;font-size:11px;color:var(--ink-2)}
+.escala button[aria-pressed="true"]{background:var(--azafran);border-color:var(--azafran);color:var(--noche)}
+.escala button[aria-pressed="true"] small{color:var(--noche)}
+.tareas{display:flex;gap:8px;flex-wrap:wrap}
+.tareas button{min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;font:500 14px/1 var(--f-body)}
+.tareas button[data-e="si"]{background:var(--ok-bg);border-color:var(--verde);color:var(--ok-ink)}
+.tareas button[data-e="no"]{background:var(--bad-bg);border-color:var(--coral);color:var(--bad-ink)}
+.tareas button[data-e="si"]::before{content:"Repetiría · "}
+.tareas button[data-e="no"]::before{content:"Evitaría · "}
+.bru__pie{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.bru__pie span{font-size:14px;color:var(--verde);font-weight:600}
+
 /* Pase de hora */
 .pase{position:fixed;inset:0;z-index:55;display:grid;place-items:center;background:color-mix(in srgb,var(--sky) 94%,transparent);pointer-events:none;animation:pase 1.25s var(--ease) forwards}
 .pase div{text-align:center;color:var(--sky-ink)}
@@ -617,7 +635,7 @@ try { const t = localStorage.getItem('vivelo-tema'); if (t) document.documentEle
 <script type="module">
 import { avatar } from './assets/seleccion.js';
 import { TERMINOS, ENTRADA, CATS } from './assets/glosario.js';
-import { PUESTOS, cargarPuesto } from './assets/puestos.js';
+import { PUESTOS, cargarPuesto, AREA, TAREAS, CLUSTERS } from './assets/puestos.js';
 import('./assets/cuenta.js').then(m => m.iniciar()).catch(() => {});
 
 const $ = id => document.getElementById(id);
@@ -1283,7 +1301,38 @@ function guardar() { try { localStorage.setItem(KEY, JSON.stringify(SEL)); } cat
 const limpiar = l => l.map(({ viejo, _ok, ...m }) => m);
 
 // ---------- Cierre del día ----------
+const BRU = { all: {}, e: {} };
+function cargarBru() {
+  try { BRU.all = JSON.parse(localStorage.getItem('vivelo-brujula') || '{}') || {}; } catch { BRU.all = {}; }
+  BRU.all.entries ||= {};
+  const k = `${pid}-${n}`;
+  BRU.e = BRU.all.entries[k] || { pid, n, puesto: P.nombre, titulo: CAP.titulo, area: AREA[pid], repeat: [], avoid: [] };
+  BRU.all.entries[k] = BRU.e;
+}
+function guardarBru() {
+  const q = { buena: 0, aceptable: 0, riesgosa: 0 }; S.hechos.forEach(h => { if (h?.res?.q) q[h.res.q]++; });
+  Object.assign(BRU.e, { med: { ...S.med }, q, at: Date.now() });
+  try { localStorage.setItem('vivelo-brujula', JSON.stringify(BRU.all)); } catch {}
+  const ok = $('bruOk'); if (ok) ok.textContent = 'Guardado en tu brújula.';
+}
+function conectarBru() {
+  const box = $('bru'); if (!box) return;
+  box.querySelectorAll('.escala').forEach(g => g.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-v]'); if (!b) return;
+    BRU.e[g.dataset.k] = +b.dataset.v; g.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); guardarBru();
+  }));
+  box.querySelector('.tareas').addEventListener('click', ev => {
+    const b = ev.target.closest('[data-t]'); if (!b) return;
+    const t = b.dataset.t, sig = { '': 'si', si: 'no', no: '' }[b.dataset.e || ''];
+    b.dataset.e = sig;
+    BRU.e.repeat = (BRU.e.repeat || []).filter(x => x !== t); BRU.e.avoid = (BRU.e.avoid || []).filter(x => x !== t);
+    if (sig === 'si') BRU.e.repeat.push(t); if (sig === 'no') BRU.e.avoid.push(t);
+    guardarBru();
+  });
+  guardarBru();
+}
 function cierre() {
+  cargarBru();
   const horaC = CAP.cierreHora || fmt(Math.min(M1, ahora + 10)); irHora(horaC);
   SEL.hecho = Math.max(SEL.hecho || 0, n);
   SEL.caps[n] = { med: S.med, rel: S.rel, flags: [...S.flags], cartera: S.cartera.map(({ id, e }) => ({ id, e })), wsp: limpiar(BUZON), mail: limpiar(MAILS).map(m => ({ ...m, leido: true })), chats: CHATS };
@@ -1305,6 +1354,13 @@ function cierre() {
     <h2>Tu gente</h2><ul class="gentes" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">${rels}</ul>
     <h2>Tus decisiones</h2><ol class="dec">${S.hechos.map((h, k) => `<li><time>${escenaDe(k).t}</time><span>${esc(escenaDe(k).titulo)}</span>${h.res.q ? `<span class="fb__q ${Q[h.res.q][1]}" style="margin:0">${Q[h.res.q][0]}</span>` : '<span></span>'}</li>`).join('')}</ol>
     ${vuelve ? `<h2>Esto volverá</h2><div class="volvera">${vuelve}</div>` : ''}
+    <h2>Para tu brújula</h2>
+    <div class="bru" id="bru">
+      <div class="bru__q"><p>¿Cuánto disfrutaste este día?</p><div class="escala" data-k="enjoy">${[['1', 'Nada'], ['2', 'Poco'], ['3', 'Algo'], ['4', 'Bastante'], ['5', 'Mucho']].map(([v, l]) => `<button type="button" data-v="${v}" aria-pressed="${BRU.e.enjoy == v}">${v}<small>${l}</small></button>`).join('')}</div></div>
+      <div class="bru__q"><p>¿Te ves haciendo este trabajo?</p><div class="escala" data-k="see">${[['1', 'Para nada'], ['2', 'Poco'], ['3', 'Quizás'], ['4', 'Sí'], ['5', 'Totalmente']].map(([v, l]) => `<button type="button" data-v="${v}" aria-pressed="${BRU.e.see == v}">${v}<small>${l}</small></button>`).join('')}</div></div>
+      <div class="bru__q"><p>Toca cada tarea una vez si la repetirías y dos veces si la evitarías.</p><div class="tareas">${(TAREAS[AREA[pid]] || []).map(t => `<button type="button" data-t="${esc(t)}" data-e="${BRU.e.repeat?.includes(t) ? 'si' : BRU.e.avoid?.includes(t) ? 'no' : ''}">${esc(t)}</button>`).join('')}</div></div>
+      <div class="bru__pie"><a class="btn btn--sec" href="brujula.html">Ver mi brújula</a><span id="bruOk" aria-live="polite"></span></div>
+    </div>
     <h2>Para ti</h2>
     <div class="reflex"><label for="refl" style="display:block;font:800 24px/1.2 var(--f-display);letter-spacing:-.02em;margin-bottom:12px">${esc(CAP.reflexion || '¿Qué fue lo que más te sorprendió de este día?')}</label><textarea id="refl" placeholder="Escribe con tus palabras. Solo lo ves tú.">${esc(refl)}</textarea><p class="err" id="reflOk" style="color:var(--verde)" aria-live="polite"></p><button class="btn btn--sec" type="button" id="guardar">Guardar mi respuesta</button></div>
     ${sigN ? `<div class="sigue"><div><p style="font-weight:600">Capítulo ${sigN.n} · ${esc(sigN.dia)}</p><h3>${esc(sigN.titulo)}</h3><p>${bloqueado ? 'El resto del mes está incluido en el pase anual de S/ 20.' : hay ? 'Tus decisiones, tus chats y tus correos de hoy viajan contigo.' : 'Este capítulo se está escribiendo.'}</p></div><div class="sigue__acts">${hay && !bloqueado ? `<a class="btn" href="${linkCap(sigN.n)}">Empezar el capítulo ${sigN.n}</a>` : ''}<a class="btn ${hay && !bloqueado ? 'btn--sec' : ''}" href="temporada.html#${pid}">Volver a la temporada</a><button class="btn btn--sec" type="button" id="repetir">Repetir el día</button></div></div>` : ''}
@@ -1313,6 +1369,7 @@ function cierre() {
   pintarPrueba();
   kusi(S.med.etica >= 50 && S.med.personas >= 50 ? 'celebra' : 'animo', `${CAP.titulo}: listo. ¿Te animas a ponerte a prueba?`);
   $('abrirReto')?.addEventListener('click', reto);
+  conectarBru();
   $('guardar').addEventListener('click', () => { try { localStorage.setItem(kRef, $('refl').value); } catch {} $('reflOk').textContent = 'Guardado en este dispositivo.'; });
   $('refl').addEventListener('input', () => ($('reflOk').textContent = ''));
   $('repetir')?.addEventListener('click', () => location.reload());
