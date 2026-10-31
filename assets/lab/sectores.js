@@ -59,7 +59,7 @@ export function vistaSectores() {
     <div class="puertas">${d.regimenes.map(r => { const [img, lado] = REG[r.code] || ['oficina', '']; return `<button type="button" class="puerta" aria-expanded="false">
       <span class="puerta__img"><img src="${ESC}${img}-sq.webp" alt="" loading="lazy" width="800" height="800"></span>
       <span class="puerta__code">${esc(r.code)}</span><b>${esc(r.n)}</b><small>${esc(lado)}</small>
-      <span class="puerta__det"><span><em>Quién</em>${esc(r.who)}</span><span><em>Cómo se ingresa</em>${esc(r.in)}</span><span><em>Beneficios</em>${esc(r.ben)}</span>${r.note ? `<span><em>Ojo</em>${esc(r.note)}</span>` : ''}</span></button>`; }).join('')}</div>
+      <span class="puerta__det"><span class="pd">${ico('personas')}<span><em>Quién</em>${esc(r.who)}</span></span><span class="pd">${ico('puerta')}<span><em>Cómo se ingresa</em>${esc(r.in)}</span></span><span class="pd__ben">${r.ben.replace(/\.$/, '').split(/,\s*|;\s*/).map(b => `<span class="ben">✓ ${esc(b)}</span>`).join('')}</span>${r.note ? `<span class="pd pd--ojo">${ico('estrella')}<span>${esc(r.note)}</span></span>` : ''}</span></button>`; }).join('')}</div>
   </section>
 
   <section aria-labelledby="casoT">
@@ -76,7 +76,7 @@ export function vistaSectores() {
 
   <section aria-labelledby="entT">
     <div class="sec__h"><h2 id="entT">En el Estado, ¿dónde trabajarías?</h2></div>
-    <div class="entidades">${d.entities.map((e, i) => `<article class="entidad"><i>${ico(ENT[i % ENT.length])}</i><b>${esc(e.n)}</b><p>${esc(e.d)}</p></article>`).join('')}</div>
+    <div class="entidades">${d.entities.map((e, i) => `<article class="entidad"><img class="entidad__img" src="${ESC}${['oficina', 'cooperativa', 'municipalidad', 'hospital'][i % 4]}-sq.webp" alt="" loading="lazy" width="800" height="800"><i>${ico(ENT[i % ENT.length])}</i><b>${esc(e.n)}</b><p>${esc(e.d)}</p></article>`).join('')}</div>
   </section>`;
 }
 

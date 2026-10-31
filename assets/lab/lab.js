@@ -9,6 +9,7 @@ import { empresas } from '../../src/content/empresas.js';
 import { sectors } from '../../src/content/sectors.js';
 import { ORDEN, AREA } from '../puestos.js';
 import { vistaSectores, montarSectores } from './sectores.js';
+import { vistaMapa, montarMapa } from './mapa.js';
 // Motion (biblioteca) para entradas, diagramas y respuestas; si no carga, todo funciona igual.
 const M = await import('https://cdn.jsdelivr.net/npm/motion@12.0.0/+esm').catch(() => null);
 
@@ -36,7 +37,7 @@ const PISOS = [
   { id: 'quiz', n: 'Quiz', img: ESC('reunion-sq.webp'), esc3: 'reunion', d: 'Preguntas con tiempo, rachas y puntos, al estilo Kahoot.', k: `${QUIZ.length} preguntas` },
   { id: 'retos', n: 'Retos', img: ESC('balanza-sq.webp'), esc3: 'balanza', d: 'Desafíos por niveles: de los fundamentos a los casos difíciles.', k: `${challenges.levels.flatMap(l => l.sets).length} retos` },
   { id: 'academia', n: 'Academia', img: ESC('academia-sq.webp'), esc3: 'academia', d: 'Conceptos clave explicados simple o técnico, con pasos y errores comunes.', k: `${concepts.length} conceptos` },
-  { id: 'mapa', n: 'Mapa', img: ESC('brujula-sq.webp'), esc3: 'brujula', d: 'Las especialidades de RR.HH., cómo se conectan y cómo se crece en ellas.', k: `${areas.length} especialidades` },
+  { id: 'mapa', n: 'Mapa', img: ESC('brujula-sq.webp'), esc3: 'brujula', d: 'Los 30 puestos conectados con las áreas de tu Brújula y su día a día.', k: '30 puestos' },
   { id: 'empresas', n: 'Empresas', img: ESC('corporativo-sq.webp'), esc3: 'corporativo', d: 'Organizaciones del Perú reconocidas por cómo tratan a su gente, con fuentes.', k: `${empresas.list.length} empresas` },
   { id: 'sectores', n: 'Sectores', img: ESC('municipalidad-sq.webp'), esc3: 'municipalidad', d: 'RR.HH. en una empresa privada y en el Estado: qué cambia y por qué.', k: 'Privado y público' },
 ];
@@ -70,6 +71,7 @@ function vestibulo() {
 }
 
 // ---------- Motor de preguntas (Quiz y Retos) ----------
+const TEMA_IMG = { todo: 'oficina', atraer: 'reunion', admin: 'boleta', desarrollar: 'academia', cuidar: 'hospital', estrategia: 'brujula', publico: 'municipalidad' };
 const TIPO = { mcq: 'Elige una', image: 'Elige una', paraphrase: 'Elige la explicación simple', doc: 'Lee el documento', truefalse: '¿Verdad o mito?', myth: '¿Verdad o mito?', cloze: 'Completa la frase', number: 'Calcula', calc: 'Calcula', order: 'Ordena', match: 'Une cada par' };
 const norma = it => ({ ...it, t: it.t === 'myth' ? 'truefalse' : it.t === 'calc' ? 'number' : it.t === 'doc' ? 'mcq' : it.t });
 const FIG = ['<svg viewBox="0 0 40 40"><path d="M20 5 36 34H4z" fill="#0F2A3D"/></svg>', '<svg viewBox="0 0 40 40"><path d="M20 3 37 20 20 37 3 20z" fill="#0F2A3D"/></svg>', '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#0F2A3D"/></svg>', '<svg viewBox="0 0 40 40"><rect x="5" y="5" width="30" height="30" rx="3" fill="#0F2A3D"/></svg>'];
@@ -141,7 +143,7 @@ function montarQuiz() {
   const a = $('arena'); if (!a) return;
   const rec = leer('vivelo-quiz', { record: 0, partidas: 0 });
   a.innerHTML = `<div class="config"><div class="sec__h"><h2>Elige un tema</h2><p>Tu mejor puntaje: <b>${rec.record.toLocaleString('es-PE')}</b>.</p></div>
-    <div class="temas">${QUIZ_THEMES.map(t => `<button type="button" class="tema" style="--c:${COLOR[t.id] || 'var(--noche)'}" aria-pressed="${quizTema === t.id}" data-t="${t.id}"><i></i><b>${esc(t.n)}</b><small>${QUIZ.filter(q => t.id === 'todo' || q.th === t.id).length} preguntas</small></button>`).join('')}</div>
+    <div class="temas">${QUIZ_THEMES.map(t => `<button type="button" class="tema" style="--c:${COLOR[t.id] || 'var(--noche)'}" aria-pressed="${quizTema === t.id}" data-t="${t.id}"><img class="tema__img" src="${ESC((TEMA_IMG[t.id] || 'oficina') + '-sq.webp')}" alt="" width="800" height="800" loading="lazy"><i></i><b>${esc(t.n)}</b><small>${QUIZ.filter(q => t.id === 'todo' || q.th === t.id).length} preguntas</small></button>`).join('')}</div>
     <div><button class="btn" type="button" id="jugar">Empezar la partida</button></div></div>`;
   a.querySelectorAll('.tema').forEach(b => b.addEventListener('click', () => { quizTema = b.dataset.t; a.querySelectorAll('.tema').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }));
   $('jugar').addEventListener('click', () => partida(a));
@@ -152,7 +154,7 @@ function partida(a) {
   const turno = () => {
     if (st.i >= pool.length) return final(a, st, pool);
     const it = pool[st.i], n = norma(it), seg = ['order', 'match', 'cloze', 'number'].includes(n.t) ? 40 : 20;
-    a.innerHTML = `<div class="marcador"><span>Pregunta <b>${st.i + 1}</b>/${pool.length}</span>${st.racha >= 2 ? `<span class="racha">Racha ×${st.racha}</span>` : ''}<span><b id="pts">${st.pts.toLocaleString('es-PE')}</b> puntos</span><span><b id="seg">${seg}</b> s</span></div><div class="reloj" id="reloj"><i></i></div><div id="caja" style="display:grid;gap:18px"></div><div id="ver"></div>`;
+    a.innerHTML = `<div class="marcador"><span>Pregunta <b>${st.i + 1}</b>/${pool.length}</span>${st.racha >= 2 ? `<span class="racha">Racha ×${st.racha}</span>` : ''}<span><b id="pts">${st.pts.toLocaleString('es-PE')}</b> puntos</span><span><b id="seg">${seg}</b> s</span></div><div class="reloj" id="reloj"><i></i></div><div class="juegoq"><div id="caja" style="display:grid;gap:18px"></div><figure class="juegoq__esc"><img src="${ESC((TEMA_IMG[it.th] || 'oficina') + '-sq.webp')}" alt="" width="800" height="800"><figcaption>${esc((QUIZ_THEMES.find(t => t.id === it.th) || {}).n || '')}</figcaption></figure></div><div id="ver"></div>`;
     const caja = $('caja'); let quedan = seg, inicio = performance.now();
     const t = setInterval(() => { quedan--; if (!$('seg')) return clearInterval(t); $('seg').textContent = Math.max(0, quedan); $('reloj').style.setProperty('--t', Math.max(0, quedan) / seg); $('reloj').classList.toggle('poco', quedan <= 5); if (quedan <= 5 && quedan > 0) SON.tic(); if (quedan <= 0) { clearInterval(t); caja.timeout?.(); } }, 1000);
     pregunta(caja, it, nota => {
@@ -162,7 +164,7 @@ function partida(a) {
       st.racha = nota === 1 ? st.racha + 1 : 0; st.mejor = Math.max(st.mejor, st.racha); st.pts += ganados; st.res.push(nota);
       (nota === 1 ? SON.bien : SON.mal)();
       $('pts').textContent = st.pts.toLocaleString('es-PE');
-      $('ver').innerHTML = `<div class="veredicto ${nota === 1 ? 'bien' : 'mal'}"><h3>${nota === 1 ? '¡Correcto!' : nota > 0 ? 'Casi: parte correcta' : 'No esta vez'}</h3><p class="pts">+${ganados} puntos${st.racha >= 2 ? ` · racha de ${st.racha}` : ''}</p>${nota < 1 ? `<p><b>Respuesta:</b> ${esc(correctaTxt(it))}</p>` : ''}<p>${esc(strip(it.why))}</p><div><button class="btn" type="button" id="sig">${st.i + 1 < pool.length ? 'Siguiente pregunta' : 'Ver mi resultado'}</button></div></div>`;
+      $('ver').innerHTML = `<div class="veredicto ${nota === 1 ? 'bien' : 'mal'}"><img class="veredicto__k" src="assets/kusi-${nota === 1 ? 'celebra' : nota > 0 ? 'pensando' : 'animo'}.webp" alt=""><h3>${nota === 1 ? '¡Correcto!' : nota > 0 ? 'Casi: parte correcta' : 'No esta vez'}</h3><p class="pts">+${ganados} puntos${st.racha >= 2 ? ` · racha de ${st.racha}` : ''}</p>${nota < 1 ? `<p><b>Respuesta:</b> ${esc(correctaTxt(it))}</p>` : ''}<p>${esc(strip(it.why))}</p><div><button class="btn" type="button" id="sig">${st.i + 1 < pool.length ? 'Siguiente pregunta' : 'Ver mi resultado'}</button></div></div>`;
       $('sig').focus({ preventScroll: true }); $('ver').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
       $('sig').addEventListener('click', () => { st.i++; turno(); a.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
     });
@@ -214,6 +216,8 @@ function jugarReto(set) {
 
 // ---------- Piso 3: Academia ----------
 const areaN = id => areas.find(a => a.id === id)?.n || id;
+const CL_IMG = { atraer: 'reunion', admin: 'boleta', desarrollar: 'academia', cuidar: 'hospital', estrategia: 'brujula' };
+const imgConcepto = c => ESC((CL_IMG[areas.find(a => a.id === c.areas[0])?.c] || 'oficina') + '-sq.webp');
 function academia(id) {
   const vistos = leer('vivelo-academia', []);
   if (id) {
@@ -230,12 +234,12 @@ function academia(id) {
     </div><aside class="lateral">
       <div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Cómo se mide</h3><ul style="margin:0;padding-left:18px">${c.measure.map(m => `<li>${esc(strip(m))}</li>`).join('')}</ul></div>
       ${c.norma?.length ? `<div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Normas relacionadas</h3><ul class="normas">${c.norma.map(n => `<li>${esc(strip(n))}</li>`).join('')}</ul></div>` : ''}
-      <div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Especialidades donde se usa</h3><div style="display:flex;flex-wrap:wrap;gap:6px">${c.areas.map(a => `<a class="etq" href="#mapa/${a}">${esc(areaN(a))}</a>`).join('')}</div></div>
+      <div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Especialidades donde se usa</h3><div style="display:flex;flex-wrap:wrap;gap:6px">${c.areas.map(a => `<a class="etq" href="#mapa">${esc(areaN(a))}</a>`).join('')}</div></div>
       <a class="btn" href="#academia/${sig.id}">Siguiente: ${esc(sig.n)}</a>
     </aside></div>`;
   }
   return cabecera('academia', 'Academia', 'Los conceptos que más vas a usar en RR.HH., explicados dos veces: como se lo contarías a un amigo y como lo dice la norma.', 'Toca un concepto. Los que ya leíste quedan en verde.', 'assets/kusi-feliz.webp') +
-    `<section><p class="nota" style="margin-bottom:14px">Leíste ${vistos.length} de ${concepts.length}.</p><div class="conceptos">${concepts.map(c => `<a class="concepto ${vistos.includes(c.id) ? 'visto' : ''}" href="#academia/${c.id}"><b>${esc(c.n)}</b><span class="areas">${c.areas.slice(0, 2).map(a => `<span>${esc(areaN(a))}</span>`).join('')}</span></a>`).join('')}</div></section>`;
+    `<section><p class="nota" style="margin-bottom:14px">Leíste ${vistos.length} de ${concepts.length}.</p><div class="conceptos">${concepts.map(c => `<a class="concepto ${vistos.includes(c.id) ? 'visto' : ''}" href="#academia/${c.id}"><img class="concepto__img" src="${imgConcepto(c)}" alt="" loading="lazy" width="800" height="800"><b>${esc(c.n)}</b><span class="areas">${c.areas.slice(0, 2).map(a => `<span>${esc(areaN(a))}</span>`).join('')}</span></a>`).join('')}</div></section>`;
 }
 function montarConcepto(c) {
   document.querySelectorAll('.modo button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.modo button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); $('texto').innerHTML = b.dataset.m === 'simple' ? c.simple : c.tech; }));
@@ -245,39 +249,9 @@ function montarConcepto(c) {
 // ---------- Piso 4: Mapa ----------
 let nombres = {};
 fetch('assets/cargos.json').then(r => r.json()).then(j => { nombres = Object.fromEntries(j.map(x => [x.id, x.n])); }).catch(() => {});
-const CTX = [['peq', 'Pequeña empresa'], ['med', 'Mediana empresa'], ['gra', 'Gran empresa'], ['pub', 'Sector público']];
-let mapaFiltro = 'todo';
 function mapa(id) {
-  setTimeout(() => { montarMapa(); if (id) abrirArea(id); }, 0);
-  return cabecera('mapa', 'Mapa de especialidades', `${areas.length} especialidades de RR.HH. agrupadas en las cinco áreas de tu Brújula. Toca una para ver qué entrega, con quién trabaja y cómo se crece en ella.`, '¿Cuál de estas columnas se parece más a ti?', 'assets/kusi-curioso.webp') +
-    `<section><div class="filtros" role="group" aria-label="Filtrar por área"><button class="chip" type="button" data-f="todo" aria-pressed="${mapaFiltro === 'todo'}">Todas</button>${clusters.map(c => `<button class="chip" type="button" data-f="${c.id}" aria-pressed="${mapaFiltro === c.id}">${esc(c.n)}</button>`).join('')}</div><div class="mapa" id="mapa"></div></section>
-    <div class="velo" id="velo" hidden></div><aside class="detalle" id="detalle" aria-label="Detalle de la especialidad" tabindex="-1"></aside>`;
-}
-function montarMapa() {
-  const m = $('mapa'); if (!m) return;
-  const pinta = () => { m.innerHTML = clusters.filter(c => mapaFiltro === 'todo' || c.id === mapaFiltro).map(c => `<div class="col" style="--c:${COLOR[c.id]}"><h3>${esc(c.n)}</h3><ul>${areas.filter(a => a.c === c.id).map(a => `<li><button class="area" type="button" style="--c:${COLOR[c.id]}" data-a="${a.id}" aria-expanded="false">${esc(a.n)}<small>${esc(a.sub)}</small></button></li>`).join('')}</ul></div>`).join(''); m.style.gridTemplateColumns = mapaFiltro === 'todo' ? '' : 'minmax(0,1fr)'; };
-  pinta();
-  document.querySelectorAll('[data-f]').forEach(b => b.addEventListener('click', () => { mapaFiltro = b.dataset.f; document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); pinta(); }));
-  m.addEventListener('click', e => { const b = e.target.closest('[data-a]'); if (b) history.replaceState(null, '', '#mapa/' + b.dataset.a), abrirArea(b.dataset.a, b); });
-}
-function abrirArea(id, origen) {
-  const a = areas.find(x => x.id === id), d = $('detalle'); if (!a || !d) return;
-  const c = CL[a.c], puestos = ORDEN.filter(p => AREA[p] === a.c);
-  d.style.setProperty('--c', COLOR[a.c]);
-  d.innerHTML = `<button class="cerrar" type="button" id="cerrarA" aria-label="Cerrar">×</button><p class="tipo" style="color:var(--accent)">${esc(c?.n)}</p><h2>${esc(a.n)}</h2><p class="texto">${esc(a.simple)}</p>
-    <h3>Qué entrega</h3><ul>${a.delivers.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-    <h3>Con quién trabaja</h3><p>${a.with.map(esc).join(', ')}</p>
-    <h3>Cómo existe según la organización</h3><div class="barras">${CTX.map(([k, n]) => `<div class="barra" title="${esc(a.exists[k][1])}"><span>${n}</span><i style="--s:${a.exists[k][0] / 3}"></i><small>${['', 'Poca', 'Media', 'Alta'][a.exists[k][0]]}</small></div>`).join('')}</div>
-    <p class="nota" style="margin-top:8px">${esc(a.exists.pub[1])}</p>
-    <h3>Cómo se crece</h3><div class="niveles3"><div><b>Entrada</b>${esc(a.lv.e)}</div><div><b>Intermedio</b>${esc(a.lv.i)}</div><div><b>Senior</b>${esc(a.lv.s)}</div></div>
-    <h3>Herramientas</h3><p>${a.tools.map(esc).join(' · ')}</p>
-    ${a.links?.length ? `<h3>Se conecta con</h3><div style="display:flex;flex-wrap:wrap;gap:6px">${a.links.filter(l => areas.some(x => x.id === l)).map(l => `<button class="etq" type="button" data-ir="${l}" style="cursor:pointer">${esc(areaN(l))}</button>`).join('')}</div>` : ''}
-    ${puestos.length ? `<h3>Vívelo en un puesto</h3><div style="display:grid;gap:8px">${puestos.slice(0, 6).map(p => `<a class="chip" href="temporada.html#${p}">${esc(nombres[p] || p)}</a>`).join('')}</div>` : ''}`;
-  $('velo').hidden = false; d.classList.add('on'); d.scrollTop = 0; d.focus({ preventScroll: true });
-  const cerrar = () => { d.classList.remove('on'); $('velo').hidden = true; history.replaceState(null, '', '#mapa'); origen?.focus(); };
-  $('cerrarA').addEventListener('click', cerrar); $('velo').onclick = cerrar;
-  d.onkeydown = e => { if (e.key === 'Escape') cerrar(); };
-  d.querySelectorAll('[data-ir]').forEach(b => b.addEventListener('click', () => abrirArea(b.dataset.ir, origen)));
+  setTimeout(() => montarMapa(id, M, reduce), 0);
+  return cabecera('mapa', 'Mapa de los 30 puestos', 'Todos los puestos que puedes vivir, unidos a las cinco áreas de tu Brújula y a las especialidades del oficio. Toca una foto y entra a su mes.', '¿Cuál de estas estrellas se parece más a ti?', 'assets/kusi-curioso.webp') + vistaMapa();
 }
 
 // ---------- Piso 5: Empresas ----------
@@ -287,8 +261,8 @@ function empresasV(id) {
     const e = empresas.list.find(x => x.id === id); if (!e) return empresasV();
     return `<a class="volver" href="#empresas">← Todas las empresas</a>
     <header class="piso"><div><p class="piso__n"><b>${num('empresas')}</b>${esc(e.sector)} · ${esc(e.city)}</p><h1>${esc(e.n)}</h1><p class="piso__lead">${esc(e.region)}</p></div><figure class="diorama"><img class="diorama__img" src="${ESC(e.scene + '.webp')}" alt="" width="1600" height="1000"><figcaption class="kusi"><img src="assets/kusi-feliz.webp" alt=""><p>${esc(strip(e.learn))}</p></figcaption></figure></header>
-    <section><div class="sec__h"><h2>Reconocimientos</h2><p>Con el enlace a la fuente pública de cada uno.</p></div><ul class="reconoc">${e.recognitions.map(r => `<li><b>${r.year}</b><span>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}</span></li>`).join('')}</ul></section>
-    <section><div class="sec__h"><h2>Qué hacen con su gente</h2></div><div class="practicas">${e.practices.map(p => `<article class="practica" style="--c:${COLOR[p.area] || 'var(--celeste)'}"><span class="etq">${esc(CL[p.area]?.n || p.area)}</span><b>${esc(p.t)}</b><p>${esc(strip(p.d))}</p></article>`).join('')}</div></section>
+    <section><div class="sec__h"><h2>Reconocimientos</h2><p>Con el enlace a la fuente pública de cada uno.</p></div><ul class="reconoc">${e.recognitions.map(r => `<li><span class="medalla"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="#F2A900"/><path d="m8 14-2 7 6-3 6 3-2-7" fill="#E4572E"/></svg><b>${r.year}</b></span><span>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}</span></li>`).join('')}</ul></section>
+    <section><div class="sec__h"><h2>Qué hacen con su gente</h2></div><div class="practicas bento-e">${e.practices.map((p, i) => `<article class="practica practica--${i}" style="--c:${COLOR[p.area] || 'var(--celeste)'}"><img class="practica__img" src="${ESC((CL_IMG[p.area] || 'reunion') + '-sq.webp')}" alt="" loading="lazy" width="800" height="800"><span class="etq">${esc(CL[p.area]?.n || p.area)}</span><b>${esc(p.t)}</b><p>${esc(strip(p.d))}</p></article>`).join('')}</div></section>
     <p class="nota">${esc(empresas.disclaimer)}</p>`;
   }
   const sect = [...new Set(empresas.list.map(e => e.sector))];
@@ -322,9 +296,9 @@ function render() {
     const dio = v.querySelector('.diorama__img'), k = v.querySelector('.diorama .kusi');
     if (dio) M.animate(dio, { opacity: [0, 1], y: [28, 0], scale: [.94, 1] }, { type: 'spring', bounce: .25, duration: .9 });
     if (k) M.animate(k, { opacity: [0, 1], y: [12, 0] }, { delay: .35, duration: .4, ease: 'easeOut' });
-    const listas = v.querySelectorAll('.tablero ol, .conceptos, .empresas, .sets');
-    listas.forEach(l => [...l.children].forEach(c => { c.style.opacity = 0; }));
-    listas.forEach(l => M.inView(l, () => { M.animate(l.children, { opacity: [0, 1], y: [14, 0] }, { delay: M.stagger(.04), duration: .4, ease: 'easeOut' }); }, { amount: .05 }));
+    v.querySelectorAll('.tablero ol, .conceptos, .empresas, .sets').forEach(l => {
+      try { M.inView(l, () => { M.animate([...l.children], { opacity: [0, 1], y: [14, 0] }, { delay: M.stagger(.04), duration: .4, ease: 'easeOut' }); }, { amount: .05 }); } catch {}
+    });
   }
 }
 window.addEventListener('hashchange', render);

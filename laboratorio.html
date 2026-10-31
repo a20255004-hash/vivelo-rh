@@ -378,6 +378,107 @@ main{max-width:1240px;margin:0 auto;padding:0 var(--gut) 96px}
   .carril ol{grid-auto-flow:row;gap:12px}.carril ol::before{left:10px;right:auto;top:0;bottom:0;width:3px;height:auto}.carril li{padding:0 0 0 36px}.carril li::before{top:0}
   .duelo__esc{aspect-ratio:4/3;border-radius:24px}.duelo__et{font-size:13px;top:12px}.duelo__et.izq{left:12px}.duelo__et.der{right:12px}}
 @media (max-width:480px){.puertas,.entidades{grid-template-columns:1fr}.emp{grid-template-columns:76px minmax(0,1fr)}.emp__img{width:76px;height:76px}.fichas--pic .ficha{grid-template-columns:56px minmax(0,1fr)}.fichas--pic .ficha svg{display:none}.ficha__pic{width:56px;height:56px}}
+
+/* Mapa: constelación de 30 puestos */
+.conste{position:relative;border-radius:32px;padding:clamp(8px,2vw,24px);background:radial-gradient(60% 60% at 50% 50%,rgba(124,198,234,.28),transparent 70%),radial-gradient(40% 40% at 85% 10%,rgba(242,169,0,.18),transparent 70%),var(--surface);border:1px solid var(--line)}
+.conste svg{width:100%;height:auto;display:block;overflow:visible}
+.lin{stroke-width:2.5;opacity:.45;transition:opacity .25s,stroke-width .25s}
+.lin--hub{stroke-width:5;opacity:.6}
+.conste.por-dibujar .lin{transition:stroke-dashoffset .8s cubic-bezier(.2,.7,.1,1),opacity .25s,stroke-width .25s}
+.conste.dibujada .lin{stroke-dashoffset:0!important}
+.lin.on{opacity:1;stroke-width:4}
+.nodo{cursor:pointer;transform-box:fill-box;transform-origin:center;transition:opacity .3s}
+.nodo__halo{opacity:.9}
+.nodo:hover .nodo__halo,.nodo:focus-visible .nodo__halo{r:37}
+.nodo:focus{outline:none}.nodo:focus-visible .nodo__halo{stroke:var(--ink);stroke-width:3}
+.nodo__t{font:600 12.5px var(--f-body);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.nodo__t{opacity:0;transition:opacity .2s;pointer-events:none;font-size:15px}.nodo:hover .nodo__t,.nodo:focus-visible .nodo__t{opacity:1}
+.nodo:hover,.nodo:focus-visible{filter:drop-shadow(0 8px 14px rgba(15,42,61,.3))}
+.nodo.apagado{opacity:.15}
+.hub__t{font:800 15px var(--f-display);fill:#fff}.hub__t.oscuro{fill:#0F2A3D}
+.centro__c{fill:var(--surface);stroke:var(--azafran);stroke-width:4}
+.centro__t{font:800 16px var(--f-display);fill:var(--ink)}
+.leyenda{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;padding:10px 0 4px;font-size:14px}
+.leyenda span{display:inline-flex;align-items:center;gap:6px}.leyenda i{width:14px;height:14px;border-radius:50%}
+/* Bento de áreas */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.bento__c{grid-column:span 2;display:grid;gap:12px;align-content:start;padding:22px;border-radius:26px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}
+.bento--0,.bento--1{grid-column:span 3}
+.bento__c::before{content:"";position:absolute;inset:-40% -30% auto auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 40%,transparent),transparent);pointer-events:none}
+.bento__c header{display:grid;gap:4px;position:relative}
+.bento__c header i{width:40px;height:8px;border-radius:4px;background:var(--c)}
+.bento__c h3{font-size:clamp(22px,2.2vw,30px)}
+.bento__c header p{color:var(--ink-2);font-size:15px}
+.bento__fotos{display:flex;position:relative}
+.bento__fotos a{margin-right:-14px;transition:transform .25s var(--spring)}
+.bento__fotos a:hover{transform:translateY(-6px) rotate(-3deg);z-index:1}
+.bento__fotos img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:4px solid var(--surface);box-shadow:0 0 0 2px var(--c)}
+.bento__n{font-size:14px;color:var(--ink-2)}.bento__n b{font:800 20px var(--f-display);color:var(--ink)}
+.bento__esp{display:flex;flex-wrap:wrap;gap:6px}
+.bento__esp .etq,.ficha-p__esp .etq{cursor:pointer;font-size:13px}
+.bento__esp .etq:hover,.ficha-p__esp .etq:hover{border-color:var(--c);background:color-mix(in srgb,var(--c) 18%,var(--surface))}
+.esp-mini{display:grid;gap:10px;margin-top:12px;padding:16px;border-radius:18px;background:color-mix(in srgb,var(--c) 12%,var(--surface));border:1.5px solid var(--c)}
+.esp-mini b{font:800 18px/1.2 var(--f-display)}
+.esp-mini p{font-size:15px}
+.esp-mini__barras{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:end;height:84px}
+.esp-mini__barras div{display:grid;gap:4px;justify-items:center;height:100%;align-content:end}
+.esp-mini__barras i{width:28px;height:60px;border-radius:8px;background:color-mix(in srgb,var(--ink) 10%,transparent);position:relative;overflow:hidden}
+.esp-mini__barras i::after{content:"";position:absolute;inset:0;background:var(--c);transform-origin:bottom;transform:scaleY(var(--s))}
+.esp-mini__barras small{font-size:12px}
+.esp-mini__escalera{display:grid;gap:6px}
+.esp-mini__escalera div{padding:10px 12px;border-radius:12px;background:var(--surface);font-size:14px;margin-left:calc(var(--i) * 16px)}
+.esp-mini__escalera small{display:block;font:700 11px var(--f-mono);color:var(--accent)}
+/* Ficha visual del puesto */
+.ficha-p__foto{position:relative;margin:8px 0 0;border-radius:22px;overflow:hidden}
+.ficha-p__foto img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.ficha-p__foto figcaption{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
+.ficha-p__foto .etq{background:var(--surface);font-weight:600}
+.ficha-p__mision{font:400 22px/1.35 var(--f-voice);margin:6px 0 14px}
+.ficha-p__temp{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:12px;border-radius:18px;background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.ficha-p__temp img{width:72px;height:72px;border-radius:14px;object-fit:cover}
+.ficha-p__temp small{display:block;font:700 12px var(--f-mono);color:var(--accent)}
+.ficha-p__temp b{display:block;font:800 19px/1.15 var(--f-display)}
+.ficha-p__temp span{font-size:14px;color:var(--ink-2)}
+.reloj-dia{list-style:none;margin:0;padding:0 0 0 8px;display:grid;gap:0;border-left:3px solid var(--c)}
+.reloj-dia li{position:relative;display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;padding:10px 0 10px 18px;font-size:15px}
+.reloj-dia li::before{content:"";position:absolute;left:-10px;top:15px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--c)}
+.reloj-dia time{font:700 14px var(--f-mono)}
+.ficha-p__duro{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;margin-top:16px;padding:14px;border-radius:16px;background:color-mix(in srgb,var(--coral) 12%,var(--surface));font-size:15px}
+.ficha-p__duro svg{width:26px;height:26px;color:var(--coral)}
+.ficha-p__esp{display:flex;flex-wrap:wrap;gap:6px}
+.ficha-p__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+/* Quiz con imágenes */
+.tema{grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:12px;align-items:center}
+.tema__img{grid-row:1/4;width:56px;height:56px;border-radius:14px;object-fit:cover;background:#F4F0EA}
+.juegoq{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start}
+.juegoq__esc{margin:0;display:grid;gap:8px;justify-items:center;text-align:center;font:600 14px var(--f-body);color:var(--ink-2)}
+.juegoq__esc img{width:220px;height:220px;border-radius:28px;object-fit:cover;background:#F4F0EA;box-shadow:0 20px 40px -24px rgba(15,42,61,.45)}
+.veredicto{position:relative;padding-right:120px}
+.veredicto__k{position:absolute;right:12px;bottom:8px;width:96px;height:96px;object-fit:contain}
+/* Academia y empresas con imagen */
+.concepto{grid-template-rows:auto 1fr auto;align-content:start;padding:0;overflow:hidden}
+.concepto__img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#F4F0EA}
+.concepto b,.concepto .areas{padding:0 18px}.concepto .areas{padding-bottom:18px}
+.medalla{display:inline-flex;align-items:center;gap:6px}.medalla svg{width:26px;height:26px}
+.reconoc li{grid-template-columns:96px minmax(0,1fr)}
+.bento-e{grid-template-columns:repeat(4,minmax(0,1fr))}
+.practica{display:grid;gap:8px;align-content:start;position:relative;overflow:hidden;border-color:color-mix(in srgb,var(--c) 50%,var(--line))}
+.practica--0{grid-column:span 2;grid-row:span 2}
+.practica__img{width:72px;height:72px;border-radius:18px;object-fit:cover;background:#F4F0EA}
+.practica--0 .practica__img{width:100%;height:auto;aspect-ratio:16/9}
+.practica--0 b{font-size:24px}
+/* Sectores: puertas con íconos y entidades ilustradas */
+.pd{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:start}
+.pd .ico{width:20px;height:20px;color:var(--accent)}
+.pd__ben{display:flex;flex-wrap:wrap;gap:6px}
+.ben{padding:5px 10px;border-radius:999px;background:color-mix(in srgb,var(--verde) 14%,var(--surface));font-size:13px;font-weight:600}
+.pd--ojo{padding:10px;border-radius:12px;background:color-mix(in srgb,var(--azafran) 16%,var(--surface))}
+.entidad{padding:0 0 20px;overflow:hidden}
+.entidad__img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#F4F0EA}
+.entidad i,.entidad b,.entidad p{margin:0 20px}
+.entidad i{margin-top:-30px;position:relative;border:4px solid var(--surface)}
+@media (max-width:980px){.bento__c,.bento--0,.bento--1{grid-column:span 3}.juegoq{grid-template-columns:1fr}.juegoq__esc{display:none}.bento-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.bento{grid-template-columns:1fr}.bento__c,.bento--0,.bento--1{grid-column:auto}.nodo__t{display:none}.veredicto{padding-right:22px}.veredicto__k{display:none}.practica--0{grid-column:auto;grid-row:auto}.bento-e{grid-template-columns:1fr}}
 @media (max-width:980px){.mapa{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-c{grid-template-columns:1fr}.lateral{position:static}}
 @media (max-width:760px){.piso,.podio{grid-template-columns:1fr}.kusi{justify-self:start}.tablero ol{grid-template-columns:1fr}.marcas{grid-template-columns:1fr}.fichas{grid-template-columns:1fr}.dims li,.caso__dos,.antes,.par{grid-template-columns:1fr}.podio img{width:150px;height:150px}.ascensor{position:static}.top{position:static}.logo{white-space:nowrap}.top .chip{min-height:36px;padding:0 12px;font-size:13px}}
 @media (max-width:480px){.mapa{grid-template-columns:1fr}.tablero a{grid-template-columns:36px 64px minmax(0,1fr)}.tablero img{width:64px;height:48px}.ficha{min-height:76px}}
