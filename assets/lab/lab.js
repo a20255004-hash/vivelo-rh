@@ -10,6 +10,8 @@ import { sectors } from '../../src/content/sectors.js';
 import { ORDEN, AREA } from '../puestos.js';
 import { vistaSectores, montarSectores } from './sectores.js';
 import { vistaMapa, montarMapa } from './mapa.js';
+import * as AC from './academia.js';
+import * as EM from './empresas.js';
 // Motion (biblioteca) para entradas, diagramas y respuestas; si no carga, todo funciona igual.
 const M = await import('https://cdn.jsdelivr.net/npm/motion@12.0.0/+esm').catch(() => null);
 
@@ -217,33 +219,16 @@ function jugarReto(set) {
 // ---------- Piso 3: Academia ----------
 const areaN = id => areas.find(a => a.id === id)?.n || id;
 const CL_IMG = { atraer: 'reunion', admin: 'boleta', desarrollar: 'academia', cuidar: 'hospital', estrategia: 'brujula' };
-const imgConcepto = c => ESC((CL_IMG[areas.find(a => a.id === c.areas[0])?.c] || 'oficina') + '-sq.webp');
 function academia(id) {
   const vistos = leer('vivelo-academia', []);
   if (id) {
     const c = concepts.find(x => x.id === id); if (!c) return academia();
     if (!vistos.includes(id)) guardar('vivelo-academia', [...vistos, id]);
-    setTimeout(() => montarConcepto(c), 0);
-    const i = concepts.indexOf(c), sig = concepts[(i + 1) % concepts.length];
-    return `<a class="volver" href="#academia">← Todos los conceptos</a>${cabecera('academia', esc(c.n), `Concepto ${i + 1} de ${concepts.length}. Léelo en simple o en técnico, sigue los pasos y voltea las tarjetas de errores comunes.`, 'Primero simple, luego técnico. ¡Así se aprende!', 'assets/kusi-pensando.webp')}
-    <div class="ficha-c"><div style="display:grid;gap:36px">
-      <section><div class="modo" role="group" aria-label="Cómo quieres leerlo"><button type="button" data-m="simple" aria-pressed="true">Explícamelo simple</button><button type="button" data-m="tech" aria-pressed="false">Versión técnica</button></div><div class="texto" id="texto">${c.simple}</div></section>
-      <section><div class="sec__h"><h2>Paso a paso</h2></div><ol class="pasos">${c.steps.map(([a, b, d]) => `<li><div><b>${esc(a)}: ${esc(b)}</b>${d ? `<small>${esc(d)}</small>` : ''}</div></li>`).join('')}</ol></section>
-      <section><div class="sec__h"><h2>¿Error o no?</h2><p>Toca cada tarjeta para descubrir si es una práctica frecuente que conviene evitar.</p></div><div class="cartas">${c.errors.map((e, k) => `<button type="button" class="carta" aria-pressed="false"><span class="carta__in"><span class="carta__cara carta__b" style="transform:none"><small>Situación ${k + 1}</small><span>${esc(strip(e))}</span><small>¿Está bien? Toca para ver</small></span><span class="carta__cara carta__a" style="transform:rotateY(180deg)"><small>Error común</small><span>${esc(strip(e))}</span><small>Evítalo: mira «Así sí» más abajo.</small></span></span></button>`).join('')}</div></section>
-      <section><div class="sec__h"><h2>Mal hecho y bien hecho</h2></div><div class="antes"><div class="a"><small>Así no</small>${esc(strip(c.bad))}</div><div class="b"><small>Así sí</small>${esc(strip(c.good))}</div></div></section>
-    </div><aside class="lateral">
-      <div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Cómo se mide</h3><ul style="margin:0;padding-left:18px">${c.measure.map(m => `<li>${esc(strip(m))}</li>`).join('')}</ul></div>
-      ${c.norma?.length ? `<div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Normas relacionadas</h3><ul class="normas">${c.norma.map(n => `<li>${esc(strip(n))}</li>`).join('')}</ul></div>` : ''}
-      <div class="panel"><h3 style="font-size:18px;margin-bottom:10px">Especialidades donde se usa</h3><div style="display:flex;flex-wrap:wrap;gap:6px">${c.areas.map(a => `<a class="etq" href="#mapa">${esc(areaN(a))}</a>`).join('')}</div></div>
-      <a class="btn" href="#academia/${sig.id}">Siguiente: ${esc(sig.n)}</a>
-    </aside></div>`;
+    setTimeout(() => AC.montarConcepto(c, M, reduce, ok => (ok ? SON.bien : SON.mal)()), 0);
+    return AC.vistaConcepto(c);
   }
-  return cabecera('academia', 'Academia', 'Los conceptos que más vas a usar en RR.HH., explicados dos veces: como se lo contarías a un amigo y como lo dice la norma.', 'Toca un concepto. Los que ya leíste quedan en verde.', 'assets/kusi-feliz.webp') +
-    `<section><p class="nota" style="margin-bottom:14px">Leíste ${vistos.length} de ${concepts.length}.</p><div class="conceptos">${concepts.map(c => `<a class="concepto ${vistos.includes(c.id) ? 'visto' : ''}" href="#academia/${c.id}"><img class="concepto__img" src="${imgConcepto(c)}" alt="" loading="lazy" width="800" height="800"><b>${esc(c.n)}</b><span class="areas">${c.areas.slice(0, 2).map(a => `<span>${esc(areaN(a))}</span>`).join('')}</span></a>`).join('')}</div></section>`;
-}
-function montarConcepto(c) {
-  document.querySelectorAll('.modo button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.modo button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); $('texto').innerHTML = b.dataset.m === 'simple' ? c.simple : c.tech; }));
-  document.querySelectorAll('.carta').forEach(b => b.addEventListener('click', () => b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'))));
+  setTimeout(() => AC.montarLista(M, reduce), 0);
+  return cabecera('academia', 'Academia', 'Los conceptos que más vas a usar, con diagramas que se tocan, una pregunta y ejemplos de cómo se dice bien.', 'Pasa el cursor por las palabras… ¡aparecen cosas!', 'assets/kusi-feliz.webp') + AC.listaAcademia(vistos);
 }
 
 // ---------- Piso 4: Mapa ----------
@@ -255,23 +240,14 @@ function mapa(id) {
 }
 
 // ---------- Piso 5: Empresas ----------
-let empFiltro = 'todas';
 function empresasV(id) {
   if (id) {
     const e = empresas.list.find(x => x.id === id); if (!e) return empresasV();
-    return `<a class="volver" href="#empresas">← Todas las empresas</a>
-    <header class="piso"><div><p class="piso__n"><b>${num('empresas')}</b>${esc(e.sector)} · ${esc(e.city)}</p><h1>${esc(e.n)}</h1><p class="piso__lead">${esc(e.region)}</p></div><figure class="diorama"><img class="diorama__img" src="${ESC(e.scene + '.webp')}" alt="" width="1600" height="1000"><figcaption class="kusi"><img src="assets/kusi-feliz.webp" alt=""><p>${esc(strip(e.learn))}</p></figcaption></figure></header>
-    <section><div class="sec__h"><h2>Reconocimientos</h2><p>Con el enlace a la fuente pública de cada uno.</p></div><ul class="reconoc">${e.recognitions.map(r => `<li><span class="medalla"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="#F2A900"/><path d="m8 14-2 7 6-3 6 3-2-7" fill="#E4572E"/></svg><b>${r.year}</b></span><span>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}</span></li>`).join('')}</ul></section>
-    <section><div class="sec__h"><h2>Qué hacen con su gente</h2></div><div class="practicas bento-e">${e.practices.map((p, i) => `<article class="practica practica--${i}" style="--c:${COLOR[p.area] || 'var(--celeste)'}"><img class="practica__img" src="${ESC((CL_IMG[p.area] || 'reunion') + '-sq.webp')}" alt="" loading="lazy" width="800" height="800"><span class="etq">${esc(CL[p.area]?.n || p.area)}</span><b>${esc(p.t)}</b><p>${esc(strip(p.d))}</p></article>`).join('')}</div></section>
-    <p class="nota">${esc(empresas.disclaimer)}</p>`;
+    setTimeout(() => EM.montarEmpresa(e, M, reduce), 0);
+    return EM.vistaEmpresa(e);
   }
-  const sect = [...new Set(empresas.list.map(e => e.sector))];
-  setTimeout(() => document.querySelectorAll('[data-s]').forEach(b => b.addEventListener('click', () => { empFiltro = b.dataset.s; render(); })), 0);
-  const lista = empresas.list.filter(e => empFiltro === 'todas' || e.sector === empFiltro);
-  return cabecera('empresas', 'Empresas', 'Organizaciones que operan en el Perú y que fueron reconocidas por cómo gestionan a su gente. Cada dato tiene su fuente pública.', 'Mira qué hacen distinto. ¡Inspírate!', 'assets/kusi-celebra.webp') +
-    `<section><div class="filtros" role="group" aria-label="Filtrar por sector"><button class="chip" type="button" data-s="todas" aria-pressed="${empFiltro === 'todas'}">Todos los sectores</button>${sect.map(s => `<button class="chip" type="button" data-s="${esc(s)}" aria-pressed="${empFiltro === s}">${esc(s)}</button>`).join('')}</div>
-    <div class="empresas">${lista.map(e => `<a class="emp" href="#empresas/${e.id}"><span class="emp__img"><img src="${ESC(e.scene + '-sq.webp')}" alt="" loading="lazy" width="800" height="800"><span class="mono" style="--c:${COLOR[e.tone] || 'var(--celeste)'}">${esc(e.mono)}</span></span><span><b>${esc(e.n)}</b><small>${esc(e.sector)} · ${esc(e.city)} · ${e.practices.length} prácticas</small></span></a>`).join('')}</div>
-    <p class="nota" style="margin-top:16px">Información consultada el ${esc(empresas.consulted)}.</p></section>`;
+  setTimeout(() => EM.montarLista(M, reduce), 0);
+  return cabecera('empresas', 'Empresas', 'Organizaciones que operan en el Perú y que fueron reconocidas por cómo gestionan a su gente. Desliza y entra a cada una.', 'Mira qué hacen distinto. ¡Inspírate!', 'assets/kusi-celebra.webp') + EM.listaEmpresas();
 }
 
 // ---------- Piso 6: Sectores ----------
@@ -296,7 +272,7 @@ function render() {
     const dio = v.querySelector('.diorama__img'), k = v.querySelector('.diorama .kusi');
     if (dio) M.animate(dio, { opacity: [0, 1], y: [28, 0], scale: [.94, 1] }, { type: 'spring', bounce: .25, duration: .9 });
     if (k) M.animate(k, { opacity: [0, 1], y: [12, 0] }, { delay: .35, duration: .4, ease: 'easeOut' });
-    v.querySelectorAll('.tablero ol, .conceptos, .empresas, .sets').forEach(l => {
+    v.querySelectorAll('.tablero ol, .sets').forEach(l => {
       try { M.inView(l, () => { M.animate([...l.children], { opacity: [0, 1], y: [14, 0] }, { delay: M.stagger(.04), duration: .4, ease: 'easeOut' }); }, { amount: .05 }); } catch {}
     });
   }
