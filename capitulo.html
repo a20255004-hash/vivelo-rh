@@ -1345,7 +1345,7 @@ function cierre() {
   const bloqueado = sigN && !P.completa && sigN.n > 1;
   $('cierre').innerHTML = `<div class="cierre__in">
     <div class="cierre__top"><div><p class="cierre__dia">${esc(CAP.dia)} · ${horaC}</p>
-    <h1 id="cierreT">Fin de <em>${esc(CAP.titulo.toLowerCase())}</em></h1>
+    <h1 id="cierreT">Fin del día <em>«${esc(CAP.titulo)}»</em></h1>
     <p class="cierre__lead">${nombre ? esc(nombre) + ': ' : ''}${esc(CAP.lead || '')}</p></div>
     <figure class="recorte" style="margin:0"><img src="${S.med.etica >= 50 && S.med.personas >= 50 ? azar(CELEBRA) : 'assets/esc/escalera.webp'}" alt=""></figure></div>
     ${QUIZ.length ? `<div class="prueba"><img src="assets/esc/logro.webp" alt=""><div><h2>Ponte a prueba</h2><p>${QUIZ.length} preguntas rápidas sobre lo que viviste hoy. ${SEG} segundos cada una: mientras más rápido, más puntos.</p><span class="record" id="pruebaRec"></span></div><button class="btn" type="button" id="abrirReto">Empezar el reto</button></div>` : ''}
