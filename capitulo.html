@@ -836,7 +836,7 @@ const pintarBadges = () => {
 };
 let avisosAntes = 0;
 function pintarAvisos(w, m) {
-  const a = $('avisos'), total = w + m, abierta = $('app').classList.contains('on');
+  const a = $('avisos'), total = w + m, abierta = $('app').classList.contains('on') || $('cierre').classList.contains('on');
   if (!total || abierta) { a.hidden = true; avisosAntes = total; return; }
   const partes = [w ? `${w} WhatsApp` : '', m ? `${m} correo${m > 1 ? 's' : ''}` : ''].filter(Boolean).join(' y ');
   a.innerHTML = `<span>Tienes ${partes} sin leer</span>${w ? '<button type="button" class="wsp" data-app="wsp">Ver WhatsApp</button>' : ''}${m ? '<button type="button" data-app="mail">Ver correo</button>' : ''}`;
@@ -1309,7 +1309,7 @@ function cierre() {
     <div class="reflex"><label for="refl" style="display:block;font:800 24px/1.2 var(--f-display);letter-spacing:-.02em;margin-bottom:12px">${esc(CAP.reflexion || '¿Qué fue lo que más te sorprendió de este día?')}</label><textarea id="refl" placeholder="Escribe con tus palabras. Solo lo ves tú.">${esc(refl)}</textarea><p class="err" id="reflOk" style="color:var(--verde)" aria-live="polite"></p><button class="btn btn--sec" type="button" id="guardar">Guardar mi respuesta</button></div>
     ${sigN ? `<div class="sigue"><div><p style="font-weight:600">Capítulo ${sigN.n} · ${esc(sigN.dia)}</p><h3>${esc(sigN.titulo)}</h3><p>${bloqueado ? 'El resto del mes está incluido en el pase anual de S/ 20.' : hay ? 'Tus decisiones, tus chats y tus correos de hoy viajan contigo.' : 'Este capítulo se está escribiendo.'}</p></div><div class="sigue__acts">${hay && !bloqueado ? `<a class="btn" href="${linkCap(sigN.n)}">Empezar el capítulo ${sigN.n}</a>` : ''}<a class="btn ${hay && !bloqueado ? 'btn--sec' : ''}" href="temporada.html#${pid}">Volver a la temporada</a><button class="btn btn--sec" type="button" id="repetir">Repetir el día</button></div></div>` : ''}
   </div>`;
-  $('cierre').classList.add('on'); $('cierre').scrollTop = 0;
+  $('cierre').classList.add('on'); $('cierre').scrollTop = 0; $('avisos').hidden = true; cerrarToast(); cerrarApp();
   pintarPrueba();
   kusi(S.med.etica >= 50 && S.med.personas >= 50 ? 'celebra' : 'animo', `${CAP.titulo}: listo. ¿Te animas a ponerte a prueba?`);
   $('abrirReto')?.addEventListener('click', reto);
