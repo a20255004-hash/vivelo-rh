@@ -172,7 +172,7 @@ export const DATOS = {
   'generalista-campo': {
     PUESTO: {
       id: 'generalista-campo', nombre: 'Generalista de RR.HH. en operación minera', temporada: 'Cuatro mil metros', foto: 'assets/cargos/generalista-campo.webp',
-      completa: false, listos: 0, primero: 'percy', ciudad: 'Apurímac', nota: ['Apurímac', 'Unidad minera a 4,000 m s. n. m., 900 trabajadores.'], correo: 'rrhh.campo@minerapuquio.pe',
+      completa: false, listos: 1, primero: 'percy', ciudad: 'Apurímac', nota: ['Apurímac', 'Unidad minera a 4,000 m s. n. m., 900 trabajadores.'], correo: 'rrhh.campo@minerapuquio.pe',
       sinopsis: 'Subes a una unidad minera en Apurímac con régimen 14 × 7. Vives en el campamento, atiendes a trabajadores propios y de contratistas, coordinas la contratación de mano de obra local con las comunidades y manejas un conflicto que puede parar la operación. Un mes para aprender RR.HH. a cuatro mil metros.',
       escenario: 'Minera Puquio S.A. (ficticia) · Apurímac · 900 trabajadores entre propios y contratistas',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -213,7 +213,7 @@ export const DATOS = {
   hrbp: {
     PUESTO: {
       id: 'hrbp', nombre: 'HR Business Partner', temporada: 'Reordenar Ventas', foto: 'assets/cargos/hrbp.webp',
-      completa: false, listos: 0, primero: 'andrea', ciudad: 'Lima', nota: ['Lima', 'Empresa de consumo masivo, área Comercial de 300 personas.'], correo: 'hrbp.comercial@nutrimas.pe',
+      completa: false, listos: 1, primero: 'andrea', ciudad: 'Lima', nota: ['Lima', 'Empresa de consumo masivo, área Comercial de 300 personas.'], correo: 'hrbp.comercial@nutrimas.pe',
       sinopsis: 'Eres la HRBP del área Comercial de una empresa de alimentos en Lima. El nuevo gerente quiere reorganizar la fuerza de ventas en un mes: menos zonas, nuevos roles y metas más altas. Tu trabajo es que la decisión sea buena para el negocio y justa con las personas, aunque nadie te lo pida.',
       escenario: 'Nutrimás S.A. (ficticia) · Ate, Lima · 2,100 colaboradores · área Comercial de 300 personas',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -254,7 +254,7 @@ export const DATOS = {
   'jefe-rrhh': {
     PUESTO: {
       id: 'jefe-rrhh', nombre: 'Jefe/a de RR.HH.', temporada: 'La empresa familiar', foto: 'assets/cargos/jefe-rrhh.webp',
-      completa: false, listos: 0, primero: 'don-alberto', ciudad: 'Huancayo', nota: ['Huancayo', 'Empresa familiar de transporte interprovincial, 280 trabajadores.'], correo: 'jefatura.rrhh@transportesmantaro.pe',
+      completa: false, listos: 1, primero: 'don-alberto', ciudad: 'Huancayo', nota: ['Huancayo', 'Empresa familiar de transporte interprovincial, 280 trabajadores.'], correo: 'jefatura.rrhh@transportesmantaro.pe',
       sinopsis: 'Te contratan como primera jefa de RR.HH. de una empresa familiar de transporte en Huancayo. El fundador quiere «ordenar la casa», pero sus hijos no se ponen de acuerdo, los conductores trabajan jornadas imposibles y llega una inspección tras un accidente en carretera. Un mes para construir un área desde cero sin perder la confianza del dueño.',
       escenario: 'Transportes Mantaro S.A.C. (ficticia) · Huancayo · 280 trabajadores, 90 conductores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
