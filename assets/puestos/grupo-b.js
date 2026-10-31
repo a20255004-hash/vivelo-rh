@@ -8,7 +8,7 @@ export const DATOS = {
   'asistente-bienestar': {
     PUESTO: {
       id: 'asistente-bienestar', nombre: 'Asistente de Bienestar Social', temporada: 'Las personas detrás del azúcar', foto: 'assets/cargos/asistente-bienestar.webp',
-      completa: false, listos: 0, primero: 'nelly', ciudad: 'Chiclayo', nota: ['Lambayeque', 'Agroindustria azucarera, 1,500 trabajadores.'], correo: 'bienestar@azucarerasipan.pe',
+      completa: false, listos: 1, primero: 'nelly', ciudad: 'Chiclayo', nota: ['Lambayeque', 'Agroindustria azucarera, 1,500 trabajadores.'], correo: 'bienestar@azucarerasipan.pe',
       sinopsis: 'En una azucarera de Lambayeque, eres quien atiende lo que no sale en la planilla: un trabajador con una enfermedad larga, una madre que vuelve de su licencia y no tiene dónde extraer leche, una denuncia que nadie quiere tocar. Un mes para aprender que el bienestar es concreto, no una campaña con globos.',
       escenario: 'Agroindustrial Sipán S.A.A. (ficticia) · Lambayeque · 1,500 trabajadores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -49,7 +49,7 @@ export const DATOS = {
   'analista-compensaciones': {
     PUESTO: {
       id: 'analista-compensaciones', nombre: 'Analista de Compensaciones y Beneficios', temporada: 'La brecha', foto: 'assets/cargos/analista-compensaciones.webp',
-      completa: false, listos: 0, primero: 'gustavo', ciudad: 'Lima', nota: ['Lima', 'Operadora de telecomunicaciones, 1,200 colaboradores.'], correo: 'compensaciones@andestel.pe',
+      completa: false, listos: 1, primero: 'gustavo', ciudad: 'Lima', nota: ['Lima', 'Operadora de telecomunicaciones, 1,200 colaboradores.'], correo: 'compensaciones@andestel.pe',
       sinopsis: 'Llegas a una empresa de telecomunicaciones de Lima en plena revisión salarial anual. Una encuesta de mercado, un presupuesto ajustado y una ingeniera que pregunta por qué gana menos que sus compañeros del mismo puesto. Un mes para aprender que detrás de cada número hay una conversación pendiente.',
       escenario: 'AndesTel S.A. (ficticia) · San Isidro, Lima · 1,200 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -90,7 +90,7 @@ export const DATOS = {
   generalista: {
     PUESTO: {
       id: 'generalista', nombre: 'Generalista de RR.HH.', temporada: 'Temporada alta', foto: 'assets/cargos/generalista.webp',
-      completa: false, listos: 0, primero: 'veronica', ciudad: 'Cusco', nota: ['Cusco', 'Hotel de 120 habitaciones, 150 trabajadores.'], correo: 'rrhh@hotelinti.pe',
+      completa: false, listos: 1, primero: 'veronica', ciudad: 'Cusco', nota: ['Cusco', 'Hotel de 120 habitaciones, 150 trabajadores.'], correo: 'rrhh@hotelinti.pe',
       sinopsis: 'Eres la única persona de RR.HH. en un hotel del Cusco que entra en temporada alta. Reclutas, haces planilla con un contador externo, resuelves turnos, apagas conflictos en la cocina y preparas la visita de una certificadora. Un mes para aprender que ser generalista es saber un poco de todo… y mucho de personas.',
       escenario: 'Hotel Inti Wasi S.A.C. (ficticio) · Centro histórico del Cusco · 150 trabajadores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -131,7 +131,7 @@ export const DATOS = {
   'especialista-orh': {
     PUESTO: {
       id: 'especialista-orh', nombre: 'Especialista en RR.HH. de entidad pública', temporada: 'El concurso', foto: 'assets/cargos/especialista-orh.webp',
-      completa: false, listos: 0, primero: 'marisol', ciudad: 'Cajamarca', nota: ['Cajamarca', 'Municipalidad provincial, 600 servidores.'], correo: 'orh@municajamarca.gob.pe',
+      completa: false, listos: 1, primero: 'marisol', ciudad: 'Cajamarca', nota: ['Cajamarca', 'Municipalidad provincial, 600 servidores.'], correo: 'orh@municajamarca.gob.pe',
       sinopsis: 'Trabajas en la Oficina de Recursos Humanos de una municipalidad de Cajamarca. Hay que convocar un concurso CAS para 12 plazas mientras un regidor «recomienda» a sus conocidos y la Contraloría revisa los legajos. Un mes para aprender que en el Estado las reglas protegen a todos, incluso de la presión.',
       escenario: 'Municipalidad Provincial (ficticia) · Cajamarca · 600 servidores en distintos regímenes',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
