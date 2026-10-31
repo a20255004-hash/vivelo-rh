@@ -36,8 +36,8 @@ const SON = { bien: () => sonar([523.3, 659.3, 784]), mal: () => sonar([311, 233
 // ---------- Pisos ----------
 const ESC = n => `assets/3d/scenes/${n}`;
 const PISOS = [
-  { id: 'quiz', n: 'Quiz', img: ESC('reunion-sq.webp'), esc3: 'reunion', d: 'Preguntas con tiempo, rachas y puntos, al estilo Kahoot.', k: `${QUIZ.length} preguntas` },
-  { id: 'retos', n: 'Retos', img: ESC('balanza-sq.webp'), esc3: 'balanza', d: 'Desafíos por niveles: de los fundamentos a los casos difíciles.', k: `${challenges.levels.flatMap(l => l.sets).length} retos` },
+  { id: 'quiz', n: 'Quiz', img: ESC('reunion-sq.webp'), esc3: 'reunion', d: 'Juego rápido de repaso: tiempo, rachas, puntos y tu récord.', k: `${QUIZ.length} preguntas` },
+  { id: 'retos', n: 'Retos', img: ESC('balanza-sq.webp'), esc3: 'balanza', d: 'Misiones por niveles sin reloj: desbloquea y gana insignias.', k: `${challenges.levels.flatMap(l => l.sets).length} retos` },
   { id: 'academia', n: 'Academia', img: ESC('academia-sq.webp'), esc3: 'academia', d: 'Conceptos clave explicados simple o técnico, con pasos y errores comunes.', k: `${concepts.length} conceptos` },
   { id: 'mapa', n: 'Mapa', img: ESC('brujula-sq.webp'), esc3: 'brujula', d: 'Los 30 puestos conectados con las áreas de tu Brújula y su día a día.', k: '30 puestos' },
   { id: 'empresas', n: 'Empresas', img: ESC('corporativo-sq.webp'), esc3: 'corporativo', d: 'Organizaciones del Perú reconocidas por cómo tratan a su gente, con fuentes.', k: `${empresas.list.length} empresas` },
@@ -180,7 +180,7 @@ function final(a, st, pool) {
   const kusi = aciertos >= 8 ? 'kusi-celebra' : aciertos >= 5 ? 'kusi-feliz' : 'kusi-animo';
   a.innerHTML = `<div class="podio"><div><p class="tipo">${nuevo ? '¡Nuevo récord!' : 'Fin de la partida'}</p><p class="podio__num">${st.pts.toLocaleString('es-PE')}</p><p style="font-size:19px;margin-top:10px">${aciertos} de ${pool.length} correctas · mejor racha: ${st.mejor}</p>
     <p style="margin-top:12px;font:italic 400 19px/1.4 var(--f-voice)">${aciertos >= 8 ? '¡Qué bacán! Te sabes el oficio.' : aciertos >= 5 ? 'Bien ahí. Repasa las que fallaste y vuelve a intentarlo.' : 'Cada error aquí es una lección gratis. ¡Dale otra vez!'}</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn" type="button" id="otra">Jugar otra partida</button><button class="btn btn--sec" type="button" id="tema2">Cambiar de tema</button></div></div><img src="assets/${kusi}.webp" alt=""></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn" type="button" id="otra">Jugar otra partida</button><button class="btn btn--sec" type="button" id="tema2">Cambiar de tema</button><a class="btn btn--sec" href="#retos">Ganar insignias en Retos</a></div></div><img src="assets/${kusi}.webp" alt=""></div>
     <div><h3 style="font-size:22px;margin:24px 0 8px">Repaso</h3><ol class="repaso">${pool.map((it, i) => `<li><span>${st.res[i] === 1 ? '✔' : '✖'}</span><div><b>${esc(strip(it.q))}</b><br><small>${esc(correctaTxt(it))}</small></div></li>`).join('')}</ol></div>`;
   $('otra').addEventListener('click', () => partida(a)); $('tema2').addEventListener('click', montarQuiz);
 }
@@ -194,15 +194,22 @@ function retos(id) {
     setTimeout(() => jugarReto(set), 0);
     return `<a class="volver" href="#retos">← Todos los retos</a>${cabecera('retos', esc(set.n), `${esc(set.lv.n)} · ${set.items.length} preguntas · unos ${set.mins} minutos. Sin reloj: piensa con calma.`, 'Sin apuro. Aquí lo que cuenta es el criterio.', 'assets/kusi-pensando.webp')}<section class="panel arena" id="reto" aria-live="polite"></section>`;
   }
-  return cabecera('retos', 'Retos', 'Tres niveles, de los fundamentos del oficio a los casos que exigen criterio. Cada reto mezcla tipos de pregunta y te explica por qué.', 'Empieza por el nivel 1. ¡Los demás te esperan!', 'assets/kusi-animo.webp') +
-    `<div class="niveles">${challenges.levels.map(l => `<section class="nivel"><h2>${esc(l.n)}</h2><p>${esc(l.d)}</p><div class="sets">${l.sets.map(s => `<a class="set ${hechos[s.id] !== undefined ? 'hecho' : ''}" href="#retos/${s.id}"><b>${esc(s.n)}</b><small>${s.items.length} preguntas · ${s.mins} min</small><span class="estado">${hechos[s.id] !== undefined ? `Hecho · ${hechos[s.id]} %` : 'Sin empezar'}</span></a>`).join('')}</div></section>`).join('')}</div>`;
+  const MIN = 60, med = p => p >= 90 ? ['oro', 'Oro'] : p >= 70 ? ['plata', 'Plata'] : p >= 1 ? ['bronce', 'Bronce'] : null;
+  let abierto = true;
+  const niveles = challenges.levels.map((l, i) => { const ok = abierto; abierto = ok && l.sets.every(x => (hechos[x.id] ?? 0) >= MIN); return { l, ok, i }; });
+  const ganadas = Object.values(hechos).filter(x => x >= 1).length;
+  return cabecera('retos', 'Retos', 'Misiones sin reloj para demostrar tu criterio. Supera cada nivel con 60 % o más para abrir el siguiente y colecciona insignias.', 'El quiz es para jugar rápido; aquí se piensa con calma.', 'assets/kusi-animo.webp') +
+    `<section class="dif" aria-label="Quiz y Retos"><div class="dif__c"><img src="${ESC('reunion-sq.webp')}" alt="" width="800" height="800"><div><b>Quiz</b><span>Rapidez y repaso · con reloj · récord personal</span></div></div><div class="dif__c dif__c--on"><img src="${ESC('balanza-sq.webp')}" alt="" width="800" height="800"><div><b>Retos</b><span>Criterio · sin reloj · niveles e insignias</span></div></div></section>
+    <section class="coleccion" aria-label="Tus insignias"><b>${ganadas}</b><span>insignias de ${challenges.levels.flatMap(l => l.sets).length}</span><div>${challenges.levels.flatMap(l => l.sets).map(x => { const m = med(hechos[x.id] ?? 0); return `<i class="ins ${m ? m[0] : ''}" title="${esc(x.n)}${m ? ' · ' + m[1] : ''}"></i>`; }).join('')}</div></section>
+    <ol class="camino">${niveles.map(({ l, ok, i }) => `<li class="camino__nivel ${ok ? '' : 'cerrado'}"><div class="camino__hito"><span>${i + 1}</span></div><div class="camino__cuerpo"><h2>${esc(l.n)}</h2><p>${esc(l.d)}</p>${ok ? '' : `<p class="candado">Bloqueado: se abre al lograr ${MIN} % en todos los retos del nivel ${i}.</p>`}
+      <div class="sets">${l.sets.map(x => { const sc = hechos[x.id], m = med(sc ?? 0); return ok ? `<a class="set ${sc !== undefined ? 'hecho' : ''}" href="#retos/${x.id}"><span class="set__ins ins ${m ? m[0] : ''}"></span><b>${esc(x.n)}</b><small>${x.items.length} preguntas · ${x.mins} min</small><span class="estado">${sc !== undefined ? `${m ? m[1] : 'Intentado'} · ${sc} %` : 'Sin empezar'}</span></a>` : `<span class="set set--cerrado" aria-disabled="true"><span class="set__ins ins"></span><b>${esc(x.n)}</b><small>Bloqueado</small></span>`; }).join('')}</div></div></li>`).join('')}</ol>`;
 }
 function jugarReto(set) {
   const a = $('reto'); if (!a) return; const notas = [];
   const paso = i => {
     if (i >= set.items.length) {
       const p = Math.round(notas.reduce((x, y) => x + y, 0) / notas.length * 100), h = leer('vivelo-retos', {}); h[set.id] = Math.max(h[set.id] ?? 0, p); guardar('vivelo-retos', h); SON.fin();
-      a.innerHTML = `<div class="podio"><div><p class="tipo">Reto terminado</p><p class="podio__num">${p} %</p><p style="margin-top:12px;font:italic 400 19px/1.4 var(--f-voice)">${p >= 80 ? '¡Criterio de profesional!' : p >= 50 ? 'Vas bien. Repasa las explicaciones y vuelve.' : 'Cada intento te deja algo. ¡Otra vez!'}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn" href="#retos">Ver todos los retos</a><button class="btn btn--sec" type="button" id="rep">Repetir</button></div></div><img src="assets/${p >= 80 ? 'kusi-celebra' : 'kusi-feliz'}.webp" alt=""></div>`;
+      a.innerHTML = `<div class="podio"><div><p class="tipo">Reto terminado · insignia ${p >= 90 ? 'de oro' : p >= 70 ? 'de plata' : 'de bronce'}</p><p class="podio__num"><span class="ins ins--xl ${p >= 90 ? 'oro' : p >= 70 ? 'plata' : 'bronce'}"></span>${p} %</p><p style="margin-top:12px;font:italic 400 19px/1.4 var(--f-voice)">${p >= 80 ? '¡Criterio de profesional!' : p >= 50 ? 'Vas bien. Repasa las explicaciones y vuelve.' : 'Cada intento te deja algo. ¡Otra vez!'}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn" href="#retos">Ver todos los retos</a><button class="btn btn--sec" type="button" id="rep">Repetir</button></div></div><img src="assets/${p >= 80 ? 'kusi-celebra' : 'kusi-feliz'}.webp" alt=""></div>`;
       $('rep').addEventListener('click', () => jugarReto(set)); return;
     }
     const it = set.items[i];

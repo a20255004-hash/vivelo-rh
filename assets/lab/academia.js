@@ -11,30 +11,37 @@ const COL = { atraer: '#F2A900', admin: '#7CC6EA', desarrollar: '#2F6B3F', cuida
 const IMG = { atraer: 'reunion', admin: 'boleta', desarrollar: 'academia', cuidar: 'hospital', estrategia: 'brujula' };
 const PAL = ['#F2A900', '#7CC6EA', '#8FD3A4', '#F29C85', '#B9AEF0', '#FBE3A6'];
 const clusterDe = c => areas.find(a => a.id === c.areas[0])?.c || 'atraer';
-const img = c => `assets/3d/scenes/${IMG[clusterDe(c)]}-sq.webp`;
+const FOTO = { feriados: 'esc/reloj', modales: 'foto/acuerdo', igualdad: 'foto2/mesa-mujeres', onboarding: 'foto2/caminan', perfil: 'foto/cv-mano', entrevista: 'foto/entrevista', planilla: '3d/scenes/boleta', beneficios: 'esc/planilla', rotacion: 'esc/pendulo', ausentismo: 'esc/alarma', clima: 'foto2/aplausos-verde', desempeno: 'esc/meta', dnc: 'foto/capacitacion', despido: 'foto2/tension', hostigamiento: '3d/scenes/balanza', regimenes: '3d/scenes/municipalidad', concurso: 'esc/escalera', pad: 'foto/mesa-papeles', hrbp: 'foto/reunion-jefa', analytics: 'esc/cerebro', sst: 'foto/supervisa', compensacion: 'esc/carrera' };
+const img = c => FOTO[c.id] ? `assets/${FOTO[c.id]}.webp` : `assets/3d/scenes/${IMG[clusterDe(c)]}-sq.webp`;
 let filtro = 'todo';
 
 export function listaAcademia(vistos) {
-  return `<section class="kin" aria-labelledby="kinT">
-    <div class="kin__lado"><h2 id="kinT">${concepts.length} conceptos</h2><p>Pasa el cursor por una palabra para verla. Toca para entrar.</p>
-      <div class="kin__filtros" role="group" aria-label="Filtrar por área"><button type="button" data-k="todo" aria-pressed="${filtro === 'todo'}">Todos <sup>${concepts.length}</sup></button>${clusters.map(c => `<button type="button" data-k="${c.id}" aria-pressed="${filtro === c.id}" style="--c:${COL[c.id]}"><i></i>${esc(c.n)} <sup>${concepts.filter(x => clusterDe(x) === c.id).length}</sup></button>`).join('')}</div>
-      <p class="kin__prog"><b>${vistos.length}</b> de ${concepts.length} leídos</p></div>
-    <ul class="kin__lista" id="kin">${concepts.map((c, i) => `<li data-cl="${clusterDe(c)}"><a href="#academia/${c.id}" data-img="${img(c)}" class="${vistos.includes(c.id) ? 'visto' : ''}" style="--c:${COL[clusterDe(c)]}">${esc(c.n)}<sup>${String(i + 1).padStart(2, '0')}</sup></a></li>`).join('')}</ul>
-    <img class="kin__flota" id="kinFlota" alt="" aria-hidden="true" width="800" height="800">
-  </section>`;
+  return `<section class="carru" aria-labelledby="carT" aria-roledescription="carrusel">
+    <div class="carru__cab"><h2 id="carT">Desliza y elige un concepto</h2><div class="tira__ctrl"><button type="button" class="tira__flecha" data-dir="-1" aria-label="Conceptos anteriores">‹</button><button type="button" class="tira__flecha" data-dir="1" aria-label="Conceptos siguientes">›</button></div></div>
+    <div class="filtros" role="group" aria-label="Filtrar por área"><button class="chip" type="button" data-k="todo" aria-pressed="${filtro === 'todo'}">Todos</button>${clusters.map(c => `<button class="chip" type="button" data-k="${c.id}" aria-pressed="${filtro === c.id}"><i class="punto" style="background:${COL[c.id]}"></i>${esc(c.n)}</button>`).join('')}</div>
+    <ul class="carru__pista" id="carru">${concepts.map((c, i) => `<li data-cl="${clusterDe(c)}" aria-roledescription="diapositiva" aria-label="${i + 1} de ${concepts.length}"><a class="carru__c ${vistos.includes(c.id) ? 'visto' : ''}" href="#academia/${c.id}" style="--c:${COL[clusterDe(c)]}"><img src="${img(c)}" alt="" loading="lazy" width="800" height="800"><span class="carru__n">${String(i + 1).padStart(2, '0')}</span>${vistos.includes(c.id) ? '<span class="carru__ok" aria-label="Leído">✓</span>' : ''}<span class="carru__txt"><small>${esc(clusters.find(x => x.id === clusterDe(c))?.n || '')}</small><b>${esc(c.n)}</b></span></a></li>`).join('')}</ul>
+    <div class="carru__puntos" id="carruP" aria-hidden="true">${concepts.map(() => '<i></i>').join('')}</div>
+    <p class="nota">${vistos.length} de ${concepts.length} conceptos explorados.</p></section>`;
 }
 
 export function montarLista(M, reduce) {
-  const lista = document.getElementById('kin'), flota = document.getElementById('kinFlota'); if (!lista) return;
-  const aplica = () => lista.querySelectorAll('li').forEach(li => li.classList.toggle('fuera', filtro !== 'todo' && li.dataset.cl !== filtro));
-  document.querySelectorAll('[data-k]').forEach(b => b.addEventListener('click', () => { filtro = b.dataset.k; document.querySelectorAll('[data-k]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); aplica(); }));
-  aplica();
-  if (matchMedia('(hover: hover)').matches) {
-    lista.addEventListener('mouseover', e => { const a = e.target.closest('a'); if (!a) return; flota.src = a.dataset.img; flota.classList.add('on'); });
-    lista.addEventListener('mouseleave', () => flota.classList.remove('on'));
-    lista.addEventListener('mousemove', e => { flota.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 110}px) rotate(-4deg)`; });
-  }
-  if (M && !reduce) try { M.animate([...lista.querySelectorAll('a')], { opacity: [0, 1], y: [20, 0] }, { delay: M.stagger(.025), duration: .45, ease: 'easeOut' }); } catch {}
+  const pista = document.getElementById('carru'), puntos = [...document.querySelectorAll('#carruP i')]; if (!pista) return;
+  const visibles = () => [...pista.children].filter(li => !li.hidden);
+  const paso = () => (pista.querySelector('li:not([hidden])')?.offsetWidth || 300) + 16;
+  document.querySelectorAll('.carru .tira__flecha').forEach(b => b.addEventListener('click', () => pista.scrollBy({ left: +b.dataset.dir * paso() * 2, behavior: reduce ? 'auto' : 'smooth' })));
+  pista.tabIndex = 0;
+  pista.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); pista.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * paso(), behavior: reduce ? 'auto' : 'smooth' }); } });
+  const marca = () => { const v = visibles(), i = Math.round(pista.scrollLeft / paso()); puntos.forEach((p, k) => { p.hidden = k >= v.length; p.classList.toggle('on', k === i); }); };
+  pista.addEventListener('scroll', () => requestAnimationFrame(marca), { passive: true });
+  // Arrastrar con el mouse
+  let x0 = null, s0 = 0, movio = false;
+  pista.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; x0 = e.clientX; s0 = pista.scrollLeft; movio = false; pista.classList.add('arrastra'); });
+  window.addEventListener('pointermove', e => { if (x0 === null) return; const d = e.clientX - x0; if (Math.abs(d) > 6) movio = true; pista.scrollLeft = s0 - d; });
+  window.addEventListener('pointerup', () => { x0 = null; pista.classList.remove('arrastra'); });
+  pista.addEventListener('click', e => { if (movio) { e.preventDefault(); movio = false; } }, true);
+  document.querySelectorAll('[data-k]').forEach(b => b.addEventListener('click', () => { filtro = b.dataset.k; document.querySelectorAll('[data-k]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); [...pista.children].forEach(li => li.hidden = filtro !== 'todo' && li.dataset.cl !== filtro); pista.scrollTo({ left: 0 }); marca(); }));
+  [...pista.children].forEach(li => li.hidden = filtro !== 'todo' && li.dataset.cl !== filtro); marca();
+  if (M && !reduce) try { M.animate([...pista.querySelectorAll('.carru__c')].slice(0, 6), { opacity: [0, 1], x: [80, 0], rotate: [3, 0] }, { delay: M.stagger(.07), type: 'spring', bounce: .3, duration: .8 }); } catch {}
 }
 
 // ---------- Diagramas interactivos ----------
@@ -52,7 +59,7 @@ export function vistaConcepto(c) {
   const partes = [['idea', 'La idea'], v && ['diag', 'El diagrama'], c.check && ['prueba', 'Ponte a prueba'], c.bad && c.good && ['asi', '¿Así o así?'], c.errors?.length && ['errores', 'Errores comunes'], c.measure?.length && ['mide', 'Cómo se mide'], c.norma?.length && ['normas', 'Normas']].filter(Boolean);
   return `<a class="volver" href="#academia">← Todos los conceptos</a>
   <div class="recorrido" style="--c:${COL[cl]}">
-    <nav class="recorrido__ind" aria-label="Partes del concepto"><p>${String(i + 1).padStart(2, '0')} / ${concepts.length}</p><ol>${partes.map(([id, n]) => `<li><a href="#academia/${c.id}" data-ir="${id}">${n}</a></li>`).join('')}</ol><a class="btn btn--sec" href="#academia/${sig.id}">Siguiente concepto</a></nav>
+    <nav class="recorrido__ind" aria-label="Partes del concepto"><ol>${partes.map(([id, n], k) => `<li><a href="#academia/${c.id}" data-ir="${id}" class="${k === 0 ? 'on' : ''}"><span>${k + 1}</span>${n}</a></li>`).join('')}</ol><div class="diapo__ctrl"><button type="button" class="tira__flecha" data-d="-1" aria-label="Parte anterior">‹</button><button type="button" class="tira__flecha" data-d="1" aria-label="Parte siguiente">›</button><a class="btn btn--sec" href="#academia/${sig.id}">Siguiente concepto</a></div></nav>
     <div class="recorrido__cont">
       <section id="p-idea" class="rc rc--idea"><img src="${img(c)}" alt="" width="800" height="800"><div><h1>${esc(c.n)}</h1><p class="rc__frase">${esc(frase(c.simple))}</p>
         <div class="modo" role="group" aria-label="Cómo quieres leerlo"><button type="button" data-m="simple" aria-pressed="false">Explícamelo simple</button><button type="button" data-m="tech" aria-pressed="false">Versión técnica</button></div><div class="texto" id="texto" hidden></div></div></section>
@@ -88,10 +95,14 @@ export function montarConcepto(c, M, reduce, sonar) {
     const ok = b.dataset.a === 'g'; sonar?.(ok);
     document.getElementById('asiV').textContent = ok ? '¡Exacto! Dice datos, causas y una acción.' : 'La otra es la profesional: tiene datos, causas y una acción.';
   }));
-  document.querySelectorAll('[data-ir]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.getElementById('p-' + a.dataset.ir)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }));
+  const cont = document.querySelector('.recorrido__cont'), secs = [...document.querySelectorAll('.rc')];
+  const ir = k => { k = Math.max(0, Math.min(secs.length - 1, k)); cont.scrollTo({ left: secs[k].offsetLeft - cont.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); };
+  const actual = () => Math.round(cont.scrollLeft / cont.clientWidth);
+  document.querySelectorAll('[data-ir]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir(secs.findIndex(x => x.id === 'p-' + a.dataset.ir)); }));
+  document.querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => ir(actual() + +b.dataset.d)));
+  cont.addEventListener('scroll', () => requestAnimationFrame(() => { const k = actual(); document.querySelectorAll('[data-ir]').forEach((a, j) => a.classList.toggle('on', j === k)); }), { passive: true });
+  cont.tabIndex = 0; cont.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); ir(actual() + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); ir(actual() - 1); } });
   // Índice que sigue la lectura
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('[data-ir]').forEach(a => a.classList.toggle('on', 'p-' + a.dataset.ir === e.target.id)); }), { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('.rc').forEach(s => io.observe(s));
   if (M && !reduce) try {
     document.querySelectorAll('.rc').forEach(s => M.inView(s, () => { M.animate([...s.children], { opacity: [0, 1], y: [24, 0] }, { delay: M.stagger(.06), duration: .5, ease: 'easeOut' }); }, { amount: .2 }));
     document.querySelectorAll('.medidor').forEach(m => M.inView(m, () => m.classList.add('lleno')));
