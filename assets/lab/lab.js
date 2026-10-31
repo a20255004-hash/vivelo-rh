@@ -8,6 +8,9 @@ import { areas, clusters } from '../../src/content/areas.js';
 import { empresas } from '../../src/content/empresas.js';
 import { sectors } from '../../src/content/sectors.js';
 import { ORDEN, AREA } from '../puestos.js';
+import { vistaSectores, montarSectores } from './sectores.js';
+// Motion (biblioteca) para entradas, diagramas y respuestas; si no carga, todo funciona igual.
+const M = await import('https://cdn.jsdelivr.net/npm/motion@12.0.0/+esm').catch(() => null);
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -28,13 +31,14 @@ const sonar = (fs, d = .12, tipo = 'triangle', vol = .06) => {
 const SON = { bien: () => sonar([523.3, 659.3, 784]), mal: () => sonar([311, 233], .2, 'sawtooth', .03), tic: () => sonar([1800], .03, 'square', .02), fin: () => sonar([523.3, 659.3, 784, 1046.5], .18) };
 
 // ---------- Pisos ----------
+const ESC = n => `assets/3d/scenes/${n}`;
 const PISOS = [
-  { id: 'quiz', n: 'Quiz', img: 'assets/foto2/celebra-laptop.webp', d: 'Preguntas con tiempo, rachas y puntos, al estilo Kahoot.', k: `${QUIZ.length} preguntas` },
-  { id: 'retos', n: 'Retos', img: 'assets/esc/meta.webp', d: 'Desafíos por niveles: de los fundamentos a los casos difíciles.', k: `${challenges.levels.flatMap(l => l.sets).length} retos` },
-  { id: 'academia', n: 'Academia', img: 'assets/foto/capacitacion.webp', d: 'Conceptos clave explicados simple o técnico, con pasos y errores comunes.', k: `${concepts.length} conceptos` },
-  { id: 'mapa', n: 'Mapa', img: 'assets/c-rompecabezas.webp', d: 'Las especialidades de RR.HH., cómo se conectan y cómo se crece en ellas.', k: `${areas.length} especialidades` },
-  { id: 'empresas', n: 'Empresas', img: 'assets/foto2/acuerdo-manos.webp', d: 'Organizaciones del Perú reconocidas por cómo tratan a su gente, con fuentes.', k: `${empresas.list.length} empresas` },
-  { id: 'sectores', n: 'Sectores', img: 'assets/c-oficina.webp', d: 'RR.HH. en una empresa privada y en el Estado: qué cambia y por qué.', k: 'Privado y público' },
+  { id: 'quiz', n: 'Quiz', img: ESC('reunion-sq.webp'), esc3: 'reunion', d: 'Preguntas con tiempo, rachas y puntos, al estilo Kahoot.', k: `${QUIZ.length} preguntas` },
+  { id: 'retos', n: 'Retos', img: ESC('balanza-sq.webp'), esc3: 'balanza', d: 'Desafíos por niveles: de los fundamentos a los casos difíciles.', k: `${challenges.levels.flatMap(l => l.sets).length} retos` },
+  { id: 'academia', n: 'Academia', img: ESC('academia-sq.webp'), esc3: 'academia', d: 'Conceptos clave explicados simple o técnico, con pasos y errores comunes.', k: `${concepts.length} conceptos` },
+  { id: 'mapa', n: 'Mapa', img: ESC('brujula-sq.webp'), esc3: 'brujula', d: 'Las especialidades de RR.HH., cómo se conectan y cómo se crece en ellas.', k: `${areas.length} especialidades` },
+  { id: 'empresas', n: 'Empresas', img: ESC('corporativo-sq.webp'), esc3: 'corporativo', d: 'Organizaciones del Perú reconocidas por cómo tratan a su gente, con fuentes.', k: `${empresas.list.length} empresas` },
+  { id: 'sectores', n: 'Sectores', img: ESC('municipalidad-sq.webp'), esc3: 'municipalidad', d: 'RR.HH. en una empresa privada y en el Estado: qué cambia y por qué.', k: 'Privado y público' },
 ];
 const num = id => String(PISOS.findIndex(p => p.id === id) + 1);
 
@@ -42,9 +46,9 @@ function ascensor(actual) {
   $('ascensor').innerHTML = `<li><a href="#" ${!actual ? 'aria-current="page"' : ''}><span>L</span>Vestíbulo</a></li>` + PISOS.map((p, i) => `<li><a href="#${p.id}" ${actual === p.id ? 'aria-current="page"' : ''}><span>${i + 1}</span>${p.n}</a></li>`).join('');
   $('ascensor').querySelector('[aria-current]')?.scrollIntoView({ block: 'nearest', inline: 'center' });
 }
-const cabecera = (id, titulo, lead, kusi, img = 'assets/kusi-feliz.webp') => `<header class="piso">
+const cabecera = (id, titulo, lead, kusi, img = 'assets/kusi-feliz.webp') => { const pz = PISOS.find(p => p.id === id); return `<header class="piso">
   <div><p class="piso__n"><b>${num(id)}</b>Piso ${num(id)} del Laboratorio</p><h1>${titulo}</h1><p class="piso__lead">${lead}</p></div>
-  <div class="kusi"><img src="${img}" alt=""><p>${kusi}</p></div></header>`;
+  <figure class="diorama"><img class="diorama__img" src="${ESC(pz.esc3 + '.webp')}" alt="" width="1600" height="1000"><figcaption class="kusi"><img src="${img}" alt=""><p>${kusi}</p></figcaption></figure></header>`; };
 
 // ---------- Vestíbulo ----------
 function vestibulo() {
@@ -52,7 +56,7 @@ function vestibulo() {
   const total = challenges.levels.flatMap(l => l.sets).length;
   return `<header class="piso">
     <div><p class="piso__n"><b>L</b>Vestíbulo</p><h1>El Laboratorio</h1><p class="piso__lead">Aquí practicas lo que viviste en los puestos: juegas, comparas y aprendes el oficio a tu ritmo. Seis pisos, un mismo edificio.</p></div>
-    <div class="kusi"><img src="assets/kusi-celebra.webp" alt=""><p>¡Elige un piso! Yo te recomiendo empezar por el quiz.</p></div></header>
+    <figure class="diorama"><img class="diorama__img" src="${ESC('oficina.webp')}" alt="" width="1600" height="1000"><figcaption class="kusi"><img src="assets/kusi-celebra.webp" alt=""><p>¡Elige un piso! Yo te recomiendo empezar por el quiz.</p></figcaption></figure></header>
   <section aria-labelledby="dirT"><h2 id="dirT" class="sr" hidden>Directorio</h2>
     <div class="tablero"><p class="tablero__cap"><span>Directorio del edificio</span><span>Elige un piso</span></p>
       <ol>${PISOS.map((p, i) => `<li><a href="#${p.id}"><span class="tablero__p">P-${i + 1}</span><img src="${p.img}" alt="" loading="lazy" width="88" height="64"><span><b>${p.n}</b><small>${p.d} · ${p.k}</small></span></a></li>`).join('')}</ol></div>
@@ -88,7 +92,10 @@ function pregunta(caja, it, fin) {
   const enunciado = `<p class="tipo">${TIPO[it.t] || ''}</p><h2 class="pregunta">${esc(strip(it.q))}</h2>${it.doc ? `<div class="doc">${it.doc}</div>` : ''}`;
   if (['mcq', 'image', 'paraphrase', 'truefalse'].includes(n.t)) {
     const ops = opciones(it), orden = n.t === 'truefalse' ? ops.map((_, i) => i) : mezcla(ops.map((_, i) => i));
-    caja.innerHTML = `${enunciado}<div class="fichas" role="group" aria-label="Opciones">${orden.map((i, k) => `<button class="ficha f${k % 4}" type="button" data-i="${i}">${FIG[k % 4]}<span>${esc(ops[i])}</span></button>`).join('')}</div>`;
+    const MAP3D = { retail: 'retail', municipalidad: 'municipalidad', brujula: 'brujula', academia: 'academia', agro: 'agro', mineria: 'mineria', hospital: 'hospital', planta: 'planta', oficina: 'oficina', corporativo: 'corporativo', almacen: 'almacen', cooperativa: 'cooperativa', reunion: 'reunion', taller: 'boleta', sectores: 'municipalidad', retos: 'balanza', hotel: 'reunion' };
+    const pic = i => { const o = it.opts?.[i], m = o && MAP3D[o.n]; return m ? `<img class="ficha__pic" src="${ESC(m + '-sq.webp')}" alt="" width="800" height="800">` : ''; };
+    caja.innerHTML = `${enunciado}<div class="fichas ${n.t === 'image' ? 'fichas--pic' : ''}" role="group" aria-label="Opciones">${orden.map((i, k) => `<button class="ficha f${k % 4}" type="button" data-i="${i}">${n.t === 'image' ? pic(i) : ''}${FIG[k % 4]}<span>${esc(ops[i])}</span></button>`).join('')}</div>`;
+    if (M && !reduce) M.animate(caja.querySelectorAll('.ficha'), { opacity: [0, 1], scale: [.92, 1] }, { delay: M.stagger(.06), type: 'spring', bounce: .35, duration: .45 });
     caja.querySelectorAll('.ficha').forEach(b => b.addEventListener('click', () => {
       const v = +b.dataset.i, ans = n.t === 'truefalse' ? v === 0 : v;
       cerrar(ans, () => caja.querySelectorAll('.ficha').forEach(x => { x.disabled = true; const ok = n.t === 'truefalse' ? (+x.dataset.i === 0) === it.a : +x.dataset.i === it.a; x.classList.add(ok ? 'ok' : 'no'); if (x === b) x.classList.add('mia'); }));
@@ -279,7 +286,7 @@ function empresasV(id) {
   if (id) {
     const e = empresas.list.find(x => x.id === id); if (!e) return empresasV();
     return `<a class="volver" href="#empresas">← Todas las empresas</a>
-    <header class="piso"><div><p class="piso__n"><b>${num('empresas')}</b>${esc(e.sector)} · ${esc(e.city)}</p><h1>${esc(e.n)}</h1><p class="piso__lead">${esc(e.region)}</p></div><div class="kusi"><img src="assets/kusi-feliz.webp" alt=""><p>${esc(strip(e.learn))}</p></div></header>
+    <header class="piso"><div><p class="piso__n"><b>${num('empresas')}</b>${esc(e.sector)} · ${esc(e.city)}</p><h1>${esc(e.n)}</h1><p class="piso__lead">${esc(e.region)}</p></div><figure class="diorama"><img class="diorama__img" src="${ESC(e.scene + '.webp')}" alt="" width="1600" height="1000"><figcaption class="kusi"><img src="assets/kusi-feliz.webp" alt=""><p>${esc(strip(e.learn))}</p></figcaption></figure></header>
     <section><div class="sec__h"><h2>Reconocimientos</h2><p>Con el enlace a la fuente pública de cada uno.</p></div><ul class="reconoc">${e.recognitions.map(r => `<li><b>${r.year}</b><span>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : esc(r.name)}</span></li>`).join('')}</ul></section>
     <section><div class="sec__h"><h2>Qué hacen con su gente</h2></div><div class="practicas">${e.practices.map(p => `<article class="practica" style="--c:${COLOR[p.area] || 'var(--celeste)'}"><span class="etq">${esc(CL[p.area]?.n || p.area)}</span><b>${esc(p.t)}</b><p>${esc(strip(p.d))}</p></article>`).join('')}</div></section>
     <p class="nota">${esc(empresas.disclaimer)}</p>`;
@@ -289,20 +296,14 @@ function empresasV(id) {
   const lista = empresas.list.filter(e => empFiltro === 'todas' || e.sector === empFiltro);
   return cabecera('empresas', 'Empresas', 'Organizaciones que operan en el Perú y que fueron reconocidas por cómo gestionan a su gente. Cada dato tiene su fuente pública.', 'Mira qué hacen distinto. ¡Inspírate!', 'assets/kusi-celebra.webp') +
     `<section><div class="filtros" role="group" aria-label="Filtrar por sector"><button class="chip" type="button" data-s="todas" aria-pressed="${empFiltro === 'todas'}">Todos los sectores</button>${sect.map(s => `<button class="chip" type="button" data-s="${esc(s)}" aria-pressed="${empFiltro === s}">${esc(s)}</button>`).join('')}</div>
-    <div class="empresas">${lista.map(e => `<a class="emp" href="#empresas/${e.id}"><span class="mono" style="--c:${COLOR[e.tone] || 'var(--celeste)'}">${esc(e.mono)}</span><span><b>${esc(e.n)}</b><small>${esc(e.sector)} · ${esc(e.city)} · ${e.practices.length} prácticas</small></span></a>`).join('')}</div>
+    <div class="empresas">${lista.map(e => `<a class="emp" href="#empresas/${e.id}"><span class="emp__img"><img src="${ESC(e.scene + '-sq.webp')}" alt="" loading="lazy" width="800" height="800"><span class="mono" style="--c:${COLOR[e.tone] || 'var(--celeste)'}">${esc(e.mono)}</span></span><span><b>${esc(e.n)}</b><small>${esc(e.sector)} · ${esc(e.city)} · ${e.practices.length} prácticas</small></span></a>`).join('')}</div>
     <p class="nota" style="margin-top:16px">Información consultada el ${esc(empresas.consulted)}.</p></section>`;
 }
 
 // ---------- Piso 6: Sectores ----------
-let lado = 'pri';
 function sectoresV() {
-  setTimeout(() => document.querySelectorAll('[data-l]').forEach(b => b.addEventListener('click', () => { lado = b.dataset.l; document.querySelectorAll('[data-l]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); document.querySelectorAll('.dims p').forEach((p, i) => { p.style.opacity = 0; setTimeout(() => { p.textContent = sectors.dims[i][lado]; p.style.opacity = 1; }, reduce ? 0 : 150); }); })), 0);
-  return cabecera('sectores', 'Privado y público', 'Hacer RR.HH. en una empresa privada y en una entidad del Estado se parece menos de lo que crees. Cambia el interruptor y mira cómo cambia cada cosa.', 'En el Estado, todo deja huella. ¡Compara!', 'assets/kusi-pensando.webp') +
-    `<section class="panel"><div class="interruptor" role="group" aria-label="Elegir sector"><button type="button" data-l="pri" aria-pressed="${lado === 'pri'}">Empresa privada</button><button type="button" data-l="pub" aria-pressed="${lado === 'pub'}">Sector público</button></div>
-      <ul class="dims">${sectors.dims.map(d => `<li><b>${esc(d.n)}</b><p>${esc(d[lado])}</p></li>`).join('')}</ul></section>
-    <section><div class="sec__h"><h2>Los regímenes laborales</h2><p>Bajo qué reglas trabaja cada persona.</p></div><div class="regs">${sectors.regimenes.map(r => `<article class="reg"><span class="code">${esc(r.code)}</span><b>${esc(r.n)}</b><small>${esc(r.who)}</small><p><b style="font:600 15px var(--f-body)">Ingreso:</b> ${esc(r.in)}</p><p><b style="font:600 15px var(--f-body)">Beneficios:</b> ${esc(r.ben)}</p>${r.note ? `<small>${esc(r.note)}</small>` : ''}</article>`).join('')}</div></section>
-    <section><div class="sec__h"><h2>El mismo caso, dos caminos</h2></div><div class="casos">${sectors.cases.map(c => `<article class="caso"><h3 style="font-size:22px">${esc(c.n)}</h3><div class="caso__dos"><div><h4>Empresa privada</h4><ol>${c.pri.map(([a, b]) => `<li><b>${esc(a)}:</b> ${esc(b)}</li>`).join('')}</ol></div><div><h4>Sector público</h4><ol>${c.pub.map(([a, b]) => `<li><b>${esc(a)}:</b> ${esc(b)}</li>`).join('')}</ol></div></div><p class="leccion">${esc(c.lesson)}</p></article>`).join('')}</div></section>
-    ${sectors.entities?.length ? `<section><div class="sec__h"><h2>Quién es quién</h2></div><div class="regs">${sectors.entities.map(e => `<article class="reg"><b>${esc(e.n)}</b><p>${esc(e.d)}</p></article>`).join('')}</div></section>` : ''}`;
+  setTimeout(() => montarSectores(M, reduce), 0);
+  return cabecera('sectores', 'Privado y público', 'Hacer RR.HH. en una empresa privada y en una entidad del Estado se parece menos de lo que crees. Compara, juega y descubre cuál se parece más a ti.', 'En el Estado, todo deja huella. ¡Compara!', 'assets/kusi-pensando.webp') + vistaSectores();
 }
 
 // ---------- Enrutador ----------
@@ -317,6 +318,14 @@ function render() {
   ascensor(fn ? r : null);
   document.title = `${fn ? PISOS.find(x => x.id === r).n + ' · ' : ''}Laboratorio · VÍVELO RH`;
   if (!(r === 'mapa' && p)) { window.scrollTo(0, 0); v.focus({ preventScroll: true }); }
+  if (M && !reduce) {
+    const dio = v.querySelector('.diorama__img'), k = v.querySelector('.diorama .kusi');
+    if (dio) M.animate(dio, { opacity: [0, 1], y: [28, 0], scale: [.94, 1] }, { type: 'spring', bounce: .25, duration: .9 });
+    if (k) M.animate(k, { opacity: [0, 1], y: [12, 0] }, { delay: .35, duration: .4, ease: 'easeOut' });
+    const listas = v.querySelectorAll('.tablero ol, .conceptos, .empresas, .sets');
+    listas.forEach(l => [...l.children].forEach(c => { c.style.opacity = 0; }));
+    listas.forEach(l => M.inView(l, () => { M.animate(l.children, { opacity: [0, 1], y: [14, 0] }, { delay: M.stagger(.04), duration: .4, ease: 'easeOut' }); }, { amount: .05 }));
+  }
 }
 window.addEventListener('hashchange', render);
 render();

@@ -251,6 +251,133 @@ main{max-width:1240px;margin:0 auto;padding:0 var(--gut) 96px}
 .caso__dos ol b{font-weight:600}
 .leccion{font:italic 400 18px/1.45 var(--f-voice)}
 
+
+/* Dioramas 3D en la cabecera de cada piso */
+.piso{align-items:center}
+.diorama{position:relative;margin:0;justify-self:end;width:min(520px,100%)}
+.diorama::before{content:"";position:absolute;inset:8% 4% 2%;border-radius:50%;background:radial-gradient(closest-side,rgba(124,198,234,.45),transparent 72%);z-index:-1}
+.diorama__img{width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;mix-blend-mode:multiply;filter:saturate(1.08)}
+:root[data-theme="dark"] .diorama__img{mix-blend-mode:normal;border-radius:28px;background:#F4F0EA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .diorama__img{mix-blend-mode:normal;border-radius:28px;background:#F4F0EA}}
+.diorama .kusi{position:absolute;left:-6%;bottom:-6%;grid-template-columns:60px minmax(0,1fr);max-width:300px}
+.diorama .kusi img{width:60px;height:60px}
+.diorama .kusi p{font-size:16px;box-shadow:0 12px 30px -16px rgba(15,42,61,.35)}
+.tablero img{background:#F4F0EA;object-fit:contain}
+/* Empresas con su escena */
+.emp{grid-template-columns:96px minmax(0,1fr)}
+.emp__img{position:relative;display:block;width:96px;height:96px;border-radius:20px;background:#F4F0EA;overflow:hidden}
+.emp__img img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.emp__img .mono{position:absolute;right:-4px;bottom:-4px;width:40px;height:40px;border-radius:12px;font-size:14px;border:3px solid var(--surface)}
+/* Quiz: fichas con imagen */
+.fichas--pic .ficha{grid-template-columns:72px 28px minmax(0,1fr)}
+.fichas--pic .ficha svg{width:24px;height:24px}
+.ficha__pic{width:72px;height:72px;border-radius:14px;background:#F4F0EA;object-fit:cover}
+
+/* SECTORES · el duelo deslizable */
+.duelo__esc{position:relative;aspect-ratio:16/9;max-width:1100px;border-radius:32px;overflow:hidden;background:#F4F0EA;box-shadow:0 30px 70px -40px rgba(15,42,61,.5);isolation:isolate;touch-action:pan-y}
+.duelo__esc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.duelo__b{clip-path:inset(0 0 0 var(--x))}
+.duelo__et{position:absolute;top:18px;z-index:2;padding:8px 16px;border-radius:999px;font:700 15px/1 var(--f-body);color:var(--noche)}
+.duelo__et.izq{left:18px;background:var(--azafran)}.duelo__et.der{right:18px;background:var(--celeste)}
+.duelo__linea{position:absolute;top:0;bottom:0;left:var(--x);width:4px;margin-left:-2px;background:#fff;z-index:2;pointer-events:none;box-shadow:0 0 0 1px rgba(15,42,61,.12)}
+.duelo__asa{position:absolute;top:50%;left:50%;display:grid;place-items:center;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:#fff;color:var(--noche);box-shadow:0 10px 30px rgba(15,42,61,.3)}
+.duelo__asa .ico{width:30px;height:30px}
+.duelo__esc input{position:absolute;inset:0;z-index:3;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.duelo__esc:has(input:focus-visible) .duelo__asa{outline:3px solid var(--azafran);outline-offset:3px}
+.duelo__frase{max-width:760px;margin-top:20px;min-height:96px}
+.duelo__frase p{font:400 clamp(20px,2.2vw,28px)/1.35 var(--f-voice);margin-top:6px}
+.ico{width:24px;height:24px;flex:none}
+.tipo .ico{width:18px;height:18px;vertical-align:-4px}
+
+/* El juego */
+.juego__mesa{display:grid;gap:16px;padding:clamp(18px,3vw,32px);border-radius:28px;background:radial-gradient(70% 90% at 100% 0%,rgba(242,169,0,.25),transparent 60%),radial-gradient(60% 80% at 0% 100%,rgba(124,198,234,.3),transparent 60%),var(--verde-p);color:#F6FBFE}
+.juego__barra{height:8px;border-radius:999px;background:rgba(246,251,254,.2);overflow:hidden}
+.juego__barra i{display:block;height:100%;background:var(--azafran);transform-origin:left;transition:transform .4s var(--ease)}
+.juego__carta{padding:clamp(20px,3vw,32px);border-radius:24px;background:#F6FBFE;color:var(--noche);box-shadow:0 8px 0 rgba(0,0,0,.18)}
+.juego__carta .tipo{color:#1F6F9E}
+.juego__carta p{margin-top:10px;font:400 clamp(21px,2.4vw,30px)/1.3 var(--f-voice)}
+.juego__ops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lado{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;min-height:96px;padding:12px 16px;border:0;border-radius:20px;cursor:pointer;text-align:left;font:700 clamp(17px,1.8vw,21px)/1.2 var(--f-body);color:var(--noche);box-shadow:0 6px 0 rgba(0,0,0,.22);transition:transform .15s var(--ease),opacity .25s}
+.lado img{width:72px;height:72px;border-radius:14px;object-fit:cover;background:#F4F0EA}
+.lado--pri{background:var(--azafran)}.lado--pub{background:var(--celeste)}
+.lado:hover{transform:translateY(-2px)}.lado:active{transform:translateY(3px)}
+.lado.ok{outline:4px solid #fff;outline-offset:3px}.lado.no{opacity:.4}
+.lado[disabled]{cursor:default}
+.juego__mesa .veredicto{color:var(--ink)}
+.juego__fin{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:center}
+.juego__fin img{width:160px;height:160px;object-fit:contain}
+.juego__fin p{font-size:18px;margin:6px 0 16px}
+
+/* El espejo */
+.espejo__cab{display:grid;grid-template-columns:1fr 1fr;gap:12px;font:700 15px/1 var(--f-body);margin-bottom:10px}
+.espejo__cab span{display:flex;align-items:center;gap:8px}
+.espejo__cab span:last-child{justify-content:flex-end}
+.espejo__lista{list-style:none;margin:0;padding:0;display:grid;gap:8px;position:relative}
+.espejo__lista::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:linear-gradient(var(--azafran),var(--celeste))}
+.espejo__fila{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:16px;align-items:center;width:100%;padding:8px 0;border:0;background:none;cursor:pointer;text-align:left}
+.espejo__n{display:grid;justify-items:center;gap:6px;width:150px;text-align:center}
+.espejo__n i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--surface);border:2px solid var(--line);transition:background .25s,border-color .25s,transform .3s var(--spring)}
+.espejo__n b{font:800 15px/1.15 var(--f-display)}
+.espejo__l,.espejo__r{padding:14px 16px;border-radius:18px;font-size:15px;line-height:1.45;opacity:.35;filter:blur(3px);transition:opacity .3s,filter .3s,transform .3s var(--ease)}
+.espejo__l{background:color-mix(in srgb,var(--azafran) 18%,var(--surface));text-align:right;transform:translateX(8px)}
+.espejo__r{background:color-mix(in srgb,var(--celeste) 24%,var(--surface));transform:translateX(-8px)}
+.espejo__fila[aria-expanded="true"] .espejo__l,.espejo__fila[aria-expanded="true"] .espejo__r,.espejo__fila:hover .espejo__l,.espejo__fila:hover .espejo__r{opacity:1;filter:none;transform:none}
+.espejo__fila[aria-expanded="true"] .espejo__n i{background:var(--azafran);border-color:var(--azafran);color:var(--noche);transform:scale(1.08)}
+
+/* Puertas de los regímenes */
+.puertas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
+.puerta{display:grid;gap:6px;justify-items:start;padding:14px 14px 18px;border-radius:24px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;text-align:left;transition:transform .25s var(--ease),border-color .25s}
+.puerta:hover{transform:translateY(-4px)}
+.puerta[aria-expanded="true"]{border-color:var(--azafran);box-shadow:0 0 0 2px var(--azafran)}
+.puerta__img{display:block;width:100%;aspect-ratio:1;border-radius:18px;overflow:hidden;background:#F4F0EA;margin-bottom:6px}
+.puerta__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.puerta:hover .puerta__img img{transform:scale(1.06)}
+.puerta__code{font:700 28px/1 var(--f-mono);color:var(--accent)}
+.puerta b{font:800 18px/1.15 var(--f-display)}
+.puerta small{color:var(--ink-2)}
+.puerta__det{display:grid;grid-template-rows:0fr;overflow:hidden;transition:grid-template-rows .35s var(--ease)}
+.puerta__det > span:first-child{min-height:0}
+.puerta[aria-expanded="true"] .puerta__det{grid-template-rows:1fr}
+.puerta__det{display:none;gap:10px;margin-top:8px;font-size:14px;line-height:1.45}
+.puerta[aria-expanded="true"] .puerta__det{display:grid}
+.puerta__det em{display:block;font:700 12px/1 var(--f-mono);font-style:normal;color:var(--accent);margin-bottom:3px}
+
+/* Carriles de casos */
+.carriles{display:grid;gap:14px}
+.carril{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;padding:16px;border-radius:24px;background:var(--surface);border:1px solid var(--line)}
+.carril__cab{display:grid;justify-items:center;gap:6px;font:700 14px/1.2 var(--f-body);text-align:center}
+.carril__cab img{width:96px;height:96px;border-radius:18px;object-fit:cover;background:#F4F0EA}
+.carril ol{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;position:relative}
+.carril ol::before{content:"";position:absolute;left:0;right:0;top:15px;height:3px;border-radius:2px;background:var(--c)}
+.carril--pri{--c:var(--azafran)}.carril--pub{--c:var(--celeste)}
+.carril li{position:relative;display:grid;gap:4px;padding:40px 12px 0 0;font-size:14px;line-height:1.4}
+.carril li::before{content:"";position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--surface);border:4px solid var(--c)}
+.carril li b{font:800 16px/1.15 var(--f-display)}
+
+/* Tamaños */
+.tamanos{display:flex;gap:14px;align-items:end;flex-wrap:wrap}
+.tam{display:grid;justify-items:center;gap:8px;padding:14px 18px;border-radius:22px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;min-width:140px}
+.tam[aria-pressed="true"]{border-color:var(--verde);box-shadow:0 0 0 2px var(--verde)}
+.tam__ed{width:120px;height:120px}
+.tam__ed rect{fill:var(--verde)}.tam__ed .v{fill:#FBE3A6}
+.tam b{font:800 18px/1 var(--f-display)}
+.tam__txt{margin-top:16px;max-width:65ch;font:400 clamp(19px,2vw,24px)/1.4 var(--f-voice)}
+
+/* Entidades */
+.entidades{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.entidad{display:grid;gap:8px;align-content:start;padding:20px;border-radius:22px;background:var(--surface);border:1px solid var(--line)}
+.entidad i{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:color-mix(in srgb,var(--celeste) 30%,var(--surface));color:var(--noche)}
+:root[data-theme="dark"] .entidad i{color:var(--ink)}
+.entidad b{font:800 19px/1.15 var(--f-display)}
+.entidad p{font-size:15px;color:var(--ink-2)}
+
+@media (max-width:980px){.puertas,.entidades{grid-template-columns:repeat(2,minmax(0,1fr))}.carril{grid-template-columns:1fr}.carril__cab{grid-template-columns:64px auto;justify-items:start;align-items:center}.carril__cab img{width:64px;height:64px}}
+@media (max-width:760px){.diorama{justify-self:stretch}.diorama .kusi{position:static;margin-top:-10px}.juego__ops{grid-template-columns:1fr}.juego__fin{grid-template-columns:1fr}
+  .espejo__lista::before{display:none}.espejo__cab{display:none}.espejo__fila{grid-template-columns:1fr;gap:8px;padding:12px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}.espejo__n{order:-1;width:auto;grid-template-columns:44px 1fr;justify-items:start;text-align:left;align-items:center}.espejo__n i{width:44px;height:44px}
+  .espejo__l,.espejo__r{display:none;text-align:left;transform:none}.espejo__fila[aria-expanded="true"] .espejo__l,.espejo__fila[aria-expanded="true"] .espejo__r{display:block}.espejo__l::before{content:"Empresa privada · ";font-weight:700}.espejo__r::before{content:"Sector público · ";font-weight:700}
+  .carril ol{grid-auto-flow:row;gap:12px}.carril ol::before{left:10px;right:auto;top:0;bottom:0;width:3px;height:auto}.carril li{padding:0 0 0 36px}.carril li::before{top:0}
+  .duelo__esc{aspect-ratio:4/3;border-radius:24px}.duelo__et{font-size:13px;top:12px}.duelo__et.izq{left:12px}.duelo__et.der{right:12px}}
+@media (max-width:480px){.puertas,.entidades{grid-template-columns:1fr}.emp{grid-template-columns:76px minmax(0,1fr)}.emp__img{width:76px;height:76px}.fichas--pic .ficha{grid-template-columns:56px minmax(0,1fr)}.fichas--pic .ficha svg{display:none}.ficha__pic{width:56px;height:56px}}
 @media (max-width:980px){.mapa{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-c{grid-template-columns:1fr}.lateral{position:static}}
 @media (max-width:760px){.piso,.podio{grid-template-columns:1fr}.kusi{justify-self:start}.tablero ol{grid-template-columns:1fr}.marcas{grid-template-columns:1fr}.fichas{grid-template-columns:1fr}.dims li,.caso__dos,.antes,.par{grid-template-columns:1fr}.podio img{width:150px;height:150px}.ascensor{position:static}.top{position:static}.logo{white-space:nowrap}.top .chip{min-height:36px;padding:0 12px;font-size:13px}}
 @media (max-width:480px){.mapa{grid-template-columns:1fr}.tablero a{grid-template-columns:36px 64px minmax(0,1fr)}.tablero img{width:64px;height:48px}.ficha{min-height:76px}}
