@@ -23,12 +23,26 @@ VÍVELO RH es una plataforma peruana en la que una persona vive un mes de trabaj
 - Visuales de `mirada.visual`: `flujo{titulo,pasos,aqui?}`, `balanza{a:{t,items},b:{t,items}}`, `matriz{x,y,cuadrantes[4],items[[nombre,x,y]]}`, `linea{titulo,hitos[[a,b]]}`, `cambio{titulo,pares[[antes,después]]}`, `embudo{titulo,niveles[[nombre,n]]}`, `rango{titulo,min,max,banda[a,b],marcas[[n,v]]}`, `mensaje{titulo,txt}`.
 - `WSP` y `CORREOS` admiten `si:'flag'` o `no:'flag'` para aparecer según lo que hizo la persona. Las flags se acumulan durante el mes.
 
+## Lo más importante: que se viva en carne propia
+- Cada capítulo debe parecerse a un día real de alguien en ese puesto en el Perú.
+- **Herramientas reales:** el Excel con pestañas mal nombradas, el sistema de planillas que se cuelga a fin de mes, el T-Registro, la PLAME, el portal de empleos, el correo con copia a la gerencia, el grupo de WhatsApp del área.
+- **Tiempos reales:** la hora de cierre, el almuerzo que se corta, la reunión que se alarga, el bus de regreso.
+- **Interrupciones y tareas pequeñas:** una constancia que alguien pide «para ayer», la impresora que falla, una firma que falta, un trabajador que llega sin cita a la oficina.
+- **El cuerpo y las emociones:** el cansancio, el café frío, la presión de un jefe, la satisfacción de resolver algo.
+- **Detalles del lugar y la región:** clima, transporte, comida, modismos, costumbres de la ciudad donde ocurre la historia.
+
 ## Historia y personajes
+- **Diversidad real de personajes:** edades (jóvenes, veteranos), géneros, orígenes (costa, sierra, selva, migrantes), niveles educativos, personas con discapacidad, madres y padres que cuidan a otros, gente que habla quechua o aimara cuando corresponde. Que nadie sea solo «el bueno» o «el malo»: el jefe duro también tiene razones; la persona amable también se equivoca.
+- **Historia bien hilada:** lo que pasa en el capítulo N se nota en el N+1 (mensajes que responden a lo anterior, personajes que recuerdan lo que hiciste, problemas que crecen o se resuelven). Revisa los capítulos anteriores antes de escribir el siguiente.
 - Un solo hilo durante los 9 capítulos, con consecuencias de decisiones anteriores (usa las flags de `FUTURO`).
 - `who` y `rel` solo pueden usar ids de `PERSONAS`. Si un personaje tiene `desde: N`, no aparece antes del capítulo N.
 - Puedes sumar personajes secundarios nuevos, con personalidades realistas y complejas (dudas, contradicciones, motivos propios). Aparecen en el texto y como chats de `CHATS` sin `who`, con color `c`. No los pongas en `who` ni en `rel`.
 - En cada capítulo usa al menos 4 tipos de actividad distintos y no repitas la mecánica con la que abrió el capítulo anterior.
 - Que los dilemas no tengan respuesta obvia. La opción correcta no siempre debe ser la más larga.
+
+## Ritmo de trabajo (obligatorio)
+- Escribe primero y guarda cada capítulo en disco apenas esté listo; valídalo y recién entonces pasa al siguiente. La sesión puede cortarse en cualquier momento y lo que no esté guardado se pierde.
+- Investiga solo lo que el capítulo necesite (1 a 3 búsquedas por capítulo, sobre las normas que vas a citar). No hagas investigaciones largas antes de empezar a escribir.
 
 ## Normas y datos: nada inventado
 - Cita solo normas que verifiques en fuentes oficiales (El Peruano, gob.pe, SUNAFIL, SUNAT, MTPE, SERVIR, Congreso) o en guías que las transcriben. Usa WebSearch o WebFetch.
