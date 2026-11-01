@@ -214,7 +214,7 @@ export const DATOS = {
   'reclutador-masivo': {
     PUESTO: {
       id: 'reclutador-masivo', nombre: 'Reclutador/a de selección masiva', temporada: 'Ciento veinte voces', foto: 'assets/cargos/reclutador-masivo.webp',
-      completa: false, listos: 1, primero: 'jessica', ciudad: 'Lima', nota: ['Lima', 'Centro de contacto, 1,800 asesores.'], correo: 'reclutamiento@contactaperu.pe',
+      completa: false, listos: 5, primero: 'jessica', ciudad: 'Lima', nota: ['Lima', 'Centro de contacto, 1,800 asesores.'], correo: 'reclutamiento@contactaperu.pe',
       sinopsis: 'Un centro de contacto de Lima gana una campaña nueva: necesita 120 asesores en tres semanas. Tú recluta, filtra, cita y vuelve a citar. Aprendes que en selección masiva los números mandan, pero detrás de cada número hay alguien que necesita trabajar.',
       escenario: 'Contacta Perú S.A.C. (ficticia) · Cercado de Lima · 1,800 asesores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
