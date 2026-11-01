@@ -12,6 +12,9 @@ const PORTADA = { interbank: 'assets/foto2/celebra-laptop.webp', compartamos: 'a
 const POOL = ['assets/foto2/aplausos-verde.webp', 'assets/foto2/mesa-mujeres.webp', 'assets/foto/taller.webp', 'assets/foto2/chocan-manos.webp', 'assets/foto/capacitacion.webp', 'assets/foto2/celebra-brazos.webp', 'assets/foto/plano-equipo.webp', 'assets/foto2/reunion-circulos.webp', 'assets/foto2/celebra-papel.webp', 'assets/foto/equipo-rojo.webp', 'assets/foto2/presentacion.webp', 'assets/foto/oficina-abierta.webp', 'assets/foto2/tablet-equipo.webp', 'assets/foto/cafe.webp', 'assets/foto2/celebra-tablet.webp', 'assets/foto/acuerdo.webp'];
 const portada = e => PORTADA[e.id] || POOL[empresas.list.indexOf(e) % POOL.length];
 let filtro = 'todas', valor = null;
+// Información ampliada e investigada (assets/lab/empresas-extra.js). Si aún no existe, la ficha funciona igual.
+const X = await import('./empresas-extra.js').catch(() => ({ EXTRA: {}, CONSULTADO: '' }));
+const EXTRA = X.EXTRA || {};
 // Temas de las prácticas, con color e ícono propios
 const TEMA = {
   bienestar: ['Bienestar', '#E4572E', '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'],
@@ -57,6 +60,14 @@ export function vistaEmpresa(e) {
   const i = empresas.list.indexOf(e), sig = empresas.list[(i + 1) % empresas.list.length];
   return `<a class="volver" href="#empresas">← Todas las empresas</a>
   <header class="emp-hero" style="--c:${COL[e.tone] || '#7CC6EA'}"><img src="${portada(e)}" alt="" width="1600" height="1000"><div class="emp-hero__txt"><small>${esc(e.sector)} · ${esc(e.city)}</small><h1>${esc(e.n)}</h1><p>${esc(e.region)}</p></div></header>
+  ${(() => { const x = EXTRA[e.id]; if (!x) return ''; return `
+  ${x.queHace ? `<p class="emp-que">${esc(x.queHace)}</p>` : ''}
+  ${x.datos?.length ? `<section class="cifras" aria-label="Cifras clave">${x.datos.map(d => `<a class="cifra" ${d.u ? `href="${esc(d.u)}" target="_blank" rel="noopener"` : ''}><b data-cuenta="${esc(d.v)}">${esc(d.v)}</b><span>${esc(d.t)}</span></a>`).join('')}</section>` : ''}
+  ${x.hitos?.length ? `<section aria-labelledby="hitT"><div class="sec__h"><h2 id="hitT">Su historia con su gente</h2><p>Toca cada año.</p></div><ol class="hitos" id="hitos">${x.hitos.map((h, k) => `<li><button type="button" aria-pressed="${k === x.hitos.length - 1}" data-h="${k}"><b>${esc(h.a)}</b></button></li>`).join('')}</ol><div class="hito__det" id="hitoDet" aria-live="polite"></div></section>` : ''}
+  ${x.beneficios?.length ? `<section aria-labelledby="benT"><div class="sec__h"><h2 id="benT">Lo que ofrece a quienes trabajan ahí</h2></div><div class="benef">${x.beneficios.map((b, k) => `<a class="benef__c" style="--c:${['#F2A900', '#7CC6EA', '#8FD3A4', '#F29C85', '#B9AEF0', '#FBE3A6'][k % 6]}" ${b.u ? `href="${esc(b.u)}" target="_blank" rel="noopener"` : ''}><i>${['✦', '♥', '★', '◆', '●', '▲'][k % 6]}</i><b>${esc(b.t)}</b><span>${esc(b.d || '')}</span></a>`).join('')}</div></section>` : ''}
+  ${x.reconocimientos?.length ? `<section class="medallas" aria-label="Reconocimientos recientes">${x.reconocimientos.map(r => `<a class="medalla2" ${r.u ? `href="${esc(r.u)}" target="_blank" rel="noopener"` : ''}><svg viewBox="0 0 64 80" aria-hidden="true"><path d="M20 44 12 78l20-10 20 10-8-34" fill="#2F6B3F"/><circle cx="32" cy="30" r="26" fill="#F2A900"/><text x="32" y="36" text-anchor="middle" font-size="15" font-weight="800" fill="#0F2A3D">${esc(r.a)}</text></svg><span>${esc(r.t)}${r.u ? ' ↗' : ''}</span></a>`).join('')}</section>` : ''}
+  ${x.trabaja?.u ? `<a class="btn emp-trabaja" href="${esc(x.trabaja.u)}" target="_blank" rel="noopener">${esc(x.trabaja.t || 'Ver sus ofertas de empleo')} ↗</a>` : ''}
+  ${x.perfiles?.length ? `<div class="emp-perfiles"><small>Suele convocar</small>${x.perfiles.map(t => `<span class="etq">${esc(t)}</span>`).join('')}</div>` : ''}`; })()}
   <section class="emp-datos" aria-label="Resumen visual">
     <div class="emp-dato"><b>${e.recognitions.length}</b><span>reconocimientos</span></div>
     <div class="emp-dato"><b>${e.practices.length}</b><span>prácticas con su gente</span></div>
@@ -76,6 +87,18 @@ export function montarEmpresa(e, M, reduce) {
   const det = document.getElementById('naipeDet'), naipes = [...document.querySelectorAll('.naipe')];
   const muestra = k => { const p = e.practices[k]; naipes.forEach((n, j) => n.setAttribute('aria-pressed', String(j === k))); det.innerHTML = `<span class="naipe__tema" style="--c:${tema(p.area)[1]}">${ico(p.area)}${esc(tema(p.area)[0])}</span><b>${esc(p.t)}</b><p>${esc(strip(p.d))}</p>`; if (M && !reduce) M.animate(det, { opacity: [0, 1], y: [10, 0] }, { duration: .3 }); };
   naipes.forEach((n, k) => n.addEventListener('click', () => muestra(k)));
+  const x = EXTRA[e.id];
+  if (x?.hitos?.length) {
+    const det = document.getElementById('hitoDet'), bs = [...document.querySelectorAll('#hitos button')];
+    const ver = k => { bs.forEach((b, j) => b.setAttribute('aria-pressed', String(j === k))); const h = x.hitos[k]; det.innerHTML = `<b>${esc(h.a)}</b><p>${esc(h.t)}</p>${h.u ? `<a href="${esc(h.u)}" target="_blank" rel="noopener">Fuente ↗</a>` : ''}`; if (M && !reduce) M.animate(det, { opacity: [0, 1], x: [16, 0] }, { duration: .3 }); };
+    bs.forEach((b, k) => b.addEventListener('click', () => ver(k))); ver(x.hitos.length - 1);
+  }
+  // Cifras que cuentan al aparecer
+  document.querySelectorAll('[data-cuenta]').forEach(b => {
+    const m = b.dataset.cuenta.match(/^([^\d]*)([\d.,]+)(.*)$/); if (!m || !M || reduce) return;
+    const fin = parseFloat(m[2].replace(/,/g, '')); if (!isFinite(fin) || /^(19|20)\d\d$/.test(m[2])) return;
+    try { M.inView(b, () => { M.animate(0, fin, { duration: 1.2, ease: 'easeOut', onUpdate: v => { b.textContent = m[1] + Math.round(v).toLocaleString('en-US') + m[3]; } }); }); } catch {}
+  });
   muestra(0);
   if (M && !reduce) try {
     M.animate('.emp-hero img', { scale: [1.12, 1] }, { duration: 1.2, ease: 'easeOut' });
