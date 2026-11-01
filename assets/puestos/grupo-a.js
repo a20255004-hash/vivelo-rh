@@ -173,7 +173,7 @@ export const DATOS = {
   'asistente-rrhh': {
     PUESTO: {
       id: 'asistente-rrhh', nombre: 'Asistente de RR.HH.', temporada: 'La tienda 13', foto: 'assets/cargos/asistente-rrhh.webp',
-      completa: false, listos: 1, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
+      completa: false, listos: 5, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
       sinopsis: 'Una cadena de supermercados de Piura abre su tienda 13 en cuatro semanas. Eres la asistente de RR.HH. que hace que todo pase: contratos, exámenes médicos, uniformes, credenciales, inducción y la cola de dudas de 45 personas nuevas. Nadie ve tu trabajo hasta que algo falla.',
       escenario: 'Supermercados Norte S.A.C. (ficticia) · Piura · 12 tiendas · 900 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
