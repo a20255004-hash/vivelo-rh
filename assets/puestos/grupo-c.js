@@ -9,7 +9,7 @@ export const DATOS = {
   'asistente-seleccion': {
     PUESTO: { ...MES,
       id: 'asistente-seleccion', nombre: 'Asistente de Selección', temporada: 'Cien entrevistas para una clínica', foto: 'assets/cargos/talent-acquisition.webp',
-      completa: false, listos: 0, primero: 'milena', ciudad: 'Arequipa', nota: ['Arequipa', 'Clínica privada que abre un nuevo piso de hospitalización.'], correo: 'seleccion@clinicamisti.pe',
+      completa: false, listos: 1, primero: 'milena', ciudad: 'Arequipa', nota: ['Arequipa', 'Clínica privada que abre un nuevo piso de hospitalización.'], correo: 'seleccion@clinicamisti.pe',
       sinopsis: 'Una clínica de Arequipa abre un piso nuevo y necesita 60 técnicas y técnicos de enfermería en un mes. Tú publicas avisos, filtras CV, coordinas entrevistas con jefas de enfermería que no tienen tiempo y verificas títulos y colegiaturas. Aprendes que en salud un error de selección no es solo un mal ingreso.',
       escenario: 'Clínica del Misti S.A.C. (ficticia) · Arequipa · 520 colaboradores',
       rel0: { milena: 0, sor: -1, angel: 0 },
