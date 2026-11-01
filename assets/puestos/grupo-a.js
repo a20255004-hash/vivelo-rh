@@ -50,7 +50,7 @@ export const DATOS = {
   'asistente-personal': {
     PUESTO: {
       id: 'asistente-personal', nombre: 'Analista de Administración de Personal', temporada: 'La planilla de la uva', foto: 'assets/cargos/asistente-personal.webp',
-      completa: true, listos: 1, primero: 'monica', ciudad: 'Ica', nota: ['Ica', 'Agroexportadora de uva de mesa, 1,200 trabajadores en campaña.'], correo: 'planillas@valleverde.pe',
+      completa: true, listos: 5, primero: 'monica', ciudad: 'Ica', nota: ['Ica', 'Agroexportadora de uva de mesa, 1,200 trabajadores en campaña.'], correo: 'planillas@valleverde.pe',
       sinopsis: 'Llegas a una agroexportadora de Ica en plena campaña de uva. En cuatro semanas la planilla pasa de 300 a 1,200 personas. Tienes que dar de alta, pagar bien y a tiempo, liquidar a quienes se van y aguantar una inspección. Aquí un error no es un número: es el sueldo de una familia.',
       escenario: 'Agrícola Valle Verde S.A.C. (ficticia) · Valle de Ica · régimen agrario y general · 1,200 trabajadores en campaña',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -91,7 +91,7 @@ export const DATOS = {
   'analista-capacitacion': {
     PUESTO: {
       id: 'analista-capacitacion', nombre: 'Analista de Capacitación y Desarrollo', temporada: 'Cuarenta agencias, un plan', foto: 'assets/cargos/analista-capacitacion.webp',
-      completa: true, listos: 1, primero: 'lorena', ciudad: 'Trujillo', nota: ['Trujillo', 'Financiera regional, 600 colaboradores en 40 agencias.'], correo: 'capacitacion@financierachimu.pe',
+      completa: true, listos: 3, primero: 'lorena', ciudad: 'Trujillo', nota: ['Trujillo', 'Financiera regional, 600 colaboradores en 40 agencias.'], correo: 'capacitacion@financierachimu.pe',
       sinopsis: 'Una financiera de Trujillo tiene un plan de capacitación que nadie cumple y una mora que crece. Te contratan para que la capacitación sirva de verdad: con poco presupuesto, gerentes que no sueltan a su gente y asesores que ven los cursos como castigo. En un mes, tienes que demostrar que aprender cambia resultados.',
       escenario: 'Financiera Chimú S.A. (ficticia) · Trujillo y agencias del norte · 600 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
