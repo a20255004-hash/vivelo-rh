@@ -132,7 +132,7 @@ export const DATOS = {
   'analista-relaciones': {
     PUESTO: {
       id: 'analista-relaciones', nombre: 'Analista de Relaciones Laborales', temporada: 'El pliego', foto: 'assets/cargos/analista-relaciones.webp',
-      completa: true, listos: 1, primero: 'arturo', ciudad: 'Chimbote', nota: ['Chimbote', 'Conservera de pescado, 450 trabajadores y un sindicato.'], correo: 'relaciones.laborales@conservaspacifico.pe',
+      completa: true, listos: 5, primero: 'arturo', ciudad: 'Chimbote', nota: ['Chimbote', 'Conservera de pescado, 450 trabajadores y un sindicato.'], correo: 'relaciones.laborales@conservaspacifico.pe',
       sinopsis: 'Llegas a una conservera de Chimbote el mismo día en que el sindicato presenta su pliego de reclamos. Durante un mes acompañas la negociación, manejas un caso disciplinario delicado y atiendes una inspección. Aprendes que en relaciones laborales la confianza vale tanto como la ley.',
       escenario: 'Conservas del Pacífico S.A.C. (ficticia) · Chimbote · 450 trabajadores · sindicato de empresa',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
