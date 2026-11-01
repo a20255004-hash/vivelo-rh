@@ -9,7 +9,7 @@ export const DATOS = {
   practicante: {
     PUESTO: {
       id: 'practicante', nombre: 'Practicante de RR.HH.', temporada: 'El pedido de Hamburgo', foto: 'assets/cargos/practicante.webp',
-      completa: true, listos: 1, primero: 'carla', ciudad: 'Arequipa', nota: ['Arequipa', 'Planta textil de fibra de alpaca, 320 trabajadores.'], correo: 'practicas.rrhh@hilandandina.pe',
+      completa: true, listos: 9, primero: 'carla', ciudad: 'Arequipa', nota: ['Arequipa', 'Planta textil de fibra de alpaca, 320 trabajadores.'], correo: 'practicas.rrhh@hilandandina.pe',
       sinopsis: 'Empiezas tus prácticas profesionales en una planta textil de Arequipa justo cuando llega el pedido más grande del año: chompas de alpaca para una tienda de Hamburgo. Hay que contratar e inducir a 40 operarias en un mes. Tú archivas, coordinas, das tu primera charla y aprendes que en RR.HH. hasta lo pequeño tiene consecuencias.',
       escenario: 'Hilandería Andina S.A.C. (ficticia) · Parque Industrial de Arequipa · 320 trabajadores · régimen laboral general',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',

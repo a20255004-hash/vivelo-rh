@@ -5,7 +5,7 @@ export const PUESTO = {
   nombre: 'Analista de Selección',
   temporada: 'El supervisor que faltaba',
   foto: 'assets/cargos/analista-seleccion.webp',
-  completa: true, listos: 2, primero: 'rocio',
+  completa: true, listos: 7, primero: 'rocio',
   ciudad: 'Tacna', nota: ['Tacna', 'Distribuidora de consumo masivo, 180 trabajadores.'],
   correo: 'seleccion@pacificosur.pe',
   rel0: { rocio: 0, walter: -1, fernando: 0, kelly: 0 },
