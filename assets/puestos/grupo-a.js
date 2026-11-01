@@ -91,7 +91,7 @@ export const DATOS = {
   'analista-capacitacion': {
     PUESTO: {
       id: 'analista-capacitacion', nombre: 'Analista de Capacitación y Desarrollo', temporada: 'Cuarenta agencias, un plan', foto: 'assets/cargos/analista-capacitacion.webp',
-      completa: true, listos: 3, primero: 'lorena', ciudad: 'Trujillo', nota: ['Trujillo', 'Financiera regional, 600 colaboradores en 40 agencias.'], correo: 'capacitacion@financierachimu.pe',
+      completa: true, listos: 5, primero: 'lorena', ciudad: 'Trujillo', nota: ['Trujillo', 'Financiera regional, 600 colaboradores en 40 agencias.'], correo: 'capacitacion@financierachimu.pe',
       sinopsis: 'Una financiera de Trujillo tiene un plan de capacitación que nadie cumple y una mora que crece. Te contratan para que la capacitación sirva de verdad: con poco presupuesto, gerentes que no sueltan a su gente y asesores que ven los cursos como castigo. En un mes, tienes que demostrar que aprender cambia resultados.',
       escenario: 'Financiera Chimú S.A. (ficticia) · Trujillo y agencias del norte · 600 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
