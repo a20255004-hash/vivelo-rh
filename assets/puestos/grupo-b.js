@@ -90,7 +90,7 @@ export const DATOS = {
   generalista: {
     PUESTO: {
       id: 'generalista', nombre: 'Generalista de RR.HH.', temporada: 'Temporada alta', foto: 'assets/cargos/generalista.webp',
-      completa: false, listos: 1, primero: 'veronica', ciudad: 'Cusco', nota: ['Cusco', 'Hotel de 120 habitaciones, 150 trabajadores.'], correo: 'rrhh@hotelinti.pe',
+      completa: false, listos: 5, primero: 'veronica', ciudad: 'Cusco', nota: ['Cusco', 'Hotel de 120 habitaciones, 150 trabajadores.'], correo: 'rrhh@hotelinti.pe',
       sinopsis: 'Eres la única persona de RR.HH. en un hotel del Cusco que entra en temporada alta. Reclutas, haces planilla con un contador externo, resuelves turnos, apagas conflictos en la cocina y preparas la visita de una certificadora. Un mes para aprender que ser generalista es saber un poco de todo… y mucho de personas.',
       escenario: 'Hotel Inti Wasi S.A.C. (ficticio) · Centro histórico del Cusco · 150 trabajadores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
