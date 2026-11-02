@@ -49,7 +49,7 @@ export const DATOS = {
   'analista-compensaciones': {
     PUESTO: {
       id: 'analista-compensaciones', nombre: 'Analista de Compensaciones y Beneficios', temporada: 'La brecha', foto: 'assets/cargos/analista-compensaciones.webp',
-      completa: false, listos: 1, primero: 'gustavo', ciudad: 'Lima', nota: ['Lima', 'Operadora de telecomunicaciones, 1,200 colaboradores.'], correo: 'compensaciones@andestel.pe',
+      completa: false, listos: 5, primero: 'gustavo', ciudad: 'Lima', nota: ['Lima', 'Operadora de telecomunicaciones, 1,200 colaboradores.'], correo: 'compensaciones@andestel.pe',
       sinopsis: 'Llegas a una empresa de telecomunicaciones de Lima en plena revisión salarial anual. Una encuesta de mercado, un presupuesto ajustado y una ingeniera que pregunta por qué gana menos que sus compañeros del mismo puesto. Un mes para aprender que detrás de cada número hay una conversación pendiente.',
       escenario: 'AndesTel S.A. (ficticia) · San Isidro, Lima · 1,200 colaboradores',
       duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
