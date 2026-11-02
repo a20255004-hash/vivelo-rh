@@ -1,6 +1,12 @@
 # Guía para escribir capítulos de VÍVELO RH
 
-VÍVELO RH es una plataforma peruana en la que una persona vive un mes de trabajo en un puesto de RR.HH.: 9 capítulos, una sola historia, con WhatsApp, correo, llamadas y decisiones. Repositorio: `C:\Users\ASUS\GITHUB\vivelo-rh` (sitio estático, módulos ES).
+VÍVELO RH es una plataforma peruana en la que una persona vive **dos semanas de trabajo (10 días hábiles)** en un puesto de RR.HH.: 10 capítulos, uno por día, de lunes a viernes de la Semana 1 y la Semana 2, una sola historia, con WhatsApp, correo, llamadas y decisiones. Repositorio: `C:\Users\ASUS\GITHUB\vivelo-rh` (sitio estático, módulos ES).
+
+## Calendario de 10 días (obligatorio)
+- Capítulo n = día n: 1 «Semana 1, lunes», 2 martes, 3 miércoles, 4 jueves, 5 viernes, 6 «Semana 2, lunes», 7 martes, 8 miércoles, 9 jueves, 10 «Semana 2, viernes».
+- El capítulo 10 es «Cierre de la quincena»: cierre de la historia, evaluación de las dos semanas y la pregunta «¿te ves en este puesto?». No lleva `siguiente`.
+- En la ficha de tu puesto (`assets/puestos/grupo-*.js` o `assets/seleccion.js`) edita SOLO el bloque `capitulos` de tu puesto: 10 entradas `{ n, semana, dia, titulo, comp, resumen }` con los días de arriba, y cambia «un mes»/«mes» por «dos semanas» en la `sinopsis` de tu puesto. Ajusta los números de capítulo de las listas de competencias de tu puesto si cambian. No toques los bloques de otros puestos (otro agente puede estar editando el mismo archivo: usa reemplazos pequeños y exactos).
+- En los capítulos ya escritos de tu puesto, corrige `CAP.dia`, `CAP.siguiente` y cualquier mención de día de la semana, de «mes» o de «Fin de mes» que ya no cuadre con el nuevo calendario.
 
 ## Antes de escribir, lee
 1. La ficha de tu puesto en `assets/puestos/grupo-a.js` … `grupo-d.js` (o `assets/seleccion.js` para Analista de Selección): `PUESTO.capitulos` (título, día y resumen de cada capítulo), `PUESTO.sinopsis`, `PUESTO.escenario`, `PUESTO.ciudad` y `PERSONAS`.
@@ -10,8 +16,7 @@ VÍVELO RH es una plataforma peruana en la que una persona vive un mes de trabaj
 ## Qué entregar
 - Un archivo por capítulo: `assets/cap/<idPuesto>-<n>.js`. Excepción: Analista de Selección usa `assets/seleccion-cap<n>.js`.
 - Mismos exports que los ejemplos: `CAP`, `CARTERA`, `FUTURO`, `CHATS`, `WSP`, `CORREOS`, `QUIZ` (4-5 preguntas, 4 opciones, `ok` 0-3 y `por`) y `ESCENAS` (6 a 8 escenas).
-- `CAP.titulo` y `CAP.dia` deben ser exactamente los de `PUESTO.capitulos[n-1]`. `CAP.siguiente = { n, titulo, dia }` apunta al capítulo siguiente; el capítulo 9 no lleva `siguiente`.
-- El capítulo 9 es «Fin de mes»: cierre de la historia, evaluación del mes y la pregunta «¿te ves en este puesto?».
+- `CAP.titulo` y `CAP.dia` deben ser exactamente los de `PUESTO.capitulos[n-1]`. `CAP.siguiente = { n, titulo, dia }` apunta al capítulo siguiente; el capítulo 10 no lleva `siguiente`.
 - Antes de terminar, valida cada archivo con `node scripts/validar-capitulo.mjs <idPuesto> <n>` hasta que diga `OK`.
 
 ## El motor (capitulo.html) en resumen
@@ -34,7 +39,7 @@ VÍVELO RH es una plataforma peruana en la que una persona vive un mes de trabaj
 ## Historia y personajes
 - **Diversidad real de personajes:** edades (jóvenes, veteranos), géneros, orígenes (costa, sierra, selva, migrantes), niveles educativos, personas con discapacidad, madres y padres que cuidan a otros, gente que habla quechua o aimara cuando corresponde. Que nadie sea solo «el bueno» o «el malo»: el jefe duro también tiene razones; la persona amable también se equivoca.
 - **Historia bien hilada:** lo que pasa en el capítulo N se nota en el N+1 (mensajes que responden a lo anterior, personajes que recuerdan lo que hiciste, problemas que crecen o se resuelven). Revisa los capítulos anteriores antes de escribir el siguiente.
-- Un solo hilo durante los 9 capítulos, con consecuencias de decisiones anteriores (usa las flags de `FUTURO`).
+- Un solo hilo durante los 10 capítulos, con consecuencias de decisiones anteriores (usa las flags de `FUTURO`).
 - `who` y `rel` solo pueden usar ids de `PERSONAS`. Si un personaje tiene `desde: N`, no aparece antes del capítulo N.
 - Puedes sumar personajes secundarios nuevos, con personalidades realistas y complejas (dudas, contradicciones, motivos propios). Aparecen en el texto y como chats de `CHATS` sin `who`, con color `c`. No los pongas en `who` ni en `rel`.
 - En cada capítulo usa al menos 4 tipos de actividad distintos y no repitas la mecánica con la que abrió el capítulo anterior.
@@ -62,8 +67,8 @@ VÍVELO RH es una plataforma peruana en la que una persona vive un mes de trabaj
 - No agregues imágenes nuevas.
 
 ## Límites
-- Edita SOLO los archivos de capítulo de tu puesto.
-- No toques `assets/puestos/*`, `capitulo.html`, `assets/cap/*` de otros puestos ni nada más.
+- Edita SOLO los archivos de capítulo de tu puesto y el bloque de tu puesto en su ficha.
+- No toques `capitulo.html`, `assets/cap/*` de otros puestos, los bloques de otros puestos en `assets/puestos/*` ni nada más.
 - No hagas commit ni push.
 - Al terminar, informa:
   - archivos creados;

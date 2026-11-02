@@ -30,8 +30,9 @@ else {
   if (!existe(CAP.foto)) err(`CAP.foto no existe: ${CAP.foto}`);
   const esperado = PUESTO.capitulos?.[n - 1];
   if (esperado && esperado.titulo !== CAP.titulo) av(`El título «${CAP.titulo}» no coincide con el del puesto «${esperado.titulo}»`);
-  if (n < 9 && (!CAP.siguiente || CAP.siguiente.n !== n + 1)) err('CAP.siguiente debe apuntar al capítulo ' + (n + 1));
-  if (n === 9 && CAP.siguiente) err('El capítulo 9 no lleva CAP.siguiente');
+  const ult = PUESTO.capitulos?.length || 10;
+  if (n < ult && (!CAP.siguiente || CAP.siguiente.n !== n + 1)) err('CAP.siguiente debe apuntar al capítulo ' + (n + 1));
+  if (n === ult && CAP.siguiente) err('El último capítulo no lleva CAP.siguiente');
 }
 if (!Array.isArray(ESCENAS) || ESCENAS.length < 5 || ESCENAS.length > 9) err('ESCENAS debe tener entre 5 y 9 escenas');
 const CANAL = ['correo', 'whatsapp', 'llamada', 'presencial', 'documento', 'sistema'];
