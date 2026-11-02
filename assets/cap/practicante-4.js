@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 4 · «Tu primera charla» · Semana 2, martes.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 4 · «Tu primera charla» · Semana 1, jueves.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - Ley 29783, de Seguridad y Salud en el Trabajo: el empleador capacita en seguridad al momento de la contratación (art. 35, inc. b, según el texto consolidado).
 //   https://www.ugel02.gob.pe/sites/default/files/PRCCSST/ley29783.pdf
@@ -10,20 +10,20 @@
 // - Ley 27942, de Prevención y Sanción del Hostigamiento Sexual, y su reglamento (D.S. 014-2019-MIMP): el empleador informa y capacita para prevenirlo. Texto en SPIJ: https://spij.minjus.gob.pe/
 
 export const CAP = {
-  n: 4, titulo: 'Tu primera charla', dia: 'Semana 2, martes', foto: 'assets/foto/capacitacion.webp',
+  n: 4, titulo: 'Tu primera charla', dia: 'Semana 1, jueves', foto: 'assets/foto/capacitacion.webp',
   lugar: 'Hilandería Andina · Sala de capacitación',
   inicio: '07:20', fin: '20:00', cierreHora: '19:20',
-  apertura: 'Martes. A las 9:00 tienes delante a 12 operarias nuevas y una pizarra. Es tu primera charla.', boton: 'Entrar a la sala',
+  apertura: 'Jueves. A las 9:00 tienes delante a 12 operarias nuevas y una pizarra. Es tu primera charla.', boton: 'Entrar a la sala',
   kusi: 'Nervios normales. Lo que importa es que te entiendan. ¡Dale!',
   lead: 'Armaste tu guion, sobreviviste a un proyector rebelde, te diste cuenta de que Rosa no entendía y le escribiste en simple lo que nadie le había explicado.',
   reflexion: '¿Cómo supiste, hoy, si alguien de verdad te había entendido?',
-  siguiente: { n: 5, titulo: 'El error', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'El error', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
   { id: 'induccion', p: 'Inducción del grupo 1', j: 'Carla · RR.HH.', d: 0, e: '12 operarias, 9:00 a 12:00' },
   { id: 'registro', p: 'Registro de capacitación', j: 'Carla · SST', d: 0, e: 'Firmas el mismo día' },
-  { id: 'asistencia', p: 'Reporte de horas extra', j: 'Diego · Planillas', d: 0, e: 'Semana 1, para el jueves' },
+  { id: 'asistencia', p: 'Reporte de horas extra', j: 'Diego · Planillas', d: 0, e: 'Para mañana viernes' },
   { id: 'seleccion', p: 'Segunda convocatoria', j: 'Carla · Don Teófilo', d: 0, e: '15 aprobadas en la prueba' },
   { id: 'legajos', p: 'Archivo de legajos', j: 'Carla · RR.HH.', d: 0, e: 'Plan en revisión de Legal' },
 ];
@@ -56,7 +56,7 @@ export const WSP = [
   { chat: 'diego', t: '08:10', de: 'Diego', txt: 'Suerte en tu charla. Tip: nunca preguntes «¿alguna duda?». Nadie responde nunca 😅' },
   { chat: 'rosa', t: '12:20', de: 'Rosa', txt: 'Gracias señorita 🙏 Ya elegí mi AFP, como usted dijo, con calma.', si: 'rosa_informada' },
   { chat: 'edith', t: '13:45', de: 'Edith', txt: 'Gracias por la charla, señorita. Mañana traigo mis tijeras de remallar, que las de aquí están duras 😄', si: 'preseleccion_diversa' },
-  { chat: 'diego', t: '18:55', de: 'Diego', txt: 'Oye, ¿me mandas hoy el reporte de horas extra de la semana 1? Mi jefa cierra planilla el jueves 😬' },
+  { chat: 'diego', t: '18:55', de: 'Diego', txt: 'Oye, ¿me mandas hoy el reporte de horas extra de esta semana? Mi jefa lo cierra mañana 😬' },
 ];
 
 export const CORREOS = [
@@ -135,7 +135,7 @@ export const ESCENAS = [
   },
   {
     id: 'd3', t: '09:15', ch: 'presencial', who: null, titulo: 'El proyector', banner: 'assets/foto2/presentacion.webp', lugar: 'Sala de capacitación', show: ['calidad', 'tiempo', 'confianza'],
-    body: (n, F) => `<p>Doce operarias te miran desde sus sillas de plástico. Rosa está en la segunda fila, con su trenza y la cartilla cerrada sobre las rodillas.${F.has('preseleccion_diversa') ? ' Edith y Yolanda, que aprobaron la prueba del sábado, se sentaron juntas adelante.' : ''}</p><p>Enciendes el proyector. Parpadea, hace un ruido y <mark class="clave">se apaga</mark>. TI dice que alguien puede venir «en unos 40 minutos».</p>`,
+    body: (n, F) => `<p>Doce operarias te miran desde sus sillas de plástico. Rosa está en la segunda fila, con su trenza y la cartilla cerrada sobre las rodillas.${F.has('preseleccion_diversa') ? ' Edith y Yolanda, que aprobaron la prueba de las 7:00, se sumaron como oyentes y se sentaron juntas adelante.' : ''}</p><p>Enciendes el proyector. Parpadea, hace un ruido y <mark class="clave">se apaga</mark>. TI dice que alguien puede venir «en unos 40 minutos».</p>`,
     type: 'choice',
     choices: [
       { id: 'a', label: 'Empezar por el recorrido de la línea y usar el papelógrafo para lo demás.',
@@ -268,7 +268,7 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 4 : q === 'aceptable' ? 1 : -2, personas: picks.includes('hijos') ? 3 : 0 },
         flags: picks.includes('hijos') ? ['permisos_explicados'] : [], cartera: { induccion: 'Grupo 1 listo · 2 cambios para el grupo 2' },
-        out: picks.includes('hijos') ? 'Carla lee la tarjeta 5 dos veces. «Esto lo vamos a ver más de una vez este mes», dice. Agrega al guion cómo pedir permisos y cambios de turno.' : 'Carla aprueba tus cambios. La tarjeta 5 queda en el sobre, sin respuesta.',
+        out: picks.includes('hijos') ? 'Carla lee la tarjeta 5 dos veces. «Esto lo vamos a ver más de una vez en estas semanas», dice. Agrega al guion cómo pedir permisos y cambios de turno.' : 'Carla aprueba tus cambios. La tarjeta 5 queda en el sobre, sin respuesta.',
         pro: { ok: 'Escuchas lo que dicen las participantes, no solo lo que te gustaría oír.', risk: 'Acortar a una hora suena bien, pero dejaría fuera la seguridad.', info: 'La tarjeta 5 no es sobre la charla: es una alerta de lo que puede pasar en el turno de noche.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Escuchaste lo que de verdad necesitan.' : '¿Y la tarjeta 5?'],
       };
@@ -281,14 +281,14 @@ export const ESCENAS = [
   },
   {
     id: 'd8', t: '19:00', ch: 'whatsapp', who: null, titulo: 'El reporte de Diego', banner: 'assets/esc/reloj.webp', show: ['tiempo', 'calidad', 'personas'],
-    body: () => `<p>Vas en la combi de regreso, de pie, apretada entre mochilas. Te duelen los pies y la garganta de tanto hablar.</p><p>Diego te escribe: necesita hoy <mark class="clave">el reporte de horas extra de la semana 1</mark>. Su jefa cierra planilla el jueves.</p>`,
-    chat: ['Oye, ¿me mandas hoy el reporte de horas extra de la semana 1? Mi jefa cierra planilla el jueves 😬'],
+    body: () => `<p>Vas en la combi de regreso, de pie, apretada entre mochilas. Te duelen los pies y la garganta de tanto hablar.</p><p>Diego te escribe: necesita hoy <mark class="clave">el reporte de horas extra de esta semana</mark>. Su jefa lo cierra mañana.</p>`,
+    chat: ['Oye, ¿me mandas hoy el reporte de horas extra de esta semana? Mi jefa lo cierra mañana 😬'],
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Hacerlo ahora en el celular, copiando del Excel de marcaciones.',
         res: { q: null, fx: { tiempo: 3, calidad: -2 }, flags: ['he_bus'], envia: ['diego', '📎 HE_semana1.xlsx · Listo, revisa por si acaso 🙏'], out: 'Lo armas en veinte minutos, con el celular en una mano y el pasamanos en la otra. Diego te manda un «¡eres lo máximo!». Llegas a tu casa y te duermes vestida.', kusi: ['pensando', 'Rápido… pero muy cansada.'] } },
-      { id: 'b', label: 'Decirle que se lo mandas mañana a las 9:00, revisado.',
-        res: { q: null, fx: { tiempo: -1, calidad: 2 }, flags: ['he_manana'], envia: ['diego', 'Diego, hoy ya no doy más 😅 Mañana a las 9:00 te lo mando revisado, así llegas al jueves tranquilo.'], out: 'Diego responde: «Ya, dale, mañana temprano». Llegas a tu casa, cenas un pan con queso y te duermes antes de las diez.', kusi: ['feliz', 'Descansar también es parte del trabajo.'] } },
+      { id: 'b', label: 'Decirle que se lo mandas esta noche desde tu casa, revisado con calma.',
+        res: { q: null, fx: { tiempo: -1, calidad: 2 }, flags: ['he_manana'], envia: ['diego', 'Diego, en la combi ya no doy más 😅 Llegando a mi casa te lo mando revisado, así llegas a mañana tranquilo.'], out: 'Diego responde: «Ya, dale». Llegas a tu casa, cenas un pan con queso, revisas el reporte con calma y lo mandas a las 21:30.', kusi: ['feliz', 'Descansar también es parte del trabajo.'] } },
     ],
     mirada: { ve: 'El cansancio también es un factor de riesgo, aunque no salga en ninguna matriz. Un reporte con números que afectan sueldos, armado de pie en una combi, tiene más probabilidades de error. Saber cuándo parar es parte del oficio.' },
   },

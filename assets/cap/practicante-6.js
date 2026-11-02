@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 6 · «Rosa quiere irse» · Semana 3, martes.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 6 · «Rosa quiere irse» · Semana 2, lunes.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - D.S. 007-2002-TR, TUO de la Ley de Jornada de Trabajo: el horario nocturno va de 22:00 a 06:00 y quien trabaja de noche
 //   no puede percibir menos que la remuneración mínima vital más una sobretasa de 35% (art. 8).
@@ -12,28 +12,28 @@
 // - RMV: S/ 1,230 desde el 1 de octubre de 2026 (D.S. 015-2026-TR), según la guía del proyecto.
 
 export const CAP = {
-  n: 6, titulo: 'Rosa quiere irse', dia: 'Semana 3, martes', foto: 'assets/foto/frente-a-frente.webp',
+  n: 6, titulo: 'Rosa quiere irse', dia: 'Semana 2, lunes', foto: 'assets/foto/frente-a-frente.webp',
   lugar: 'Hilandería Andina · Oficina de RR.HH.',
   inicio: '06:45', fin: '20:00', cierreHora: '19:15',
-  apertura: 'Martes, 6:40 de la mañana. Rosa acaba de salir del turno de noche y te escribe un mensaje que no esperabas.', boton: 'Leer el mensaje',
+  apertura: 'Lunes, 6:40 de la mañana. Rosa acaba de salir del turno de noche y te escribe un mensaje que no esperabas.', boton: 'Leer el mensaje',
   kusi: 'Hoy toca escuchar más que hablar. Y no prometer lo que no depende de ti.',
   lead: 'Escuchaste a Rosa sin apurarla, le explicaste sus derechos sin empujarla, buscaste opciones reales con Producción y propusiste una regla para que los cambios de turno sean justos para todas.',
   reflexion: '¿Qué te costó más hoy: escuchar sin interrumpir o no prometer nada?',
-  siguiente: { n: 7, titulo: 'La auditoría', dia: 'Semana 3, viernes' },
+  siguiente: { n: 7, titulo: 'La auditoría', dia: 'Semana 2, martes' },
 };
 
 export const CARTERA = [
   { id: 'rosa', p: 'El caso de Rosa', j: 'Carla · Don Teófilo', d: 0, e: 'Quiere renunciar' },
   { id: 'turnos', p: 'Cambios de turno', j: 'Don Teófilo · Producción', d: 0, e: 'Sin regla escrita' },
   { id: 'induccion', p: 'Inducción del grupo 2', j: 'Carla · RR.HH.', d: 0, e: 'Hoy, 15 operarias' },
-  { id: 'auditoria', p: 'Auditoría de Hamburgo', j: 'Carla · Gerencia', d: 0, e: 'Este viernes' },
+  { id: 'auditoria', p: 'Auditoría de Hamburgo', j: 'Carla · Gerencia', d: 0, e: 'Mañana' },
   { id: 'asistencia', p: 'Reporte de asistencia', j: 'Carla · RR.HH.', d: 0, e: 'Con doble control' },
 ];
 
 export const FUTURO = {
   rosa_escuchada: ['Escuchaste a Rosa con preguntas abiertas y sin juzgarla.', 'Rosa contará su experiencia en la auditoría del capítulo 7.'],
   rosa_presionada: ['Le pediste a Rosa que aguantara «por el pedido».', 'Rosa no volverá a confiar en RR.HH. Capítulo 7.'],
-  rosa_informada_renuncia: ['Rosa conoce sus derechos si renuncia: el preaviso y la exoneración.', 'Decidirá informada. Capítulo 9.'],
+  rosa_informada_renuncia: ['Rosa conoce sus derechos si renuncia: el preaviso y la exoneración.', 'Decidirá informada. Capítulos 9 y 10.'],
   opciones_rosa: ['Llevaste a Carla y a Don Teófilo opciones reales para Rosa.', 'Rosa probará un turno fijo de día. Capítulo 8.'],
   teofilo_aliado: ['Don Teófilo aceptó un cambio de turno voluntario con una regla clara.', 'Será clave en tu propuesta del capítulo 8.'],
   teofilo_bloqueo: ['Don Teófilo se negó al cambio de turno.', 'Rosa sigue en el turno de noche. Capítulo 8.'],
@@ -54,14 +54,14 @@ export const CHATS = {
 export const WSP = [
   { chat: 'rosa', t: '06:40', de: 'Rosa', txt: 'Señorita, disculpe la hora. ¿Puedo hablar con usted hoy? Creo que voy a renunciar 😔', no: 'rosa_expuesta' },
   { chat: 'justina', t: '06:40', de: 'Justina', txt: 'Hijita, la Rosa quiere renunciar. A ti no se atreve a decirte. Está en la puerta, llorando.', si: 'rosa_expuesta' },
-  { chat: 'grupo', t: '07:30', de: 'Carla', txt: 'Hoy entra el grupo 2. Y el viernes llega la auditoría de Hamburgo. Semana movida 🦙' },
+  { chat: 'grupo', t: '07:30', de: 'Carla', txt: 'Hoy entra el grupo 2. Y mañana llega la auditoría de Hamburgo. Semana movida 🦙' },
   { chat: 'edith', t: '12:30', de: 'Edith', txt: 'Señorita, a mí la noche no me molesta. Mis hijos ya son grandes y me sirve la sobretasa. Si la Rosa necesita, yo cambio.', si: 'opciones_rosa' },
   { chat: 'teofilo', t: '16:20', de: 'Don Teófilo', txt: 'Ya. Que cambien la Huamaní y la Coaquira. Pero con su regla escrita, para que no me vengan todas.', si: 'teofilo_aliado' },
   { chat: 'diego', t: '19:20', de: 'Diego', txt: 'Me contaron lo de Rosa. Qué bueno que la escuchaste. A mí nadie me preguntó nada cuando quise irme el año pasado.' },
 ];
 
 export const CORREOS = [
-  { t: '07:15', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Grupo 2 · inducción a las 15:00', html: '<p>Hoy das la inducción al grupo 2 con el guion mejorado. Yo entro a pensiones. Y el viernes llega la auditoría de la tienda de Hamburgo: mañana te explico.</p><p>Carla</p>' },
+  { t: '07:15', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Grupo 2 · inducción a las 15:00', html: '<p>Hoy das la inducción al grupo 2 con el guion mejorado. Yo entro a pensiones. Y mañana llega la auditoría de la tienda de Hamburgo: en la tarde te explico.</p><p>Carla</p>' },
   { t: '17:40', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Re: Regla de cambios de turno', html: '<p>Tu regla es buena. La paso a Gerencia para que sea política de la planta.</p><p>Carla</p>', si: 'regla_turnos' },
 ];
 
@@ -206,7 +206,7 @@ export const ESCENAS = [
           kusi: ['celebra', 'Don Teófilo dijo que sí… ¡con condiciones!'] } },
       { id: 'b', label: 'Decirle que si no acepta, Carla lo llevará a Gerencia.',
         res: { q: 'aceptable', fx: { personas: -2, confianza: -2 }, rel: { teofilo: -1 }, flags: ['teofilo_bloqueo'],
-          out: '«Que lleve lo que quiera», dice Don Teófilo, y se da la vuelta. Gerencia aprobará el cambio el viernes, pero Rosa tendrá tres noches más.',
+          out: '«Que lleve lo que quiera», dice Don Teófilo, y se da la vuelta. Gerencia aprobará el cambio el jueves, pero Rosa tendrá tres noches más.',
           pro: { ok: 'Quieres que Rosa tenga una salida.', risk: 'Amenazar a un jefe con su gerencia gana una batalla y pierde un aliado.' },
           kusi: ['pensando', 'Funcionó a medias, y con un costo.'] } },
       { id: 'c', label: 'Aceptar su no: él responde por la producción y la noche no se puede quedar sin gente.',
@@ -261,7 +261,7 @@ export const ESCENAS = [
   },
   {
     id: 'f7', t: '18:10', ch: 'presencial', who: 'rosa', titulo: 'La decisión de Rosa', banner: 'assets/foto2/acuerdo-manos.webp', lugar: 'Puerta de la planta', show: ['personas', 'confianza'],
-    body: (n, F) => `<p>Terminó la inducción del grupo 2. Rosa te espera en la puerta, ya descansada, con una bolsita de maíz tostado y queso.</p>${F.has('teofilo_aliado') ? '<p>«Me dijo la señora Justina que desde el lunes puedo estar de día, si la Edith cambia conmigo. Me quedo, señorita. A probar.»</p>' : F.has('rosa_presionada') ? '<p>«Voy a aguantar, señorita, como usted dijo.» Lo dice sin mirarte.</p>' : '<p>«Gracias por intentarlo, señorita. Voy a pensarlo hasta el jueves. Ya sé lo de los 30 días.»</p>'}<p>Te extiende la bolsita: <mark class="clave">«Es de mi mamá, de Chivay»</mark>.</p>`,
+    body: (n, F) => `<p>Terminó la inducción del grupo 2. Rosa te espera en la puerta, ya descansada, con una bolsita de maíz tostado y queso.</p>${F.has('teofilo_aliado') ? '<p>«Me dijo la señora Justina que desde el miércoles puedo estar de día, si la Edith cambia conmigo. Me quedo, señorita. A probar.»</p>' : F.has('rosa_presionada') ? '<p>«Voy a aguantar, señorita, como usted dijo.» Lo dice sin mirarte.</p>' : '<p>«Gracias por intentarlo, señorita. Voy a pensarlo hasta el jueves. Ya sé lo de los 30 días.»</p>'}<p>Te extiende la bolsita: <mark class="clave">«Es de mi mamá, de Chivay»</mark>.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Aceptarla, agradecerle y compartirla con Diego y Carla.',

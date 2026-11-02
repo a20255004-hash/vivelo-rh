@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 2 · «Los legajos» · Semana 1, miércoles.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 2 · «Los legajos» · Semana 1, martes.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - Ley 29733, de Protección de Datos Personales (datos sensibles, finalidad, derecho de acceso del titular). Texto en SPIJ: https://spij.minjus.gob.pe/
 // - Decreto Legislativo 1310, numeral 3.4: conservar documentos y constancias de pago de obligaciones laborales hasta cinco años después del pago.
@@ -9,14 +9,14 @@
 // - Ley 26772, que prohíbe requisitos discriminatorios en las ofertas de empleo y el acceso a la formación. Texto en SPIJ: https://spij.minjus.gob.pe/
 
 export const CAP = {
-  n: 2, titulo: 'Los legajos', dia: 'Semana 1, miércoles', foto: 'assets/foto/mesa-papeles.webp',
+  n: 2, titulo: 'Los legajos', dia: 'Semana 1, martes', foto: 'assets/foto/mesa-papeles.webp',
   lugar: 'Hilandería Andina · Archivo de RR.HH.',
   inicio: '07:35', fin: '19:30', cierreHora: '18:55',
-  apertura: 'Miércoles en el Parque Industrial. El sol de Arequipa ya quema a las ocho y tú tienes una cita con 300 legajos.', boton: 'Abrir el archivo',
+  apertura: 'Martes en el Parque Industrial. El sol de Arequipa ya quema a las ocho y tú tienes una cita con 300 legajos.', boton: 'Abrir el archivo',
   kusi: 'Hoy toca papel, folios y datos que no son tuyos. ¡Con cuidado y con ganas!',
   lead: 'Supiste cuánto se guarda un legajo, encontraste lo que no debía estar en uno, cuidaste el legajo de una vecina y armaste tu primer plan de archivo.',
   reflexion: '¿Qué documento de hoy te hizo pensar en la persona que está detrás del papel?',
-  siguiente: { n: 3, titulo: 'Cien CV', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'Cien CV', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -35,7 +35,7 @@ export const FUTURO = {
   plan_legajos: ['Armaste un plan de legajos con secciones, accesos y plazos.', 'Será tu evidencia en la auditoría del capítulo 7.'],
   plan_flojo: ['Tu plan de legajos quedó con huecos.', 'La auditoría del capítulo 7 los encontrará.'],
   dni_seguimiento: ['Contactaste a quienes tenían el DNI vencido, con calma y por escrito.', 'Los legajos nuevos estarán al día para el alta.'],
-  reporte_cifras: ['Tu reporte a Carla tenía cifras y pendientes claros.', 'Carla te dará más responsabilidad en la selección del capítulo 3.'],
+  reporte_cifras: ['Tu reporte a Carla tenía cifras y pendientes claros.', 'Carla te dará más responsabilidad mañana, en la selección del capítulo 3.'],
 };
 
 export const CHATS = {
@@ -49,11 +49,11 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '07:38', de: 'Carla', txt: 'Hoy toca archivo. Yo estoy en reunión con Gerencia hasta las 10. Cualquier cosa urgente, me escriben 🙏' },
-  { chat: 'diego', t: '07:41', de: 'Diego', txt: 'Hoy es miércoles de chochoca en el comedor. Te aviso para que no te asustes 😂' },
+  { chat: 'diego', t: '07:41', de: 'Diego', txt: 'Hoy es martes de chairo en el comedor. Te aviso para que no te asustes 😂' },
   { chat: 'diego', t: '08:05', de: 'Diego', txt: 'Oye, ya le pasé el Excel a mi jefa. Me dijo que «muy completo» 😅 ¿Eso es bueno o malo?', si: 'asistencia_diego' },
   { chat: 'teofilo', t: '09:15', de: 'Don Teófilo', txt: 'Señorita, ya llegaron los credenciales. Hay uno que dice «Rosa Huamán». Arréglelo usted.', si: 'dni_carpeta' },
   { chat: 'teofilo', t: '09:15', de: 'Don Teófilo', txt: 'El proveedor dice que no le llegó nada. Sin datos no hay credenciales, señorita.', si: 'teofilo_molesto' },
-  { chat: 'rosa', t: '12:40', de: 'Rosa', txt: 'Señorita, ¿el lunes entro a las 7 o a las 6? Es que el carro de Cerro Colorado sale tempranito 🙏' },
+  { chat: 'rosa', t: '12:40', de: 'Rosa', txt: 'Señorita, ¿el jueves entro a las 7 o a las 6? Es que el carro de Cerro Colorado sale tempranito 🙏' },
   { chat: 'hugo', t: '16:20', de: 'Hugo', txt: 'Señorita, ya saqué mi DNI nuevo. Mañana se lo dejo en portería, ¿ya? Disculpe la demora.', si: 'dni_seguimiento' },
   { chat: 'carla', t: '18:40', de: 'Carla', txt: 'Gracias por el reporte. Mañana vemos lo de la prueba con Legal. Bien hecho en avisarme.', si: 'prueba_reportada' },
 ];
@@ -137,7 +137,7 @@ export const ESCENAS = [
     prompt: 'Hugo se asustó, Yesenia puede el sábado, Don Faustino no tiene celular y Mirian no contestó. ¿Qué haces?',
     choices: [
       { id: 'a', label: 'Calmar a Hugo, aceptar el sábado de Yesenia, dejarle a la nieta un mensaje simple y escribirle a Mirian por WhatsApp.',
-        res: { q: 'buena', fx: { personas: 5, calidad: 2, tiempo: -2 }, flags: ['dni_seguimiento'], cartera: { dni: '4 contactados · plazo: fin de mes' },
+        res: { q: 'buena', fx: { personas: 5, calidad: 2, tiempo: -2 }, flags: ['dni_seguimiento'], cartera: { dni: '4 contactados · plazo: fin de quincena' },
           envia: ['hugo', 'Hugo, tranquilo, nadie te va a botar. Solo necesitamos la copia de tu DNI nuevo para tu legajo. Puedes dejarla en portería cuando renueves. Gracias 🙌'],
           out: 'Hugo se ríe del susto. La nieta de Don Faustino promete explicarle «en su idioma». Mirian responde a la media hora: estaba en su refrigerio.',
           pro: { ok: 'Explicas para qué llamas antes de que la persona imagine lo peor.', risk: 'Llamar a alguien del turno noche a las diez de la mañana es despertarlo. La próxima vez, escríbele primero.', info: 'Anota el canal y la hora que le acomoda a cada persona: te servirá todo el mes.' },
@@ -184,7 +184,7 @@ export const ESCENAS = [
   },
   {
     id: 'b5', t: '14:30', ch: 'documento', who: null, titulo: 'Tu plan de archivo', banner: 'assets/esc/escritorio.webp', lugar: 'Archivo de RR.HH.', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: () => `<p>La chochoca del comedor te dio fuerzas. El escáner volvió a funcionar y Carla te escribió: «Arma una propuesta de cómo debería quedar el archivo. <mark class="clave">Una hoja, no un tratado</mark>».</p>`,
+    body: () => `<p>El chairo del comedor te dio fuerzas. El escáner volvió a funcionar y Carla te escribió: «Arma una propuesta de cómo debería quedar el archivo. <mark class="clave">Una hoja, no un tratado</mark>».</p>`,
     type: 'builder', prompt: 'Elige las piezas de cada bloque de tu plan de legajos.', boton: 'Guardar el plan',
     bloques: [
       { id: 'estructura', t: 'Cómo se arma cada legajo', n: 3, ops: [
@@ -233,7 +233,7 @@ export const ESCENAS = [
     mirada: { ve: 'Los practicantes de distintas áreas se sostienen entre ellos: comparten trucos, dudas y cansancio. Esa red informal también es parte de aprender un oficio. Y a veces es el lugar donde se hacen las preguntas difíciles.' },
   },
   {
-    id: 'b7', t: '18:20', ch: 'whatsapp', who: null, titulo: 'El reporte del miércoles', banner: 'assets/esc/meta.webp', show: ['confianza', 'calidad', 'cumplimiento'],
+    id: 'b7', t: '18:20', ch: 'whatsapp', who: null, titulo: 'El reporte del martes', banner: 'assets/esc/meta.webp', show: ['confianza', 'calidad', 'cumplimiento'],
     body: () => `<p>Antes de tomar la combi de regreso, le escribes a Carla cómo quedó el archivo. Ella sigue en la planta, cuadrando el presupuesto del pedido.</p>`,
     type: 'compose', enviaA: 'carla', para: 'Para: Carla Zegarra · Jefa de RR.HH.', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
@@ -257,8 +257,8 @@ export const ESCENAS = [
       return {
         q, fx: { confianza: q === 'buena' ? 4 : q === 'aceptable' ? 1 : -2, calidad: q === 'buena' ? 3 : 0 }, rel: { carla: q === 'buena' ? 1 : 0 },
         flags: q === 'buena' ? ['reporte_cifras'] : [], cartera: { ingresos: '31 de 40 legajos completos' },
-        out: q === 'buena' ? 'Carla responde con un audio de 20 segundos: «Perfecto. El viernes te voy a necesitar para filtrar CV. Ya veo que puedo confiar en tus números».' : q === 'aceptable' ? 'Carla responde: «Ok. Mañana me cuentas mejor qué falta».' : 'Carla responde: «¿Cuántos son “casi”?». Te toca escribir otra vez desde la combi.',
-        pro: { ok: 'Cifras, hallazgos y un pedido: tres líneas que permiten decidir.', risk: 'Un hallazgo que no se cuenta hoy se vuelve sorpresa en una auditoría.', info: 'Guarda tus reportes: al final del mes muestran todo lo que hiciste.' },
+        out: q === 'buena' ? 'Carla responde con un audio de 20 segundos: «Perfecto. Mañana te voy a necesitar para filtrar CV. Ya veo que puedo confiar en tus números».' : q === 'aceptable' ? 'Carla responde: «Ok. Mañana me cuentas mejor qué falta».' : 'Carla responde: «¿Cuántos son “casi”?». Te toca escribir otra vez desde la combi.',
+        pro: { ok: 'Cifras, hallazgos y un pedido: tres líneas que permiten decidir.', risk: 'Un hallazgo que no se cuenta hoy se vuelve sorpresa en una auditoría.', info: 'Guarda tus reportes: al final de la quincena muestran todo lo que hiciste.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Números claros, confianza ganada!' : 'Con cifras se entiende mejor.'],
       };
     },

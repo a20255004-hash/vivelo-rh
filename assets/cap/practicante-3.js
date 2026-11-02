@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 3 · «Cien CV» · Semana 1, viernes.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 3 · «Cien CV» · Semana 1, miércoles.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - Ley 26772, modificada por la Ley 27270: las ofertas de empleo no pueden contener requisitos discriminatorios
 //   (raza, color, sexo, religión, opinión, ascendencia nacional u origen social, condición económica, política, estado civil, edad o de cualquier otra índole).
@@ -10,22 +10,22 @@
 // - RMV: S/ 1,230 desde el 1 de octubre de 2026 (D.S. 015-2026-TR), según la guía del proyecto.
 
 export const CAP = {
-  n: 3, titulo: 'Cien CV', dia: 'Semana 1, viernes', foto: 'assets/foto/cv-mano.webp',
+  n: 3, titulo: 'Cien CV', dia: 'Semana 1, miércoles', foto: 'assets/foto/cv-mano.webp',
   lugar: 'Hilandería Andina · Oficina de RR.HH.',
   inicio: '07:40', fin: '19:30', cierreHora: '18:50',
-  apertura: 'Viernes. Llegaron cien CV para la segunda convocatoria y Producción necesita quince operarias más.', boton: 'Abrir la bandeja',
+  apertura: 'Miércoles. Llegaron cien CV para la segunda convocatoria y Producción necesita quince operarias más.', boton: 'Abrir la bandeja',
   kusi: 'Hoy filtras personas, no papeles. ¡Con criterio y sin prejuicios!',
   lead: 'Corregiste un aviso que excluía a medio Arequipa, tradujiste los temores de Don Teófilo en criterios y elegiste a quién citar sin mirar la edad ni la foto.',
   reflexion: '¿Qué prejuicio tuyo apareció hoy mientras leías los CV?',
-  siguiente: { n: 4, titulo: 'Tu primera charla', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'Tu primera charla', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
   { id: 'seleccion', p: 'Segunda convocatoria', j: 'Carla · Don Teófilo', d: 0, e: '100 CV, 15 vacantes' },
   { id: 'aviso', p: 'Aviso de empleo', j: 'Carla · RR.HH.', d: 0, e: 'Se republica el lunes' },
-  { id: 'prueba', p: 'Prueba práctica de tejido', j: 'Don Teófilo · Producción', d: 0, e: 'Sábado, 9:00' },
+  { id: 'prueba', p: 'Prueba práctica de tejido', j: 'Don Teófilo · Producción', d: 0, e: 'Mañana jueves, 7:00' },
   { id: 'legajos', p: 'Archivo de legajos', j: 'Carla · RR.HH.', d: 0, e: 'Plan de archivo en revisión' },
-  { id: 'induccion', p: 'Inducción de operarias', j: 'Carla · RR.HH.', d: 0, e: 'Martes 2: primer grupo de 12' },
+  { id: 'induccion', p: 'Inducción de operarias', j: 'Carla · RR.HH.', d: 0, e: 'Mañana: primer grupo de 12' },
 ];
 
 export const FUTURO = {
@@ -51,12 +51,12 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'grupo', t: '07:42', de: 'Carla', txt: 'Hoy filtramos CV. Necesito a las 15 citadas para la prueba del sábado. ¡Vamos que se puede! 💪' },
+  { chat: 'grupo', t: '07:42', de: 'Carla', txt: 'Hoy filtramos CV. Necesito a las 15 citadas para la prueba de mañana a las 7:00. ¡Vamos que se puede! 💪' },
   { chat: 'carla', t: '07:44', de: 'Carla', txt: 'Legal confirmó: la prueba de embarazo ya no está en ningún formato. Gracias por encontrarla.', si: 'prueba_reportada' },
-  { chat: 'diego', t: '07:50', de: 'Diego', txt: 'Viernes de chupe 🦐 Si no bajas a la una, te guardo sitio.' },
+  { chat: 'diego', t: '07:50', de: 'Diego', txt: 'Miércoles de chochoca 🌽 Si no bajas a la una, te guardo sitio.' },
   { chat: 'teofilo', t: '08:40', de: 'Don Teófilo', txt: 'Señorita, ya me arreglaron el credencial de la Huamaní. Gracias.', si: 'dni_carpeta' },
-  { chat: 'rosa', t: '12:15', de: 'Rosa', txt: 'Señorita, me dijeron que el martes es la charla. ¿Tengo que llevar algo? No quiero quedar mal 🙏' },
-  { chat: 'yolanda', t: '15:40', de: 'Yolanda', txt: 'Gracias por escribirme. Sí puedo el sábado. Soy sorda, ¿la prueba tiene instrucciones escritas? 🙂', si: 'yolanda_accesible' },
+  { chat: 'rosa', t: '12:15', de: 'Rosa', txt: 'Señorita, me dijeron que mañana es la charla. ¿Tengo que llevar algo? No quiero quedar mal 🙏' },
+  { chat: 'yolanda', t: '15:40', de: 'Yolanda', txt: 'Gracias por escribirme. Sí puedo mañana. Soy sorda, ¿la prueba tiene instrucciones escritas? 🙂', si: 'yolanda_accesible' },
   { chat: 'diego', t: '19:05', de: 'Diego', txt: '¿Sobreviviste a los cien CV? Yo sigo con mi conciliación 🥲' },
 ];
 
@@ -172,7 +172,7 @@ export const ESCENAS = [
   },
   {
     id: 'c4', t: '11:45', ch: 'sistema', who: null, titulo: 'Los últimos cupos', banner: 'assets/foto/entrevista-cv.webp', show: ['calidad', 'etica', 'personas'],
-    body: () => `<p>Con la matriz aplicada, quedan 17 citadas y seis CV empatados para <mark class="clave">los tres últimos cupos</mark> de la prueba del sábado.</p><p>El ventilador de la oficina gira, pero el sol de mediodía entra igual por la ventana.</p>`,
+    body: () => `<p>Con la matriz aplicada, quedan 17 citadas y seis CV empatados para <mark class="clave">los tres últimos cupos</mark> de la prueba de mañana.</p><p>El ventilador de la oficina gira, pero el sol de mediodía entra igual por la ventana.</p>`,
     type: 'pick', n: 3, prompt: 'Elige a las tres personas que citarás a la prueba práctica.', boton: 'Citar a estas tres', resumen: 'Citaste a',
     cols: ['Postulante', 'Lo que dice su CV'],
     rows: [
@@ -201,27 +201,27 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'c5', t: '13:10', ch: 'presencial', who: null, titulo: 'Chupe de viernes', banner: 'assets/foto/cafe.webp', lugar: 'Comedor de la planta', show: ['personas', 'confianza'],
-    body: (n, F) => `<p>En el comedor huele a camarón y a huacatay. La señora Justina Mamani te hace espacio en su mesa${F.has('vecina_protegida') ? ': «Marleni me contó que le tuviste sus papeles listos. Eres derechita, hijita»' : ''}.</p><p>Te ve con los CV debajo del brazo. «¿Don Teófilo te está pidiendo chicas jóvenes? <mark class="clave">Ay, ese hombre</mark>… Desde que enviudó vive en la planta. Nadie lo reemplaza ni en vacaciones.»</p>`,
+    id: 'c5', t: '13:10', ch: 'presencial', who: null, titulo: 'Chochoca de miércoles', banner: 'assets/foto/cafe.webp', lugar: 'Comedor de la planta', show: ['personas', 'confianza'],
+    body: (n, F) => `<p>En el comedor huele a chochoca y a charqui frito. La señora Justina Mamani te hace espacio en su mesa${F.has('vecina_protegida') ? ': «Marleni me contó que le tuviste sus papeles listos. Eres derechita, hijita»' : ''}.</p><p>Te ve con los CV debajo del brazo. «¿Don Teófilo te está pidiendo chicas jóvenes? <mark class="clave">Ay, ese hombre</mark>… Desde que enviudó vive en la planta. Nadie lo reemplaza ni en vacaciones.»</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Preguntarle cómo era la planta cuando ella entró, hace 22 años.',
         res: { q: null, fx: { personas: 3, confianza: 1 }, out: 'Justina se ríe: «Entramos cuarentonas varias, ¿ah? Y aquí seguimos». Te cuenta que ella misma enseñó a remallar a la mitad de la línea de acabados.', kusi: ['feliz', 'Justina tiene la historia de la planta en la cabeza.'] } },
       { id: 'b', label: 'Comer rápido y volver a los CV.',
-        res: { q: null, fx: { tiempo: 2, personas: -1 }, out: 'Te tomas el chupe en diez minutos y subes con la lengua quemada. Los CV siguen ahí, igual que antes.', kusi: ['pensando', 'El chupe se disfruta despacio…'] } },
+        res: { q: null, fx: { tiempo: 2, personas: -1 }, out: 'Te tomas la chochoca en diez minutos y subes con la lengua quemada. Los CV siguen ahí, igual que antes.', kusi: ['pensando', 'La chochoca se disfruta despacio…'] } },
     ],
     mirada: { ve: 'Las veteranas de una planta saben cosas que no están en ningún informe: por qué alguien es como es, quién enseña a quién, qué se intentó antes. Escucharlas en el almuerzo también es trabajo de RR.HH.' },
   },
   {
     id: 'c6', t: '15:20', ch: 'llamada', who: null, titulo: 'Citar a la prueba', banner: 'assets/foto2/callcenter.webp', show: ['personas', 'calidad', 'tiempo'],
-    body: () => `<p>Toca llamar a las últimas citadas para la prueba de mañana sábado, a las 9:00, en la línea de tejido.</p><p>El anexo de RR.HH. tiene eco y <mark class="clave">la lista de Carla dice solo «llamar»</mark>.</p>`,
+    body: () => `<p>Toca llamar a las últimas citadas para la prueba de mañana jueves, a las 7:00, en la línea de tejido.</p><p>El anexo de RR.HH. tiene eco y <mark class="clave">la lista de Carla dice solo «llamar»</mark>.</p>`,
     type: 'calls',
-    calls: [['Edith Coaquira', 'Contesta desde el terminal terrestre', 'Sí, señorita, estoy llegando de Juliaca. Mañana a las nueve ahí estoy. ¿Llevo mis tijeras?'], ['Javier Mamani', 'Contesta, sorprendido', '¿En serio me llaman? El aviso decía operarias… pensé que no me iban a ver ni el CV.'], ['Yolanda Ticona', 'Contesta su hermana', 'Señorita, Yolanda es sorda. Ella prefiere mensajes escritos. ¿Le paso su número de WhatsApp?']],
+    calls: [['Edith Coaquira', 'Contesta desde el terminal terrestre', 'Sí, señorita, estoy llegando de Juliaca. Mañana a las siete ahí estoy. ¿Llevo mis tijeras?'], ['Javier Mamani', 'Contesta, sorprendido', '¿En serio me llaman? El aviso decía operarias… pensé que no me iban a ver ni el CV.'], ['Yolanda Ticona', 'Contesta su hermana', 'Señorita, Yolanda es sorda. Ella prefiere mensajes escritos. ¿Le paso su número de WhatsApp?']],
     prompt: 'Edith y Javier confirmaron. La hermana de Yolanda te ofrece su WhatsApp. ¿Qué haces?',
     choices: [
       { id: 'a', label: 'Escribirle a Yolanda directamente, con la dirección, la hora y qué llevar, y preguntarle si necesita algún ajuste para la prueba.',
         res: { q: 'buena', fx: { personas: 5, cumplimiento: 3, tiempo: -1 }, flags: ['yolanda_accesible'],
-          envia: ['yolanda', 'Hola, Yolanda. Soy la practicante de RR.HH. de Hilandería Andina. Estás citada a la prueba práctica de tejido mañana sábado a las 9:00, en el Parque Industrial (entrada por la calle 2). Trae tu DNI. La prueba dura 20 minutos. ¿Necesitas algún ajuste para hacerla cómoda? Puedes responderme por aquí.'],
+          envia: ['yolanda', 'Hola, Yolanda. Soy la practicante de RR.HH. de Hilandería Andina. Estás citada a la prueba práctica de tejido mañana jueves a las 7:00, en el Parque Industrial (entrada por la calle 2). Trae tu DNI. La prueba dura 20 minutos. ¿Necesitas algún ajuste para hacerla cómoda? Puedes responderme por aquí.'],
           out: 'Yolanda responde con un pulgar y una pregunta: si las instrucciones estarán escritas. Le pides a Don Teófilo que las imprima. Él gruñe, pero las imprime.',
           pro: { ok: 'Le hablas a ella, no a través de su hermana, y le preguntas qué necesita.', info: 'Pregunta siempre a la persona cómo prefiere comunicarse. No supongas.' },
           kusi: ['celebra', 'Le hablaste a Yolanda, no de Yolanda. ¡Qué divino!'] } },
@@ -252,7 +252,7 @@ export const ESCENAS = [
         res: { q: 'buena', fx: { confianza: 5, cumplimiento: 4, personas: 1 }, rel: { teofilo: 0, carla: 1 }, flags: ['correo_datos'],
           responde: 'Don Teófilo: las citadas tienen el mayor puntaje en la matriz de filtro (adjunta): experiencia en tejido, disponibilidad para turnos y, mañana, la prueba práctica de 20 minutos. Edith tiene 15 años de oficio; Yolanda, 6 de remallado; Javier, 4 en máquina rectilínea. Si en la prueba no rinden, no pasan. Quedo atenta.',
           out: 'La gerente de planta responde solo a ti y a Carla: «Claro y bien sustentado». Don Teófilo no contesta. Pero imprime la matriz.',
-          pro: { ok: 'Respondes a una duda pública con criterios públicos, sin atacar a nadie.', risk: 'Don Teófilo puede sentirse expuesto. Habla con él en persona el lunes.', info: 'La prueba de mañana es tu mejor argumento: deja que los resultados hablen.' },
+          pro: { ok: 'Respondes a una duda pública con criterios públicos, sin atacar a nadie.', risk: 'Don Teófilo puede sentirse expuesto. Habla con él en persona mañana.', info: 'La prueba de mañana es tu mejor argumento: deja que los resultados hablen.' },
           kusi: ['celebra', 'Datos contra dudas. ¡Bacán!'] } },
       { id: 'b', label: 'Pedirle disculpas a todos y ofrecer cambiar a las tres citadas por postulantes más jóvenes.',
         res: { q: 'riesgosa', fx: { confianza: -3, etica: -6, cumplimiento: -4 }, rel: { teofilo: 1 }, flags: ['filtro_edad'],

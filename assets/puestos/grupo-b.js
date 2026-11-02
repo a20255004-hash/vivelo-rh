@@ -11,7 +11,7 @@ export const DATOS = {
       completa: false, listos: 5, primero: 'nelly', ciudad: 'Chiclayo', nota: ['Lambayeque', 'Agroindustria azucarera, 1,500 trabajadores.'], correo: 'bienestar@azucarerasipan.pe',
       sinopsis: 'En una azucarera de Lambayeque, eres quien atiende lo que no sale en la planilla: un trabajador con una enfermedad larga, una madre que vuelve de su licencia y no tiene dónde extraer leche, una denuncia que nadie quiere tocar. Un mes para aprender que el bienestar es concreto, no una campaña con globos.',
       escenario: 'Agroindustrial Sipán S.A.A. (ficticia) · Lambayeque · 1,500 trabajadores',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { nelly: 0, hector: 0, maribel: 0, augusto: -1 },
       piel: [
         ['Atiendes casos, no solo actividades.', 'Visitas domiciliarias, trámites de EsSalud, subsidios y emergencias familiares.'],
@@ -52,7 +52,7 @@ export const DATOS = {
       completa: false, listos: 5, primero: 'gustavo', ciudad: 'Lima', nota: ['Lima', 'Operadora de telecomunicaciones, 1,200 colaboradores.'], correo: 'compensaciones@andestel.pe',
       sinopsis: 'Llegas a una empresa de telecomunicaciones de Lima en plena revisión salarial anual. Una encuesta de mercado, un presupuesto ajustado y una ingeniera que pregunta por qué gana menos que sus compañeros del mismo puesto. Un mes para aprender que detrás de cada número hay una conversación pendiente.',
       escenario: 'AndesTel S.A. (ficticia) · San Isidro, Lima · 1,200 colaboradores',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { gustavo: 0, fiorella: 0, claudia: 0, renzo: -1 },
       piel: [
         ['Trabajas con Excel… muchísimo.', 'Bandas, percentiles, simulaciones y escenarios de presupuesto.'],
@@ -93,7 +93,7 @@ export const DATOS = {
       completa: false, listos: 5, primero: 'veronica', ciudad: 'Cusco', nota: ['Cusco', 'Hotel de 120 habitaciones, 150 trabajadores.'], correo: 'rrhh@hotelinti.pe',
       sinopsis: 'Eres la única persona de RR.HH. en un hotel del Cusco que entra en temporada alta. Reclutas, haces planilla con un contador externo, resuelves turnos, apagas conflictos en la cocina y preparas la visita de una certificadora. Un mes para aprender que ser generalista es saber un poco de todo… y mucho de personas.',
       escenario: 'Hotel Inti Wasi S.A.C. (ficticio) · Centro histórico del Cusco · 150 trabajadores',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { veronica: 0, chef: -1, wendy: 0, contador: 0 },
       piel: [
         ['Eres todo el departamento.', 'Selección, planillas, bienestar, SST y relaciones laborales pasan por ti.'],
@@ -134,7 +134,7 @@ export const DATOS = {
       completa: false, listos: 1, primero: 'marisol', ciudad: 'Cajamarca', nota: ['Cajamarca', 'Municipalidad provincial, 600 servidores.'], correo: 'orh@municajamarca.gob.pe',
       sinopsis: 'Trabajas en la Oficina de Recursos Humanos de una municipalidad de Cajamarca. Hay que convocar un concurso CAS para 12 plazas mientras un regidor «recomienda» a sus conocidos y la Contraloría revisa los legajos. Un mes para aprender que en el Estado las reglas protegen a todos, incluso de la presión.',
       escenario: 'Municipalidad Provincial (ficticia) · Cajamarca · 600 servidores en distintos regímenes',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { marisol: 0, regidor: -1, eder: 0, auditora: 0 },
       piel: [
         ['Todo se publica y todo queda escrito.', 'Bases, resultados y actas son públicos y pueden revisarse.'],
@@ -175,7 +175,7 @@ export const DATOS = {
       completa: false, listos: 1, primero: 'percy', ciudad: 'Apurímac', nota: ['Apurímac', 'Unidad minera a 4,000 m s. n. m., 900 trabajadores.'], correo: 'rrhh.campo@minerapuquio.pe',
       sinopsis: 'Subes a una unidad minera en Apurímac con régimen 14 × 7. Vives en el campamento, atiendes a trabajadores propios y de contratistas, coordinas la contratación de mano de obra local con las comunidades y manejas un conflicto que puede parar la operación. Un mes para aprender RR.HH. a cuatro mil metros.',
       escenario: 'Minera Puquio S.A. (ficticia) · Apurímac · 900 trabajadores entre propios y contratistas',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { percy: 0, yuri: 0, presidenta: -1, contratista: 0 },
       piel: [
         ['Vives donde trabajas.', 'Campamento, comedor y turnos largos: tu vida personal también cambia.'],
@@ -216,7 +216,7 @@ export const DATOS = {
       completa: false, listos: 1, primero: 'andrea', ciudad: 'Lima', nota: ['Lima', 'Empresa de consumo masivo, área Comercial de 300 personas.'], correo: 'hrbp.comercial@nutrimas.pe',
       sinopsis: 'Eres la HRBP del área Comercial de una empresa de alimentos en Lima. El nuevo gerente quiere reorganizar la fuerza de ventas en un mes: menos zonas, nuevos roles y metas más altas. Tu trabajo es que la decisión sea buena para el negocio y justa con las personas, aunque nadie te lo pida.',
       escenario: 'Nutrimás S.A. (ficticia) · Ate, Lima · 2,100 colaboradores · área Comercial de 300 personas',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { andrea: 0, mauricio: -1, susana: 0, kenji: 0 },
       piel: [
         ['Te sientas con el negocio.', 'Vas a sus reuniones, entiendes sus metas y hablas su idioma.'],
@@ -257,7 +257,7 @@ export const DATOS = {
       completa: false, listos: 1, primero: 'don-alberto', ciudad: 'Huancayo', nota: ['Huancayo', 'Empresa familiar de transporte interprovincial, 280 trabajadores.'], correo: 'jefatura.rrhh@transportesmantaro.pe',
       sinopsis: 'Te contratan como primera jefa de RR.HH. de una empresa familiar de transporte en Huancayo. El fundador quiere «ordenar la casa», pero sus hijos no se ponen de acuerdo, los conductores trabajan jornadas imposibles y llega una inspección tras un accidente en carretera. Un mes para construir un área desde cero sin perder la confianza del dueño.',
       escenario: 'Transportes Mantaro S.A.C. (ficticia) · Huancayo · 280 trabajadores, 90 conductores',
-      duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.',
+      duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
       rel0: { 'don-alberto': 0, gonzalo: -1, patty: 0, nestor: 0 },
       piel: [
         ['Decides y respondes por lo que decide tu equipo.', 'Ya no solo haces: priorizas, delegas y das la cara.'],

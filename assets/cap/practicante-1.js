@@ -1,5 +1,5 @@
 // Practicante de RR.HH. · Capítulo 1 · «Bienvenida a planta» · Semana 1, lunes.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 
 export const CAP = {
   n: 1, titulo: 'Bienvenida a planta', dia: 'Semana 1, lunes', foto: 'assets/foto2/reunion-circulos.webp',
@@ -9,12 +9,12 @@ export const CAP = {
   kusi: '¡Primer día de prácticas! Aquí se aprende mirando y haciendo. ¡Dale!',
   lead: 'Firmaste (o corregiste) tu convenio, ordenaste lo urgente, cuidaste datos que no son tuyos y ayudaste a una operaria nueva a no firmar a ciegas.',
   reflexion: '¿Qué tarea de hoy te pareció pequeña pero resultó importante?',
-  siguiente: { n: 2, titulo: 'Los legajos', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Los legajos', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
   { id: 'legajos', p: 'Archivo de legajos', j: 'Carla · RR.HH.', d: 0, e: '300 legajos sin orden' },
-  { id: 'ingresos', p: 'Ingreso de 40 operarias', j: 'Carla · Producción', d: 0, e: 'Empiezan el lunes 2' },
+  { id: 'ingresos', p: 'Ingreso de 40 operarias', j: 'Carla · Producción', d: 0, e: 'Entran por grupos desde el jueves' },
   { id: 'credenciales', p: 'Credenciales', j: 'Don Teófilo · Producción', d: 0, e: 'Pendiente: fotos y datos' },
   { id: 'induccion', p: 'Inducción de operarias', j: 'Carla · RR.HH.', d: 0, e: 'Semana 2' },
   { id: 'asistencia', p: 'Reporte de asistencia', j: 'Carla · RR.HH.', d: 0, e: 'Cada viernes' },
@@ -24,7 +24,7 @@ export const FUTURO = {
   convenio_corregido: ['Tu convenio se corrigió antes de firmarlo.', 'Ya sabes qué derechos tienes como practicante.'],
   convenio_firmado: ['Firmaste un convenio con condiciones que la ley no permite.', 'Carla lo revisará en el capítulo 2.'],
   dni_wsp: ['Enviaste por WhatsApp los DNI de 40 personas.', 'Volverá en el capítulo 2, cuando ordenes los legajos.'],
-  dni_carpeta: ['Los DNI viajaron por la carpeta de la empresa, con permisos.', 'Don Teófilo tendrá sus credenciales el miércoles.'],
+  dni_carpeta: ['Los DNI viajaron por la carpeta de la empresa, con permisos.', 'Don Teófilo tendrá sus credenciales mañana.'],
   teofilo_molesto: ['Don Teófilo se quedó molesto con «la practicante».', 'Lo verás en el capítulo 3.'],
   rosa_informada: ['Rosa entendió qué firma y tiene tiempo para elegir su sistema de pensiones.', 'Te buscará en la inducción del capítulo 4.'],
   rosa_onp: ['Le dijiste a Rosa qué sistema de pensiones elegir.', 'Esa decisión era suya. Capítulo 4.'],
@@ -52,7 +52,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '07:50', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Tu plan de prácticas', html: '<p>¡Bienvenida! Este mes vas a apoyar el ingreso de 40 operarias para el pedido de Hamburgo.</p><p>Semana 1: legajos y documentos.<br>Semana 2: selección e inducción.<br>Semana 3: asistencia y bienestar.<br>Semana 4: auditoría y una propuesta tuya.</p><p>Carla</p>' },
+  { t: '07:50', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Tu plan de prácticas', html: '<p>¡Bienvenida! En estas dos semanas vas a apoyar el ingreso de 40 operarias para el pedido de Hamburgo.</p><p>Semana 1: legajos, selección, inducción y asistencia.<br>Semana 2: bienestar, auditoría, una propuesta tuya y el cierre de la quincena.</p><p>Carla</p>' },
   { t: '15:10', de: 'Mesa de ayuda', para: 'Practicante de RR.HH.', asunto: 'Tu acceso a la carpeta de RR.HH.', html: '<p>Ya tienes acceso de lectura y escritura a la carpeta «RR.HH. / Legajos». Recuerda: los documentos no se envían por canales personales.</p>' },
 ];
 
@@ -69,7 +69,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'a1', t: '07:45', ch: 'presencial', who: 'carla', titulo: 'Carla te recibe', banner: 'assets/foto2/pasillo.webp', show: ['calidad', 'confianza', 'tiempo'],
-    body: (n) => `<p>El ruido de las máquinas de hilado se oye hasta la oficina de RR.HH. Carla te entrega un casco blanco y tu credencial de practicante.</p><p>«Bienvenida${n ? ', ' + n : ''}. Este mes viene el pedido más grande del año: chompas de alpaca para una tienda de Hamburgo. Tenemos que contratar e inducir a <mark class="clave">40 operarias en un mes</mark>.»</p><p>Señala una pizarra con post-its desordenados: «Los pegó la practicante anterior. Antes de cualquier cosa, ordénalos: así sabré si entiendes cómo entra una persona a esta empresa».</p>`,
+    body: (n) => `<p>El ruido de las máquinas de hilado se oye hasta la oficina de RR.HH. Carla te entrega un casco blanco y tu credencial de practicante.</p><p>«Bienvenida${n ? ', ' + n : ''}. Estas dos semanas viene el pedido más grande del año: chompas de alpaca para una tienda de Hamburgo. Tenemos que contratar e inducir a <mark class="clave">40 operarias en dos semanas</mark>.»</p><p>Señala una pizarra con post-its desordenados: «Los pegó la practicante anterior. Antes de cualquier cosa, ordénalos: así sabré si entiendes cómo entra una persona a esta empresa».</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos para que una operaria nueva entre a trabajar. Usa las flechas.', boton: 'Mostrarle la pizarra a Carla',
     items: [
       { id: 'req', t: 'Producción pide las operarias que necesita', por: 'Todo empieza con un requerimiento.' },
@@ -84,9 +84,9 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 2 : -2, confianza: q === 'buena' ? 4 : 0 },
         rel: { carla: q === 'buena' ? 1 : 0 }, flags: [q === 'buena' ? 'proceso_claro' : 'proceso_dudas'],
-        out: q === 'buena' ? 'Carla asiente: «Bien. Ahora ya sabes dónde encaja cada cosa que hagas este mes». Te deja tu convenio para que lo leas antes de firmarlo.' : 'Carla reordena dos post-its y te explica por qué. «No pasa nada, para eso estás aquí.» Te deja tu convenio para que lo leas antes de firmarlo.',
+        out: q === 'buena' ? 'Carla asiente: «Bien. Ahora ya sabes dónde encaja cada cosa que hagas en estas dos semanas». Te deja tu convenio para que lo leas antes de firmarlo.' : 'Carla reordena dos post-its y te explica por qué. «No pasa nada, para eso estás aquí.» Te deja tu convenio para que lo leas antes de firmarlo.',
         pro: { ok: 'Conocer el orden del proceso te permite ver qué se atrasa y a quién afecta.', risk: 'Si el contrato o el examen médico llegan tarde, el alta y la inducción se caen con ellos.', info: 'Pregunta cuánto tarda cada paso: así sabrás si 40 ingresos en un mes son posibles.' },
-        kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Perfecto! Ya tienes el mapa del mes.' : 'Casi. Ahora ya tienes el mapa del mes.'],
+        kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Perfecto! Ya tienes el mapa de la quincena.' : 'Casi. Ahora ya tienes el mapa de la quincena.'],
       };
     },
     rules: [[LEY, 'El alta en T-Registro se hace dentro del día en que la persona empieza a trabajar (SUNAT).'], [BP, 'Antes de hacer tareas sueltas, entiende el proceso completo en el que encajan.']],
@@ -130,7 +130,7 @@ export const ESCENAS = [
     type: 'pick', n: 2, prompt: 'Elige las dos tareas con las que vas a empezar.', boton: 'Empezar por aquí', resumen: 'Empezaste por',
     cols: ['Tarea', 'Por qué importa'],
     rows: [
-      { id: 'nuevas', cells: ['Preparar los legajos de las 40 operarias que entran el lunes 2', 'Sin legajo completo no hay alta ni contrato'] },
+      { id: 'nuevas', cells: ['Preparar los legajos de las 40 operarias que entran desde el jueves', 'Sin legajo completo no hay alta ni contrato'] },
       { id: 'medicos', cells: ['Separar los certificados médicos en sobres cerrados', 'Son información de salud'] },
       { id: 'dni', cells: ['Listar los legajos con DNI vencido', 'Datos desactualizados'] },
       { id: 'alfa', cells: ['Ordenar todo alfabéticamente desde la A', 'Se ve ordenado'] },

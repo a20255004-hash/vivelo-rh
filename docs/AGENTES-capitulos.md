@@ -4,7 +4,7 @@ VÍVELO RH es una plataforma peruana en la que una persona vive **dos semanas de
 
 ## Calendario de 10 días (obligatorio)
 - Capítulo n = día n: 1 «Semana 1, lunes», 2 martes, 3 miércoles, 4 jueves, 5 viernes, 6 «Semana 2, lunes», 7 martes, 8 miércoles, 9 jueves, 10 «Semana 2, viernes».
-- El capítulo 10 es «Cierre de la quincena»: cierre de la historia, evaluación de las dos semanas y la pregunta «¿te ves en este puesto?». No lleva `siguiente`.
+- **El final queda abierto.** El capítulo 10 («Semana 2, viernes») NO cierra la historia: deja un balance corto de las dos semanas, la pregunta «¿te ves en este puesto?» y al menos un gancho para la Semana 3 (un problema que se abre, un personaje nuevo que se anuncia, una herramienta o documento que llega el lunes). Lleva `CAP.siguiente = { n: 11, titulo: '<título del gancho>', dia: 'Semana 3, lunes' }`; el sitio mostrará «Este capítulo se está escribiendo». El bloque `capitulos` de la ficha tiene solo 10 entradas.
 - En la ficha de tu puesto (`assets/puestos/grupo-*.js` o `assets/seleccion.js`) edita SOLO el bloque `capitulos` de tu puesto: 10 entradas `{ n, semana, dia, titulo, comp, resumen }` con los días de arriba, y cambia «un mes»/«mes» por «dos semanas» en la `sinopsis` de tu puesto. Ajusta los números de capítulo de las listas de competencias de tu puesto si cambian. No toques los bloques de otros puestos (otro agente puede estar editando el mismo archivo: usa reemplazos pequeños y exactos).
 - En los capítulos ya escritos de tu puesto, corrige `CAP.dia`, `CAP.siguiente` y cualquier mención de día de la semana, de «mes» o de «Fin de mes» que ya no cuadre con el nuevo calendario.
 
@@ -16,7 +16,7 @@ VÍVELO RH es una plataforma peruana en la que una persona vive **dos semanas de
 ## Qué entregar
 - Un archivo por capítulo: `assets/cap/<idPuesto>-<n>.js`. Excepción: Analista de Selección usa `assets/seleccion-cap<n>.js`.
 - Mismos exports que los ejemplos: `CAP`, `CARTERA`, `FUTURO`, `CHATS`, `WSP`, `CORREOS`, `QUIZ` (4-5 preguntas, 4 opciones, `ok` 0-3 y `por`) y `ESCENAS` (6 a 8 escenas).
-- `CAP.titulo` y `CAP.dia` deben ser exactamente los de `PUESTO.capitulos[n-1]`. `CAP.siguiente = { n, titulo, dia }` apunta al capítulo siguiente; el capítulo 10 no lleva `siguiente`.
+- `CAP.titulo` y `CAP.dia` deben ser exactamente los de `PUESTO.capitulos[n-1]`. `CAP.siguiente = { n, titulo, dia }` apunta al capítulo siguiente; en el capítulo 10 anuncia el 11 (final abierto).
 - Antes de terminar, valida cada archivo con `node scripts/validar-capitulo.mjs <idPuesto> <n>` hasta que diga `OK`.
 
 ## El motor (capitulo.html) en resumen

@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 8 · «Tu propuesta» · Semana 4, martes.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 8 · «Tu propuesta» · Semana 2, miércoles.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - Ley 29896 y su reglamento (D.S. 023-2021-MIMP): los centros de trabajo donde laboran 20 o más mujeres en edad fértil (15 a 49 años) implementan un lactario.
 //   https://cdn.www.gob.pe/uploads/document/file/1900685/2.%20REGLAMENTO%20LEY%20N%20%2029896%20_%20FINAL%2004.05.2021.pdf.pdf
@@ -10,35 +10,35 @@
 // - Ley 29733, de Protección de Datos Personales (anonimizar las razones de salida). Texto en SPIJ: https://spij.minjus.gob.pe/
 
 export const CAP = {
-  n: 8, titulo: 'Tu propuesta', dia: 'Semana 4, martes', foto: 'assets/foto2/presentacion.webp',
+  n: 8, titulo: 'Tu propuesta', dia: 'Semana 2, miércoles', foto: 'assets/foto2/presentacion.webp',
   lugar: 'Hilandería Andina · Oficina de RR.HH.',
   inicio: '07:30', fin: '20:00', cierreHora: '19:15',
-  apertura: 'Martes de la última semana. Carla te pide algo que nunca le pidió a una practicante: una propuesta para la Gerencia.', boton: 'Empezar la propuesta',
+  apertura: 'Miércoles de la última semana. Carla te pide algo que nunca le pidió a una practicante: una propuesta para la Gerencia.', boton: 'Empezar la propuesta',
   kusi: 'Hoy tu voz llega a la Gerencia. Con datos, con la gente y con los pies en la tierra. ¡Dale!',
   lead: 'Llamaste a quienes se fueron, descartaste ideas que la ley no permite, armaste una propuesta medible, negociaste con Producción y la presentaste en cinco minutos.',
-  reflexion: '¿Qué parte de tu propuesta nació de algo que viviste este mes?',
-  siguiente: { n: 9, titulo: 'Fin de mes', dia: 'Semana 4, viernes' },
+  reflexion: '¿Qué parte de tu propuesta nació de algo que viviste en estas dos semanas?',
+  siguiente: { n: 9, titulo: 'Día de pago', dia: 'Semana 2, jueves' },
 };
 
 export const CARTERA = [
   { id: 'propuesta', p: 'Propuesta de retención', j: 'Carla · Gerencia', d: 0, e: 'Presentación a las 17:00' },
-  { id: 'salidas', p: 'Llamadas de salida', j: 'Carla · RR.HH.', d: 0, e: '4 renuncias en el primer mes' },
+  { id: 'salidas', p: 'Llamadas de salida', j: 'Carla · RR.HH.', d: 0, e: '4 renuncias en los primeros días' },
   { id: 'plan', p: 'Plan de acción de la auditoría', j: 'Carla · Gerencia', d: 0, e: 'Se envía el viernes' },
-  { id: 'rosa', p: 'El caso de Rosa', j: 'Carla · Don Teófilo', d: 0, e: 'Primera semana de día' },
-  { id: 'evaluacion', p: 'Tu evaluación de prácticas', j: 'Carla · RR.HH.', d: 0, e: 'Viernes' },
+  { id: 'rosa', p: 'El caso de Rosa', j: 'Carla · Don Teófilo', d: 0, e: 'Hoy empieza de día' },
+  { id: 'evaluacion', p: 'Tu evaluación de prácticas', j: 'Carla · RR.HH.', d: 0, e: 'El viernes' },
 ];
 
 export const FUTURO = {
-  salidas_anonimas: ['Agrupaste las razones de salida sin exponer nombres.', 'Tu propuesta tiene datos confiables. Capítulo 9.'],
-  salidas_expuestas: ['Le contaste a Producción quién se fue y por qué, con nombres.', 'Capítulo 9.'],
-  propuesta_legal: ['Descartaste penalidades y compromisos de permanencia que la ley no permite.', 'Capítulo 9.'],
-  propuesta_ilegal: ['Tu propuesta incluyó condiciones que la ley no permite.', 'Legal la devolverá. Capítulo 9.'],
-  propuesta_solida: ['Tu propuesta tiene diagnóstico, acciones concretas y cómo medirlas.', 'Gerencia aprobará un piloto. Capítulo 9.'],
-  propuesta_floja: ['Tu propuesta quedó sin medición clara.', 'Capítulo 9.'],
-  piloto_madrinas: ['Don Teófilo aceptó un piloto de madrinas de línea con horas protegidas.', 'Capítulo 9.'],
-  madrinas_sin_horas: ['Las madrinas no tendrán horas protegidas.', 'Capítulo 9.'],
-  justina_madrina: ['La señora Justina aceptó ser madrina de las nuevas.', 'Capítulo 9.'],
-  pitch_claro: ['Presentaste en cinco minutos con datos y un pedido concreto.', 'Capítulo 9.'],
+  salidas_anonimas: ['Agrupaste las razones de salida sin exponer nombres.', 'Tu propuesta tiene datos confiables. Capítulos 9 y 10.'],
+  salidas_expuestas: ['Le contaste a Producción quién se fue y por qué, con nombres.', 'Capítulos 9 y 10.'],
+  propuesta_legal: ['Descartaste penalidades y compromisos de permanencia que la ley no permite.', 'Capítulos 9 y 10.'],
+  propuesta_ilegal: ['Tu propuesta incluyó condiciones que la ley no permite.', 'Legal la devolverá. Capítulos 9 y 10.'],
+  propuesta_solida: ['Tu propuesta tiene diagnóstico, acciones concretas y cómo medirlas.', 'Gerencia aprobará un piloto. Capítulos 9 y 10.'],
+  propuesta_floja: ['Tu propuesta quedó sin medición clara.', 'Capítulos 9 y 10.'],
+  piloto_madrinas: ['Don Teófilo aceptó un piloto de madrinas de línea con horas protegidas.', 'Capítulos 9 y 10.'],
+  madrinas_sin_horas: ['Las madrinas no tendrán horas protegidas.', 'Capítulos 9 y 10.'],
+  justina_madrina: ['La señora Justina aceptó ser madrina de las nuevas.', 'Capítulos 9 y 10.'],
+  pitch_claro: ['Presentaste en cinco minutos con datos y un pedido concreto.', 'Capítulos 9 y 10.'],
 };
 
 export const CHATS = {
@@ -52,7 +52,7 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'carla', t: '07:35', de: 'Carla', txt: 'Hoy a las 17:00 presentas tu propuesta a la gerente de planta. Cinco minutos. Tú puedes 💪' },
-  { chat: 'rosa', t: '07:50', de: 'Rosa', txt: 'Señorita, primera semana de día. Ayer recogí a Joaquín del jardín yo misma 🥹', si: 'rosa_se_queda' },
+  { chat: 'rosa', t: '07:50', de: 'Rosa', txt: 'Señorita, hoy empiezo de día. En la tarde voy a recoger a Joaquín del jardín yo misma 🥹', si: 'rosa_se_queda' },
   { chat: 'diego', t: '12:15', de: 'Diego', txt: 'Si necesitas el costo de las horas de las madrinas, te lo saco del sistema. Sin nombres, ya aprendí 😅' },
   { chat: 'teofilo', t: '14:10', de: 'Don Teófilo', txt: 'Lo de las madrinas: dos horas a la semana. Ni una más. Y quiero ver los números en un mes.', si: 'piloto_madrinas' },
   { chat: 'justina', t: '16:00', de: 'Justina', txt: 'Ya, hijita. Seré madrina. A mí nadie me enseñó cuando entré, por eso.', si: 'justina_madrina' },
@@ -60,7 +60,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '07:40', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Tu propuesta', html: '<p>De las 40 nuevas, cuatro ya renunciaron. En la campaña pasada se fueron ocho en el primer mes. Necesito una idea concreta para que no se vayan. Barata, medible y que Producción acepte.</p><p>Carla</p>' },
+  { t: '07:40', de: 'Carla Zegarra', para: 'Practicante de RR.HH.', asunto: 'Tu propuesta', html: '<p>De las 40 nuevas, cuatro ya renunciaron. En la campaña pasada se fueron ocho en el primer mes, y vamos peor. Necesito una idea concreta para que no se vayan. Barata, medible y que Producción acepte.</p><p>Carla</p>' },
   { t: '10:15', de: 'Seguridad y Salud en el Trabajo', para: 'RR.HH.', asunto: 'Sala del segundo piso', html: '<p>Recordamos que la sala rotulada «Lactario» del segundo piso se está usando como depósito de cajas de etiquetas. Favor de coordinar su liberación.</p>' },
 ];
 
@@ -79,10 +79,10 @@ export const ESCENAS = [
     id: 'h1', t: '07:50', ch: 'llamada', who: null, titulo: 'Las que se fueron', banner: 'assets/foto/llamada.webp', show: ['personas', 'calidad', 'etica'],
     body: () => `<p>Antes de proponer nada, quieres entender por qué se fueron cuatro de las 40 nuevas. Llamas desde el anexo con la puerta cerrada y una libreta.</p><p>Empiezas siempre igual: «No te llamo para convencerte de volver. <mark class="clave">Quiero aprender qué podemos hacer mejor</mark>».</p>`,
     type: 'calls',
-    calls: [['Nely Cutipa · se fue al día 9', 'Contesta desde un mercado', 'Mi primera boleta vino con descuentos que nadie me explicó. Pensé que me estaban robando. Ahora sé que era la AFP… pero ya me había ido.'], ['Graciela Mendoza · se fue al día 12', 'Contesta, con un bebé llorando', 'Salía del turno a las once de la noche y la última combi a Cerro Colorado ya no pasaba. Caminaba sola. Me dio miedo.'], ['Pilar Ramos · se fue al día 15', 'Contesta, seca', 'En la línea nadie te enseña. Te gritan «¡más rápido!» y ya. Yo venía de una pollería, no sabía remallar.'], ['Sonia Quispe · se fue al día 20', 'No contesta']],
+    calls: [['Nely Cutipa · se fue a los 3 días', 'Contesta desde un mercado', 'Me dijeron que me iban a descontar AFP y no sé qué más, y nadie me explicó cuánto iba a cobrar. Pensé que me estaban engañando. Ahora sé que era la AFP… pero ya me había ido.'], ['Graciela Mendoza · se fue a los 4 días', 'Contesta, con un bebé llorando', 'Salía del turno a las once de la noche y la última combi a Cerro Colorado ya no pasaba. Caminaba sola. Me dio miedo.'], ['Pilar Ramos · se fue a los 5 días', 'Contesta, seca', 'En la línea nadie te enseña. Te gritan «¡más rápido!» y ya. Yo venía de una pollería, no sabía remallar.'], ['Sonia Quispe · se fue a los 5 días', 'No contesta']],
     prompt: 'Tres te contaron por qué se fueron. ¿Qué haces con lo que escuchaste?',
     choices: [
-      { id: 'a', label: 'Agruparlo por causas, sin nombres: primera boleta sin explicar, transporte de noche y aprendizaje en la línea.',
+      { id: 'a', label: 'Agruparlo por causas, sin nombres: pago y descuentos sin explicar, transporte de noche y aprendizaje en la línea.',
         res: { q: 'buena', fx: { calidad: 5, etica: 4, personas: 2 }, flags: ['salidas_anonimas'], cartera: { salidas: '3 causas, sin nombres' },
           out: 'Tu libreta queda con tres columnas. Ninguna dice «Graciela» o «Pilar». Cruzas con las tarjetas de la inducción y las entrevistas de la auditoría: las mismas tres causas aparecen otra vez.',
           pro: { ok: 'Agrupar sin nombres protege a quien habló y deja ver patrones.', info: 'Cruzar varias fuentes (llamadas, tarjetas, auditoría) hace que tu diagnóstico sea difícil de discutir.' },
@@ -94,19 +94,19 @@ export const ESCENAS = [
           kusi: ['preocupado', 'Ahora se discute a Pilar, no el problema…'] } },
       { id: 'c', label: 'Quedarte con lo de la boleta, que es lo que tú ya pensabas proponer.',
         res: { q: 'aceptable', fx: { calidad: 1 }, cartera: { salidas: '1 causa elegida' },
-          out: 'Tu propuesta tendrá un buen punto sobre la primera boleta. Lo del transporte y el aprendizaje en la línea se queda en la libreta.',
+          out: 'Tu propuesta tendrá un buen punto sobre explicar el pago. Lo del transporte y el aprendizaje en la línea se queda en la libreta.',
           pro: { ok: 'Encuentras una causa real.', risk: 'Escuchar solo lo que confirma tu idea es un sesgo: dejas fuera dos causas.' },
           kusi: ['pensando', '¿Y las otras dos razones?'] } },
     ],
     rules: [[LEY, 'Las razones de salida son datos personales: se usan agrupadas y sin nombres (Ley 29733).'], [BP, 'Escucha todas las causas, no solo las que confirman tu idea.']],
     mirada: {
       ve: 'Quienes se van son las que mejor saben qué falla, y casi nunca se les pregunta. Una llamada de salida, hecha con respeto y sin intentar retener, entrega el diagnóstico que ninguna encuesta da. Lo profesional es escuchar todo y presentarlo sin exponer a nadie.',
-      visual: { tipo: 'embudo', titulo: 'Las 40 nuevas, en su primer mes', niveles: [['Ingresaron', 40], ['Siguen en la planta', 36], ['Llamadas de salida', 4], ['Contaron su razón', 3]] },
+      visual: { tipo: 'embudo', titulo: 'Las 40 nuevas, en sus primeros días', niveles: [['Ingresaron', 40], ['Siguen en la planta', 36], ['Llamadas de salida', 4], ['Contaron su razón', 3]] },
     },
   },
   {
     id: 'h2', t: '09:00', ch: 'presencial', who: 'carla', titulo: 'Lo que espera Carla', banner: 'assets/foto/mentora.webp', lugar: 'Oficina de RR.HH.', show: ['confianza', 'calidad', 'tiempo'],
-    body: (n, F) => `<p>Carla te invita un café pasado de la cafetera de la oficina.${F.has('hallazgo_asumido') ? ' «Lo del viernes me convenció. Por eso te toca a ti.»' : ''}</p><p>«Esta no es una tarea de practicante. Es una propuesta de verdad. <mark class="clave">Pregúntame lo que necesites antes de empezar</mark>.»</p>`,
+    body: (n, F) => `<p>Carla te invita un café pasado de la cafetera de la oficina.${F.has('hallazgo_asumido') ? ' «Lo de ayer me convenció. Por eso te toca a ti.»' : ''}</p><p>«Esta no es una tarea de practicante. Es una propuesta de verdad. <mark class="clave">Pregúntame lo que necesites antes de empezar</mark>.»</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Carla.',
     opts: [
       { id: 'fallo', label: '¿Se intentó algo parecido antes?', info: '«En 2023 hicimos un “programa de padrinos”. Murió en un mes: nadie les dio tiempo a los padrinos y Producción lo vio como pérdida de horas. Si propones algo así, resuelve eso primero.»' },
@@ -153,11 +153,11 @@ export const ESCENAS = [
   },
   {
     id: 'h4', t: '11:20', ch: 'documento', who: null, titulo: 'Tu propuesta en una hoja', banner: 'assets/esc/idea.webp', show: ['calidad', 'personas', 'tiempo'],
-    body: () => `<p>El comedor ya huele a almuerzo y tú sigues frente a la hoja. Carla dijo: barata, medible y que Producción acepte.</p><p>Tienes todo lo del mes: tus errores, Rosa, la auditoría, las llamadas. <mark class="clave">Ahora hay que elegir</mark>.</p>`,
+    body: () => `<p>El comedor ya huele a almuerzo y tú sigues frente a la hoja. Carla dijo: barata, medible y que Producción acepte.</p><p>Tienes todo lo de estas dos semanas: tus errores, Rosa, la auditoría, las llamadas. <mark class="clave">Ahora hay que elegir</mark>.</p>`,
     type: 'builder', prompt: 'Elige las piezas de cada bloque de tu propuesta.', boton: 'Guardar la propuesta',
     bloques: [
       { id: 'diag', t: 'Diagnóstico', n: 2, ops: [
-        { id: 'd1', t: '4 de 40 se fueron en el primer mes. Tres causas: primera boleta sin explicar, transporte de noche y aprendizaje en la línea.', ok: true, por: 'Datos del mes, agrupados y sin nombres.' },
+        { id: 'd1', t: '4 de 40 se fueron en sus primeros días. Tres causas: pago y descuentos sin explicar, transporte de noche y aprendizaje en la línea.', ok: true, por: 'Datos de estas dos semanas, agrupados y sin nombres.' },
         { id: 'd2', t: 'Las mismas causas aparecen en las tarjetas de la inducción y en las entrevistas de la auditoría.', ok: true, por: 'Tres fuentes que coinciden.' },
         { id: 'd3', t: 'Las nuevas de ahora tienen menos compromiso que las de antes.', ok: false, por: 'Es una opinión, no un dato. Y culpa a las personas.' },
       ] },
@@ -185,13 +185,13 @@ export const ESCENAS = [
     },
     rules: [[BP, 'Cada acción debe responder a una causa del diagnóstico.'], [BP, 'Una propuesta sin indicador ni fecha no se puede evaluar.']],
     mirada: {
-      ve: 'Una buena propuesta conecta tres cosas: lo que se sabe, lo que se hará y cómo se sabrá si funcionó. Las mejores ideas de este mes no salieron de un libro: salieron de Rosa, de Faustina, de las tarjetas y de los errores. Ese es el valor de haber estado cerca de la gente.',
+      ve: 'Una buena propuesta conecta tres cosas: lo que se sabe, lo que se hará y cómo se sabrá si funcionó. Las mejores ideas de estas dos semanas no salieron de un libro: salieron de Rosa, de Faustina, de las tarjetas y de los errores. Ese es el valor de haber estado cerca de la gente.',
       visual: { tipo: 'flujo', titulo: 'Tu propuesta', pasos: ['3 causas de salida', 'Madrinas con horas', 'Primera boleta explicada', 'Turnos y movilidad', 'Indicador al día 30', 'Revisión con el grupo 3'] },
     },
   },
   {
     id: 'h5', t: '13:30', ch: 'presencial', who: 'teofilo', titulo: '«¿Y quién produce?»', banner: 'assets/foto/taller.webp', lugar: 'Línea de tejido', show: ['personas', 'confianza', 'calidad'],
-    body: (n, F) => `<p>Don Teófilo lee tu hoja con el ceño fruncido, apoyado en una rectilínea.${F.has('teofilo_aliado') ? ' Desde lo de Rosa y Edith, te escucha sin cruzar los brazos.' : F.has('teofilo_bloqueo') ? ' Todavía no olvida lo del turno de Rosa.' : ''}</p><p>«Dos horas por madrina, por semana. ¿Y quién produce esas horas, señorita? <mark class="clave">El pedido sale en diez días</mark>.»</p>`,
+    body: (n, F) => `<p>Don Teófilo lee tu hoja con el ceño fruncido, apoyado en una rectilínea.${F.has('teofilo_aliado') ? ' Desde lo de Rosa y Edith, te escucha sin cruzar los brazos.' : F.has('teofilo_bloqueo') ? ' Todavía no olvida lo del turno de Rosa.' : ''}</p><p>«Dos horas por madrina, por semana. ¿Y quién produce esas horas, señorita? <mark class="clave">El pedido sale el viernes</mark>.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Proponerle un piloto pequeño: tres madrinas, solo en el grupo 3, y comparar en un mes cuántas nuevas siguen y cuánto producen.',
@@ -213,7 +213,7 @@ export const ESCENAS = [
     rules: [[BP, 'Ante la resistencia de quien ejecuta, propón un piloto pequeño, acotado y medido.']],
     mirada: {
       ve: 'Las propuestas de RR.HH. fracasan cuando se imponen a quienes tienen que hacerlas funcionar. Don Teófilo no se opone a las madrinas: se opone a perder horas sin saber si sirve. Un piloto medido le da una forma de decir que sí sin arriesgar el pedido.',
-      visual: { tipo: 'balanza', a: { t: 'Lo que teme Producción', items: ['Seis horas menos por semana', 'El pedido sale en diez días'] }, b: { t: 'El piloto', items: ['Solo tres madrinas', 'Solo el grupo 3', 'Resultados en un mes', 'Él elige a las madrinas'] } },
+      visual: { tipo: 'balanza', a: { t: 'Lo que teme Producción', items: ['Seis horas menos por semana', 'El pedido sale el viernes'] }, b: { t: 'El piloto', items: ['Solo tres madrinas', 'Solo el grupo 3', 'Resultados en un mes', 'Él elige a las madrinas'] } },
     },
   },
   {
@@ -257,7 +257,7 @@ export const ESCENAS = [
     body: () => `<p>La gerente de planta, la ingeniera Patricia Núñez, te recibe con el reloj a la vista y un informe de producción abierto. Carla se sienta a tu lado, sin hablar.</p><p>«Cinco minutos, señorita.» Te sudan las manos. <mark class="clave">El orden de lo que digas importa</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena tu presentación de cinco minutos. Usa las flechas.', boton: 'Presentar en este orden',
     items: [
-      { id: 'dato', t: 'El dato: 4 de 40 se fueron en el primer mes', por: 'Empiezas con el problema en un número.' },
+      { id: 'dato', t: 'El dato: 4 de 40 se fueron en sus primeros días', por: 'Empiezas con el problema en un número.' },
       { id: 'causas', t: 'Las tres causas, de tres fuentes distintas', por: 'Demuestras que no es una opinión.' },
       { id: 'acciones', t: 'Las tres acciones, una por causa', por: 'Cada acción responde a algo concreto.' },
       { id: 'costo', t: 'El costo: seis horas semanales de madrinas', por: 'Lo que la gerente va a preguntar.' },

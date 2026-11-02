@@ -1,5 +1,5 @@
-// Practicante de RR.HH. · Capítulo 5 · «El error» · Semana 2, jueves.
-// Hilo del mes: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
+// Practicante de RR.HH. · Capítulo 5 · «El error» · Semana 1, viernes.
+// Hilo de la quincena: el pedido de Hamburgo obliga a contratar e inducir a 40 operarias.
 // Normas citadas:
 // - TUO del D.Leg. 854, Ley de Jornada de Trabajo, Horario y Trabajo en Sobretiempo (D.S. 007-2002-TR):
 //   el sobretiempo es voluntario (art. 9) y se paga con una sobretasa mínima de 25% en las dos primeras horas y de 35% desde la tercera (art. 10).
@@ -10,22 +10,22 @@
 // - Ley 29733, de Protección de Datos Personales (los datos de salud son sensibles). Texto en SPIJ: https://spij.minjus.gob.pe/
 
 export const CAP = {
-  n: 5, titulo: 'El error', dia: 'Semana 2, jueves', foto: 'assets/foto2/tension.webp',
+  n: 5, titulo: 'El error', dia: 'Semana 1, viernes', foto: 'assets/foto2/tension.webp',
   lugar: 'Hilandería Andina · Oficina de RR.HH.',
   inicio: '07:30', fin: '20:00', cierreHora: '19:10',
-  apertura: 'Jueves de cierre de planilla. A las 17:00 se cierra todo, y alguien acaba de encontrar un error en tu reporte.', boton: 'Abrir el reporte',
+  apertura: 'Viernes de cierre de horas extra. A las 17:00 se cierra todo, y alguien acaba de encontrar un error en tu reporte.', boton: 'Abrir el reporte',
   kusi: 'Todos nos equivocamos. Lo que importa es qué haces ahora. ¡Respira!',
   lead: 'Encontraste tus propios errores, se los contaste a tu jefa, buscaste pruebas de unas horas que el reloj no marcó y llegaste al cierre con tres sueldos corregidos.',
   reflexion: '¿Qué sentiste en el momento en que viste tu error? ¿Qué hiciste con eso?',
-  siguiente: { n: 6, titulo: 'Rosa quiere irse', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'Rosa quiere irse', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
   { id: 'asistencia', p: 'Reporte de horas extra', j: 'Diego · Planillas', d: 0, e: 'Cierre: hoy, 17:00' },
-  { id: 'induccion', p: 'Inducción del grupo 2', j: 'Carla · RR.HH.', d: 0, e: 'Martes de la semana 3' },
+  { id: 'induccion', p: 'Inducción del grupo 2', j: 'Carla · RR.HH.', d: 0, e: 'Lunes de la semana 2' },
   { id: 'seleccion', p: 'Segunda convocatoria', j: 'Carla · Don Teófilo', d: 0, e: '15 ingresan el lunes' },
   { id: 'legajos', p: 'Archivo de legajos', j: 'Carla · RR.HH.', d: 0, e: 'Plan aprobado por Legal' },
-  { id: 'auditoria', p: 'Auditoría de Hamburgo', j: 'Carla · Gerencia', d: 0, e: 'Viernes de la semana 3' },
+  { id: 'auditoria', p: 'Auditoría de Hamburgo', j: 'Carla · Gerencia', d: 0, e: 'Martes de la semana 2' },
 ];
 
 export const FUTURO = {
@@ -33,7 +33,7 @@ export const FUTURO = {
   error_escondido: ['Corregiste tu error en silencio, sin decírselo a Carla.', 'Carla se enterará por otro lado. Capítulo 7.'],
   error_culpa_reloj: ['Le echaste la culpa al reloj de marcación.', 'TI revisará el reloj y no encontrará fallas. Capítulo 7.'],
   faustina_pagada: ['Le reconociste a Faustina sus horas con el cuaderno de portería y de la supervisora.', 'La auditoría del capítulo 7 preguntará por las horas extra.'],
-  faustina_sin_pago: ['Faustina no cobró sus horas del sábado.', 'Volverá a reclamar. Capítulo 7.'],
+  faustina_sin_pago: ['Faustina no cobró sus horas del martes.', 'Volverá a reclamar. Capítulo 7.'],
   filtracion_reportada: ['Reportaste que el Excel de asistencia circulaba en un grupo de supervisores.', 'Carla cortará accesos antes de la auditoría del capítulo 7.'],
   filtracion_ignorada: ['Viste datos de salud en un grupo de WhatsApp y no hiciste nada.', 'Capítulo 7.'],
   errores_vistos: ['Encontraste los cuatro errores de tu propio reporte.', 'Revisas tu trabajo con método. Capítulo 7.'],
@@ -53,16 +53,16 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'diego', t: '07:35', de: 'Diego', txt: 'Oye 😬 mi jefa encontró algo raro en tu reporte. Tres operarias con menos horas que en el reloj. ¿Lo vemos antes de que llegue Carla?' },
-  { chat: 'grupo', t: '07:40', de: 'Carla', txt: 'Hoy cierre de planilla. Nada se mueve después de las 17:00. Gracias 🙏' },
-  { chat: 'rosa', t: '10:20', de: 'Rosa', txt: 'Señorita, ya voy dos días en la línea. Me duelen las manos pero ya remallo mejor 😊', si: 'rosa_mensaje' },
+  { chat: 'grupo', t: '07:40', de: 'Carla', txt: 'Hoy cierre de horas extra. Nada se mueve después de las 17:00. Gracias 🙏' },
+  { chat: 'rosa', t: '10:20', de: 'Rosa', txt: 'Señorita, hoy es mi primer día en la línea. Me duelen las manos pero ya remallo mejor 😊', si: 'rosa_mensaje' },
   { chat: 'teofilo', t: '13:30', de: 'Don Teófilo', txt: 'Me dijeron que hubo un error con las horas de mi gente. ¿Ya está? Que no me vengan a reclamar a mí.' },
   { chat: 'justina', t: '16:10', de: 'Justina', txt: 'Ya les avisé a mis chicas, hijita. Faustina se puso a llorar. Gracias.', si: 'faustina_pagada' },
   { chat: 'carla', t: '18:45', de: 'Carla', txt: 'Hoy te equivocaste y lo arreglaste bien. Eso también es aprender. Descansa.', si: 'error_asumido' },
 ];
 
 export const CORREOS = [
-  { t: '07:45', de: 'Planillas', para: 'RR.HH.', asunto: 'Preliminar de planilla · semana 1 y 2', html: '<p>Adjuntamos el preliminar. Las observaciones se reciben hasta las 15:00. El cierre es a las 17:00.</p>' },
-  { t: '11:50', de: 'Mesa de ayuda', para: 'RR.HH.', asunto: 'Reloj de la puerta 2', html: '<p>El reloj de marcación de la puerta 2 tuvo cortes de energía el sábado entre las 20:00 y las 21:30. Algunas salidas no se registraron.</p>' },
+  { t: '07:45', de: 'Planillas', para: 'RR.HH.', asunto: 'Preliminar de horas extra · semana 1', html: '<p>Adjuntamos el preliminar. Las observaciones se reciben hasta las 15:00. El cierre es a las 17:00.</p>' },
+  { t: '11:50', de: 'Mesa de ayuda', para: 'RR.HH.', asunto: 'Reloj de la puerta 2', html: '<p>El reloj de marcación de la puerta 2 tuvo cortes de energía el martes entre las 20:00 y las 21:30. Algunas salidas no se registraron.</p>' },
 ];
 
 export const QUIZ = [
@@ -78,14 +78,14 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'e1', t: '07:50', ch: 'documento', who: null, titulo: 'Tu reporte, otra vez', banner: 'assets/esc/planilla.webp', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Abres «HE_semana1.xlsx». ${F.has('he_bus') ? 'Lo armaste el martes en la combi, de pie, con el celular. ' : 'Lo armaste el miércoles con calma, pero copiando de una pestaña que se llamaba «Hoja1 (2)». '}Junto a tu teclado está el cuaderno de la supervisora Justina, que lo dejó con un post-it: «Mis chicas se quedaron el sábado».</p><p>Comparas fila por fila. <mark class="clave">El error es tuyo</mark>. Te sube el calor a la cara.</p>`,
+    body: (n, F) => `<p>Abres «HE_semana1.xlsx». ${F.has('he_bus') ? 'Lo armaste anoche en la combi, de pie, con el celular. ' : 'Lo armaste anoche en tu casa, con calma, pero copiando de una pestaña que se llamaba «Hoja1 (2)». '}Junto a tu teclado está el cuaderno de la supervisora Justina, que lo dejó con un post-it: «Mis chicas se quedaron el martes».</p><p>Comparas fila por fila. <mark class="clave">El error es tuyo</mark>. Te sube el calor a la cara.</p>`,
     type: 'flag', prompt: 'Marca las filas de tu reporte que tienen errores.',
     doc: { t: 'Reporte de horas extra · Semana 1 · Urdido y tejido', sub: 'Elaborado por: practicante de RR.HH.' },
     lines: [
-      { id: 'yesenia', t: 'Yesenia Condori · sábado: 3 h (reloj: 3 h · cuaderno: 3 h).' },
-      { id: 'mirian', t: 'Mirian Choque · viernes: 1.3 h (reloj: 1:30).', bad: LEY, why: '1:30 es una hora y media: 1.5 h. Se confundieron minutos con decimales y se le pagaría menos.' },
-      { id: 'faustina', t: 'Faustina Ccori · sábado: 0 h (reloj: sin salida · cuaderno: 3 h).', bad: LEY, why: 'Que el reloj no marcara no significa que no trabajó. Hay que buscar otras pruebas antes de poner cero.' },
-      { id: 'lizbeth', t: 'Lizbeth Apaza Mamani · jueves: 2 h (reloj: 2 h, de Lizbeth Apaza Quispe).', bad: BP, why: 'Hay dos Lizbeth Apaza. Las horas se cargaron a la persona equivocada: una cobraría de más y otra de menos.' },
+      { id: 'yesenia', t: 'Yesenia Condori · martes: 3 h (reloj: 3 h · cuaderno: 3 h).' },
+      { id: 'mirian', t: 'Mirian Choque · lunes: 1.3 h (reloj: 1:30).', bad: LEY, why: '1:30 es una hora y media: 1.5 h. Se confundieron minutos con decimales y se le pagaría menos.' },
+      { id: 'faustina', t: 'Faustina Ccori · martes: 0 h (reloj: sin salida · cuaderno: 3 h).', bad: LEY, why: 'Que el reloj no marcara no significa que no trabajó. Hay que buscar otras pruebas antes de poner cero.' },
+      { id: 'lizbeth', t: 'Lizbeth Apaza Mamani · miércoles: 2 h (reloj: 2 h, de Lizbeth Apaza Quispe).', bad: BP, why: 'Hay dos Lizbeth Apaza. Las horas se cargaron a la persona equivocada: una cobraría de más y otra de menos.' },
       { id: 'tasa', t: 'Columna «Sobretasa»: 25% para todas las horas.', bad: LEY, why: 'Desde la tercera hora extra, la sobretasa mínima es 35%. Yesenia tiene una tercera hora.' },
       { id: 'total', t: 'Total del área: 41.5 horas.', duda: 'El total cambiará cuando corrijas las filas de arriba.' },
       { id: 'firma', t: 'Visto bueno de la supervisora: pendiente.', duda: 'Es justo lo que falta: nadie de la línea revisó el reporte antes de enviarlo.' },
@@ -120,7 +120,7 @@ export const ESCENAS = [
           kusi: ['pensando', 'Se arregló… pero Carla quedó fuera.'] } },
       { id: 'c', label: 'Explicarle que el reloj de marcación falló y que por eso salieron mal las horas.',
         res: { q: 'riesgosa', fx: { confianza: -5, etica: -5 }, rel: { carla: -1 }, flags: ['error_culpa_reloj'],
-          out: 'Carla llama a TI. El reloj sí falló el sábado, pero solo en la salida de Faustina. Lo de Mirian y las Lizbeth fue tuyo. Carla lo descubre a las once.',
+          out: 'Carla llama a TI. El reloj sí falló el martes, pero solo en la salida de Faustina. Lo de Mirian y las Lizbeth fue tuyo. Carla lo descubre a las once.',
           pro: { ok: 'Parte de lo que dices es verdad.', risk: 'Una verdad a medias se descubre rápido. Y cuesta más que el error.' },
           kusi: ['triste', 'El reloj no tuvo la culpa de todo…'] } },
     ],
@@ -132,14 +132,14 @@ export const ESCENAS = [
   },
   {
     id: 'e3', t: '10:00', ch: 'llamada', who: null, titulo: 'Las horas de Faustina', banner: 'assets/foto/llamada.webp', show: ['personas', 'cumplimiento', 'calidad'],
-    body: () => `<p>Mesa de ayuda confirmó que el reloj de la puerta 2 tuvo cortes de energía el sábado. Faustina no tiene marcación de salida. Para pagarle, <mark class="clave">necesitas otras pruebas</mark>.</p>`,
+    body: () => `<p>Mesa de ayuda confirmó que el reloj de la puerta 2 tuvo cortes de energía el martes. Faustina no tiene marcación de salida. Para pagarle, <mark class="clave">necesitas otras pruebas</mark>.</p>`,
     type: 'calls',
-    calls: [['Sra. Justina · supervisora', 'Contesta desde la línea', 'Hijita, se quedaron hasta las nueve. Está en mi cuaderno, con mi firma. Faustina, Yesenia y la Lizbeth Quispe.'], ['Portería · vigilancia', 'Contesta el vigilante de turno', 'Déjeme ver el cuaderno… Sí: Ccori Faustina, salida 21:05 del sábado. Lo anoté porque el reloj estaba apagado.'], ['Faustina Ccori · urdido', 'Contesta en voz bajita, con ruido de máquinas', 'Sí, señorita, me quedé… Pensé que no me iban a pagar, como no marcó. Mi mamá dice que no reclame.']],
+    calls: [['Sra. Justina · supervisora', 'Contesta desde la línea', 'Hijita, se quedaron hasta las nueve. Está en mi cuaderno, con mi firma. Faustina, Yesenia y la Lizbeth Quispe.'], ['Portería · vigilancia', 'Contesta el vigilante de turno', 'Déjeme ver el cuaderno… Sí: Ccori Faustina, salida 21:05 del martes. Lo anoté porque el reloj estaba apagado.'], ['Faustina Ccori · urdido', 'Contesta en voz bajita, con ruido de máquinas', 'Sí, señorita, me quedé… Pensé que no me iban a pagar, como no marcó. Mi mamá dice que no reclame.']],
     prompt: 'Tienes el cuaderno de la supervisora, el de portería y la palabra de Faustina. ¿Qué haces con sus horas?',
     choices: [
       { id: 'a', label: 'Reconocerle las 3 horas con las tres pruebas, adjuntarlas al reporte y anotar la falla del reloj.',
         res: { q: 'buena', fx: { cumplimiento: 5, personas: 5, calidad: 2 }, flags: ['faustina_pagada'], cartera: { asistencia: 'Faustina: 3 h con sustento' },
-          out: 'Escaneas las dos páginas de los cuadernos y las adjuntas. Planillas acepta. Faustina no lo sabe todavía, pero el sábado no trabajó gratis.',
+          out: 'Escaneas las dos páginas de los cuadernos y las adjuntas. Planillas acepta. Faustina no lo sabe todavía, pero el martes no trabajó gratis.',
           pro: { ok: 'Cuando el registro falla, buscas evidencias que se complementan.', info: 'Pide a TI una constancia escrita de la falla del reloj: así queda todo en el legajo de horas.' },
           kusi: ['celebra', 'Tres pruebas y una persona que cobra lo justo. ¡Qué divino!'] } },
       { id: 'b', label: 'Pagarle 2 horas «por si acaso», hasta que TI recupere los datos del reloj.',
@@ -149,7 +149,7 @@ export const ESCENAS = [
           kusi: ['pensando', '¿Y la tercera hora?'] } },
       { id: 'c', label: 'Dejarla en cero hasta que TI arregle el reloj: sin marcación no hay sustento.',
         res: { q: 'riesgosa', fx: { cumplimiento: -5, personas: -5 }, flags: ['faustina_sin_pago'],
-          out: 'Faustina cobra sin sus horas. Su mamá le dijo que no reclamara. No reclama. Pero se lo cuenta a toda la línea de urdido.',
+          out: 'Faustina cobrará sin sus horas. Su mamá le dijo que no reclamara. No reclama. Pero se lo cuenta a toda la línea de urdido.',
           pro: { ok: 'Te ciñes al reloj.', risk: 'La falla del sistema es responsabilidad de la empresa, no de la trabajadora.' },
           kusi: ['indignado', '¡Trabajó tres horas!'] } },
     ],
@@ -161,7 +161,7 @@ export const ESCENAS = [
   },
   {
     id: 'e4', t: '11:30', ch: 'sistema', who: null, titulo: 'Antes de las 15:00', banner: 'assets/esc/reloj.webp', show: ['calidad', 'tiempo', 'cumplimiento'],
-    body: () => `<p>Planillas recibe observaciones hasta las 15:00. Tienes la lista de errores, las pruebas de Faustina y el sistema de planillas abierto en la computadora de Diego, que se cuelga cada vez que alguien guarda.</p><p><mark class="clave">Hay un orden que no te puedes saltar</mark>.</p>`,
+    body: () => `<p>Planillas recibe observaciones hasta las 15:00 para cerrar las horas de la semana. Tienes la lista de errores, las pruebas de Faustina y el sistema de planillas abierto en la computadora de Diego, que se cuelga cada vez que alguien guarda.</p><p><mark class="clave">Hay un orden que no te puedes saltar</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos para corregir el reporte antes del cierre. Usa las flechas.', boton: 'Seguir este orden',
     items: [
       { id: 'corr', t: 'Corregir las cuatro filas del reporte', por: 'Primero, tu parte.' },
@@ -259,14 +259,14 @@ export const ESCENAS = [
       { id: 'a', label: 'Que todo reporte que afecte sueldos tenga visto bueno de la supervisora y una segunda revisión antes de enviarse.',
         res: { q: 'buena', fx: { calidad: 5, confianza: 4 }, rel: { carla: 1 }, flags: ['control_doble'],
           responde: 'Carla: propongo que todo reporte que afecte sueldos tenga dos controles antes de ir a Planillas: el visto bueno de la supervisora de la línea y una segunda revisión en RR.HH., con el formato de horas en hh:mm. Hoy los cuatro errores se habrían visto antes.',
-          out: 'Carla responde: «Hecho. Desde la próxima semana. Y anótalo para tu propuesta de fin de mes».',
+          out: 'Carla responde: «Hecho. Desde la próxima semana. Y anótalo para tu propuesta de la próxima semana».',
           pro: { ok: 'Propones un control en el proceso, no un castigo a la persona.', info: 'Los mejores controles son simples: dos firmas y un formato fijo.' },
           kusi: ['celebra', '¡Tu error se volvió una mejora!'] } },
       { id: 'b', label: 'Prometer que vas a tener más cuidado de ahora en adelante.',
         res: { q: 'aceptable', fx: { confianza: 1 },
           responde: 'Carla: te prometo que voy a tener más cuidado. No va a volver a pasar.',
           out: 'Carla responde: «Te creo. Pero el cuidado se cansa. Piensa en un control que funcione aunque estés cansada».',
-          pro: { ok: 'Asumes el compromiso.', risk: 'La buena voluntad no es un control: el próximo jueves de cierre también estarás cansada.' },
+          pro: { ok: 'Asumes el compromiso.', risk: 'La buena voluntad no es un control: el próximo viernes de cierre también estarás cansada.' },
           kusi: ['pensando', 'La promesa es sincera, pero ¿y el proceso?'] } },
       { id: 'c', label: 'Que Planillas revise siempre los reportes antes de cerrar: para eso están.',
         res: { q: 'riesgosa', fx: { confianza: -3, calidad: -1 }, rel: { diego: -1 },

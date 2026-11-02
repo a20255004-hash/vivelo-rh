@@ -32,7 +32,7 @@ else {
   if (esperado && esperado.titulo !== CAP.titulo) av(`El título «${CAP.titulo}» no coincide con el del puesto «${esperado.titulo}»`);
   const ult = PUESTO.capitulos?.length || 10;
   if (n < ult && (!CAP.siguiente || CAP.siguiente.n !== n + 1)) err('CAP.siguiente debe apuntar al capítulo ' + (n + 1));
-  if (n === ult && CAP.siguiente) err('El último capítulo no lleva CAP.siguiente');
+  if (n === ult && CAP.siguiente?.n !== n + 1) err('El capítulo ' + n + ' deja el final abierto: CAP.siguiente debe anunciar el capítulo ' + (n + 1));
 }
 if (!Array.isArray(ESCENAS) || ESCENAS.length < 5 || ESCENAS.length > 9) err('ESCENAS debe tener entre 5 y 9 escenas');
 const CANAL = ['correo', 'whatsapp', 'llamada', 'presencial', 'documento', 'sistema'];

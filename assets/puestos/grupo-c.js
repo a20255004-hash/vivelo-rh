@@ -2,7 +2,7 @@
 // «desde»: capítulo en que esa persona entra a la historia.
 
 const S = (n, semana, dia, titulo, comp, resumen) => ({ n, semana, dia, titulo, comp, resumen });
-const MES = { duracion: 'Cuatro semanas, nueve capítulos y unas cuatro horas para vivirlo, a tu ritmo.' };
+const MES = { duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.' };
 
 export const DATOS = {
 
