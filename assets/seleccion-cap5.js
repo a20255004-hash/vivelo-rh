@@ -1,4 +1,4 @@
-// Capítulo 5 · «Las entrevistas» · Semana 2, jueves.
+// Capítulo 5 · «Las entrevistas» · Semana 1, viernes.
 // Lucía, Marco y Patricia aparecen desde este capítulo. Recibe las decisiones de los capítulos 1 a 4.
 //
 // Normas citadas y fuentes consultadas:
@@ -11,7 +11,7 @@
 // - Ley 29733, de Protección de Datos Personales (finalidad): https://www.minsa.gob.pe/Recursos/OGTI/SINADEF/Ley-29733.pdf
 
 export const CAP = {
-  n: 5, titulo: 'Las entrevistas', dia: 'Semana 2, jueves', foto: 'assets/foto/entrevista.webp',
+  n: 5, titulo: 'Las entrevistas', dia: 'Semana 1, viernes', foto: 'assets/foto/entrevista.webp',
   lugar: 'Sala de reuniones · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '20:00', cierreHora: '19:30',
   apertura: 'Hoy conoces a las personas detrás de los códigos. Walter llega a las nueve. Tú, antes.', boton: 'Preparar la sala',
@@ -19,17 +19,17 @@ export const CAP = {
   lead: 'Entrevistaste a tres personas muy distintas, cuidaste a una candidata de una pregunta que no debió hacerse y separaste lo que viste de lo que te pareció.',
   reflexion: '¿Qué candidato te cayó mejor? ¿Es también el que mostró más evidencia?',
   rel: { lucia: 0, marco: 0, patricia: 0 },
-  siguiente: { n: 6, titulo: 'La terna', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La terna', dia: 'Semana 2, lunes' },
 };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 32, e: 'Hoy: entrevistas con Walter' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 19, e: '2 aprobados, faltan 2' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 25, e: 'Final con Fernando el lunes' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 50, e: '18 postulaciones' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 15, e: 'Entrevistas el viernes' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 13, e: 'Convenio con universidad en trámite' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 70, e: 'Proceso reabierto' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 26, e: 'Hoy: entrevistas con Walter' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 13, e: '2 aprobados, faltan 2' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 19, e: 'Final con Fernando el lunes' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 44, e: '18 postulaciones' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 9, e: 'Entrevistas hoy' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 7, e: 'Convenio con universidad en trámite' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 64, e: 'Proceso reabierto' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -209,7 +209,7 @@ export const ESCENAS = [
     id: 'e5', t: '11:50', ch: 'documento', who: 'marco', titulo: 'Tus notas de Marco', banner: 'assets/foto/entrevista-cv.webp', show: ['calidad', 'etica', 'cumplimiento'],
     body: (n, F) => `<p>Marco Ticona, 38 años, supervisor de almacén en un operador logístico minero de Moquegua. Llegó puntual, saludó a Walter por su nombre y habló con seguridad durante cuarenta minutos. ${F.has('referido_walter') ? 'Es el recomendado de Walter.' : ''}</p><p>Antes de la siguiente entrevista, relees lo que anotaste. Escribiste rápido, <mark class="clave">mezclando lo que viste con lo que te pareció</mark>.</p>`,
     type: 'flag', prompt: 'Marca las notas que no deberían pesar en la evaluación. Si alguna te hace dudar, márcala también.',
-    doc: { t: 'Notas de entrevista · Marco Ticona', sub: 'Jueves · 11:00 a 11:45 · con Walter Quispe' },
+    doc: { t: 'Notas de entrevista · Marco Ticona', sub: 'Viernes · 11:00 a 11:45 · con Walter Quispe' },
     lines: [
       { id: 'wms', t: 'Contó cómo concilió el WMS con el conteo físico cada semana y bajó las diferencias del almacén.' },
       { id: 'tacna', t: 'Es tacneño como yo: se nota que se va a quedar.', bad: BP, why: 'Es afinidad, no evidencia. Que alguien se parezca a ti no predice que se quede.' },
@@ -239,7 +239,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Proponerle que cada uno puntúe a los candidatos por separado con la guía y que comparen mañana antes de decidir.',
         res: { q: 'buena', fx: { calidad: 6, confianza: 2, etica: 2 }, rel: { walter: 1 }, flags: ['puntaje_independiente'],
-          out: '«¿Por separado? Ya sé a quién quiero.» Le recuerdas que el martes presentas la terna con sustento. Acepta, a regañadientes. En la noche te manda su hoja: Marco primero, pero Lucía apenas un punto debajo.',
+          out: '«¿Por separado? Ya sé a quién quiero.» Le recuerdas que el lunes presentas la terna con sustento. Acepta, a regañadientes. En la noche te manda su hoja: Marco primero, pero Lucía apenas un punto debajo.',
           pro: { ok: 'Dos miradas independientes antes de comparar evitan que la opinión del jefe contagie la tuya, y al revés.', risk: 'Walter puede sentir que dudas de su criterio. Explícale que también dudas del tuyo.', info: 'Comparar puntajes no es votar: es ver dónde difieren y por qué.' },
           kusi: ['celebra', 'Walter puntuó a Lucía casi igual que a Marco. ¡Ajá!'] } },
       { id: 'b', label: 'Aceptar a Marco: es el jefe, tiene experiencia y el inventario se acerca.',
@@ -280,7 +280,7 @@ export const ESCENAS = [
         { id: 'd3', t: 'Igual tu respuesta fue muy buena.', ok: false, por: 'Le confirmas que su respuesta sobre sus hijos se evaluó.' },
       ] },
       { id: 'pasos', t: 'Próximos pasos', ops: [
-        { id: 'p1', t: 'El martes te escribo para contarte cómo sigue el proceso.', ok: true, por: 'Una fecha concreta.' },
+        { id: 'p1', t: 'El lunes te escribo para contarte cómo sigue el proceso.', ok: true, por: 'Una fecha concreta.' },
         { id: 'p2', t: 'Cualquier novedad te aviso.', ok: null, por: 'Amable, pero sin fecha.' },
       ] },
     ],
@@ -290,7 +290,7 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 6 : q === 'aceptable' ? 2 : -3, etica: q === 'riesgosa' ? -3 : 3, confianza: 1 }, rel: { patricia: q === 'riesgosa' ? -1 : 1 },
         flags: [q === 'riesgosa' ? 'patricia_dudosa' : 'patricia_tranquila'],
-        out: q === 'buena' ? 'Patricia responde a los cinco minutos: «Gracias. Eso me deja tranquila. Espero su mensaje el martes».' : q === 'aceptable' ? 'Patricia responde con un «gracias». Sigues sin saber si quedó tranquila.' : 'Patricia responde «ok». Una supervisora con ocho años de experiencia se queda pensando si su familia le restó puntos.',
+        out: q === 'buena' ? 'Patricia responde a los cinco minutos: «Gracias. Eso me deja tranquila. Espero su mensaje el lunes».' : q === 'aceptable' ? 'Patricia responde con un «gracias». Sigues sin saber si quedó tranquila.' : 'Patricia responde «ok». Una supervisora con ocho años de experiencia se queda pensando si su familia le restó puntos.',
         pro: { ok: 'Una respuesta clara después de un mal momento puede salvar la relación con una buena candidata.', risk: 'Sugerir que la respuesta familiar «fue buena» confirma que se evaluó.', info: 'Si ella decide presentar una queja, la empresa debe atenderla con seriedad.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Reparaste lo que se pudo reparar.' : 'Ojo con lo que tu mensaje confirma sin querer.'],
       };
@@ -298,7 +298,7 @@ export const ESCENAS = [
     rules: [[BP, 'Si un candidato vivió una situación incorrecta en tu proceso, reconócela y aclara cómo se evalúa.'], [LEY, 'Lo que la persona contó sobre su familia no debe registrarse ni usarse para evaluar (Ley 29733: solo datos para la finalidad del proceso).']],
     mirada: {
       ve: 'Patricia no está pidiendo un puesto: está preguntando si la trataron justo. Una profesional responde esa pregunta con honestidad, porque de eso depende si la empresa parece un buen lugar para trabajar. Y porque la respuesta correcta es la verdad: la familia no se evalúa.',
-      visual: { tipo: 'mensaje', titulo: 'Una respuesta que repara', txt: 'Patricia, gracias por escribir y disculpa la demora. Tu situación familiar no forma parte de la evaluación; te evaluamos por tu experiencia y por lo que el puesto exige. Lamento que hayas tenido que escuchar esa pregunta; no debió hacerse. El martes te escribo para contarte cómo sigue el proceso.' },
+      visual: { tipo: 'mensaje', titulo: 'Una respuesta que repara', txt: 'Patricia, gracias por escribir y disculpa la demora. Tu situación familiar no forma parte de la evaluación; te evaluamos por tu experiencia y por lo que el puesto exige. Lamento que hayas tenido que escuchar esa pregunta; no debió hacerse. El lunes te escribo para contarte cómo sigue el proceso.' },
     },
   },
   {
@@ -321,7 +321,7 @@ export const ESCENAS = [
     rules: [[BP, 'Informa a tu jefa de los incidentes con riesgo legal, aunque los hayas resuelto.']],
     mirada: {
       ve: 'Una analista resuelve el problema del día; una profesional se pregunta por qué ocurrió. La pregunta de Walter no es un error de Walter: es la falta de una regla que oriente a todos los jefes que entrevistan.',
-      visual: { tipo: 'embudo', titulo: 'Tu jueves en números', niveles: [['Entrevistas', 5], ['Con evidencia sólida', 3], ['Preguntas que no debieron hacerse', 1], ['Candidatos con respuesta prometida', 5]] },
+      visual: { tipo: 'embudo', titulo: 'Tu viernes en números', niveles: [['Entrevistas', 5], ['Con evidencia sólida', 3], ['Preguntas que no debieron hacerse', 1], ['Candidatos con respuesta prometida', 5]] },
     },
   },
 ];

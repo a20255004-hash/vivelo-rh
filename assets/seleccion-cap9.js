@@ -1,319 +1,299 @@
-// Capítulo 9 · «Fin de mes» · Semana 4, viernes. Cierre de la temporada «El supervisor que faltaba».
-// Recoge las decisiones de los capítulos 1 a 8 a través de F.has(flag).
+// Capítulo 9 · «El día después» · Semana 2, jueves.
+// Une el ingreso del capítulo 8 con el inventario del capítulo 10. Recibe las decisiones de los capítulos 1 a 8.
+// La supervisión nueva depende del capítulo 6: elegido_marco (por defecto), elegido_lucia o elegido_patricia.
 //
-// Normas citadas y fuentes consultadas:
-// - Ley 29733, de Protección de Datos Personales: finalidad, seguridad y conservación de los datos solo mientras sean
-//   necesarios para la finalidad para la que se recogieron. Reglamento vigente: D.S. 016-2024-JUS.
-//   https://www.minsa.gob.pe/Recursos/OGTI/SINADEF/Ley-29733.pdf
-// - Ley 26772 y D.S. 002-98-TR: datos que no deben pedirse ni registrarse en una selección (edad, estado civil).
-//   https://faolex.fao.org/docs/pdf/per201903.pdf
-// - Ley 30709 y D.S. 002-2018-TR: revisión de diferencias salariales con criterios objetivos.
+// Normas citadas (todas verificadas en capítulos anteriores):
+// - Ley 30709 y D.S. 002-2018-TR: diferencias salariales explicadas con criterios objetivos aplicados al caso.
 //   https://cdn.www.gob.pe/uploads/document/file/154890/2018-03-08_002-2018-TR__6353.pdf
-// - Ley 26771 (nepotismo, sector público) como referencia para una política privada de referidos (citada en el capítulo 1).
+// - Ley 29733, de Protección de Datos Personales: finalidad, consentimiento y datos no excesivos.
+//   https://www.minsa.gob.pe/Recursos/OGTI/SINADEF/Ley-29733.pdf
+// - Ley 26772 y su reglamento (art. 4-A, D.S. 002-2018-TR): no se pregunta por embarazo ni se discrimina por sexo o religión.
+//   https://faolex.fao.org/docs/pdf/per201903.pdf
+// - Ley 28991 y D.S. 009-2008-TR: Boletín Informativo de pensiones para quien ingresa sin estar afiliado.
+//   https://andina.pe/ingles/noticia-empleadores-deben-informar-a-trabajadores-para-libre-eleccion-afp-u-onp-769189.aspx
+// - Ley 29783, art. 27: capacitación en seguridad al ingreso y cuando cambian las funciones.
 
 export const CAP = {
-  n: 9, titulo: 'Fin de mes', dia: 'Semana 4, viernes', foto: 'assets/3d/scenes/reunion.webp',
-  lugar: 'Almacén central y oficina de RR.HH. · Distribuidora Pacífico Sur',
-  inicio: '06:30', fin: '20:30', cierreHora: '20:10',
-  apertura: 'Hoy empieza el inventario. Hace un mes no había supervisor. Hoy hay alguien en el portón 3 con una tablet y el casco puesto.', boton: 'Ir al inventario',
-  kusi: 'Último día del mes. Hoy miramos lo que hiciste… y lo que quieres hacer después. ¡Dale!',
-  lead: 'Viviste un mes completo como analista de selección en Tacna: siete procesos, un supervisor que faltaba y decenas de personas que pasaron por tus manos. Ahora sabes cómo se siente este trabajo por dentro.',
-  reflexion: '¿Te ves en este puesto? ¿Qué parte del mes te lo dijo?',
+  n: 9, titulo: 'El día después', dia: 'Semana 2, jueves', foto: 'assets/foto/supervisa.webp',
+  lugar: 'Oficina de RR.HH. y almacén · Distribuidora Pacífico Sur',
+  inicio: '07:30', fin: '19:30', cierreHora: '19:15',
+  apertura: 'El segundo día de alguien nuevo casi nunca sale en las fotos. Es el día en que se nota lo que la empresa prometió.', boton: 'Empezar el seguimiento',
+  kusi: 'Contratar no termina en el ingreso. Hoy toca acompañar lo que elegiste. ¡Dale!',
+  lead: 'Acompañaste el segundo día de los nuevos, sostuviste la equidad frente a una pregunta incómoda y dejaste todo listo para el inventario de mañana.',
+  reflexion: '¿Qué promesa del proceso se puso a prueba hoy?',
+  siguiente: { n: 10, titulo: 'El inventario', dia: 'Semana 2, viernes' },
 };
 
 const E = F => F?.has('elegido_lucia')
-  ? { n: 'Lucía', ella: true }
-  : F?.has('elegido_patricia') ? { n: 'Patricia', ella: true } : { n: 'Marco', ella: false };
-const inventario = F => F?.has('induccion_saltada')
-  ? 'el primer conteo tiene diferencias en dos pasillos: el WMS no se está usando bien'
-  : F?.has('induccion_mixta')
-    ? 'el primer conteo es el más limpio en tres años, según Walter'
-    : 'el primer conteo va bien, con algunas diferencias que se revisarán el sábado';
+  ? { n: 'Lucía', ella: true, reto: 'el WMS' }
+  : F?.has('elegido_patricia') ? { n: 'Patricia', ella: true, reto: 'conocer al equipo' } : { n: 'Marco', ella: false, reto: 'ganarse al turno noche' };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 47, e: 'Cerrado · ingresó el martes' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 34, e: 'Cerrado · 3 ingresaron, 1 el lunes' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 40, e: 'Cerrado · ingresaron el martes' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 65, e: 'Oferta aceptada · ingresa el lunes' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 30, e: 'Cerrado' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 28, e: 'Entrevistas hechas' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 85, e: 'Oferta el lunes' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 32, e: 'Ingresó ayer · seguimiento' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 19, e: '3 ingresaron · 1 pendiente' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 25, e: 'Ingresaron ayer' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 50, e: 'Hoy: oferta' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 15, e: 'Cerrado' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 13, e: 'Hoy: entrevistas' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 70, e: 'Terna lista para Walter' },
 ];
-export const CARTERA = (F, prev) => BASE.map(c => (c.id === 'operarios' && F.has('wilber_reemplazo') ? { ...c, e: 'Cerrado · Jhon reemplazó a Wilber' } : c));
+export const CARTERA = (F, prev) => BASE.map(c => (c.id === 'operarios' && F.has('wilber_reemplazo') ? { ...c, e: '3 ingresaron · Jhon entra hoy' } : c));
 
 export const FUTURO = {
-  politica_referidos: ['Dejaste propuesta una política de referidos y familiares.', 'La próxima analista no dependerá de su valentía.'],
-  excel_limpio: ['El Excel de seguimiento quedó sin datos que no se deben guardar.', 'Lo heredará quien venga después.'],
-  cliente_interno: ['Walter evaluó el proceso por escrito.', 'Será tu primer indicador de satisfacción.'],
+  turno_aclarado: ['Yesenia trabajará en el turno que se le ofreció en la entrevista.', 'Capítulo 10.'],
+  turno_impuesto: ['Yesenia quedó en el turno noche, aunque le ofrecieron mañana.', 'Puede renunciar en el periodo de prueba. Capítulo 10.'],
+  plan_90: ['La nueva supervisión tiene un plan de 30, 60 y 90 días firmado con Walter.', 'Capítulo 10.'],
+  plan_flojo: ['El plan de la nueva supervisión es una lista de tareas sin metas.', 'Capítulo 10.'],
+  silvia_criterio: ['Le explicaste a Silvia el criterio salarial y se comprometió una revisión.', 'Capítulo 10.'],
+  silvia_negado: ['A Silvia le dijiste que «no hay diferencias».', 'Lo comprobará por su cuenta. Capítulo 10.'],
+  silvia_cifra: ['Le contaste a Silvia cuánto gana la nueva supervisión.', 'Capítulo 10.'],
+  ficha_limpia: ['La ficha de datos de ingreso pide solo lo necesario.', 'Gina la usará el lunes.'],
+  ficha_excesiva: ['La ficha de datos de ingreso pide datos que no corresponden.', 'Capítulo 10.'],
+  cartera_priorizada: ['Dejaste lista para el viernes la cartera que sigue abierta.', 'Capítulo 10.'],
+  checkin_nuevo: ['La nueva supervisión sabe que puede contarte lo que no funciona.', 'Capítulo 10.'],
 };
 
 export const CHATS = {
   grupo: { n: 'RR.HH. Pacífico Sur', sub: 'Rocío, Kelly y tú', c: '#2F6B3F' },
   rocio: { n: 'Rocío Mamani', sub: 'Jefa de RR.HH.', who: 'rocio' },
-  walter: { n: 'Walter Quispe', sub: 'Jefe de Operaciones', who: 'walter' },
-  fernando: { n: 'Fernando Salas', sub: 'Gerente Comercial', who: 'fernando' },
-  julio: { n: 'Don Julio Cutipa', sub: 'Almacén', who: 'julio' },
   kelly: { n: 'Kelly Ramos', sub: 'Planillas', who: 'kelly' },
-  nuevo: { n: 'Supervisión de almacén', sub: 'Ingresó el martes', c: '#C2703D' },
-  wilber: { n: 'Wilber Mamani', sub: 'Operario', c: '#B5838D' },
+  walter: { n: 'Walter Quispe', sub: 'Jefe de Operaciones', who: 'walter' },
+  nuevo: { n: 'Supervisión de almacén', sub: 'Ingresó ayer', c: '#C2703D' },
+  wilber: { n: 'Wilber Mamani', sub: 'Operario nuevo', c: '#B5838D' },
+  yesenia: { n: 'Yesenia Apaza', sub: 'Operaria nueva', c: '#7CC6EA' },
+  gina: { n: 'Gina Velásquez', sub: 'Contadora general', c: '#6D597A' },
 };
 
 export const CORREOS = [
-  { t: '07:10', de: 'Ing. Ricardo Zegarra · Gerente General', para: 'Rocío Mamani', cc: 'Analista de Selección', asunto: 'Inventario', html: '<p>Primer inventario en tres años en el que Operaciones no me pide horas extra de Gerencia. Gracias a RR.HH.</p>', si: 'induccion_mixta' },
-  { t: '11:30', de: 'Rocío Mamani', para: 'Analista de Selección', asunto: 'Silvia Coaquira', html: '<p>Gerencia aprobó revisar el sueldo de Silvia en el próximo trimestre, como pediste. Fue lo correcto.</p>', si: 'oferta_excepcion' },
-  { t: '11:30', de: 'Silvia Coaquira', para: 'Rocío Mamani', cc: 'Analista de Selección', asunto: 'Consulta sobre la banda de supervisores', html: '<p>Rocío, me enteré de cuánto gana el nuevo supervisor. Tengo siete años. ¿Me pueden explicar el criterio?</p>', si: 'contra_puja' },
-  { t: '15:20', de: 'Hugo Cárdenas', para: 'seleccion@pacificosur.pe', asunto: 'Vacante de jefe de turno', html: '<p>Vi que se abrió la vacante de jefe de turno. Gracias por avisarme primero. Ya postulé.</p>', si: 'hugo_puerta' },
+  { t: '07:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Altas de ayer', html: '<p>Te adjunto las constancias de T-Registro de ayer. Todas dentro del día. Gracias por quedarte. 🙏</p>', si: 'altas_a_tiempo' },
+  { t: '07:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Alta corregida', html: '<p>Registré a primera hora el alta que quedó pendiente ayer. El sistema guarda la fecha real. Si hay una inspección, va a aparecer.</p>', si: 'alta_atrasada' },
+  { t: '16:10', de: 'Gina Velásquez', para: 'Analista de Selección', asunto: 'Mi asistente', html: '<p>Aceptó. Entra el lunes. Cincuenta días, pero llegó la persona correcta. Gracias.</p><p>Gina</p>', si: 'cierra_gina' },
 ];
 
 export const WSP = [
-  { chat: 'grupo', t: '06:40', de: 'Kelly', txt: 'Hoy inventario: el comedor da desayuno a todos 🍞☕ ¡fuerza almacén!' },
-  { chat: 'wilber', t: '07:30', de: 'Wilber', txt: 'Buenos días señorita. Confirmo que el lunes entro. Mi mamá ya está mejor 🙏', si: 'wilber_reprograma' },
-  { chat: 'walter', t: '09:40', de: 'Walter', txt: 'Primer pasillo cerrado. Va bien.', no: 'induccion_saltada' },
-  { chat: 'walter', t: '09:40', de: 'Walter', txt: 'Pasillo 4 no cuadra. Nadie le enseñó a usar el lector.', si: 'induccion_saltada' },
-  { chat: 'julio', t: '13:15', de: 'Don Julio', txt: 'Hija, me inscribí en el CEBA de la noche. Mi nieta dice que me va a tomar la lección 😄', si: 'julio_plan' },
-  { chat: 'julio', t: '13:15', de: 'Don Julio', txt: 'Hija, ¿y lo de la reserva? Nadie me ha dicho nada.', si: 'julio_reserva' },
-  { chat: 'fernando', t: '17:50', de: 'Fernando', txt: 'Colega, los tres vendedores ya están en ruta 💪 Gracias, de verdad. Aunque me hiciste sudar 😅' },
-  { chat: 'grupo', t: '19:40', de: 'Kelly', txt: 'Planilla cerrada, inventario en marcha y nadie lloró. ¡Feliz fin de mes, equipo! 🎉' },
+  { chat: 'grupo', t: '07:35', de: 'Kelly', txt: 'Mañana inventario: el comedor dará desayuno para todos desde las 6 ☕' },
+  { chat: 'wilber', t: '09:05', de: 'Wilber', txt: 'Buenos días señorita. Confirmo: el lunes entro. Mi mamá ya está en casa 🙏', si: 'wilber_reprograma' },
+  { chat: 'walter', t: '12:40', de: 'Walter', txt: 'Plan revisado. Lo firmo. Que mañana empiece a cumplirlo 😄', si: 'plan_90' },
+  { chat: 'nuevo', t: '17:55', de: 'Supervisión', txt: 'Gracias por preguntar. Le cuento mañana después del primer conteo 💪', si: 'checkin_nuevo' },
+  { chat: 'rocio', t: '18:30', de: 'Rocío', txt: 'Mañana, después del inventario, conversamos de tus dos semanas. Trae tus números.' },
 ];
 
 export const QUIZ = [
-  { q: '¿Cuál de estos es un buen indicador de un proceso de selección?', ops: ['Cuántos CV llegaron', 'Cuántos días pasaron entre el requerimiento y el ingreso', 'Cuántas horas trabajó la analista', 'Cuántos correos se enviaron'], ok: 1, por: 'El tiempo de cobertura mide lo que al jefe le importa: cuánto tiempo estuvo vacío el puesto.' },
-  { q: 'La calidad de una contratación se ve sobre todo en…', ops: ['El día de la oferta', 'Si la persona se queda y rinde bien en sus primeros meses', 'El número de entrevistas', 'Lo rápido que se firmó el contrato'], ok: 1, por: 'La retención y el desempeño a 90 días dicen si se eligió bien.' },
-  { q: '¿Qué haces con los CV de los postulantes que no quedaron?', ops: ['Los guardas para siempre por si acaso', 'Los conservas solo con su conformidad y por el tiempo necesario; el resto se elimina', 'Se los pasas a otras empresas', 'Los imprimes y archivas'], ok: 1, por: 'La Ley 29733 pide usar y conservar los datos solo para la finalidad para la que se entregaron.' },
-  { q: 'Para que los pedidos de «favorcitos» no dependan de la valentía de cada analista, conviene…', ops: ['Aceptarlos todos', 'Una política escrita de referidos y familiares', 'Rechazar a todo referido', 'Que decida cada gerente'], ok: 1, por: 'Una regla clara protege a los referidos, a los demás postulantes y a quien selecciona.' },
-  { q: 'El nuevo supervisor gana más que una supervisora con siete años. ¿Qué corresponde?', ops: ['Nada, ya firmó', 'Explicar la diferencia con criterios objetivos o revisarla', 'Bajarle el sueldo al nuevo', 'Pedirle a ella que no pregunte'], ok: 1, por: 'La Ley 30709 exige que las diferencias dentro de una categoría se expliquen con criterios objetivos aplicados al caso.' },
+  { q: 'Al día siguiente del ingreso, una operaria dice que le dieron un turno distinto al que le ofrecieron. ¿Qué haces?', ops: ['Le dices que así es el almacén', 'Revisas qué se le ofreció y lo conversas con el jefe para cumplirlo o acordar un cambio', 'Esperas a que pase el periodo de prueba', 'Le pides que renuncie si no le gusta'], ok: 1, por: 'Lo prometido en la selección es parte de la oferta. Si cambia, se conversa y se acuerda, no se impone.' },
+  { q: '¿Qué debería tener un plan de inducción de 30, 60 y 90 días?', ops: ['Solo la lista de tareas', 'Metas concretas, quién acompaña y cuándo se revisa', 'Las vacaciones del año', 'El sueldo de los demás supervisores'], ok: 1, por: 'Metas, acompañamiento y fechas de revisión: así la persona sabe qué se espera de ella.' },
+  { q: 'Una supervisora pregunta por qué el nuevo gana más que ella. ¿Qué corresponde?', ops: ['Decirle la cifra exacta del otro', 'Negar que haya diferencia', 'Explicarle los criterios objetivos de la política salarial y revisar su caso', 'Pedirle que no pregunte'], ok: 2, por: 'La Ley 30709 pide criterios objetivos, aplicados al caso concreto. El sueldo de cada persona es un dato suyo.' },
+  { q: '¿Qué dato no debería pedir una ficha de datos de ingreso?', ops: ['Contacto de emergencia', 'Cuenta de sueldo', 'Religión', 'Sistema de pensiones'], ok: 2, por: 'La religión no tiene relación con el trabajo y es un dato sensible.' },
+  { q: 'El día antes del inventario tienes siete pendientes y tiempo para tres. ¿Con qué criterio eliges?', ops: ['Por orden alfabético', 'Lo que vence antes, lo que afecta a más personas y lo que se destraba rápido', 'Lo que te pide el gerente más insistente', 'Lo más fácil'], ok: 1, por: 'Impacto, plazo y esfuerzo: el mismo criterio del primer día.' },
 ];
 
 const LEY = 'ley', POL = 'politica', BP = 'bp';
 
 export const ESCENAS = [
   {
-    id: 'i1', t: '06:50', ch: 'presencial', who: 'walter', titulo: 'El inventario', banner: 'assets/foto2/tablet-equipo.webp', lugar: 'Almacén central · portón 3', show: ['confianza', 'calidad', 'personas'],
-    body: (n, F) => { const e = E(F); return `<p>El almacén está iluminado como un estadio. Hay cintas amarillas en cada pasillo y operarios con lectores en la mano. ${e.n} reparte las zonas en voz alta${F.has('induccion_mixta') ? ', con don Julio a un costado, corrigiendo un número de rack sin que nadie lo note' : ''}.</p><p>Walter, con su termo de café, se pone a tu lado. Hace un mes te escribía en mayúsculas. Hoy: «Pregúnteme lo que quiera. <mark class="clave">Tengo cinco minutos</mark>».</p>`; },
-    type: 'ask', max: 2, prompt: 'Elige dos preguntas para Walter.',
-    opts: [
-      { id: 'como', label: '¿Cómo va el inventario?', info: F => `«Hasta ahora, ${inventario(F)}.»` },
-      { id: 'nuevo', label: '¿Qué le parece la nueva supervisión?', info: F => F?.has('elegido_lucia') ? '«Le confieso que dudaba de la de la tienda. Pero el turno noche ya le hace caso, y eso no lo consiguió ni Pacheco en un mes.»' : F?.has('elegido_patricia') ? '«Trajo sus planillas de Ica y en dos días me armó un tablero de exactitud. Habla poco y mide todo. Me gusta.»' : '«Sabe. Ya le cambió la ruta al montacargas del pasillo 2. Le falta ganarse a la noche, pero va.»' },
-      { id: 'proceso', label: '¿Qué cambiaría del proceso?', info: F => F?.has('promesa') && !F?.has('promesa_corregida') ? '«Que no me prometan fechas que no dependen de ustedes. El primer lunes me dijo «el viernes». Todavía me acuerdo.»' : F?.has('walter_aliado') ? '«Nada grande. Que la próxima vez me citen al almacén desde el primer día, como hizo usted.»' : '«Que se demore menos. Pero ya entendí por qué se demora.»' },
-      { id: 'julio', label: '¿Y don Julio?', info: F => F?.has('julio_plan') ? '«Está estudiando de noche, ¿sabía? Y anda enseñando a la nueva supervisión como si fuera su hija. Ese hombre vale oro.»' : F?.has('julio_reserva') ? '«Me preguntó por una «reserva». ¿Qué le dijeron? Anda esperando algo.»' : '«Ahí está, como siempre. Sin él este inventario sería otra cosa.»' },
+    id: 'k1', t: '08:10', ch: 'llamada', who: null, titulo: 'Las llamadas del segundo día', banner: 'assets/foto/llamada.webp', show: ['personas', 'calidad', 'confianza'],
+    body: (n, F) => `<p>Rocío tiene una regla: al día siguiente de un ingreso, se llama a cada persona nueva. Cinco minutos, para preguntar cómo le fue.</p><p>${F.has('bienvenida_expuesta') ? 'Todavía se comenta en el comedor lo que se publicó en el grupo ayer. ' : ''}Empiezas por los operarios, antes de que entren al turno.</p>`,
+    type: 'calls',
+    calls: [['Elmer Choque', 'Contesta, le interesa seguir: «Todo bien, señorita. Don Julio me enseñó el lector»', 'Todo bien, señorita. Don Julio me enseñó a usar el lector. Ya me ubico.'], ['Yesenia Apaza', 'Contesta: «Me pusieron en el turno noche. En la entrevista me dijeron mañana»', 'Señorita, me pusieron en el turno noche. En la entrevista me dijeron que era de mañana, y yo dejo a mi hijo en el jardín a las siete.'], ['Rosa Ccama · vendedora', 'Contesta, le interesa seguir: «Ya tengo mi ruta en Ciudad Nueva»', 'Ya tengo mi ruta en Ciudad Nueva, señorita. Contenta.']],
+    prompt: 'Yesenia espera en la línea. ¿Qué le dices?',
+    choices: [
+      { id: 'a', label: 'Decirle que vas a revisar qué se le ofreció por escrito y hablar hoy con Walter para que el turno sea el acordado, o se converse un cambio con ella.',
+        res: { q: 'buena', fx: { personas: 5, confianza: 3, cumplimiento: 3 }, rel: { walter: 0 }, flags: ['turno_aclarado'],
+          out: 'Tu correo de la oferta decía «turno mañana». Walter se rasca la cabeza: «Me faltaba gente en la noche». Acepta moverla a la mañana desde el lunes; esta semana, Ramiro le cubre. Yesenia te manda un audio, emocionada.',
+          pro: { ok: 'Lo que se ofrece en la selección es parte del acuerdo. Cumplirlo dice más de la empresa que cualquier inducción.', risk: 'Walter tiene un problema real en la noche. Ayúdalo a resolverlo, no solo a ceder.', info: 'Desde ahora, escribe el turno en la carta oferta de cada operario.' },
+          kusi: ['celebra', '¡Lo prometido es deuda!'] } },
+      { id: 'b', label: 'Explicarle que en un almacén los turnos rotan y que, por ahora, tendrá que adaptarse.',
+        res: { q: 'riesgosa', fx: { personas: -5, confianza: -2 }, flags: ['turno_impuesto'],
+          out: 'Yesenia dice «ya, señorita» con la voz apagada. No te dice que ya está mirando otros avisos.',
+          pro: { ok: 'Es verdad que los turnos rotan.', risk: 'Cambiar lo ofrecido sin conversarlo es la forma más rápida de perder a alguien en su periodo de prueba.' },
+          kusi: ['triste', 'El turno noche y un hijo en el jardín…'] } },
+      { id: 'c', label: 'Decirle que lo hable directamente con Walter, que es su jefe.',
+        res: { q: 'aceptable', fx: { personas: -1, tiempo: 1 }, flags: ['turno_derivado'],
+          out: 'Yesenia no se anima a hablar con Walter en su segundo día. El tema queda flotando.',
+          pro: { ok: 'Es cierto que su jefe decide los turnos.', risk: 'La promesa la hizo el proceso de selección: te toca acompañar la conversación.' },
+          kusi: ['pensando', 'En su segundo día, ¿con Walter? Uy.'] } },
     ],
-    res: picks => ({
-      q: null,
-      fx: { confianza: 3, personas: picks.includes('julio') ? 2 : 0, calidad: picks.includes('proceso') ? 2 : 0 },
-      rel: { walter: 1 },
-      out: 'Walter mira su reloj: «Ya. Me voy al pasillo 5». Antes de irse, te da una palmada en el hombro. Viniendo de él, es casi un abrazo.',
-      kusi: ['feliz', 'Hace un mes te escribía en mayúsculas. Mira ahora.'],
-    }),
+    rules: [[BP, 'Lo ofrecido en la selección (turno, horario, funciones) se cumple o se renegocia con la persona.'], [POL, 'En esta empresa, RR.HH. llama a cada ingreso al día siguiente.']],
     mirada: {
-      ve: 'El resultado de una selección no se ve el día de la oferta: se ve en el primer inventario, en el primer turno noche, en cómo habla el jefe que pidió la vacante. Una profesional vuelve al lugar donde trabaja la persona que eligió.',
-      visual: { tipo: 'linea', titulo: 'El mes del supervisor', hitos: [['Semana 1', 'Perfil en el almacén'], ['Semana 2', 'Filtro y entrevistas'], ['Semana 3', 'Terna y oferta'], ['Semana 4', 'Ingreso e inventario']] },
+      ve: 'El segundo día es cuando aparecen las diferencias entre lo que se prometió y lo que pasa. Una profesional las busca a propósito, porque una diferencia que se arregla el jueves es una renuncia que no llega en el mes dos.',
+      visual: { tipo: 'cambio', titulo: 'De lo ofrecido a lo que pasó', pares: [['Turno mañana', 'Turno noche sin aviso'], ['«Te acompaña alguien»', 'Don Julio le enseñó el lector'], ['Ruta de ventas', 'Ruta asignada en Ciudad Nueva']] },
     },
   },
   {
-    id: 'i2', t: '09:30', ch: 'documento', who: null, titulo: 'Tus indicadores', banner: 'assets/esc/meta.webp', lugar: 'Oficina de RR.HH.', show: ['calidad', 'confianza', 'tiempo'],
-    body: () => `<p>De vuelta en la oficina, preparas tu reporte del mes para Rocío. Tienes el Excel de seguimiento abierto, con sus pestañas mal nombradas.</p><p>Rocío te dijo el primer día en qué se iba a fijar: que los jefes confíen en ti, que lo que contrates se quede y que no le traigas problemas legales. <mark class="clave">Elige tres indicadores que lo muestren.</mark></p>`,
-    type: 'pick', n: 3, prompt: 'Elige los tres indicadores de tu reporte.', boton: 'Armar el reporte', resumen: 'Tus indicadores',
-    cols: ['Indicador', 'Qué mide'],
-    rows: [
-      { id: 'cobertura', cells: ['Días desde el requerimiento hasta el ingreso', 'Cuánto tiempo estuvo vacío cada puesto'] },
-      { id: 'aceptacion', cells: ['Ofertas aceptadas sobre ofertas hechas', 'Si las ofertas están bien armadas'] },
-      { id: 'satisfaccion', cells: ['Evaluación del proceso por cada jefe', 'La confianza de los clientes internos'] },
-      { id: 'respuesta', cells: ['Entrevistados que recibieron respuesta', 'Cómo trata la empresa a quien no queda'] },
-      { id: 'cv', cells: ['CV recibidos en el mes', 'Volumen'] },
-      { id: 'horas', cells: ['Horas que trabajaste', 'Tu esfuerzo'] },
-      { id: 'correos', cells: ['Correos enviados', 'Actividad'] },
-    ],
-    score: { cobertura: 3, satisfaccion: 3, aceptacion: 2, respuesta: 2, cv: -1, horas: -2, correos: -2 },
-    res: (picks, sc) => {
-      const q = sc >= 7 ? 'buena' : sc >= 4 ? 'aceptable' : 'riesgosa';
-      return {
-        q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 2 : -2, confianza: picks.includes('satisfaccion') ? 3 : 0 },
-        flags: picks.map(p => 'ind_' + p),
-        out: q === 'buena' ? 'Tu reporte cabe en una hoja: cuánto tardaste, cuántos dijeron que sí y qué opinan los jefes. Rocío podrá llevarlo al comité tal cual.' : q === 'aceptable' ? 'El reporte informa, aunque mezcla actividad con resultados.' : 'El reporte muestra cuánto trabajaste, pero no si lo que contrataste sirvió.',
-        pro: { ok: 'Un buen indicador mide lo que le importa a la empresa, no cuánto te esforzaste.', risk: 'Los CV recibidos o las horas trabajadas suenan bien, pero no dicen si se eligió bien.', info: 'Agenda medir la retención a 90 días: ahí sabrás si el supervisor se queda.' },
-        kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Indicadores que cuentan la historia!' : 'Esfuerzo no es lo mismo que resultado.'],
-      };
-    },
-    rules: [[BP, 'Mide resultados (tiempo, aceptación, satisfacción, retención), no solo actividad.']],
-    mirada: {
-      ve: 'Un mes de selección se puede contar en correos enviados o en puestos cubiertos. Una profesional elige lo segundo, y agrega lo que casi nadie mide: cómo se sintieron los jefes y los candidatos que no quedaron.',
-      visual: { tipo: 'embudo', titulo: 'El mes en números', niveles: [['Procesos abiertos', 7], ['Procesos cerrados', 4], ['Personas que ingresaron', 8], ['Entrevistados con respuesta', 18]] },
-    },
-  },
-  {
-    id: 'i3', t: '11:00', ch: 'documento', who: null, titulo: 'El reporte del mes', banner: 'assets/foto/mesa-papeles.webp', show: ['calidad', 'cumplimiento', 'etica'],
-    body: (n, F) => `<p>Los números ya están. Ahora, lo que aprendiste. Rocío quiere tres cosas: qué funcionó, qué no y qué propones para el próximo mes.</p><p>${F.has('rocio_informada') ? 'Ya le adelantaste lo de la guía de entrevista para los jefes.' : ''} Lo que escribas puede convertirse en <mark class="clave">la forma de trabajar del área</mark>.</p>`,
-    type: 'builder', prompt: 'Elige las piezas de tu reporte.', boton: 'Enviar el reporte a Rocío',
+    id: 'k2', t: '09:40', ch: 'documento', who: 'walter', titulo: 'El plan de 30, 60 y 90 días', banner: 'assets/foto/mesa-papeles.webp', lugar: 'Oficina de Operaciones', show: ['calidad', 'confianza', 'personas'],
+    body: (n, F) => { const e = E(F); return `<p>Walter te recibe con el tablero del inventario pegado en la pared. ${F.has('induccion_mixta') ? 'Ayer funcionó lo de don Julio.' : F.has('induccion_saltada') ? 'Ayer no hubo inducción y se nota: el lector del pasillo 4 sigue sin usarse.' : ''}</p><p>Toca dejar por escrito qué se espera de ${e.n} en sus primeros tres meses. Su reto, dice Walter, es ${e.reto}. <mark class="clave">Si no está escrito, cada uno recordará algo distinto.</mark></p>`; },
+    type: 'builder', prompt: 'Arma el plan eligiendo las piezas de cada etapa.', boton: 'Mandar el plan a firmar',
     bloques: [
-      { id: 'funciono', t: 'Lo que funcionó', n: 2, ops: [
-        { id: 'f1', t: 'Levantar el perfil en el almacén, con el jefe y con alguien del equipo.', ok: true, por: 'De ahí salió todo lo demás.' },
-        { id: 'f2', t: 'Matriz de preselección antes de leer los CV.', ok: true, por: 'Convirtió 140 postulaciones en cinco entrevistas defendibles.' },
-        { id: 'f3', t: 'Que el jefe entrevistara sin guía, porque conoce a su gente.', ok: false, por: 'Ahí nació la pregunta que no debió hacerse.' },
+      { id: 'd30', t: 'Primeros 30 días', n: 2, ops: [
+        { id: 'a1', t: 'Liderar el inventario con don Julio como acompañante y cerrar las diferencias por escrito.', ok: true, por: 'Meta concreta, con apoyo y evidencia.' },
+        { id: 'a2', t: 'Completar la capacitación en el WMS y en seguridad del almacén.', ok: true, por: 'Lo obligatorio y lo que más necesita.' },
+        { id: 'a3', t: 'Demostrar compromiso y buena actitud.', ok: false, por: 'Nadie puede decir el día 30 si eso se cumplió o no.' },
       ] },
-      { id: 'mejorar', t: 'Lo que hay que mejorar', n: 2, ops: [
-        { id: 'm1', t: 'Las plantillas viejas (bases, carta oferta) tenían requisitos y cláusulas que no se pueden usar.', ok: true, por: 'Se revisan una vez y se evita el error en todos los procesos.' },
-        { id: 'm2', t: 'Las cuentas y archivos de Selección dependían de personas, no del área.', ok: true, por: 'Lo viste el primer día con la cuenta de Milagros.' },
-        { id: 'm3', t: 'La convocatoria interna demora tres días: conviene eliminarla.', ok: false, por: 'Esos tres días le dijeron al equipo que adentro también se crece.' },
+      { id: 'd60', t: 'A los 60 días', n: 1, ops: [
+        { id: 'b1', t: 'Turnos asignados con una semana de anticipación y sin cambios de último minuto.', ok: true, por: 'Se puede medir, y resuelve lo que le pasó a Yesenia.' },
+        { id: 'b2', t: 'Cubrir como chofer cuando falte alguno.', ok: false, por: 'Justo lo que cansó a Pacheco.' },
       ] },
-      { id: 'propongo', t: 'Lo que propongo', n: 2, ops: [
-        { id: 'p1', t: 'Una política escrita de referidos y familiares: entran con el mismo filtro.', ok: true, por: 'Para que el próximo «favorcito» no dependa de la valentía de nadie.' },
-        { id: 'p2', t: 'Una guía de entrevista corta para todos los jefes que entrevistan.', ok: true, por: 'Mismas preguntas, sin vida personal.' },
-        { id: 'p3', t: 'Revisar la banda de supervisores frente al mercado y a la equidad interna.', ok: true, por: 'Pacheco se fue por S/ 600 y Silvia lleva siete años.' },
-        { id: 'p4', t: 'Pedir foto en los CV para ir más rápido en el filtro.', ok: false, por: 'La foto no mide el trabajo y abre la puerta a sesgos.' },
+      { id: 'd90', t: 'A los 90 días', n: 1, ops: [
+        { id: 'c1', t: 'Reunión con Walter y RR.HH. para revisar metas antes de que termine el periodo de prueba.', ok: true, por: 'La decisión sobre el periodo de prueba se toma con datos, no con impresiones.' },
+        { id: 'c2', t: 'Si nadie se queja, sigue.', ok: false, por: 'El silencio no es una evaluación.' },
       ] },
     ],
     res: (buenos, total) => {
-      const k = buenos / total, q = k >= .99 ? 'buena' : k >= .66 ? 'aceptable' : 'riesgosa';
+      const k = buenos / total, q = k >= .99 ? 'buena' : k >= .7 ? 'aceptable' : 'riesgosa';
       return {
-        q, fx: { calidad: Math.round((k - .5) * 14), cumplimiento: k >= .66 ? 3 : -2 }, rel: { rocio: 1 },
-        flags: [q === 'riesgosa' ? 'reporte_flojo' : 'reporte_solido', 'politica_referidos'],
-        out: q === 'buena' ? 'Rocío responde a los veinte minutos: «Lo llevo al comité del lunes tal cual. La política de referidos la redactamos juntas».' : q === 'aceptable' ? 'Rocío agradece el reporte y te devuelve una pieza con una pregunta: «¿Seguro?».' : 'Rocío te pide conversarlo antes de llevarlo a ningún lado.',
-        pro: { ok: 'Un reporte que propone cambios convierte un mes difícil en un área que funciona mejor.', risk: 'Proponer atajos que quitan controles parece eficiente, pero repite los errores del mes.', info: 'Cada propuesta, con un responsable y una fecha.' },
-        kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Lo que aprendiste ya es del área!' : 'Mira qué propuesta quita un control que te sirvió.'],
+        q, fx: { calidad: Math.round((k - .5) * 14), confianza: 3, personas: 2 }, rel: { walter: 1 },
+        flags: [q === 'riesgosa' ? 'plan_flojo' : 'plan_90'],
+        out: q === 'buena' ? 'Walter lo lee dos veces. «Esto lo firmo. Y que me lo recuerden a los 90 días.» Por primera vez, el supervisor de almacén tiene metas escritas.' : q === 'aceptable' ? 'Walter lo firma, aunque alguna meta quedará a interpretación.' : 'Walter lo firma sin leer mucho. Es una lista de buenas intenciones.',
+        pro: { ok: 'Un plan con metas, acompañamiento y fechas protege a la persona nueva y al jefe.', risk: 'Las metas vagas convierten el periodo de prueba en una decisión de simpatía.', info: 'Agenda desde hoy la reunión de los 90 días en el calendario de Walter.' },
+        kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Metas que se pueden revisar!' : 'Mira qué meta no se puede medir.'],
       };
     },
-    rules: [[BP, 'Un reporte de cierre dice qué funcionó, qué no y qué propones, con responsables.'], [LEY, 'Las bases y cartas no pueden tener requisitos discriminatorios ni cláusulas que renuncien a derechos (Ley 26772; Constitución, art. 26).']],
+    rules: [[LEY, 'La capacitación en seguridad va al ingreso y cuando cambian las funciones (Ley 29783, art. 27).'], [BP, 'Define metas a 30, 60 y 90 días antes de que termine el periodo de prueba.']],
     mirada: {
-      ve: 'Lo que una analista aprende en un mes se pierde si se queda en su cabeza. Una profesional lo convierte en reglas, plantillas y guías que trabajarán por la empresa aunque ella ya no esté. Eso hizo falta cuando se fue Milagros.',
-      visual: { tipo: 'cambio', titulo: 'Del problema del mes a la regla del área', pares: [['La clave de Milagros', 'Cuentas a nombre del área'], ['El «favorcito» de Fernando', 'Política de referidos'], ['La pregunta de Walter', 'Guía de entrevista para jefes'], ['La plantilla con prueba de embarazo', 'Plantillas revisadas']] },
+      ve: 'El periodo de prueba no sirve si nadie sabe qué se está probando. Una profesional convierte «a ver cómo le va» en metas que el jefe y la persona nueva pueden revisar juntos.',
+      visual: { tipo: 'linea', titulo: 'Los primeros tres meses', hitos: [['Día 2', 'Plan firmado'], ['Día 30', 'Inventario cerrado y WMS'], ['Día 60', 'Turnos estables'], ['Día 90', 'Revisión antes del fin de la prueba']] },
     },
   },
   {
-    id: 'i4', t: '12:30', ch: 'presencial', who: 'fernando', titulo: 'Otro «favorcito»', banner: 'assets/esc/decide.webp', show: ['etica', 'confianza', 'personas'],
-    body: (n, F) => `<p>Fernando entra sin tocar, como el primer día, pero esta vez trae dos cafés. «Colega, uno es para ti.»</p><p>${F.has('kevin_igual') ? '«Kevin ya se compró su moto. Y la hija de mi compadre quiere ser practicante de marketing.' : F.has('kevin_final') ? '«Kevin va bien, aunque Rosa anda diciendo cosas. Y la hija de mi compadre quiere ser practicante de marketing.' : '«La hija de mi compadre quiere ser practicante de marketing.'} <mark class="clave">¿Cómo hacemos?</mark>» Lo dice sonriendo, pero esta vez pregunta.</p>`,
+    id: 'k3', t: '11:10', ch: 'correo', who: null, titulo: 'Silvia pregunta', banner: 'assets/foto2/tension.webp', show: ['etica', 'cumplimiento', 'confianza'],
+    mail: { from: 'Silvia Coaquira · Supervisora de Transporte', to: 'Analista de Selección', asunto: 'Una consulta' },
+    body: (n, F) => `<p>Hola. Me dicen que la nueva supervisión de almacén gana más que yo. Llevo siete años. <mark class="clave">¿Me puedes explicar cómo se decide eso?</mark></p><p>Silvia</p><p><small>${F.has('bienvenida_expuesta') ? 'El dato salió del comentario que corrió ayer en el grupo.' : F.has('contra_puja') ? 'Igualaste la contraoferta sin aprobación: la diferencia no tiene sustento escrito.' : F.has('oferta_excepcion') ? 'Gerencia ya aprobó revisar el sueldo de Silvia el próximo trimestre.' : 'La oferta quedó dentro de la banda; aun así, la pregunta merece respuesta.'}</small></p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Explicarle la política de referidos que estás proponiendo: ella y Kevin pueden postular con una ficha de referido y pasan el mismo filtro.',
-        res: { q: 'buena', fx: { etica: 5, confianza: 3 }, rel: { fernando: 1 }, flags: ['politica_referidos'],
-          out: 'Fernando lee la ficha. «O sea que si la recomiendo, queda registrado que la recomendé yo.» Asiente. «Mejor así. Si entra, nadie podrá decir que fue por mí.»',
-          pro: { ok: 'Le das a Fernando una forma legítima de recomendar, y a los demás postulantes, la seguridad de que compiten igual.', risk: 'Una política solo funciona si también la cumplen los gerentes. Que Rocío la lleve al comité.' },
-          kusi: ['celebra', 'El mismo Fernando del primer día… preguntando cómo hacerlo bien.'] } },
-      { id: 'b', label: 'Decirle que la pase directo a entrevista: después de un mes así, Fernando se ganó un favor.',
-        res: { q: 'riesgosa', fx: { etica: -6, confianza: 2 }, rel: { fernando: 1 },
-          out: 'Fernando sonríe: «Sabía que nos íbamos a entender». La frase del primer día. Y todo lo que construiste en el mes queda con una excepción a su nombre.',
-          pro: { ok: 'Cierras el mes en paz con un gerente.', risk: 'Un favor después de un mes justo enseña que la justicia era solo para ese mes.' },
-          kusi: ['triste', 'Esa frase otra vez…'] } },
-      { id: 'c', label: 'Decirle que ningún familiar de gerentes puede postular, para evitar problemas.',
-        res: { q: 'aceptable', fx: { etica: 2, personas: -3 }, rel: { fernando: -1 },
-          out: '«¿Ninguno? ¿Aunque sea buena?» Fernando se va con su café. Tienes la intención correcta, pero una prohibición total también deja fuera a gente capaz.',
-          pro: { ok: 'Evitas conflictos de interés.', risk: 'En una empresa privada no hay una ley que lo prohíba. Lo justo es el mismo filtro, no la exclusión.' },
-          kusi: ['pensando', 'Cerrar la puerta tampoco es justo.'] } },
+      { id: 'a', label: 'Responderle que el sueldo de cada persona es reservado, explicarle los criterios de la política salarial y proponerle revisar su caso con Rocío esta semana.',
+        res: { q: 'buena', fx: { etica: 5, cumplimiento: 5, confianza: 2 }, rel: { rocio: 1 }, flags: ['silvia_criterio'],
+          responde: 'Silvia, gracias por preguntar. No puedo compartir el sueldo de otra persona, pero sí cómo se decide: la política salarial usa criterios como experiencia, desempeño y escasez del perfil. Te propongo revisar tu caso con Rocío esta semana, con tu antigüedad y tus resultados sobre la mesa.',
+          out: 'Silvia responde: «Gracias. Nadie me lo había explicado así». Rocío agenda la reunión para el martes.',
+          pro: { ok: 'Proteges un dato personal y cumples lo que pide la Ley 30709: explicar con criterios y revisar el caso.', risk: 'Si la revisión no llega, la confianza se pierde el doble.', info: 'Lleva a la reunión su antigüedad y sus indicadores: la Ley 30709 pide aplicar los criterios al caso concreto.' },
+          kusi: ['celebra', 'Reservada con el dato, transparente con el criterio.'] } },
+      { id: 'b', label: 'Decirle que no hay diferencias, para no abrir un problema el día antes del inventario.',
+        res: { q: 'riesgosa', fx: { etica: -6, confianza: -3 }, flags: ['silvia_negado'],
+          responde: 'Silvia, no hay diferencias entre supervisores. Saludos.',
+          out: 'Silvia no responde. En Planillas todo se sabe, y algún día lo comprobará.',
+          pro: { ok: 'Evitas una conversación incómoda hoy.', risk: 'Negar una diferencia que existe la convierte en un problema de confianza, y quizá en una denuncia.' },
+          kusi: ['indignado', '¡Eso no es cierto, y ella lo va a saber!'] } },
+      { id: 'c', label: 'Contarle cuánto gana la nueva supervisión, para ser transparente.',
+        res: { q: 'aceptable', fx: { etica: -2, cumplimiento: -4 }, flags: ['silvia_cifra'],
+          responde: 'Silvia, la nueva supervisión gana más que tú. Te paso la cifra en privado.',
+          out: 'Silvia ya tiene la cifra. La nueva supervisión no sabe que su sueldo se compartió.',
+          pro: { ok: 'Quieres ser honesta.', risk: 'El sueldo de una persona es un dato suyo. La transparencia está en el criterio, no en la cifra ajena.' },
+          kusi: ['pensando', 'Transparencia… con el dato de otra persona.'] } },
     ],
-    rules: [[LEY, 'En el sector público la Ley 26771 prohíbe el nepotismo; en una empresa privada, lo regula la política interna.'], [BP, 'Un referido se registra como tal y pasa el mismo filtro que los demás.']],
+    rules: [[LEY, 'Las diferencias dentro de una categoría deben explicarse con criterios objetivos aplicados al caso (Ley 30709 y D.S. 002-2018-TR).'], [LEY, 'El sueldo de un trabajador es un dato personal (Ley 29733).']],
     mirada: {
-      ve: 'El primer día, Fernando te dejó un CV sobre el teclado y una orden. Hoy trae un café y una pregunta. Una profesional no solo resiste un pedido injusto: construye una regla para que el pedido llegue de otra forma.',
-      visual: { tipo: 'balanza', a: { t: 'El favor directo', items: ['Fernando contento', 'Sin papeles'] }, b: { t: 'La ficha de referido', items: ['Fernando puede recomendar', 'Queda registrado quién recomienda a quién', 'La candidata compite igual que todos'] } },
+      ve: 'Silvia no pregunta por chisme: pregunta si en esta empresa siete años valen algo. Una profesional no esconde la diferencia ni la expone: explica cómo se decide y abre la puerta a revisar su caso. Lo que decidiste en la oferta llega hoy a su escritorio.',
+      visual: { tipo: 'rango', titulo: 'La banda de supervisores (S/ mensuales)', min: 3000, max: 4600, banda: [3200, 3900], marcas: [['Raúl', 3400], ['Silvia', 3700], ['Tope', 3900]] },
     },
   },
   {
-    id: 'i5', t: '14:15', ch: 'documento', who: null, titulo: 'Limpiar el Excel', banner: 'assets/esc/lupa.webp', show: ['cumplimiento', 'calidad', 'etica'],
-    body: (n, F) => `<p>Antes de cerrar el mes, abres el Excel de seguimiento que heredaste de Milagros. Si mañana llega otra analista, recibirá esto. ${F.has('wilber_vetado') ? 'En una celda sigue la etiqueta que le pusiste a Wilber.' : ''}</p><p>Rocío te pide dejarlo <mark class="clave">como te habría gustado recibirlo</mark>.</p>`,
-    type: 'flag', prompt: 'Marca lo que no debería seguir en el Excel. Si alguna línea te hace dudar, márcala también.',
-    doc: { t: 'Seguimiento_Seleccion_MB_v7_ok.xlsx', sub: 'Pestañas: «procesos», «cotiz FINAL final», «varios», «NO BORRAR»' },
+    id: 'k4', t: '13:20', ch: 'documento', who: null, titulo: 'Lo que sigue abierto', banner: 'assets/esc/reloj.webp', show: ['tiempo', 'calidad', 'confianza'],
+    body: (n, F) => `<p>Almuerzas en tu escritorio un arroz chaufa del comedor. Mañana el inventario se come el día: <mark class="clave">te alcanza la tarde para tres pendientes</mark>.</p><p>${F.has('wilber_reprograma') ? 'Wilber confirmó esta mañana que entra el lunes.' : F.has('wilber_reemplazo') ? 'Jhon entra hoy en lugar de Wilber.' : ''}</p>`,
+    type: 'pick', n: 3, prompt: 'Elige los tres pendientes que cierras hoy.', boton: 'Planificar la tarde', resumen: 'Cierras hoy',
+    cols: ['Pendiente', 'Quién espera', 'Qué pasa si espera'],
+    rows: [
+      { id: 'gina', cells: ['Oferta de la asistente contable', 'Gina', 'Lleva 50 días esperando; la candidata tiene otra oferta'] },
+      { id: 'kelly', cells: ['Datos del ingreso del lunes a Planillas', 'Kelly', 'El lunes se repite la carrera de ayer'] },
+      { id: 'despacho', cells: ['Terna del auxiliar de despacho', 'Walter', 'Puede esperar al lunes: Walter está en el inventario'] },
+      { id: 'practicante', cells: ['Entrevistas de la practicante de marketing', 'Comercial', 'Se pueden mover al lunes'] },
+      { id: 'base', cells: ['Responder a los 135 postulantes que no quedaron', 'Postulantes', 'El portal puede enviar el aviso hoy en diez minutos'] },
+      { id: 'excel', cells: ['Rediseñar el Excel de seguimiento', 'Nadie', 'Mejor con calma, el viernes por la tarde'] },
+      { id: 'linkedin', cells: ['Publicar en LinkedIn que el puesto se cubrió', 'Comercial', 'No cambia nada'] },
+    ],
+    score: { gina: 3, kelly: 3, base: 2, despacho: 0, practicante: 0, excel: -1, linkedin: -2 },
+    res: (picks, sc) => {
+      const q = sc >= 7 ? 'buena' : sc >= 4 ? 'aceptable' : 'riesgosa';
+      return {
+        q, fx: { calidad: q === 'buena' ? 4 : q === 'aceptable' ? 1 : -3, tiempo: q === 'buena' ? 3 : 0, personas: picks.includes('base') ? 3 : 0 },
+        flags: ['cartera_priorizada', ...picks.map(p => 'cierra_' + p)],
+        cartera: picks.includes('gina') ? { contable: 'Oferta aceptada · ingresa el lunes' } : {},
+        out: picks.includes('gina') ? 'A las 16:10 llega el correo de Gina: «Aceptó. Entra el lunes». Cincuenta días después, alguien en Contabilidad respira.' : 'La tarde se va en pendientes que podían esperar. Gina sigue sin noticias.',
+        pro: { ok: 'Lo urgente es lo que vence y lo que afecta a personas que esperan: Gina, Kelly y 135 postulantes.', risk: 'Lo que se ve bien (LinkedIn) o lo que te gusta hacer (el Excel) no siempre es lo que toca hoy.', info: 'Lo que dejes para el lunes, anótalo con fecha en tu tabla.' },
+        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Mismo criterio que el primer lunes, pero ya sin dudar.' : 'Mira quién lleva más tiempo esperando.'],
+      };
+    },
+    rules: [[BP, 'Prioriza por impacto, plazo y esfuerzo.'], [POL, 'A todo postulante entrevistado se le responde; a los demás, el portal les avisa el cierre.']],
+    mirada: {
+      ve: 'El primer lunes elegiste tres procesos de siete sin conocer a nadie. Hoy eliges tres pendientes conociendo a cada persona que espera. La pregunta es la misma; lo que cambió es cuánto sabes de lo que cuesta no moverlo.',
+      visual: { tipo: 'matriz', x: 'Esfuerzo hoy', y: 'Impacto en personas que esperan', cuadrantes: ['Hazlo hoy', 'Empieza hoy', 'Si sobra tiempo', 'Para después'], items: [['Gina', .3, .9], ['Kelly', .2, .8], ['135 respuestas', .15, .6], ['Despacho', .5, .45], ['Practicante', .6, .35], ['Excel', .85, .3], ['LinkedIn', .1, .05]] },
+    },
+  },
+  {
+    id: 'k5', t: '15:00', ch: 'documento', who: 'kelly', titulo: 'La ficha de datos', banner: 'assets/esc/planilla.webp', show: ['cumplimiento', 'calidad', 'etica'],
+    body: (n, F) => `<p>Kelly está rehaciendo la ficha de datos que llena cada persona que ingresa. ${F.has('wilber_llamado') ? '«Después de lo del número de emergencia de Wilber, esto no pasa otra vez.»' : '«Ayer faltaron datos en tres fichas.»'}</p><p>Te pide revisarla antes de imprimirla para el ingreso del lunes. <mark class="clave">Cada casilla es un dato que la empresa tendrá que cuidar.</mark></p>`,
+    type: 'flag', prompt: 'Marca lo que no debería pedir la ficha. Si alguna línea te hace dudar, márcala también.',
+    doc: { t: 'Ficha de datos del trabajador · Ingreso', sub: 'Borrador de Kelly · v2' },
     lines: [
-      { id: 'etapa', t: 'Pestaña «procesos»: etapa y fecha de cada vacante.' },
-      { id: 'edad', t: 'Columnas «edad» y «estado civil» de todos los postulantes desde 2022.', bad: LEY, why: 'Son datos que no deben pedirse para evaluar, y conservarlos sin finalidad expone a la empresa.' },
-      { id: 'clave', t: 'Pestaña «NO BORRAR»: usuario y clave del portal de empleo.', bad: LEY, why: 'Una clave en un Excel compartido es un acceso que cualquiera puede usar. Los datos de los postulantes deben protegerse.' },
-      { id: 'fuente', t: 'Columna «fuente»: de qué canal llegó cada postulante.' },
-      { id: 'motivo', t: 'Columna «motivo de descarte», con el criterio de la matriz.' },
-      { id: 'notas', t: 'Columna «impresión»: «me cayó bien», «muy callada», «típico de minero».', bad: BP, why: 'Son opiniones, no evidencia. Si un postulante pide ver sus datos, eso es lo que leería.' },
-      { id: 'veto', t: 'Etiqueta «no recontratable» sin motivo escrito.', duda: 'Una etiqueta así puede ser legítima con un motivo verificable. Sin él, es un juicio que seguirá a la persona.' },
-      { id: 'cv', t: 'Carpeta con los 140 CV del supervisor, sin fecha de eliminación.', bad: BP, why: 'Conserva solo los CV de quienes aceptaron quedar en la base, por un plazo definido. El resto se elimina.' },
-      { id: 'cotiz', t: 'Pestaña «cotiz FINAL final» con los costos de cada canal.' },
+      { id: 'dni', t: 'Nombres, apellidos, DNI y dirección.' },
+      { id: 'emergencia', t: 'Contacto de emergencia, con un segundo número verificado al llenar la ficha.' },
+      { id: 'cuenta', t: 'Banco y número de cuenta de sueldo.' },
+      { id: 'pension', t: 'Sistema de pensiones; si nunca estuvo afiliado, se le entrega el Boletín Informativo.' },
+      { id: 'religion', t: 'Religión que profesa.', bad: LEY, why: 'No tiene relación con el trabajo y es un dato sensible. Ninguna finalidad la justifica.' },
+      { id: 'hijos', t: '¿Planea tener hijos en los próximos años?', bad: LEY, why: 'Es una pregunta sobre embarazo futuro: un trato diferenciado por sexo.' },
+      { id: 'clave', t: 'Usuario y contraseña de su correo personal, «para enviarle las boletas».', bad: LEY, why: 'Nadie debe entregar sus claves. Las boletas se envían a un correo, no se entra a él.' },
+      { id: 'sangre', t: 'Grupo sanguíneo.', duda: 'Puede servir en una emergencia, pero es un dato de salud: que sea voluntario y con su consentimiento.' },
+      { id: 'autoriza', t: 'Autorizo a la empresa a usar mis datos para cualquier fin.', bad: BP, why: 'Un consentimiento «para cualquier fin» no cumple la idea de finalidad. Hay que decir para qué.' },
     ],
     res: v => ({
-      flags: [v.missLey ? 'excel_riesgo' : 'excel_limpio'],
-      out: v.missLey ? 'El Excel queda casi igual que como lo recibiste. La próxima analista heredará las mismas columnas y la misma clave.' : 'Borras columnas, cambias la clave del portal, renombras pestañas y dejas una hoja «LEEME» con cómo se usa. El archivo ahora se llama «Seguimiento_Seleccion_2026.xlsx».',
-      pro: { ok: 'Un archivo limpio es lo más útil que una analista puede dejarle a la siguiente.', risk: 'Los datos que nadie borra siguen siendo responsabilidad de la empresa, aunque nadie los use.', info: 'Define cuánto tiempo se guardan los CV de quienes aceptaron quedar en la base, y escríbelo.' },
-      kusi: v.missLey ? ['preocupado', 'La clave sigue ahí, esperando a alguien…'] : ['celebra', '¡Así sí da gusto heredar un Excel!'],
+      flags: [v.missLey ? 'ficha_excesiva' : 'ficha_limpia'],
+      out: v.missLey ? 'La ficha sale con preguntas que no corresponden. El lunes, la asistente contable de Gina tendrá que responder si piensa tener hijos.' : 'Kelly tacha cuatro líneas y reescribe el consentimiento: «para la relación laboral, la planilla y la seguridad en el trabajo». «Mucho mejor. Y más corta.»',
+      pro: { ok: 'Una ficha que pide solo lo necesario protege a la persona y a la empresa.', risk: 'Las fichas viejas suelen acumular preguntas que nadie se atreve a borrar.', info: 'El contacto de emergencia verificado es la lección de ayer convertida en regla.' },
+      kusi: v.missLey ? ['indignado', '¡¿Si piensa tener hijos?!'] : ['celebra', 'Ficha corta, limpia y útil.'],
     }),
-    rules: [[LEY, 'Los datos personales se conservan solo mientras sean necesarios para su finalidad y con medidas de seguridad (Ley 29733).'], [BP, 'Deja el archivo como te habría gustado recibirlo.']],
+    rules: [[LEY, 'Los datos deben ser adecuados, pertinentes y no excesivos para su finalidad (Ley 29733).'], [LEY, 'No se discrimina por sexo ni religión (Ley 26772).'], [LEY, 'A quien ingresa sin estar afiliado se le entrega el Boletín Informativo de pensiones (Ley 28991).']],
     mirada: {
-      ve: 'El primer día heredaste un Excel con claves, columnas que no debían existir y notas sin sentido. Una profesional cierra el ciclo: deja el archivo mejor de lo que lo encontró, porque sabe lo que cuesta empezar sin él.',
-      visual: { tipo: 'cambio', titulo: 'Del Excel heredado al Excel que dejas', pares: [['Seguimiento_Seleccion_MB_v7_ok', 'Seguimiento_Seleccion_2026'], ['Clave del portal en una pestaña', 'Cuenta del área, clave en un gestor'], ['Edad y estado civil', 'Fuente, etapa y motivo de descarte'], ['140 CV para siempre', 'Solo los autorizados, con plazo']] },
-      normas: [{ ley: 'Ley 29733, de Protección de Datos Personales', dice: 'Los datos personales deben ser adecuados, pertinentes y no excesivos para su finalidad, conservarse solo el tiempo necesario y protegerse frente a accesos no autorizados.', practica: 'Una columna de estado civil de 2022 o una clave en una pestaña no tienen ninguna finalidad hoy: solo riesgo.' }],
+      ve: 'La ficha de ingreso es el primer documento que la persona llena como trabajadora. Una profesional la lee como si fuera ella quien la llena: ¿por qué me preguntan esto?, ¿qué harán con este dato?',
+      visual: { tipo: 'cambio', titulo: 'De la ficha vieja a la ficha nueva', pares: [['Religión', '(se elimina)'], ['¿Planea tener hijos?', '(se elimina)'], ['Para cualquier fin', 'Para la relación laboral, la planilla y la seguridad'], ['Un número de emergencia', 'Dos números, verificados al llenar']] },
     },
   },
   {
-    id: 'i6', t: '16:00', ch: 'presencial', who: 'rocio', titulo: 'La conversación de fin de mes', banner: 'assets/foto/mentora.webp', show: ['confianza', 'calidad', 'etica'],
-    body: (n, F) => `<p>Rocío cierra la puerta y te sirve un café de la máquina; esta vez está caliente. Tiene tu reporte impreso con anotaciones al margen.</p><p>«Te dije el primer día que me iba a fijar en tres cosas. Hablemos de eso. ${F.has('induccion_mixta') ? 'Zegarra me escribió en la mañana por el inventario, ya te contaré.' : ''} <mark class="clave">Pregúntame lo que quieras saber de tu mes.</mark>»</p>`,
-    type: 'ask', max: 2, prompt: 'Elige dos preguntas para Rocío.',
-    opts: [
-      { id: 'jefes', label: '¿Los jefes confían en mí?', info: F => (F?.has('walter_aliado') || F?.has('promesa_corregida') || F?.has('agenda_walter') ? '«Walter bloqueó su agenda para tus entrevistas. Eso no lo había hecho nunca.' : '«Walter todavía te mide.') + (F?.has('gerencia_optimista') ? ' Con Gerencia te costó: ese «todo va según lo previsto» se recordó en el comité.»' : F?.has('gerencia_informada') ? ' Y Zegarra pidió que todas las áreas reporten como tú.»' : '»') },
-      { id: 'queda', label: '¿Lo que contraté se va a quedar?', info: F => (F?.has('contra_puja') ? '«Eso lo sabremos en noventa días. Me preocupa algo: entró por una subasta de sueldo, y quien entra así suele irse por la siguiente subasta.' : F?.has('contra_valor') ? '«Eso lo sabremos en noventa días. Pero entró por lo que le importaba, no por la plata. Eso suele quedarse.' : '«Eso lo sabremos en noventa días.') + (F?.has('induccion_saltada') ? ' Y empezó sin inducción: vigílalo de cerca.»' : '»') },
-      { id: 'legal', label: '¿Te traje problemas legales?', info: F => { const p = ['filtro_sexo', 'pregunta_tolerada', 'informe_sesgo', 'carta_errores', 'cv_whatsapp', 'base_sin_permiso', 'hugo_fuera', 'alta_atrasada', 'bienvenida_expuesta'].filter(f => F?.has(f)).length; return p === 0 ? '«Ninguno. Y evitaste varios que venían de antes: la plantilla, la clave, el aviso de Facebook.»' : p <= 2 ? '«Alguno que otro, y los corregimos a tiempo. Lo importante es que me los contaste.»' : '«Varios. Ninguno grave todavía, pero hay que revisar cómo trabajamos los datos y las entrevistas.»'; } },
-      { id: 'mejora', label: '¿Qué tengo que mejorar?', info: F => F?.has('terna_sin_recomendacion') ? '«Que te atrevas a recomendar. Tienes buen criterio, úsalo en voz alta.»' : F?.has('kelly_lunes') ? '«Pensar en el proceso completo: lo tuyo termina cuando Kelly termina.»' : '«Cuidarte. Respondiste mensajes a las nueve de la noche y saliste tarde dos viernes. Este trabajo no se acaba nunca; tú sí.»' },
-    ],
-    res: picks => ({
-      q: null,
-      fx: { confianza: 3, calidad: 2 },
-      rel: { rocio: 1 },
-      out: 'Rocío cierra la carpeta. «Para ser tu primer mes, bien. De verdad.» Se queda mirándote un segundo. «Ahora te pregunto yo una cosa. Pero eso, al final del día.»',
-      kusi: ['feliz', 'Rocío no regala esa frase.'],
-    }),
-    mirada: {
-      ve: 'Una evaluación de fin de mes no es una nota: es una conversación sobre cómo trabajas. Una profesional pregunta lo que de verdad quiere saber, incluido lo que le cuesta escuchar.',
-      visual: { tipo: 'balanza', a: { t: 'Lo que Rocío pidió', items: ['Que los jefes confíen', 'Que lo contratado se quede', 'Sin problemas legales'] }, b: { t: 'Lo que dejaste', items: ['Un supervisor en el inventario', 'Reglas nuevas para el área', 'Personas que hablan bien de la empresa'] } },
-    },
-  },
-  {
-    id: 'i7', t: '17:30', ch: 'whatsapp', who: 'walter', titulo: 'Cerrar con Walter', banner: 'assets/foto2/acuerdo-manos.webp', show: ['confianza', 'calidad', 'tiempo'],
-    body: (n, F) => `<p>El proceso del supervisor está cerrado. Falta lo que casi nadie hace: preguntarle al cliente interno cómo le fue.</p><p>Walter está en el pasillo 5, ${F.has('induccion_saltada') ? 'resolviendo las diferencias que dejó el primer conteo' : 'cerrando el primer día del inventario'}. Le escribes <mark class="clave">un mensaje que pueda responder en un minuto</mark>.</p>`,
-    type: 'compose', enviaA: 'walter', para: 'Para: Walter Quispe', boton: 'Enviar el WhatsApp',
+    id: 'k6', t: '17:30', ch: 'whatsapp', who: null, titulo: 'Un mensaje antes del inventario', banner: 'assets/foto2/caminan.webp', show: ['personas', 'confianza', 'calidad'],
+    body: (n, F) => { const e = E(F); return `<p>${e.n} sale del almacén con el casco en la mano; mañana empieza a las 6:00. Antes de que se vaya, le escribes.</p><p>Lo que digas hoy decide si mañana, cuando algo no cuadre, <mark class="clave">te lo cuenta a ti o se lo calla</mark>.</p>`; },
+    type: 'compose', enviaA: 'nuevo', para: 'Para: la nueva supervisión de almacén', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
+      { id: 'abre', t: 'Cómo empiezas', ops: [
+        { id: 'a1', t: '¿Cómo vas con estos dos primeros días?', ok: true, por: 'Una pregunta abierta, que invita a contar.' },
+        { id: 'a2', t: 'Espero que todo esté perfecto.', ok: false, por: 'Invita a decir «sí, todo bien», aunque no lo esté.' },
+      ] },
+      { id: 'plan', t: 'Lo que ya quedó', ops: [
+        { id: 'p1', t: 'Walter firmó tu plan de 30, 60 y 90 días; te lo dejo en tu correo.', ok: true, por: 'Le confirmas qué se espera de su trabajo.' },
+        { id: 'p2', t: 'Walter está contento, así que tranqui.', ok: null, por: 'Bien intencionado, pero no le dice qué se espera.' },
+      ] },
+      { id: 'canal', t: 'La puerta', ops: [
+        { id: 'c1', t: 'Si mañana algo no cuadra, con el equipo o con lo que te ofrecimos, cuéntamelo: para eso es este seguimiento.', ok: true, por: 'Abres un canal para lo que no funciona, no solo para lo que sale bien.' },
+        { id: 'c2', t: 'Cualquier problema, mejor resuélvelo con Walter.', ok: false, por: 'Le cierras la puerta a RR.HH. justo cuando más la puede necesitar.' },
+      ] },
       { id: 'cierra', t: 'El cierre', ops: [
-        { id: 'c1', t: 'Ingeniero, con el ingreso del martes cerramos el proceso del supervisor.', ok: true, por: 'Dices que terminó y desde cuándo.' },
-        { id: 'c2', t: 'Ingeniero, ¿vio que sí cumplimos?', ok: false, por: 'Suena a reclamo pendiente.' },
-      ] },
-      { id: 'pide', t: 'Lo que le pides', ops: [
-        { id: 'p1', t: '¿Me ayuda con tres respuestas cortas? Del 1 al 5, qué tan satisfecho está, qué le sirvió más y qué cambiaría.', ok: true, por: 'Concreto, medible y rápido de responder.' },
-        { id: 'p2', t: 'Cuando pueda, me cuenta qué le pareció todo.', ok: null, por: 'Amable, pero no lo va a responder nunca.' },
-      ] },
-      { id: 'noventa', t: 'Lo que sigue', ops: [
-        { id: 'n1', t: 'A los 30 y a los 90 días le vuelvo a preguntar cómo va la nueva supervisión.', ok: true, por: 'La calidad de una contratación se mide después.' },
-        { id: 'n2', t: 'Cualquier problema con la persona, me avisa y buscamos otra.', ok: false, por: 'Trata al nuevo como un repuesto, no como alguien a quien acompañar.' },
-      ] },
-      { id: 'gracias', t: 'El agradecimiento', ops: [
-        { id: 'g1', t: 'Gracias por bloquear su agenda y por el almacén del primer miércoles.', ok: true, por: 'Reconoces lo que él aportó.' },
-        { id: 'g2', t: 'Gracias por su paciencia.', ok: null, por: 'Correcto, aunque genérico.' },
+        { id: 'z1', t: 'Mucho éxito mañana. Don Julio y tú van a hacer un buen equipo.', ok: true, por: 'Cálido y concreto.' },
+        { id: 'z2', t: 'No me falles mañana 😅', ok: false, por: 'En broma, pero le pone el peso del inventario encima.' },
       ] },
     ],
     res: sel => {
-      const buenas = ['c1', 'p1', 'n1', 'g1'].filter(x => Object.values(sel).includes(x)).length;
-      const q = sel.noventa === 'n2' || sel.cierra === 'c2' ? 'aceptable' : buenas >= 3 ? 'buena' : 'aceptable';
+      const buenas = ['a1', 'p1', 'c1', 'z1'].filter(x => Object.values(sel).includes(x)).length;
+      const q = sel.canal === 'c2' || sel.cierra === 'z2' ? 'aceptable' : buenas >= 3 ? 'buena' : 'aceptable';
       return {
-        q, fx: { confianza: q === 'buena' ? 5 : 2, calidad: sel.pide === 'p1' ? 3 : 0 }, rel: { walter: 1 },
-        flags: sel.pide === 'p1' ? ['cliente_interno'] : [],
-        out: sel.pide === 'p1' ? 'A las 18:20 Walter responde: «4. El perfil en el almacén. Que empiece antes. Gracias a usted». Es el mensaje más largo que te ha escrito.' : 'Walter responde con un pulgar. No sabrás qué opina del proceso hasta el próximo problema.',
-        pro: { ok: 'Preguntar al cliente interno convierte una impresión en un dato, y le dice al jefe que su opinión cuenta.', risk: 'Si preguntas y no haces nada con la respuesta, la próxima vez no responderá.', info: 'Guarda su respuesta en el reporte: es tu indicador de satisfacción.' },
-        kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Un 4 de Walter vale como un 7!' : 'Pregunta corto y concreto.'],
+        q, fx: { personas: q === 'buena' ? 5 : 1, confianza: 2 },
+        flags: sel.canal === 'c1' ? ['checkin_nuevo'] : [],
+        out: q === 'buena' ? 'La respuesta llega a las 17:55: «Gracias por preguntar. Le cuento mañana después del primer conteo 💪».' : 'La respuesta es un pulgar. Mañana, si algo no cuadra, tal vez no te enteres.',
+        pro: { ok: 'Las personas nuevas casi nunca cuentan lo que no funciona si nadie les abre la puerta.', risk: 'Un seguimiento que solo pregunta «¿todo bien?» recibe siempre «sí».', info: 'Anota lo que te cuente: es el insumo de la reunión de los 30 días.' },
+        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Puerta abierta antes del inventario.' : 'Pregunta para escuchar, no para tranquilizarte.'],
       };
     },
-    rules: [[BP, 'Cierra cada proceso pidiendo la evaluación del jefe y agenda un seguimiento a 30 y 90 días.']],
+    rules: [[BP, 'En el seguimiento de un ingreso, pregunta de forma abierta y ofrece un canal para lo que no funciona.']],
     mirada: {
-      ve: 'El jefe que te escribió en mayúsculas el primer lunes es tu mejor fuente para mejorar. Una profesional cierra el proceso preguntándole, con un mensaje que se pueda responder en el pasillo de un almacén.',
-      visual: { tipo: 'linea', titulo: 'Después del ingreso', hitos: [['Hoy', 'Evaluación del jefe'], ['Día 30', 'Seguimiento con RR.HH.'], ['Día 90', 'Fin del periodo de prueba y retención'], ['Seis meses', 'Primera evaluación de desempeño']] },
+      ve: 'Lo que la persona nueva calla en la primera semana es lo que la hace renunciar en el tercer mes. Una profesional abre la puerta antes de que haga falta.',
+      visual: { tipo: 'mensaje', titulo: 'Un mensaje que abre la puerta', txt: '¿Cómo vas con estos dos primeros días? Walter firmó tu plan de 30, 60 y 90 días; te lo dejo en tu correo. Si mañana algo no cuadra, con el equipo o con lo que te ofrecimos, cuéntamelo. Mucho éxito mañana. Don Julio y tú van a hacer un buen equipo.' },
     },
   },
   {
-    id: 'i8', t: '19:45', ch: 'presencial', who: 'rocio', titulo: '¿Te ves en este puesto?', banner: 'assets/foto2/celebra-brazos.webp', lugar: 'Portón 3 · fin del turno', show: ['confianza', 'personas', 'tiempo'],
-    body: (n, F) => { const e = E(F); return `<p>El parque industrial se queda en silencio. Desde el portón se ven las luces del almacén, donde ${e.n} y don Julio cierran el primer día de inventario. Kelly ya se fue en la combi de las 19:30.</p><p>Rocío se pone la casaca a tu lado. «Te dije que al final del día te preguntaba algo.» Hace una pausa. <mark class="clave">«¿Te ves en este puesto?»</mark></p><p>No hay respuesta correcta. Solo la tuya.</p>`; },
+    id: 'k7', t: '18:40', ch: 'whatsapp', who: 'kelly', titulo: 'Kelly pide una mano', banner: 'assets/foto2/collage.webp', show: ['tiempo', 'confianza', 'personas'],
+    body: () => `<p>Ya estás con la casaca puesta cuando Kelly te escribe desde su escritorio, a diez metros.</p><div class="chat" aria-label="Mensaje de WhatsApp"><p>¿Me ayudas con las credenciales provisionales de los doce de Comercial que apoyan mañana en el inventario? Son veinte minutos 🙏</p></div><p>Tu combi sale a las 19:00 y mañana entras a las 6:00. <mark class="clave">Mañana también te toca el balance con Rocío.</mark></p>`,
     type: 'choice', cotidiano: true,
-    prompt: '¿Qué le respondes a Rocío?',
     choices: [
-      { id: 'si', label: 'Sí. Me cansa decir que no tantas veces, pero ver a alguien elegido por mí dirigiendo un inventario lo compensa todo.',
-        res: { q: null, fx: { confianza: 2 }, rel: { rocio: 1 }, out: 'Rocío sonríe: «Lo noté el día que fuiste al almacén con casco prestado. El lunes empieza el mes de la practicante de marketing». Se ríen las dos.', kusi: ['celebra', '¡Qué bacán! Ya tienes el oficio en el cuerpo.'] } },
-      { id: 'otra', label: 'Me veo en RR.HH., pero quizás no en Selección. Lo que más disfruté fue la oferta y la equidad: me llama más Compensaciones.',
-        res: { q: null, fx: { confianza: 1 }, rel: { rocio: 1 }, out: 'Rocío asiente: «Se te notó en la banda del supervisor. Compensaciones necesita gente que piense como tú. Conversemos en tres meses».', kusi: ['curioso', 'Saber qué parte te gusta también es descubrir tu camino.'] } },
-      { id: 'duda', label: 'No estoy segura. Me gusta el trato con la gente, pero me costó mucho dejar de pensar en el trabajo al llegar a casa.',
-        res: { q: null, fx: { personas: 1 }, rel: { rocio: 1 }, out: 'Rocío se queda callada un momento. «Eso también es una respuesta honesta. A mí me tomó dos años aprender a apagar el celular. Si quieres, lo trabajamos juntas.»', kusi: ['animo', 'Dudar después de un mes así es de lo más humano.'] } },
-      { id: 'no', label: 'Creo que no. Aprendí muchísimo, pero prefiero un trabajo con menos conversaciones difíciles al día.',
-        res: { q: null, fx: { confianza: 1 }, rel: { rocio: 0 }, out: 'Rocío asiente sin juzgar: «Saberlo a tiempo vale más que cinco años en un puesto que no es para ti. Lo que hiciste este mes, igual quedó aquí».', kusi: ['feliz', 'Descubrir lo que no quieres también es ganar.'] } },
+      { id: 'a', label: 'Quedarte veinte minutos: mañana nadie de Comercial entrará al almacén sin credencial.',
+        res: { q: null, fx: { personas: 2, tiempo: -2 }, rel: { kelly: 1 }, flags: ['credenciales'], out: 'A las 19:05 están listas las doce credenciales. Pierdes la combi y tomas la siguiente. Kelly te regala un chocolate de su cajón.', kusi: ['feliz', 'Veinte minutos que mañana ahorran una hora en el portón.'] } },
+      { id: 'b', label: 'Decirle que mañana a las 6:00 la ayudas, antes de que lleguen: hoy necesitas descansar.',
+        res: { q: null, fx: { tiempo: 2 }, rel: { kelly: 0 }, out: 'Kelly responde: «Dale, a las 6 te espero con café». Duermes temprano. Mañana será un día largo.', kusi: ['animo', 'Cuidar tu descanso también es planificar.'] } },
     ],
-    mirada: {
-      ve: 'Analista de Selección es un puesto de coordinación constante, de decir no muchas veces, de esperar a jefes y de cuidar a personas que no conoces. También es ver a alguien que elegiste dirigir un inventario un mes después. Este mes no buscaba que acertaras siempre: buscaba que supieras cómo se siente este trabajo por dentro.',
-      visual: { tipo: 'balanza', a: { t: 'Lo que cuesta', items: ['Decir no muchas veces al día', 'Jefes apurados y gerentes con favores', 'Mensajes a deshora'] }, b: { t: 'Lo que da', items: ['Ver a alguien elegido por ti crecer', 'Cambiar cómo trabaja una empresa', 'Personas que te agradecen, aunque no hayan quedado'] } },
-    },
+    mirada: { ve: 'Al final de dos semanas intensas, decidir cuándo quedarte y cuándo irte también es parte del oficio. Las dos respuestas son razonables; lo que importa es que sea una decisión y no una costumbre.' },
   },
 ];

@@ -1,4 +1,4 @@
-// Capítulo 3 · «Salir a buscar» · Semana 1, viernes.
+// Capítulo 3 · «Salir a buscar» · Semana 1, miércoles.
 // Recibe las decisiones de los capítulos 1 y 2 a través de F.has(flag).
 //
 // Normas citadas y fuentes consultadas:
@@ -11,24 +11,24 @@
 //   (descrita en https://gestion.pe/economia/management-empleo/link-de-la-bolsa-de-empleo-del-ministerio-de-trabajo-para-buscar-oportunidades-laborales-peru-nnda-nnlt-noticia/)
 
 export const CAP = {
-  n: 3, titulo: 'Salir a buscar', dia: 'Semana 1, viernes', foto: 'assets/foto/oficina-abierta.webp',
+  n: 3, titulo: 'Salir a buscar', dia: 'Semana 1, miércoles', foto: 'assets/foto/oficina-abierta.webp',
   lugar: 'Oficina de RR.HH. · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '19:40', cierreHora: '19:20',
-  apertura: 'Viernes en Tacna: sol fuerte, viento frío y un aviso que todavía no existe.', boton: 'Abrir la laptop',
+  apertura: 'Miércoles en Tacna: sol fuerte, viento frío y un aviso que todavía no existe.', boton: 'Abrir la laptop',
   kusi: 'Hoy salimos a buscar. Ojo: buscar no es publicar en todas partes. ¡Dale!',
   lead: 'Publicaste un aviso que dice lo que el puesto exige, repartiste un presupuesto corto y abriste la puerta a la gente de adentro. Ahora el mercado responde.',
   reflexion: 'Si mañana postularas tú a este puesto, ¿por qué canal te habrías enterado?',
-  siguiente: { n: 4, titulo: 'El filtro', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'El filtro', dia: 'Semana 1, jueves' },
 };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 26, e: 'Hoy: aviso y canales' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 13, e: '2 entrevistas hechas, Walter no da su opinión' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 19, e: 'Esperando criterios de Fernando' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 44, e: '¿En pausa? Nadie lo sabe' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 9, e: 'Aviso publicado, 6 postulantes' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 7, e: 'Recién pedido' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 64, e: 'Aceptó la oferta y no llegó' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 24, e: 'Hoy: aviso y canales' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 11, e: '2 entrevistas hechas, Walter no da su opinión' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 17, e: 'Esperando criterios de Fernando' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 42, e: '¿En pausa? Nadie lo sabe' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 7, e: 'Aviso publicado, 6 postulantes' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 5, e: 'Recién pedido' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 62, e: 'Aceptó la oferta y no llegó' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -66,7 +66,7 @@ export const CHATS = {
 };
 
 export const CORREOS = [
-  { t: '09:05', de: 'Mesa de ayuda de TI', para: 'Analista de Selección', cc: 'Rocío Mamani', asunto: 'Alerta · Usuario mbarrios del portal de empleo', html: '<p>El usuario mbarrios inició sesión el jueves a las 23:12 desde un equipo no registrado y descargó 41 CV. Bloqueamos la cuenta esta mañana.</p><p>Por favor, confirmen si alguien del área usó ese acceso.</p>', si: 'clave_milagros' },
+  { t: '09:05', de: 'Mesa de ayuda de TI', para: 'Analista de Selección', cc: 'Rocío Mamani', asunto: 'Alerta · Usuario mbarrios del portal de empleo', html: '<p>El usuario mbarrios inició sesión el martes a las 23:12 desde un equipo no registrado y descargó 41 CV. Bloqueamos la cuenta esta mañana.</p><p>Por favor, confirmen si alguien del área usó ese acceso.</p>', si: 'clave_milagros' },
   { t: '09:05', de: 'Mesa de ayuda de TI', para: 'Analista de Selección', asunto: 'Ticket 2291 · Cerrado', html: '<p>La cuenta seleccion@pacificosur.pe del portal de empleo está activa. El usuario mbarrios fue dado de baja.</p>', si: 'cuenta_area' },
 ];
 
@@ -75,16 +75,16 @@ export const WSP = [
   { chat: 'kelly', t: '07:38', de: 'Kelly', txt: '📷 Captura: «URGENTE se necesita SUPERVISOR DE ALMACÉN…»' },
   { chat: 'grupo', t: '08:02', de: 'Rocío', txt: 'Buen día. Hoy sale el aviso del supervisor 💪 A las 8:30 me cuentas cómo vas.' },
   { chat: 'rocio', t: '08:05', de: 'Rocío', txt: 'Lo del perfil ya está corregido con Walter. Gracias por avisarme a tiempo 🙏', si: 'correccion_rocio' },
-  { chat: 'walter', t: '10:12', de: 'Walter', txt: 'HOY ES VIERNES.', si: 'promesa' },
+  { chat: 'walter', t: '10:12', de: 'Walter', txt: 'FALTAN DOS DÍAS PARA EL VIERNES.', si: 'promesa' },
   { chat: 'walter', t: '10:12', de: 'Walter', txt: '¿Puede hablar? Es sobre el inventario.', no: 'promesa' },
   { chat: 'walter', t: '10:48', de: 'Walter', txt: 'Le paso el CV del supervisor que me recomendaron. Revíselo.' },
   { chat: 'jhonatan', t: '11:05', de: 'Jhonatan', txt: 'Ya borré la publicación. El ingeniero me dijo que lo hiciera rápido nomás, no sabía 😕', si: 'fb_corregido' },
   { chat: 'grupo', t: '13:05', de: 'Kelly', txt: 'Hoy toca picante de guatita en el comedor. Bajen antes que se acabe 🍲' },
-  { chat: 'todos', t: '14:40', de: 'Rocío', txt: '📢 Convocatoria interna: Supervisor/a de almacén. Requisitos y bases en el mural del comedor. Postulaciones hasta el miércoles en RR.HH.', si: 'conv_interna' },
+  { chat: 'todos', t: '14:40', de: 'Rocío', txt: '📢 Convocatoria interna: Supervisor/a de almacén. Requisitos y bases en el mural del comedor. Postulaciones hasta el viernes a las 14:00 en RR.HH.', si: 'conv_interna' },
   { chat: 'todos', t: '14:52', de: 'Don Julio', txt: '👍', si: 'conv_interna' },
   { chat: 'fernando', t: '17:30', de: 'Fernando', txt: 'Colega, ¿y la terna nueva? Dijiste esta semana 😅', si: 'terna_nueva' },
   { chat: 'fernando', t: '17:30', de: 'Fernando', txt: 'Te mandé lo que les faltó a los tres. Kevin igual va, ah 😄', si: 'fernando_criterios', no: 'terna_nueva' },
-  { chat: 'grupo', t: '19:12', de: 'Kelly', txt: 'Ya me voy, la combi a la Bolognesi se llena a esta hora 🚌 ¡Buen finde!' },
+  { chat: 'grupo', t: '19:12', de: 'Kelly', txt: 'Ya me voy, la combi a la Bolognesi se llena a esta hora 🚌 ¡Hasta mañana!' },
 ];
 
 export const QUIZ = [
@@ -127,12 +127,12 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'c2', t: '08:30', ch: 'presencial', who: 'rocio', titulo: 'Café de viernes con Rocío', banner: 'assets/foto/reunion-jefa.webp', show: ['confianza', 'calidad', 'tiempo'],
+    id: 'c2', t: '08:30', ch: 'presencial', who: 'rocio', titulo: 'Café de media semana con Rocío', banner: 'assets/foto/reunion-jefa.webp', show: ['confianza', 'calidad', 'tiempo'],
     body: (n, F) => `<p>Rocío trae dos cafés de la máquina del pasillo; el tuyo ya está tibio. ${F.has('correccion_rocio') ? '«Ayer lo arreglamos bien con Walter. Que no se repita, ¿ya?»' : F.has('filtro_sexo') ? '«Walter sigue diciendo que acordaron buscar varón. Eso hoy queda corregido, ¿estamos?»' : '«Walter anda más tranquilo. Algo hiciste bien.»'}</p><p>Tiene <mark class="clave">quince minutos antes de su reunión con Gerencia</mark>. Pregúntale lo que más te sirva para salir a buscar.</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas.',
     opts: [
       { id: 'plata', label: '¿Cuánto presupuesto tengo para publicar?', info: '«Novecientos soles para todo el mes y para las siete vacantes. Para el supervisor, usa como máximo cuatrocientos cincuenta. Lo demás déjalo para operarios y choferes, que rotan más.»' },
-      { id: 'interna', label: '¿Se puede abrir primero una convocatoria interna?', info: '«Se debe. Es política de la casa: tres días hábiles adentro y en paralelo puedes publicar afuera. Lo que no se vale es abrirla de adorno, si ya decidiste que viene alguien de fuera.»' },
+      { id: 'interna', label: '¿Se puede abrir primero una convocatoria interna?', info: '«Se debe. Es política de la casa: dos días hábiles adentro y en paralelo puedes publicar afuera. Lo que no se vale es abrirla de adorno, si ya decidiste que viene alguien de fuera.»' },
       { id: 'base', label: '¿Puedo usar la base de CV antiguos del portal?', info: F => F.has('clave_milagros') ? '«Primero lo primero: TI me escribió. Alguien entró anoche con la cuenta de Milagros y bajó 41 CV. Ya la bloquearon. Sobre la base: tiene CV desde 2022. Úsala con cuidado, esas personas postularon a otra cosa.»' : '«Hay CV desde 2022. Úsala con cuidado: esas personas postularon a otra cosa, hace tiempo.»' },
       { id: 'walter', label: '¿Qué hago si Walter me vuelve a apurar?', info: '«Dale opciones, no excusas. Walter no necesita un supervisor perfecto el lunes: necesita no estar solo en el inventario.»' },
     ],
@@ -179,7 +179,7 @@ export const ESCENAS = [
   },
   {
     id: 'c4', t: '10:15', ch: 'llamada', who: 'walter', titulo: 'Walter y el inventario', banner: 'assets/foto/llamada.webp', show: ['confianza', 'calidad', 'etica'],
-    body: (n, F) => `<p>Walter te llama desde el almacén. Se oyen los pitidos de un montacargas en retroceso.</p>${F.has('promesa') ? '<p>«Hoy es viernes. El lunes usted me dijo que hoy tenía supervisor. ¿Dónde está?»</p>' : '<p>«Mire, el inventario empieza el 28 y yo no puedo estar en la oficina y en el almacén a la vez.»</p>'}<p>«Necesito <mark class="clave">a alguien ya</mark>. Y otra cosa: un amigo me recomendó a un supervisor. Le paso el CV.»</p>`,
+    body: (n, F) => `<p>Walter te llama desde el almacén. Se oyen los pitidos de un montacargas en retroceso.</p>${F.has('promesa') ? '<p>«El lunes usted me dijo que el viernes tenía supervisor. Faltan dos días. ¿Cómo vamos?»</p>' : '<p>«Mire, el inventario empieza el 28 y yo no puedo estar en la oficina y en el almacén a la vez.»</p>'}<p>«Necesito <mark class="clave">a alguien ya</mark>. Y otra cosa: un amigo me recomendó a un supervisor. Le paso el CV.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Reconocer que el lunes prometiste algo que no dependía de ti y proponerle que alguien del equipo quede encargado del turno mientras dura el proceso.', si: 'promesa',
@@ -199,10 +199,10 @@ export const ESCENAS = [
           kusi: ['preocupado', '¿Una semana sin referencias? Uy.'] } },
       { id: 'c', label: 'Decirle que ya tienes candidatos muy avanzados, aunque todavía no publicas, para que se calme.', si: 'promesa',
         res: { q: 'riesgosa', fx: { confianza: 2, etica: -6 }, flags: ['mentira_walter', 'referido_walter'],
-          out: 'Walter baja la voz: «Ah, ya. Mándeme los nombres el lunes». No hay nombres. Ahora tienes dos promesas que no puedes cumplir.',
+          out: 'Walter baja la voz: «Ah, ya. Mándeme los nombres mañana». No hay nombres. Ahora tienes dos promesas que no puedes cumplir.',
           pro: { ok: 'Ganas un fin de semana de calma.', risk: 'Una mentira para tapar una promesa se descubre en días.' },
           kusi: ['triste', 'Dos promesas y ningún candidato…'] } },
-      { id: 'd', label: 'Explicarle que el proceso toma tres semanas y que no hay atajos.', no: 'promesa',
+      { id: 'd', label: 'Explicarle que el proceso toma casi dos semanas y que no hay atajos.', no: 'promesa',
         res: { q: 'aceptable', fx: { confianza: -3, cumplimiento: 2 }, rel: { walter: -1 }, flags: ['referido_walter'],
           out: '«Ya sé que no hay atajos. Le estoy pidiendo una solución.» Cuelga. El CV de su recomendado llega igual a las 10:48.',
           pro: { ok: 'Eres honesta con los plazos.', risk: 'Walter no pedía un atajo: pedía no estar solo en el inventario.', info: 'Una solución temporal habría cambiado la llamada.' },
@@ -249,12 +249,12 @@ export const ESCENAS = [
   },
   {
     id: 'c6', t: '13:40', ch: 'presencial', who: 'julio', titulo: 'La convocatoria interna', banner: 'assets/foto/supervisa.webp', lugar: 'Comedor · Distribuidora Pacífico Sur', show: ['personas', 'cumplimiento', 'etica'],
-    body: (n, F) => `<p>Bajas tarde al comedor; el picante de guatita ya se acabó y te toca arroz con huevo. Don Julio se sienta frente a ti con su termo de mate de coca.</p>${F.has('encargo_julio') ? '<p>«El ingeniero me dijo que voy a estar encargado del turno. ¿Es en serio, hija?»</p>' : ''}<p>«${F.has('julio_interno') ? 'Me quedé pensando en lo que me preguntó el miércoles. ¿De verdad uno de adentro puede postular?' : 'Dicen que van a buscar supervisor afuera. ¿Los de adentro no podemos?'}» Rocío te pidió dejar lista hoy <mark class="clave">la convocatoria interna</mark>.</p>`,
+    body: (n, F) => `<p>Bajas tarde al comedor; el picante de guatita ya se acabó y te toca arroz con huevo. Don Julio se sienta frente a ti con su termo de mate de coca.</p>${F.has('encargo_julio') ? '<p>«El ingeniero me dijo que voy a estar encargado del turno. ¿Es en serio, hija?»</p>' : ''}<p>«${F.has('julio_interno') ? 'Me quedé pensando en lo que me preguntó ayer. ¿De verdad uno de adentro puede postular?' : 'Dicen que van a buscar supervisor afuera. ¿Los de adentro no podemos?'}» Rocío te pidió dejar lista hoy <mark class="clave">la convocatoria interna</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos de una convocatoria interna justa.', boton: 'Explicarle el proceso a don Julio',
     items: [
       { id: 'perfil', t: 'Usar el mismo perfil y la misma banda que el aviso externo', por: 'Si los requisitos cambian según de dónde venga la persona, no es justo.' },
       { id: 'publica', t: 'Publicar la convocatoria en el mural y en el grupo de comunicados', por: 'Todos se enteran a la vez, no solo los cercanos al jefe.' },
-      { id: 'plazo', t: 'Dar tres días hábiles para postular en RR.HH.', por: 'Es la política de la casa. Sin plazo claro, siempre falta alguien.' },
+      { id: 'plazo', t: 'Dar dos días hábiles para postular en RR.HH.', por: 'Es la política de la casa. Sin plazo claro, siempre falta alguien.' },
       { id: 'evalua', t: 'Evaluar a quienes postulen con los mismos criterios que a los de fuera', por: 'Ni ventaja ni castigo por ser de adentro.' },
       { id: 'responde', t: 'Responder en persona a cada interno, quede o no', por: 'Un «no» bien explicado a alguien de adentro cuida al equipo.' },
     ],
@@ -269,7 +269,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Qué divino! La puerta de adentro también está abierta.' : 'Casi. Lo justo empieza por usar el mismo perfil.'],
       };
     },
-    rules: [[POL, 'En esta empresa la convocatoria interna dura tres días hábiles y puede correr en paralelo con el aviso externo.'], [BP, 'Internos y externos se evalúan con los mismos criterios.']],
+    rules: [[POL, 'En esta empresa la convocatoria interna dura dos días hábiles y puede correr en paralelo con el aviso externo.'], [BP, 'Internos y externos se evalúan con los mismos criterios.']],
     mirada: {
       ve: 'Para don Julio, la convocatoria no es un trámite: es saber si veinte años en el almacén cuentan para algo. Una profesional cuida que la puerta interna sea real, aunque al final quede alguien de fuera. Lo que el equipo recuerda es si tuvo una oportunidad justa.',
       visual: { tipo: 'flujo', titulo: 'La convocatoria interna', pasos: ['Mismo perfil', 'Publicación', 'Plazo', 'Mismos criterios', 'Respuesta en persona'] },
@@ -277,7 +277,7 @@ export const ESCENAS = [
   },
   {
     id: 'c7', t: '15:20', ch: 'documento', who: null, titulo: 'El aviso', banner: 'assets/foto/mesa-papeles.webp', show: ['calidad', 'cumplimiento', 'etica'],
-    body: (n, F) => `<p>Con el perfil ${F.has('perfil_solido') ? 'que Walter ya aprobó' : 'que todavía tiene piezas flojas'} abierto en otra ventana, escribes el aviso que irá al portal${F.has('canal_linkedin') ? ' y a LinkedIn' : ''}. ${F.has('banda_publica') ? 'Llevará el rango de S/ 3,200 a S/ 3,900.' : F.has('banda_tope') ? 'Llevará los S/ 3,900 que decidiste el miércoles.' : 'Dirá «sueldo a tratar», como decidiste el miércoles.'}</p><p>Quien lo lea tiene que saber en <mark class="clave">treinta segundos</mark> si el puesto es para él o para ella.</p>`,
+    body: (n, F) => `<p>Con el perfil ${F.has('perfil_solido') ? 'que Walter ya aprobó' : 'que todavía tiene piezas flojas'} abierto en otra ventana, escribes el aviso que irá al portal${F.has('canal_linkedin') ? ' y a LinkedIn' : ''}. ${F.has('banda_publica') ? 'Llevará el rango de S/ 3,200 a S/ 3,900.' : F.has('banda_tope') ? 'Llevará los S/ 3,900 que decidiste ayer.' : 'Dirá «sueldo a tratar», como decidiste ayer.'}</p><p>Quien lo lea tiene que saber en <mark class="clave">treinta segundos</mark> si el puesto es para él o para ella.</p>`,
     type: 'compose', para: 'Vista previa del aviso · Supervisor/a de almacén', boton: 'Publicar el aviso',
     prompt: 'Arma el aviso eligiendo una frase de cada parte.',
     slots: [
@@ -302,7 +302,7 @@ export const ESCENAS = [
         { id: 'o3', t: 'Ofrecemos el mejor sueldo del mercado.', ok: false, por: 'No es cierto con esta banda, y lo descubrirán en la entrevista.' },
       ] },
       { id: 'postula', t: 'Cómo postular', ops: [
-        { id: 'p1', t: 'Postula por el portal hasta el jueves. Usaremos tus datos solo para este proceso de selección.', ok: true, por: 'Un solo canal de entrada, fecha de cierre y aviso de para qué se usan los datos.' },
+        { id: 'p1', t: 'Postula por el portal hasta mañana jueves a las 7:00. Usaremos tus datos solo para este proceso de selección.', ok: true, por: 'Un solo canal de entrada, fecha de cierre y aviso de para qué se usan los datos.' },
         { id: 'p2', t: 'Envía tu CV con foto al correo seleccion@pacificosur.pe.', ok: null, por: 'El correo es del área, bien. Pero la foto no sirve para evaluar y faltó decir para qué usarás los datos.' },
         { id: 'p3', t: 'Escríbenos al WhatsApp del área con tu CV y DNI.', ok: false, por: 'El DNI no hace falta en esta etapa y el WhatsApp no es un buen archivo de datos personales.' },
       ] },
@@ -314,8 +314,8 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 6 : q === 'aceptable' ? 2 : -3, cumplimiento: sel.postula === 'p1' ? 3 : -1, etica: sel.req === 'r3' ? -3 : 1 },
         flags: [q === 'riesgosa' ? 'aviso_confuso' : 'aviso_claro', ...(sel.req === 'r2' ? ['solo_tacna'] : []), ...(sel.titulo === 't1' ? ['aviso_inclusivo'] : [])],
-        cartera: { supervisor: 'Aviso publicado · cierra el jueves' },
-        out: q === 'buena' ? 'Publicas a las 15:48. A las 17:00 ya hay 23 postulaciones, y la mayoría tiene experiencia en almacén.' : q === 'aceptable' ? 'Publicas a las 15:48. Llegan postulaciones; varias no tienen nada que ver con el puesto.' : 'Publicas a las 15:48. Llueven CV: vendedores, cajeros, un chef. El filtro del martes será largo.',
+        cartera: { supervisor: 'Aviso publicado · cierra mañana a las 7:00' },
+        out: q === 'buena' ? 'Publicas a las 15:48. A las 17:00 ya hay 23 postulaciones, y la mayoría tiene experiencia en almacén.' : q === 'aceptable' ? 'Publicas a las 15:48. Llegan postulaciones; varias no tienen nada que ver con el puesto.' : 'Publicas a las 15:48. Llueven CV: vendedores, cajeros, un chef. El filtro de mañana será largo.',
         pro: { ok: 'Un aviso claro filtra antes que tú: quien no encaja no postula.', risk: 'Las frases bonitas y genéricas traen volumen, no candidatos.', info: 'Pídele a alguien del almacén que lo lea. Si entiende el puesto en treinta segundos, está listo.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Aviso de lujo! Se entiende al toque.' : 'Se publicó… ahora toca leer lo que llegue.'],
       };
@@ -323,7 +323,7 @@ export const ESCENAS = [
     rules: [[LEY, 'El aviso no puede tener requisitos discriminatorios (Ley 26772).'], [LEY, 'Informa al postulante para qué usarás sus datos (Ley 29733).'], [BP, 'El aviso dice qué hará la persona, qué necesita y qué recibe.']],
     mirada: {
       ve: 'El aviso es la primera conversación con la persona que vas a contratar. Una profesional escribe para quien lo lee en el celular, en la combi, entre dos turnos: qué puesto es, para qué sirve, qué pide, qué da y cómo postular. Todo lo demás es ruido.',
-      visual: { tipo: 'mensaje', titulo: 'Un aviso que se entiende en treinta segundos', txt: 'Supervisor/a de almacén · Tacna · Turnos rotativos. Liderarás a los operarios de cada turno para que el almacén reciba, guarde y despache a tiempo y sin pérdidas. Pedimos 3 años supervisando un almacén, manejo de un WMS y Excel intermedio. Ofrecemos planilla desde el primer día con todos los beneficios de ley. Postula por el portal hasta el jueves. Usaremos tus datos solo para este proceso.' },
+      visual: { tipo: 'mensaje', titulo: 'Un aviso que se entiende en treinta segundos', txt: 'Supervisor/a de almacén · Tacna · Turnos rotativos. Liderarás a los operarios de cada turno para que el almacén reciba, guarde y despache a tiempo y sin pérdidas. Pedimos 3 años supervisando un almacén, manejo de un WMS y Excel intermedio. Ofrecemos planilla desde el primer día con todos los beneficios de ley. Postula por el portal hasta mañana jueves a las 7:00. Usaremos tus datos solo para este proceso.' },
       normas: [{ ley: 'Ley 29733, de Protección de Datos Personales', dice: 'Quien recoge datos personales debe informar a su titular para qué se usarán.', practica: 'Una línea en el aviso («usaremos tus datos solo para este proceso») cumple ese deber y genera confianza.' }],
     },
   },
@@ -335,13 +335,13 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Enviarle una tabla corta: cada proceso con su etapa, la próxima fecha y un riesgo, incluso los que van atrasados.',
         res: { q: 'buena', fx: { confianza: 5, calidad: 4, tiempo: -2 }, rel: { rocio: 1 }, flags: ['gerencia_informada'],
-          responde: 'Ing. Zegarra, buenas tardes. Le comparto el estado: Supervisor de almacén: aviso publicado hoy, terna en la semana 3; riesgo: preaviso del elegido. Operarios: entrevistas hechas, falta la opinión de Operaciones. Vendedores: esperando criterios de Comercial. Asistente contable: perfil actualizado, aviso la próxima semana. Chofer: 6 postulantes. Practicante: por iniciar. Auxiliar de despacho: proceso por reabrir. Saludos.',
+          responde: 'Ing. Zegarra, buenas tardes. Le comparto el estado: Supervisor de almacén: aviso publicado hoy, terna el próximo lunes; riesgo: preaviso del elegido. Operarios: entrevistas hechas, falta la opinión de Operaciones. Vendedores: esperando criterios de Comercial. Asistente contable: perfil actualizado, aviso la próxima semana. Chofer: 6 postulantes. Practicante: por iniciar. Auxiliar de despacho: proceso por reabrir. Saludos.',
           out: 'Rocío te escribe: «Así se le responde a Zegarra». El gerente contesta con un escueto «Gracias. Claro». Nadie se sorprenderá el lunes.',
           pro: { ok: 'Gerencia ve todo en un minuto, incluidos los riesgos. Nadie se sorprenderá en el comité.', risk: 'Mostrar atrasos expone a algunos jefes. Hazlo con datos, no con culpas.', info: 'Guarda esta tabla: la actualizarás cada viernes.' },
           kusi: ['feliz', 'Breve, claro y sin maquillaje.'] } },
       { id: 'b', label: 'Responderle solo sobre el supervisor, que es lo que más le importa a la empresa.',
         res: { q: 'aceptable', fx: { confianza: 1, calidad: -1 },
-          responde: 'Ing. Zegarra, el aviso del supervisor de almacén salió hoy. Esperamos tener terna en la semana 3. Saludos.',
+          responde: 'Ing. Zegarra, el aviso del supervisor de almacén salió hoy. Esperamos tener terna el próximo lunes. Saludos.',
           out: 'El gerente contesta: «¿Y los demás?». Le terminas mandando todo el lunes a las 7:30, apurada.',
           pro: { ok: 'Priorizas lo urgente.', risk: 'Te pidió todos los procesos. Responder a medias genera otra pregunta.' },
           kusi: ['pensando', 'Te preguntó por siete, contestaste por uno.'] } },
@@ -355,7 +355,7 @@ export const ESCENAS = [
     rules: [[BP, 'Reporta a gerencia con etapa, fecha y riesgo; muestra también lo que va atrasado.'], [POL, 'En esta empresa el estado de procesos se presenta en el comité de los lunes.']],
     mirada: {
       ve: 'Un gerente general no necesita saber cuántos CV llegaron: necesita saber qué puede salir mal y cuándo. Una profesional reporta los atrasos antes de que otro los cuente por ella. Así, cuando Gina o Fernando se quejen, Gerencia ya tendrá la versión completa.',
-      visual: { tipo: 'embudo', titulo: 'Tu viernes en números', niveles: [['CV en la base de 2022', 46], ['Postulaciones al aviso, primera hora', 23], ['Canales activos', 3], ['Procesos reportados a Gerencia', 7]] },
+      visual: { tipo: 'embudo', titulo: 'Tu miércoles en números', niveles: [['CV en la base de 2022', 46], ['Postulaciones al aviso, primera hora', 23], ['Canales activos', 3], ['Procesos reportados a Gerencia', 7]] },
     },
   },
 ];

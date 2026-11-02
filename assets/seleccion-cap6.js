@@ -1,4 +1,4 @@
-// Capítulo 6 · «La terna» · Semana 3, martes.
+// Capítulo 6 · «La terna» · Semana 2, lunes.
 // Recibe las decisiones de los capítulos 1 a 5. Aquí se decide quién recibe la oferta: elegido_marco, elegido_lucia o elegido_patricia.
 //
 // Normas citadas y fuentes consultadas:
@@ -12,24 +12,24 @@
 //   (verificado en el capítulo 1)
 
 export const CAP = {
-  n: 6, titulo: 'La terna', dia: 'Semana 3, martes', foto: 'assets/foto2/reunion-circulos.webp',
+  n: 6, titulo: 'La terna', dia: 'Semana 2, lunes', foto: 'assets/foto2/reunion-circulos.webp',
   lugar: 'Oficina de RR.HH. · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '19:40', cierreHora: '19:25',
   apertura: 'Tres finalistas, una referencia por verificar y un jefe que ya tiene favorito.', boton: 'Empezar el día',
   kusi: 'Hoy se decide con datos y con personas. Las dos cosas a la vez. ¡Dale!',
   lead: 'Verificaste una referencia que no cuadraba, limpiaste un informe de opiniones y recomendaste a una persona con un sustento que se puede defender.',
   reflexion: 'Si tuvieras que explicarle tu recomendación a quien no quedó, ¿qué le dirías?',
-  siguiente: { n: 7, titulo: 'La oferta', dia: 'Semana 3, viernes' },
+  siguiente: { n: 7, titulo: 'La oferta', dia: 'Semana 2, martes' },
 };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 37, e: 'Hoy: referencias y terna' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 24, e: '3 aprobados, falta 1' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 30, e: 'Fernando eligió a los tres' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 55, e: 'Entrevistas el jueves' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 20, e: 'Oferta aceptada' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 18, e: 'Convenio firmado' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 75, e: 'Entrevistas la próxima semana' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 29, e: 'Hoy: referencias y terna' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 16, e: '3 aprobados, falta 1' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 22, e: 'Fernando eligió a los tres' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 47, e: 'Entrevistas el jueves' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 12, e: 'Oferta aceptada' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 10, e: 'Convenio firmado' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 67, e: 'Entrevistas la próxima semana' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -49,7 +49,7 @@ export const FUTURO = {
   elegido_lucia: ['Recomendaste a Lucía: liderazgo y encaje, con un plan para el WMS.', 'Su empleador intentará retenerla. Capítulo 7.'],
   elegido_patricia: ['Recomendaste a Patricia: el mejor puntaje, con un preaviso por resolver.', 'Capítulo 7.'],
   terna_sin_recomendacion: ['Presentaste la terna sin recomendación y Walter eligió solo.', 'Capítulo 7.'],
-  finalistas_informadas: ['Avisaste a las otras finalistas que la decisión se cerrará el viernes.', 'Capítulo 7.'],
+  finalistas_informadas: ['Avisaste a las otras finalistas que la decisión se cerrará mañana.', 'Capítulo 7.'],
   finalistas_silencio: ['No escribiste a las otras finalistas, aunque se lo habías prometido a una.', 'Capítulo 7.'],
 };
 
@@ -78,7 +78,7 @@ export const WSP = [
   { chat: 'walter', t: '08:05', de: 'Walter', txt: 'Le mando mi hoja de puntajes. Marco 4.2, Patricia 4.3, Lucía 4.1. Me sorprendió la de la tienda.', si: 'puntaje_independiente' },
   { chat: 'marco', t: '09:20', de: 'Marco', txt: 'Buenos días. Mi jefe se enteró de que postulé. Alguien de su empresa le comentó a un amigo de él. ¿Cómo pasó eso?', si: 'cv_whatsapp' },
   { chat: 'rocio', t: '13:10', de: 'Rocío', txt: 'Revisé lo de Hugo. Que nadie lo deje fuera por suposiciones sobre su discapacidad, ¿ya?', si: 'hugo_fuera' },
-  { chat: 'lucia', t: '18:55', de: 'Lucía', txt: 'Gracias por avisarme 🙏 Espero su llamada el viernes.', si: 'finalistas_informadas', no: 'elegido_lucia' },
+  { chat: 'lucia', t: '18:55', de: 'Lucía', txt: 'Gracias por avisarme 🙏 Espero su llamada mañana.', si: 'finalistas_informadas', no: 'elegido_lucia' },
   { chat: 'patricia', t: '19:02', de: 'Patricia', txt: 'Gracias por cumplir con escribirme hoy. Quedo atenta.', si: 'finalistas_informadas', no: 'elegido_patricia' },
   { chat: 'patricia', t: '19:30', de: 'Patricia', txt: 'Buenas noches. Usted me dijo que hoy me escribía. ¿Hay alguna novedad?', si: 'finalistas_silencio', no: 'elegido_patricia' },
 ];
@@ -96,7 +96,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'f1', t: '08:30', ch: 'llamada', who: null, titulo: 'Las referencias de Marco', banner: 'assets/foto/llamada.webp', show: ['calidad', 'cumplimiento', 'etica'],
-    body: (n, F) => `<p>Marco firmó el jueves la autorización para contactar sus referencias y te dio tres números. Pidió que no llames a su jefe actual: <mark class="clave">todavía no le ha dicho que se quiere ir</mark>.</p>${F.has('terna_apurada') || F.has('walter_marco') ? '<p>Walter te escribió temprano: «No pierda tiempo con referencias». Llamas igual.</p>' : ''}`,
+    body: (n, F) => `<p>Marco firmó el viernes la autorización para contactar sus referencias y te dio tres números. Pidió que no llames a su jefe actual: <mark class="clave">todavía no le ha dicho que se quiere ir</mark>.</p>${F.has('terna_apurada') || F.has('walter_marco') ? '<p>Walter te escribió temprano: «No pierda tiempo con referencias». Llamas igual.</p>' : ''}`,
     type: 'calls',
     calls: [['Ing. Óscar Benites · exjefe en un almacén de Ilo (2017-2019)', 'Contesta: «Buen supervisor. Se fue después de un faltante de inventario que nunca se aclaró del todo»', 'Marco… buen supervisor, ordenado. Se fue después de un faltante de inventario que nunca se aclaró del todo. Bueno, eso es lo que yo recuerdo.'], ['Sra. Elena Rivas · RR.HH. de ese almacén', 'Contesta: «Solo confirmo fechas y cargo. Supervisor de 2017 a 2019»', 'Por política solo confirmo fechas y cargo: supervisor de almacén, de 2017 a 2019.'], ['Jhon Mamani · excompañero en Moquegua', 'No contesta']],
     prompt: '«Un faltante que nunca se aclaró.» ¿Qué haces con ese comentario?',
@@ -178,7 +178,7 @@ export const ESCENAS = [
   },
   {
     id: 'f4a', t: '12:40', ch: 'presencial', who: 'julio', titulo: 'Don Julio espera', banner: 'assets/foto/cafe.webp', si: 'julio_evaluado', lugar: 'Zona de despacho · almacén', show: ['personas', 'etica', 'confianza'],
-    body: (n, F) => `<p>Don Julio sacó 3.4. No está en la terna. ${F.has('encargo_julio') ? 'En estas dos semanas de encargo, el turno no se cayó ni una vez, y Walter lo dijo en voz alta en la reunión del lunes.' : 'Sus compañeros dicen que la entrevista «le salió de corazón».'}</p><p>Lo encuentras ordenando guías de remisión. Te ve llegar y deja el lapicero. <mark class="clave">Ya lo sabe por tu cara.</mark></p>`,
+    body: (n, F) => `<p>Don Julio sacó 3.4. No está en la terna. ${F.has('encargo_julio') ? 'En estos días de encargo, el turno no se cayó ni una vez, y Walter lo dijo en voz alta en la reunión de turno de esta mañana.' : 'Sus compañeros dicen que la entrevista «le salió de corazón».'}</p><p>Lo encuentras ordenando guías de remisión. Te ve llegar y deja el lapicero. <mark class="clave">Ya lo sabe por tu cara.</mark></p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Decirle en persona que no quedó, qué hizo bien y proponerle un plan: terminar la secundaria en un CEBA y un reconocimiento por el encargo.',
@@ -200,7 +200,7 @@ export const ESCENAS = [
     rules: [[POL, 'En esta empresa, a los internos que no quedan se les responde en persona.'], [BP, 'Acompaña un «no» con lo que la persona hizo bien y con un camino concreto.']],
     mirada: {
       ve: 'Don Julio seguirá en el almacén mañana, y el equipo mirará cómo lo trataron. Una profesional sabe que un proceso interno no termina con la terna: termina cuando el que no quedó vuelve a su puesto con ganas o sin ellas.',
-      visual: { tipo: 'balanza', a: { t: 'Lo que no alcanzó', items: ['Nunca supervisó formalmente', 'Le cuesta el Excel'] }, b: { t: 'Lo que tiene', items: ['Veinte años en el almacén', 'Dos semanas de encargo sin caídas', 'El respeto del equipo'] } },
+      visual: { tipo: 'balanza', a: { t: 'Lo que no alcanzó', items: ['Nunca supervisó formalmente', 'Le cuesta el Excel'] }, b: { t: 'Lo que tiene', items: ['Veinte años en el almacén', 'Varios días de encargo sin caídas', 'El respeto del equipo'] } },
     },
   },
   {
@@ -228,13 +228,13 @@ export const ESCENAS = [
   },
   {
     id: 'f5', t: '15:00', ch: 'presencial', who: 'walter', titulo: 'Experiencia o encaje', banner: 'assets/foto2/tension.webp', lugar: 'Oficina de Operaciones', show: ['calidad', 'confianza', 'etica'],
-    body: (n, F) => `<p>Walter tiene el informe impreso sobre su escritorio, entre un casco y un termo de café. ${F.has('pregunta_expuesta') ? 'Desde el jueves te habla poco.' : F.has('puntaje_independiente') ? 'Su hoja de puntajes está al lado de la tuya.' : ''}</p><p>Marco: experiencia y SAP, pero pide S/ 4,400. Patricia: el mejor puntaje, pero preaviso de 30 días y el inventario en tres semanas. Lucía: el mejor liderazgo, pero sin WMS. ${F.has('marco_descartado') ? 'Marco ya no está: lo sacaste en la mañana, y en su lugar entró Hugo como tercer finalista.' : ''} Walter te mira: <mark class="clave">«¿A quién recomienda usted?»</mark></p>`,
+    body: (n, F) => `<p>Walter tiene el informe impreso sobre su escritorio, entre un casco y un termo de café. ${F.has('pregunta_expuesta') ? 'Desde el viernes te habla poco.' : F.has('puntaje_independiente') ? 'Su hoja de puntajes está al lado de la tuya.' : ''}</p><p>Marco: experiencia y SAP, pero pide S/ 4,400. Patricia: el mejor puntaje, pero preaviso de 30 días y el inventario empieza el viernes. Lucía: el mejor liderazgo, pero sin WMS. ${F.has('marco_descartado') ? 'Marco ya no está: lo sacaste en la mañana, y en su lugar entró Hugo como tercer finalista.' : ''} Walter te mira: <mark class="clave">«¿A quién recomienda usted?»</mark></p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'marco', label: 'Recomendar a Marco: sabe de SAP, sus referencias quedaron claras y puede llegar antes del inventario si negociamos el sueldo y la fecha.', no: 'marco_descartado',
         res: { q: 'buena', fx: { calidad: 4, confianza: 4, tiempo: 2 }, rel: { walter: 1, marco: 1 }, flags: ['elegido_marco'],
           out: 'Walter asiente despacio: «Eso. Pero el sueldo lo ve usted con Rocío». El riesgo ahora es la banda: el tope es S/ 3,900 y Marco pide S/ 4,400.',
-          pro: { ok: 'Experiencia probada y una referencia que se volvió evidencia de integridad.', risk: 'Pide S/ 500 sobre el tope de la banda. Si lo pagas, el resto de supervisores lo sabrá.', info: 'Prepara el sustento de la oferta antes del viernes.' },
+          pro: { ok: 'Experiencia probada y una referencia que se volvió evidencia de integridad.', risk: 'Pide S/ 500 sobre el tope de la banda. Si lo pagas, el resto de supervisores lo sabrá.', info: 'Prepara el sustento de la oferta antes de mañana.' },
           kusi: ['animo', 'Experiencia con referencias claras. Ahora toca negociar.'] } },
       { id: 'lucia', label: 'Recomendar a Lucía: el mejor liderazgo, quiere crecer aquí y su sueldo cabe en la banda. El WMS se aprende; para el inventario, don Julio la acompaña.',
         res: { q: 'buena', fx: { calidad: 3, personas: 4, confianza: -1 }, rel: { walter: 0, lucia: 1 }, flags: ['elegido_lucia'],
@@ -248,7 +248,7 @@ export const ESCENAS = [
           kusi: ['pensando', 'La mejor en papel… con un reloj en contra.'] } },
       { id: 'nada', label: 'Presentar la terna sin recomendar a nadie: el que pidió la vacante es Walter y le toca decidir a él.',
         res: { q: 'aceptable', fx: { confianza: 1, calidad: -3 }, rel: { walter: 0 }, flags: ['terna_sin_recomendacion', 'elegido_marco'],
-          out: 'Walter elige a Marco en diez segundos, como lo dijo el jueves. Tu análisis de dos semanas no pesó en la decisión.',
+          out: 'Walter elige a Marco en diez segundos, como lo dijo el viernes. Tu análisis de una semana no pesó en la decisión.',
           pro: { ok: 'Respetas que la decisión final es del jefe.', risk: 'RR.HH. que no recomienda es solo un buzón de CV.', info: 'El jefe decide, pero RR.HH. debe dar su recomendación con sustento.' },
           kusi: ['pensando', 'El jefe decide, sí. Pero tú tenías algo que decir.'] } },
       { id: 'lucia2', label: 'Recomendar a Lucía: Marco salió de la terna y es quien mejor liderazgo mostró. Para el inventario, don Julio la acompaña.', si: 'marco_descartado',
@@ -283,7 +283,7 @@ export const ESCENAS = [
         { id: 'k3', t: 'El único riesgo es la situación familiar de una de las finalistas.', ok: false, por: 'La situación familiar no es un riesgo del puesto: es un dato que no se evalúa.' },
       ] },
       { id: 'pasos', t: 'Próximos pasos', ops: [
-        { id: 'p1', t: 'El viernes presento la oferta; si se acepta, el ingreso sería el martes de la semana 4, con Planillas avisada con 48 horas.', ok: true, por: 'Fechas concretas y Kelly en el radar.' },
+        { id: 'p1', t: 'Mañana presento la oferta; si se acepta, el ingreso sería el miércoles, con Planillas avisada el mismo día.', ok: true, por: 'Fechas concretas y Kelly en el radar.' },
         { id: 'p2', t: 'Vamos viendo.', ok: false, por: 'Sin fechas, todo se corre.' },
       ] },
     ],
@@ -293,8 +293,8 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -4, cumplimiento: sel.riesgos === 'k3' ? -6 : 2, confianza: 2 },
         flags: ['terna_enviada', ...(sel.pasos === 'p1' ? ['kelly_avisada'] : [])],
-        cartera: { supervisor: 'Terna enviada · oferta el viernes' },
-        out: q === 'buena' ? 'Rocío responde a los diez minutos: «Así se sustenta una terna. Lo voy a usar como modelo». Walter responde con un pulgar, que en él es mucho.' : q === 'aceptable' ? 'El correo sale. Rocío te pide agregar los riesgos antes del viernes.' : 'Rocío te llama: «Ese correo no puede quedar así en el archivo». Lo reescriben juntas a las 17:30.',
+        cartera: { supervisor: 'Terna enviada · oferta mañana' },
+        out: q === 'buena' ? 'Rocío responde a los diez minutos: «Así se sustenta una terna. Lo voy a usar como modelo». Walter responde con un pulgar, que en él es mucho.' : q === 'aceptable' ? 'El correo sale. Rocío te pide agregar los riesgos antes de mañana.' : 'Rocío te llama: «Ese correo no puede quedar así en el archivo». Lo reescriben juntas a las 17:30.',
         pro: { ok: 'Un buen correo de terna protege a todos: al jefe que decide, a RR.HH. que recomienda y a los candidatos.', risk: 'Lo que no está escrito, en un año nadie lo recuerda.', info: 'Avisa hoy a Kelly la fecha tentativa de ingreso, aunque la oferta no esté aceptada.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Terna con sustento. ¡Bacán!' : 'Mira qué parte no podrías defender.'],
       };
@@ -309,40 +309,40 @@ export const ESCENAS = [
     id: 'f7', t: '18:40', ch: 'whatsapp', who: null, titulo: 'Las otras finalistas', banner: 'assets/esc/pendulo.webp', show: ['personas', 'etica', 'confianza'],
     body: (n, F) => {
       const otras = F.has('elegido_lucia') ? 'Patricia y Marco' : F.has('elegido_patricia') ? 'Lucía y Marco' : 'Lucía y Patricia';
-      return `<p>Ya casi te vas. ${F.has('patricia_tranquila') ? 'El jueves le prometiste a Patricia escribirle hoy.' : 'Las otras finalistas esperan noticias.'} ${otras} todavía no saben nada.</p><p>Si la oferta del viernes no se acepta, <mark class="clave">necesitarás a alguno de ellos</mark>. Pero tampoco puedes tenerlos esperando sin decirles nada.</p>`;
+      return `<p>Ya casi te vas. ${F.has('patricia_tranquila') ? 'El viernes le prometiste a Patricia escribirle hoy.' : 'Las otras finalistas esperan noticias.'} ${otras} todavía no saben nada.</p><p>Si la oferta de mañana no se acepta, <mark class="clave">necesitarás a alguno de ellos</mark>. Pero tampoco puedes tenerlos esperando sin decirles nada.</p>`;
     },
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra el viernes y ese día tendrán una respuesta, sea cual sea.', no: ['elegido_lucia', 'elegido_patricia'],
+      { id: 'a', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra mañana y ese día tendrán una respuesta, sea cual sea.', no: ['elegido_lucia', 'elegido_patricia'],
         res: { q: 'buena', fx: { personas: 5, etica: 3, confianza: 2 }, flags: ['finalistas_informadas'], envia: [['lucia', 'Hola, Lucía. Te cuento que sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.'], ['patricia', 'Hola, Patricia. Como te prometí, te escribo: sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.']],
           out: 'Lucía responde con un «gracias 🙏». Patricia: «Gracias por cumplir con escribirme hoy». Honesto y sin cerrar puertas.',
-          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si el viernes la respuesta es no, ya les diste una fecha: cúmplela.' },
+          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si mañana la respuesta es no, ya les diste una fecha: cúmplela.' },
           kusi: ['feliz', 'Sin mentir y sin cerrar puertas. ¡Eso!'] } },
-      { id: 'a2', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra el viernes y ese día tendrán una respuesta, sea cual sea.', si: 'elegido_lucia',
+      { id: 'a2', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra mañana y ese día tendrán una respuesta, sea cual sea.', si: 'elegido_lucia',
         res: { q: 'buena', fx: { personas: 5, etica: 3, confianza: 2 }, flags: ['finalistas_informadas'], envia: [['patricia', 'Hola, Patricia. Como te prometí, te escribo: sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.'], ['marco', 'Hola, Marco. Te cuento que sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.']],
           out: 'Patricia: «Gracias por cumplir con escribirme hoy». Marco responde con un pulgar. Honesto y sin cerrar puertas.',
-          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si el viernes la respuesta es no, ya les diste una fecha: cúmplela.' },
+          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si mañana la respuesta es no, ya les diste una fecha: cúmplela.' },
           kusi: ['feliz', 'Sin mentir y sin cerrar puertas. ¡Eso!'] } },
-      { id: 'a3', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra el viernes y ese día tendrán una respuesta, sea cual sea.', si: 'elegido_patricia',
+      { id: 'a3', label: 'Escribirles hoy: siguen en el proceso, la decisión se cierra mañana y ese día tendrán una respuesta, sea cual sea.', si: 'elegido_patricia',
         res: { q: 'buena', fx: { personas: 5, etica: 3, confianza: 2 }, flags: ['finalistas_informadas'], envia: [['lucia', 'Hola, Lucía. Te cuento que sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.'], ['marco', 'Hola, Marco. Te cuento que sigues en la etapa final del proceso. La decisión se cierra el viernes y ese día te escribo con una respuesta, sea cual sea. Gracias por tu paciencia.']],
           out: 'Lucía responde con un «gracias 🙏». Marco: «Ok, quedo atento». Honesto y sin cerrar puertas.',
-          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si el viernes la respuesta es no, ya les diste una fecha: cúmplela.' },
+          pro: { ok: 'Cumples lo prometido, no mientes y conservas a tus opciones de respaldo.', risk: 'Si mañana la respuesta es no, ya les diste una fecha: cúmplela.' },
           kusi: ['feliz', 'Sin mentir y sin cerrar puertas. ¡Eso!'] } },
       { id: 'b', label: 'Decirles hoy que no fueron elegidas: es lo más honesto.',
         res: { q: 'aceptable', fx: { personas: 1, tiempo: -1 }, flags: ['finalistas_rechazadas'],
-          out: 'Les escribes que no quedaron. Si el viernes el elegido dice que no, tendrás que volver a buscarlas, y quizás ya no quieran.',
+          out: 'Les escribes que no quedaron. Si mañana el elegido dice que no, tendrás que volver a buscarlas, y quizás ya no quieran.',
           pro: { ok: 'Eres transparente.', risk: 'Cierras tu respaldo antes de tener la oferta aceptada.', info: 'Lo usual es avisar el no cuando el elegido acepta, diciendo antes cuándo habrá respuesta.' },
           kusi: ['pensando', 'Honesto… pero te quedaste sin plan B.'] } },
-      { id: 'c', label: 'No escribirles hasta el viernes: no hay nada nuevo que contar.',
+      { id: 'c', label: 'No escribirles hasta mañana: no hay nada nuevo que contar.',
         res: { q: 'riesgosa', fx: { personas: -4, confianza: -2 }, flags: ['finalistas_silencio'],
-          out: 'A las 19:30 Patricia escribe: «Usted me dijo que hoy me escribía». La promesa del jueves quedó en el aire.',
+          out: 'A las 19:30 Patricia escribe: «Usted me dijo que hoy me escribía». La promesa del viernes quedó en el aire.',
           pro: { ok: 'Evitas un mensaje incómodo.', risk: 'El silencio con una finalista que ya vivió un mal momento en tu proceso pesa el doble.' },
           kusi: ['triste', 'Patricia esperaba tu mensaje.'] } },
     ],
     rules: [[BP, 'Mantén informados a los finalistas con fechas reales; avisa el «no» cuando la oferta esté aceptada.'], [POL, 'A todo postulante entrevistado se le responde.']],
     mirada: {
       ve: 'Entre la terna y la oferta hay unos días en que los finalistas no saben nada. Una profesional no les miente ni los deja en silencio: les dice la verdad posible, que es una fecha. Esa fecha, cumplida, vale más que cualquier frase amable.',
-      visual: { tipo: 'linea', titulo: 'Lo que viene', hitos: [['Hoy', 'Terna enviada'], ['Miércoles', 'Aprobación de la banda'], ['Viernes', 'Oferta y respuesta a todas'], ['Martes, semana 4', 'Ingreso']] },
+      visual: { tipo: 'linea', titulo: 'Lo que viene', hitos: [['Hoy', 'Terna enviada'], ['Mañana', 'Oferta y respuesta a todas'], ['Miércoles', 'Ingreso'], ['Viernes', 'Inventario']] },
     },
   },
 ];

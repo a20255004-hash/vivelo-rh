@@ -1,4 +1,4 @@
-// Capítulo 4 · «El filtro» · Semana 2, martes.
+// Capítulo 4 · «El filtro» · Semana 1, jueves.
 // Recibe las decisiones de los capítulos 1 a 3 a través de F.has(flag).
 //
 // Normas citadas y fuentes consultadas:
@@ -11,24 +11,24 @@
 // - Ley 26772 y D.S. 002-98-TR: requisitos no discriminatorios. https://faolex.fao.org/docs/pdf/per201903.pdf
 
 export const CAP = {
-  n: 4, titulo: 'El filtro', dia: 'Semana 2, martes', foto: 'assets/foto/cv-mano.webp',
+  n: 4, titulo: 'El filtro', dia: 'Semana 1, jueves', foto: 'assets/foto/cv-mano.webp',
   lugar: 'Oficina de RR.HH. · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '20:00', cierreHora: '19:45',
-  apertura: 'El aviso cerró anoche. En la bandeja te esperan 140 postulaciones y un café que se enfría solo.', boton: 'Abrir las postulaciones',
+  apertura: 'El aviso cerró a las 7:00. En dieciséis horas llegaron 140 postulaciones; en tu escritorio, un café que se enfría solo.', boton: 'Abrir las postulaciones',
   kusi: 'Hoy toca decir muchos «no». Que cada uno tenga una razón. ¡Dale!',
   lead: 'Convertiste 140 postulaciones en cinco entrevistas con criterios que puedes explicar, y le dijiste a un sobrino lo mismo que a todos.',
   reflexion: '¿A quién descartaste hoy que te costó descartar? ¿Por qué?',
-  siguiente: { n: 5, titulo: 'Las entrevistas', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'Las entrevistas', dia: 'Semana 1, viernes' },
 };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 30, e: 'Hoy: filtro de 140 postulaciones' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 17, e: '2 aprobados, faltan 2' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 23, e: 'Hoy: llamadas de filtro' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 48, e: 'Aviso nuevo publicado' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 13, e: 'Entrevistas el viernes' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 11, e: 'Convenio con universidad en trámite' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 68, e: 'Proceso reabierto' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 25, e: 'Hoy: filtro de 140 postulaciones' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 12, e: '2 aprobados, faltan 2' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 18, e: 'Hoy: llamadas de filtro' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 43, e: 'Aviso nuevo publicado' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 8, e: 'Entrevistas el viernes' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 6, e: 'Convenio con universidad en trámite' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 63, e: 'Proceso reabierto' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -65,23 +65,23 @@ export const CHATS = {
 };
 
 export const CORREOS = [
-  { t: '08:10', de: 'Rocío Mamani', para: 'Analista de Selección', asunto: 'Comité de ayer', html: '<p>Zegarra proyectó tu tabla en el comité y pidió que todas las áreas reporten así. Bien ahí.</p>', si: 'gerencia_informada' },
-  { t: '08:10', de: 'Rocío Mamani', para: 'Analista de Selección', asunto: 'Comité de ayer', html: '<p>Gina dijo en el comité que su asistente lleva 46 días sin novedades. Zegarra preguntó por qué le dijimos que todo iba según lo previsto. Hablemos.</p>', si: 'gerencia_optimista' },
-  { t: '09:40', de: 'Luis Pari', para: 'seleccion@pacificosur.pe', asunto: '¿De dónde sacaron mi número?', html: '<p>Señores: el viernes me llamaron por una vacante a la que no postulé. Mi CV lo envié en 2022 para otro puesto. Pido que retiren mis datos de su base.</p><p>Luis Pari</p>', si: 'base_sin_permiso' },
+  { t: '08:10', de: 'Rocío Mamani', para: 'Analista de Selección', asunto: 'Tu tabla de procesos', html: '<p>Zegarra reenvió tu tabla a todos los gerentes y pidió que en el comité del lunes todas las áreas reporten así. Bien ahí.</p>', si: 'gerencia_informada' },
+  { t: '08:10', de: 'Rocío Mamani', para: 'Analista de Selección', asunto: 'Lo de Zegarra', html: '<p>Gina le respondió a Zegarra, con copia a todos, que su asistente lleva 43 días sin novedades. Zegarra preguntó por qué le dijimos que todo iba según lo previsto. Hablemos.</p>', si: 'gerencia_optimista' },
+  { t: '09:40', de: 'Luis Pari', para: 'seleccion@pacificosur.pe', asunto: '¿De dónde sacaron mi número?', html: '<p>Señores: ayer me llamaron por una vacante a la que no postulé. Mi CV lo envié en 2022 para otro puesto. Pido que retiren mis datos de su base.</p><p>Luis Pari</p>', si: 'base_sin_permiso' },
   { t: '09:40', de: 'Portal de empleo', para: 'seleccion@pacificosur.pe', asunto: '9 candidatos de tu base aceptaron ser considerados', html: '<p>Nueve personas de tu base respondieron «Sí, quiero participar» para Supervisor/a de almacén.</p>', si: 'base_consentimiento' },
 ];
 
 export const WSP = [
   { chat: 'grupo', t: '07:44', de: 'Kelly', txt: 'Ánimo con las 140 😅 Yo estoy con la PLAME, ni me hablen hasta las 11' },
   { chat: 'walter', t: '08:20', de: 'Walter', txt: 'Ya pues. ¿Y los nombres de los candidatos avanzados?', si: 'mentira_walter' },
-  { chat: 'walter', t: '08:35', de: 'Walter', txt: 'Los dos operarios que entrevistó están bien. Elmer y Yesenia. Que entren el martes de la semana 4.', no: 'operarios_descartados' },
+  { chat: 'walter', t: '08:35', de: 'Walter', txt: 'Los dos operarios que entrevistó están bien. Elmer y Yesenia. Que entren el miércoles de la próxima semana.', no: 'operarios_descartados' },
   { chat: 'walter', t: '08:35', de: 'Walter', txt: 'Elmer está bien. Pero me faltan tres operarios. ¿Y los otros?', si: 'operarios_descartados' },
   { chat: 'rocio', t: '10:02', de: 'Rocío', txt: 'Antes de filtrar: revisa que no estemos dejando fuera a nadie por ser mujer. Lo del «varón» no se repite.', si: 'filtro_sexo' },
   { chat: 'rocio', t: '10:02', de: 'Rocío', txt: 'Ojo que el comité aprobó solo S/ 450 por vacante. Lo que pasó del presupuesto lo cubro, pero que sea la última vez.', si: 'sobre_presupuesto' },
   { chat: 'kevin', t: '10:58', de: 'Kevin', txt: 'Gracias señorita, igual me esfuerzo 💪', si: 'kevin_igual' },
   { chat: 'kevin', t: '10:58', de: 'Kevin', txt: 'Ya le avisé a mi tío 🙌', si: 'kevin_final' },
   { chat: 'fernando', t: '11:20', de: 'Fernando', txt: 'Colega, Kevin me dice que no tiene moto y que eso cuenta… pero ese criterio lo puse para los otros, no para él 😅', si: 'kevin_igual' },
-  { chat: 'walter', t: '17:40', de: 'Walter', txt: 'Jueves 9 a 1 bloqueado. Entrevistamos juntos.', si: 'agenda_walter' },
+  { chat: 'walter', t: '17:40', de: 'Walter', txt: 'Mañana 9 a 1 bloqueado. Entrevistamos juntos.', si: 'agenda_walter' },
   { chat: 'hector', t: '19:18', de: 'Héctor', txt: 'Buenas noches señorita. Tengo 10 años de supervisor y no me llamaron. ¿Se puede saber por qué?' },
 ];
 
@@ -98,7 +98,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'd1', t: '07:50', ch: 'sistema', who: null, titulo: 'La matriz de preselección', banner: 'assets/esc/escritorio.webp', show: ['calidad', 'tiempo', 'cumplimiento'],
-    body: (n, F) => `<p>El portal marca <mark class="clave">140 postulaciones</mark>: ${F.has('canal_referidos') ? '11 llegaron por referidos del equipo, ' : ''}${F.has('canal_linkedin') ? '19 por LinkedIn, ' : ''}el resto por el portal${F.has('fb_sesgo') ? ', y 12 desde el WhatsApp de Jhonatan, todas de varones' : ''}. ${F.has('aviso_confuso') ? 'Hay de todo: cajeros, vendedores, hasta un chef.' : 'La mayoría tiene experiencia en almacén.'}</p><p>Antes de abrir un solo CV, armas la matriz. ${F.has('perfil_flojo') ? 'Tu perfil del miércoles no ayuda mucho: tendrás que decidir aquí qué pesa.' : 'Tu perfil del miércoles te da casi todo.'}</p>`,
+    body: (n, F) => `<p>El portal marca <mark class="clave">140 postulaciones</mark>: ${F.has('canal_referidos') ? '11 llegaron por referidos del equipo, ' : ''}${F.has('canal_linkedin') ? '19 por LinkedIn, ' : ''}el resto por el portal${F.has('fb_sesgo') ? ', y 12 desde el WhatsApp de Jhonatan, todas de varones' : ''}. ${F.has('aviso_confuso') ? 'Hay de todo: cajeros, vendedores, hasta un chef.' : 'La mayoría tiene experiencia en almacén.'}</p><p>Antes de abrir un solo CV, armas la matriz. ${F.has('perfil_flojo') ? 'Tu perfil del martes no ayuda mucho: tendrás que decidir aquí qué pesa.' : 'Tu perfil del martes te da casi todo.'}</p>`,
     type: 'builder', prompt: 'Arma tu matriz: tres criterios que descartan y dos que suman puntos.', boton: 'Guardar la matriz',
     bloques: [
       { id: 'excluye', t: 'Criterios excluyentes (si no lo cumple, no sigue)', n: 3, ops: [
@@ -133,7 +133,7 @@ export const ESCENAS = [
   },
   {
     id: 'd2', t: '09:30', ch: 'documento', who: null, titulo: 'Doce que suman', banner: 'assets/foto/entrevista-cv.webp', show: ['calidad', 'etica', 'personas'],
-    body: (n, F) => `<p>Para que nada te distraiga, el portal tapa nombres y fotos: cada postulante es un código. Te quedan los que más suman. Walter tiene <mark class="clave">tiempo para cinco entrevistas</mark> el jueves.</p>${F.has('referido_walter') ? '<p>Uno de los CV es el del supervisor que te recomendó Walter. El portal no te dice cuál.</p>' : ''}`,
+    body: (n, F) => `<p>Para que nada te distraiga, el portal tapa nombres y fotos: cada postulante es un código. Te quedan los que más suman. Walter tiene <mark class="clave">tiempo para cinco entrevistas</mark> mañana viernes.</p>${F.has('referido_walter') ? '<p>Uno de los CV es el del supervisor que te recomendó Walter. El portal no te dice cuál.</p>' : ''}`,
     type: 'pick', n: 5, prompt: 'Elige a las cinco personas que pasan a entrevista.', boton: 'Cerrar la preselección', resumen: 'Pasan a entrevista',
     cols: ['Código', 'Experiencia', 'Lo que suma', 'Lo que preocupa'],
     rows: [
@@ -156,8 +156,8 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 2 : -3, etica: tiene('p120') ? 2 : 0, personas: tiene('pjulio') ? 2 : 0 },
         flags: [...picks.map(p => 'pre_' + p), ...rescates, ...(tiene('pjulio') ? ['julio_evaluado'] : [])],
-        cartera: { supervisor: '5 preseleccionados · entrevistas el jueves' },
-        out: rescates.length ? `Rocío revisa tu lista y agrega ${rescates.length === 1 ? 'un código que dejaste fuera' : 'códigos que dejaste fuera'}: «${!tiene('p017') ? 'La P-017 tiene el liderazgo que Walter pidió. ' : ''}${!pat ? 'La P-088 tiene ocho años y datos; la mudanza la decide ella. ' : ''}${!tiene('p052') ? 'El P-052 cumple todo, aunque gane más hoy. ' : ''}Que pasen al jueves».` : 'Rocío revisa tu lista y no le cambia nada: «Cinco perfiles distintos. Walter va a tener de dónde elegir».',
+        cartera: { supervisor: '5 preseleccionados · entrevistas mañana' },
+        out: rescates.length ? `Rocío revisa tu lista y agrega ${rescates.length === 1 ? 'un código que dejaste fuera' : 'códigos que dejaste fuera'}: «${!tiene('p017') ? 'La P-017 tiene el liderazgo que Walter pidió. ' : ''}${!pat ? 'La P-088 tiene ocho años y datos; la mudanza la decide ella. ' : ''}${!tiene('p052') ? 'El P-052 cumple todo, aunque gane más hoy. ' : ''}Que entren a las entrevistas de mañana».` : 'Rocío revisa tu lista y no le cambia nada: «Cinco perfiles distintos. Walter va a tener de dónde elegir».',
         pro: { ok: 'Una buena preselección no son cinco copias del mismo perfil: combina experiencia, liderazgo y potencial.', risk: 'Descartar por lo que «preocupa» sin preguntarlo es decidir por la persona: quizás quiere mudarse, quizás acepta la banda.', info: 'Lo que preocupa se convierte en una pregunta para la entrevista, no en un descarte automático.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Cinco perfiles, cinco historias. ¡Bacán!' : 'Ojo: una duda se pregunta, no se adivina.'],
       };
@@ -200,7 +200,7 @@ export const ESCENAS = [
   },
   {
     id: 'd4', t: '12:10', ch: 'presencial', who: 'walter', titulo: '«Mándemelos todos»', banner: 'assets/foto/frente-a-frente.webp', show: ['cumplimiento', 'confianza', 'etica'],
-    body: (n, F) => `<p>Walter aparece en la puerta de RR.HH. con el casco bajo el brazo. ${F.has('mentira_walter') ? 'Viene por los «candidatos avanzados» que le prometiste el viernes. ' : ''}${F.has('fb_corregido') ? 'Detrás, Jhonatan evita mirarte. ' : ''}</p><p>«Mándeme los 140 CV por WhatsApp. <mark class="clave">Yo los veo en la noche</mark> y le digo quiénes.»</p>`,
+    body: (n, F) => `<p>Walter aparece en la puerta de RR.HH. con el casco bajo el brazo. ${F.has('mentira_walter') ? 'Viene por los «candidatos avanzados» que le prometiste ayer. ' : ''}${F.has('fb_corregido') ? 'Detrás, Jhonatan evita mirarte. ' : ''}</p><p>«Mándeme los 140 CV por WhatsApp. <mark class="clave">Yo los veo en la noche</mark> y le digo quiénes.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Mostrarle tu matriz y compartirle los cinco preseleccionados en una carpeta del área, solo de lectura.',
@@ -234,14 +234,14 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Confirmarle la entrevista con el ajuste, preguntarle qué le funciona mejor y dejar para después la conversación sobre la radio.',
         res: { q: 'buena', fx: { etica: 6, cumplimiento: 5, personas: 4, tiempo: -3 }, flags: ['ajuste_hugo'],
-          responde: 'Hugo, gracias por escribir. Te confirmamos la entrevista el jueves. ¿Qué te funciona mejor: videollamada con subtítulos, intérprete de lengua de señas o las preguntas por escrito? Lo coordinamos contigo.',
+          responde: 'Hugo, gracias por escribir. Te confirmamos la entrevista mañana viernes. ¿Qué te funciona mejor: videollamada con subtítulos, intérprete de lengua de señas o las preguntas por escrito? Lo coordinamos contigo.',
           out: 'Hugo responde en diez minutos: «Videollamada con subtítulos y el chat abierto. Gracias por preguntar». A Walter le explicas que la radio se conversa en la entrevista: hay radios con pantalla y equipos que usan mensajes.',
-          pro: { ok: 'Das el ajuste antes de la entrevista y le preguntas a él, que sabe lo que necesita.', risk: 'Walter puede llegar al jueves con el prejuicio armado. Prepáralo.', info: 'Separa dos cosas: evaluar si puede hacer el trabajo y suponer que no puede.' },
+          pro: { ok: 'Das el ajuste antes de la entrevista y le preguntas a él, que sabe lo que necesita.', risk: 'Walter puede llegar mañana con el prejuicio armado. Prepáralo.', info: 'Separa dos cosas: evaluar si puede hacer el trabajo y suponer que no puede.' },
           kusi: ['celebra', '¡Qué divino! Preguntar es el primer ajuste.'] } },
       { id: 'b', label: 'Responderle que la entrevista es presencial e igual para todos, para no darle ventaja sobre los demás.',
         res: { q: 'riesgosa', fx: { etica: -6, cumplimiento: -6 }, flags: ['hugo_fuera'],
           responde: 'Hugo, la entrevista es presencial e igual para todos los postulantes. Saludos.',
-          out: 'Hugo no responde. Tampoco se presenta el jueves. La empresa acaba de negar un ajuste que la ley reconoce.',
+          out: 'Hugo no responde. Tampoco se presenta al día siguiente. La empresa acaba de negar un ajuste que la ley reconoce.',
           pro: { ok: 'Quieres ser justa con todos.', risk: 'Tratar igual a quien necesita un ajuste no es justicia: es dejarlo fuera.' },
           kusi: ['indignado', '¡Igual para todos no siempre es justo!'] } },
       { id: 'c', label: 'Esperar a que Walter confirme si el puesto puede hacerse sin radio antes de responderle.',
@@ -259,12 +259,12 @@ export const ESCENAS = [
   },
   {
     id: 'd6a', t: '15:10', ch: 'presencial', who: 'julio', titulo: 'La secundaria de don Julio', banner: 'assets/foto/cafe.webp', si: 'julio_postula', show: ['personas', 'etica', 'cumplimiento'],
-    body: (n, F) => `<p>Revisando las postulaciones internas, notas una línea en las bases que Rocío reutilizó de un proceso de 2021: <mark class="clave">«Secundaria completa (indispensable)»</mark>. Tu perfil no la pedía; la plantilla sí.</p><p>Don Julio llega a preguntar si su papel «llegó bien». ${F.has('encargo_julio') ? 'Lleva cuatro días como encargado del turno y, según Walter, «no se ha caído nada».' : 'Trae su ficha llenada a mano, con letra cuidadosa.'}</p>`,
+    body: (n, F) => `<p>Revisando las postulaciones internas, notas una línea en las bases que Rocío reutilizó de un proceso de 2021: <mark class="clave">«Secundaria completa (indispensable)»</mark>. Tu perfil no la pedía; la plantilla sí.</p><p>Don Julio llega a preguntar si su papel «llegó bien». ${F.has('encargo_julio') ? 'Desde ayer está encargado del turno y, según Walter, «no se ha caído nada».' : 'Trae su ficha llenada a mano, con letra cuidadosa.'}</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Pedirle a Rocío que retire ese requisito de las bases, que no estaba en el perfil, y entrevistar a don Julio como a los demás.',
         res: { q: 'buena', fx: { personas: 5, etica: 4, cumplimiento: 2, tiempo: -2 }, rel: { julio: 1, rocio: 1 }, flags: ['julio_evaluado'],
-          out: 'Rocío revisa el perfil: «Tienes razón, eso venía de la plantilla». Corrige las bases para todos. Don Julio será entrevistado el jueves. «Gracias, hija. Pase lo que pase.»',
+          out: 'Rocío revisa el perfil: «Tienes razón, eso venía de la plantilla». Corrige las bases para todos. Don Julio será entrevistado mañana. «Gracias, hija. Pase lo que pase.»',
           pro: { ok: 'Corriges un requisito que nadie decidió para este puesto, y lo haces para todos, no solo para él.', risk: 'Entrevistarlo no es prometerle el puesto. Cuida sus expectativas.', info: 'Si no queda, piensa qué podría ofrecerle la empresa para crecer: terminar la secundaria, un plan de formación.' },
           kusi: ['feliz', 'Un requisito heredado casi deja fuera veinte años de oficio.'] } },
       { id: 'b', label: 'Aplicar las bases tal como están publicadas: cambiarlas a mitad del proceso sería injusto con quienes no postularon por ese requisito.',
@@ -307,8 +307,8 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'd7', t: '17:15', ch: 'whatsapp', who: 'walter', titulo: 'La agenda del jueves', banner: 'assets/foto/revisa.webp', show: ['calidad', 'confianza', 'tiempo'],
-    body: (n, F) => `<p>Cierras la preselección. Antes de irte, le escribes a Walter para asegurar el jueves: sin él en las entrevistas, la terna sería solo tuya.</p><p>${F.has('cv_whatsapp') ? 'Walter ya tiene los 140 CV en su celular y anda diciendo que «le gustan dos».' : 'Walter tiene el enlace a la carpeta con los cinco.'} Tienes que lograr <mark class="clave">cuatro horas de su jueves</mark>.</p>`,
+    id: 'd7', t: '17:15', ch: 'whatsapp', who: 'walter', titulo: 'La agenda de mañana', banner: 'assets/foto/revisa.webp', show: ['calidad', 'confianza', 'tiempo'],
+    body: (n, F) => `<p>Cierras la preselección. Antes de irte, le escribes a Walter para asegurar mañana: sin él en las entrevistas, la terna sería solo tuya.</p><p>${F.has('cv_whatsapp') ? 'Walter ya tiene los 140 CV en su celular y anda diciendo que «le gustan dos».' : 'Walter tiene el enlace a la carpeta con los cinco.'} Tienes que lograr <mark class="clave">cuatro horas de su viernes</mark>.</p>`,
     type: 'compose', enviaA: 'walter', para: 'Para: Walter Quispe', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
@@ -318,7 +318,7 @@ export const ESCENAS = [
         { id: 'd3', t: 'Ingeniero, le mando los cinco que más me gustaron.', ok: false, por: '«Me gustaron» convierte un filtro con criterios en una opinión.' },
       ] },
       { id: 'pide', t: 'El pedido', ops: [
-        { id: 'p1', t: '¿Me reserva el jueves de 9:00 a 13:00 para entrevistarlos juntos?', ok: true, por: 'Día, hora y propósito.' },
+        { id: 'p1', t: '¿Me reserva mañana viernes de 9:00 a 13:00 para entrevistarlos juntos?', ok: true, por: 'Día, hora y propósito.' },
         { id: 'p2', t: '¿Cuándo tiene un tiempito esta semana?', ok: null, por: 'Amable, pero le deja la decisión a un jefe sin tiempo.' },
         { id: 'p3', t: 'Si no puede, los entrevisto yo y le paso el resultado.', ok: false, por: 'El jefe que elige debe conocer a los candidatos.' },
       ] },
@@ -328,7 +328,7 @@ export const ESCENAS = [
         { id: 'r3', t: 'De su recomendado mejor no le digo nada.', ok: null, por: 'Evitas el tema, pero él igual va a preguntar.' },
       ] },
       { id: 'prepara', t: 'Para preparar', ops: [
-        { id: 'x1', t: 'El miércoles le paso la guía de preguntas, para que todos tengan las mismas.', ok: true, por: 'Mismas preguntas para todos: comparables y más justas.' },
+        { id: 'x1', t: 'Esta noche le paso la guía de preguntas, para que todos tengan las mismas.', ok: true, por: 'Mismas preguntas para todos: comparables y más justas.' },
         { id: 'x2', t: 'Usted pregunte lo que quiera, que es su gente.', ok: false, por: 'Sin guía, las preguntas se vuelven personales, y a veces ilegales.' },
         { id: 'x3', t: 'Cualquier cosa me avisa.', ok: null, por: 'Cordial, pero no prepara nada.' },
       ] },
@@ -339,9 +339,9 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, confianza: sel.dato === 'd1' ? 3 : 0, etica: sel.referido === 'r2' ? -4 : 1 },
         flags: [...(sel.pide === 'p1' ? ['agenda_walter'] : []), ...(sel.prepara === 'x1' ? ['guia_prometida'] : ['sin_guia']), ...(sel.referido === 'r2' ? ['referido_primero'] : [])],
-        out: sel.pide === 'p1' ? 'A las 17:40 Walter responde: «Jueves 9 a 1 bloqueado. Entrevistamos juntos». Primera vez que bloquea su agenda por RR.HH.' : 'Walter responde con un «ok». No sabes si el jueves estará o no.',
-        pro: { ok: 'Coordinar con el jefe no es pedir permiso: es asegurar que decida con información.', risk: 'Si el jefe pregunta lo que quiere, sin guía, las entrevistas no serán comparables.', info: 'La guía de entrevista es tu próximo entregable. Hazla antes del jueves.' },
-        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Agenda asegurada y reglas claras.' : 'Mira qué parte deja el jueves en el aire.'],
+        out: sel.pide === 'p1' ? 'A las 17:40 Walter responde: «Mañana 9 a 1 bloqueado. Entrevistamos juntos». Primera vez que bloquea su agenda por RR.HH.' : 'Walter responde con un «ok». No sabes si mañana estará o no.',
+        pro: { ok: 'Coordinar con el jefe no es pedir permiso: es asegurar que decida con información.', risk: 'Si el jefe pregunta lo que quiere, sin guía, las entrevistas no serán comparables.', info: 'La guía de entrevista es tu próximo entregable. Hazla hoy mismo.' },
+        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Agenda asegurada y reglas claras.' : 'Mira qué parte deja mañana en el aire.'],
       };
     },
     rules: [[BP, 'Usa la misma guía de preguntas con todos los candidatos.'], [BP, 'El jefe que elige debe conocer a los finalistas.']],
@@ -368,7 +368,7 @@ export const ESCENAS = [
     rules: [[BP, 'Si un postulante pregunta por qué no avanzó, dale el criterio que no cumplió, sin datos de los demás.']],
     mirada: {
       ve: 'De 140 postulantes, 135 recibirán un no. Una profesional sabe que esos 135 hablan de la empresa con su familia, con sus colegas, en los grupos de Facebook. Un no explicado con respeto es parte del trabajo de atraer talento.',
-      visual: { tipo: 'embudo', titulo: 'Tu martes en números', niveles: [['Postulaciones', 140], ['Pasaron los excluyentes', 38], ['Entrevistas del jueves', 5], ['Recibirán un no', 135]] },
+      visual: { tipo: 'embudo', titulo: 'Tu jueves en números', niveles: [['Postulaciones', 140], ['Pasaron los excluyentes', 38], ['Entrevistas de mañana', 5], ['Recibirán un no', 135]] },
     },
   },
 ];

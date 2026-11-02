@@ -1,4 +1,4 @@
-// Capítulo 8 · «El ingreso» · Semana 4, martes.
+// Capítulo 8 · «El ingreso» · Semana 2, miércoles.
 // La persona que ingresa como supervisora depende del capítulo 6 (elegido_marco por defecto, elegido_lucia o elegido_patricia).
 //
 // Normas citadas y fuentes consultadas:
@@ -17,14 +17,14 @@
 // - Constitución Política del Perú, art. 26: irrenunciabilidad de derechos laborales.
 
 export const CAP = {
-  n: 8, titulo: 'El ingreso', dia: 'Semana 4, martes', foto: 'assets/3d/scenes/almacen.webp',
+  n: 8, titulo: 'El ingreso', dia: 'Semana 2, miércoles', foto: 'assets/3d/scenes/almacen.webp',
   lugar: 'Portón 3 y almacén central · Distribuidora Pacífico Sur',
   inicio: '06:30', fin: '20:00', cierreHora: '19:30',
   apertura: 'Son las 6:30 y el parque industrial todavía está a oscuras. Hoy entran ocho personas. Una no va a llegar.', boton: 'Ir al portón',
-  kusi: 'Hoy se juega todo lo que hiciste en el mes: que la gente entre bien y que se quiera quedar. ¡Dale!',
+  kusi: 'Hoy se juega todo lo que hiciste en estas dos semanas: que la gente entre bien y que se quiera quedar. ¡Dale!',
   lead: 'Recibiste a siete personas con contrato, alta, inducción y nombre propio, y respondiste con calma a la que no llegó.',
   reflexion: '¿Qué te gustaría que alguien hubiera hecho por ti en tu primer día de trabajo?',
-  siguiente: { n: 9, titulo: 'Fin de mes', dia: 'Semana 4, viernes' },
+  siguiente: { n: 9, titulo: 'El día después', dia: 'Semana 2, jueves' },
 };
 
 const E = F => F?.has('elegido_lucia')
@@ -34,13 +34,13 @@ const E = F => F?.has('elegido_lucia')
     : { n: 'Marco', full: 'Marco Ticona', ella: false, viene: 'seis años supervisando un almacén minero en Moquegua', fuerte: 'su manejo de SAP', reto: 'ganarse al turno noche' };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 44, e: 'Hoy: ingreso' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 31, e: 'Hoy: ingreso de 4' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 37, e: 'Hoy: ingreso de 3' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 62, e: 'Gina eligió; oferta el jueves' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 27, e: 'Cerrado · ingresó' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 25, e: 'Entrevistas el jueves' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 82, e: 'Terna lista' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 31, e: 'Hoy: ingreso' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 18, e: 'Hoy: ingreso de 4' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 24, e: 'Hoy: ingreso de 3' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 49, e: 'Gina eligió; oferta el jueves' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 14, e: 'Cerrado · ingresó' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 12, e: 'Entrevistas el jueves' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 69, e: 'Terna lista' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -51,7 +51,7 @@ export const FUTURO = {
   dia1_ordenado: ['El primer día siguió un orden claro: contrato, alta, seguridad y equipo.', 'Capítulo 9.'],
   checklist_solido: ['Tu checklist de ingreso cubre lo legal y lo humano.', 'Rocío lo hará política. Capítulo 9.'],
   checklist_flojo: ['Tu checklist deja huecos en lo legal.', 'Capítulo 9.'],
-  wilber_reprograma: ['Wilber podrá entrar el lunes si confirma el jueves; Jhon queda como respaldo.', 'Capítulo 9.'],
+  wilber_reprograma: ['Wilber podrá entrar el lunes si confirma mañana; Jhon queda como respaldo.', 'Capítulo 9.'],
   wilber_reemplazo: ['Reemplazaste a Wilber con el siguiente de la lista.', 'Capítulo 9.'],
   wilber_vetado: ['Marcaste a Wilber como «no recontratable» sin saber qué le pasó.', 'Capítulo 9.'],
   induccion_mixta: ['La inducción combinó seguridad, sistema y acompañamiento de don Julio.', 'El inventario lo pondrá a prueba. Capítulo 9.'],
@@ -75,8 +75,8 @@ export const CHATS = {
 };
 
 export const CORREOS = [
-  { t: '06:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Contratos de hoy', html: '<p>Ya están impresos los ocho contratos, gracias a que me pasaste todo el viernes. Te debo el café. 🙏</p>', si: 'kelly_viernes' },
-  { t: '06:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Contratos de hoy', html: '<p>Me quedé hasta las 22:00 ayer con los contratos. Falta la cuenta de sueldo de dos vendedores. Hoy va a ser largo.</p>', si: 'kelly_lunes' },
+  { t: '06:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Contratos de hoy', html: '<p>Ya están impresos los ocho contratos, gracias a que me pasaste todo anoche. Te debo el café. 🙏</p>', si: 'kelly_viernes' },
+  { t: '06:40', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Contratos de hoy', html: '<p>Recibí los datos a las 6:30 y armé los contratos corriendo. Falta la cuenta de sueldo de dos vendedores. Hoy va a ser largo.</p>', si: 'kelly_lunes' },
   { t: '07:15', de: 'Kelly Ramos', para: 'Analista de Selección', asunto: 'Ojo con la cláusula de horas extra', html: '<p>La plantilla de carta oferta decía que renuncia a horas extra. En el contrato no la puse: no vale. Avisa a Milagros… ah, no, ya no está. 😅 La borramos de la plantilla, ¿ya?</p>', si: 'carta_errores' },
   { t: '15:10', de: 'Rosa Ccama', para: 'seleccion@pacificosur.pe', asunto: 'Gracias', html: '<p>Hoy empecé como vendedora. Gracias por llamarme cuando dije que tenía moto. Mi mamá está feliz.</p>', si: 'kevin_igual' },
 ];
@@ -201,7 +201,7 @@ export const ESCENAS = [
       { id: 'a', label: 'Proponer una inducción mixta: seguridad y WMS esta mañana, y desde la tarde al turno acompañado por don Julio.',
         res: { q: 'buena', fx: { cumplimiento: 5, calidad: 4, confianza: 3 }, rel: { walter: 1, julio: 1 }, flags: ['induccion_mixta'],
           out: 'Walter mira a don Julio. «¿Tú le enseñas?» Don Julio asiente. A las 14:00 la nueva supervisión está en el turno, con casco, clave del WMS y alguien al lado que conoce cada rack.',
-          pro: { ok: 'Cumples lo obligatorio, respetas la urgencia de Walter y le das a don Julio un rol que reconoce su experiencia.', risk: 'Acompañar no es supervisar en lugar del nuevo. Define bien qué hace cada uno.', info: 'Agenda para el viernes una conversación corta con los dos: cómo va el acompañamiento.' },
+          pro: { ok: 'Cumples lo obligatorio, respetas la urgencia de Walter y le das a don Julio un rol que reconoce su experiencia.', risk: 'Acompañar no es supervisar en lugar del nuevo. Define bien qué hace cada uno.', info: 'Agenda para mañana una conversación corta con los dos: cómo va el acompañamiento.' },
           kusi: ['celebra', '¡Qué divino! Don Julio, de encargado a mentor.'] } },
       { id: 'b', label: 'Hacerle caso a Walter: que entre directo al turno y la inducción se hace después del inventario.',
         res: { q: 'riesgosa', fx: { cumplimiento: -7, tiempo: 3 }, rel: { walter: 1 }, flags: ['induccion_saltada'],
@@ -229,7 +229,7 @@ export const ESCENAS = [
     slots: [
       { id: 'quien', t: 'Quién llega', ops: [
         { id: 'q1', t: 'Hoy se suma nuestra nueva supervisión de almacén, junto con cuatro operarios y tres vendedores.', ok: true, por: 'Todos los ingresos, sin jerarquías: los operarios también cuentan.' },
-        { id: 'q2', t: 'Por fin tenemos supervisor después de un mes.', ok: false, por: 'Suena a reproche al proceso y a quien cubrió el puesto.' },
+        { id: 'q2', t: 'Por fin tenemos supervisor después de semanas.', ok: false, por: 'Suena a reproche al proceso y a quien cubrió el puesto.' },
       ] },
       { id: 'trae', t: 'Qué trae', ops: [
         { id: 't1', t: 'Llega con experiencia supervisando equipos y almacenes, y estará a cargo de los turnos y del inventario.', ok: true, por: 'Presenta a la persona por su experiencia y su rol.' },
@@ -269,14 +269,14 @@ export const ESCENAS = [
     chat: ['Señorita disculpe 🙏 mi mamá se puso mal en Candarave y viajé de madrugada. Allá no hay señal. Recién bajo a Tacna. ¿Todavía tengo el trabajo?'],
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Preguntarle cómo está su mamá, ofrecerle entrar el lunes si lo confirma el jueves y avisarle a Jhon que es respaldo, sin prometerle nada.',
-        res: { q: 'buena', fx: { personas: 6, etica: 3, tiempo: -2 }, flags: ['wilber_reprograma'], envia: [['wilber', 'Wilber, qué pena lo de tu mamá. ¿Cómo está? Podemos mover tu ingreso al lunes a las 7:00. Confírmame el jueves, por favor, para avisar a Planillas.'], ['jhon', 'Jhon, gracias por responder. Por ahora el puesto tiene a alguien; te tengo como primera opción si se libera esta semana. Te escribo el jueves, sea cual sea la respuesta.']],
+      { id: 'a', label: 'Preguntarle cómo está su mamá, ofrecerle entrar el lunes si lo confirma mañana y avisarle a Jhon que es respaldo, sin prometerle nada.',
+        res: { q: 'buena', fx: { personas: 6, etica: 3, tiempo: -2 }, flags: ['wilber_reprograma'], envia: [['wilber', 'Wilber, qué pena lo de tu mamá. ¿Cómo está? Podemos mover tu ingreso al lunes a las 7:00. Confírmame mañana jueves, por favor, para avisar a Planillas.'], ['jhon', 'Jhon, gracias por responder. Por ahora el puesto tiene a alguien; te tengo como primera opción si se libera esta semana. Te escribo mañana, sea cual sea la respuesta.']],
           out: 'Wilber responde: «Gracias señorita, de verdad. Está mejor, la llevamos al centro de salud». Walter refunfuña un poco por el operario de menos, pero entiende.',
-          pro: { ok: 'Respondes como persona primero, proteges la operación con un respaldo y eres honesta con Jhon.', risk: 'Si Wilber no confirma el jueves, cumple con Jhon.', info: 'Revisa el contacto de emergencia de Wilber: hoy no sirvió.' },
+          pro: { ok: 'Respondes como persona primero, proteges la operación con un respaldo y eres honesta con Jhon.', risk: 'Si Wilber no confirma mañana, cumple con Jhon.', info: 'Revisa el contacto de emergencia de Wilber: hoy no sirvió.' },
           kusi: ['feliz', 'Primero la persona. Después la planilla.'] } },
       { id: 'b', label: 'Agradecerle el aviso y explicarle que el puesto pasará al siguiente de la lista: el inventario no espera.',
         res: { q: 'aceptable', fx: { personas: -2, tiempo: 3 }, flags: ['wilber_reemplazo'], envia: [['wilber', 'Wilber, lamento lo de tu mamá. Por el inventario, el puesto pasará al siguiente de la lista. Si se abre otra vacante, te escribo.']],
-          out: 'Wilber responde: «Entiendo». Jhon entra el jueves. Es una decisión defendible, aunque Wilber no tuvo la culpa de lo que pasó.',
+          out: 'Wilber responde: «Entiendo». Jhon entra mañana. Es una decisión defendible, aunque Wilber no tuvo la culpa de lo que pasó.',
           pro: { ok: 'Proteges el inventario con claridad.', risk: 'Una emergencia familiar real merece al menos una opción.', info: 'Un respaldo no obliga a cerrar la puerta a quien tuvo una emergencia.' },
           kusi: ['pensando', 'Defendible… pero frío.'] } },
       { id: 'c', label: 'No responderle y anotarlo en el Excel como «no recontratable».',
@@ -293,7 +293,7 @@ export const ESCENAS = [
   },
   {
     id: 'h7', t: '17:45', ch: 'sistema', who: 'kelly', titulo: 'El T-Registro se cuelga', banner: 'assets/esc/reloj.webp', show: ['cumplimiento', 'tiempo', 'confianza'],
-    body: (n, F) => `<p>A las 17:45 Kelly te llama a su escritorio. La Clave SOL entra, pero el T-Registro <mark class="clave">se queda cargando</mark> en la última pantalla. Quedan dos altas: un vendedor y Yesenia.</p><p>${F.has('kelly_lunes') ? 'Kelly tiene los ojos rojos: anoche se fue a las diez.' : 'Kelly suspira: «Menos mal que lo demás lo avancé desde el viernes».'} Tu bus sale a las 18:30.</p>`,
+    body: (n, F) => `<p>A las 17:45 Kelly te llama a su escritorio. La Clave SOL entra, pero el T-Registro <mark class="clave">se queda cargando</mark> en la última pantalla. Quedan dos altas: un vendedor y Yesenia.</p><p>${F.has('kelly_lunes') ? 'Kelly no ha parado desde las 6:30.' : 'Kelly suspira: «Menos mal que lo demás lo avancé anoche».'} Tu bus sale a las 18:30.</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Quedarte con Kelly: tú le dictas los datos verificados mientras ella reintenta, hasta que entren las dos altas hoy.',
@@ -315,7 +315,7 @@ export const ESCENAS = [
     rules: [[LEY, 'El alta en T-Registro se registra dentro del día de ingreso (D.S. 018-2007-TR).'], [BP, 'Si el sistema falla, guarda evidencia de cada intento.']],
     mirada: {
       ve: 'El plazo del alta no sabe que la web de SUNAT está lenta ni que tu bus sale a las 18:30. Una profesional sabe que el proceso de selección termina cuando la persona está en planilla, y que Planillas también es su equipo.',
-      visual: { tipo: 'linea', titulo: 'El martes de las altas', hitos: [['07:00', 'Contratos'], ['08:00', 'Seguridad'], ['13:00', 'Wilber aparece'], ['17:45', 'El sistema se cuelga'], ['19:10', 'Última alta']] },
+      visual: { tipo: 'linea', titulo: 'El miércoles de las altas', hitos: [['07:00', 'Contratos'], ['08:00', 'Seguridad'], ['13:00', 'Wilber aparece'], ['17:45', 'El sistema se cuelga'], ['19:10', 'Última alta']] },
     },
   },
   {
@@ -326,7 +326,7 @@ export const ESCENAS = [
       { id: 'como', label: '¿Cómo te sentiste hoy?', info: F => F?.has('induccion_saltada') ? `«${E(F).ella ? 'Perdida' : 'Perdido'}, la verdad. Me metieron al turno sin clave del WMS y sin saber dónde estaba cada cosa. Pero ya mañana será otro día.»` : `«Bien ${E(F).ella ? 'recibida' : 'recibido'}. Nunca me había pasado que alguien me esperara en el portón con mi nombre escrito.»` },
       { id: 'julio', label: '¿Cómo te fue con don Julio?', info: F => F?.has('induccion_mixta') ? '«Ese señor sabe todo. Me enseñó dónde se esconden los faltantes y quién del turno noche es el que de verdad manda. Voy a aprender mucho de él.»' : '«Lo vi poco. Dicen que cubrió el puesto estas semanas. Me gustaría conversar con él.»' },
       { id: 'falta', label: '¿Qué te faltó hoy?', info: F => F?.has('bienvenida_expuesta') ? '«Que no se supiera lo que gano. En el almuerzo ya lo comentaban. No sé cómo se enteraron.»' : '«Saber qué se espera de mí en el inventario. Walter dice «que cuadre», pero me gustaría ver los números del año pasado.»' },
-      { id: 'pregunta', label: '¿Qué me querías preguntar?', info: '«Si es normal que el primer día sea tan intenso. Y si la reunión de fin de mes es también conmigo, para ir preparando mis primeros números.»' },
+      { id: 'pregunta', label: '¿Qué me querías preguntar?', info: '«Si es normal que el primer día sea tan intenso. Y si la reunión del viernes es también conmigo, para ir preparando mis primeros números.»' },
     ],
     res: picks => ({
       q: null,
@@ -337,7 +337,7 @@ export const ESCENAS = [
     }),
     mirada: {
       ve: 'La persona nueva casi nunca dice qué le faltó, salvo que alguien le pregunte el primer día. Una profesional pregunta, porque lo que hoy es una incomodidad pequeña puede ser, en tres meses, el motivo de una renuncia.',
-      visual: { tipo: 'embudo', titulo: 'Tu martes en números', niveles: [['Ingresos previstos', 8], ['Ingresaron hoy', 7], ['Altas registradas', 7], ['Con un plan para el lunes', 1]] },
+      visual: { tipo: 'embudo', titulo: 'Tu miércoles en números', niveles: [['Ingresos previstos', 8], ['Ingresaron hoy', 7], ['Altas registradas', 7], ['Con un plan para el lunes', 1]] },
     },
   },
 ];

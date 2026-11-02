@@ -2,7 +2,7 @@
 // Recibe las decisiones del capítulo 1 a través de F.has(flag).
 
 export const CAP = {
-  n: 2, titulo: 'El perfil', dia: 'Semana 1, miércoles', foto: 'assets/foto/plano-equipo.webp',
+  n: 2, titulo: 'El perfil', dia: 'Semana 1, martes', foto: 'assets/foto/plano-equipo.webp',
   lugar: 'Almacén central · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '20:00', cierreHora: '19:10',
   apertura: 'Hoy toca dejar la oficina: el puesto que buscas se ve mejor desde el almacén.', boton: 'Ir al almacén',
@@ -10,17 +10,17 @@ export const CAP = {
   lead: 'Saliste de la oficina, escuchaste a quien hace el trabajo y convertiste un pedido vago en un perfil que se puede defender. Eso es la mitad de una buena contratación.',
   reflexion: '¿Qué aprendiste hoy que no estaba en el perfil de 2023?',
   rel: { julio: 0 },
-  siguiente: { n: 3, titulo: 'Salir a buscar', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'Salir a buscar', dia: 'Semana 1, miércoles' },
 };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 24, e: 'Hoy: perfil con Walter' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 11, e: '31 postulantes sin revisar' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 17, e: 'Terna enviada hace 13 días, sin respuesta' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 42, e: '¿En pausa? Nadie lo sabe' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 7, e: 'Aviso publicado, 4 postulantes' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 5, e: 'Recién pedido' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 62, e: 'Aceptó la oferta y no llegó' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 23, e: 'Hoy: perfil con Walter' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 10, e: '31 postulantes sin revisar' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 16, e: 'Terna enviada hace 13 días, sin respuesta' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 41, e: '¿En pausa? Nadie lo sabe' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 6, e: 'Aviso publicado, 4 postulantes' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 4, e: 'Recién pedido' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 61, e: 'Aceptó la oferta y no llegó' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -82,7 +82,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'p1', t: '07:40', ch: 'whatsapp', who: 'walter', titulo: 'Un mensaje para Walter', banner: 'assets/foto/revisa.webp', show: ['calidad', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>Llegas temprano al parque industrial. Antes de cruzar al almacén, confirmas la reunión con Walter por WhatsApp. ${F.has('visita_almacen') ? 'Él mismo te citó el lunes.' : 'Rocío tuvo que conseguirte esta reunión.'}</p><p>Tienes <mark class="clave">treinta minutos con él</mark>: lo que pongas en este mensaje marcará de qué van a hablar.</p>`,
+    body: (n, F) => `<p>Llegas temprano al parque industrial. Antes de cruzar al almacén, confirmas la reunión con Walter por WhatsApp. ${F.has('visita_almacen') ? 'Él mismo te citó ayer.' : 'Rocío tuvo que conseguirte esta reunión.'}</p><p>Tienes <mark class="clave">treinta minutos con él</mark>: lo que pongas en este mensaje marcará de qué van a hablar.</p>`,
     type: 'compose', enviaA: 'walter', para: 'Para: Walter Quispe', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
@@ -126,7 +126,7 @@ export const ESCENAS = [
   },
   {
     id: 'p2', t: '08:00', ch: 'presencial', who: 'walter', titulo: '«Que sea varón»', banner: 'assets/foto/frente-a-frente.webp', lugar: 'Almacén central · portón 3', show: ['etica', 'confianza', 'cumplimiento'],
-    body: (n, F) => `<p>${F.has('visita_almacen') ? 'Walter te espera en el portón 3, con casco y chaleco. Mira el reloj: llegaste puntual. Asiente.' : 'Rocío tuvo que pedirle a Walter esta reunión. Te recibe sin levantar la vista de su tablet: «Tengo treinta minutos».'}</p>${F.has('promesa') ? '<p>«Antes que nada: el viernes tengo supervisor, ¿no? Así me dijo.»</p>' : ''}${F.has('elmer_tarde') ? '<p>«Y ayer tu postulante llegó veinte minutos tarde. Se perdió buscando la entrada.»</p>' : ''}<p>Caminan entre los racks. Walter responde rápido, hasta que dice: «Y que sea varón. <mark class="clave">Aquí los operarios no le hacen caso a una mujer</mark>, y a veces hay que cargar.»</p>`,
+    body: (n, F) => `<p>${F.has('visita_almacen') ? 'Walter te espera en el portón 3, con casco y chaleco. Mira el reloj: llegaste puntual. Asiente.' : 'Rocío tuvo que pedirle a Walter esta reunión. Te recibe sin levantar la vista de su tablet: «Tengo treinta minutos».'}</p>${F.has('promesa') ? '<p>«Antes que nada: el viernes tengo supervisor, ¿no? Así me dijo.»</p>' : ''}${F.has('elmer_tarde') ? '<p>«Y su postulante de las nueve ya llamó a Jhonatan: no encuentra la entrada del parque. Va a llegar tarde.»</p>' : ''}<p>Caminan entre los racks. Walter responde rápido, hasta que dice: «Y que sea varón. <mark class="clave">Aquí los operarios no le hacen caso a una mujer</mark>, y a veces hay que cargar.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Preguntarle qué tendría que lograr la persona con su equipo.',
@@ -337,33 +337,25 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'p8b', t: '18:45', ch: 'whatsapp', who: null, titulo: 'Yesenia confirma', banner: 'assets/foto/llamada.webp', si: 'wsp_operarios', no: 'filtro_sexo', show: ['personas', 'tiempo', 'calidad'],
-    body: (n, F) => `<p>Yesenia, la postulante a operaria que te respondió el lunes, te escribe sobre su entrevista de mañana.</p>${F.has('elmer_tarde') ? '<p>Recuerdas que Elmer llegó tarde ayer por no saber la dirección.</p>' : ''}`,
-    chat: ['Buenas tardes señorita 🙏 mañana es mi entrevista, ¿a qué hora era? y ¿llevo algo más aparte de mi DNI?'],
+    id: 'p8b', t: '18:45', ch: 'whatsapp', who: null, titulo: 'Un mensaje antes de salir', banner: 'assets/foto/llamada.webp', no: 'filtro_sexo', show: ['personas', 'tiempo', 'confianza'],
+    body: (n, F) => F.has('wsp_operarios')
+      ? `<p>Yesenia, la postulante a operaria que te respondió ayer, te escribe sobre su entrevista de mañana.</p>${F.has('elmer_tarde') ? '<p>Recuerdas que Elmer llegó tarde esta mañana por no saber la dirección.</p>' : ''}<div class="chat" aria-label="Mensaje de WhatsApp"><p>Buenas tardes señorita 🙏 mañana es mi entrevista, ¿a qué hora era? y ¿llevo algo más aparte de mi DNI?</p></div>`
+      : `<p>Antes de salir, te escribe Rocío.</p><div class="chat" aria-label="Mensaje de WhatsApp"><p>Walter me escribió: «la nueva sabe». Viniendo de él, es un premio 👏</p></div>`,
     type: 'choice', cotidiano: true,
     choices: [
-      { id: 'a', label: 'Enviarle la plantilla completa: hora, portón, a quién preguntar y documentos.',
-        res: { q: 'buena', fx: { personas: 4, calidad: 2 }, flags: ['plantilla_uso'], envia: ['yesenia', 'Hola, Yesenia. Te confirmo tu entrevista: mañana jueves a las 10:00 a. m. en el Parque Industrial de Tacna, portón azul de Distribuidora Pacífico Sur. Pregunta por RR.HH. y trae tu DNI. ¿Me confirmas, por favor?'], out: 'Yesenia responde: «Gracias, muy clarito 🙏». Mañana llegará al portón correcto.', kusi: ['feliz', 'La plantilla del lunes ya está trabajando por ti.'] } },
-      { id: 'b', label: 'Responder solo la hora.',
+      { id: 'a', label: 'Enviarle la plantilla completa: hora, portón, a quién preguntar y documentos.', si: 'wsp_operarios',
+        res: { q: 'buena', fx: { personas: 4, calidad: 2 }, flags: ['plantilla_uso'], envia: ['yesenia', 'Hola, Yesenia. Te confirmo tu entrevista: mañana miércoles a las 10:00 a. m. en el Parque Industrial de Tacna, portón azul de Distribuidora Pacífico Sur. Pregunta por RR.HH. y trae tu DNI. ¿Me confirmas, por favor?'], out: 'Yesenia responde: «Gracias, muy clarito 🙏». Mañana llegará al portón correcto.', kusi: ['feliz', 'La plantilla de ayer ya está trabajando por ti.'] } },
+      { id: 'b', label: 'Responder solo la hora.', si: 'wsp_operarios',
         res: { q: 'aceptable', fx: { personas: 1 }, envia: ['yesenia', '10 a. m.'], out: 'Le respondes «10 a. m.». Mañana te escribirá para preguntar la dirección.', kusi: ['pensando', 'Ahorraste un minuto hoy… y otro mensaje mañana.'] } },
+      { id: 'c', label: 'Agradecerle y contarle lo de don Julio.', no: 'wsp_operarios',
+        res: { q: null, fx: { confianza: 2 }, rel: { rocio: 1 }, envia: ['rocio', '¡Gracias, Rocío! 😊 Por cierto, don Julio me dejó pensando en la movilidad interna. ¿Lo conversamos mañana?'], out: 'Rocío responde: «Interesante. Conversemos mañana sobre movilidad interna».', kusi: ['feliz', '¡Qué bacán!'] } },
+      { id: 'd', label: 'Responder con un emoji y apagar el celular.', no: 'wsp_operarios',
+        res: { q: null, fx: { tiempo: 1 }, envia: ['rocio', '🙌'], out: 'Descansas. Mañana también es día.', kusi: ['animo', 'Descansar también es parte del trabajo.'] } },
     ],
     rules: [[BP, 'Confirma siempre por escrito: hora, lugar, a quién preguntar y qué llevar.']],
     mirada: {
-      ve: 'Lo que el lunes fue una lección, hoy es un hábito. Pequeños detalles como este hacen que los candidatos hablen bien de la empresa, aunque no queden.',
-      visual: { tipo: 'mensaje', titulo: 'Tu plantilla de confirmación', txt: 'Hola, Yesenia. Te confirmo tu entrevista: mañana jueves a las 10:00 a. m. en el Parque Industrial de Tacna, portón azul de Distribuidora Pacífico Sur. Pregunta por RR.HH. y trae tu DNI. ¿Me confirmas, por favor?' },
+      ve: 'Lo que ayer fue una lección, hoy es un hábito. Pequeños detalles, como confirmar por escrito o agradecer un buen día, hacen que los candidatos y los jefes hablen bien de tu trabajo.',
+      visual: { tipo: 'mensaje', titulo: 'Tu plantilla de confirmación', txt: 'Hola, Yesenia. Te confirmo tu entrevista: mañana miércoles a las 10:00 a. m. en el Parque Industrial de Tacna, portón azul de Distribuidora Pacífico Sur. Pregunta por RR.HH. y trae tu DNI. ¿Me confirmas, por favor?' },
     },
-  },
-  {
-    id: 'p8c', t: '18:46', ch: 'whatsapp', who: null, titulo: 'Un mensaje de Rocío', banner: 'assets/esc/logro.webp', no: ['filtro_sexo', 'wsp_operarios'], show: ['confianza', 'personas', 'tiempo'],
-    body: () => `<p>Antes de salir, te escribe Rocío.</p>`,
-    chat: ['Walter me escribió: «la nueva sabe». Viniendo de él, es un premio 👏'],
-    type: 'choice', cotidiano: true,
-    choices: [
-      { id: 'a', label: 'Agradecerle y contarle lo de don Julio.',
-        res: { q: null, fx: { confianza: 2 }, rel: { rocio: 1 }, envia: ['rocio', '¡Gracias, Rocío! 😊 Por cierto, don Julio me dejó pensando en la movilidad interna. ¿Lo conversamos el viernes?'], out: 'Rocío responde: «Interesante. Conversemos el viernes sobre movilidad interna».', kusi: ['feliz', '¡Qué bacán!'] } },
-      { id: 'b', label: 'Responder con un emoji y apagar el celular.',
-        res: { q: null, fx: { tiempo: 1 }, envia: ['rocio', '🙌'], out: 'Descansas. Mañana también es día.', kusi: ['animo', 'Descansar también es parte del trabajo.'] } },
-    ],
-    mirada: { ve: 'Reconocer un buen día también es parte del oficio. El trabajo de Selección suele hacerse notar solo cuando algo sale mal.' },
   },
 ];

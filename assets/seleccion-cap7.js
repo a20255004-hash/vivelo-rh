@@ -1,4 +1,4 @@
-// Capítulo 7 · «La oferta» · Semana 3, viernes.
+// Capítulo 7 · «La oferta» · Semana 2, martes.
 // La persona elegida depende del capítulo 6: elegido_marco (por defecto), elegido_lucia o elegido_patricia.
 //
 // Normas citadas y fuentes consultadas:
@@ -16,14 +16,14 @@
 // - Constitución Política del Perú, art. 26: irrenunciabilidad de los derechos laborales.
 
 export const CAP = {
-  n: 7, titulo: 'La oferta', dia: 'Semana 3, viernes', foto: 'assets/foto/acuerdo.webp',
+  n: 7, titulo: 'La oferta', dia: 'Semana 2, martes', foto: 'assets/foto/acuerdo.webp',
   lugar: 'Oficina de RR.HH. · Distribuidora Pacífico Sur',
   inicio: '07:30', fin: '20:00', cierreHora: '19:40',
   apertura: 'Hoy se hace la oferta. La persona elegida pide más de lo que la banda permite.', boton: 'Preparar la oferta',
   kusi: 'Negociar no es ganarle a nadie. Es que los dos digan que sí y lo sigan diciendo en seis meses. ¡Dale!',
   lead: 'Sustentaste una oferta con criterios objetivos, resististe una guerra de sueldos y cerraste un sí que no rompe la equidad de la empresa.',
   reflexion: '¿Qué pesó más en la decisión de la persona elegida: el sueldo o algo más?',
-  siguiente: { n: 8, titulo: 'El ingreso', dia: 'Semana 4, martes' },
+  siguiente: { n: 8, titulo: 'El ingreso', dia: 'Semana 2, miércoles' },
 };
 
 // Datos de la persona elegida, según el capítulo 6.
@@ -34,13 +34,13 @@ const E = F => F?.has('elegido_lucia')
     : { n: 'Marco', chat: 'marco', ella: false, hoy: 'supervisor en un operador logístico minero de Moquegua', gana: 'S/ 4,200 más bonos', pide: 'S/ 4,400', contra: 'su empresa le ofrece S/ 4,500 y pasar de catorce días seguidos a diez', motivo: 'dormir en su casa todas las noches y ver crecer a sus hijos', extra: 'un horario de turnos rotativos que le permite volver a casa cada día' };
 
 const BASE = [
-  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 40, e: 'Hoy: oferta' },
-  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 27, e: '4 aprobados · ingresan el martes' },
-  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 33, e: 'Ofertas aceptadas · ingresan el martes' },
-  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 58, e: 'Terna enviada a Gina' },
-  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 23, e: 'Ingresó el miércoles' },
-  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 21, e: 'Entrevistas la próxima semana' },
-  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 78, e: 'Entrevistas el lunes' },
+  { id: 'supervisor', p: 'Supervisor de almacén', j: 'Walter · Operaciones', d: 30, e: 'Hoy: oferta' },
+  { id: 'operarios', p: 'Operarios de almacén (4)', j: 'Walter · Operaciones', d: 17, e: '4 aprobados · ingresan mañana' },
+  { id: 'vendedores', p: 'Vendedores de campo (3)', j: 'Fernando · Comercial', d: 23, e: 'Ofertas aceptadas · ingresan mañana' },
+  { id: 'contable', p: 'Asistente contable', j: 'Gina · Contabilidad', d: 48, e: 'Terna enviada a Gina' },
+  { id: 'chofer', p: 'Chofer de reparto', j: 'Distribución', d: 13, e: 'Ingresó la semana pasada' },
+  { id: 'practicante', p: 'Practicante de marketing', j: 'Comercial', d: 11, e: 'Entrevistas la próxima semana' },
+  { id: 'despacho', p: 'Auxiliar de despacho', j: 'Walter · Operaciones', d: 68, e: 'Entrevistas el jueves' },
 ];
 export const CARTERA = (F, prev) => BASE.map(c => {
   const antes = prev?.cartera?.find(x => x.id === c.id);
@@ -58,10 +58,10 @@ export const FUTURO = {
   contra_ultimatum: ['Presionaste con un ultimátum para que aceptara hoy.', 'Empezará con un mal sabor. Capítulo 8.'],
   carta_limpia: ['La carta oferta salió sin cláusulas ilegales.', 'Kelly la usará para el contrato. Capítulo 8.'],
   carta_errores: ['La carta oferta salió con cláusulas que no se pueden pedir.', 'Kelly las encontrará en el capítulo 8.'],
-  oferta_aceptada: ['La persona elegida aceptó. Su empresa la exoneró del preaviso.', 'Ingresa el martes. Capítulo 8.'],
+  oferta_aceptada: ['La persona elegida aceptó. Su empresa la exoneró del preaviso.', 'Ingresa mañana. Capítulo 8.'],
   finalistas_cerradas: ['Las otras finalistas recibieron una respuesta clara y a tiempo.', 'Capítulo 9.'],
-  kelly_viernes: ['Kelly tiene los datos del ingreso desde el viernes.', 'El alta saldrá a tiempo. Capítulo 8.'],
-  kelly_lunes: ['Kelly recibirá los datos del ingreso el lunes.', 'Correrá. Capítulo 8.'],
+  kelly_viernes: ['Kelly tiene los datos del ingreso desde la noche anterior.', 'El alta saldrá a tiempo. Capítulo 8.'],
+  kelly_lunes: ['Kelly recibirá los datos la misma mañana del ingreso.', 'Correrá. Capítulo 8.'],
 };
 
 export const CHATS = {
@@ -82,14 +82,14 @@ export const CORREOS = [
 ];
 
 export const WSP = [
-  { chat: 'walter', t: '08:15', de: 'Walter', txt: 'Hace tres viernes me prometió supervisor para ese día. Hoy sí, ¿no? 😄', si: 'promesa_corregida' },
-  { chat: 'walter', t: '08:15', de: 'Walter', txt: 'HACE TRES SEMANAS ME DIJO QUE ESE VIERNES TENÍA SUPERVISOR. Que hoy no se caiga.', si: 'promesa', no: 'promesa_corregida' },
+  { chat: 'walter', t: '08:15', de: 'Walter', txt: 'El lunes pasado me prometió supervisor para el viernes. Ya me tocaría, ¿no? 😄', si: 'promesa_corregida' },
+  { chat: 'walter', t: '08:15', de: 'Walter', txt: 'EL LUNES PASADO ME DIJO QUE EL VIERNES TENÍA SUPERVISOR. Que hoy no se caiga.', si: 'promesa', no: 'promesa_corregida' },
   { chat: 'walter', t: '08:15', de: 'Walter', txt: 'Hoy cerramos, ¿no? Julio ya está cansado de cubrir.', si: 'encargo_julio', no: 'promesa' },
-  { chat: 'grupo', t: '09:30', de: 'Kelly', txt: 'Recuerden: los ingresos del martes, datos completos hoy 🙏 si no, el lunes me da un infarto' },
+  { chat: 'grupo', t: '09:30', de: 'Kelly', txt: 'Recuerden: los ingresos de mañana, datos completos hoy 🙏 si no, me da un infarto' },
   { chat: 'fernando', t: '14:10', de: 'Fernando', txt: 'Colega, mis tres vendedores ya aceptaron 🙌 Kevin dice que ya se compró su moto, ¿lo tienes en cuenta para la próxima? 😄', si: 'kevin_igual' },
   { chat: 'fernando', t: '14:10', de: 'Fernando', txt: 'Colega, ¿Rosa se quejó? Kevin dice que lo miran raro en la capacitación 😅', si: 'kevin_final' },
   { chat: 'walter', t: '17:20', de: 'Walter', txt: '¿Aceptó? 👀', si: 'oferta_aceptada' },
-  { chat: 'walter', t: '17:24', de: 'Walter', txt: 'Bien. El martes a las 7 en el portón 3. Que traiga casco.', si: 'oferta_aceptada' },
+  { chat: 'walter', t: '17:24', de: 'Walter', txt: 'Bien. Mañana a las 7 en el portón 3. Que traiga casco.', si: 'oferta_aceptada' },
 ];
 
 export const QUIZ = [
@@ -97,7 +97,7 @@ export const QUIZ = [
   { q: 'El empleador actual del elegido le hace una contraoferta. ¿Qué es lo más profesional?', ops: ['Subir la oferta hasta ganarle', 'Recordarle qué lo motivó a cambiar y mostrar lo que la empresa ofrece además del sueldo', 'Darle un ultimátum', 'Retirar la oferta'], ok: 1, por: 'Si solo compites en sueldo, la persona se irá con la siguiente oferta más alta. El motivo del cambio suele estar en otra parte.' },
   { q: '¿Cuánto dura, como regla general, el periodo de prueba en el régimen general?', ops: ['Un mes', 'Tres meses', 'Seis meses para todos', 'No existe'], ok: 1, por: 'El art. 10 del D.S. 003-97-TR fija tres meses; puede ampliarse de común acuerdo hasta seis en trabajadores calificados o de confianza.' },
   { q: '¿Cuál de estas líneas no puede ir en una carta oferta?', ops: ['Sueldo bruto mensual y fecha de ingreso', 'Examen médico de ingreso con prueba de embarazo para mujeres', 'Plazo para responder', 'Tipo de contrato'], ok: 1, por: 'El reglamento de la Ley 26772 prohíbe exigir pruebas de embarazo en la selección.' },
-  { q: 'El candidato acepta un viernes y entra el martes. ¿Cuándo le pasas los datos a Planillas?', ops: ['El mismo martes', 'Hoy, para que haya margen antes del ingreso', 'Al terminar el periodo de prueba', 'Cuando llegue la primera boleta'], ok: 1, por: 'El alta en T-Registro se hace dentro del día de ingreso. Con datos a tiempo, Planillas puede prepararla.' },
+  { q: 'El candidato acepta hoy y entra mañana. ¿Cuándo le pasas los datos a Planillas?', ops: ['El mismo martes', 'Hoy, para que haya margen antes del ingreso', 'Al terminar el periodo de prueba', 'Cuando llegue la primera boleta'], ok: 1, por: 'El alta en T-Registro se hace dentro del día de ingreso. Con datos a tiempo, Planillas puede prepararla.' },
 ];
 
 const LEY = 'ley', POL = 'politica', BP = 'bp';
@@ -115,7 +115,7 @@ export const ESCENAS = [
       { id: 'urgencia', cells: ['El inventario empieza el 28', 'Calendario de Operaciones'] },
       { id: 'familia', cells: ['Tiene familia que mantener', 'Lo contó en la entrevista'] },
       { id: 'jefe', cells: ['Walter lo quiere así', 'WhatsApp de Walter'] },
-      { id: 'pide', cells: ['Es lo que pidió la persona', 'Su mensaje del miércoles'] },
+      { id: 'pide', cells: ['Es lo que pidió la persona', 'Su mensaje de ayer'] },
     ],
     score: { exp: 3, escasez: 3, evidencia: 2, urgencia: 1, familia: -4, jefe: -2, pide: -1 },
     res: (picks, sc) => {
@@ -205,7 +205,7 @@ export const ESCENAS = [
           out: 'Le preguntas qué cambió desde la entrevista. Hay un silencio. «Nada. Sigo queriendo lo mismo.» Le recuerdas lo que contó entonces y lo que tu oferta resuelve. «Déjeme hablar con mi jefe. Le escribo a las cuatro.»',
           pro: { ok: 'Una contraoferta casi nunca cambia el motivo de fondo por el que alguien quiere irse.', risk: 'Puede decir que no. Es parte del juego, y tienes a las otras finalistas informadas.', info: 'Muchas personas que aceptan una contraoferta vuelven a buscar trabajo en pocos meses, porque el motivo sigue ahí.' },
           kusi: ['celebra', '¡Qué bacán! Hablaste de lo que importa, no de cifras.'] } },
-      { id: 'b', label: 'Igualar la contraoferta: perderla ahora, a dos semanas del inventario, saldría más caro.',
+      { id: 'b', label: 'Igualar la contraoferta: perderla ahora, a tres días del inventario, saldría más caro.',
         res: { q: 'riesgosa', fx: { cumplimiento: -6, etica: -3, tiempo: 3 }, flags: ['contra_puja'],
           out: 'Igualas sin consultar. Ahora la persona ganará más que Silvia y Raúl, sin un criterio que lo explique y sin aprobación de Gerencia.',
           pro: { ok: 'Probablemente acepte.', risk: 'Una subasta de sueldo deja a la persona sintiendo que la compraron, y a tus supervisores, que no valen lo mismo.' },
@@ -235,12 +235,12 @@ export const ESCENAS = [
       { id: 'embarazo', t: 'Examen médico de ingreso; en el caso de mujeres, incluye prueba de embarazo.', bad: LEY, why: 'El reglamento de la Ley 26772 prohíbe exigir pruebas de embarazo en la selección.' },
       { id: 'extras', t: 'El trabajador renuncia al pago de horas extra durante el inventario.', bad: LEY, why: 'Los derechos laborales son irrenunciables (Constitución, art. 26). Una línea así no vale aunque se firme.' },
       { id: 'secreto', t: 'Esta oferta es confidencial: no la comente con nadie, ni con su familia.', bad: BP, why: 'Pedir reserva sobre el sueldo frente a terceros es común; pedirle que no lo hable con su familia es excesivo y genera desconfianza.' },
-      { id: 'ingreso', t: 'Fecha de ingreso: martes de la semana 4, 7:00 a. m.' },
-      { id: 'plazo', t: 'Esta oferta es válida hasta el lunes a las 12:00.' },
+      { id: 'ingreso', t: 'Fecha de ingreso: mañana miércoles, 7:00 a. m.' },
+      { id: 'plazo', t: 'Esta oferta es válida hasta hoy a las 18:00.' },
     ],
     res: v => ({
       flags: [v.missLey ? 'carta_errores' : 'carta_limpia'],
-      out: v.missLey ? 'La carta sale con líneas que no se pueden pedir. Kelly las encontrará el lunes, cuando prepare el contrato, si tienes suerte.' : 'Borras lo que no va y actualizas la plantilla para que nadie más la use así. La guardas como «carta_oferta_2026.docx», sin «ESTA».',
+      out: v.missLey ? 'La carta sale con líneas que no se pueden pedir. Kelly las encontrará esta noche, cuando prepare el contrato, si tienes suerte.' : 'Borras lo que no va y actualizas la plantilla para que nadie más la use así. La guardas como «carta_oferta_2026.docx», sin «ESTA».',
       pro: { ok: 'Una carta oferta limpia evita que el contrato herede errores y que la persona empiece desconfiando.', risk: 'Las plantillas viejas son una de las fuentes más comunes de incumplimientos.', info: 'Si el puesto es de confianza, el periodo de prueba ampliado se pacta y se justifica; no se impone.' },
       kusi: v.missLey ? ['indignado', '¡Esa plantilla tenía cosas de otro siglo!'] : ['celebra', '¡Plantilla limpia y renombrada!'],
     }),
@@ -253,7 +253,7 @@ export const ESCENAS = [
   },
   {
     id: 'g6', t: '16:05', ch: 'llamada', who: null, titulo: 'La respuesta', banner: 'assets/foto2/celebra-papel.webp', show: ['personas', 'confianza', 'tiempo'],
-    body: (n, F) => { const e = E(F); return `<p>${F.has('contra_ultimatum') ? `${e.n} aceptó a las 14:50, apurado por tu plazo.` : `A las 16:00 te llama ${e.n}.`} «Hablé con mi jefe. ${F.has('contra_valor') ? 'Le dije que no era por la plata.' : 'Le dije que ya había decidido.'} Me exonera del preaviso: <mark class="clave">el martes puedo empezar</mark>.»</p><p>${e.ella ? 'Se le quiebra un poco la voz' : 'Se ríe, nervioso'}. «Lo que más me convenció fue ${e.extra}.» Ahora tienes que cerrar el proceso con quienes llegaron a la final y no quedaron, como prometiste.</p>`; },
+    body: (n, F) => { const e = E(F); return `<p>${F.has('contra_ultimatum') ? `${e.n} aceptó a las 14:50, apurado por tu plazo.` : `A las 16:00 te llama ${e.n}.`} «Hablé con mi jefe. ${F.has('contra_valor') ? 'Le dije que no era por la plata.' : 'Le dije que ya había decidido.'} Me exonera del preaviso: <mark class="clave">mañana puedo empezar</mark>.»</p><p>${e.ella ? 'Se le quiebra un poco la voz' : 'Se ríe, nervioso'}. «Lo que más me convenció fue ${e.extra}.» Ahora tienes que cerrar el proceso con quienes llegaron a la final y no quedaron, como prometiste.</p>`; },
     type: 'compose', para: 'Para: quienes llegaron a la final y no quedaron', boton: 'Enviar los dos mensajes',
     prompt: 'Arma el mensaje para quienes llegaron a la final y no quedaron.',
     slots: [
@@ -282,7 +282,7 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 5 : 1, etica: 2, confianza: 2 }, rel: { [e.chat]: 1 },
         flags: ['oferta_aceptada', ...(q === 'buena' ? ['finalistas_cerradas'] : [])],
-        cartera: { supervisor: `Oferta aceptada · ${e.n} ingresa el martes` },
+        cartera: { supervisor: `Oferta aceptada · ${e.n} ingresa mañana` },
         envia: otras.map(c => [c, txt]),
         out: q === 'buena' ? 'Los dos mensajes tienen respuesta antes de las seis: un agradecimiento por la honestidad y un «sí, guárdenme en la base». Nadie se enteró por un silencio.' : 'El mensaje sale. Cumple, pero no deja la mejor impresión en alguien que llegó a la final.',
         pro: { ok: 'Cerrar bien con quien no quedó cuida la reputación de la empresa en una ciudad donde todos se conocen.', risk: 'Si das una razón falsa, la persona la repetirá.', info: 'Avisa el «no» recién cuando el elegido haya aceptado. Hoy ya aceptó.' },
@@ -296,26 +296,26 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'g7', t: '17:30', ch: 'whatsapp', who: 'kelly', titulo: 'Kelly pregunta por el martes', banner: 'assets/esc/planilla.webp', show: ['cumplimiento', 'tiempo', 'confianza'],
-    body: (n, F) => `<p>Kelly te escribe desde Planillas. Se oye, en el audio que mandó antes, la impresora atascada de fondo.</p><p>«¿Ya aceptó el supervisor? Necesito DNI, sistema de pensiones, cuenta de sueldo y dirección para el alta del martes. El martes también entran los cuatro operarios${F.has('kevin_final') || F.has('kevin_igual') ? ' y los tres vendedores' : ''}. <mark class="clave">Son ocho altas el mismo día</mark>.»</p>`,
-    chat: ['¿Ya aceptó el supervisor? Necesito DNI, sistema de pensiones, cuenta de sueldo y dirección para el alta del martes. Son ocho altas el mismo día 😰'],
+    id: 'g7', t: '17:30', ch: 'whatsapp', who: 'kelly', titulo: 'Kelly pregunta por mañana', banner: 'assets/esc/planilla.webp', show: ['cumplimiento', 'tiempo', 'confianza'],
+    body: (n, F) => `<p>Kelly te escribe desde Planillas. Se oye, en el audio que mandó antes, la impresora atascada de fondo.</p><p>«¿Ya aceptó el supervisor? Necesito DNI, sistema de pensiones, cuenta de sueldo y dirección para el alta de mañana. Mañana también entran los cuatro operarios${F.has('kevin_final') || F.has('kevin_igual') ? ' y los tres vendedores' : ''}. <mark class="clave">Son ocho altas el mismo día</mark>.»</p>`,
+    chat: ['¿Ya aceptó el supervisor? Necesito DNI, sistema de pensiones, cuenta de sueldo y dirección para el alta de mañana. Son ocho altas el mismo día 😰'],
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Pedirle hoy los datos a la persona elegida y pasárselos a Kelly antes de irte, aunque salgas tarde.',
         res: { q: 'buena', fx: { cumplimiento: 5, tiempo: -3 }, rel: { kelly: 1 }, flags: ['kelly_viernes'], envia: ['kelly', 'Sí aceptó 🙌 Ya le pedí sus datos; te los paso antes de las 7. Los de operarios y vendedores también van hoy.'],
           out: 'A las 18:50 le reenvías todo a Kelly. Sales a las 19:15, con el sol ya escondido detrás del Arunta. Kelly responde: «Te debo un café. De verdad».',
-          pro: { ok: 'Cumples el acuerdo de 48 horas: Planillas puede preparar el alta con calma.', risk: 'Te quedas tarde un viernes. Que no se vuelva costumbre: la próxima vez, pide los datos en la llamada de la oferta.' },
+          pro: { ok: 'Cumples el acuerdo de 48 horas: Planillas puede preparar el alta con calma.', risk: 'Te quedas tarde. Que no se vuelva costumbre: la próxima vez, pide los datos en la llamada de la oferta.' },
           kusi: ['celebra', 'Kelly te debe un café. ¡Eso vale oro!'] } },
-      { id: 'b', label: 'Decirle que el lunes temprano le paso todo: ya es viernes a las cinco y media.',
-        res: { q: 'aceptable', fx: { tiempo: 2, cumplimiento: -3 }, rel: { kelly: -1 }, flags: ['kelly_lunes'], envia: ['kelly', 'Sí aceptó 🙌 El lunes temprano te paso todo, ¿ya?'],
-          out: 'Kelly responde: «Ok…». El lunes tendrá un día para ocho altas, contratos y cuentas de sueldo.',
-          pro: { ok: 'Cuidas tu viernes.', risk: 'Le pasas tu atraso a Planillas, que tiene un plazo legal el martes.' },
+      { id: 'b', label: 'Decirle que mañana a las 6:30 le paso todo: ya son las cinco y media.',
+        res: { q: 'aceptable', fx: { tiempo: 2, cumplimiento: -3 }, rel: { kelly: -1 }, flags: ['kelly_lunes'], envia: ['kelly', 'Sí aceptó 🙌 Mañana a las 6:30 te paso todo, ¿ya?'],
+          out: 'Kelly responde: «Ok…». Mañana tendrá media hora para ocho altas, contratos y cuentas de sueldo.',
+          pro: { ok: 'Cuidas tu viernes.', risk: 'Le pasas tu atraso a Planillas, que tiene un plazo legal mañana.' },
           kusi: ['pensando', 'Ese «ok…» tiene puntos suspensivos.'] } },
     ],
     rules: [[LEY, 'El alta en T-Registro se hace dentro del día en que la persona empieza a trabajar (SUNAT).'], [POL, 'Acuerdo interno con Planillas: datos de ingreso con 48 horas de anticipación.']],
     mirada: {
-      ve: 'Para Selección, el proceso termina con el sí. Para Planillas, recién empieza. Una profesional sabe que una oferta aceptada el viernes con ingreso el martes es una carrera para otra persona, y le pasa la posta a tiempo.',
-      visual: { tipo: 'linea', titulo: 'De la oferta al ingreso', hitos: [['Viernes', 'Oferta aceptada'], ['Viernes noche', 'Datos a Planillas'], ['Lunes', 'Contratos listos'], ['Martes 7:00', 'Ingreso y alta en T-Registro']] },
+      ve: 'Para Selección, el proceso termina con el sí. Para Planillas, recién empieza. Una profesional sabe que una oferta aceptada hoy con ingreso mañana es una carrera para otra persona, y le pasa la posta a tiempo.',
+      visual: { tipo: 'linea', titulo: 'De la oferta al ingreso', hitos: [['Hoy 16:00', 'Oferta aceptada'], ['Hoy en la noche', 'Datos a Planillas'], ['Mañana 6:30', 'Contratos listos'], ['Mañana 7:00', 'Ingreso y alta en T-Registro']] },
     },
   },
 ];

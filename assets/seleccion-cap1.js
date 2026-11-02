@@ -6,8 +6,10 @@ export const CAP = {
   lugar: 'Distribuidora Pacífico Sur · Parque Industrial de Tacna',
   inicio: '07:30', fin: '21:30', cierreHora: '21:15',
   apertura: 'Distribuidora Pacífico Sur, Parque Industrial de Tacna. Rocío te espera en la oficina de RR.HH.', boton: 'Entrar a la oficina',
+  kusi: 'Primer día: siete procesos, un jefe apurado y mucho por aprender. Te acompaño todo el día. ¡Dale!',
   lead: 'Sobreviviste al lunes de una analista de selección: siete procesos, un jefe apurado, un gerente con favores y un WhatsApp a deshora.',
-  siguiente: { n: 2, titulo: 'El perfil', dia: 'Semana 1, miércoles' },
+  reflexion: '¿Qué te sorprendió más de tu primer día en Selección?',
+  siguiente: { n: 2, titulo: 'El perfil', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -23,7 +25,7 @@ export const CARTERA = [
 export const FUTURO = {
   promesa: ['Le dijiste a Walter que el viernes tendría supervisor.', 'Él lo anotó. Volverá en el capítulo 7.'],
   walter_rocio: ['Walter le escribió a Rocío preguntando si lees los correos.', 'Rocío lo tendrá presente en el capítulo 2.'],
-  visita_almacen: ['El miércoles a las 8:00 vas al almacén con Walter.', 'Capítulo 2.'],
+  visita_almacen: ['Mañana martes a las 8:00 vas al almacén con Walter.', 'Capítulo 2.'],
   favor_fernando: ['Fernando cree que Kevin pasa directo a la entrevista final.', 'Te lo recordará en el capítulo 2.'],
   kevin_proceso: ['Kevin entrará al filtro como cualquier postulante.', 'Fernando estará atento. Capítulo 2.'],
   fernando_tenso: ['Fernando se fue pensando que el proceso es «muy estricto».', 'Capítulo 2.'],
@@ -60,7 +62,7 @@ export const WSP = [
   { chat: 'rocio', t: '10:31', de: 'Rocío', txt: 'Vi tu correo a Walter. Bien ahí 👍', si: 'visita_almacen' },
   { chat: 'rocio', t: '11:41', de: 'Rocío', txt: 'Te reenvié un correo de Walter. Respóndele antes de mediodía, porfa.', si: 'walter_rocio' },
   { chat: 'grupo', t: '13:50', de: 'Kelly', txt: 'Te paso mi lista: DNI, CUSPP o elección de sistema de pensiones, cuenta de sueldo, antecedentes, dirección. ✅', si: 'checklist_kelly' },
-  { chat: 'yesenia', t: '16:20', de: 'Yesenia', txt: 'Sí me interesa señorita, ¿puede ser el miércoles? Hoy estoy en turno', si: 'wsp_operarios' },
+  { chat: 'yesenia', t: '16:20', de: 'Yesenia', txt: 'Sí me interesa señorita, ¿puede ser el miércoles? Hoy y mañana estoy en turno', si: 'wsp_operarios' },
   { chat: 'fernando', t: '18:30', de: 'Fernando', txt: 'Gracias colega 💪 Kevin ya está avisado', si: 'favor_fernando' },
   { chat: 'fernando', t: '18:30', de: 'Fernando', txt: 'Ok. Avísame cómo le va a Kevin', si: 'kevin_proceso' },
   { chat: 'elmer', t: '21:06', de: 'Elmer', txt: 'Buenas noches señorita, disculpe la hora 🙏' },
@@ -85,7 +87,7 @@ export const ESCENAS = [
     opts: [
       { id: 'urgente', label: '¿Qué proceso es el más urgente?', info: '«El supervisor de almacén, sin duda. Walter lleva tres semanas cubriendo el puesto él mismo y el inventario empieza el 28. Lo demás te lo dejó Milagros en un Excel… más o menos ordenado.»' },
       { id: 'como', label: '¿Cómo se trabaja aquí?', info: '«Publicamos en un portal pagado y en la bolsa del Ministerio de Trabajo; para operarios tenemos convenio con dos institutos. Una regla de la casa: a todo postulante entrevistado se le responde, aunque sea un no.»' },
-      { id: 'eval', label: '¿Cómo sabré si lo estoy haciendo bien en este primer mes?', info: '«A fin de mes conversamos. Me fijo en tres cosas: que los jefes confíen en ti, que lo que contrates se quede y que no me traigas problemas legales.»' },
+      { id: 'eval', label: '¿Cómo sabré si lo estoy haciendo bien en estas dos semanas?', info: '«El viernes de la próxima semana conversamos. Me fijo en tres cosas: que los jefes confíen en ti, que lo que contrates se quede y que no me traigas problemas legales.»' },
       { id: 'gente', label: '¿Con quién me tengo que llevar bien?', info: '«Con Walter, aunque al inicio te ladre. Con Kelly, de Planillas: sin ella nadie entra. Y con Fernando… con Fernando, paciencia.»' },
     ],
     res: picks => ({
@@ -132,6 +134,8 @@ export const ESCENAS = [
     id: 's3', t: '09:10', ch: 'documento', who: null, titulo: 'El Excel de Milagros', banner: 'assets/esc/reloj.webp', show: ['calidad', 'tiempo', 'confianza'],
     body: () => `<p>Abres el Excel. Siete procesos, cada uno en una etapa distinta, con notas como «ver con Fernando» o «¿sigue?». Hoy, entre llamadas y reuniones, <mark class="clave">solo te alcanza para avanzar de verdad con tres</mark>.</p>`,
     type: 'pick', n: 3, prompt: 'Elige los tres procesos en los que te vas a enfocar hoy.',
+    cols: ['Proceso', 'Jefe', 'Etapa', 'Días abierto'],
+    rows: CARTERA.map(c => ({ id: c.id, cells: [c.p, c.j, c.e, String(c.d)] })),
     score: { supervisor: 3, vendedores: 2, contable: 1, operarios: 1, despacho: 1, chofer: 0, practicante: -1 },
     res: (picks, sc) => {
       const q = sc >= 6 ? 'buena' : sc >= 4 ? 'aceptable' : 'riesgosa';
@@ -155,9 +159,9 @@ export const ESCENAS = [
     body: () => `<p>Buenos días. Me dicen que hoy entra la nueva analista. Van TRES semanas desde que renunció Pacheco y sigo cubriendo el almacén yo mismo. El inventario empieza el 28.</p><p><b>Necesito saber hoy cuándo tengo al nuevo supervisor.</b> Si RR.HH. no puede, me consigo uno por mi cuenta.</p><p>W. Quispe</p>`,
     type: 'choice',
     choices: [
-      { id: 'a', label: 'Responderle hoy con fecha para la terna y una visita al almacén el miércoles.',
-        res: { q: 'buena', fx: { confianza: 6, calidad: 4, tiempo: -2 }, rel: { walter: 1 }, flags: ['visita_almacen'], responde: 'Ingeniero, buenos días. Hoy retomo el proceso. Le propongo enviarle la terna en la semana 3 y vernos el miércoles a las 8:00 en el almacén para afinar el perfil. ¿Le parece?',
-          out: 'Walter contesta a los veinte minutos: «Miércoles 8 a. m. en el almacén. Sea puntual.» Seco, pero ya no le está escribiendo a Gerencia.',
+      { id: 'a', label: 'Responderle hoy con fecha para la terna y una visita al almacén mañana.',
+        res: { q: 'buena', fx: { confianza: 6, calidad: 4, tiempo: -2 }, rel: { walter: 1 }, flags: ['visita_almacen'], responde: 'Ingeniero, buenos días. Hoy retomo el proceso. Le propongo enviarle la terna el lunes de la próxima semana y vernos mañana martes a las 8:00 en el almacén para afinar el perfil. ¿Le parece?',
+          out: 'Walter contesta a los veinte minutos: «Mañana 8 a. m. en el almacén. Sea puntual.» Seco, pero ya no le está escribiendo a Gerencia.',
           pro: { ok: 'Comprometes lo que controlas (la terna) y lo involucras (la visita).', risk: 'Fijar la fecha de la terna sin conocer todavía el proceso. Déjate margen.', info: 'Pregúntale qué significa «antes del inventario»: ¿el supervisor debe estar el 28 o basta con que llegue a mitad?' },
           kusi: ['animo', 'Un jefe molesto con una fecha clara es un jefe menos molesto.'] } },
       { id: 'b', label: 'Tranquilizarlo con algo concreto: «Ingeniero, quédese tranquilo: el viernes ya tiene a su supervisor trabajando en el almacén».',
@@ -174,7 +178,7 @@ export const ESCENAS = [
     rules: [[BP, 'Compromete hitos que controlas, no resultados que dependen de otros.'], [POL, 'En esta empresa la terna se envía al jefe por correo, con copia a Rocío.']],
     mirada: {
       ve: 'Walter no está pidiendo un supervisor: está pidiendo que alguien se haga cargo. Lleva tres semanas haciendo dos trabajos. Lo que baja la tensión no es una promesa, es un plan que él pueda ver. Y hay un dato que un jefe casi nunca considera: aunque encuentres al candidato perfecto la próxima semana, puede que tenga que avisar a su empleador actual antes de irse.',
-      visual: { tipo: 'linea', titulo: 'Un plan realista para el supervisor', hitos: [['Hoy', 'Retomas el proceso'], ['Miércoles', 'Perfil con Walter, en el almacén'], ['Viernes', 'Aviso publicado'], ['Semana 2', 'Filtro y entrevistas'], ['Semana 3', 'Terna y oferta'], ['Semana 4', 'Ingreso, si el preaviso lo permite']] },
+      visual: { tipo: 'linea', titulo: 'Un plan realista para el supervisor', hitos: [['Hoy', 'Retomas el proceso'], ['Martes', 'Perfil con Walter, en el almacén'], ['Miércoles', 'Aviso publicado'], ['Jueves y viernes', 'Filtro y entrevistas'], ['Lunes y martes, semana 2', 'Terna y oferta'], ['Miércoles, semana 2', 'Ingreso, si el preaviso lo permite']] },
       normas: [{ ley: 'D.S. 003-97-TR (Ley de Productividad y Competitividad Laboral), art. 18', dice: 'En el régimen general, quien renuncia debe avisar con 30 días de anticipación; el empleador puede exonerarlo de ese plazo.', practica: 'El mejor candidato podría necesitar hasta un mes para llegar. Prometer «el viernes» ignora ese plazo.' }],
     },
   },
@@ -182,6 +186,8 @@ export const ESCENAS = [
     id: 's5', t: '11:30', ch: 'documento', who: null, titulo: 'El perfil de 2023', banner: 'assets/esc/lupa.webp', show: ['cumplimiento', 'calidad', 'etica'],
     body: () => `<p>En la carpeta compartida encuentras el perfil del puesto que se usó en 2023. Walter quiere que lo publiques <mark class="clave">«igualito, que funcionó»</mark>.</p>`,
     type: 'flag', prompt: 'Toca cada línea que no se puede o no se debe pedir. Si dudas de alguna, márcala también: luego verás por qué.',
+    doc: { t: 'Perfil de puesto · Supervisor de almacén', sub: 'Versión 2023 · Elaborado por Operaciones' },
+    res: v => ({ out: v.missLey ? 'Si publicas así, el aviso sale con requisitos discriminatorios. Walter quería «igualito»; tu trabajo es explicarle por qué no.' : 'Tu versión corregida queda lista para conversarla mañana con Walter, en el almacén.' }),
     lines: [
       { id: 'cargo', t: 'Puesto: Supervisor de almacén' },
       { id: 'sexo', t: 'Sexo: masculino', bad: LEY, why: 'Pedir un sexo sin una razón objetiva del puesto es discriminatorio.' },
