@@ -1,5 +1,5 @@
-// Analista de Administración de Personal · Capítulo 5 · «El descuento» · Semana 2, jueves.
-// Hilo del mes: día de pago de la primera quincena. Yolanda trae su boleta con un descuento que no entiende. Y tiene razón.
+// Analista de Administración de Personal · Capítulo 5 · «El descuento» · Semana 1, viernes.
+// Hilo de las dos semanas: día de pago de la primera quincena. Yolanda trae su boleta con un descuento que no entiende. Y tiene razón.
 // Normas citadas:
 // - Ley 29783, Ley de Seguridad y Salud en el Trabajo, art. 60: el empleador proporciona a sus trabajadores equipos de protección personal adecuados.
 //   https://www.elperuano.pe/noticia/222013-sancion-por-proporcionar-equipos-de-proteccion-personal-inadecuados-requiere-sustentacion-tecnica
@@ -8,14 +8,14 @@
 // - D.S. 001-98-TR (boletas de pago). Ley 31110 y D.S. 005-2021-MIDAGRI (régimen agrario: remuneración diaria y BETA). D.S. 015-2026-TR (RMV S/ 1,230).
 
 export const CAP = {
-  n: 5, titulo: 'El descuento', dia: 'Semana 2, jueves', foto: 'assets/3d/scenes/boleta.webp',
+  n: 5, titulo: 'El descuento', dia: 'Semana 1, viernes', foto: 'assets/3d/scenes/boleta.webp',
   lugar: 'Agrícola Valle Verde · Ventanilla de Planillas, fundo 1',
   inicio: '06:15', fin: '18:45', cierreHora: '18:20',
-  apertura: 'Jueves de pago. Hoy 900 personas miran su boleta por primera vez en la campaña. Yolanda llega antes que nadie, con la boleta doblada en cuatro, como siempre.', boton: 'Abrir la ventanilla',
+  apertura: 'Viernes de pago. Hoy 900 personas miran su boleta por primera vez en la campaña. Yolanda llega antes que nadie, con la boleta doblada en cuatro, como siempre.', boton: 'Abrir la ventanilla',
   kusi: 'Día de pago: el día en que la planilla se vuelve real. ¡Oídos abiertos!',
   lead: 'Leíste una boleta con los ojos de quien la cobra, atendiste la fila del día de pago, verificaste si el error era de uno o de muchos, le dijiste que no a un descuento que «siempre se hizo» y corregiste con transparencia, sin buscar culpables.',
   reflexion: '¿Qué te costó más hoy: reconocer el error o explicarlo?',
-  siguiente: { n: 6, titulo: 'La liquidación', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La liquidación', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
@@ -51,11 +51,11 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '06:20', de: 'Mónica', txt: 'El banco confirmó los abonos de las 6:00 ✅ Hoy atendemos ventanilla hasta las 3. Paciencia, que es la primera boleta de muchos.', si: 'banco_a_tiempo' },
-  { chat: 'grupo', t: '06:20', de: 'Mónica', txt: 'Ojo: hoy NO hay abono, es mañana. Va a venir gente preguntando. Que nadie diga «no sé» 🙏', si: 'banco_tarde' },
-  { chat: 'grupo', t: '06:20', de: 'Mónica', txt: 'Abonos confirmados. Ricardo todavía me pregunta quién aprobó el martes. Ya hablaremos.', si: 'banco_sin_aprob' },
+  { chat: 'grupo', t: '06:20', de: 'Mónica', txt: 'Ojo: hoy NO hay abono, es el lunes. Va a venir gente preguntando. Que nadie diga «no sé» 🙏', si: 'banco_tarde' },
+  { chat: 'grupo', t: '06:20', de: 'Mónica', txt: 'Abonos confirmados. Ricardo todavía me pregunta quién aprobó ayer. Ya hablaremos.', si: 'banco_sin_aprob' },
   { chat: 'yolanda', t: '06:35', de: 'Yolanda', txt: 'Señorita, ya cobré lo de mis vacaciones de marzo. Gracias. Pero hay otra cosa en mi boleta. Voy a su ventanilla.', si: 'yolanda_verdad' },
-  { chat: 'yolanda', t: '06:35', de: 'Yolanda', txt: 'Señorita, otra semana pasó. Y ahora encima me descuentan algo. Voy a su ventanilla.', si: 'yolanda_espera' },
-  { chat: 'wendy', t: '09:50', de: 'Wendy', txt: 'Creo que el descuento lo cargué yo 😟 Raúl mandó un Excel el lunes y lo subí. Perdón.' },
+  { chat: 'yolanda', t: '06:35', de: 'Yolanda', txt: 'Señorita, otra vez a esperar. Y ahora encima me descuentan algo. Voy a su ventanilla.', si: 'yolanda_espera' },
+  { chat: 'wendy', t: '09:50', de: 'Wendy', txt: 'Creo que el descuento lo cargué yo 😟 Raúl mandó un Excel el lunes y lo subí ayer. Perdón.' },
   { chat: 'raul', t: '11:05', de: 'Ing. Raúl', txt: 'Me dicen que está devolviendo lo de las tijeras. Voy para allá.' },
   { chat: 'teresa', t: '13:20', de: 'Teresa', txt: 'Señorita, en el bus dicen que en la 5 descontaron tijeras. ¿A mi cuadrilla también? 😟' },
   { chat: 'cuadrilla5', t: '17:45', de: 'Yolanda', txt: 'Compañeras, la señorita de Planillas dice que lo de la tijera se devuelve a todas. Yo pregunté y era verdad. Pregunten nomás.', si: 'yolanda_confia' },
@@ -113,7 +113,7 @@ export const ESCENAS = [
     rows: [
       { id: 'cuad5', cells: ['Cuatro mujeres de la cuadrilla 5', 'El mismo descuento de tijera que Yolanda'] },
       { id: 'marce', cells: ['Marcelino Ayvar, ya no trabaja aquí', 'Vino desde Chincha a cobrar sus vacaciones truncas'] },
-      { id: 'fidel', cells: ['Fidel Choque, delegado de la 12', 'Sus horas del jueves no salen en la boleta'], si: 'he_tareo' },
+      { id: 'fidel', cells: ['Fidel Choque, delegado de la 12', 'Sus horas del martes no salen en la boleta'], si: 'he_tareo' },
       { id: 'embal', cells: ['Rocío, embaladora del turno noche', 'Ganó menos que el mínimo nocturno'], si: 'nocturno_pendiente' },
       { id: 'rosa', cells: ['Rosa Ccahuana, cuadrilla 7', 'Le descuentan ONP y ella había elegido AFP'], si: 'pension_defecto' },
       { id: 'cuenta', cells: ['Joven que pregunta su clave de la tarjeta', 'Lo resuelve el banco'] },
@@ -140,10 +140,10 @@ export const ESCENAS = [
     id: 'f3', t: '10:05', ch: 'llamada', who: null, titulo: '¿Cuántas son?', banner: 'assets/foto/llamada.webp', lugar: 'Oficina de Planillas', show: ['calidad', 'personas', 'tiempo'],
     body: () => `<p>Filtras la planilla por el concepto «Desc. herramientas»: <mark class="clave">87 personas</mark>, de las cuadrillas 5 y 6. Mónica quiere saber cuántas son y quién lo pidió antes de decidir. Llamas para verificar.</p>`,
     type: 'calls',
-    calls: [['Asistente del fundo 2 · Milagros', 'Contesta rápido', 'Sí, señorita, el ingeniero me pidió armar la lista de los que «no devolvieron» la tijera el sábado. Es que el sábado nadie recogió nada.'], ['Almacén de herramientas · don Pío', 'Contesta con ruido de la camioneta', '¿Tijeras perdidas? Señorita, yo tengo 140 en una caja. Nadie vino a devolverlas porque nadie las recogió.'], ['Wendy · en su escritorio', 'Contesta por WhatsApp: prefiere escribir', 'Lo cargué el lunes. El Excel decía «aprobado ing. Cárdenas». No sabía que había que preguntar algo más.'], ['Cosechadora de la cuadrilla 6 · Nely', 'No contesta: está en el surco']],
+    calls: [['Asistente del fundo 2 · Milagros', 'Contesta rápido', 'Sí, señorita, el ingeniero me pidió armar la lista de los que «no devolvieron» la tijera el sábado. Es que el sábado nadie recogió nada.'], ['Almacén de herramientas · don Pío', 'Contesta con ruido de la camioneta', '¿Tijeras perdidas? Señorita, yo tengo 140 en una caja. Nadie vino a devolverlas porque nadie las recogió.'], ['Wendy · en su escritorio', 'Contesta por WhatsApp: prefiere escribir', 'Lo cargué ayer, en el cierre. El Excel decía «aprobado ing. Cárdenas». No sabía que había que preguntar algo más.'], ['Cosechadora de la cuadrilla 6 · Nely', 'No contesta: está en el surco']],
     prompt: 'La lista salió de un sábado en que nadie recogió las tijeras, y el almacén tiene 140 guardadas. ¿Qué le reportas a Mónica?',
     choices: [
-      { id: 'a', label: 'Que son 87 personas, que el descuento salió de una lista sin verificación, que el almacén tiene las tijeras y que propones devolverlo a todas mañana.',
+      { id: 'a', label: 'Que son 87 personas, que el descuento salió de una lista sin verificación, que el almacén tiene las tijeras y que propones devolverlo a todas el lunes.',
         res: { q: 'buena', fx: { calidad: 5, confianza: 4 }, rel: { monica: 1 }, cartera: { descuento: '87 personas · sin sustento · origen: lista del sábado' },
           out: 'Mónica contesta en dos minutos: «Gracias. Con esto voy donde Raúl y Ricardo». Le dices que Raúl ya viene en camino.',
           pro: { ok: 'Le das a tu jefa números, origen y una propuesta. Eso se decide en un minuto.', info: 'Guarda la conversación con don Pío por escrito: es tu sustento.' },
@@ -166,7 +166,7 @@ export const ESCENAS = [
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Devolver el descuento a las 87 personas en una planilla de reintegro, y proponerle a Raúl entrega y devolución de tijeras con cargo diario en la caseta, sin descuentos.',
-        res: { q: 'buena', fx: { etica: 5, cumplimiento: 5, personas: 4, confianza: -1 }, rel: { raul: 0, yolanda: 1 }, flags: ['reintegro_todos', 'regla_descuentos'], cartera: { reintegro: '87 reintegros mañana', descuento: 'Eliminado · entrega con cargo diario' },
+        res: { q: 'buena', fx: { etica: 5, cumplimiento: 5, personas: 4, confianza: -1 }, rel: { raul: 0, yolanda: 1 }, flags: ['reintegro_todos', 'regla_descuentos'], cartera: { reintegro: '87 reintegros el lunes', descuento: 'Eliminado · entrega con cargo diario' },
           out: 'Raúl se queda callado frente a la nota de don Pío. «Lo de la caseta puede funcionar», admite. «Pero si se pierden igual, vengo a buscarla.» Le dices que vengan juntos a contarlas al final de la campaña.',
           pro: { ok: 'Corriges para todas, sin esperar reclamos, y le resuelves a Raúl su problema real: el control de herramientas.', risk: 'Raúl perdió su herramienta de «disciplina». Si no ve resultados, volverá a pedir descuentos.', info: 'Un control físico (cargo diario) funciona mejor que un castigo en la boleta.' },
           kusi: ['celebra', '¡Ochenta y siete devoluciones! ¡Qué divino!'] } },
@@ -176,8 +176,8 @@ export const ESCENAS = [
           pro: { ok: 'Suena justo: no todos devolvieron su tijera.', risk: 'Pides una prueba que la empresa nunca dio la oportunidad de tener. Y el problema de fondo sigue: no hay base para descontar EPP.' },
           kusi: ['pensando', '¿Cómo prueban algo que nadie recogió?'] } },
       { id: 'c', label: 'Devolver lo de esta quincena y, desde mañana, hacer firmar a cada trabajador una autorización de descuento por herramientas perdidas: con firma, ya es legal.',
-        res: { q: 'riesgosa', fx: { etica: -3, cumplimiento: -4, personas: -2 }, rel: { raul: 1 }, flags: ['descuento_firmado', 'reintegro_todos'], cartera: { reintegro: '87 reintegros mañana', descuento: 'Autorización firmada desde mañana' },
-          out: 'Raúl sonríe: «Eso es lo que necesitaba». Mañana 900 personas firmarán un formato en la mesa de registro, sin leerlo, a las 6 de la mañana.',
+        res: { q: 'riesgosa', fx: { etica: -3, cumplimiento: -4, personas: -2 }, rel: { raul: 1 }, flags: ['descuento_firmado', 'reintegro_todos'], cartera: { reintegro: '87 reintegros el lunes', descuento: 'Autorización firmada desde mañana' },
+          out: 'Raúl sonríe: «Eso es lo que necesitaba». El lunes, 900 personas firmarán un formato en la mesa de registro, sin leerlo, a las 6 de la mañana.',
           pro: { ok: 'Devuelves lo cobrado sin sustento.', risk: 'Una firma no convierte en costo del trabajador lo que la ley pone a cargo del empleador. Y una autorización firmada en fila, sin opción real, vale poco.' },
           kusi: ['preocupado', 'Una firma a las seis de la mañana no es una decisión libre…'] } },
     ],
@@ -198,7 +198,7 @@ export const ESCENAS = [
         { id: 'q2', t: 'Debido a una inconsistencia en el proceso de carga de datos de un área usuaria…', ok: false, por: 'Nadie en el bus entiende eso, y suena a excusa.' },
       ] },
       { id: 'como', t: 'Cómo se corrige', n: 2, ops: [
-        { id: 'c1', t: 'Se les devuelve completo mañana viernes, por depósito en su cuenta sueldo.', ok: true },
+        { id: 'c1', t: 'Se les devuelve completo el lunes, por depósito en su cuenta sueldo.', ok: true },
         { id: 'c2', t: 'Verán el reintegro en una boleta aparte, con el nombre «Devolución descuento herramientas».', ok: true },
         { id: 'c3', t: 'Quien quiera la devolución debe presentar una solicitud en mesa de partes.', ok: false, por: 'Pones a la gente a pedir lo que le quitaste por error.' },
       ] },
@@ -216,7 +216,7 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 5 : 1, confianza: q === 'buena' ? 4 : 0, calidad: q === 'riesgosa' ? -2 : 2 },
         cartera: { reintegro: q === 'buena' ? 'Aviso claro enviado a las cuadrillas 5 y 6' : 'Aviso con dudas' },
-        out: q === 'buena' ? 'Teresa lee el aviso y te escribe: «Así se entiende, señorita. Lo leo en el bus en castellano y en quechua».' : 'El aviso sale. A la mañana siguiente, igual llegan doce personas a preguntar qué significa.',
+        out: q === 'buena' ? 'Teresa lee el aviso y te escribe: «Así se entiende, señorita. Lo leo en el bus en castellano y en quechua».' : 'El aviso sale. El lunes, igual llegan doce personas a preguntar qué significa.',
         pro: { ok: 'Un aviso que reconoce el error, dice cuándo y cómo se corrige y a quién preguntar evita una fila de reclamos.', risk: 'El lenguaje de oficina, en un aviso para el bus, se lee como «no te vamos a devolver nada».', info: 'Escribe pensando en quien lo leerá en voz alta en un bus con ruido.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Corto, claro y verdadero!' : '¿Se entendería en el bus?'],
       };
@@ -224,7 +224,7 @@ export const ESCENAS = [
     rules: [[BP, 'Corregir con transparencia: qué pasó, cómo se corrige, cuándo y a quién preguntar.']],
     mirada: {
       ve: 'Corregir un error en la planilla es la mitad del trabajo; la otra mitad es contarlo. Un aviso que reconoce el error de la empresa genera más confianza que cien avisos perfectos.',
-      visual: { tipo: 'mensaje', titulo: 'El aviso para el bus', txt: 'En la boleta de esta quincena se les descontó «tijera y guantes» por error. No debió pasar. Se les devuelve completo mañana viernes en su cuenta sueldo, con una boleta aparte. Desde ahora, la tijera se entrega y se devuelve en la caseta: no se descuenta. Dudas: ventanilla de Planillas o este número.' },
+      visual: { tipo: 'mensaje', titulo: 'El aviso para el bus', txt: 'En la boleta de esta quincena se les descontó «tijera y guantes» por error. No debió pasar. Se les devuelve completo el lunes en su cuenta sueldo, con una boleta aparte. Desde ahora, la tijera se entrega y se devuelve en la caseta: no se descuenta. Dudas: ventanilla de Planillas o este número.' },
     },
   },
   {
@@ -256,7 +256,7 @@ export const ESCENAS = [
   },
   {
     id: 'f7', t: '17:30', ch: 'whatsapp', who: null, titulo: 'Lo que le dices a Yolanda', banner: 'assets/foto2/mesa-mujeres.webp', show: ['personas', 'etica', 'confianza'],
-    body: (n, F) => `<p>Yolanda te escribió a las 17:10: «Señorita, ¿entonces sí me devuelven? Mis compañeras dicen que yo armé todo este lío».</p><p>${F.has('yolanda_espera') ? 'Le debes una respuesta clara desde el viernes pasado. ' : ''}Es la segunda vez en la campaña que ella tenía razón y <mark class="clave">tuvo que reclamar para que alguien lo viera</mark>.</p>`,
+    body: (n, F) => `<p>Yolanda te escribió a las 17:10: «Señorita, ¿entonces sí me devuelven? Mis compañeras dicen que yo armé todo este lío».</p><p>${F.has('yolanda_espera') ? 'Le debes una respuesta clara desde el miércoles. ' : ''}Es la segunda vez en la campaña que ella tenía razón y <mark class="clave">tuvo que reclamar para que alguien lo viera</mark>.</p>`,
     type: 'compose', enviaA: 'yolanda', para: 'Para: Yolanda Quispe · Cuadrilla 5', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu respuesta eligiendo una frase de cada parte.',
     slots: [
@@ -265,7 +265,7 @@ export const ESCENAS = [
         { id: 'r2', t: 'Yolanda, ya se está viendo su caso.', ok: false, por: 'Ya se vio. Decir menos de lo que sabes otra vez es repetir lo del viernes.' },
       ] },
       { id: 'cuando', t: 'Cuándo', ops: [
-        { id: 'c1', t: 'Mañana viernes se le deposita la devolución completa, y lo verá en una boleta aparte.', ok: true, por: 'Fecha y forma de verificarlo.' },
+        { id: 'c1', t: 'El lunes se le deposita la devolución completa, y lo verá en una boleta aparte.', ok: true, por: 'Fecha y forma de verificarlo.' },
         { id: 'c2', t: 'Pronto se le devuelve.', ok: false, por: '«Pronto» ya se lo dijeron muchas veces.' },
       ] },
       { id: 'lio', t: 'Lo del «lío»', ops: [
@@ -292,7 +292,7 @@ export const ESCENAS = [
     rules: [[LEY, 'Tomar represalias contra quien reclama sus derechos laborales es ilegal.'], [BP, 'Quien reclamó y tenía razón merece que se le diga, con todas las letras.']],
     mirada: {
       ve: 'Yolanda no solo pedía su dinero: pedía que reclamar no la convierta en «la conflictiva». En campañas agrícolas, donde la recontratación depende de la reputación, proteger a quien reclama es proteger el sistema de alertas de la empresa.',
-      visual: { tipo: 'linea', titulo: 'El caso de Yolanda en la campaña', hitos: [['Semana 1, lunes', 'Reclama sus vacaciones de marzo'], ['Semana 1, viernes', 'Se confirma el error de 14 personas'], ['Semana 2, jueves', 'Descubre el descuento de 87 personas'], ['Semana 2, viernes', 'Devolución para todas']] },
+      visual: { tipo: 'linea', titulo: 'El caso de Yolanda en la campaña', hitos: [['Semana 1, lunes', 'Reclama sus vacaciones de marzo'], ['Semana 1, miércoles', 'Se confirma el error de 14 personas'], ['Semana 1, viernes', 'Descubre el descuento de 87 personas'], ['Semana 2, lunes', 'Devolución para todas']] },
     },
   },
 ];

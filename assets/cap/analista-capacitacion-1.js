@@ -1,5 +1,5 @@
 // Analista de Capacitación y Desarrollo · Capítulo 1 · «El plan que nadie cumple» · Semana 1, lunes.
-// Hilo del mes: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
+// Hilo de las dos semanas: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
 // Normas citadas: Ley 29783, art. 35 b) (no menos de cuatro capacitaciones de SST al año) y su reglamento
 // (capacitación dentro de la jornada); normativa SBS de prevención de lavado de activos (capacitación periódica).
 
@@ -11,7 +11,7 @@ export const CAP = {
   kusi: 'Capacitar no es dictar cursos. ¡Vamos a descubrir qué le falta a la gente!',
   lead: 'Leíste el plan con lupa, buscaste los datos que de verdad explican la mora, escuchaste a una asesora de calle y no compraste lo primero que te ofrecieron.',
   reflexion: '¿Qué aprendiste hoy de alguien que no estaba en ningún curso?',
-  siguiente: { n: 2, titulo: '¿Qué les falta?', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: '¿Qué les falta?', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -25,12 +25,12 @@ export const CARTERA = [
 export const FUTURO = {
   plan_leido: ['Detectaste que el plan incumplía la ley de SST y la capacitación en prevención de lavado de activos.', 'Lorena lo llevará al comité. Capítulo 7.'],
   plan_sin_ley: ['No notaste que este año no hubo capacitaciones de SST.', 'Te enterarás de la peor forma en el capítulo 7.'],
-  datos_mora: ['Cruzaste la mora con la antigüedad de los asesores.', 'Esa pista te llevará a una agencia el miércoles.'],
+  datos_mora: ['Cruzaste la mora con la antigüedad de los asesores.', 'Esa pista te llevará a una agencia mañana martes.'],
   victor_aliado: ['Víctor aceptó probar un taller corto en horario de trabajo.', 'Lo cobrará en el capítulo 6.'],
   victor_noche: ['Aceptaste un curso virtual obligatorio de noche.', 'Sandra te contará cómo les cayó. Capítulo 2.'],
   sandra_escuchada: ['Sandra te contó qué le falta de verdad: cobrar sin perder al cliente.', 'Volverá en el capítulo 5, en tu primer taller.'],
   ronald_firmado: ['Te comprometiste con el programa de Ronald antes de diagnosticar.', 'Finanzas preguntará por qué en el capítulo 4.'],
-  ronald_pausa: ['Le pediste a Ronald una propuesta ligada a resultados.', 'Llegará el viernes, en el capítulo 3.'],
+  ronald_pausa: ['Le pediste a Ronald una propuesta ligada a resultados.', 'Llegará el miércoles, en el capítulo 3.'],
 };
 
 export const CHATS = {
@@ -46,13 +46,13 @@ export const WSP = [
   { chat: 'ronald', t: '09:15', de: 'Ronald', txt: 'Buenos días 👋 Lorena me pasó tu número. Te envié por correo nuestro programa estrella. ¿Coordinamos un café?' },
   { chat: 'victor', t: '10:40', de: 'Víctor', txt: 'Paso por tu oficina en 15 min. Tema cursos. Voy con poco tiempo.' },
   { chat: 'sandra', t: '13:05', de: 'Sandra', txt: 'Hola, me dijeron que querías hablar con asesores. Estoy en la agencia de La Esperanza, puedo a la 1:30 por videollamada 📱' },
-  { chat: 'victor', t: '16:10', de: 'Víctor', txt: 'Ok, probemos tu taller de 90 min en la agencia de El Porvenir. Pero un jueves, no un lunes.', si: 'victor_aliado' },
+  { chat: 'victor', t: '16:10', de: 'Víctor', txt: 'Ok, probemos tu taller de 90 min en la agencia de El Porvenir. Pero este viernes, no un lunes.', si: 'victor_aliado' },
   { chat: 'sandra', t: '17:30', de: 'Sandra', txt: 'Gracias por preguntar. Nadie nos pregunta qué necesitamos 🙌', si: 'sandra_escuchada' },
-  { chat: 'ronald', t: '18:20', de: 'Ronald', txt: 'Perfecto, el viernes te envío una versión con indicadores. ¡Bacán trabajar así!', si: 'ronald_pausa' },
+  { chat: 'ronald', t: '18:20', de: 'Ronald', txt: 'Perfecto, el miércoles te envío una versión con indicadores. ¡Bacán trabajar así!', si: 'ronald_pausa' },
 ];
 
 export const CORREOS = [
-  { t: '08:10', de: 'Lorena Villanueva', para: 'Analista de Capacitación y Desarrollo', asunto: 'Bienvenida y tu primer encargo', html: '<p>¡Bienvenida al equipo! Te dejo el plan anual impreso. Tenía 30 cursos programados y dictamos 8.</p><p>Este mes quiero que respondamos una pregunta: <b>¿la capacitación puede ayudar a bajar la mora?</b> Si no lo demostramos, el comité nos recorta en enero.</p><p>Lorena</p>' },
+  { t: '08:10', de: 'Lorena Villanueva', para: 'Analista de Capacitación y Desarrollo', asunto: 'Bienvenida y tu primer encargo', html: '<p>¡Bienvenida al equipo! Te dejo el plan anual impreso. Tenía 30 cursos programados y dictamos 8.</p><p>En estas dos semanas quiero que respondamos una pregunta: <b>¿la capacitación puede ayudar a bajar la mora?</b> Si no lo demostramos, el comité nos recorta en enero.</p><p>Lorena</p>' },
   { t: '09:10', de: 'Ronald Mejía · Capacita Pro', para: 'Analista de Capacitación y Desarrollo', asunto: 'Programa «Liderazgo 360» para Financiera Chimú', html: '<p>Estimada: le presento nuestro programa estrella: 8 sesiones, coaching ejecutivo, certificado internacional y un cierre de gala. Inversión: S/ 48,000 + IGV. Si confirmamos esta semana, aplicamos 10 % de descuento.</p><p>Ronald Mejía</p>' },
 ];
 
@@ -149,7 +149,7 @@ export const ESCENAS = [
     rules: [[LEY, 'Las capacitaciones obligatorias, en especial las de SST, se realizan dentro de la jornada de trabajo.'], [BP, 'Con un jefe escéptico, empieza con un piloto pequeño y un indicador que a él le importe.']],
     mirada: {
       ve: 'Los jefes no odian aprender: odian perder resultados. Una profesional de desarrollo convierte la capacitación en una apuesta sobre el indicador del jefe, y la prueba primero en pequeño.',
-      visual: { tipo: 'linea', titulo: 'Cómo se gana a un jefe escéptico', hitos: [['Hoy', 'Proponer un piloto pequeño'], ['Semana 2', 'Taller en una agencia'], ['Semana 4', 'Medir la mora de esos asesores'], ['Después', 'Replicar si funcionó']] },
+      visual: { tipo: 'linea', titulo: 'Cómo se gana a un jefe escéptico', hitos: [['Hoy', 'Proponer un piloto pequeño'], ['Viernes', 'Taller en una agencia'], ['Semana 2', 'Ver si lo aplican en la calle'], ['En un mes', 'Medir la mora de esos asesores'], ['Después', 'Replicar si funcionó']] },
     },
   },
   {
@@ -193,7 +193,7 @@ export const ESCENAS = [
   },
   {
     id: 'k6', t: '17:00', ch: 'presencial', who: 'lorena', titulo: 'La pizarra de Lorena', banner: 'assets/foto2/reunion-circulos.webp', show: ['calidad', 'confianza', 'tiempo'],
-    body: () => `<p>Lorena te espera frente a una pizarra blanca: «Para el comité de fin de mes necesito que tengamos claro el ciclo completo. Ordénalo como lo haríamos este mes con el piloto de Víctor».</p>`,
+    body: () => `<p>Lorena te espera frente a una pizarra blanca: «Para el comité del jueves de la próxima semana necesito que tengamos claro el ciclo completo. Ordénalo como lo haríamos con el piloto de Víctor».</p>`,
     type: 'secuencia', prompt: 'Ordena el ciclo de una capacitación que sí sirve.', boton: 'Mostrarle la pizarra a Lorena',
     items: [
       { id: 'diag', t: 'Diagnosticar la necesidad con datos del negocio', por: 'La mora de los asesores nuevos.' },

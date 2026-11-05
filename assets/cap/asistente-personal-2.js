@@ -1,5 +1,5 @@
-// Analista de Administración de Personal · Capítulo 2 · «Altas en masa» · Semana 1, miércoles.
-// Hilo del mes: la campaña de uva lleva la planilla de 300 a 1,200 personas. Hoy entran los primeros 200.
+// Analista de Administración de Personal · Capítulo 2 · «Altas en masa» · Semana 1, martes.
+// Hilo de las dos semanas: la campaña de uva lleva la planilla de 300 a 1,200 personas. Hoy entran los primeros 200.
 // Normas citadas:
 // - D.S. 018-2007-TR y modificatorias (planilla electrónica y T-Registro): alta dentro del día de ingreso.
 //   https://www.gob.pe/institucion/sunat/informes-publicaciones (orientación SUNAT sobre T-Registro)
@@ -11,14 +11,14 @@
 // - Ley 31110 (régimen laboral agrario). D.S. 015-2026-TR (RMV S/ 1,230).
 
 export const CAP = {
-  n: 2, titulo: 'Altas en masa', dia: 'Semana 1, miércoles', foto: 'assets/3d/scenes/agro.webp',
+  n: 2, titulo: 'Altas en masa', dia: 'Semana 1, martes', foto: 'assets/3d/scenes/agro.webp',
   lugar: 'Agrícola Valle Verde · Fundo 2, Valle de Ica',
   inicio: '05:30', fin: '18:45', cierreHora: '18:20',
   apertura: 'Son las 5:30 y todavía está oscuro en el valle. Hoy llegan los primeros 200 de la campaña, y la mitad no tiene sus datos completos.', boton: 'Subir a la camioneta al fundo 2',
   kusi: 'Hoy se mide en altas por hora. ¡Abrígate, que la madrugada en Ica es fría!',
   lead: 'Armaste una mesa de registro en pleno campo, revisaste fichas de ingreso, llamaste a quien faltaba, decidiste qué fecha de ingreso es la verdadera y explicaste el boletín de pensiones en palabras simples.',
   reflexion: '¿Qué alta de hoy te costó más, y por qué no era solo un dato?',
-  siguiente: { n: 3, titulo: 'Las marcaciones', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'Las marcaciones', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -56,10 +56,10 @@ export const WSP = [
   { chat: 'grupo', t: '05:38', de: 'Wendy', txt: 'Ya estoy en el paradero de la Panamericana con los formatos. Llevo 300 impresos por si acaso 📄' },
   { chat: 'raul', t: '05:50', de: 'Ing. Raúl', txt: 'Ya bajaron los buses. 60 en su mesa. Cinco minutos por persona, como dijo.', si: 'alta_dia_uno' },
   { chat: 'raul', t: '05:50', de: 'Ing. Raúl', txt: 'Gerencia dijo que le haga caso a Planillas. Ahí le mando a mi gente. Que no se demore.', si: 'raul_molesto' },
-  { chat: 'raul', t: '05:50', de: 'Ing. Raúl', txt: 'Los 60 de ayer ya están en el campo. Hoy le mando 140 más.', si: 'sin_alta' },
+  { chat: 'raul', t: '05:50', de: 'Ing. Raúl', txt: 'Mis 60 ya están en el surco. No tengo tiempo para mesas. Mañana le mando 140 más.', si: 'sin_alta' },
   { chat: 'joel', t: '06:02', de: 'Joel', txt: 'Te dejé un chip con datos en la caja de la impresora. La señal del fundo 2 es de una rayita 📶', si: 'joel_aliado' },
-  { chat: 'yolanda', t: '12:40', de: 'Yolanda', txt: 'Señorita, ¿sigue en pie lo del viernes? Mi hija me pregunta.', si: 'yolanda_escuchada' },
-  { chat: 'yolanda', t: '12:40', de: 'Yolanda', txt: 'Señorita, ya le dije a mi esposo que el viernes me pagan. Gracias otra vez 🙏', si: 'yolanda_promesa' },
+  { chat: 'yolanda', t: '12:40', de: 'Yolanda', txt: 'Señorita, ¿sigue en pie lo de mañana? Mi hija me pregunta.', si: 'yolanda_escuchada' },
+  { chat: 'yolanda', t: '12:40', de: 'Yolanda', txt: 'Señorita, ya le dije a mi esposo que mañana me pagan. Gracias otra vez 🙏', si: 'yolanda_promesa' },
   { chat: 'teresa', t: '17:10', de: 'Teresa', txt: 'Ya les expliqué a mis chicas lo del papel de la AFP. Mañana le traen sus hojas firmadas. Allinmi, señorita.', si: 'teresa_aliada' },
   { chat: 'wendy', t: '18:30', de: 'Wendy', txt: 'Me voy en el último bus. Las fichas quedaron en la caja azul, ordenadas por cuadrilla 📦' },
 ];
@@ -67,7 +67,7 @@ export const WSP = [
 export const CORREOS = [
   { t: '06:15', de: 'Banco del Valle · Empresas', para: 'Planillas Valle Verde', asunto: 'Lote 1: 200 cuentas · 31 observadas', html: '<p>Del lote enviado el lunes, <b>169 cuentas</b> se abrieron. <b>31 están observadas</b>: 22 por DNI con dígitos faltantes y 9 por nombre distinto al de RENIEC.</p><p>Envíenos las correcciones antes de las 15:00 para incluirlas en el ciclo de hoy.</p>' },
   { t: '10:50', de: 'Ricardo Benavides · Gerente de Operaciones', para: 'Mónica Uribe; Planillas', asunto: 'Altas de campaña', html: '<p>Equipo: esta semana no podemos tener observaciones de ninguna autoridad. Prefiero que las fechas en el sistema estén «limpias». Planillas, coordine conmigo cualquier alta tardía antes de registrarla.</p><p>R. Benavides</p>' },
-  { t: '15:40', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Gracias por hoy', html: '<p>Vi el avance en el T-Registro. Mañana repetimos con 140 más. <b>Duerme</b>, que el viernes viene el reloj.</p><p>Mónica</p>' },
+  { t: '15:40', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Gracias por hoy', html: '<p>Vi el avance en el T-Registro. Mañana repetimos con 140 más. <b>Duerme</b>, que mañana toca revisar el reloj.</p><p>Mónica</p>' },
 ];
 
 export const QUIZ = [
@@ -83,7 +83,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'c1', t: '05:45', ch: 'presencial', who: 'joel', titulo: 'La mesa bajo el toldo', banner: 'assets/3d/scenes/agro.webp', lugar: 'Fundo 2 · al lado de los buses', show: ['tiempo', 'calidad', 'personas'],
-    body: (n, F) => `<p>Neblina, olor a tierra mojada por el riego y el motor de los buses que llegan de Ica, Pisco y Los Molinos. Joel arma un toldo azul sobre dos mesas plegables${F.has('joel_aliado') ? ' y te pasa un chip con datos: «La rayita de señal no te va a alcanzar»' : ''}.</p><p>${F.has('sin_alta') ? 'Los 60 que Raúl metió el lunes ya cosechan sin alta desde ayer. Hoy llegan 140 más.' : F.has('raul_molesto') ? 'Raúl no saluda, pero manda a su gente a tu mesa: gerencia se lo ordenó.' : 'Raúl cumplió: los primeros 60 bajan del bus y hacen fila frente a tu mesa.'} En la camioneta solo entran <mark class="clave">tres cajas más</mark>. ¿Qué te llevas?</p>`,
+    body: (n, F) => `<p>Neblina, olor a tierra mojada por el riego y el motor de los buses que llegan de Ica, Pisco y Los Molinos. Joel arma un toldo azul sobre dos mesas plegables${F.has('joel_aliado') ? ' y te pasa un chip con datos: «La rayita de señal no te va a alcanzar»' : ''}.</p><p>${F.has('sin_alta') ? 'Raúl mandó a sus 60 directo al surco, sin pasar por tu mesa. Hoy llegan 140 más.' : F.has('raul_molesto') ? 'Raúl no saluda, pero manda a su gente a tu mesa: gerencia se lo ordenó.' : 'Raúl cumplió: los primeros 60 bajan del bus y hacen fila frente a tu mesa.'} En la camioneta solo entran <mark class="clave">tres cajas más</mark>. ¿Qué te llevas?</p>`,
     type: 'pick', n: 3, prompt: 'Elige las tres cosas que van en la camioneta.', boton: 'Cargar la camioneta', resumen: 'Te llevaste',
     cols: ['Qué', 'Para qué'],
     rows: [
@@ -116,7 +116,7 @@ export const ESCENAS = [
     id: 'c2', t: '07:20', ch: 'documento', who: null, titulo: 'Las fichas de la cuadrilla 7', banner: 'assets/foto/mesa-papeles.webp', lugar: 'Mesa de registro · fundo 2', show: ['cumplimiento', 'calidad', 'etica'],
     body: () => `<p>Wendy te pasa el resumen de las fichas de la cuadrilla 7, la de Teresa Huamaní. Las llenaron anoche en el bus, con lapicero prestado y sobre las rodillas.</p><p>Antes de subirlas al T-Registro, <mark class="clave">marca lo que no puede pasar así</mark>.</p>`,
     type: 'flag', prompt: 'Marca las fichas o campos que no deben registrarse como están.',
-    doc: { t: 'Resumen de fichas de ingreso · cuadrilla 7', sub: 'Llenadas el martes en el bus · 18 personas' },
+    doc: { t: 'Resumen de fichas de ingreso · cuadrilla 7', sub: 'Llenadas anoche en el bus · 18 personas' },
     lines: [
       { id: 'fecha', t: 'Fecha de ingreso de toda la cuadrilla: 1 del próximo mes, «para que cuadre con la quincena».', bad: LEY, why: 'La fecha de ingreso es el día en que empiezan a trabajar: hoy. El T-Registro no se acomoda a la quincena.' },
       { id: 'onp', t: 'Sistema de pensiones: «ONP» marcado por defecto en las 18 fichas, con la misma letra.', bad: LEY, why: 'Cada persona elige, con el Boletín Informativo en la mano, en 10 días calendario. Si no elige, va a una AFP, no a la ONP. Que alguien marque por todos no es una elección.' },
@@ -171,7 +171,7 @@ export const ESCENAS = [
   },
   {
     id: 'c4', t: '11:30', ch: 'llamada', who: null, titulo: 'Una fecha «limpia»', banner: 'assets/foto2/tension.webp', show: ['etica', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>Te llama Ricardo Benavides, gerente de Operaciones. Se oye el aire acondicionado de su oficina en Ica.</p><p>«${F.has('sin_alta') ? 'Los 60 que entraron el lunes sin alta' : 'Me dicen que un caporal metió a 12 personas el lunes, por la puerta de atrás, sin pasar por su mesa'}. Regístrelos <mark class="clave">con fecha de hoy</mark>. Si ponemos la fecha real, es una alta tardía y SUNAFIL nos multa. Nadie se va a enterar: el lunes fue medio día, casi inducción.»</p>`,
+    body: (n, F) => `<p>Te llama Ricardo Benavides, gerente de Operaciones. Se oye el aire acondicionado de su oficina en Ica.</p><p>«${F.has('sin_alta') ? 'Los 60 que Raúl mandó directo al surco esta mañana no han firmado contrato. Regístrelos <mark class="clave">con fecha de mañana</mark>, cuando pasen por su mesa' : 'Me dicen que un caporal metió a 12 personas ayer, por la puerta de atrás, sin pasar por su mesa. Regístrelos <mark class="clave">con fecha de hoy</mark>'}. Si ponemos la fecha real, queda a la vista que trabajaron sin pasar por la mesa y SUNAFIL nos multa. Nadie se va a enterar: es un solo día, casi inducción.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Registrar la fecha real, decirle a Ricardo por escrito por qué y proponerle que la regularización quede documentada.',
@@ -179,9 +179,9 @@ export const ESCENAS = [
           out: 'Ricardo se queda en silencio. «Usted sabe que esto me llega a mí», dice. Le respondes que también le llegaría una fecha falsa, y peor. A las 12:15 Mónica te escribe: «Bien. Yo hablo con él».',
           pro: { ok: 'Un registro tardío es una infracción; un registro falso es otra cosa. Y sin la fecha real, esas personas pierden días de aportes y de cobertura.', risk: 'Te expones con un gerente en tu primera semana.', info: 'Pon tu sustento por escrito y con copia a tu jefa: protege a la empresa y a ti.' },
           kusi: ['animo', 'Lo que cuenta es lo que pasó de verdad.'] } },
-      { id: 'b', label: 'Hacerle caso: el lunes fue medio día, la diferencia es mínima y no quieres pelearte con un gerente en tu primera semana.',
-        res: { q: 'riesgosa', fx: { etica: -7, cumplimiento: -5, confianza: 3 }, flags: ['fecha_maquillada'], cartera: { fecha: 'Registrados con fecha de hoy' },
-          out: 'Ricardo te agradece. En el sistema, esas personas empezaron hoy. En el reloj de marcación, en las fotos del grupo de WhatsApp de la cuadrilla y en la memoria de cada una, empezaron el lunes.',
+      { id: 'b', label: 'Hacerle caso: es un solo día de diferencia y no quieres pelearte con un gerente en tu primera semana.',
+        res: { q: 'riesgosa', fx: { etica: -7, cumplimiento: -5, confianza: 3 }, flags: ['fecha_maquillada'], cartera: { fecha: 'Registrados con una fecha posterior a la real' },
+          out: 'Ricardo te agradece. En el sistema, esas personas empezaron un día después. En el reloj de marcación, en las fotos del grupo de WhatsApp de la cuadrilla y en la memoria de cada una, empezaron antes.',
           pro: { ok: 'Evitas un conflicto hoy.', risk: 'Esas personas pierden días de aportes y de cobertura. Y el reloj, las jabas y los testigos cuentan otra historia.' },
           kusi: ['triste', 'El reloj sí sabe qué día entraron…'] } },
       { id: 'c', label: 'Registrar la fecha real sin decirle nada a Ricardo: es lo correcto y él no tiene por qué revisar el T-Registro.',
@@ -215,7 +215,7 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, tiempo: q === 'riesgosa' ? -4 : 3, cumplimiento: q === 'riesgosa' ? -2 : 3 },
         cartera: { altas: q === 'riesgosa' ? 'Carga rechazada · se repite mañana' : '186 altas cargadas · 13 por corregir' },
         out: q === 'buena' ? 'A las 14:52 el portal acepta 186 altas. Rechaza 13: fechas con formato de día y mes al revés. A las 15:20, cuando el portal empieza a tardar, ya terminaste.' : q === 'aceptable' ? 'La carga sale al segundo intento. Pierdes media hora, pero entra antes de las cuatro.' : 'Subes el archivo sin validar. SUNAT rechaza el lote entero y el portal se cuelga. Wendy te mira; tú miras el reloj.',
-        pro: { ok: 'Validar antes de subir es más rápido que corregir después.', risk: 'En la carga masiva, un error de formato no afecta a una persona: afecta a doscientas.', info: 'Guarda la plantilla validada: el jueves y el viernes llegan 140 y 180 más.' },
+        pro: { ok: 'Validar antes de subir es más rápido que corregir después.', risk: 'En la carga masiva, un error de formato no afecta a una persona: afecta a doscientas.', info: 'Guarda la plantilla validada: mañana y el jueves llegan 140 y 180 más.' },
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Doscientas personas existen en el sistema!' : 'El orden importaba, como dijo Mónica.'],
       };
     },
@@ -268,7 +268,7 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'c7', t: '18:00', ch: 'correo', who: null, titulo: 'El reporte del miércoles', banner: 'assets/esc/escritorio.webp', show: ['confianza', 'calidad', 'tiempo'],
+    id: 'c7', t: '18:00', ch: 'correo', who: null, titulo: 'El reporte del martes', banner: 'assets/esc/escritorio.webp', show: ['confianza', 'calidad', 'tiempo'],
     body: () => `<p>El último bus sale a las 18:30 y tú tienes los pies llenos de tierra. Mónica necesita un reporte corto para decidir cómo va la mesa mañana con 140 personas más.</p><p>Arma el correo con lo que <mark class="clave">sirve para decidir</mark>, no con todo lo que hiciste.</p>`,
     type: 'builder', prompt: 'Elige las piezas de cada bloque del reporte.', boton: 'Enviar a Mónica',
     bloques: [

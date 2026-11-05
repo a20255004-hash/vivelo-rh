@@ -1,5 +1,5 @@
-// Analista de Capacitación y Desarrollo · Capítulo 2 · «¿Qué les falta?» · Semana 1, miércoles.
-// Hilo del mes: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
+// Analista de Capacitación y Desarrollo · Capítulo 2 · «¿Qué les falta?» · Semana 1, martes.
+// Hilo de las dos semanas: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
 // Normas citadas:
 // - Ley 29571, Código de Protección y Defensa del Consumidor, arts. 61 y 62 (métodos abusivos de cobranza:
 //   gestiones con personas ajenas a la deuda; llamadas o visitas entre las 20:00 y las 07:00).
@@ -8,14 +8,14 @@
 // - Ley 29783 (ya citada en el capítulo 1): capacitación de SST dentro de la jornada.
 
 export const CAP = {
-  n: 2, titulo: '¿Qué les falta?', dia: 'Semana 1, miércoles', foto: 'assets/foto/supervisa.webp',
+  n: 2, titulo: '¿Qué les falta?', dia: 'Semana 1, martes', foto: 'assets/foto/supervisa.webp',
   lugar: 'Financiera Chimú · Agencia El Porvenir',
   inicio: '07:30', fin: '19:00', cierreHora: '18:45',
   apertura: 'El Porvenir, Trujillo. La agencia abre a las 8:30, pero el comité de mora empieza a las 8:00.', boton: 'Subir a la combi',
   kusi: 'Hoy no hay escritorio: hoy se aprende en la calle. ¡Dale!',
   lead: 'Escuchaste el comité de mora, oíste cobrar a un asesor nuevo, saliste a campo con Sandra y te enteraste de algo que ningún curso arregla.',
   reflexion: '¿Qué parte de la mora se resuelve aprendiendo, y qué parte no?',
-  siguiente: { n: 3, titulo: 'El proveedor', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'El proveedor', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -36,7 +36,7 @@ export const FUTURO = {
   presion_callada: ['Dejaste fuera del diagnóstico la presión por inflar ventas.', 'Los números del capítulo 8 no dirán lo que esperas.'],
   diagnostico_solido: ['Tu diagnóstico separa lo que se aprende de lo que no.', 'Con él compararás la propuesta de Ronald. Capítulo 3.'],
   diagnostico_cursos: ['Tu diagnóstico terminó siendo una lista de cursos.', 'Ronald encontrará dónde encajar su programa. Capítulo 3.'],
-  victor_jueves: ['Víctor confirmó el taller piloto para el jueves de la semana 2.', 'Capítulo 5.'],
+  victor_jueves: ['Víctor confirmó el taller piloto para este viernes.', 'Capítulo 5.'],
 };
 
 export const CHATS = {
@@ -53,7 +53,7 @@ export const WSP = [
   { chat: 'sandra', t: '07:35', de: 'Sandra', txt: 'Lo del curso de anoche… 10 horas, a las 9 p. m. Kevin se quedó dormido con la laptop y Milagros lo puso en silencio mientras bañaba a su hija. Nadie aprendió nada, solo dieron clic 😔', si: 'victor_noche' },
   { chat: 'sandra', t: '07:40', de: 'Sandra', txt: 'Hoy me presto a El Porvenir para acompañar a una nueva en campo. Así ves cómo es de verdad 🛵', si: 'sandra_escuchada' },
   { chat: 'ronald', t: '09:05', de: 'Ronald', txt: 'Buen día 👋 ¿Pudiste revisar el contrato? Necesitamos la firma para reservar al coach.', si: 'ronald_firmado' },
-  { chat: 'ronald', t: '09:05', de: 'Ronald', txt: 'Buen día 👋 Avanzando con la versión con indicadores. El viernes la tienes 📊', si: 'ronald_pausa' },
+  { chat: 'ronald', t: '09:05', de: 'Ronald', txt: 'Buen día 👋 Avanzando con la versión con indicadores. Mañana la tienes 📊', si: 'ronald_pausa' },
   { chat: 'grupo', t: '12:50', de: 'Lorena', txt: '¿Cómo va la calle? Come algo, que en El Porvenir el menú se acaba temprano 🍲' },
   { chat: 'lorena', t: '14:40', de: 'Lorena', txt: 'Gracias por contarme. Sin nombres, lo llevo a Riesgos esta semana. Bien hecho 🙏', si: 'presion_reportada' },
   { chat: 'nando', t: '15:10', de: 'Nando', txt: 'Ya sé quién le fue con el cuento. Aquí todos trabajamos por la meta, no venga a dividir a mi equipo.', si: 'presion_confrontada' },
@@ -61,7 +61,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '07:15', de: 'Lorena Villanueva', para: 'Analista de Capacitación y Desarrollo', asunto: 'Tu visita a El Porvenir', html: '<p>Hoy te toca El Porvenir: es la agencia con más asesores nuevos y la peor mora de los últimos tres meses. Nando, el administrador, es buena gente, pero vive con la meta en la nuca.</p><p>No vayas a «evaluar» a nadie. Ve a <b>entender qué les falta</b>. Para el viernes necesito un diagnóstico de una hoja.</p><p>Lorena</p>' },
+  { t: '07:15', de: 'Lorena Villanueva', para: 'Analista de Capacitación y Desarrollo', asunto: 'Tu visita a El Porvenir', html: '<p>Hoy te toca El Porvenir: es la agencia con más asesores nuevos y la peor mora de los últimos tres meses. Nando, el administrador, es buena gente, pero vive con la meta en la nuca.</p><p>No vayas a «evaluar» a nadie. Ve a <b>entender qué les falta</b>. Para mañana necesito un diagnóstico de una hoja.</p><p>Lorena</p>' },
   { t: '11:05', de: 'Víctor Alvarado', para: 'Analista de Capacitación y Desarrollo', asunto: 'Metas de colocación · semana 1', html: '<p>Equipo: recordarles que la meta de los asesores nuevos sigue en 30 créditos el primer mes. La agencia que no llegue, no cobra bono de equipo.</p><p>Víctor Alvarado · Gerente regional</p>' },
 ];
 
@@ -78,7 +78,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'q1', t: '07:30', ch: 'whatsapp', who: null, titulo: 'La combi a El Porvenir', banner: 'assets/foto2/caminan.webp', lugar: 'Av. España, paradero a El Porvenir', show: ['tiempo', 'personas'],
-    body: (n, F) => `<p>Subes a la combi en la avenida España. El cobrador grita «¡Porvenir, Porvenir, Alto Trujillo!» y te toca ir parada, con la mochila adelante. Afuera, el sol de Trujillo todavía no calienta.${F.has('datos_mora') ? ' En tu celular llevas el cruce del lunes: la mora nueva se concentra en los asesores de menos de seis meses, y El Porvenir tiene once.' : ' Lorena te mandó aquí porque es la agencia con peor mora; tú todavía no sabes por qué.'}</p><p>${F.has('victor_noche') ? 'Sandra te acaba de contar cómo les fue con el curso de anoche. ' : ''}Nando te escribe: el comité de mora empieza a las 8. <mark class="clave">¿Cómo quieres llegar a esa sala?</mark></p>`,
+    body: (n, F) => `<p>Subes a la combi en la avenida España. El cobrador grita «¡Porvenir, Porvenir, Alto Trujillo!» y te toca ir parada, con la mochila adelante. Afuera, el sol de Trujillo todavía no calienta.${F.has('datos_mora') ? ' En tu celular llevas el cruce de ayer: la mora nueva se concentra en los asesores de menos de seis meses, y El Porvenir tiene once.' : ' Lorena te mandó aquí porque es la agencia con peor mora; tú todavía no sabes por qué.'}</p><p>${F.has('victor_noche') ? 'Sandra te acaba de contar cómo les fue con el curso de anoche. ' : ''}Nando te escribe: el comité de mora empieza a las 8. <mark class="clave">¿Cómo quieres llegar a esa sala?</mark></p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Llegar a escuchar: presentarte en una frase y sentarte atrás con tu libreta.',
@@ -224,8 +224,8 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 6 : q === 'aceptable' ? 2 : -3, confianza: q === 'buena' ? 3 : 0 }, rel: { lorena: q === 'buena' ? 1 : 0 },
         flags: [q === 'riesgosa' ? 'diagnostico_cursos' : 'diagnostico_solido'],
         cartera: { diagnostico: q === 'riesgosa' ? 'Una lista de cursos' : 'Una hoja: 2 brechas que se aprenden, 1 que no' },
-        out: q === 'buena' ? 'Lorena responde en diez minutos: «Esto es un diagnóstico. Y la última columna es la que nos va a salvar en el comité».' : q === 'aceptable' ? 'Lorena responde: «Bien encaminado. Pero sé más clara en qué NO vamos a resolver con capacitación».' : 'Lorena responde: «Esto parece un catálogo. ¿Qué viste hoy que no supieras el lunes?».',
-        pro: { ok: 'Un buen diagnóstico dice qué se aprende y qué no: así nadie le pide a un taller lo que no puede dar.', risk: 'Si prometes que la capacitación lo resuelve todo, cualquier resultado será un fracaso.', info: 'Guarda esta hoja: con ella vas a juzgar la propuesta del proveedor el viernes.' },
+        out: q === 'buena' ? 'Lorena responde en diez minutos: «Esto es un diagnóstico. Y la última columna es la que nos va a salvar en el comité».' : q === 'aceptable' ? 'Lorena responde: «Bien encaminado. Pero sé más clara en qué NO vamos a resolver con capacitación».' : 'Lorena responde: «Esto parece un catálogo. ¿Qué viste hoy que no supieras ayer?».',
+        pro: { ok: 'Un buen diagnóstico dice qué se aprende y qué no: así nadie le pide a un taller lo que no puede dar.', risk: 'Si prometes que la capacitación lo resuelve todo, cualquier resultado será un fracaso.', info: 'Guarda esta hoja: con ella vas a juzgar la propuesta del proveedor mañana.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Una hoja que vale oro!' : '¿Qué viste hoy de verdad?'],
       };
     },
@@ -237,7 +237,7 @@ export const ESCENAS = [
   },
   {
     id: 'q7', t: '17:40', ch: 'whatsapp', who: null, titulo: 'Fijar la fecha con Víctor', banner: 'assets/foto2/tablet-equipo.webp', lugar: 'Combi de regreso al centro', show: ['confianza', 'personas', 'tiempo'],
-    body: (n, F) => `<p>De regreso, la combi va llena de escolares y huele a salchipapa. Tienes el diagnóstico listo y te falta lo más difícil: la fecha del taller.${F.has('victor_aliado') ? ' Víctor dijo el lunes: «un jueves, no un lunes».' : F.has('victor_noche') ? ' Víctor cree que el curso de noche ya resolvió todo.' : ' Víctor todavía no te ha dado ni una hora.'}</p><p><mark class="clave">Un mensaje corto, con un dato que a él le importe</mark>.</p>`,
+    body: (n, F) => `<p>De regreso, la combi va llena de escolares y huele a salchipapa. Tienes el diagnóstico listo y te falta lo más difícil: la fecha del taller.${F.has('victor_aliado') ? ' Víctor dijo ayer: «este viernes, no un lunes».' : F.has('victor_noche') ? ' Víctor cree que el curso de noche ya resolvió todo.' : ' Víctor todavía no te ha dado ni una hora.'}</p><p><mark class="clave">Un mensaje corto, con un dato que a él le importe</mark>.</p>`,
     type: 'compose', enviaA: 'victor', para: 'Para: Víctor Alvarado · Gerente regional', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
@@ -246,11 +246,11 @@ export const ESCENAS = [
         { id: 'd2', t: 'Víctor, hoy confirmé que tus asesores necesitan mucha capacitación.', ok: false, por: 'Suena a crítica y no dice nada concreto.' },
       ] },
       { id: 'pedido', t: 'Lo que pides', ops: [
-        { id: 'p1', t: 'Te propongo el taller de 90 minutos el jueves de la próxima semana, de 8:00 a 9:30, antes de que salgan a campo, solo con los 11 nuevos de El Porvenir.', ok: true, por: 'Día, hora, duración y grupo: fácil de decir que sí.' },
+        { id: 'p1', t: 'Te propongo el taller de 90 minutos este viernes, de 8:00 a 9:30, antes de que salgan a campo, solo con los 11 nuevos de El Porvenir.', ok: true, por: 'Día, hora, duración y grupo: fácil de decir que sí.' },
         { id: 'p2', t: 'Necesito que liberes a los asesores un día completo para capacitarlos.', ok: false, por: 'Le pides lo que más le duele, sin acotar.' },
       ] },
       { id: 'mide', t: 'Cómo lo medirás', ops: [
-        { id: 'm1', t: 'En un mes comparamos su mora con la de los nuevos de otras agencias. Si no baja, no te vuelvo a pedir horas.', ok: true, por: 'Usas su propia condición del lunes.' },
+        { id: 'm1', t: 'En un mes comparamos su mora con la de los nuevos de otras agencias. Si no baja, no te vuelvo a pedir horas.', ok: true, por: 'Usas su propia condición de ayer.' },
         { id: 'm2', t: 'Al final les hacemos una encuesta para ver si les gustó.', ok: false, por: 'A Víctor no le importa si les gustó.' },
       ] },
     ],
@@ -259,8 +259,8 @@ export const ESCENAS = [
       const q = buenas === 3 ? 'buena' : buenas === 2 ? 'aceptable' : 'riesgosa';
       return {
         q, fx: { confianza: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, personas: q === 'buena' ? 2 : 0 }, rel: { victor: q === 'buena' ? 1 : q === 'riesgosa' ? -1 : 0 },
-        flags: q === 'riesgosa' ? [] : ['victor_jueves'], cartera: { piloto: q === 'riesgosa' ? 'Sin fecha' : 'Jueves de la semana 2, 8:00 a 9:30' },
-        out: q === 'buena' ? 'Víctor responde con un audio de 12 segundos: «Ya. Jueves a las 8. Once asesores. Y en un mes me muestras la mora». Clic. Tienes fecha.' : q === 'aceptable' ? 'Víctor responde: «Jueves, pero máximo una hora y media. Y quiero ver números». Tienes fecha, con condiciones.' : 'Víctor deja el mensaje en visto. Mañana tendrás que llamarlo.',
+        flags: q === 'riesgosa' ? [] : ['victor_jueves'], cartera: { piloto: q === 'riesgosa' ? 'Sin fecha' : 'Este viernes, 8:00 a 9:30' },
+        out: q === 'buena' ? 'Víctor responde con un audio de 12 segundos: «Ya. Viernes a las 8. Once asesores. Y en un mes me muestras la mora». Clic. Tienes fecha.' : q === 'aceptable' ? 'Víctor responde: «Viernes, pero máximo una hora y media. Y quiero ver números». Tienes fecha, con condiciones.' : 'Víctor deja el mensaje en visto. Mañana tendrás que llamarlo.',
         pro: { ok: 'Con un jefe comercial, un dato de su indicador y un pedido acotado valen más que diez argumentos.', risk: 'Un pedido grande y sin medición es fácil de rechazar.', info: 'Confírmalo por correo, con copia a Nando, para que la agencia lo programe.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Fecha confirmada! Qué bacán.' : 'Pide poco, concreto y medible.'],
       };
@@ -268,7 +268,7 @@ export const ESCENAS = [
     rules: [[BP, 'Pide horas de capacitación en el idioma del jefe: su indicador, un tiempo acotado y una forma de medir.']],
     mirada: {
       ve: 'Conseguir que un gerente libere a su gente es parte del trabajo de capacitación, no un trámite. Un pedido pequeño, con fecha y con una promesa medible, convierte el taller en una apuesta compartida.',
-      visual: { tipo: 'mensaje', titulo: 'Un pedido fácil de aceptar', txt: 'Los nuevos aprueban sin verificar ventas y cobran sin cerrar acuerdos. Taller de 90 minutos, jueves de 8:00 a 9:30, 11 asesores. En un mes comparamos su mora.' },
+      visual: { tipo: 'mensaje', titulo: 'Un pedido fácil de aceptar', txt: 'Los nuevos aprueban sin verificar ventas y cobran sin cerrar acuerdos. Taller de 90 minutos, este viernes de 8:00 a 9:30, 11 asesores. En un mes comparamos su mora.' },
     },
   },
 ];

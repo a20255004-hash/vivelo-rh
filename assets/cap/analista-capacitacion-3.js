@@ -1,5 +1,5 @@
-// Analista de Capacitación y Desarrollo · Capítulo 3 · «El proveedor» · Semana 1, viernes.
-// Hilo del mes: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
+// Analista de Capacitación y Desarrollo · Capítulo 3 · «El proveedor» · Semana 1, miércoles.
+// Hilo de las dos semanas: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
 // Normas citadas:
 // - Reglamento de la Ley 29783 (D.S. 005-2012-TR), art. 28: la capacitación en SST, en cualquiera de sus
 //   modalidades, se realiza dentro de la jornada de trabajo; puede impartirla el empleador o un tercero.
@@ -9,14 +9,14 @@
 // La política de compras (tres cotizaciones) y el código de ética de Chimú son ficticios (internos).
 
 export const CAP = {
-  n: 3, titulo: 'El proveedor', dia: 'Semana 1, viernes', foto: 'assets/foto2/presentacion.webp',
+  n: 3, titulo: 'El proveedor', dia: 'Semana 1, miércoles', foto: 'assets/foto2/presentacion.webp',
   lugar: 'Financiera Chimú · Sede central de Trujillo',
   inicio: '08:00', fin: '18:30', cierreHora: '18:15',
-  apertura: 'Viernes en la sede. Hoy llega la propuesta de Ronald y tienes que decidir con qué criterio se elige a un proveedor.', boton: 'Abrir el correo',
+  apertura: 'Miércoles en la sede. Hoy llega la propuesta de Ronald y tienes que decidir con qué criterio se elige a un proveedor.', boton: 'Abrir el correo',
   kusi: 'Lo bonito no siempre es lo útil. ¡Hoy toca comparar con lupa!',
   lead: 'Leíste la propuesta contra tu diagnóstico, llamaste a las referencias, armaste una matriz de evaluación y decidiste qué hacer con un regalo y un paquete de SST.',
   reflexion: '¿Qué te hizo dudar más hoy: el precio, el encanto o las referencias?',
-  siguiente: { n: 4, titulo: 'El recorte', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'El recorte', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
@@ -56,16 +56,16 @@ export const WSP = [
   { chat: 'ronald', t: '07:55', de: 'Ronald', txt: 'Buenos días ☀️ Te mandé la propuesta actualizada. ¿Café a las 9:30 frente a la Plaza?', no: 'ronald_pausa' },
   { chat: 'kevin', t: '10:20', de: 'Kevin', txt: 'Buenos días, señorita. Ayer cerré un acuerdo con la señora Rosa: S/ 150 el sábado y el resto el 15. Le pregunté cuánto podía, como usted dijo 🙌', si: 'kevin_confia' },
   { chat: 'kevin', t: '10:20', de: 'Kevin', txt: 'Señorita, disculpe. Don Julio se quejó porque lo llamé de noche, dice que va a ir a Indecopi 😟 ¿Eso es grave?', si: 'kevin_llamo_noche' },
-  { chat: 'grupo', t: '13:05', de: 'Lorena', txt: 'Recuerda que el lunes Finanzas revisa presupuestos. Lo que decidas hoy, que tenga sustento 📎' },
+  { chat: 'grupo', t: '13:05', de: 'Lorena', txt: 'Recuerda que mañana Finanzas revisa presupuestos. Lo que decidas hoy, que tenga sustento 📎' },
   { chat: 'lorena', t: '13:40', de: 'Lorena', txt: 'Gracias por contarme lo del diplomado. Hiciste bien. Ronald es buen tipo, pero así no 🙏', si: 'regalo_rechazado' },
-  { chat: 'victor', t: '16:00', de: 'Víctor', txt: 'Jueves 8 a. m., El Porvenir. Confirmado con Nando. No me falles.', si: 'victor_jueves' },
+  { chat: 'victor', t: '16:00', de: 'Víctor', txt: 'Viernes 8 a. m., El Porvenir. Confirmado con Nando. No me falles.', si: 'victor_jueves' },
   { chat: 'sandra', t: '17:20', de: 'Sandra', txt: 'Ya, me animo 😅 Pero que no me hagan hablar con micrófono, por favor.', si: 'sandra_facilitadora' },
 ];
 
 export const CORREOS = [
   { t: '07:50', de: 'Ronald Mejía · Capacita Pro', para: 'Analista de Capacitación y Desarrollo', asunto: '«Liderazgo 360 · Resultados» · propuesta actualizada', html: '<p>Estimada: adjunto la versión con indicadores. Mantenemos el precio con descuento si cerramos este mes. Incluimos de regalo un paquete de cuatro charlas de SST virtuales, grabadas, con certificado.</p><p>Ronald Mejía</p>' },
   { t: '08:40', de: 'CEFIN Norte · Coordinación académica', para: 'Analista de Capacitación y Desarrollo', asunto: 'Cotización · curso «Evaluar y cobrar en microfinanzas»', html: '<p>Buenos días. Según lo conversado con Lorena: curso de 12 horas en tres módulos, dictado por ex asesores de microfinanzas, con casos de su cartera y prueba de entrada y salida. Hasta 60 participantes: S/ 12,000 + IGV. Pago en dos partes.</p><p>Coordinación académica</p>' },
-  { t: '15:15', de: 'Finanzas · Chimú', para: 'Jefaturas', asunto: 'Revisión de presupuestos 2027 · lunes', html: '<p>Recordamos que el lunes se revisan los presupuestos de todas las áreas. Se pide sustentar cada partida con objetivos y costo por persona.</p><p>Gerencia de Finanzas</p>' },
+  { t: '15:15', de: 'Finanzas · Chimú', para: 'Jefaturas', asunto: 'Revisión de presupuestos 2027 · jueves', html: '<p>Recordamos que mañana jueves se revisan los presupuestos de todas las áreas. Se pide sustentar cada partida con objetivos y costo por persona.</p><p>Gerencia de Finanzas</p>' },
 ];
 
 export const QUIZ = [
@@ -90,7 +90,7 @@ export const ESCENAS = [
       { id: 'indicador', t: 'Indicador de éxito: satisfacción mayor a 90 % y Net Promoter Score.', bad: BP, why: 'Mide si gustó, otra vez. No mide aprendizaje ni aplicación.' },
       { id: 'sst', t: 'Regalo: cuatro charlas de SST grabadas, para que cada trabajador las vea cuando quiera.', bad: LEY, why: 'El reglamento de la Ley 29783 (art. 28) exige que la capacitación de SST se haga dentro de la jornada, en cualquier modalidad.' },
       { id: 'pago', t: 'Forma de pago: 100 % adelantado para reservar al coach.', bad: BP, why: 'Si pagas todo antes, no tienes cómo exigir lo que prometieron.' },
-      { id: 'coach', t: 'Coaching individual de seguimiento para cada participante, dos sesiones.', duda: 'Puede ser útil para gerentes, pero no es la necesidad urgente de este mes.' },
+      { id: 'coach', t: 'Coaching individual de seguimiento para cada participante, dos sesiones.', duda: 'Puede ser útil para gerentes, pero no es la necesidad urgente de estas semanas.' },
       { id: 'casos', t: 'Uso de casos reales del sector financiero.' },
     ],
     res: ({ missLey, hitsBp }) => ({
@@ -165,7 +165,7 @@ export const ESCENAS = [
   },
   {
     id: 'r4', t: '12:30', ch: 'documento', who: null, titulo: 'La matriz de evaluación', banner: 'assets/esc/planilla.webp', lugar: 'Tu escritorio, con un sánguche de chicharrón', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Almuerzas en el escritorio un sánguche de chicharrón con camote que compraste en la esquina. En el Excel, la pestaña se llama «Hoja3 (2)»; la renombras «Matriz proveedores».${F.has('diagnostico_cursos') ? ' Tu diagnóstico del miércoles quedó flojo; tendrás que apoyarte en lo que viste hoy.' : ''}</p><p>Lorena la llevará el lunes a Finanzas. <mark class="clave">Cada fila tiene que sostenerse sola</mark>.</p>`,
+    body: (n, F) => `<p>Almuerzas en el escritorio un sánguche de chicharrón con camote que compraste en la esquina. En el Excel, la pestaña se llama «Hoja3 (2)»; la renombras «Matriz proveedores».${F.has('diagnostico_cursos') ? ' Tu diagnóstico de ayer quedó flojo; tendrás que apoyarte en lo que viste hoy.' : ''}</p><p>Lorena la llevará mañana a Finanzas. <mark class="clave">Cada fila tiene que sostenerse sola</mark>.</p>`,
     type: 'builder', prompt: 'Elige las piezas de cada bloque de la matriz.', boton: 'Guardar la matriz',
     bloques: [
       { id: 'criterios', t: 'Criterios de evaluación', n: 3, ops: [
@@ -235,7 +235,7 @@ export const ESCENAS = [
   },
   {
     id: 'r6', t: '16:20', ch: 'presencial', who: 'sandra', titulo: 'Pedirle a Sandra', banner: 'assets/foto2/mesa-mujeres.webp', lugar: 'Videollamada con la agencia de La Esperanza', show: ['personas', 'confianza', 'calidad'],
-    body: (n, F) => `<p>Sandra contesta desde la agencia, con un vaso de chicha morada y su cuaderno de cobranza abierto. Mientras conectas, un asesor de la sede te interrumpe: necesita una constancia de capacitación «para ayer», para postular a una beca. Le dices que a las cinco.</p><p>Quieres que Sandra sea facilitadora del taller del jueves${F.has('victor_jueves') ? ', que ya tiene fecha' : ''}. <mark class="clave">Antes de pedirle nada, quieres entender qué le preocupa</mark>.</p>`,
+    body: (n, F) => `<p>Sandra contesta desde la agencia, con un vaso de chicha morada y su cuaderno de cobranza abierto. Mientras conectas, un asesor de la sede te interrumpe: necesita una constancia de capacitación «para ayer», para postular a una beca. Le dices que a las cinco.</p><p>Quieres que Sandra sea facilitadora del taller del viernes${F.has('victor_jueves') ? ', que ya tiene fecha' : ''}. <mark class="clave">Antes de pedirle nada, quieres entender qué le preocupa</mark>.</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Sandra.',
     opts: [
       { id: 'meta', label: '¿Qué te preocupa de dejar la calle unas horas?', info: '«La meta, pues. Si me salgo tres horas, son tres visitas menos. Y si no llego, no hay bono, y el bono es casi la mitad de lo que gano.»' },

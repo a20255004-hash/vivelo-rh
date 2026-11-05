@@ -1,5 +1,5 @@
-// Analista de Capacitación y Desarrollo · Capítulo 4 · «El recorte» · Semana 2, martes.
-// Hilo del mes: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
+// Analista de Capacitación y Desarrollo · Capítulo 4 · «El recorte» · Semana 1, jueves.
+// Hilo de las dos semanas: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
 // Normas citadas:
 // - Ley 29783, art. 35 b): no menos de cuatro capacitaciones de SST al año (capítulo 1).
 //   Reglamento D.S. 005-2012-TR, art. 28: dentro de la jornada (capítulo 3).
@@ -13,21 +13,21 @@
 // Montos del presupuesto y políticas internas de Chimú: ficticios.
 
 export const CAP = {
-  n: 4, titulo: 'El recorte', dia: 'Semana 2, martes', foto: 'assets/esc/planilla.webp',
+  n: 4, titulo: 'El recorte', dia: 'Semana 1, jueves', foto: 'assets/esc/planilla.webp',
   lugar: 'Financiera Chimú · Sede central de Trujillo',
   inicio: '08:00', fin: '19:00', cierreHora: '18:40',
-  apertura: 'Martes, sede central. Un correo de Finanzas llegó a las 7:52 con copia a la gerencia general.', boton: 'Abrir el correo',
+  apertura: 'Jueves, sede central. Un correo de Finanzas llegó a las 7:52 con copia a la gerencia general.', boton: 'Abrir el correo',
   kusi: 'Con la mitad de plata se piensa el doble. ¡Vamos a priorizar!',
-  lead: 'Respondiste a Finanzas, decidiste qué se queda con la mitad del presupuesto, discutiste una promesa peligrosa, corregiste un guion de cobranza y pediste ajustar la meta del jueves.',
+  lead: 'Respondiste a Finanzas, decidiste qué se queda con la mitad del presupuesto, discutiste una promesa peligrosa, corregiste un guion de cobranza y pediste ajustar la meta de mañana.',
   reflexion: '¿Qué defendiste hoy aunque te costara presupuesto?',
-  siguiente: { n: 5, titulo: 'El taller', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'El taller', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
   { id: 'presupuesto', p: 'Presupuesto de capacitación', j: 'Mario · Finanzas', d: 0, e: 'De S/ 110,000 a S/ 55,000' },
   { id: 'obligatorias', p: 'SST y prevención de lavado de activos', j: 'Lorena · Desarrollo', d: 0, e: 'Sin presupuesto asignado' },
   { id: 'guion', p: 'Guion de cobranza de la inducción', j: 'Legal · Chimú', d: 0, e: 'Versión 2019' },
-  { id: 'piloto', p: 'Taller piloto del jueves', j: 'Víctor · Negocios', d: 0, e: 'El Porvenir, 8:00' },
+  { id: 'piloto', p: 'Taller piloto del viernes', j: 'Víctor · Negocios', d: 0, e: 'El Porvenir, 8:00' },
   { id: 'plan', p: 'Plan priorizado', j: 'Lorena · Desarrollo', d: 0, e: 'Para el comité' },
 ];
 
@@ -38,8 +38,8 @@ export const FUTURO = {
   tramos: ['Acordaste con Finanzas liberar fondos por tramos, según los resultados del piloto.', 'El primer tramo depende del capítulo 8.'],
   guion_corregido: ['Corregiste el guion de cobranza de la inducción y Legal lo aprobó.', 'Lo usarás en tu taller. Capítulo 5.'],
   guion_viejo: ['El guion de cobranza quedó con métodos que la ley prohíbe.', 'Aparecerá en tu taller. Capítulo 5.'],
-  meta_ajustada: ['Víctor ajustó la meta del jueves para quienes van al taller.', 'Los asesores llegarán sin mirar el reloj. Capítulo 5.'],
-  meta_intacta: ['La meta del jueves quedó igual.', 'Los asesores llegarán apurados al taller. Capítulo 5.'],
+  meta_ajustada: ['Víctor ajustó la meta del viernes para quienes van al taller.', 'Los asesores llegarán sin mirar el reloj. Capítulo 5.'],
+  meta_intacta: ['La meta del viernes quedó igual.', 'Los asesores llegarán apurados al taller. Capítulo 5.'],
   plan_priorizado: ['Lorena llevará al comité un plan priorizado que empieza por la ley y sigue con el piloto.', 'Capítulo 9.'],
 };
 
@@ -59,10 +59,10 @@ export const WSP = [
   { chat: 'ronald', t: '09:40', de: 'Ronald', txt: 'Me enteré del recorte 😕 Si quieren, partimos el programa en dos años. Igual el descuento lo mantengo.', si: 'ronald_firmado' },
   { chat: 'ronald', t: '09:40', de: 'Ronald', txt: 'Me enteré del recorte 😕 Ánimo. Cuando quieran ver lo de gerentes, aquí estoy.', si: 'ronald_puerta' },
   { chat: 'kevin', t: '11:30', de: 'Kevin', txt: 'Señorita, me llamó Legal por lo de don Julio 😰 Les dije que el guion de la inducción decía que llamáramos cuando el cliente está en casa.', si: 'kevin_llamo_noche' },
-  { chat: 'kevin', t: '11:30', de: 'Kevin', txt: 'Señorita, una consulta para el jueves: ¿podemos ver cómo se hace un acuerdo de pago por escrito? Lo de la señora Rosa me funcionó 🙏', si: 'kevin_confia' },
-  { chat: 'sandra', t: '13:20', de: 'Sandra', txt: 'Estoy armando mis casos para el jueves. ¿Lo de mi meta ya lo vieron? 😬' },
-  { chat: 'victor', t: '15:05', de: 'Víctor', txt: 'Ok. El jueves la meta de esos 11 y de Sandra baja en proporción a las horas del taller. Una sola vez.', si: 'meta_ajustada' },
-  { chat: 'lorena', t: '18:30', de: 'Lorena', txt: 'Hoy defendiste el área mejor que yo hace un año. Descansa, que el jueves es tu día 💪', si: 'plan_priorizado' },
+  { chat: 'kevin', t: '11:30', de: 'Kevin', txt: 'Señorita, una consulta para mañana: ¿podemos ver cómo se hace un acuerdo de pago por escrito? Lo de la señora Rosa me funcionó 🙏', si: 'kevin_confia' },
+  { chat: 'sandra', t: '13:20', de: 'Sandra', txt: 'Estoy armando mis casos para mañana. ¿Lo de mi meta ya lo vieron? 😬' },
+  { chat: 'victor', t: '15:05', de: 'Víctor', txt: 'Ok. Mañana la meta de esos 11 y de Sandra baja en proporción a las horas del taller. Una sola vez.', si: 'meta_ajustada' },
+  { chat: 'lorena', t: '18:30', de: 'Lorena', txt: 'Hoy defendiste el área mejor que yo hace un año. Descansa, que mañana es tu día 💪', si: 'plan_priorizado' },
 ];
 
 export const CORREOS = [
@@ -109,7 +109,7 @@ export const ESCENAS = [
   },
   {
     id: 's2', t: '09:00', ch: 'sistema', who: null, titulo: 'Qué se queda', banner: 'assets/3d/scenes/balanza.webp', lugar: 'Excel «Presupuesto_DES_2027_v4.xlsx»', show: ['cumplimiento', 'calidad', 'tiempo'],
-    body: (n, F) => `<p>Abres el Excel compartido. La pestaña de partidas se llama «NO TOCAR» y alguien la tocó: hay fórmulas rotas en la columna de totales. Las arreglas a mano.</p><p>Con S/ 55,000 solo entran <mark class="clave">cuatro partidas</mark>. ${F.has('proveedor_mixto') ? 'Tu matriz del viernes ya tiene los costos por participante.' : 'Tendrás que calcular los costos por participante sobre la marcha.'}</p>`,
+    body: (n, F) => `<p>Abres el Excel compartido. La pestaña de partidas se llama «NO TOCAR» y alguien la tocó: hay fórmulas rotas en la columna de totales. Las arreglas a mano.</p><p>Con S/ 55,000 solo entran <mark class="clave">cuatro partidas</mark>. ${F.has('proveedor_mixto') ? 'Tu matriz de ayer ya tiene los costos por participante.' : 'Tendrás que calcular los costos por participante sobre la marcha.'}</p>`,
     type: 'pick', n: 4, prompt: 'Elige las cuatro partidas que se quedan en el presupuesto.', boton: 'Guardar las cuatro partidas', resumen: 'Se quedan',
     cols: ['Partida', 'Costo', 'Por qué está'],
     rows: [
@@ -185,7 +185,7 @@ export const ESCENAS = [
       out: missLey ? 'Devuelves el guion con varios cambios, pero se te pasó una indicación prohibida. Legal la marca en rojo y te lo devuelve.' : 'Devuelves el guion con tres indicaciones tachadas por ilegales y una reescrita. Legal responde: «Esto nos sirve para el reclamo y para que no se repita».',
       flags: [missLey ? 'guion_viejo' : 'guion_corregido'],
       cartera: { guion: missLey ? 'Corregido a medias' : 'Corregido y aprobado por Legal' },
-      pro: { ok: 'Corregir el material es corregir la causa: el asesor repetía lo que le enseñaron.', risk: 'Un material de capacitación con errores multiplica el error en cada grupo nuevo.', info: 'Usa el guion corregido como base de la práctica del jueves.' },
+      pro: { ok: 'Corregir el material es corregir la causa: el asesor repetía lo que le enseñaron.', risk: 'Un material de capacitación con errores multiplica el error en cada grupo nuevo.', info: 'Usa el guion corregido como base de la práctica de mañana.' },
       kusi: missLey ? ['preocupado', 'Se quedó algo que la ley prohíbe…'] : ['celebra', '¡Guion limpio! Ahora a enseñarlo.'],
     }),
     rules: [[LEY, 'Ley 29571, art. 62: son métodos abusivos las gestiones con personas ajenas a la deuda, las llamadas o visitas entre las 20:00 y las 07:00 y los documentos que aparenten ser notificaciones judiciales.']],
@@ -196,13 +196,13 @@ export const ESCENAS = [
     },
   },
   {
-    id: 's5', t: '14:10', ch: 'whatsapp', who: null, titulo: 'La meta del jueves', banner: 'assets/foto2/pasillo.webp', lugar: 'Pasillo de la sede, con un plátano de almuerzo', show: ['personas', 'confianza', 'tiempo'],
-    body: (n, F) => `<p>El almuerzo se redujo a un plátano en el pasillo: la reunión con Mario se alargó y Legal te esperaba. Sandra te pregunta otra vez por su meta.${F.has('sandra_dudosa') ? ' El viernes no supiste qué decirle.' : ''}</p><p>Si el jueves los asesores pierden tres horas de calle y la meta sigue igual, <mark class="clave">van a estar en el taller mirando el reloj</mark>.</p>`,
+    id: 's5', t: '14:10', ch: 'whatsapp', who: null, titulo: 'La meta de mañana', banner: 'assets/foto2/pasillo.webp', lugar: 'Pasillo de la sede, con un plátano de almuerzo', show: ['personas', 'confianza', 'tiempo'],
+    body: (n, F) => `<p>El almuerzo se redujo a un plátano en el pasillo: la reunión con Mario se alargó y Legal te esperaba. Sandra te pregunta otra vez por su meta.${F.has('sandra_dudosa') ? ' Ayer no supiste qué decirle.' : ''}</p><p>Si mañana los asesores pierden tres horas de calle y la meta sigue igual, <mark class="clave">van a estar en el taller mirando el reloj</mark>.</p>`,
     type: 'compose', enviaA: 'victor', para: 'Para: Víctor Alvarado · Gerente regional', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
       { id: 'pedido', t: 'Lo que pides', ops: [
-        { id: 'p1', t: 'Víctor, para el jueves: ¿podemos bajar la meta de ese día de los 11 asesores y de Sandra, en proporción a la hora y media del taller?', ok: true, por: 'Concreto y acotado a un día.' },
+        { id: 'p1', t: 'Víctor, para mañana: ¿podemos bajar la meta de ese día de los 11 asesores y de Sandra, en proporción a la hora y media del taller?', ok: true, por: 'Concreto y acotado a un día.' },
         { id: 'p2', t: 'Víctor, los asesores necesitan menos presión con las metas.', ok: false, por: 'Suena a crítica general a su forma de gestionar.' },
       ] },
       { id: 'porque', t: 'Por qué', ops: [
@@ -210,7 +210,7 @@ export const ESCENAS = [
         { id: 'w2', t: 'Porque la ley dice que la capacitación es dentro de la jornada.', ok: false, por: 'El taller no es de SST: citar mal la ley te resta credibilidad.' },
       ] },
       { id: 'cierre', t: 'Cómo cierras', ops: [
-        { id: 'c1', t: 'Es una sola vez. El viernes te mando los resultados de la prueba de salida.', ok: true, por: 'Acotas y ofreces algo a cambio.' },
+        { id: 'c1', t: 'Es una sola vez. Mañana mismo te mando los resultados de la prueba de salida.', ok: true, por: 'Acotas y ofreces algo a cambio.' },
         { id: 'c2', t: 'Si no, mejor lo dejamos para otro mes.', ok: false, por: 'Amenazas con cancelar algo que tú misma necesitas.' },
       ] },
     ],
@@ -220,21 +220,21 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 4 : q === 'aceptable' ? 1 : -2, confianza: q === 'buena' ? 3 : 0 }, rel: { victor: q === 'buena' ? 1 : q === 'riesgosa' ? -1 : 0, sandra: q === 'buena' ? 1 : 0 },
         flags: [q === 'buena' ? 'meta_ajustada' : 'meta_intacta'], cartera: { piloto: q === 'buena' ? 'Jueves 8:00 · meta ajustada ese día' : 'Jueves 8:00 · meta igual' },
-        envia: q === 'buena' ? ['sandra', 'Sandra, Víctor aceptó: el jueves tu meta baja en proporción a las horas del taller 🙌'] : undefined,
-        out: q === 'buena' ? 'Víctor tarda una hora, pero responde: sí, una sola vez. Le reenvías la noticia a Sandra, que manda tres emojis de manos juntas.' : q === 'aceptable' ? 'Víctor responde: «Lo veo». No es un sí. El jueves sabrás.' : 'Víctor responde: «La meta es la meta». Y te deja en visto.',
-        pro: { ok: 'Quitar la presión de la meta ese día es parte del diseño del taller, no un favor.', risk: 'Si la meta sigue igual, el taller compite con el bono, y pierde.', info: 'Pídelo por escrito: el jueves alguien preguntará si de verdad se ajustó.' },
+        envia: q === 'buena' ? ['sandra', 'Sandra, Víctor aceptó: mañana tu meta baja en proporción a las horas del taller 🙌'] : undefined,
+        out: q === 'buena' ? 'Víctor tarda una hora, pero responde: sí, una sola vez. Le reenvías la noticia a Sandra, que manda tres emojis de manos juntas.' : q === 'aceptable' ? 'Víctor responde: «Lo veo». No es un sí. Mañana sabrás.' : 'Víctor responde: «La meta es la meta». Y te deja en visto.',
+        pro: { ok: 'Quitar la presión de la meta ese día es parte del diseño del taller, no un favor.', risk: 'Si la meta sigue igual, el taller compite con el bono, y pierde.', info: 'Pídelo por escrito: mañana alguien preguntará si de verdad se ajustó.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Meta ajustada! Llegarán tranquilos.' : 'Sin ajuste, llegarán mirando el reloj…'],
       };
     },
     rules: [[BP, 'Si la capacitación quita horas de trabajo con meta, ajusta la meta de ese día o el aprendizaje compite con el bono.']],
     mirada: {
       ve: 'Las condiciones de una capacitación se negocian antes: quién libera a la gente, qué pasa con su meta y qué gana el jefe. Un taller bien diseñado puede fallar porque los asistentes llegan pensando en su bono.',
-      visual: { tipo: 'mensaje', titulo: 'Un pedido acotado', txt: 'Bajar la meta del jueves de los 11 asesores y de Sandra, en proporción a la hora y media del taller. Una sola vez. El viernes, la prueba de salida.' },
+      visual: { tipo: 'mensaje', titulo: 'Un pedido acotado', txt: 'Bajar la meta de mañana de los 11 asesores y de Sandra, en proporción a la hora y media del taller. Una sola vez. Ese mismo día, la prueba de salida.' },
     },
   },
   {
     id: 's6', t: '16:30', ch: 'presencial', who: 'lorena', titulo: 'La hoja para el comité', banner: 'assets/foto2/reunion-circulos.webp', lugar: 'Oficina de Lorena', show: ['calidad', 'confianza', 'cumplimiento'],
-    body: (n, F) => `<p>Lorena cierra la puerta y pone dos tazas de anís. «A fin de mes presento al comité. ${F.has('promesa_mora') ? 'Con la promesa que firmamos, tiene que quedar muy claro qué controlamos y qué no.' : F.has('tramos') ? 'Con lo de los tramos, Mario nos va a estar mirando.' : 'Mario nos va a estar mirando.'}»</p><p>Te pasa seis tarjetas: «Ordénalas como las contaríamos. <mark class="clave">El comité tiene diez minutos y poca paciencia</mark>».</p>`,
+    body: (n, F) => `<p>Lorena cierra la puerta y pone dos tazas de anís. «El jueves de la próxima semana presento al comité. ${F.has('promesa_mora') ? 'Con la promesa que firmamos, tiene que quedar muy claro qué controlamos y qué no.' : F.has('tramos') ? 'Con lo de los tramos, Mario nos va a estar mirando.' : 'Mario nos va a estar mirando.'}»</p><p>Te pasa seis tarjetas: «Ordénalas como las contaríamos. <mark class="clave">El comité tiene diez minutos y poca paciencia</mark>».</p>`,
     type: 'secuencia', prompt: 'Ordena el plan priorizado como lo presentarían al comité.', boton: 'Mostrarle el orden a Lorena',
     items: [
       { id: 'ley', t: 'Lo que exige la ley y ya está cubierto: SST y lavado de activos', por: 'Primero se cierra el riesgo legal.' },
@@ -249,7 +249,7 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : 1, confianza: q === 'buena' ? 3 : 0 }, rel: { lorena: q === 'buena' ? 1 : 0 },
         flags: q === 'riesgosa' ? [] : ['plan_priorizado'],
-        cartera: { plan: q === 'riesgosa' ? 'Borrador por reordenar' : 'Listo para el comité de fin de mes' },
+        cartera: { plan: q === 'riesgosa' ? 'Borrador por reordenar' : 'Listo para el comité del próximo jueves' },
         out: q === 'buena' ? 'Lorena pega las tarjetas en la pared con cinta masking: «Ley, problema, diagnóstico, piloto, medición, pedido. Así se entiende en diez minutos».' : 'Lorena mueve dos tarjetas: «Si empezamos pidiendo, nos cortan antes de llegar al piloto».',
         pro: { ok: 'Cerrar el riesgo legal primero calma al comité; terminar con un pedido concreto le da algo que decidir.', info: 'Este orden es el borrador de tu informe del capítulo 9.' },
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Diez minutos bien usados!' : 'El pedido va al final.'],
@@ -257,13 +257,13 @@ export const ESCENAS = [
     },
     rules: [[BP, 'Presenta un plan de capacitación como una respuesta a un problema del negocio, con medición y un pedido claro.']],
     mirada: {
-      ve: 'El plan priorizado es la historia del mes en una hoja: qué cumplimos por ley, qué problema atacamos, qué haremos, cómo sabremos si funcionó y qué necesitamos. Si esa historia no se entiende en diez minutos, el comité recorta.',
+      ve: 'El plan priorizado es la historia de estas dos semanas en una hoja: qué cumplimos por ley, qué problema atacamos, qué haremos, cómo sabremos si funcionó y qué necesitamos. Si esa historia no se entiende en diez minutos, el comité recorta.',
       visual: { tipo: 'flujo', titulo: 'El plan priorizado', pasos: ['Ley cubierta', 'Problema', 'Diagnóstico', 'Piloto', 'Medición', 'Pedido'] },
     },
   },
   {
     id: 's7', t: '18:35', ch: 'whatsapp', who: null, titulo: 'Picarones en la Plaza', banner: 'assets/foto2/caminan.webp', lugar: 'Salida de la sede', show: ['personas', 'confianza'],
-    body: () => `<p>Sales de la sede con la espalda dura y la cabeza llena de números. En la Plaza de Armas ya prendieron las luces y huele a picarones con miel de chancaca.</p><p>Lorena te escribe: «¿Unos picarones? Invito yo». Y tú tienes un taller el jueves que <mark class="clave">todavía no terminas de diseñar</mark>.</p>`,
+    body: () => `<p>Sales de la sede con la espalda dura y la cabeza llena de números. En la Plaza de Armas ya prendieron las luces y huele a picarones con miel de chancaca.</p><p>Lorena te escribe: «¿Unos picarones? Invito yo». Y tú tienes un taller mañana que <mark class="clave">todavía no terminas de diseñar</mark>.</p>`,
     chat: ['¿Unos picarones? Invito yo 🍩'],
     type: 'choice', cotidiano: true,
     choices: [
@@ -274,6 +274,6 @@ export const ESCENAS = [
         res: { q: null, fx: { tiempo: 2, personas: -1 }, envia: ['lorena', 'Gracias, Lorena 🙏 Hoy me voy a avanzar el taller. ¡La próxima sí!'],
           out: 'En la combi, entre una señora con bolsas del mercado y un escolar dormido, abres tus apuntes. Llegas a casa con el taller a medio armar y el café ya frío.', kusi: ['animo', 'Avanzaste… pero no te olvides de descansar.'] } },
     ],
-    mirada: { ve: 'En capacitación, buena parte del trabajo ocurre fuera del horario visible: diseñar, preparar casos, pensar en la gente. Cuidar el propio descanso y la relación con el equipo también sostiene el mes.' },
+    mirada: { ve: 'En capacitación, buena parte del trabajo ocurre fuera del horario visible: diseñar, preparar casos, pensar en la gente. Cuidar el propio descanso y la relación con el equipo también sostiene estas semanas.' },
   },
 ];

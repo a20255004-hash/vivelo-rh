@@ -1,5 +1,5 @@
-// Analista de Administración de Personal · Capítulo 4 · «El cierre» · Semana 2, martes.
-// Hilo del mes: primer cierre de quincena de la campaña, con 900 personas, horas extra, faltas y un cambio de turno que nadie avisó.
+// Analista de Administración de Personal · Capítulo 4 · «El cierre» · Semana 1, jueves.
+// Hilo de las dos semanas: primer cierre de quincena de la campaña, con 900 personas, horas extra, faltas y un cambio de turno que nadie avisó.
 // Normas citadas:
 // - D.S. 007-2002-TR (TUO de jornada, horario y sobretiempo): art. 8, trabajo nocturno (22:00 a 06:00) con remuneración no menor
 //   a la RMV más 35 %; arts. 9 y 10, sobretiempo voluntario, registrado y pagado con sobretasa (25 % las dos primeras horas, 35 % las siguientes).
@@ -9,14 +9,14 @@
 // - Ley 31110 y D.S. 005-2021-MIDAGRI (régimen agrario). D.S. 015-2026-TR: RMV S/ 1,230; mínimo nocturno S/ 1,660.50 al mes.
 
 export const CAP = {
-  n: 4, titulo: 'El cierre', dia: 'Semana 2, martes', foto: 'assets/foto2/presentacion.webp',
+  n: 4, titulo: 'El cierre', dia: 'Semana 1, jueves', foto: 'assets/foto2/presentacion.webp',
   lugar: 'Agrícola Valle Verde · Oficina de Planillas, fundo 1',
   inicio: '05:45', fin: '20:15', cierreHora: '19:50',
-  apertura: 'Martes de cierre. Hoy se calcula la primera quincena de 900 personas y el archivo tiene que llegar al banco antes de las 18:00. Nadie se va temprano.', boton: 'Pegar el calendario de cierre',
+  apertura: 'Jueves de cierre. Hoy se calcula la primera quincena de 900 personas y el archivo tiene que llegar al banco antes de las 18:00. Nadie se va temprano.', boton: 'Pegar el calendario de cierre',
   kusi: 'Día de cierre: respira, ordena y no le creas a la primera cifra. ¡Dale!',
   lead: 'Ordenaste el día de cierre, elegiste qué variaciones revisar, descubriste un turno de noche que nadie avisó, le respondiste a un gerente sobre cómo pagar las horas extra y decidiste qué hacer con el banco a minutos del corte.',
   reflexion: '¿Qué cifra de hoy habrías dejado pasar si no la revisabas dos veces?',
-  siguiente: { n: 5, titulo: 'El descuento', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'El descuento', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -33,9 +33,9 @@ export const FUTURO = {
   nocturno_pendiente: ['Dejaste el turno noche para la siguiente quincena.', 'Alguien lo notará en su boleta en el capítulo 5.'],
   he_horas: ['Las horas extra se pagaron como horas extra, con su sobretasa y su registro.', 'Capítulo 7, frente a la inspectora.'],
   he_bono: ['Las horas extra se pagaron como un «bono de campaña».', 'La inspectora preguntará por ellas en el capítulo 7.'],
-  banco_a_tiempo: ['El archivo llegó al banco a tiempo, con la aprobación de Mónica documentada.', 'El jueves todos cobran.'],
+  banco_a_tiempo: ['El archivo llegó al banco a tiempo, con la aprobación de Mónica documentada.', 'El viernes todos cobran.'],
   banco_sin_aprob: ['Mandaste el archivo al banco sin ninguna aprobación.', 'Ricardo lo recordará.'],
-  banco_tarde: ['El pago de la quincena se atrasó un día.', 'Capítulo 5: la ventanilla se llena.'],
+  banco_tarde: ['El pago de la quincena se corrió al lunes.', 'Capítulo 5: la ventanilla se llena.'],
   ricardo_informado: ['Ricardo ya sabe por ti cómo se registraron las fechas y las horas.', 'Capítulo 7.'],
 };
 
@@ -54,18 +54,18 @@ export const WSP = [
   { chat: 'grupo', t: '05:50', de: 'Mónica', txt: 'Hoy nadie almuerza fuera. Pedí pollada para todos a las 13:00 🍗. Corte de incidencias: 8:00 en punto.' },
   { chat: 'joel', t: '06:20', de: 'Joel', txt: 'Batería nueva en el reloj del fundo 3 ✅ Y la hoja de salida firmada ya está en la caseta.', si: 'reloj_respaldo' },
   { chat: 'joel', t: '06:20', de: 'Joel', txt: 'Ojo: el Excel del fundo 3 llegó otra vez «corregido» por Ángel. Te mando el original del reloj aparte.', si: 'supervisor_mano' },
-  { chat: 'fidel', t: '07:05', de: 'Fidel', txt: 'Señorita, ¿nuestras horas del jueves salen en esta quincena? La gente me pregunta en el bus.', no: 'he_tareo' },
-  { chat: 'fidel', t: '07:05', de: 'Fidel', txt: 'Señorita, la cuadrilla 12 ha decidido ir a SUNAFIL si no nos pagan el jueves. No es contra usted.', si: 'he_tareo' },
-  { chat: 'lucia', t: '08:40', de: 'Lucía', txt: 'Hola, soy Lucía de Packing. Desde el jueves tengo 80 en turno noche, de 22:00 a 6:00. ¿No les avisaron? 😬' },
-  { chat: 'yolanda', t: '12:10', de: 'Yolanda', txt: 'Señorita, ¿el jueves sale lo de mis vacaciones? Le estoy diciendo a las otras que reclamaron.', si: 'yolanda_verdad' },
+  { chat: 'fidel', t: '07:05', de: 'Fidel', txt: 'Señorita, ¿nuestras horas del martes salen en esta quincena? La gente me pregunta en el bus.', no: 'he_tareo' },
+  { chat: 'fidel', t: '07:05', de: 'Fidel', txt: 'Señorita, la cuadrilla 12 ha decidido ir a SUNAFIL si no nos pagan lo del martes. No es contra usted.', si: 'he_tareo' },
+  { chat: 'lucia', t: '08:40', de: 'Lucía', txt: 'Hola, soy Lucía de Packing. Desde el lunes tengo 80 en turno noche, de 22:00 a 6:00. ¿No les avisaron? 😬' },
+  { chat: 'yolanda', t: '12:10', de: 'Yolanda', txt: 'Señorita, ¿mañana sale lo de mis vacaciones? Le estoy diciendo a las otras que reclamaron.', si: 'yolanda_verdad' },
   { chat: 'raul', t: '15:30', de: 'Ing. Raúl', txt: 'Vi el reporte de horas de la 12. Con la llanta incluida. Le dije a Logística que eso lo paga su presupuesto, no el mío.', si: 'he_presuncion' },
   { chat: 'ricardo', t: '17:20', de: 'Ricardo', txt: 'Estoy en reunión con exportadores hasta las 19:00. Lo veo después.' },
 ];
 
 export const CORREOS = [
-  { t: '06:00', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Cierre de hoy', html: '<p>Hoy el archivo al banco sale <b>antes de las 18:00</b> o la gente cobra el viernes. Lo aprueba Ricardo, y en su ausencia, yo con su visto bueno por escrito.</p><p>Revisa variaciones contra lo esperado, no persona por persona: no te va a alcanzar el día.</p><p>Mónica</p>' },
+  { t: '06:00', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Cierre de hoy', html: '<p>Hoy el archivo al banco sale <b>antes de las 18:00</b> o la gente cobra el lunes. Lo aprueba Ricardo, y en su ausencia, yo con su visto bueno por escrito.</p><p>Revisa variaciones contra lo esperado, no persona por persona: no te va a alcanzar el día.</p><p>Mónica</p>' },
   { t: '10:45', de: 'Ricardo Benavides · Gerente de Operaciones', para: 'Planillas', cc: 'Gerencia General', asunto: 'Horas extra de la semana 1', html: '<p>Equipo: el reporte de horas extra de la semana 1 me preocupa frente a Gerencia General. Propongo pagar a las cuadrillas involucradas un <b>«bono de campaña» de S/ 40 por persona</b>, que es más de lo que les toca, y no registrarlo como horas extra.</p><p>Todos ganan. Quedo atento.<br>R. Benavides</p>' },
-  { t: '16:05', de: 'Banco del Valle · Empresas', para: 'Planillas Valle Verde', asunto: 'Recordatorio: corte de abonos', html: '<p>Para abonar el jueves, el archivo de haberes debe estar cargado y autorizado <b>antes de las 18:00 de hoy</b>.</p>' },
+  { t: '16:05', de: 'Banco del Valle · Empresas', para: 'Planillas Valle Verde', asunto: 'Recordatorio: corte de abonos', html: '<p>Para abonar mañana viernes, el archivo de haberes debe estar cargado y autorizado <b>antes de las 18:00 de hoy</b>.</p>' },
 ];
 
 export const QUIZ = [
@@ -80,8 +80,8 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 
 export const ESCENAS = [
   {
-    id: 'e1', t: '06:05', ch: 'presencial', who: 'monica', titulo: 'El calendario del martes', banner: 'assets/esc/planilla.webp', show: ['tiempo', 'calidad', 'confianza'],
-    body: () => `<p>Mónica llega con dos cafés de la tienda del grifo y una cartulina en blanco. «El lunes te enseñé el ciclo del mes. Hoy es <mark class="clave">el ciclo de un solo día</mark>. Si una hora se corre, la gente cobra el viernes.»</p><p>Te pasa seis pósits. Afuera, el viento de la tarde todavía no empieza; a las tres levantará polvo hasta la ventana.</p>`,
+    id: 'e1', t: '06:05', ch: 'presencial', who: 'monica', titulo: 'El calendario del jueves', banner: 'assets/esc/planilla.webp', show: ['tiempo', 'calidad', 'confianza'],
+    body: () => `<p>Mónica llega con dos cafés de la tienda del grifo y una cartulina en blanco. «El lunes te enseñé el ciclo de la planilla. Hoy es <mark class="clave">el ciclo de un solo día</mark>. Si una hora se corre, la gente cobra el lunes.»</p><p>Te pasa seis pósits. Afuera, el viento de la tarde todavía no empieza; a las tres levantará polvo hasta la ventana.</p>`,
     type: 'secuencia', prompt: 'Ordena el día de cierre, de la mañana a la tarde.', boton: 'Pegar el calendario',
     items: [
       { id: 'corte', t: '08:00 · Corte de incidencias: faltas, descansos médicos, horas extra y turnos', por: 'Lo que llega después del corte va a la siguiente quincena, con su justificación.' },
@@ -97,7 +97,7 @@ export const ESCENAS = [
         q, fx: { tiempo: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, calidad: q === 'riesgosa' ? -2 : 3 },
         rel: { monica: q === 'buena' ? 1 : 0 },
         cartera: { cierre: q === 'riesgosa' ? 'Calendario corregido por Mónica' : 'Calendario de cierre en la pared' },
-        out: q === 'buena' ? 'Mónica pega la cartulina al lado de la puerta: «Este es tu entregable. Lo usamos todo el mes».' : 'Mónica mueve dos pósits: «Si apruebas antes de revisar variaciones, Ricardo firma errores».',
+        out: q === 'buena' ? 'Mónica pega la cartulina al lado de la puerta: «Este es tu entregable. Lo usamos en cada quincena».' : 'Mónica mueve dos pósits: «Si apruebas antes de revisar variaciones, Ricardo firma errores».',
         pro: { ok: 'El cierre tiene horas fijas porque el banco tiene una hora fija.', risk: 'Revisar después de aprobar es pedir que alguien firme a ciegas.', info: 'Pon en el calendario también la hora límite de cada área: Packing, fundos, Logística.' },
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Calendario de cierre listo! Primer entregable.' : 'El banco no espera: el orden sí importa.'],
       };
@@ -105,7 +105,7 @@ export const ESCENAS = [
     rules: [[BP, 'Fija y comunica la hora de corte de incidencias: es la que más se incumple.']],
     mirada: {
       ve: 'Un cierre de planilla es una carrera contra una hora que no controlas: el corte del banco. Por eso cada paso tiene hora, y la revisión va antes de la aprobación, nunca después.',
-      visual: { tipo: 'linea', titulo: 'Martes de cierre', hitos: [['08:00', 'Corte'], ['09:30', 'Carga de conceptos'], ['12:00', 'Cálculo'], ['13:30', 'Variaciones'], ['16:00', 'Aprobación'], ['17:30', 'Banco']] },
+      visual: { tipo: 'linea', titulo: 'Jueves de cierre', hitos: [['08:00', 'Corte'], ['09:30', 'Carga de conceptos'], ['12:00', 'Cálculo'], ['13:30', 'Variaciones'], ['16:00', 'Aprobación'], ['17:30', 'Banco']] },
     },
   },
   {
@@ -117,7 +117,7 @@ export const ESCENAS = [
       { id: 'noct', cells: ['Packing: 80 personas con horas entre 22:00 y 06:00 y sin concepto nocturno', '80', 'Horario no coincide con el turno registrado'] },
       { id: 'vac', cells: ['Vacaciones truncas de marzo cargadas como «otros ingresos»', '14', 'Concepto sin código'] },
       { id: 'rd49', cells: ['Remuneración diaria de S/ 49.00 en contratos nuevos', '612', 'Debajo del mínimo agrario calculado'], si: 'contrato_viejo' },
-      { id: 'he12', cells: ['Cuadrilla 12: horas extra del jueves', '32', 'Horas sin marcación en el reloj'] },
+      { id: 'he12', cells: ['Cuadrilla 12: horas extra del martes', '32', 'Horas sin marcación en el reloj'] },
       { id: 'redondeo', cells: ['Diferencias de S/ 0.01 por redondeo en la BETA', '403', 'Céntimos'] },
       { id: 'nombre', cells: ['Nombres en mayúsculas y minúsculas mezcladas', '210', 'Formato'] },
     ],
@@ -128,7 +128,7 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, cumplimiento: picks.includes('noct') ? 3 : -2, tiempo: picks.includes('nombre') ? -3 : 1 },
         flags: picks.includes('rd49') ? ['contrato_corregido'] : [],
         cartera: { nocturno: picks.includes('noct') ? 'Detectado en el cálculo' : 'Sin revisar' },
-        out: picks.includes('rd49') ? 'Corriges la remuneración diaria de 612 contratos a lo que manda la RMV de S/ 1,230. Te tiemblan un poco las manos. Le avisas a Mónica: «Esto lo dejé pasar yo».' : picks.includes('noct') ? 'Abres la alerta de Packing: 80 personas trabajan de noche desde el jueves. En el sistema, siguen en turno de día.' : 'Revisaste lo que se veía mal, no lo que pesaba más.',
+        out: picks.includes('rd49') ? 'Corriges la remuneración diaria de 612 contratos a lo que manda la RMV de S/ 1,230. Te tiemblan un poco las manos. Le avisas a Mónica: «Esto lo dejé pasar yo».' : picks.includes('noct') ? 'Abres la alerta de Packing: 80 personas trabajan de noche desde el lunes. En el sistema, siguen en turno de día.' : 'Revisaste lo que se veía mal, no lo que pesaba más.',
         pro: { ok: 'Revisas lo que afecta a más personas y lo que puede estar por debajo de un mínimo legal.', risk: 'Los céntimos y el formato distraen: no cambian el sueldo de nadie.', info: 'Ordena las alertas por impacto: personas × monto × riesgo legal.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Fuiste directo a lo que pesa!' : '¿Qué alerta toca un mínimo legal?'],
       };
@@ -141,7 +141,7 @@ export const ESCENAS = [
   },
   {
     id: 'e3', t: '13:30', ch: 'presencial', who: null, titulo: 'Ochenta personas de noche', banner: 'assets/3d/scenes/planta.webp', lugar: 'Packing · zona de embalaje', show: ['cumplimiento', 'personas', 'calidad'],
-    body: (n, F) => `<p>El packing es una nave enorme, fría por las cámaras de frío, con olor a cartón nuevo y a uva. Lucía Ñaupari, jefa de Packing, 34 años, ingeniera de la San Luis Gonzaga, te recibe con el casco en la mano.</p><p>«Desde el jueves tengo 80 de noche, de 22:00 a 6:00, porque el barco a Rotterdam se adelantó. Aceptaron de palabra. Además <mark class="clave">ganan por caja embalada, así que ya ganan más que el mínimo</mark>. ¿Para qué complicarlo?»</p>`,
+    body: (n, F) => `<p>El packing es una nave enorme, fría por las cámaras de frío, con olor a cartón nuevo y a uva. Lucía Ñaupari, jefa de Packing, 34 años, ingeniera de la San Luis Gonzaga, te recibe con el casco en la mano.</p><p>«Desde el lunes tengo 80 de noche, de 22:00 a 6:00, porque el barco a Rotterdam se adelantó. Aceptaron de palabra. Además <mark class="clave">ganan por caja embalada, así que ya ganan más que el mínimo</mark>. ¿Para qué complicarlo?»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Cargar el turno noche y comparar, persona por persona, lo que gana cada una con el mínimo nocturno; pagar la diferencia solo a quien no llegue y pedirle a Lucía que comunique los cambios de turno por escrito.',
@@ -169,7 +169,7 @@ export const ESCENAS = [
   },
   {
     id: 'e4', t: '14:50', ch: 'correo', who: null, titulo: 'El «bono de campaña»', banner: 'assets/foto2/grito.webp', show: ['etica', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>Relees el correo de Ricardo, con copia a Gerencia General: pagar las horas extra de la semana como un <mark class="clave">«bono de campaña» de S/ 40</mark>, «que es más de lo que les toca», y no registrarlas como horas extra.</p><p>${F.has('fecha_callada') ? 'Y debajo, un mensaje suyo de hace una hora: «Vi en el T-Registro la fecha del lunes. Usted me dijo que sí. Hablemos». ' : ''}Mónica está en el banco. Le respondes tú.</p>`,
+    body: (n, F) => `<p>Relees el correo de Ricardo, con copia a Gerencia General: pagar las horas extra de la semana como un <mark class="clave">«bono de campaña» de S/ 40</mark>, «que es más de lo que les toca», y no registrarlas como horas extra.</p><p>${F.has('fecha_callada') ? 'Y debajo, un mensaje suyo de hace una hora: «Vi en el T-Registro las fechas de ingreso reales. Usted me dijo que sí. Hablemos». ' : ''}Mónica está en el banco. Le respondes tú.</p>`,
     type: 'compose', enviaA: 'ricardo', para: 'Para: Ricardo Benavides · CC: Mónica Uribe', boton: 'Enviar la respuesta',
     prompt: 'Arma tu respuesta eligiendo una frase de cada parte.',
     slots: [
@@ -199,7 +199,7 @@ export const ESCENAS = [
         q: bono ? 'riesgosa' : q, fx: { etica: bono ? -5 : 4, cumplimiento: bono ? -5 : 4, confianza: sel.reconoce === 'r2' ? -4 : 2 },
         flags: bono ? ['he_bono'] : ['he_horas', 'ricardo_informado'],
         cartera: { he: bono ? 'Pagadas como «bono de campaña»' : 'Pagadas como horas extra con sobretasa' },
-        out: bono ? 'Ricardo responde: «Perfecto, así lo hacemos». Las horas extra desaparecen de la boleta. El jueves, nadie sabrá qué se le pagó ni por qué.' : q === 'buena' ? 'Ricardo contesta en diez minutos: «Ok. Tráiganme el resumen a las 16:00». Gerencia General, en copia, no dice nada. Eso también es una respuesta.' : 'Ricardo responde seco: «Lo vemos». A las 16:00 no está en su oficina.',
+        out: bono ? 'Ricardo responde: «Perfecto, así lo hacemos». Las horas extra desaparecen de la boleta. El viernes, nadie sabrá qué se le pagó ni por qué.' : q === 'buena' ? 'Ricardo contesta en diez minutos: «Ok. Tráiganme el resumen a las 16:00». Gerencia General, en copia, no dice nada. Eso también es una respuesta.' : 'Ricardo responde seco: «Lo vemos». A las 16:00 no está en su oficina.',
         pro: { ok: 'Discrepas con un gerente sin humillarlo, con el riesgo explicado y una alternativa que resuelve su problema.', risk: 'Un «bono» que reemplaza horas extra borra la prueba del sobretiempo. Si un día alguien reclama sus horas, la empresa no podrá mostrar que las pagó.', info: 'Cuando un correo viene con copia a la Gerencia General, responde a la persona, no a la audiencia.' },
         kusi: [bono ? 'triste' : q === 'buena' ? 'feliz' : 'pensando', bono ? 'Más plata hoy, menos prueba mañana…' : q === 'buena' ? '¡Le dijiste que no ofreciendo un sí!' : 'Faltó darle algo que llevar a Gerencia.'],
       };
@@ -242,7 +242,7 @@ export const ESCENAS = [
       { id: 'beta', t: 'BETA: 30 % de la RMV, proporcional a los días laborados en la quincena.' },
       { id: 'vac', t: 'Vacaciones truncas de marzo (14 personas): concepto «otros ingresos».', bad: BP, why: 'Ponle su nombre real en la boleta: «vacaciones truncas campaña anterior». Si no, nadie sabrá que se corrigió su reclamo.' },
       { id: 'asig', t: 'Asignación familiar: 10 % de la RMV para quienes acreditaron hijos menores de edad.' },
-      { id: 'tard', t: 'Descuento por tardanza a la cuadrilla 9 por el retraso del bus 2.', bad: BP, why: 'El bus es de la empresa. Ya lo marcaste el viernes: que no reaparezca en el cierre.' },
+      { id: 'tard', t: 'Descuento por tardanza a la cuadrilla 9 por el retraso del bus 2.', bad: BP, why: 'El bus es de la empresa. Ya lo marcaste ayer: que no reaparezca en el cierre.' },
       { id: 'kevin', t: 'Kevin Huamaní, 17 años: cero días, sin alta, sin pago.', duda: 'Correcto si no trabajó. Pero verifica con Teresa que de verdad no entró al campo.' },
       { id: 'adel', t: 'Adelanto de quincena descontado a 12 personas que firmaron su solicitud.' },
     ],
@@ -259,24 +259,24 @@ export const ESCENAS = [
   },
   {
     id: 'e7', t: '17:25', ch: 'llamada', who: 'monica', titulo: 'Treinta y cinco minutos', banner: 'assets/foto2/tension.webp', show: ['tiempo', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>17:25. El archivo de haberes está listo. Ricardo sigue en su reunión con exportadores y no contesta. Mónica te llama desde la cola del banco en Ica, con bulla de fondo.</p><p>«Si no carga antes de las 18:00, 900 personas cobran el viernes. Yo puedo aprobar <mark class="clave">si Ricardo me da su visto bueno por escrito</mark>. Así está en el procedimiento.»</p>`,
+    body: (n, F) => `<p>17:25. El archivo de haberes está listo. Ricardo sigue en su reunión con exportadores y no contesta. Mónica te llama desde la cola del banco en Ica, con bulla de fondo.</p><p>«Si no carga antes de las 18:00, 900 personas cobran el lunes. Yo puedo aprobar <mark class="clave">si Ricardo me da su visto bueno por escrito</mark>. Así está en el procedimiento.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Mandarle a Ricardo un WhatsApp corto con el total, las tres variaciones explicadas y la pregunta «¿visto bueno para que Mónica apruebe?»; si responde, Mónica aprueba y cargas.',
         res: { q: 'buena', fx: { tiempo: 2, cumplimiento: 4, confianza: 4 }, rel: { monica: 1 }, flags: ['banco_a_tiempo'], cartera: { cierre: 'Archivo cargado 17:52 · aprobación documentada', aprob: 'Visto bueno por WhatsApp' },
           envia: ['ricardo', 'Ricardo: planilla de la 1.ª quincena lista. Total y variaciones en el PDF adjunto (turno noche, vacaciones de marzo, horas de la 12). ¿Visto bueno para que Mónica apruebe? El banco cierra a las 18:00.'],
           out: 'A las 17:48 llega un «Ok, aprobado» desde la reunión. Mónica aprueba desde su celular. El archivo carga a las 17:52. Wendy aplaude bajito.',
-          pro: { ok: 'Respetas el procedimiento y lo haces fácil para quien tiene que aprobar: un mensaje, un adjunto, una pregunta.', risk: 'Si Ricardo no contestaba, el pago se corría un día.', info: 'Propón que el procedimiento tenga un aprobador alterno para días de cierre.' },
-          kusi: ['celebra', '¡17:52! El jueves todos cobran.'] } },
+          pro: { ok: 'Respetas el procedimiento y lo haces fácil para quien tiene que aprobar: un mensaje, un adjunto, una pregunta.', risk: 'Si Ricardo no contestaba, el pago se corría al lunes.', info: 'Propón que el procedimiento tenga un aprobador alterno para días de cierre.' },
+          kusi: ['celebra', '¡17:52! Mañana todos cobran.'] } },
       { id: 'b', label: 'Cargar el archivo ya, sin aprobación: la planilla está revisada, el error sería que 900 familias cobren tarde.',
         res: { q: 'riesgosa', fx: { tiempo: 4, cumplimiento: -4, confianza: -3 }, rel: { monica: -1 }, flags: ['banco_sin_aprob'], cartera: { aprob: 'Sin aprobación' },
           out: 'El archivo carga a las 17:31. A las 19:10, Ricardo escribe: «¿Quién aprobó la planilla?». Mónica tiene que responder por algo que no firmó.',
           pro: { ok: 'Nadie cobra tarde.', risk: 'Una planilla de 900 personas pagada sin aprobación es justo lo que un control interno existe para evitar. Si había un error, ya salió del banco.' },
           kusi: ['sorpresa', 'Rápido… pero ¿quién responde si algo estaba mal?'] } },
-      { id: 'c', label: 'Esperar a que Ricardo termine su reunión y aprobar como manda el procedimiento, aunque se cobre el viernes.',
-        res: { q: 'aceptable', fx: { cumplimiento: 3, personas: -4, tiempo: -3 }, flags: ['banco_tarde'], cartera: { cierre: 'Pago corrido al viernes' },
-          out: 'Ricardo aprueba a las 19:20. El pago se corre al viernes. A la mañana siguiente, la ventanilla está llena de gente preguntando por qué.',
-          pro: { ok: 'El procedimiento se cumple al pie de la letra.', risk: 'Había una vía dentro del procedimiento (el visto bueno escrito) y no la buscaste. Un día de atraso en campaña es un día sin plata para pasajes y comida.' },
+      { id: 'c', label: 'Esperar a que Ricardo termine su reunión y aprobar como manda el procedimiento, aunque se cobre el lunes.',
+        res: { q: 'aceptable', fx: { cumplimiento: 3, personas: -4, tiempo: -3 }, flags: ['banco_tarde'], cartera: { cierre: 'Pago corrido al lunes' },
+          out: 'Ricardo aprueba a las 19:20. El pago se corre al lunes. A la mañana siguiente, la ventanilla está llena de gente preguntando por qué.',
+          pro: { ok: 'El procedimiento se cumple al pie de la letra.', risk: 'Había una vía dentro del procedimiento (el visto bueno escrito) y no la buscaste. Un fin de semana de atraso en campaña es un fin de semana sin plata para pasajes y comida.' },
           kusi: ['triste', 'Mañana la ventanilla va a estar llena…'] } },
     ],
     rules: [[POL, 'En Valle Verde, la planilla la aprueba el gerente de Operaciones; en su ausencia, la jefa de Planillas con su visto bueno escrito.'], [BP, 'Facilita la aprobación: total, variaciones explicadas y una sola pregunta.']],

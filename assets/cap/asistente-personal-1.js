@@ -1,5 +1,5 @@
 // Analista de Administración de Personal · Capítulo 1 · «De 300 a 1,200» · Semana 1, lunes.
-// Hilo del mes: la campaña de uva lleva la planilla de 300 a 1,200 personas en tres semanas.
+// Hilo de las dos semanas: la campaña de uva lleva la planilla de 300 a 1,200 personas en tres semanas.
 // Normas citadas: Ley 31110 (régimen laboral agrario) y D.S. 005-2021-MIDAGRI; D.S. 018-2007-TR (planilla
 // electrónica y T-Registro); D.S. 001-98-TR (boletas); D.S. 007-2002-TR (sobretiempo); D.S. 015-2026-TR (RMV S/ 1,230).
 
@@ -11,7 +11,7 @@ export const CAP = {
   kusi: 'En el campo se empieza temprano. ¡Café en mano y dale!',
   lead: 'Entendiste el ciclo de la planilla, revisaste el contrato de campaña con la ley en la mano, defendiste el alta del primer día y escuchaste a Yolanda antes de prometerle nada.',
   reflexion: '¿Qué número de hoy te hizo pensar en una persona concreta?',
-  siguiente: { n: 2, titulo: 'Altas en masa', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Altas en masa', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -19,7 +19,7 @@ export const CARTERA = [
   { id: 'contrato', p: 'Contrato de campaña', j: 'Mónica · Legal', d: 0, e: 'Plantilla de 2025' },
   { id: 'marcacion', p: 'Relojes de marcación', j: 'Joel · TI', d: 0, e: 'Fundo 3 con fallas' },
   { id: 'reclamos', p: 'Reclamos de la campaña pasada', j: 'Mónica · Planillas', d: 0, e: '14 sin responder' },
-  { id: 'cierre', p: 'Cierre de quincena', j: 'Mónica · Planillas', d: 0, e: 'Martes de la semana 2' },
+  { id: 'cierre', p: 'Cierre de quincena', j: 'Mónica · Planillas', d: 0, e: 'Jueves de esta semana' },
 ];
 
 export const FUTURO = {
@@ -48,12 +48,12 @@ export const WSP = [
   { chat: 'monica', t: '14:20', de: 'Mónica', txt: 'Bien con el contrato. Legal ya lo está corrigiendo 👌', si: 'contrato_corregido' },
   { chat: 'raul', t: '15:05', de: 'Ing. Raúl', txt: 'Ok. Mañana a las 6:00 mando a los 60 a su mesa en el fundo 2. Que sea rápido.', si: 'alta_dia_uno' },
   { chat: 'raul', t: '15:05', de: 'Ing. Raúl', txt: 'Planillas siempre frenando la cosecha. Ya hablé con gerencia.', si: 'raul_molesto' },
-  { chat: 'yolanda', t: '17:40', de: 'Yolanda', txt: 'Señorita, gracias por anotar mi caso. Espero su llamada el viernes 🙏', si: 'yolanda_escuchada' },
+  { chat: 'yolanda', t: '17:40', de: 'Yolanda', txt: 'Señorita, gracias por anotar mi caso. Espero su llamada el miércoles 🙏', si: 'yolanda_escuchada' },
   { chat: 'joel', t: '18:15', de: 'Joel', txt: 'Listo, te dejé la exportación del reloj en la carpeta. Mañana a las 5:30 llega sola 💪', si: 'joel_aliado' },
 ];
 
 export const CORREOS = [
-  { t: '06:50', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Tu primera semana', html: '<p>¡Bienvenida! Te cuento el mes en una línea: <b>pasamos de 300 a 1,200 personas</b> en tres semanas.</p><p>Semana 1: altas y contratos.<br>Semana 2: primer cierre de quincena.<br>Semana 3: liquidaciones y, si tenemos mala suerte, SUNAFIL.<br>Semana 4: boletas digitales y PLAME.</p><p>Aquí un error no es un número: es el sueldo de una familia.<br>Mónica</p>' },
+  { t: '06:50', de: 'Mónica Uribe', para: 'Analista de Administración de Personal', asunto: 'Tu primera semana', html: '<p>¡Bienvenida! Te cuento estas dos semanas en una línea: <b>empezamos a pasar de 300 a 1,200 personas</b>.</p><p>Semana 1: altas, marcaciones y el primer cierre de quincena.<br>Semana 2: liquidaciones, boletas digitales, la PLAME y, si tenemos mala suerte, SUNAFIL.</p><p>Aquí un error no es un número: es el sueldo de una familia.<br>Mónica</p>' },
   { t: '12:30', de: 'Banco del Valle · Empresas', para: 'Planillas Valle Verde', asunto: 'Apertura masiva de cuentas sueldo', html: '<p>Podemos abrir cuentas sueldo en lote si nos envían DNI, nombres completos y fecha de nacimiento en el formato adjunto. Plazo de apertura: 72 horas.</p>' },
 ];
 
@@ -98,7 +98,7 @@ export const ESCENAS = [
   },
   {
     id: 'b2', t: '08:10', ch: 'documento', who: null, titulo: 'El contrato de campaña', banner: 'assets/foto/mesa-papeles.webp', show: ['cumplimiento', 'calidad', 'etica'],
-    body: () => `<p>Mónica te pasa la plantilla del contrato de campaña: «Es la del año pasado. Imprimimos 900 copias el miércoles. <mark class="clave">Revísala con la RMV nueva</mark>, que subió en octubre».</p><p>Sabes que la remuneración mínima vital es S/ 1,230 desde el 1 de octubre de 2026.</p>`,
+    body: () => `<p>Mónica te pasa la plantilla del contrato de campaña: «Es la del año pasado. Imprimimos 900 copias mañana. <mark class="clave">Revísala con la RMV nueva</mark>, que subió en octubre».</p><p>Sabes que la remuneración mínima vital es S/ 1,230 desde el 1 de octubre de 2026.</p>`,
     type: 'flag', prompt: 'Marca las cláusulas que no cumplen la ley o que deberían corregirse antes de imprimir.',
     doc: { t: 'Contrato de trabajo de campaña · régimen agrario', sub: 'Plantilla 2025 · Agrícola Valle Verde S.A.C.' },
     lines: [
@@ -130,7 +130,7 @@ export const ESCENAS = [
   },
   {
     id: 'b3', t: '09:40', ch: 'documento', who: null, titulo: '900 personas, una mesa', banner: 'assets/foto2/tablet-equipo.webp', lugar: 'Oficina de Planillas', show: ['tiempo', 'calidad', 'cumplimiento'],
-    body: () => `<p>En tu bandeja hay cinco frentes abiertos. Hoy solo te da el tiempo para <mark class="clave">dos</mark>, y el primer grupo grande de ingresos llega el miércoles.</p>`,
+    body: () => `<p>En tu bandeja hay cinco frentes abiertos. Hoy solo te da el tiempo para <mark class="clave">dos</mark>, y el primer grupo grande de ingresos llega mañana.</p>`,
     type: 'pick', n: 2, prompt: 'Elige los dos frentes con los que vas a empezar.', boton: 'Empezar por aquí', resumen: 'Empezaste por',
     cols: ['Frente', 'Por qué importa'],
     rows: [
@@ -193,10 +193,10 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Anotar su caso con su DNI, buscar su liquidación y comprometerte a darle una respuesta el viernes.',
         res: { q: 'buena', fx: { personas: 5, etica: 3, tiempo: -2 }, rel: { yolanda: 1 }, flags: ['yolanda_escuchada'], cartera: { reclamos: '15 reclamos registrados con fecha de respuesta' },
-          out: 'Buscas en el sistema: su liquidación de marzo no incluye vacaciones truncas. Le dices que lo revisarás con Mónica y le darás respuesta el viernes. Yolanda dobla su boleta otra vez, ahora más despacio.',
-          pro: { ok: 'Registras, verificas y das una fecha. Y le dejas claro que reclamar no afecta su próxima contratación.', risk: 'Ahora tienes que cumplir el viernes.', info: 'Si una liquidación falló, revisa si es un caso aislado o un error de todas las liquidaciones de marzo.' },
+          out: 'Buscas en el sistema: su liquidación de marzo no incluye vacaciones truncas. Le dices que lo revisarás con Mónica y le darás respuesta el miércoles. Yolanda dobla su boleta otra vez, ahora más despacio.',
+          pro: { ok: 'Registras, verificas y das una fecha. Y le dejas claro que reclamar no afecta su próxima contratación.', risk: 'Ahora tienes que cumplir el miércoles.', info: 'Si una liquidación falló, revisa si es un caso aislado o un error de todas las liquidaciones de marzo.' },
           kusi: ['celebra', 'Yolanda se fue con una fecha y sin miedo. ¡Qué divino!'] } },
-      { id: 'b', label: 'Decirle que no se preocupe, que el viernes se le paga sin falta, porque se nota que tiene razón y ya vino tres veces.',
+      { id: 'b', label: 'Decirle que no se preocupe, que el miércoles se le paga sin falta, porque se nota que tiene razón y ya vino tres veces.',
         res: { q: 'riesgosa', fx: { personas: 2, etica: -3, calidad: -4 }, rel: { yolanda: 1 }, flags: ['yolanda_promesa'],
           out: 'Yolanda se va aliviada. Tú todavía no sabes cuánto se le debe, si se le debe, ni quién tiene que aprobar el pago.',
           pro: { ok: 'Yolanda se siente escuchada hoy.', risk: 'Una promesa sin verificar, si no se cumple, destruye la confianza que querías construir.' },
@@ -210,12 +210,12 @@ export const ESCENAS = [
     rules: [[BP, 'Verifica antes de prometer y da siempre una fecha concreta de respuesta.'], [LEY, 'Tomar represalias contra quien reclama sus derechos laborales es ilegal.']],
     mirada: {
       ve: 'Detrás de la pregunta de Yolanda hay otra: «¿reclamar me va a costar el trabajo?». En campañas agrícolas ese miedo es real. Una profesional de planillas responde las dos preguntas: la del dinero y la del miedo.',
-      visual: { tipo: 'linea', titulo: 'Cómo se atiende un reclamo de pago', hitos: [['Hoy', 'Registrar con DNI y detalle'], ['Mañana', 'Revisar la liquidación'], ['Miércoles', 'Validar con la jefa'], ['Viernes', 'Responder, con o sin pago']] },
+      visual: { tipo: 'linea', titulo: 'Cómo se atiende un reclamo de pago', hitos: [['Hoy', 'Registrar con DNI y detalle'], ['Mañana', 'Revisar la liquidación'], ['Miércoles, 11:00', 'Validar con la jefa'], ['Miércoles, tarde', 'Responder, con o sin pago']] },
     },
   },
   {
     id: 'b6', t: '16:10', ch: 'whatsapp', who: null, titulo: 'El reloj del fundo 3', banner: 'assets/esc/reloj.webp', show: ['calidad', 'confianza', 'tiempo'],
-    body: () => `<p>El reloj de marcación del fundo 3 solo se descarga los viernes. Si falla el miércoles, nadie se entera hasta el cierre. Joel es el único que sabe cómo sacar los datos.</p><p>Le escribes para pedirle algo que te va a salvar el mes.</p>`,
+    body: () => `<p>El reloj de marcación del fundo 3 solo se descarga los viernes. Si falla un martes, nadie se entera hasta el cierre. Joel es el único que sabe cómo sacar los datos.</p><p>Le escribes para pedirle algo que te va a salvar el mes.</p>`,
     type: 'compose', enviaA: 'joel', para: 'Para: Joel Ramírez · Soporte de TI', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
@@ -244,7 +244,7 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 4 : 1, confianza: q === 'buena' ? 4 : 0, tiempo: sel.pedido === 'p1' ? 3 : 0 },
         rel: { joel: q === 'buena' ? 1 : 0 }, flags: q === 'buena' ? ['joel_aliado'] : [],
         cartera: { marcacion: q === 'buena' ? 'Exportación diaria acordada con TI' : 'Descarga semanal, como siempre' },
-        out: q === 'buena' ? 'Joel responde: «Nadie me lo había pedido así. Hoy lo programo». Un problema de cada quincena acaba de cambiar.' : 'Joel responde: «Ok, veo qué puedo hacer». Probablemente lo olvide el jueves.',
+        out: q === 'buena' ? 'Joel responde: «Nadie me lo había pedido así. Hoy lo programo». Un problema de cada quincena acaba de cambiar.' : 'Joel responde: «Ok, veo qué puedo hacer». Probablemente lo olvide pasado mañana.',
         pro: { ok: 'Pedir un cambio de proceso, con el porqué, suele lograr más que un favor.', risk: 'Si TI no entiende para qué sirve el dato, lo prioriza como cualquier pedido.', info: 'Pregunta también si el reloj guarda las marcaciones cuando se va la luz.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Te ganaste un aliado en TI!' : 'Joel necesitaba saber para qué.'],
       };
@@ -258,20 +258,20 @@ export const ESCENAS = [
   {
     id: 'b7', t: '18:40', ch: 'correo', who: null, titulo: 'Lo que le dices a Mónica', banner: 'assets/esc/meta.webp', show: ['confianza', 'calidad', 'etica'],
     mail: { from: 'Mónica Uribe · Jefa de Planillas', to: 'Analista de Administración de Personal', asunto: '¿Cómo te fue?' },
-    body: () => `<p>Antes de irte, cuéntame en corto cómo quedó el día y <mark class="clave">qué te preocupa para el miércoles</mark>. Llegan 200.</p><p>Mónica</p>`,
+    body: () => `<p>Antes de irte, cuéntame en corto cómo quedó el día y <mark class="clave">qué te preocupa para mañana</mark>. Llegan 200.</p><p>Mónica</p>`,
     type: 'choice',
     choices: [
-      { id: 'a', label: 'Avances, un riesgo para el miércoles y lo que necesitas de ella.',
-        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { monica: 1 }, responde: 'Mónica: hoy salió el lote de cuentas al banco y armé el checklist de ingreso. Riesgo para el miércoles: el 40 % de los 200 aún no tiene datos completos. Necesito: dos personas para la mesa de registro en el fundo 2 a las 6:00.',
-          out: 'Mónica responde en cinco minutos: «Te doy a Joel y a mí misma. Buen reporte».', pro: { ok: 'Un riesgo dicho el lunes es un problema resuelto el miércoles.' }, kusi: ['feliz', 'Avisar a tiempo también es trabajar.'] } },
+      { id: 'a', label: 'Avances, un riesgo para mañana y lo que necesitas de ella.',
+        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { monica: 1 }, responde: 'Mónica: hoy salió el lote de cuentas al banco y armé el checklist de ingreso. Riesgo para mañana: el 40 % de los 200 aún no tiene datos completos. Necesito: dos personas para la mesa de registro en el fundo 2 a las 6:00.',
+          out: 'Mónica responde en cinco minutos: «Te doy a Joel y a mí misma. Buen reporte».', pro: { ok: 'Un riesgo dicho hoy es un problema resuelto mañana.' }, kusi: ['feliz', 'Avisar a tiempo también es trabajar.'] } },
       { id: 'b', label: 'Que todo salió bien y que mañana sigues.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Mónica: todo bien por aquí, mañana seguimos 💪',
-          out: 'Mónica responde con un pulgar. El miércoles descubrirá que faltaban datos de 80 personas.', pro: { ok: 'Transmites calma.', risk: 'Esconder un riesgo para no preocupar a la jefa la deja sin tiempo para ayudarte.' }, kusi: ['pensando', '¿De verdad todo salió bien?'] } },
+          out: 'Mónica responde con un pulgar. Mañana descubrirá que faltaban datos de 80 personas.', pro: { ok: 'Transmites calma.', risk: 'Esconder un riesgo para no preocupar a la jefa la deja sin tiempo para ayudarte.' }, kusi: ['pensando', '¿De verdad todo salió bien?'] } },
     ],
     rules: [[BP, 'En un reporte diario, el riesgo vale más que el avance.']],
     mirada: {
       ve: 'Las jefas de planillas viven anticipando el cierre. Lo más útil que puedes darles no es tranquilidad: es información a tiempo para decidir.',
-      visual: { tipo: 'mensaje', titulo: 'Un reporte con riesgo y pedido', txt: 'Hoy: lote de cuentas al banco y checklist de ingreso. Riesgo: el 40 % de los 200 del miércoles no tiene datos completos. Necesito: dos personas para la mesa de registro a las 6:00.' },
+      visual: { tipo: 'mensaje', titulo: 'Un reporte con riesgo y pedido', txt: 'Hoy: lote de cuentas al banco y checklist de ingreso. Riesgo: el 40 % de los 200 de mañana no tiene datos completos. Necesito: dos personas para la mesa de registro a las 6:00.' },
     },
   },
 ];

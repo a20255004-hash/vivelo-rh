@@ -1,5 +1,5 @@
-// Analista de Capacitación y Desarrollo · Capítulo 5 · «El taller» · Semana 2, jueves.
-// Hilo del mes: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
+// Analista de Capacitación y Desarrollo · Capítulo 5 · «El taller» · Semana 1, viernes.
+// Hilo de las dos semanas: demostrar que la capacitación cambia resultados en una financiera con la mora en alza.
 // Normas citadas:
 // - Ley 29571, Código de Protección y Defensa del Consumidor, art. 62: métodos abusivos de cobranza
 //   (personas ajenas a la deuda; llamadas o visitas entre las 20:00 y las 07:00; documentos que aparenten ser judiciales).
@@ -7,14 +7,14 @@
 // - Los niveles de evaluación (reacción, aprendizaje, aplicación, resultados) se presentan como buena práctica, sin cifras.
 
 export const CAP = {
-  n: 5, titulo: 'El taller', dia: 'Semana 2, jueves', foto: 'assets/foto/capacitacion.webp',
+  n: 5, titulo: 'El taller', dia: 'Semana 1, viernes', foto: 'assets/foto/capacitacion.webp',
   lugar: 'Financiera Chimú · Agencia El Porvenir',
   inicio: '06:30', fin: '18:30', cierreHora: '18:10',
-  apertura: 'Jueves, 6:30 a. m. Tu primer taller empieza a las 8:00 en El Porvenir. Todavía estás en casa, con el café en la mano.', boton: 'Revisar el diseño',
+  apertura: 'Viernes, 6:30 a. m. Tu primer taller empieza a las 8:00 en El Porvenir. Todavía estás en casa, con el café en la mano.', boton: 'Revisar el diseño',
   kusi: 'Hoy facilitas, no dictas. ¡Que hablen ellos!',
   lead: 'Cerraste el diseño a las seis de la mañana, sobreviviste a un proyector muerto, diste retroalimentación en plena práctica, negociaste con Víctor delante de todos y mediste lo que aprendieron.',
   reflexion: '¿En qué momento del taller sentiste que aprendían de verdad?',
-  siguiente: { n: 6, titulo: 'No los suelto', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'No los suelto', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
@@ -233,7 +233,7 @@ export const ESCENAS = [
       { id: 'b', label: 'Reportar el promedio de salida de los que aprobaron: es el piloto, y lo que importa ahora es mantener el apoyo de Finanzas.',
         res: { q: 'riesgosa', fx: { etica: -5, calidad: -2, confianza: 2 }, flags: ['prueba_maquillada'], cartera: { prueba: 'Reportado: promedio 8,4 (solo aprobados)' },
           out: 'El correo luce bien: «Promedio de salida: 8,4». Lorena lo reenvía a Mario. En el Excel, seis filas quedan en otra pestaña que nadie abre.',
-          pro: { ok: 'Proteges el apoyo al área por ahora.', risk: 'Si alguien revisa el Excel, tu credibilidad cae con todos los números del mes.' },
+          pro: { ok: 'Proteges el apoyo al área por ahora.', risk: 'Si alguien revisa el Excel, tu credibilidad cae con todos los números de estas semanas.' },
           kusi: ['preocupado', '¿Y las seis filas de la otra pestaña?'] } },
       { id: 'c', label: 'Reportar todo, pero recomendar que los nueve agregados no cuenten para el piloto.',
         res: { q: 'aceptable', fx: { etica: 2, calidad: 2 }, flags: ['prueba_honesta'], cartera: { prueba: 'Entrada 4,8 · salida 7,6 · se excluyen 9 agregados' },
