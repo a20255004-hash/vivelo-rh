@@ -1,5 +1,5 @@
 // Analista de Relaciones Laborales · Capítulo 1 · «El pliego» · Semana 1, lunes.
-// Hilo del mes: la negociación colectiva con el sindicato de Conservas del Pacífico.
+// Hilo de las dos semanas: la negociación colectiva con el sindicato de Conservas del Pacífico.
 // Normas citadas: TUO de la Ley de Relaciones Colectivas de Trabajo (D.S. 010-2003-TR): presentación del pliego,
 // inicio del trato directo dentro de los diez días calendario de recibido, información económica a pedido de los
 // trabajadores y protección de la libertad sindical (fuero sindical).
@@ -12,7 +12,7 @@ export const CAP = {
   kusi: 'En relaciones laborales la confianza vale tanto como la ley. ¡Con calma y con respeto!',
   lead: 'Recibiste el pliego como corresponde, entendiste los plazos de la negociación, frenaste una represalia disfrazada y propusiste una primera reunión sin poner a nadie a la defensiva.',
   reflexion: '¿En qué momento de hoy sentiste que estabas «entre dos fuegos»?',
-  siguiente: { n: 2, titulo: 'La falta', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'La falta', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -30,7 +30,7 @@ export const FUTURO = {
   turno_frenado: ['Frenaste el cambio de turno de Lucho.', 'Gladys sigue molesta. Capítulo 2.'],
   turno_cambiado: ['Aceptaste mover a Lucho al turno noche.', 'El sindicato lo denunciará ante SUNAFIL en el capítulo 7.'],
   lucho_respeto: ['Lucho recibió una propuesta de reunión clara y respetuosa.', 'Llegará a la primera reunión con menos guardia. Capítulo 4.'],
-  comunicado_neutral: ['El comunicado informó sin atacar al sindicato.', 'Valeria lo usará de ejemplo en el capítulo 8.'],
+  comunicado_neutral: ['El comunicado informó sin atacar al sindicato.', 'Valeria lo usará de ejemplo en el capítulo 9.'],
   comunicado_ataque: ['El comunicado dijo que el sindicato «pide imposibles».', 'La base se endureció. Capítulo 4.'],
 };
 
@@ -96,7 +96,7 @@ export const ESCENAS = [
   },
   {
     id: 'r2', t: '08:40', ch: 'presencial', who: 'arturo', titulo: 'Cómo sigue esto', banner: 'assets/foto/reunion-jefa.webp', lugar: 'Oficina de Relaciones Laborales', show: ['cumplimiento', 'calidad', 'tiempo'],
-    body: () => `<p>El Dr. Benavides lee el pliego con el lapicero en la boca. «Dieciocho pedidos. Lo de siempre: bono de producción, uniformes, movilidad, comedor…»</p><p>Te pasa unas tarjetas: «Para que no te pierdas este mes, <mark class="clave">ordena cómo avanza una negociación colectiva</mark> si no hay acuerdo rápido».</p>`,
+    body: () => `<p>El Dr. Benavides lee el pliego con el lapicero en la boca. «Dieciocho pedidos. Lo de siempre: bono de producción, uniformes, movilidad, comedor…»</p><p>Te pasa unas tarjetas: «Para que no te pierdas estas semanas, <mark class="clave">ordena cómo avanza una negociación colectiva</mark> si no hay acuerdo rápido».</p>`,
     type: 'secuencia', prompt: 'Ordena las etapas de la negociación colectiva. Usa las flechas.', boton: 'Mostrarle el orden al Dr. Benavides',
     items: [
       { id: 'pliego', t: 'El sindicato presenta el pliego de reclamos', por: 'Hoy, en la puerta 1.' },

@@ -1,5 +1,5 @@
-// Analista de Relaciones Laborales · Capítulo 4 · «La primera reunión» · Semana 2, martes.
-// Hilo del mes: primera reunión de trato directo con el sindicato; el caso de Marcos Huamán sigue su carril.
+// Analista de Relaciones Laborales · Capítulo 4 · «La primera reunión» · Semana 1, jueves.
+// Hilo de las dos semanas: primera reunión de trato directo con el sindicato; el caso de Marcos Huamán sigue su carril.
 // Normas citadas:
 // - TUO de la Ley de Relaciones Colectivas de Trabajo (D.S. 010-2003-TR): art. 49 (la designación de los representantes
 //   de los trabajadores consta en el pliego), art. 54 (deber de negociar de buena fe y de abstenerse de acciones que
@@ -11,14 +11,14 @@
 // - TUO del D. Leg. 728 (D.S. 003-97-TR), art. 31: el caso disciplinario sigue su propio procedimiento (caps. 2 y 3).
 
 export const CAP = {
-  n: 4, titulo: 'La primera reunión', dia: 'Semana 2, martes', foto: 'assets/3d/scenes/reunion.webp',
+  n: 4, titulo: 'La primera reunión', dia: 'Semana 1, jueves', foto: 'assets/3d/scenes/reunion.webp',
   lugar: 'Conservas del Pacífico · Sala de reuniones de la planta',
   inicio: '07:30', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Martes, día 8 del plazo. A las 10:00 empieza el trato directo. A las 9:45, en la puerta de la sala, no hay tres dirigentes: hay veinte trabajadores con polos blancos.', boton: 'Preparar la reunión',
+  apertura: 'Jueves, tres días después del pliego y dentro del plazo. A las 10:00 empieza el trato directo. A las 9:45, en la puerta de la sala, no hay tres dirigentes: hay veinte trabajadores con polos blancos.', boton: 'Preparar la reunión',
   kusi: 'Hoy no se negocia el bono: se negocia cómo vamos a negociar. ¡Respira hondo!',
   lead: 'Llegaste preparada, ordenaste la sala sin echar a nadie, escuchaste las prioridades del sindicato, reconociste lo que la empresa debía y dejaste por escrito las reglas de la negociación.',
   reflexion: '¿Qué frase de Lucho te quedó dando vueltas en el bus de regreso?',
-  siguiente: { n: 5, titulo: 'El descargo', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'El descargo', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -26,21 +26,21 @@ export const CARTERA = [
   { id: 'sala', p: 'Instalación del trato directo', j: 'Ambas comisiones', d: 0, e: 'Hoy 10:00' },
   { id: 'metodo', p: 'Metodología y acta de instalación', j: 'Valeria · Lucho', d: 0, e: 'Sin acordar' },
   { id: 'info', p: 'Información económica para el sindicato', j: 'Finanzas · Patricia Salcedo', d: 0, e: 'No pedida aún' },
-  { id: 'caso', p: 'Caso Marcos Huamán', j: 'Relaciones Laborales', d: 0, e: 'Descargo vence el jueves' },
+  { id: 'caso', p: 'Caso Marcos Huamán', j: 'Relaciones Laborales', d: 0, e: 'Descargo vence el martes' },
 ];
 
 export const FUTURO = {
-  memoria_lista: ['Llegaste a la mesa con el convenio anterior revisado y una propuesta de método.', 'La comisión te encarga el seguimiento de las actas. Capítulo 8.'],
-  sala_ordenada: ['La comisión negoció en la mesa y la base escuchó el acta al final.', 'La base confía un poco más en la mesa. Capítulo 8.'],
-  sala_asamblea: ['La primera reunión se volvió una asamblea de veinte personas.', 'Las siguientes sesiones arrancan igual. Capítulo 8.'],
+  memoria_lista: ['Llegaste a la mesa con el convenio anterior revisado y una propuesta de método.', 'La comisión te encarga el seguimiento de las actas. Capítulo 9.'],
+  sala_ordenada: ['La comisión negoció en la mesa y la base escuchó el acta al final.', 'La base confía un poco más en la mesa. Capítulo 9.'],
+  sala_asamblea: ['La primera reunión se volvió una asamblea de veinte personas.', 'Las siguientes sesiones arrancan igual. Capítulo 7.'],
   vigilancia_llamada: ['Llamaste a vigilancia para despejar la puerta de la sala.', 'El sindicato lo incluirá en su denuncia ante SUNAFIL. Capítulo 7.'],
   prioridades_claras: ['Sabes que para la base pesan el bono, la movilidad de madrugada y las horas de la caballa.', 'Las horas de la caballa vuelven en el capítulo 6.'],
-  incumplimiento_reconocido: ['Reconociste en la mesa lo que la empresa no cumplió.', 'Lucho lo recordará cuando haya que ceder. Capítulo 8.'],
-  oferta_sin_mandato: ['Ofreciste algo en la mesa sin mandato de la comisión.', 'La gerencia te lo reclamará y el sindicato lo dará por ganado. Capítulo 8.'],
-  metodo_acordado: ['El acta de instalación fija reglas, fechas y el caso de Marcos fuera de la mesa.', 'Valeria la citará al redactar el acta final. Capítulo 8.'],
+  incumplimiento_reconocido: ['Reconociste en la mesa lo que la empresa no cumplió.', 'Lucho lo recordará cuando haya que ceder. Capítulo 9.'],
+  oferta_sin_mandato: ['Ofreciste algo en la mesa sin mandato de la comisión.', 'La gerencia te lo reclamará y el sindicato lo dará por ganado. Capítulo 9.'],
+  metodo_acordado: ['El acta de instalación fija reglas, fechas y el caso de Marcos fuera de la mesa.', 'Valeria la citará al redactar el acta final. Capítulo 9.'],
   info_comprometida: ['La empresa se comprometió a entregar la información económica en una fecha.', 'Finanzas tendrá que cumplir. Capítulo 6.'],
-  aviso_neutral: ['El aviso al personal repitió lo que dice el acta.', 'Nadie pudo decir que la empresa contó otra versión. Capítulo 8.'],
-  aviso_ataque: ['El aviso al personal contradijo el acta o descalificó al sindicato.', 'Lucho pedirá que los avisos se redacten en conjunto. Capítulo 8.'],
+  aviso_neutral: ['El aviso al personal repitió lo que dice el acta.', 'Nadie pudo decir que la empresa contó otra versión. Capítulo 9.'],
+  aviso_ataque: ['El aviso al personal contradijo el acta o descalificó al sindicato.', 'Lucho pedirá que los avisos se redacten en conjunto. Capítulo 9.'],
   bono_cierre_sugerido: ['Recomendaste ofrecer un bono de cierre antes de revisar las horas.', 'El gerente lo tendrá en la cabeza cuando aparezcan las horas sin pagar. Capítulo 6.'],
   gerencia_informada: ['La gerencia recibió un resumen sin promesas y con el riesgo de las horas extra.', 'El gerente pedirá revisar las horas antes de que alguien más lo haga. Capítulo 6.'],
 };
@@ -61,8 +61,8 @@ export const WSP = [
   { chat: 'gladys', t: '08:30', de: 'Gladys', txt: 'Hoy me falta media línea 2 porque se van a tu reunión. Que sea corta.' },
   { chat: 'lucho', t: '09:10', de: 'Lucho', txt: 'Llegamos 9:45. Vienen compañeros a acompañar, no se asuste.', si: 'lucho_respeto' },
   { chat: 'lucho', t: '09:10', de: 'Lucho', txt: 'Ahí estaremos. Todos.', no: 'lucho_respeto' },
-  { chat: 'patricia', t: '14:20', de: 'Patricia', txt: '¿Me comprometieron a entregar estados financieros en una semana? Avísenme antes, por favor 😅 Igual lo saco.', si: 'info_comprometida' },
-  { chat: 'lucho', t: '17:05', de: 'Lucho', txt: 'La base quedó tranquila con el acta. El jueves 10:00 seguimos. Y el jueves Marcos entrega su descargo, por el otro lado.', si: 'metodo_acordado' },
+  { chat: 'patricia', t: '14:20', de: 'Patricia', txt: '¿Me comprometieron a entregar estados financieros antes del martes? Avísenme antes, por favor 😅 Igual lo saco.', si: 'info_comprometida' },
+  { chat: 'lucho', t: '17:05', de: 'Lucho', txt: 'La base quedó tranquila con el acta. El martes 10:00 seguimos. Y Marcos está escribiendo su descargo, por el otro lado.', si: 'metodo_acordado' },
   { chat: 'arturo', t: '18:40', de: 'Arturo', txt: 'El gerente leyó tu resumen. Me preguntó por las horas de la caballa. Eso lo vemos la próxima semana.', si: 'gerencia_informada' },
 ];
 
@@ -177,7 +177,7 @@ export const ESCENAS = [
           out: 'Jhon escribe algo en su cuaderno y lo subraya. Lucho se ríe sin ganas: «Siempre es un año difícil». La mañana se va en discutir quién tiene la culpa.',
           pro: { ok: 'Defiendes la posición de la empresa y el contexto del sector es real.', risk: 'Negar lo que la otra parte sabe que es cierto es la forma más rápida de perder credibilidad en la mesa.' },
           kusi: ['pensando', 'El contexto es real, pero no responde lo que preguntó.'] } },
-      { id: 'c', label: 'Calmar la sala: anunciar que la empresa entregará los uniformes pendientes este mes y retomará la movilidad desde el lunes.',
+      { id: 'c', label: 'Calmar la sala: anunciar que la empresa entregará los uniformes pendientes en quince días y retomará la movilidad desde el lunes.',
         res: { q: 'riesgosa', fx: { cumplimiento: -4, etica: -3, confianza: 3 }, rel: { lucho: 1, arturo: -1 }, flags: ['oferta_sin_mandato'],
           out: 'Aplausos en el pasillo. El doctor se pone pálido: ni los uniformes ni la movilidad tienen presupuesto aprobado. Patricia, de Finanzas, deja de escribir.',
           pro: { ok: 'Bajas la tensión de inmediato.', risk: 'Ofrecer sin mandato, delante de todos, crea un compromiso que la comisión no aprobó y que el sindicato dará por ganado.' },
@@ -204,7 +204,7 @@ export const ESCENAS = [
         { id: 'o2', t: 'Primero el bono, para sacarnos eso de encima.', ok: false, por: 'Empezar por lo más difícil sin confianza bloquea todo.' },
       ] },
       { id: 'info', t: 'Información', n: 1, ops: [
-        { id: 'i1', t: 'La empresa entregará los estados financieros del último ejercicio a la comisión sindical en un plazo de siete días.', ok: true, por: 'Cumple el art. 55 y le pone fecha.' },
+        { id: 'i1', t: 'La empresa entregará los estados financieros del último ejercicio a la comisión sindical antes de la sesión del martes.', ok: true, por: 'Cumple el art. 55 y le pone fecha.' },
         { id: 'i2', t: 'La información económica se mostrará solo si se llega a la etapa económica.', ok: false, por: 'Condicionar la información debilita la buena fe.' },
       ] },
       { id: 'marcos', t: 'El caso de Marcos', n: 1, ops: [
@@ -217,16 +217,16 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 6 : q === 'aceptable' ? 2 : -3, cumplimiento: q === 'riesgosa' ? -3 : 4, confianza: q === 'buena' ? 3 : 0 }, rel: { valeria: q === 'buena' ? 1 : 0, lucho: q === 'buena' ? 1 : 0 },
         flags: q === 'riesgosa' ? [] : ['metodo_acordado', 'info_comprometida'],
-        cartera: { metodo: q === 'riesgosa' ? 'Acta sin reglas claras' : 'Acta firmada: martes y jueves 10:00', info: q === 'riesgosa' ? 'Sin fecha' : 'Estados financieros en 7 días' },
-        out: q === 'buena' ? 'Lucho lee el bloque de Marcos dos veces. «Respeto del derecho de defensa… y de su asesoría sindical. Ya.» Firman las dos comisiones a las 13:05.' : q === 'aceptable' ? 'Se firma, pero Jhon anota al margen: «¿siete días, seguro?». Valeria corrige una pieza antes de imprimir.' : 'Valeria detiene la impresión: «Así no se firma». Pierden media hora rehaciendo el acta delante del sindicato.',
-        pro: { ok: 'Un acta de instalación con calendario, orden, información y carriles separados es la base de todo lo que viene.', risk: 'Si un caso disciplinario queda atado a la negociación, cualquier sanción parecerá represalia y cualquier perdón, una concesión.', info: 'Avísale hoy a Finanzas del plazo de siete días.' },
+        cartera: { metodo: q === 'riesgosa' ? 'Acta sin reglas claras' : 'Acta firmada: martes y jueves 10:00', info: q === 'riesgosa' ? 'Sin fecha' : 'Estados financieros antes del martes' },
+        out: q === 'buena' ? 'Lucho lee el bloque de Marcos dos veces. «Respeto del derecho de defensa… y de su asesoría sindical. Ya.» Firman las dos comisiones a las 13:05.' : q === 'aceptable' ? 'Se firma, pero Jhon anota al margen: «¿antes del martes, seguro?». Valeria corrige una pieza antes de imprimir.' : 'Valeria detiene la impresión: «Así no se firma». Pierden media hora rehaciendo el acta delante del sindicato.',
+        pro: { ok: 'Un acta de instalación con calendario, orden, información y carriles separados es la base de todo lo que viene.', risk: 'Si un caso disciplinario queda atado a la negociación, cualquier sanción parecerá represalia y cualquier perdón, una concesión.', info: 'Avísale hoy a Finanzas del plazo: antes del martes.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Reglas claras para todos!' : 'Revisa qué reglas quedaron sueltas.'],
       };
     },
     rules: [[LEY, 'TUO de la LRCT, art. 55: la información económica se proporciona a pedido de los trabajadores.'], [BP, 'Antes de discutir montos, acuerda por escrito la frecuencia, las actas, el orden de los puntos y la entrega de información.']],
     mirada: {
-      ve: 'El acta de instalación es el contrato sobre cómo se va a negociar. Cuando hay tensión, volver a ella («esto lo acordamos el martes») evita que cada reunión empiece de cero.',
-      visual: { tipo: 'linea', titulo: 'El calendario que firmaron', hitos: [['Martes', 'Instalación'], ['Jueves', 'Convenio anterior'], ['Martes', 'Información económica'], ['Semana 4', 'Pedidos económicos']] },
+      ve: 'El acta de instalación es el contrato sobre cómo se va a negociar. Cuando hay tensión, volver a ella («esto lo acordamos el jueves») evita que cada reunión empiece de cero.',
+      visual: { tipo: 'linea', titulo: 'El calendario que firmaron', hitos: [['Jueves', 'Instalación'], ['Martes', 'Convenio anterior e información económica'], ['Jueves', 'Pedidos económicos']] },
     },
   },
   {
@@ -268,16 +268,16 @@ export const ESCENAS = [
   {
     id: 'h7', t: '18:00', ch: 'correo', who: null, titulo: 'El gerente pregunta', banner: 'assets/esc/meta.webp', show: ['confianza', 'calidad', 'etica'],
     mail: { from: 'Dr. Arturo Benavides', to: 'Analista de Relaciones Laborales', asunto: 'RV: ¿Cuánto ofrecemos?' },
-    body: () => `<p>El gerente me reenvía esto: «¿Cuándo ofrecemos algo? Quiero cerrar antes de fin de mes». Prepárame la respuesta. <mark class="clave">Que sepa dónde estamos de verdad</mark>.</p><p>A. B.</p>`,
+    body: () => `<p>El gerente me reenvía esto: «¿Cuándo ofrecemos algo? Quiero cerrar la próxima semana». Prepárame la respuesta. <mark class="clave">Que sepa dónde estamos de verdad</mark>.</p><p>A. B.</p>`,
     type: 'choice',
     choices: [
       { id: 'a', label: 'Dónde estamos, qué viene y un riesgo que todavía nadie ve.',
         res: { q: 'buena', fx: { confianza: 4, calidad: 4, etica: 2 }, rel: { arturo: 1 }, flags: ['gerencia_informada'],
-          responde: 'Gerente: 1) Trato directo instalado hoy, dentro del plazo; acta firmada con reuniones martes y jueves. 2) Primero se verán los compromisos no cumplidos del convenio anterior; los montos, después. 3) Nos comprometimos a entregar los estados financieros en siete días. 4) Riesgo: la base reclama las horas trabajadas en la semana de la caballa. El reloj muestra jornadas largas que no veo en planillas. Recomiendo revisarlas antes de ofrecer cualquier monto.',
+          responde: 'Gerente: 1) Trato directo instalado hoy, dentro del plazo; acta firmada con reuniones martes y jueves. 2) Primero se verán los compromisos no cumplidos del convenio anterior; los montos, después. 3) Nos comprometimos a entregar los estados financieros antes del martes. 4) Riesgo: la base reclama las horas trabajadas en la semana de la caballa. El reloj muestra jornadas largas que no veo en planillas. Recomiendo revisarlas antes de ofrecer cualquier monto.',
           out: 'El doctor lo reenvía con una línea: «Coincido». A las 18:40 te escribe: «El gerente preguntó por las horas».', kusi: ['celebra', '¡Ves venir el problema antes que nadie!'] } },
       { id: 'b', label: 'Recomendar ofrecer pronto un bono de cierre para acelerar la firma.',
         res: { q: 'riesgosa', fx: { calidad: -2, etica: -2 }, flags: ['bono_cierre_sugerido'],
-          responde: 'Gerente: sugiero ofrecer un bono de cierre la próxima semana para acelerar la firma antes de fin de mes.',
+          responde: 'Gerente: sugiero ofrecer un bono de cierre el martes para acelerar la firma la próxima semana.',
           out: 'El gerente responde con un pulgar. Si ese bono se ofrece antes de revisar las horas, la empresa estará pagando por cerrar un problema que todavía no conoce.', kusi: ['preocupado', '¿Y si lo que pesa no es el bono?'] } },
     ],
     mirada: { ve: 'La gerencia quiere fechas y montos. Tu trabajo es decirle dónde está la negociación de verdad, incluido el riesgo que todavía no aparece en la mesa: a veces, lo que más pesa no está en el pliego.' },

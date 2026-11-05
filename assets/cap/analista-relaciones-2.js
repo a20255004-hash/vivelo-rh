@@ -1,5 +1,5 @@
-// Analista de Relaciones Laborales · Capítulo 2 · «La falta» · Semana 1, miércoles.
-// Hilo del mes: la negociación colectiva con el sindicato y, desde hoy, el caso disciplinario de Marcos Huamán.
+// Analista de Relaciones Laborales · Capítulo 2 · «La falta» · Semana 1, martes.
+// Hilo de las dos semanas: la negociación colectiva con el sindicato y, desde hoy, el caso disciplinario de Marcos Huamán.
 // Normas citadas:
 // - TUO del D. Leg. 728, Ley de Productividad y Competitividad Laboral (D.S. 003-97-TR), art. 25 (falta grave),
 //   art. 31 (plazo no menor de seis días naturales para defenderse, principio de inmediatez y exoneración de asistir
@@ -9,14 +9,14 @@
 // - TUO de la Ley de Relaciones Colectivas de Trabajo (D.S. 010-2003-TR): libertad sindical (ya citada en el cap. 1).
 
 export const CAP = {
-  n: 2, titulo: 'La falta', dia: 'Semana 1, miércoles', foto: 'assets/3d/scenes/planta.webp',
+  n: 2, titulo: 'La falta', dia: 'Semana 1, martes', foto: 'assets/3d/scenes/planta.webp',
   lugar: 'Conservas del Pacífico · Planta de envasado',
   inicio: '07:00', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Miércoles. La semana pasada entró caballa sin parar y la planta trabajó corrido. A las 4:10 de la madrugada, un supervisor encontró a un operario dormido junto a la autoclave 3.', boton: 'Ir al cambio de turno',
+  apertura: 'Martes. La semana pasada entró caballa sin parar y la planta trabajó corrido. A las 4:10 de la madrugada, un supervisor encontró a un operario dormido junto a la autoclave 3.', boton: 'Ir al cambio de turno',
   kusi: 'Hoy toca investigar antes de juzgar. ¡Con calma, que el apuro también se paga!',
   lead: 'Escuchaste antes de sancionar, cuidaste la prueba, separaste los hechos de las opiniones y armaste un plan de investigación que respeta el procedimiento.',
   reflexion: '¿Qué te costó más hoy: frenar a Gladys o no juzgar a Marcos?',
-  siguiente: { n: 3, titulo: 'La carta de preaviso', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'La carta de preaviso', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -28,7 +28,7 @@ export const CARTERA = [
 ];
 
 export const FUTURO = {
-  investigacion_abierta: ['Abriste una investigación antes de sancionar.', 'El viernes redactarás la carta con hechos, no con rabia. Capítulo 3.'],
+  investigacion_abierta: ['Abriste una investigación antes de sancionar.', 'Mañana redactarás la carta con hechos, no con rabia. Capítulo 3.'],
   despido_express: ['Aceptaste preparar el despido de Marcos el mismo día.', 'Valeria retuvo la carta en la noche. Te lo recordará en el capítulo 3.'],
   marcos_exonerado: ['Marcos se fue a casa exonerado de asistir, con su sueldo.', 'Llegará a su descargo descansado y sin rencor. Capítulo 5.'],
   marcos_sin_pago: ['Mandaste a Marcos a su casa sin goce de haber antes de investigar.', 'Lucho lo llevará a la mesa en el capítulo 4.'],
@@ -56,13 +56,13 @@ export const WSP = [
   { chat: 'gladys', t: '06:40', de: 'Gladys', txt: 'Ven antes de las 7. Tenemos un operario dormido en la autoclave. Esto no lo vas a frenar.', si: 'turno_frenado' },
   { chat: 'gladys', t: '06:40', de: 'Gladys', txt: 'Ven antes de las 7. Tenemos un problema serio en la autoclave 3.', no: 'turno_frenado' },
   { chat: 'rosa', t: '07:50', de: 'Rosa', txt: 'Señorita buenos días 🙏 necesito mi constancia de trabajo para la Caja, me citaron hoy a las 12. Disculpe la molestia.' },
-  { chat: 'lucho', t: '09:05', de: 'Lucho', txt: 'Buenos días. La junta propone iniciar el trato directo el martes 10:00, sigue dentro del plazo. Y aparte: Marcos Huamán es afiliado. Estamos atentos.', si: 'lucho_respeto' },
-  { chat: 'lucho', t: '09:05', de: 'Lucho', txt: 'Martes 10:00 para el trato directo. El plazo lo tenemos contado. Y Marcos Huamán es afiliado: cuidado con lo que hacen.', no: 'lucho_respeto' },
+  { chat: 'lucho', t: '09:05', de: 'Lucho', txt: 'Buenos días. La junta confirma el trato directo para el jueves 10:00, dentro del plazo. Y aparte: Marcos Huamán es afiliado. Estamos atentos.', si: 'lucho_respeto' },
+  { chat: 'lucho', t: '09:05', de: 'Lucho', txt: 'Jueves 10:00 para el trato directo. El plazo lo tenemos contado. Y Marcos Huamán es afiliado: cuidado con lo que hacen.', no: 'lucho_respeto' },
   { chat: 'grupo', t: '12:30', de: 'Valeria', txt: 'Me contó Arturo lo del operario. Antes de cualquier carta, quiero ver los hechos ordenados. Nada de «se le despide» todavía.' },
   { chat: 'grupo', t: '13:10', de: 'Arturo', txt: 'Ojo: en el comedor alguien tapó el comunicado con un papelógrafo. Dice «¿Imposibles? Paguen las horas».', si: 'comunicado_ataque' },
   { chat: 'renzo', t: '15:20', de: 'Renzo', txt: 'Listo, borré el video del grupo de supervisores. Le mandé el original a su correo. Pero ya lo habían reenviado, señorita.', si: 'video_resguardado' },
   { chat: 'milagros', t: '17:30', de: 'Milagros', txt: 'Ya saqué el reporte del reloj de la línea 2, dos semanas. Hay cosas raras, mejor lo vemos el lunes con calma.', si: 'marcaciones_linea' },
-  { chat: 'arturo', t: '18:55', de: 'Arturo', txt: 'Gladys me llamó dos veces. Igual hiciste bien. El viernes sale la carta, revisada por Valeria.', si: 'investigacion_abierta' },
+  { chat: 'arturo', t: '18:55', de: 'Arturo', txt: 'Gladys me llamó dos veces. Igual hiciste bien. Mañana sale la carta, revisada por Valeria.', si: 'investigacion_abierta' },
 ];
 
 export const CORREOS = [
@@ -83,7 +83,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'f1', t: '07:05', ch: 'presencial', who: 'gladys', titulo: 'Cambio de turno', banner: 'assets/foto/supervisa.webp', lugar: 'Pasillo de autoclaves · planta de envasado', show: ['calidad', 'confianza', 'tiempo'],
-    body: (n, F) => `<p>Sale el turno noche con las caras grises; entra el de día con el café en vaso de plástico. Huele a vapor y a aceite de caballa. ${F.has('turno_frenado') ? 'Gladys te mira como el lunes, cuando le frenaste lo de Lucho.' : 'Gladys te saluda con un gesto seco.'}</p><p>«Marcos Huamán. Seis años en la línea 2. Lo encontraron dormido a las 4:10, sentado en una caja, con la autoclave 3 en ciclo.» Mira su reloj: <mark class="clave">tienes tiempo para dos preguntas</mark> antes de que arranque la línea.</p>`,
+    body: (n, F) => `<p>Sale el turno noche con las caras grises; entra el de día con el café en vaso de plástico. Huele a vapor y a aceite de caballa. ${F.has('turno_frenado') ? 'Gladys te mira como ayer, cuando le frenaste lo de Lucho.' : 'Gladys te saluda con un gesto seco.'}</p><p>«Marcos Huamán. Seis años en la línea 2. Lo encontraron dormido a las 4:10, sentado en una caja, con la autoclave 3 en ciclo.» Mira su reloj: <mark class="clave">tienes tiempo para dos preguntas</mark> antes de que arranque la línea.</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Gladys.',
     opts: [
       { id: 'quien', label: '¿Quién lo vio y qué quedó registrado?', info: '«Renzo, el supervisor de noche. Lo grabó con su celular y me mandó un correo. Quispe, el otro operario, estaba al lado.»' },
@@ -105,7 +105,7 @@ export const ESCENAS = [
   },
   {
     id: 'f2', t: '08:20', ch: 'presencial', who: 'gladys', titulo: '«Lo quiero fuera hoy»', banner: 'assets/foto/frente-a-frente.webp', lugar: 'Oficina de la jefa de planta', show: ['cumplimiento', 'etica', 'personas'],
-    body: (n, F) => `<p>La oficina de Gladys tiene una ventana al piso de producción y un calendario de una ferretería de Nuevo Chimbote. Te enseña el video en su celular: Marcos con la cabeza contra la pared, el casco ladeado.</p><p>«Esto es falta grave. Seguridad, producción, todo. ${F.has('turno_frenado') ? 'El lunes me pediste paciencia con Lucho. Hoy no.' : 'Tú dijiste que RR.HH. me iba a apoyar.'} <mark class="clave">Quiero la carta de despido hoy</mark>, y que no regrese.»</p>`,
+    body: (n, F) => `<p>La oficina de Gladys tiene una ventana al piso de producción y un calendario de una ferretería de Nuevo Chimbote. Te enseña el video en su celular: Marcos con la cabeza contra la pared, el casco ladeado.</p><p>«Esto es falta grave. Seguridad, producción, todo. ${F.has('turno_frenado') ? 'Ayer me pediste paciencia con Lucho. Hoy no.' : 'Tú dijiste que RR.HH. me iba a apoyar.'} <mark class="clave">Quiero la carta de despido hoy</mark>, y que no regrese.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Explicarle que antes de despedir hay que imputarle los hechos por escrito y darle al menos seis días naturales para defenderse; mientras, exonerarlo de asistir, con su sueldo, y abrir hoy la investigación.',
@@ -137,8 +137,8 @@ export const ESCENAS = [
     type: 'calls',
     calls: [
       ['Renzo Távara · supervisor del turno noche', 'Contesta desde la combi, con ruido de la Panamericana', '«Sí, yo lo grabé. Lo subí al grupo de supervisores para que vean cómo está la disciplina. Ya debe estar en todos lados, ¿no? A veces es bueno que la gente vea.»'],
-      ['Milagros Chero · asistencia y planillas', 'Contesta con el teclado sonando', '«El reloj dice que Marcos marcó entrada ayer martes a las 07:02 y salida hoy a las 06:55. Pero el sistema se cuelga cuando hay tanta gente… Si quiere le saco el reporte. ¿Solo de él o de toda la línea?»'],
-      ['Lucho Paredes · sindicato', 'Contesta al primer timbre', '«Ya sé todo, señorita. Marcos es afiliado. Si lo botan sin proceso, este caso llega a la mesa del martes. Y mire bien las horas que han estado haciendo en la línea 2.»'],
+      ['Milagros Chero · asistencia y planillas', 'Contesta con el teclado sonando', '«El reloj dice que Marcos marcó entrada ayer lunes a las 07:02 y salida hoy a las 06:55. Pero el sistema se cuelga cuando hay tanta gente… Si quiere le saco el reporte. ¿Solo de él o de toda la línea?»'],
+      ['Lucho Paredes · sindicato', 'Contesta al primer timbre', '«Ya sé todo, señorita. Marcos es afiliado. Si lo botan sin proceso, este caso llega a la mesa del jueves. Y mire bien las horas que han estado haciendo en la línea 2.»'],
     ],
     prompt: 'Ya sabes dónde están las pruebas. ¿Qué pides?',
     choices: [
@@ -174,7 +174,7 @@ export const ESCENAS = [
       { id: 'quispe', t: 'La autoclave 3 estaba en ciclo de esterilización. El control de temperatura lo realizó el operario Jesús Quispe.' },
       { id: 'flojo', t: 'Es conocido por todos que el trabajador es flojo.', bad: BP, why: 'Es una opinión. Un informe disciplinario describe hechos que se puedan probar.' },
       { id: 'sindicato', t: 'Además pertenece al sindicato y siempre está quejándose de los turnos.', bad: LEY, why: 'La afiliación sindical no es un hecho imputable. Mencionarla en un informe disciplinario puede leerse como discriminación antisindical (D.S. 010-2003-TR).' },
-      { id: 'ingreso', t: 'Hora de ingreso del trabajador: 23:00 del martes.', bad: BP, why: 'No coincide con el reloj: Milagros dice que Marcos marcó entrada el martes a las 07:02. Un dato equivocado debilita todo el informe.' },
+      { id: 'ingreso', t: 'Hora de ingreso del trabajador: 23:00 del lunes.', bad: BP, why: 'No coincide con el reloj: Milagros dice que Marcos marcó entrada el lunes a las 07:02. Un dato equivocado debilita todo el informe.' },
       { id: 'grupo', t: 'Se le grabó con el celular y se compartió en el grupo de supervisores para que sirva de ejemplo.', bad: BP, why: 'La grabación puede ser prueba, pero compartirla expone su imagen y contamina la investigación.' },
       { id: 'despido', t: 'Recomiendo el despido inmediato, sin más trámite.', bad: LEY, why: 'Sin preaviso escrito ni plazo de descargo no hay despido válido por conducta (art. 31 del TUO del D. Leg. 728).' },
       { id: 'firma', t: 'Firma: Renzo Távara, supervisor del turno noche. Testigo: Jesús Quispe.', duda: 'Está bien: identifica a quien informa y al testigo.' },
@@ -186,19 +186,19 @@ export const ESCENAS = [
         flags: missLey ? ['informe_sucio'] : ['informe_limpio'],
         cartera: { prueba: missLey ? 'Informe de Renzo tal cual' : 'Informe devuelto para corregir' },
         out: missLey ? 'Archivas el informe como llegó. Cuando Lucho lo lea en el expediente, va a subrayar la palabra «sindicato».' : `Le devuelves el informe a Renzo con ${hitsLey + hitsBp} observaciones. Te responde «¿tanto?», pero a las 14:00 manda una versión con solo hechos.`,
-        pro: { ok: 'Un informe con hechos verificables es la base de la carta del viernes.', risk: 'Una sola mención a la afiliación sindical convierte un caso disciplinario en un caso de discriminación.', info: 'Pídele a Quispe su propia versión escrita: dos testigos que dicen lo mismo valen más que un video.' },
+        pro: { ok: 'Un informe con hechos verificables es la base de la carta de mañana.', risk: 'Una sola mención a la afiliación sindical convierte un caso disciplinario en un caso de discriminación.', info: 'Pídele a Quispe su propia versión escrita: dos testigos que dicen lo mismo valen más que un video.' },
         kusi: missLey ? ['preocupado', 'Ese informe huele a prejuicio…'] : ['celebra', '¡Solo hechos! Así se arma un caso.'],
       };
     },
     rules: [[LEY, 'TUO de la LRCT (D.S. 010-2003-TR): protege a los trabajadores frente a actos que los perjudiquen por su afiliación sindical.'], [BP, 'Un informe disciplinario dice quién, qué, cuándo y dónde. Las opiniones van aparte, o mejor, no van.']],
     mirada: {
       ve: 'El informe del supervisor es la primera pieza del expediente. Si mezcla hechos con prejuicios, todo lo que se construya encima se tambalea, aunque la falta sea real.',
-      visual: { tipo: 'cambio', titulo: 'De la opinión al hecho', pares: [['«Es flojo»', '«04:10, ojos cerrados, no respondió»'], ['«Es del sindicato»', '(no va)'], ['«Ingresó 23:00 del martes»', '«Marcó entrada el martes 07:02»']] },
+      visual: { tipo: 'cambio', titulo: 'De la opinión al hecho', pares: [['«Es flojo»', '«04:10, ojos cerrados, no respondió»'], ['«Es del sindicato»', '(no va)'], ['«Ingresó 23:00 del lunes»', '«Marcó entrada el lunes 07:02»']] },
     },
   },
   {
     id: 'f5', t: '13:45', ch: 'documento', who: 'arturo', titulo: 'El plan de investigación', banner: 'assets/esc/mesa.webp', lugar: 'Oficina de Relaciones Laborales', show: ['calidad', 'tiempo', 'etica'],
-    body: () => `<p>El almuerzo fue un arroz con mariscos del comedor, comido en doce minutos. La constancia de Rosa salió a la tercera, con la impresora atascada; Rosa se fue corriendo a la Caja.</p><p>El Dr. Benavides se sienta en tu escritorio: «El viernes sale la carta. Hasta entonces, <mark class="clave">¿qué diligencias haces?</mark> Elige tres; no da para más».</p>`,
+    body: () => `<p>El almuerzo fue un arroz con mariscos del comedor, comido en doce minutos. La constancia de Rosa salió a la tercera, con la impresora atascada; Rosa se fue corriendo a la Caja.</p><p>El Dr. Benavides se sienta en tu escritorio: «Mañana sale la carta. Hasta entonces, <mark class="clave">¿qué diligencias haces?</mark> Elige tres; no da para más».</p>`,
     type: 'pick', n: 3, prompt: 'Elige las tres diligencias de tu plan.', boton: 'Presentar el plan', resumen: 'Tu plan incluye',
     cols: ['Diligencia', 'Para qué sirve'],
     rows: [
@@ -217,7 +217,7 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 5 : 1, etica: malas ? -5 : 2, tiempo: -1 }, rel: { arturo: q === 'buena' ? 1 : 0 },
         flags: picks.includes('rol') ? ['rol_pedido'] : [],
         cartera: { plan: q === 'buena' ? 'Plan: testigo, turnos y antecedentes' : 'Plan con vacíos' },
-        out: malas ? 'El doctor tacha una línea con el lapicero: «Esto no. Si el sindicato se entera de que averiguamos quiénes son sus amigos, nos comemos una denuncia».' : picks.includes('rol') ? 'El doctor asiente despacio: «Si resulta que lo hicimos quedarse 24 horas, el problema no es solo de Marcos». Se queda pensando.' : 'El doctor firma el plan: «Ordenado. Que el viernes no nos falte nada».',
+        out: malas ? 'El doctor tacha una línea con el lapicero: «Esto no. Si el sindicato se entera de que averiguamos quiénes son sus amigos, nos comemos una denuncia».' : picks.includes('rol') ? 'El doctor asiente despacio: «Si resulta que lo hicimos quedarse 24 horas, el problema no es solo de Marcos». Se queda pensando.' : 'El doctor firma el plan: «Ordenado. Que mañana no nos falte nada».',
         pro: { ok: 'Un buen plan confirma los hechos y busca su contexto, sin espiar la vida privada ni la actividad sindical.', risk: 'Revisar redes o «quién es amigo de quién» convierte la investigación en persecución.', info: 'Lo que encuentres en el rol de turnos puede ser más importante que el video.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Plan con cabeza!' : '¿Eso investiga el hecho o a la persona?'],
       };
@@ -240,7 +240,7 @@ export const ESCENAS = [
           kusi: ['animo', 'Escuchar no es absolver. ¡Bien hecho!'] } },
       { id: 'b', label: 'Aprovechar que está aquí: tomarle la declaración en un acta y que firme que se quedó dormido. Así el caso queda claro y se ahorran semanas.',
         res: { q: 'riesgosa', fx: { etica: -5, cumplimiento: -3, personas: -3 }, flags: ['acta_forzada'],
-          out: 'Marcos firma sin leer, cansado y con prisa por irse. Cuando Valeria vea el acta el viernes, la apartará con dos dedos: «Esto no sirve. Y si Lucho lo ve, menos».',
+          out: 'Marcos firma sin leer, cansado y con prisa por irse. Cuando Valeria vea el acta mañana, la apartará con dos dedos: «Esto no sirve. Y si Lucho lo ve, menos».',
           pro: { ok: 'Obtienes un reconocimiento por escrito.', risk: 'Un acta firmada por alguien agotado, angustiado y sin asesoría parece una confesión arrancada, y no reemplaza el descargo que la ley le garantiza.' },
           kusi: ['indignado', '¿Firmar llorando y sin leer? Eso no vale.'] } },
       { id: 'c', label: 'Decirle con amabilidad que no puedes hablar del caso hasta que reciba la carta y que, por favor, se vaya a su casa.',
@@ -266,7 +266,7 @@ export const ESCENAS = [
         { id: 'r2', t: 'Gladys, entiendo que estés molesta, pero hay que calmarse.', ok: false, por: '«Calmarse» suena a que su preocupación no es legítima.' },
       ] },
       { id: 'proceso', t: 'El proceso', ops: [
-        { id: 'p1', t: 'El viernes sale la carta de preaviso con los hechos; Marcos tendrá al menos seis días naturales para responder y después decidimos.', ok: true, por: 'Fechas concretas: Gladys sabe cuándo habrá respuesta.' },
+        { id: 'p1', t: 'Mañana sale la carta de preaviso con los hechos; Marcos tendrá al menos seis días naturales para responder y después decidimos.', ok: true, por: 'Fechas concretas: Gladys sabe cuándo habrá respuesta.' },
         { id: 'p2', t: 'Vamos a ver cómo evoluciona el caso y te aviso.', ok: false, por: 'Sin fecha, suena a que no harás nada.' },
       ] },
       { id: 'pide', t: 'Lo que le pides', ops: [
@@ -285,7 +285,7 @@ export const ESCENAS = [
       return {
         q, fx: { confianza: q === 'buena' ? 5 : -2, personas: q === 'buena' ? 3 : -1, cumplimiento: sel.proceso === 'p1' ? 3 : -2 },
         rel: { gladys: q === 'buena' ? 1 : malo ? -1 : 0 }, flags: q === 'buena' ? ['gladys_entiende'] : [],
-        cartera: { caso: sel.proceso === 'p1' ? 'Carta de preaviso: viernes' : 'Sin fecha comunicada' },
+        cartera: { caso: sel.proceso === 'p1' ? 'Carta de preaviso: mañana' : 'Sin fecha comunicada' },
         out: q === 'buena' ? 'Gladys responde cuando el bus ya pasa por el óvalo: «Ok. Te espero a las 7. El rol lo tiene Renzo, pero te lo consigo». No es un abrazo, pero es una tregua.' : malo ? 'Gladys deja el mensaje en visto. A las 20:00 le escribe al Dr. Benavides: «Tu analista ya decidió que la culpa es mía».' : 'Gladys responde con un pulgar. Mañana sabrás si era de acuerdo o de cansancio.',
         pro: { ok: 'Reconoces su problema, das fechas y pides el dato sin acusar.', risk: 'Con una jefa de planta enojada, una frase de más rompe la colaboración que necesitas para investigar.', info: 'El rol de turnos puede cambiar todo el caso.' },
         kusi: [q === 'buena' ? 'feliz' : 'preocupado', q === 'buena' ? '¡Tregua conseguida!' : 'Ese mensaje no ayudó…'],
@@ -294,7 +294,7 @@ export const ESCENAS = [
     rules: [[BP, 'Con las jefaturas, explica el procedimiento en fechas concretas y pide datos sin adelantar culpables.']],
     mirada: {
       ve: 'Relaciones Laborales necesita a las jefaturas tanto como al sindicato. Explicar por qué no se despide hoy, con fechas y sin sermones, convierte a una jefa enojada en una aliada de la investigación.',
-      visual: { tipo: 'mensaje', titulo: 'Un mensaje que abre la puerta', txt: 'Gladys, tienes razón en que lo de la autoclave es serio. El viernes sale la carta de preaviso; Marcos tendrá al menos seis días naturales para responder y después decidimos. Necesito el rol de turnos de esta semana. Mañana paso por la línea a las 7.' },
+      visual: { tipo: 'mensaje', titulo: 'Un mensaje que abre la puerta', txt: 'Gladys, tienes razón en que lo de la autoclave es serio. Mañana sale la carta de preaviso; Marcos tendrá al menos seis días naturales para responder y después decidimos. Necesito el rol de turnos de esta semana. Mañana paso por la línea a las 7.' },
     },
   },
 ];

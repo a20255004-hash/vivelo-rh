@@ -1,5 +1,5 @@
-// Analista de Relaciones Laborales · Capítulo 5 · «El descargo» · Semana 2, jueves.
-// Hilo del mes: el caso de Marcos Huamán llega a su descargo y destapa las horas de la campaña de caballa.
+// Analista de Relaciones Laborales · Capítulo 5 · «El descargo» · Semana 1, viernes.
+// Hilo de las dos semanas: el caso de Marcos Huamán llega a su descargo y destapa las horas de la campaña de caballa.
 // Normas citadas:
 // - TUO del D. Leg. 728 (D.S. 003-97-TR), art. 31: el descargo es el derecho de defensa del trabajador frente a la
 //   imputación (caps. 2 y 3). https://lpderecho.pe/jurisprudencia-articulo-31-tuo-decreto-legislativo-728-procedimiento-despido/
@@ -15,18 +15,18 @@
 // La proporcionalidad de la sanción se presenta como criterio de buena práctica, sin citar casaciones.
 
 export const CAP = {
-  n: 5, titulo: 'El descargo', dia: 'Semana 2, jueves', foto: 'assets/3d/scenes/balanza.webp',
+  n: 5, titulo: 'El descargo', dia: 'Semana 1, viernes', foto: 'assets/3d/scenes/balanza.webp',
   lugar: 'Conservas del Pacífico · Oficina de Relaciones Laborales',
   inicio: '07:45', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Jueves. Hoy vence el plazo de Marcos. A las 8:00 llega con un sobre manila y una frase que cambia el caso: «Trabajé tres turnos seguidos porque faltó gente».', boton: 'Recibir el descargo',
+  apertura: 'Viernes. El plazo de Marcos vence el martes, pero a las 8:00 llega con un sobre manila y una frase que cambia el caso: «Trabajé tres turnos seguidos porque faltó gente».', boton: 'Recibir el descargo',
   kusi: 'Hoy toca escuchar la otra versión… y comprobarla. ¡Evidencia, no corazonadas!',
   lead: 'Recibiste el descargo como corresponde, comprobaste cada afirmación, corregiste una propuesta de sanción injusta, escribiste un informe con hechos y descubriste que el problema era más grande que Marcos.',
   reflexion: '¿En qué momento dejaste de ver a Marcos como «el que se durmió»?',
-  siguiente: { n: 6, titulo: 'Horas extra', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'Horas extra', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
-  { id: 'descargo', p: 'Descargo de Marcos Huamán', j: 'Marcos · Sindicato', d: 0, e: 'Vence hoy' },
+  { id: 'descargo', p: 'Descargo de Marcos Huamán', j: 'Marcos · Sindicato', d: 0, e: 'Vence el martes' },
   { id: 'verifica', p: 'Verificación del descargo', j: 'Relaciones Laborales', d: 0, e: 'Sin empezar' },
   { id: 'propuesta', p: 'Propuesta de sanción de planta', j: 'Gladys · Planta', d: 0, e: 'En camino' },
   { id: 'informe', p: 'Informe de investigación', j: 'Arturo · Valeria', d: 0, e: 'Por redactar' },
@@ -36,16 +36,16 @@ export const CARTERA = [
 export const FUTURO = {
   descargo_con_cargo: ['Recibiste el descargo con cargo y anexos listados.', 'Nadie podrá decir que llegó tarde o incompleto. Capítulo 7.'],
   verificacion_completa: ['Comprobaste lo decisivo del descargo: el pedido del supervisor y el relevo negado.', 'Tu informe se sostiene. Capítulo 7.'],
-  horas_escaladas: ['Llevaste las horas de la campaña a tu jefe como un problema aparte.', 'La revisión de horas empieza el martes. Capítulo 6.'],
+  horas_escaladas: ['Llevaste las horas de la campaña a tu jefe como un problema aparte.', 'La revisión de horas empieza el lunes. Capítulo 6.'],
   horas_calladas: ['Dejaste las horas de la campaña para «si alguien reclama».', 'Alguien reclamará: el sindicato, ante SUNAFIL. Capítulos 6 y 7.'],
   registros_ajustados: ['Pediste «corregir» marcaciones del reloj.', 'Milagros se negó y lo dejó por escrito. Capítulo 6.'],
-  propuesta_corregida: ['Corregiste la propuesta de sanción de Gladys.', 'Gladys aprendió a escribir un informe de planta. Capítulo 8.'],
+  propuesta_corregida: ['Corregiste la propuesta de sanción de Gladys.', 'Gladys aprendió a escribir un informe de planta. Capítulo 9.'],
   informe_solido: ['Tu informe separa hechos, descargo, conclusión y medidas.', 'Valeria lo usará ante la inspección. Capítulo 7.'],
-  caso_archivado: ['El caso de Marcos se archivó sin sanción y con medidas para la organización.', 'Marcos vuelve a la línea; la base lo nota. Capítulo 8.'],
-  amonestacion_marcos: ['Marcos recibió una amonestación escrita, con atenuantes reconocidos.', 'Lucho la discutirá, pero no la llevará a la calle. Capítulo 8.'],
-  despido_marcos: ['Se decidió despedir a Marcos pese a los atenuantes.', 'El sindicato lo incluirá en su denuncia y en la mesa. Capítulos 7 y 8.'],
+  caso_archivado: ['El caso de Marcos se archivó sin sanción y con medidas para la organización.', 'Marcos vuelve a la línea; la base lo nota. Capítulo 9.'],
+  amonestacion_marcos: ['Marcos recibió una amonestación escrita, con atenuantes reconocidos.', 'Lucho la discutirá, pero no la llevará a la calle. Capítulo 9.'],
+  despido_marcos: ['Se decidió despedir a Marcos pese a los atenuantes.', 'El sindicato lo incluirá en su denuncia y en la mesa. Capítulos 7 y 9.'],
   supervision_corregida: ['Se dejó constancia de la responsabilidad de la supervisión.', 'Renzo no volverá a pedir tres turnos. Capítulo 6.'],
-  revision_horas_pedida: ['Pediste a Milagros comparar reloj y planilla de toda la línea 2.', 'El martes tendrás el cuadro. Capítulo 6.'],
+  revision_horas_pedida: ['Pediste a Milagros comparar reloj y planilla de toda la línea 2.', 'El lunes tendrás el cuadro. Capítulo 6.'],
 };
 
 export const CHATS = {
@@ -61,19 +61,19 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'gladys', t: '07:30', de: 'Gladys', txt: 'Hoy te mando mi propuesta para lo de Marcos. Ya tengo el rol de turnos, lo hablamos.', si: 'gladys_entiende' },
-  { chat: 'gladys', t: '07:30', de: 'Gladys', txt: 'Hoy vence lo de Marcos. Espero que esta vez se decida algo.', no: 'gladys_entiende' },
-  { chat: 'grupo', t: '09:50', de: 'Arturo', txt: 'Segunda sesión a las 10: convenio anterior, uniformes y movilidad. Ven a tomar el acta y regresas a lo tuyo.', si: 'metodo_acordado' },
+  { chat: 'gladys', t: '07:30', de: 'Gladys', txt: 'Hoy trae Marcos su descargo. Espero que esta vez se decida algo.', no: 'gladys_entiende' },
+  { chat: 'grupo', t: '09:50', de: 'Arturo', txt: 'Hoy no hay mesa: la próxima es el martes. A las 10 te quiero con Logística para ver uniformes y movilidad, y regresas a lo tuyo.', si: 'metodo_acordado' },
   { chat: 'renzo', t: '11:40', de: 'Renzo', txt: 'Señorita, no me vaya a hundir. Yo solo quería sacar la producción. Todos doblamos esa semana.' },
-  { chat: 'lucho', t: '13:05', de: 'Lucho', txt: 'En la mesa de hoy hablaron de uniformes. Bien. Pero la base pregunta por las horas de la caballa. Eso lo vamos a pedir.' },
-  { chat: 'marcos', t: '17:20', de: 'Marcos', txt: 'Gracias por escucharme, señorita. Mi mamá le manda saludos desde Caraz.', si: 'caso_archivado' },
-  { chat: 'marcos', t: '17:20', de: 'Marcos', txt: 'Recibí la amonestación. No estoy de acuerdo, pero gracias por revisar las horas.', si: 'amonestacion_marcos' },
+  { chat: 'lucho', t: '13:05', de: 'Lucho', txt: 'El martes empezamos por uniformes y movilidad. Bien. Pero la base pregunta por las horas de la caballa. Eso lo vamos a pedir.' },
+  { chat: 'marcos', t: '17:20', de: 'Marcos', txt: 'Gracias por escucharme, señorita. Espero el martes más tranquilo. Mi mamá le manda saludos desde Caraz.', si: 'caso_archivado' },
+  { chat: 'marcos', t: '17:20', de: 'Marcos', txt: 'Gracias por revisar las horas, señorita. Espero el martes, a ver qué me dicen.', si: 'amonestacion_marcos' },
   { chat: 'lucho', t: '17:30', de: 'Lucho', txt: 'Con esto no hay mesa que aguante. Nos vemos donde corresponda.', si: 'despido_marcos' },
-  { chat: 'milagros', t: '18:35', de: 'Milagros', txt: 'Listo, el lunes en la noche le tengo el cuadro: reloj contra planilla, toda la línea 2. No lo comparto con nadie más.', si: 'revision_horas_pedida' },
+  { chat: 'milagros', t: '18:35', de: 'Milagros', txt: 'Listo, el lunes a primera hora le tengo el cuadro: reloj contra planilla, toda la línea 2. No lo comparto con nadie más.', si: 'revision_horas_pedida' },
 ];
 
 export const CORREOS = [
-  { t: '07:40', de: 'Valeria Castro · Abogada laboralista', para: 'Analista de Relaciones Laborales', asunto: 'Hoy: descargo', html: '<p>Hoy vence el plazo. Recibe el descargo con cargo y no decidas nada en caliente. Un descargo no se «contesta»: se verifica. Y si lo que dice es cierto, hay que tenerlo en cuenta aunque no le guste a planta.</p><p>Valeria</p>' },
-  { t: '16:50', de: 'Dr. Arturo Benavides', para: 'Gladys Ruiz; Analista de Relaciones Laborales', asunto: 'Decisión caso Huamán', html: '<p>Confirmo la decisión tomada esta tarde. La comunicación a Marcos sale por escrito mañana, con copia al expediente. Las medidas para la organización del trabajo empiezan el lunes.</p><p>A. B.</p>' },
+  { t: '07:40', de: 'Valeria Castro · Abogada laboralista', para: 'Analista de Relaciones Laborales', asunto: 'Hoy: descargo', html: '<p>Marcos trae hoy su descargo, aunque el plazo vence el martes. Recíbelo con cargo y no comuniques nada hasta que venza: hasta entonces puede completarlo.</p><p>Y no decidas en caliente. Un descargo no se «contesta»: se verifica. Y si lo que dice es cierto, hay que tenerlo en cuenta aunque no le guste a planta.</p><p>Valeria</p>' },
+  { t: '16:50', de: 'Dr. Arturo Benavides', para: 'Gladys Ruiz; Analista de Relaciones Laborales', asunto: 'Decisión caso Huamán', html: '<p>Confirmo la decisión tomada esta tarde. La comunicación a Marcos sale por escrito el martes, cuando venza su plazo, con copia al expediente. Las medidas para la organización del trabajo empiezan el lunes.</p><p>A. B.</p>' },
 ];
 
 export const QUIZ = [
@@ -89,12 +89,12 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'j1', t: '08:05', ch: 'presencial', who: 'lucho', titulo: 'El sobre manila', banner: 'assets/foto2/caminan.webp', lugar: 'Oficina de Relaciones Laborales', show: ['cumplimiento', 'confianza', 'calidad'],
-    body: (n, F) => `<p>Marcos llega afeitado y con camisa planchada. Lo acompaña Lucho, que esta vez no trae a nadie más. ${F.has('carta_postergada') ? 'La carta le llegó ayer, pero Marcos no quiso esperar seis días más: «Ya no duermo pensando en esto».' : 'Es el último día del plazo.'} ${F.has('acta_forzada') ? 'En el sobre también hay una hoja: «Desconozco el acta que firmé el miércoles sin asesoría».' : ''}</p><p>Te extiende el sobre: cinco hojas escritas a mano y tres anexos. <mark class="clave">Lo primero es recibirlo bien</mark>.</p>`,
+    body: (n, F) => `<p>Marcos llega afeitado y con camisa planchada. Lo acompaña Lucho, que esta vez no trae a nadie más. ${F.has('carta_postergada') ? 'La carta le llegó ayer, pero Marcos no quiso esperar seis días más: «Ya no duermo pensando en esto».' : 'El plazo vence el martes, pero Marcos no quiso esperar: «Ya no duermo pensando en esto».'} ${F.has('acta_forzada') ? 'En el sobre también hay una hoja: «Desconozco el acta que firmé el martes sin asesoría».' : ''}</p><p>Te extiende el sobre: cinco hojas escritas a mano y tres anexos. <mark class="clave">Lo primero es recibirlo bien</mark>.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Recibirlo, sellar su copia con fecha y hora, y anotar en el cargo los anexos que trae.',
         res: { q: null, fx: { cumplimiento: 3, confianza: 2 }, rel: { lucho: 1 }, flags: ['descargo_con_cargo'], cartera: { descargo: 'Recibido 08:07, con 3 anexos' },
-          out: 'Lucho revisa el sello como el primer lunes. Los anexos: una foto del rol de turnos, una nota de Quispe y un audio de WhatsApp de Renzo, transcrito. «Que conste», dice.', kusi: ['feliz', 'Recibir bien es el primer paso de escuchar bien.'] } },
+          out: 'Lucho revisa el sello como el lunes. Los anexos: una foto del rol de turnos, una nota de Quispe y un audio de WhatsApp de Renzo, transcrito. «Que conste», dice.', kusi: ['feliz', 'Recibir bien es el primer paso de escuchar bien.'] } },
       { id: 'b', label: 'Pedirle a Marcos que te lo cuente de palabra mientras lo hojeas, para avanzar más rápido.',
         res: { q: null, fx: { cumplimiento: -1, tiempo: 1 }, cartera: { descargo: 'Recibido, sin anexos anotados' },
           out: 'Lucho levanta la mano: «Para eso lo escribió, señorita. Léalo con calma». Marcos se queda callado. Al final, nadie anotó cuántos anexos venían.', kusi: ['pensando', 'Lo escrito es lo que vale.'] } },
@@ -104,11 +104,11 @@ export const ESCENAS = [
   },
   {
     id: 'j2', t: '08:40', ch: 'documento', who: null, titulo: 'Lo que dice Marcos', banner: 'assets/esc/dudas.webp', lugar: 'Oficina de Relaciones Laborales', show: ['calidad', 'etica', 'tiempo'],
-    body: () => `<p>Letra apretada, en un cuaderno de su hija. Marcos es del turno tarde: el lunes en la noche Renzo lo llamó para que entrara el martes a las siete «porque faltan dos». Hizo la mañana, su tarde y se quedó la noche. <mark class="clave">Tres turnos seguidos</mark>.</p><p>A las diez tienes que tomar el acta de la segunda sesión. Antes, decide qué comprobar primero.</p>`,
+    body: () => `<p>Letra apretada, en un cuaderno de su hija. Marcos es del turno tarde: el domingo en la noche Renzo lo llamó para que entrara el lunes a las siete «porque faltan dos». Hizo la mañana, su tarde y se quedó la noche. <mark class="clave">Tres turnos seguidos</mark>.</p><p>A las diez el doctor te quiere con Logística. Antes, decide qué comprobar primero.</p>`,
     type: 'pick', n: 2, prompt: 'Elige las dos afirmaciones del descargo que vas a verificar primero.', boton: 'Verificar estas dos', resumen: 'Vas a verificar',
     cols: ['Lo que afirma Marcos', 'Cómo se comprueba'],
     rows: [
-      { id: 'pedido', cells: ['«Renzo me pidió entrar a las 7 y quedarme hasta el miércoles.»', 'Reloj de marcación y versión de Renzo'] },
+      { id: 'pedido', cells: ['«Renzo me pidió entrar a las 7 y quedarme hasta el martes.»', 'Reloj de marcación y versión de Renzo'] },
       { id: 'relevo', cells: ['«A las 3:30 pedí relevo por radio porque no aguantaba. Me dijeron que aguante media hora.»', 'Testimonio de Quispe y de Renzo'] },
       { id: 'pago', cells: ['«Esas horas no figuran como extras en mi registro.»', 'Planilla contra reloj'] },
       { id: 'cólera', cells: ['«Renzo me tiene cólera porque soy afiliado.»', 'Difícil: necesitaría hechos concretos'] },
@@ -135,7 +135,7 @@ export const ESCENAS = [
   },
   {
     id: 'j3', t: '09:15', ch: 'llamada', who: null, titulo: 'Comprobar', banner: 'assets/foto/oficina-abierta.webp', lugar: 'Oficina de Relaciones Laborales', show: ['calidad', 'cumplimiento', 'etica'],
-    body: (n, F) => `<p>Cuarenta y cinco minutos antes de la mesa. ${F.has('marcaciones_linea') ? 'Milagros ya tiene el reporte de la línea desde el miércoles.' : 'Milagros todavía no ha sacado el reporte de la línea.'} Pones el celular en altavoz y abres un cuaderno nuevo.</p><p><mark class="clave">Tres llamadas, y lo que escuches no será solo sobre Marcos</mark>.</p>`,
+    body: (n, F) => `<p>Cuarenta y cinco minutos antes de la reunión. ${F.has('marcaciones_linea') ? 'Milagros ya tiene el reporte de la línea desde el martes.' : 'Milagros todavía no ha sacado el reporte de la línea.'} Pones el celular en altavoz y abres un cuaderno nuevo.</p><p><mark class="clave">Tres llamadas, y lo que escuches no será solo sobre Marcos</mark>.</p>`,
     type: 'calls',
     calls: [
       ['Jesús Quispe · operario, testigo', 'Contesta desde su casa, con un bebé llorando', '«Sí, señorita. A las tres y media Marcos pidió relevo por la radio. Renzo le dijo que aguante, que a las cuatro y media mandaba a alguien. No mandó a nadie. Yo me quedé mirando la temperatura de las dos autoclaves.»'],
@@ -146,7 +146,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Dejar el caso de Marcos en su carril y, aparte, informar hoy mismo al Dr. Benavides y a Valeria del hallazgo de las horas, con los datos de Milagros, como un riesgo de la empresa.',
         res: { q: 'buena', fx: { cumplimiento: 6, etica: 4, confianza: 2 }, rel: { arturo: 1 }, flags: ['horas_escaladas'], cartera: { verifica: 'Confirmado por Quispe y Renzo', horas: '38 personas, jornadas > 12 h, casi sin horas extra pagadas' },
-          out: 'El doctor lee tu mensaje en la puerta de la sala de la mesa. Se queda quieto. «Esto no sale de nosotros hasta el martes. Pero el martes lo vemos todo.»',
+          out: 'El doctor lee tu mensaje en la puerta de su oficina. Se queda quieto. «Esto no sale de nosotros hasta el lunes. Pero el lunes lo vemos todo.»',
           pro: { ok: 'Separas el caso individual del problema de la empresa y lo llevas a quien puede corregirlo antes de que lo descubra otro.', risk: 'La gerencia puede preferir no saberlo en plena negociación.', info: 'Es la empresa la que incumplió: revisar el propio cumplimiento es parte de tu trabajo.' },
           kusi: ['celebra', 'Mirar hacia adentro también es Relaciones Laborales.'] } },
       { id: 'b', label: 'Concentrarte en el caso de Marcos: lo de las horas es de Planillas, y abrirlo ahora en plena negociación le da al sindicato un arma. Si alguien reclama, se verá.',
@@ -169,11 +169,11 @@ export const ESCENAS = [
   },
   {
     id: 'j4', t: '12:30', ch: 'documento', who: 'gladys', titulo: 'La propuesta de Gladys', banner: 'assets/esc/piensa.webp', lugar: 'Oficina de Relaciones Laborales', show: ['etica', 'cumplimiento', 'calidad'],
-    body: (n, F) => `<p>Vuelves de la mesa con el acta firmada y la garganta seca: uniformes, tallas y fechas. ${F.has('gladys_entiende') ? 'Gladys te dejó su propuesta impresa, con el rol de turnos grapado detrás.' : 'Gladys te mandó su propuesta por correo, con copia al gerente.'}</p><p>Se nota que la escribió rápido. <mark class="clave">Antes de que llegue a la reunión de las cuatro, revísala</mark>.</p>`,
+    body: (n, F) => `<p>Vuelves de la reunión con Logística con la garganta seca: uniformes, tallas y fechas que cumplir antes del martes. ${F.has('gladys_entiende') ? 'Gladys te dejó su propuesta impresa, con el rol de turnos grapado detrás.' : 'Gladys te mandó su propuesta por correo, con copia al gerente.'}</p><p>Se nota que la escribió rápido. <mark class="clave">Antes de que llegue a la reunión de las cuatro, revísala</mark>.</p>`,
     type: 'flag', prompt: 'Marca lo que no debería sostener una decisión disciplinaria.',
     doc: { t: 'Propuesta de medida disciplinaria · Caso autoclave 3', sub: 'Jefatura de planta · Conservas del Pacífico S.A.C.' },
     lines: [
-      { id: 'hecho', t: 'El miércoles, a las 04:10, el trabajador fue encontrado dormido junto a la autoclave 3, en ciclo de esterilización.' },
+      { id: 'hecho', t: 'El martes, a las 04:10, el trabajador fue encontrado dormido junto a la autoclave 3, en ciclo de esterilización.' },
       { id: 'quispe', t: 'El operario Quispe controló la temperatura y no hubo daño al lote.' },
       { id: 'descargo', t: 'El descargo no aporta nada nuevo, por lo que no es necesario analizarlo.', bad: LEY, why: 'El plazo de descargo existe para que la empresa considere la defensa (art. 31). Y este descargo sí aporta: el pedido del supervisor y el relevo negado se confirmaron.' },
       { id: 'voluntario', t: 'Las horas adicionales fueron aceptadas por el trabajador, por lo que no atenúan la falta.', bad: BP, why: 'Aceptar un pedido del supervisor no libera a la empresa de respetar la jornada máxima ni de prevenir la fatiga (D.S. 007-2002-TR y Ley 29783).' },
@@ -205,8 +205,8 @@ export const ESCENAS = [
     type: 'builder', prompt: 'Elige las piezas de cada bloque del informe.', boton: 'Enviar el informe al Dr. Benavides',
     bloques: [
       { id: 'hechos', t: 'Hechos probados', n: 2, ops: [
-        { id: 'h1', t: 'El miércoles a las 04:10, Marcos Huamán fue encontrado dormido junto a la autoclave 3 en ciclo; Jesús Quispe controló la temperatura y no hubo daño.', ok: true, por: 'El hecho imputado, con su consecuencia real.' },
-        { id: 'h2', t: 'Llevaba 21 horas continuas en planta: entró el martes a las 07:02, a pedido del supervisor, para cubrir dos turnos además del suyo.', ok: true, por: 'El contexto probado con el reloj y con el propio supervisor.' },
+        { id: 'h1', t: 'El martes a las 04:10, Marcos Huamán fue encontrado dormido junto a la autoclave 3 en ciclo; Jesús Quispe controló la temperatura y no hubo daño.', ok: true, por: 'El hecho imputado, con su consecuencia real.' },
+        { id: 'h2', t: 'Llevaba 21 horas continuas en planta: entró el lunes a las 07:02, a pedido del supervisor, para cubrir dos turnos además del suyo.', ok: true, por: 'El contexto probado con el reloj y con el propio supervisor.' },
         { id: 'h3', t: 'El trabajador tiene una actitud conflictiva y cercana al sindicato.', ok: false, por: 'Opinión, y además alude a la afiliación.' },
       ] },
       { id: 'descargo', t: 'El descargo', n: 1, ops: [
@@ -243,7 +243,7 @@ export const ESCENAS = [
   },
   {
     id: 'j6', t: '16:00', ch: 'presencial', who: 'arturo', titulo: 'La decisión', banner: 'assets/esc/decide.webp', lugar: 'Oficina del Dr. Benavides', show: ['etica', 'personas', 'confianza'],
-    body: (n, F) => `<p>El doctor, Gladys y tú, con tu informe sobre la mesa. ${F.has('propuesta_corregida') ? 'Gladys trae su propuesta corregida, con una línea tachada a mano.' : 'Gladys trae su propuesta original, subrayada en rojo.'} Por la ventana, la línea 2 trabaja con dos personas menos.</p><p>Gladys habla primero: «Si no hay sanción, mañana nadie vigila las autoclaves». El doctor te mira: «<mark class="clave">Tú investigaste. ¿Qué recomiendas?</mark>».</p>`,
+    body: (n, F) => `<p>El doctor, Gladys y tú, con tu informe sobre la mesa. ${F.has('propuesta_corregida') ? 'Gladys trae su propuesta corregida, con una línea tachada a mano.' : 'Gladys trae su propuesta original, subrayada en rojo.'} Por la ventana, la línea 2 trabaja con dos personas menos. Valeria ya avisó: lo que se decida hoy se comunica recién el martes, cuando venza el plazo.</p><p>Gladys habla primero: «Si no hay sanción, mañana nadie vigila las autoclaves». El doctor te mira: «<mark class="clave">Tú investigaste. ¿Qué recomiendas?</mark>».</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Archivar el caso sin sanción, dejando constancia de que la causa principal fue la jornada impuesta y el relevo negado; aplicar desde el lunes las medidas del informe y una llamada de atención escrita a la supervisión.',
@@ -253,7 +253,7 @@ export const ESCENAS = [
           kusi: ['animo', 'Justicia no es castigo: es poner cada cosa en su lugar.'] } },
       { id: 'b', label: 'Una amonestación escrita: hubo un hecho real con un equipo peligroso, y la sanción más leve reconoce los atenuantes y le dice a la línea que la seguridad importa. Sumar las medidas para la organización.',
         res: { q: 'aceptable', fx: { etica: 1, personas: -1, confianza: 3 }, rel: { gladys: 1 }, flags: ['amonestacion_marcos'], cartera: { propuesta: 'Amonestación escrita + medidas' },
-          out: 'Gladys asiente, aliviada. El doctor firma. Cuando Marcos la reciba mañana, leerá «amonestación» y, más abajo, «se reconoce que el trabajador solicitó relevo». No sabrá si dar las gracias o reclamar.',
+          out: 'Gladys asiente, aliviada. El doctor firma. Cuando Marcos la reciba el martes, leerá «amonestación» y, más abajo, «se reconoce que el trabajador solicitó relevo». No sabrá si dar las gracias o reclamar.',
           pro: { ok: 'Es una sanción proporcional y defendible, y mantiene la autoridad de la jefatura.', risk: 'Sancionar, aunque sea con lo mínimo, a quien pidió relevo después de tres turnos manda un mensaje: «aguanta y calla».' },
           kusi: ['pensando', 'Defendible… pero ¿a quién le enseña qué?'] } },
       { id: 'c', label: 'Apoyar el despido: una autoclave sin vigilancia puede matar a alguien, y si la empresa no es firme ahora, la próxima vez el accidente será real.',
@@ -270,7 +270,7 @@ export const ESCENAS = [
   },
   {
     id: 'j7', t: '17:50', ch: 'whatsapp', who: null, titulo: 'El encargo a Milagros', banner: 'assets/esc/planilla.webp', lugar: 'Oficina de Relaciones Laborales', show: ['cumplimiento', 'calidad', 'etica'],
-    body: (n, F) => `<p>${F.has('horas_escaladas') ? 'El doctor te dio luz verde: «El martes quiero los números».' : F.has('registros_ajustados') ? 'Después del correo de Milagros, el doctor te dijo: «Ahora hay que hacerlo bien».' : 'Aunque nadie te lo pidió, sabes que las horas de la caballa no van a desaparecer.'} Milagros ya está guardando sus cosas.</p><p><mark class="clave">Un encargo claro antes del fin de semana</mark>.</p>`,
+    body: (n, F) => `<p>${F.has('horas_escaladas') ? 'El doctor te dio luz verde: «El lunes quiero los números».' : F.has('registros_ajustados') ? 'Después del correo de Milagros, el doctor te dijo: «Ahora hay que hacerlo bien».' : 'Aunque nadie te lo pidió, sabes que las horas de la caballa no van a desaparecer.'} Milagros ya está guardando sus cosas.</p><p><mark class="clave">Un encargo claro antes del fin de semana</mark>.</p>`,
     type: 'compose', enviaA: 'milagros', para: 'Para: Milagros Chero · Asistencia y planillas', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu encargo eligiendo una frase de cada parte.',
     slots: [
@@ -283,7 +283,7 @@ export const ESCENAS = [
         { id: 'f2', t: 'Solo los casos más graves, para no alarmar.', ok: false, por: 'Filtrar de entrada esconde el tamaño real.' },
       ] },
       { id: 'reserva', t: 'Reserva', ops: [
-        { id: 'r1', t: 'Mándamelo solo a mí y a Valeria; el martes lo vemos con el doctor.', ok: true, por: 'Información sensible, en el circuito correcto.' },
+        { id: 'r1', t: 'Mándamelo solo a mí y a Valeria; el lunes lo vemos con el doctor.', ok: true, por: 'Información sensible, en el circuito correcto.' },
         { id: 'r2', t: 'Compártelo en el grupo de supervisores para que cada uno explique lo suyo.', ok: false, por: 'Pones a los supervisores a «arreglar» su parte antes de que se analice.' },
       ] },
     ],
@@ -293,16 +293,16 @@ export const ESCENAS = [
       return {
         q, fx: { cumplimiento: q === 'buena' ? 5 : 0, calidad: q === 'buena' ? 3 : -1, etica: sel.reserva === 'r2' ? -3 : 2 },
         flags: q === 'riesgosa' ? [] : ['revision_horas_pedida'],
-        cartera: { horas: q === 'buena' ? 'Cuadro reloj vs. planilla, línea 2, para el martes' : 'Revisión parcial pedida' },
-        out: q === 'buena' ? 'Milagros responde con un audio, cansada pero firme: «Listo. Sin tocar nada. El lunes en la noche lo tiene». Sales a esperar el bus; ya no hay garúa.' : q === 'aceptable' ? 'Milagros responde «ok», con una pregunta: «¿Y si sale peor de lo que creemos?».' : 'Milagros responde con un emoji de duda. Ese cuadro no va a mostrar lo que necesitas ver.',
-        pro: { ok: 'Un encargo con alcance, formato y reserva claros evita que la revisión se convierta en maquillaje.', risk: 'Si la revisión es parcial o pasa por los supervisores primero, cuando llegue la inspección los números no coincidirán.', info: 'El martes empieza otra historia: la de la empresa que tiene que pagar lo que debe.' },
+        cartera: { horas: q === 'buena' ? 'Cuadro reloj vs. planilla, línea 2, para el lunes' : 'Revisión parcial pedida' },
+        out: q === 'buena' ? 'Milagros responde con un audio, cansada pero firme: «Listo. Sin tocar nada. El lunes a primera hora lo tiene». Sales a esperar el bus; ya no hay garúa.' : q === 'aceptable' ? 'Milagros responde «ok», con una pregunta: «¿Y si sale peor de lo que creemos?».' : 'Milagros responde con un emoji de duda. Ese cuadro no va a mostrar lo que necesitas ver.',
+        pro: { ok: 'Un encargo con alcance, formato y reserva claros evita que la revisión se convierta en maquillaje.', risk: 'Si la revisión es parcial o pasa por los supervisores primero, cuando llegue la inspección los números no coincidirán.', info: 'El lunes empieza otra historia: la de la empresa que tiene que pagar lo que debe.' },
         kusi: [q === 'buena' ? 'feliz' : 'preocupado', q === 'buena' ? '¡A mirar los números de frente!' : 'Ese encargo deja huecos…'],
       };
     },
     rules: [[LEY, 'D.S. 007-2002-TR: el trabajo en sobretiempo se paga con sobretasa o se compensa con descanso si se acuerda.'], [BP, 'Para revisar el propio cumplimiento, pide los datos completos, sin filtros y sin tocar los registros.']],
     mirada: {
       ve: 'El caso de Marcos terminó, pero abrió otro: la empresa trabajó una campaña entera con jornadas que no pagó. Revisar el propio cumplimiento antes de que lo haga otro es de lo más difícil, y de lo más valioso, de este puesto.',
-      visual: { tipo: 'mensaje', titulo: 'Un encargo claro', txt: 'Milagros, necesito comparar reloj y planilla de toda la línea 2, desde el inicio de la campaña de caballa. Por persona: horas marcadas, horas pagadas y diferencia, sin tocar ningún registro. Mándamelo solo a mí y a Valeria; el martes lo vemos con el doctor.' },
+      visual: { tipo: 'mensaje', titulo: 'Un encargo claro', txt: 'Milagros, necesito comparar reloj y planilla de toda la línea 2, desde el inicio de la campaña de caballa. Por persona: horas marcadas, horas pagadas y diferencia, sin tocar ningún registro. Mándamelo solo a mí y a Valeria; el lunes lo vemos con el doctor.' },
     },
   },
 ];
