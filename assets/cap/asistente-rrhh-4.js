@@ -1,5 +1,5 @@
-// Asistente de RR.HH. · Capítulo 4 · «Uniformes y credenciales» · Semana 2, martes.
-// Hilo del mes: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
+// Asistente de RR.HH. · Capítulo 4 · «Uniformes y credenciales» · Semana 1, jueves.
+// Hilo de las dos semanas: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
 // Normas citadas:
 // - Ley 29783, art. 60 (el empleador proporciona EPP adecuados y verifica su uso), art. 62 (el costo de las medidas de
 //   SST no lo asumen los trabajadores). Reglamento D.S. 005-2012-TR, art. 97 (el EPP debe atender a las medidas
@@ -10,22 +10,22 @@
 // - Ley 29733 (datos personales: solo los necesarios para la finalidad), ya citada en el capítulo 1.
 
 export const CAP = {
-  n: 4, titulo: 'Uniformes y credenciales', dia: 'Semana 2, martes', foto: 'assets/3d/scenes/almacen.webp',
+  n: 4, titulo: 'Uniformes y credenciales', dia: 'Semana 1, jueves', foto: 'assets/3d/scenes/almacen.webp',
   lugar: 'Tienda 13 · Castilla, Piura',
   inicio: '07:30', fin: '19:00', cierreHora: '18:45',
   apertura: 'Castilla, tienda 13. Todavía huele a pintura y hay polvo de cemento en las góndolas vacías. En el almacén te esperan doce cajas de uniformes que llegaron anoche de Lima.', boton: 'Abrir las cajas',
   kusi: 'Un polo que no queda también dice algo: «no pensamos en ti». ¡Hoy que a todos les quede!',
   lead: 'Resolviste las tallas que no cuadraban, revisaste el acta de entrega, cuidaste los datos de las credenciales y decidiste qué nombre lleva la credencial de Valentina.',
   reflexion: '¿Qué detalle de un uniforme o una credencial puede hacer que alguien se sienta parte del equipo, o fuera de él?',
-  siguiente: { n: 5, titulo: 'La inducción', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'La inducción', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
-  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 20 días' },
-  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Último grupo hoy' },
+  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 6 días' },
+  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Grupo 3 hoy' },
   { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: 'Firmando el resto' },
   { id: 'uniformes', p: 'Uniformes y credenciales', j: 'Logística', d: 0, e: 'Llegaron las cajas' },
-  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Este jueves' },
+  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Mañana' },
 ];
 
 export const FUTURO = {
@@ -50,14 +50,14 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'grupo', t: '07:15', de: 'Betty', txt: 'Llegaron los uniformes a la T13 👕 Martín de Logística te abre el almacén. El jueves es la inducción: ese día se entregan.' },
-  { chat: 'grupo', t: '07:22', de: 'César', txt: 'Ya di de alta a los primeros 11. Los del lunes, mañana.', si: 'contratos_limpios' },
+  { chat: 'grupo', t: '07:15', de: 'Betty', txt: 'Llegaron los uniformes a la T13 👕 Martín de Logística te abre el almacén. Mañana es la inducción: ese día se entregan.' },
+  { chat: 'grupo', t: '07:22', de: 'César', txt: 'Las altas de los primeros 11 ya están listas para mañana, que es su día de ingreso.', si: 'contratos_limpios' },
   { chat: 'grupo', t: '07:22', de: 'César', txt: 'Antes de darlos de alta necesito saber qué hojas firmaron exactamente esos cuatro. ¿Hablamos?', si: 'firma_en_blanco' },
   { chat: 'wilmer', t: '08:40', de: 'Wilmer', txt: 'Kevin, el nuevo reponedor, ya vino a conocer la tienda. Parece chambeador. Ya, está bien.', si: 'vacante_proceso' },
   { chat: 'wilmer', t: '08:40', de: 'Wilmer', txt: 'Mi pata Richard ya está viniendo a ayudar a descargar. Dale su uniforme, ¿ya?', si: 'vacante_recomendado' },
   { chat: 'karina', t: '10:15', de: 'Karina', txt: 'Señorita, ¿la talla que le dije es para el polo o para el pantalón? 😅 Soy S en polo y 28 en pantalón.' },
-  { chat: 'nuevos', t: '12:30', de: 'Yorgelis', txt: 'Buenas tardes. ¿El jueves hay que llevar algo? ¿El uniforme lo dan ese día?' },
-  { chat: 'imprenta', t: '14:10', de: 'Imprenta Grau', txt: 'Señorita, si nos manda hoy antes de las 5 los datos, las credenciales salen el jueves a las 8.' },
+  { chat: 'nuevos', t: '12:30', de: 'Yorgelis', txt: 'Buenas tardes. ¿Mañana hay que llevar algo? ¿El uniforme lo dan ese día?' },
+  { chat: 'imprenta', t: '14:10', de: 'Imprenta Grau', txt: 'Señorita, si nos manda hoy antes de las 5 los datos, las credenciales salen mañana a las 7.' },
 ];
 
 export const CORREOS = [
@@ -78,13 +78,13 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'u1', t: '07:55', ch: 'presencial', who: null, titulo: 'Sobran las XL', banner: 'assets/3d/scenes/retail.webp', lugar: 'Almacén de la tienda 13', show: ['calidad', 'tiempo', 'personas'],
-    body: (n, F) => `<p>Martín Querevalú, de Logística, tiene 61 años y abre las cajas con un cúter que lleva desde que la cadena tenía dos tiendas. «Aquí está tu problema», dice: 20 polos XL y solo 6 S. ${F.has('copias_entregadas') ? 'Varias cajeras ya te preguntaron por WhatsApp si el uniforme se paga.' : ''}</p><p>Los uniformes se pidieron con las tallas de la tienda 12, porque <mark class="clave">nadie mandó las tallas de la gente nueva</mark>. El jueves es la inducción.</p>`,
+    body: (n, F) => `<p>Martín Querevalú, de Logística, tiene 61 años y abre las cajas con un cúter que lleva desde que la cadena tenía dos tiendas. «Aquí está tu problema», dice: 20 polos XL y solo 6 S. ${F.has('copias_entregadas') ? 'Varias cajeras ya te preguntaron por WhatsApp si el uniforme se paga.' : ''}</p><p>Los uniformes se pidieron con las tallas de la tienda 12, porque <mark class="clave">nadie mandó las tallas de la gente nueva</mark>. Mañana es la inducción.</p>`,
     type: 'pick', n: 3, prompt: 'Elige las tres acciones con las que vas a resolver las tallas.', boton: 'Hacer esto', resumen: 'Decidiste',
     cols: ['Acción', 'Lo que implica'],
     rows: [
       { id: 'tallas', cells: ['Pedir a cada persona su talla real por WhatsApp, con la tabla de medidas del proveedor', 'Una tarde de mensajes'] },
       { id: 'cambio', cells: ['Pedir al proveedor el cambio de 15 XL por S y M, con fecha comprometida', 'Una llamada y un correo con la guía de remisión'] },
-      { id: 'prioridad', cells: ['Entregar primero a cajeras y panaderos, que tienen práctica en caja y horno el jueves', 'Los demás reciben el viernes'] },
+      { id: 'prioridad', cells: ['Entregar primero a cajeras y panaderos, que tienen práctica en caja y horno la próxima semana', 'Los demás reciben el martes'] },
       { id: 'xl', cells: ['Repartir los XL y que se los ajusten con un nudo', 'Se resuelve hoy'] },
       { id: 'compra', cells: ['Que cada persona compre su polo y luego se le reembolse', 'Sin esperar al proveedor'] },
     ],
@@ -108,7 +108,7 @@ export const ESCENAS = [
   },
   {
     id: 'u2', t: '09:30', ch: 'documento', who: null, titulo: 'El acta de entrega', banner: 'assets/esc/lupa.webp', show: ['cumplimiento', 'etica'],
-    body: () => `<p>Abres el acta de entrega de uniformes y EPP que dejó Betty. La hizo Logística hace años y se usó en todas las aperturas.</p><p>El jueves la firmarán 45 personas. Como hiciste con la plantilla del contrato, <mark class="clave">la lees antes de imprimir</mark>.</p>`,
+    body: () => `<p>Abres el acta de entrega de uniformes y EPP que dejó Betty. La hizo Logística hace años y se usó en todas las aperturas.</p><p>Mañana la firmarán 45 personas. Como hiciste con la plantilla del contrato, <mark class="clave">la lees antes de imprimir</mark>.</p>`,
     type: 'flag', prompt: 'Marca lo que no cumple la ley o lo que debería corregirse en el acta.',
     doc: { t: 'Acta de entrega de uniforme y equipos de protección personal', sub: 'Supermercados Norte · Formato de Logística' },
     lines: [
@@ -150,7 +150,7 @@ export const ESCENAS = [
         { id: 'q2', t: 'Les mando el Excel completo de ingresos, así tienen todo.', ok: false, por: 'Dirección, teléfono y fecha de nacimiento no hacen falta para imprimir una credencial.' },
       ] },
       { id: 'como', t: 'Por dónde', ops: [
-        { id: 'c1', t: 'Va en una carpeta de la empresa con acceso solo para ustedes hasta el jueves.', ok: true, por: 'Un canal controlado y con fecha de cierre.' },
+        { id: 'c1', t: 'Va en una carpeta de la empresa con acceso solo para ustedes hasta mañana.', ok: true, por: 'Un canal controlado y con fecha de cierre.' },
         { id: 'c2', t: 'Se los paso por aquí en un rato 📎', ok: false, por: 'Las fotos y los datos quedan en un chat que no controlas.' },
       ] },
       { id: 'despues', t: 'Después', ops: [
@@ -164,7 +164,7 @@ export const ESCENAS = [
       return {
         q, fx: { cumplimiento: mal ? -5 : 4, calidad: q === 'buena' ? 3 : 0, tiempo: -1 },
         flags: mal ? [] : ['credencial_datos_minimos'], cartera: { uniformes: mal ? 'Datos completos enviados a la imprenta' : 'Datos de credenciales enviados con acceso limitado' },
-        out: q === 'buena' ? 'La imprenta responde: «Perfecto, así es más rápido». Sus credenciales salen el jueves a las 8.' : mal ? 'La imprenta recibe direcciones, teléfonos y fotos de 45 personas en un chat. Nadie sabe quién más lo ve.' : 'La imprenta recibe lo necesario, pero el archivo se quedará en su computadora sin fecha de borrado.',
+        out: q === 'buena' ? 'La imprenta responde: «Perfecto, así es más rápido». Las credenciales salen mañana a las 7.' : mal ? 'La imprenta recibe direcciones, teléfonos y fotos de 45 personas en un chat. Nadie sabe quién más lo ve.' : 'La imprenta recibe lo necesario, pero el archivo se quedará en su computadora sin fecha de borrado.',
         pro: { ok: 'Compartes lo mínimo, por un canal controlado, y pides que se borre.', risk: 'Cada proveedor que recibe datos de más es un riesgo de filtración.', info: 'Pide a Betty si la empresa tiene un acuerdo de confidencialidad con la imprenta.' },
         kusi: [q === 'buena' ? 'feliz' : mal ? 'preocupado' : 'pensando', q === 'buena' ? 'Lo justo y necesario. ¡Dale!' : mal ? 'Eso es mucha información para una credencial…' : 'Casi: falta pensar en el después.'],
       };
@@ -204,36 +204,36 @@ export const ESCENAS = [
   },
   {
     id: 'u5', t: '15:00', ch: 'llamada', who: null, titulo: 'Fechas que no calzan', banner: 'assets/foto/llamada.webp', show: ['tiempo', 'calidad', 'personas'],
-    body: (n, F) => `<p>${F.has('tallas_reales') ? 'Ya tienes 38 tallas reales.' : 'Sigues sin todas las tallas.'} Ahora toca saber qué llega antes del jueves. Llamas a los tres proveedores que necesitas.</p>`,
+    body: (n, F) => `<p>${F.has('tallas_reales') ? 'Ya tienes 38 tallas reales.' : 'Sigues sin todas las tallas.'} Ahora toca saber qué llega para mañana. Llamas a los tres proveedores que necesitas.</p>`,
     type: 'calls',
-    calls: [['Confecciones del Norte', 'Contesta: el cambio tarda cinco días', 'Señorita, el cambio de XL por S y M se lo tengo en cinco días útiles, no antes. Mi costurera está con una campaña de colegios.'], ['Logística · zapatos de seguridad', 'Contesta: hay talla 36 en el almacén de Sullana', 'Martín: «En Sullana hay un par 36 de la tienda 9. Si lo pido hoy, llega mañana en el camión».'], ['Imprenta Grau', 'Contesta: el jueves a las 8', 'Si los datos llegan hoy, a las 8 del jueves le entrego las 45 credenciales.']],
-    prompt: 'Las credenciales llegan a tiempo y los zapatos de Rosa también. Los polos S y M, no. ¿Qué haces para el jueves?',
+    calls: [['Confecciones del Norte', 'Contesta: el cambio tarda tres días', 'Señorita, el cambio de XL por S y M se lo tengo en tres días útiles, no antes. Mi costurera está con una campaña de colegios.'], ['Logística · zapatos de seguridad', 'Contesta: hay talla 36 en el almacén de Sullana', 'Martín: «En Sullana hay un par 36 de la tienda 9. Si lo pido hoy, llega mañana en el camión».'], ['Imprenta Grau', 'Contesta: mañana a las 7', 'Si los datos llegan hoy, mañana a las 7 le entrego las 45 credenciales.']],
+    prompt: 'Las credenciales llegan a tiempo y los zapatos de Rosa también. Los polos S y M, no. ¿Qué haces para mañana?',
     choices: [
-      { id: 'a', label: 'Pedir a Confecciones una entrega parcial urgente de S y M para el jueves, y que el resto llegue en cinco días. Pedir el par 36 hoy.',
-        res: { q: 'buena', fx: { tiempo: 2, calidad: 3, personas: 3 }, flags: ['epp_talla'], cartera: { uniformes: 'Entrega parcial el jueves · resto en 5 días' },
-          out: 'La dueña de Confecciones acepta coser 12 polos S y M para el miércoles en la noche. «Pero me los paga ese día, ¿ya?» Le pasas el pedido a Logística.',
+      { id: 'a', label: 'Pedir a Confecciones una entrega parcial urgente de S y M para mañana, y que el resto llegue en tres días. Pedir el par 36 hoy.',
+        res: { q: 'buena', fx: { tiempo: 2, calidad: 3, personas: 3 }, flags: ['epp_talla'], cartera: { uniformes: 'Entrega parcial mañana · resto el martes' },
+          out: 'La dueña de Confecciones acepta coser 12 polos S y M para hoy en la noche. «Pero me los paga ese día, ¿ya?» Le pasas el pedido a Logística.',
           pro: { ok: 'Negocias lo urgente y aceptas lo que no puede apurarse.', info: 'Deja por escrito, en un correo, la fecha comprometida de cada entrega.' },
           kusi: ['feliz', 'Lo urgente primero, lo demás con fecha.'] } },
-      { id: 'b', label: 'Aceptar los cinco días y avisar en el grupo que el jueves vayan con ropa propia oscura. Pedir el par 36 hoy.',
-        res: { q: 'aceptable', fx: { tiempo: 1, personas: -1 }, flags: ['epp_talla'], cartera: { uniformes: 'Uniformes en cinco días' },
-          out: 'El jueves la mitad del grupo irá con su propia ropa. En las fotos de la inducción no parecerá un solo equipo.',
+      { id: 'b', label: 'Aceptar los tres días y avisar en el grupo que mañana vayan con ropa propia oscura. Pedir el par 36 hoy.',
+        res: { q: 'aceptable', fx: { tiempo: 1, personas: -1 }, flags: ['epp_talla'], cartera: { uniformes: 'Uniformes el martes' },
+          out: 'Mañana la mitad del grupo irá con su propia ropa. En las fotos de la inducción no parecerá un solo equipo.',
           pro: { ok: 'Resuelves con lo que hay.', risk: 'La primera imagen del equipo es dispareja, y algunos no tienen ropa oscura para trabajar.' },
           kusi: ['pensando', 'Se puede, pero se nota.'] } },
       { id: 'c', label: 'Pasar la inducción a la próxima semana, cuando ya estén todos los uniformes.',
         res: { q: 'riesgosa', fx: { tiempo: -5, cumplimiento: -2 }, rel: { betty: -1 },
-          out: 'Betty te llama: «La inducción no depende de los polos. Si la movemos, la tienda abre con gente sin capacitar». La inducción se queda el jueves.',
+          out: 'Betty te llama: «La inducción no depende de los polos. Si la movemos, la tienda abre con gente sin capacitar». La inducción se queda el viernes.',
           pro: { ok: 'Esperas a tener todo.', risk: 'Mueves lo importante (la inducción) por lo accesorio (un polo).' },
           kusi: ['sorpresa', '¿Mover la inducción por un polo?'] } },
     ],
     rules: [[BP, 'Cuando un proveedor no llega, negocia entregas parciales para lo urgente y deja las fechas por escrito.']],
     mirada: {
       ve: 'Coordinar proveedores es aceptar que cada uno tiene su propia campaña, sus costureras y sus camiones. Lo que puedes controlar es qué es urgente, qué puede esperar y que todo quede escrito.',
-      visual: { tipo: 'linea', titulo: 'Lo que llega antes de la inducción', hitos: [['Miércoles', 'Zapatos 36 desde Sullana'], ['Miércoles noche', '12 polos S y M'], ['Jueves 8:00', '45 credenciales'], ['Semana 3', 'Resto de los polos']] },
+      visual: { tipo: 'linea', titulo: 'Lo que llega antes de la inducción', hitos: [['Hoy, noche', '12 polos S y M'], ['Mañana, 7:00', '45 credenciales'], ['Mañana, camión', 'Zapatos 36 desde Sullana'], ['Martes', 'Resto de los polos']] },
     },
   },
   {
     id: 'u6', t: '16:30', ch: 'documento', who: null, titulo: 'El control de uniformes', banner: 'assets/esc/escritorio.webp', lugar: 'Oficina provisional de la tienda 13', show: ['calidad', 'cumplimiento'],
-    body: () => `<p>En una mesa plegable, al lado de un ventilador que mueve el aire caliente de un lado a otro, armas tu control de uniformes y credenciales.</p><p>El jueves vas a entregar a 45 personas en una hora. <mark class="clave">Ordena cómo va a funcionar la entrega</mark>.</p>`,
+    body: () => `<p>En una mesa plegable, al lado de un ventilador que mueve el aire caliente de un lado a otro, armas tu control de uniformes y credenciales.</p><p>Mañana vas a entregar a 45 personas en una hora. <mark class="clave">Ordena cómo va a funcionar la entrega</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos de la entrega de uniformes y credenciales. Usa las flechas.', boton: 'Guardar el control',
     items: [
       { id: 'tallas', t: 'Cerrar la lista de tallas confirmadas por persona', por: 'Todo parte de saber qué le toca a cada uno.' },
@@ -248,7 +248,7 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 2 : -3, cumplimiento: q === 'riesgosa' ? -1 : 2 },
         cartera: { uniformes: q === 'riesgosa' ? 'Control de uniformes desordenado' : 'Control de uniformes listo' },
-        out: q === 'buena' ? 'Martín revisa tu control y lo copia para Logística: «Esto lo uso en la tienda 14».' : 'Tu control sirve, aunque el jueves vas a tener que volver atrás en un par de pasos.',
+        out: q === 'buena' ? 'Martín revisa tu control y lo copia para Logística: «Esto lo uso en la tienda 14».' : 'Tu control sirve, aunque mañana vas a tener que volver atrás en un par de pasos.',
         pro: { ok: 'Preparar paquetes por persona convierte una fila caótica en una entrega de minutos.', risk: 'Entregar «a ojo» en la fila es la forma más rápida de que alguien se quede sin su talla.', info: 'Lleva bolsas extra y un plumón: siempre hay algún cambio de último minuto.' },
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡45 paquetes, cero confusiones!' : 'Casi: el orden ahorra carreras.'],
       };
@@ -256,12 +256,12 @@ export const ESCENAS = [
     rules: [[BP, 'Toda entrega a personal deja constancia firmada de qué se entregó y qué quedó pendiente.']],
     mirada: {
       ve: 'El control de uniformes parece la parte menos importante de RR.HH., hasta que alguien dice «a mí no me dieron» y no hay forma de saber si es cierto. Un buen control protege a la persona y a la empresa.',
-      visual: { tipo: 'flujo', titulo: 'La entrega del jueves', pasos: ['Tallas', 'Paquetes', 'Credenciales', 'Firma', 'Pendientes', 'Reporte'] },
+      visual: { tipo: 'flujo', titulo: 'La entrega de mañana', pasos: ['Tallas', 'Paquetes', 'Credenciales', 'Firma', 'Pendientes', 'Reporte'] },
     },
   },
   {
     id: 'u7', t: '18:00', ch: 'presencial', who: 'cesar', titulo: 'La idea de Finanzas', banner: 'assets/foto/cafe.webp', lugar: 'Oficina central · cocina', show: ['etica', 'cumplimiento', 'confianza'],
-    body: () => `<p>Vuelves a la oficina central a dejar las actas. César está calentando su café en el microondas.</p><p>«Oye, Finanzas me pidió que, desde este mes, <mark class="clave">les descontemos S/ 15 del sueldo a los que pierdan la credencial</mark>. Dicen que en la tienda 12 se perdieron veinte. ¿Lo pongo en la planilla de la tienda 13?»</p>`,
+    body: () => `<p>Vuelves a la oficina central a dejar las actas. César está calentando su café en el microondas.</p><p>«Oye, Finanzas me pidió que, desde esta quincena, <mark class="clave">les descontemos S/ 15 del sueldo a los que pierdan la credencial</mark>. Dicen que en la tienda 12 se perdieron veinte. ¿Lo pongo en la planilla de la tienda 13?»</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Decirle que no se puede descontar sin autorización expresa de cada persona, y proponer a Betty una política escrita: primera reposición sin costo y, desde la segunda, un pago que la persona autorice por escrito.',

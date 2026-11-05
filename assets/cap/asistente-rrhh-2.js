@@ -1,5 +1,5 @@
-// Asistente de RR.HH. · Capítulo 2 · «Los exámenes médicos» · Semana 1, miércoles.
-// Hilo del mes: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
+// Asistente de RR.HH. · Capítulo 2 · «Los exámenes médicos» · Semana 1, martes.
+// Hilo de las dos semanas: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
 // Normas citadas (texto de «Normas legales actualizadas», Ley 29783 y su Reglamento, D.S. 005-2012-TR):
 //   https://www.ugel02.gob.pe/sites/default/files/PRCCSST/ley29783.pdf
 // - Ley 29783, art. 49 d) (modificado por Ley 30222): los costos de los exámenes médicos los asume el empleador.
@@ -10,27 +10,27 @@
 // - Ley 29733 (datos de salud como datos sensibles), ya citada en el capítulo 1.
 
 export const CAP = {
-  n: 2, titulo: 'Los exámenes médicos', dia: 'Semana 1, miércoles', foto: 'assets/3d/scenes/hospital.webp',
+  n: 2, titulo: 'Los exámenes médicos', dia: 'Semana 1, martes', foto: 'assets/3d/scenes/hospital.webp',
   lugar: 'Clínica San Miguel · Av. Grau, Piura',
   inicio: '07:00', fin: '19:00', cierreHora: '18:40',
   apertura: 'Piura, 7:00 de la mañana. El sol ya pica y el mototaxi te deja en la puerta de la Clínica San Miguel. Hoy se hacen los primeros 10 exámenes de ingreso de la tienda 13.', boton: 'Entrar a la clínica',
   kusi: 'Un examen médico no es un trámite: es la primera vez que la empresa cuida a alguien. ¡Dale!',
   lead: 'Ordenaste la agenda de 45 exámenes con 10 cupos al día, resolviste lo de Karina, cuidaste los resultados médicos de miradas ajenas y defendiste un ajuste para un maestro panadero.',
   reflexion: '¿Qué información de salud de otra persona viste hoy y a quién no se la deberías contar?',
-  siguiente: { n: 3, titulo: 'Los contratos', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'Los contratos', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
-  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 26 días' },
+  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 8 días' },
   { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Primer grupo hoy' },
-  { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: 'Firma el viernes' },
+  { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: 'Firma mañana' },
   { id: 'uniformes', p: 'Uniformes y credenciales', j: 'Logística', d: 0, e: 'Tallas sin pedir' },
-  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Semana 2' },
+  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Este viernes' },
 ];
 
 export const FUTURO = {
-  agenda_ordenada: ['Tu agenda de exámenes tiene fechas, recordatorios y lista de espera.', 'Los 45 terminarán antes de la semana 3.'],
-  agenda_suelta: ['Tu agenda de exámenes depende de la suerte.', 'En la semana 2 faltarán exámenes para la inducción.'],
+  agenda_ordenada: ['Tu agenda de exámenes tiene fechas, recordatorios y lista de espera.', 'Los 45 terminarán antes de la apertura.'],
+  agenda_suelta: ['Tu agenda de exámenes depende de la suerte.', 'Llegarás a la apertura con exámenes pendientes.'],
   karina_cuidada: ['Karina no perdió su examen por un pan con camote.', 'Te tendrá confianza cuando la necesite. Capítulo 6.'],
   examenes_confidenciales: ['Los diagnósticos se quedaron con la clínica.', 'Nadie en la tienda sabrá lo que no debe saber.'],
   examenes_expuestos: ['Recibiste diagnósticos que no debías tener.', 'Ese archivo te traerá problemas más adelante.'],
@@ -50,7 +50,7 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '06:40', de: 'Betty', txt: 'Buenos días 🌞 Hoy primer grupo en la clínica. Cualquier cosa me llamas, estoy en el comité de gerencia hasta las 11.' },
-  { chat: 'grupo', t: '06:52', de: 'César', txt: 'Recuerda: sin certificado de aptitud no doy de alta a nadie. Ni a mi mamá 😐' },
+  { chat: 'grupo', t: '06:52', de: 'César', txt: 'Recuerda: el alta va el día de ingreso. Y sin aptitud, Betty no deja entrar a nadie a un turno. Ni a mi mamá 😐' },
   { chat: 'cesar', t: '07:02', de: 'César', txt: 'Ya cargué las 20 fichas que me mandaste. Cero rebotes por ahora. Sigue así.', si: 'cesar_ok' },
   { chat: 'cesar', t: '07:02', de: 'César', txt: 'Tres fichas tienen la fecha de nacimiento al revés. Te las devuelvo en un ratito.', no: 'cesar_ok' },
   { chat: 'karina', t: '07:10', de: 'Karina', txt: 'Señorita, ya estoy llegando. Me vine en combi desde Veintiséis de Octubre 🙈', si: 'llamadas_wsp' },
@@ -79,14 +79,14 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'm1', t: '07:05', ch: 'documento', who: null, titulo: 'La cuenta de los cupos', banner: 'assets/esc/reloj.webp', lugar: 'Sala de espera de la Clínica San Miguel', show: ['calidad', 'tiempo'],
-    body: (n, F) => `<p>Llegaste antes que todos. El aire acondicionado de la sala de espera todavía no prende y huele a alcohol en gel. Abres el Excel de ingresos en el celular: 45 filas, 10 cupos al día, de lunes a viernes.</p><p>${F.has('llamadas_wsp') ? 'Gracias a tus WhatsApp del lunes, el grupo de hoy está completo.' : 'El grupo de hoy tiene huecos: el lunes no todos confirmaron.'} Betty te pidió que <mark class="clave">la agenda alcance para los 45</mark>. Antes de que lleguen, ordenas cómo vas a trabajarla.</p>`,
+    body: (n, F) => `<p>Llegaste antes que todos. El aire acondicionado de la sala de espera todavía no prende y huele a alcohol en gel. Abres el Excel de ingresos en el celular: 45 filas, 10 cupos al día, de lunes a viernes.</p><p>${F.has('llamadas_wsp') ? 'Gracias a tus WhatsApp de ayer, el grupo de hoy está completo.' : 'El grupo de hoy tiene huecos: ayer no todos confirmaron.'} Betty te pidió que <mark class="clave">la agenda alcance para los 45</mark>. Antes de que lleguen, ordenas cómo vas a trabajarla.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos para que la agenda de exámenes funcione. Usa las flechas.', boton: 'Guardar mi plan',
     items: [
       { id: 'grupos', t: 'Repartir a las 45 personas en grupos de 10, por día, empezando por quienes firman contrato primero', por: 'Sin grupos por fecha, todo es improvisar.' },
       { id: 'lista', t: 'Enviar la lista con nombres, DNI y puesto a la clínica 24 horas antes', por: 'Es la condición de la clínica.' },
       { id: 'aviso', t: 'Avisar a cada persona: hora, dirección, ayuno, DNI y que es gratis', por: 'Las cuatro dudas de siempre, resueltas por adelantado.' },
       { id: 'recuerda', t: 'Mandar un recordatorio la noche anterior', por: 'El recordatorio baja las ausencias.' },
-      { id: 'espera', t: 'El mismo día, llenar las ausencias con la lista de espera', por: 'Un cupo vacío es un examen que se atrasa una semana.' },
+      { id: 'espera', t: 'El mismo día, llenar las ausencias con la lista de espera', por: 'Un cupo vacío es un examen que quizá ya no entra antes de la apertura.' },
       { id: 'aptitud', t: 'Registrar en el Excel solo el resultado de aptitud', por: 'Lo demás es información médica confidencial.' },
     ],
     res: (bien, total) => {
@@ -102,7 +102,7 @@ export const ESCENAS = [
     rules: [[BP, 'Con cupos limitados, la lista de espera es tan importante como la agenda.']],
     mirada: {
       ve: 'Coordinar con un proveedor es trabajar dentro de sus límites, no pelear contra ellos. Si la clínica atiende 10 por día, tu trabajo es que ningún cupo se pierda.',
-      visual: { tipo: 'linea', titulo: 'Agenda de exámenes de la tienda 13', hitos: [['Miércoles', 'Grupo 1 · 10 personas'], ['Jueves', 'Grupo 2'], ['Viernes', 'Grupo 3 · firman contrato'], ['Lunes', 'Grupo 4 · Rosa'], ['Martes', 'Grupo 5 y rezagados']] },
+      visual: { tipo: 'linea', titulo: 'Agenda de exámenes de la tienda 13', hitos: [['Martes', 'Grupo 1 · 10 personas'], ['Miércoles', 'Grupo 2 · firman contrato'], ['Jueves', 'Grupo 3'], ['Viernes', 'Sin cupos: es la inducción'], ['Lunes', 'Grupo 4 · Rosa'], ['Martes', 'Grupo 5 y rezagados']] },
     },
   },
   {
@@ -110,15 +110,15 @@ export const ESCENAS = [
     body: () => `<p>Karina llega sudando, con su DNI en la mano y una bolsita de pan. Te saluda bajito: «Señorita, perdón… <mark class="clave">me comí un pan con camote en la combi</mark>. Es que me bajó la presión».</p><p>En recepción te dicen que el análisis de sangre necesita ayuno de ocho horas. La fila avanza.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
-      { id: 'a', label: 'Preguntar a la clínica si puede hacer hoy todo lo demás y dejar solo el análisis de sangre para el viernes temprano.',
-        res: { q: 'buena', fx: { personas: 4, calidad: 2, tiempo: -1 }, rel: { karina: 1 }, flags: ['karina_cuidada'], cartera: { examenes: 'Karina: análisis el viernes 7:30' },
-          envia: [['karina', 'Karina, tranquila. Hoy te hacen todo menos el análisis de sangre. El viernes a las 7:30 vuelves solo para eso, en ayunas. Ya está coordinado con la clínica.']],
+      { id: 'a', label: 'Preguntar a la clínica si puede hacer hoy todo lo demás y dejar solo el análisis de sangre para mañana temprano.',
+        res: { q: 'buena', fx: { personas: 4, calidad: 2, tiempo: -1 }, rel: { karina: 1 }, flags: ['karina_cuidada'], cartera: { examenes: 'Karina: análisis mañana 7:30' },
+          envia: [['karina', 'Karina, tranquila. Hoy te hacen todo menos el análisis de sangre. Mañana a las 7:30 vuelves solo para eso, en ayunas. Ya está coordinado con la clínica.']],
           out: 'Recepción acepta: le harán el examen físico, la vista y la audiometría hoy. Karina respira y por fin se sienta.',
           pro: { ok: 'Partir el examen en dos evita que pierda su cupo completo.', info: 'Pregunta siempre qué partes del examen se pueden separar: no todas necesitan ayuno.' },
           kusi: ['feliz', 'Un pan con camote no tumba un ingreso.'] } },
-      { id: 'b', label: 'Reprogramarle el examen completo para el lunes y llamar a alguien de la lista de espera para usar su cupo.',
-        res: { q: 'aceptable', fx: { personas: 0, tiempo: 2 }, rel: { karina: 0 }, cartera: { examenes: 'Karina: reprogramada al lunes' },
-          out: 'Luis Yarlequé llega en 15 minutos en mototaxi y ocupa el cupo. Karina se va con la cabeza baja: el lunes tendrá que pedir permiso otra vez en la pollería donde ayuda a su tía.',
+      { id: 'b', label: 'Reprogramarle el examen completo para el jueves y llamar a alguien de la lista de espera para usar su cupo.',
+        res: { q: 'aceptable', fx: { personas: 0, tiempo: 2 }, rel: { karina: 0 }, cartera: { examenes: 'Karina: reprogramada al jueves' },
+          out: 'Luis Yarlequé llega en 15 minutos en mototaxi y ocupa el cupo. Karina se va con la cabeza baja: el jueves tendrá que pedir permiso otra vez en la pollería donde ayuda a su tía.',
           pro: { ok: 'No se pierde el cupo.', risk: 'Karina pierde otra mañana y se va sintiendo que hizo algo mal.' },
           kusi: ['pensando', 'El cupo se salvó. ¿Y ella?'] } },
       { id: 'c', label: 'Decirle bajito que no comente lo del pan: total, fue poquito.',
@@ -130,7 +130,7 @@ export const ESCENAS = [
     rules: [[BP, 'Antes de reprogramar todo, pregunta qué parte del examen se puede hacer igual.']],
     mirada: {
       ve: 'Las personas nuevas llegan nerviosas y con miedo a «quedar mal». Una asistente de RR.HH. que resuelve sin regañar les enseña desde el primer día que pueden decir la verdad.',
-      visual: { tipo: 'flujo', titulo: 'El examen de Karina, partido en dos', pasos: ['Hoy: examen físico', 'Hoy: vista y audiometría', 'Viernes 7:30: análisis en ayunas', 'Certificado de aptitud'], aqui: 0 },
+      visual: { tipo: 'flujo', titulo: 'El examen de Karina, partido en dos', pasos: ['Hoy: examen físico', 'Hoy: vista y audiometría', 'Mañana 7:30: análisis en ayunas', 'Certificado de aptitud'], aqui: 0 },
     },
   },
   {
@@ -236,7 +236,7 @@ export const ESCENAS = [
     type: 'pick', n: 3, prompt: 'Elige los tres frentes que vas a priorizar en la lista de mañana.', boton: 'Enviar la lista a la clínica', resumen: 'Priorizaste',
     cols: ['Frente', 'Lo que sabes'],
     rows: [
-      { id: 'contrato', cells: ['Las personas que firman contrato el viernes', 'Sin aptitud, no hay alta en el T-Registro'] },
+      { id: 'contrato', cells: ['Las personas que firman contrato mañana', 'Necesitan su aptitud antes de su primer turno'] },
       { id: 'nadie', cells: ['Los que todavía no tienen fecha, incluido Jorge Ramos', 'Jorge sigue con el celular apagado'] },
       { id: 'espera', cells: ['Dos personas de la lista de espera, por si alguien falla', 'Viven a 15 minutos de la clínica'] },
       { id: 'vigil', cells: ['Los 4 agentes de seguridad de la tienda', 'Son de la empresa de vigilancia que contrató la cadena'] },
@@ -253,10 +253,10 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Diez cupos y dos de reserva. ¡Qué divino!' : 'Revisa quién es tu gente y quién no.'],
       };
     },
-    rules: [[BP, 'Prioriza por la fecha que no se mueve: el contrato y el alta.']],
+    rules: [[BP, 'Prioriza por la fecha que no se mueve: la firma del contrato y el ingreso.']],
     mirada: {
       ve: 'Priorizar no es atender al que más grita, sino al que tiene la fecha más dura. Y también saber qué no es tuyo: el personal de un contratista tiene su propio empleador.',
-      visual: { tipo: 'matriz', x: 'Esfuerzo', y: 'Urgencia', cuadrantes: ['Hazlo ya', 'Hazlo hoy', 'Si sobra tiempo', 'No es tuyo'], items: [['Firman el viernes', .3, .92], ['Sin fecha', .65, .7], ['Lista de espera', .2, .55], ['Vigilantes', .5, .15], ['Repetir examen', .8, .08]] },
+      visual: { tipo: 'matriz', x: 'Esfuerzo', y: 'Urgencia', cuadrantes: ['Hazlo ya', 'Hazlo hoy', 'Si sobra tiempo', 'No es tuyo'], items: [['Firman mañana', .3, .92], ['Sin fecha', .65, .7], ['Lista de espera', .2, .55], ['Vigilantes', .5, .15], ['Repetir examen', .8, .08]] },
     },
   },
   {
@@ -266,7 +266,7 @@ export const ESCENAS = [
     type: 'choice',
     choices: [
       { id: 'a', label: 'Números del día, lo que corregiste con la clínica y la decisión que necesitas de ella.',
-        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: grupo 1, 9 de 10 evaluados (Karina completa el viernes); 8 aptos y 1 apto con restricción de turno. Le pedí a la clínica que solo nos mande aptitud y restricciones, sin diagnósticos. Necesito que veamos mañana con Wilmer el turno de panadería. Grupo 2 ya está confirmado.',
+        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: grupo 1, 9 de 10 evaluados (Karina completa mañana); 8 aptos y 1 apto con restricción de turno. Le pedí a la clínica que solo nos mande aptitud y restricciones, sin diagnósticos. Necesito que veamos mañana con Wilmer el turno de panadería. Grupo 2 ya está confirmado.',
           out: 'Betty responde a las 18:40: «Perfecto. Lo de los diagnósticos, bien visto: que quede así para los cinco grupos». Apagas la computadora con el café frío al lado del teclado.',
           kusi: ['celebra', 'Números, un riesgo cuidado y un pedido. ¡Bacán!'] } },
       { id: 'b', label: 'Que salió todo bien y que mañana va el grupo 2.',

@@ -1,5 +1,5 @@
-// Asistente de RR.HH. · Capítulo 3 · «Los contratos» · Semana 1, viernes.
-// Hilo del mes: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
+// Asistente de RR.HH. · Capítulo 3 · «Los contratos» · Semana 1, miércoles.
+// Hilo de las dos semanas: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
 // Normas citadas:
 // - D.S. 003-97-TR (TUO del D. Leg. 728), art. 57: contrato por inicio de nueva actividad, que incluye la apertura de
 //   nuevos establecimientos; duración máxima de tres años. Transcrito en:
@@ -14,27 +14,27 @@
 // - Constitución Política del Perú, art. 26: carácter irrenunciable de los derechos reconocidos por la Constitución y la ley.
 
 export const CAP = {
-  n: 3, titulo: 'Los contratos', dia: 'Semana 1, viernes', foto: 'assets/foto/mesa-papeles.webp',
+  n: 3, titulo: 'Los contratos', dia: 'Semana 1, miércoles', foto: 'assets/foto/mesa-papeles.webp',
   lugar: 'Supermercados Norte · Oficina central de Piura',
   inicio: '07:30', fin: '19:00', cierreHora: '18:45',
-  apertura: 'Viernes en la oficina central. A las 10:00 vienen 15 personas a firmar su contrato, y la impresora del segundo piso ya hace ese ruido raro de cuando se va a atascar.', boton: 'Prender la computadora',
+  apertura: 'Miércoles en la oficina central. A las 10:00 vienen 15 personas a firmar su contrato, y la impresora del segundo piso ya hace ese ruido raro de cuando se va a atascar.', boton: 'Prender la computadora',
   kusi: 'Un contrato es la primera promesa que la empresa le hace a alguien. ¡Que diga la verdad!',
   lead: 'Encontraste los errores de la plantilla, cruzaste contratos contra fichas, decidiste qué hacer con los que estaban mal y armaste tu propio checklist de contratos.',
   reflexion: '¿Qué le dirías a alguien que firma su primer contrato sin leerlo?',
-  siguiente: { n: 4, titulo: 'Uniformes y credenciales', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'Uniformes y credenciales', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
-  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 24 días' },
-  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Grupo 3 hoy' },
+  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 7 días' },
+  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Grupo 2 hoy' },
   { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: '15 firman hoy' },
   { id: 'uniformes', p: 'Uniformes y credenciales', j: 'Logística', d: 0, e: 'Tallas sin pedir' },
-  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Semana 2' },
+  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Este viernes' },
 ];
 
 export const FUTURO = {
   plantilla_corregida: ['Corregiste la plantilla: sueldo vigente, causa objetiva y sin cláusulas ilegales.', 'Los 30 contratos que faltan saldrán limpios.'],
-  plantilla_vieja: ['La plantilla vieja sigue en la carpeta compartida.', 'Alguien la volverá a usar en la semana 3.'],
+  plantilla_vieja: ['La plantilla vieja sigue en la carpeta compartida.', 'Alguien la volverá a usar la próxima semana.'],
   contratos_limpios: ['Ningún contrato se firmó con errores.', 'César dará de alta sin rebotes el día de la apertura.'],
   firma_en_blanco: ['Hiciste firmar hojas que después ibas a cambiar.', 'Eso saldrá a la luz en el capítulo 6.'],
   copias_entregadas: ['Cada persona se llevó su copia del contrato.', 'Las dudas sobre el sueldo llegarán menos a tu WhatsApp.'],
@@ -58,7 +58,7 @@ export const WSP = [
   { chat: 'cesar', t: '07:40', de: 'César', txt: 'Gracias por la ficha con DNI verificado. Hoy no te devuelvo nada… todavía 😏', si: 'checklist_bueno' },
   { chat: 'cesar', t: '07:40', de: 'César', txt: 'Te devolví 12 fichas: DNI incompletos y fechas al revés. Antes de imprimir contratos, revísalas, porfa.', si: 'checklist_flojo' },
   { chat: 'karina', t: '08:05', de: 'Karina', txt: 'Ya me sacaron la sangre en ayunas, señorita 💪 ¿A qué hora es la firma?', si: 'karina_cuidada' },
-  { chat: 'karina', t: '08:05', de: 'Karina', txt: 'Buenos días. El lunes voy a la clínica. ¿Igual puedo firmar hoy?', no: 'karina_cuidada' },
+  { chat: 'karina', t: '08:05', de: 'Karina', txt: 'Buenos días. El jueves voy a la clínica. ¿Igual puedo firmar hoy?', no: 'karina_cuidada' },
   { chat: 'wilmer', t: '11:50', de: 'Wilmer', txt: 'Ya vi el turno de panadería con dos maestros. No me gusta, pero ya. Que don Teodoro firme hoy.', si: 'teodoro_ajuste' },
   { chat: 'wilmer', t: '11:50', de: 'Wilmer', txt: '¿Ya conseguiste otro panadero? El horno no se prende solo.', si: 'teodoro_fuera' },
   { chat: 'jorge', t: '14:58', de: 'Jorge', txt: 'Señorita, disculpe. Recién prendí el celular. ¿Me puede llamar?' },
@@ -66,7 +66,7 @@ export const WSP = [
 
 export const CORREOS = [
   { t: '07:35', de: 'Betty Seminario', para: 'Asistente de RR.HH.', asunto: 'Firma de contratos · tienda 13', html: '<p>Los 15 de hoy firman contrato por inicio de nueva actividad, por la apertura de la tienda 13. Revisa cada contrato contra su ficha antes de imprimir. Si algo no cuadra, no se firma: prefiero un día de atraso que un contrato mal hecho.</p><p>Betty</p>' },
-  { t: '13:20', de: 'Clínica San Miguel · Salud Ocupacional', para: 'RR.HH. Supermercados Norte', asunto: 'Grupo 3 · aptitud', html: '<p>Adjuntamos el resultado de aptitud del grupo 3, en el formato acordado: solo aptitud y restricciones.</p>' },
+  { t: '13:20', de: 'Clínica San Miguel · Salud Ocupacional', para: 'RR.HH. Supermercados Norte', asunto: 'Grupo 2 · aptitud', html: '<p>Adjuntamos el resultado de aptitud del grupo 2, en el formato acordado: solo aptitud y restricciones.</p>' },
 ];
 
 export const QUIZ = [
@@ -115,7 +115,7 @@ export const ESCENAS = [
   },
   {
     id: 'k2', t: '09:00', ch: 'sistema', who: null, titulo: 'Contrato contra ficha', banner: 'assets/esc/planilla.webp', show: ['calidad', 'tiempo'],
-    body: (n, F) => `<p>${F.has('checklist_flojo') ? 'César te devolvió 12 fichas el miércoles. Algunas ya las corregiste; otras no.' : 'Las fichas que enviaste a César están limpias. Ahora toca que los contratos digan lo mismo.'} Pones en dos pantallas el Excel de ingresos y los contratos generados.</p><p>Faltan 60 minutos para la firma. <mark class="clave">Cuatro de estos siete contratos tienen un error</mark>.</p>`,
+    body: (n, F) => `<p>${F.has('checklist_flojo') ? 'César te devolvió 12 fichas ayer. Algunas ya las corregiste; otras no.' : 'Las fichas que enviaste a César están limpias. Ahora toca que los contratos digan lo mismo.'} Pones en dos pantallas el Excel de ingresos y los contratos generados.</p><p>Faltan 60 minutos para la firma. <mark class="clave">Cuatro de estos siete contratos tienen un error</mark>.</p>`,
     type: 'pick', n: 4, prompt: 'Elige los cuatro contratos que no coinciden con la ficha.', boton: 'Separar estos contratos', resumen: 'Separaste',
     cols: ['Contrato', 'Lo que dice', 'Lo que dice la ficha'],
     rows: [
@@ -148,9 +148,9 @@ export const ESCENAS = [
     body: () => `<p>Ya llegaron casi todos: algunos pidieron permiso en otro trabajo para venir. La impresora se trabó otra vez. Betty te llama desde la tienda 4: «¿Todo listo para las diez?».</p><p>Le cuentas lo de los cuatro contratos. Hay silencio en la línea. <mark class="clave">«Tú estás ahí. ¿Qué propones?»</mark></p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Firmar hoy los 11 correctos y citar a los cuatro el lunes temprano, con el contrato corregido y revisado por César.',
-        res: { q: 'buena', fx: { cumplimiento: 5, etica: 3, personas: -1, confianza: 2 }, rel: { betty: 1 }, flags: ['contratos_limpios'], cartera: { contratos: '11 firmados · 4 el lunes' },
-          out: 'Les explicas a los cuatro qué pasó y que no es su culpa. Jhonatan se ríe: «Mejor, así no firmo que empecé hace un mes». Milagros tuerce la boca: el lunes tendrá que pedir permiso otra vez.',
+      { id: 'a', label: 'Firmar hoy los 11 correctos y citar a los cuatro mañana temprano, con el contrato corregido y revisado por César.',
+        res: { q: 'buena', fx: { cumplimiento: 5, etica: 3, personas: -1, confianza: 2 }, rel: { betty: 1 }, flags: ['contratos_limpios'], cartera: { contratos: '11 firmados · 4 mañana' },
+          out: 'Les explicas a los cuatro qué pasó y que no es su culpa. Jhonatan se ríe: «Mejor, así no firmo que empecé hace un mes». Milagros tuerce la boca: mañana tendrá que pedir permiso otra vez.',
           pro: { ok: 'Nada se firma con errores y la mayoría sale hoy con su contrato.', risk: 'Cuatro personas vuelven otro día y una ya pidió dos permisos esta semana.', info: 'Ofrece a quienes vuelven un horario que no choque con su otro trabajo.' },
           kusi: ['animo', 'Un día de atraso, cero errores firmados.'] } },
       { id: 'b', label: 'Corregir los cuatro ahora mismo e imprimirlos en la impresora del primer piso, aunque la firma empiece a las 11.',
@@ -178,11 +178,11 @@ export const ESCENAS = [
       { id: 'plazo', label: 'Yorgelis: «¿Por qué dice plazo fijo? ¿Me van a botar en seis meses?»', info: 'Le explicas que es un contrato por inicio de nueva actividad: la apertura de la tienda 13 es la causa. Puede renovarse mientras siga esa causa y tiene un tope legal. «No es un aviso de despido: es la forma legal de contratar en una apertura.»' },
       { id: 'copia', label: 'Don Teodoro: «¿Me puedo llevar una copia para que la lea mi hija?»', info: '«Claro, una de las tres copias es suya.» Toda la mesa levanta la cabeza: varios no sabían que tenían derecho a llevarse la suya.' },
       { id: 'pago', label: 'Jhonatan: «¿Cuándo me pagan? ¿Y en qué banco?»', info: 'Fin de mes, en cuenta sueldo, con boleta. Lo anotas para pedirle a César que les explique la boleta en la inducción.' },
-      { id: 'unif', label: 'Una cajera: «¿El uniforme me lo descuentan del sueldo?»', info: '«No. El uniforme lo entrega la empresa. La próxima semana tomamos tallas.» Haces una nota mental: las tallas todavía no se piden.' },
+      { id: 'unif', label: 'Una cajera: «¿El uniforme me lo descuentan del sueldo?»', info: '«No. El uniforme lo entrega la empresa. Mañana vemos las tallas.» Haces una nota mental: las tallas todavía no se piden.' },
     ],
     res: picks => ({
       q: null, fx: { personas: picks.includes('copia') ? 3 : 1, confianza: picks.includes('plazo') ? 3 : 1, tiempo: -1 },
-      flags: picks.includes('copia') ? ['copias_entregadas'] : [], cartera: { uniformes: picks.includes('unif') ? 'Prometiste tallas para la próxima semana' : 'Tallas sin pedir' },
+      flags: picks.includes('copia') ? ['copias_entregadas'] : [], cartera: { uniformes: picks.includes('unif') ? 'Prometiste tallas para mañana' : 'Tallas sin pedir' },
       out: picks.includes('copia') ? 'Cada persona se va con su copia en un sobre manila. Yorgelis le toma foto a la página del sueldo para mandársela a su mamá en Maracaibo.' : 'Las respuestas calman a la mesa. Algunos se van sin su copia y te escribirán la próxima semana preguntando cuánto ganan.',
       kusi: ['curioso', 'Las preguntas de la mesa son las dudas de todos.'],
     }),
@@ -258,20 +258,20 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'k7', t: '18:20', ch: 'correo', who: null, titulo: 'El cierre de la semana', banner: 'assets/foto/reunion-jefa.webp', show: ['confianza', 'calidad'],
-    mail: { from: 'Betty Seminario', to: 'Asistente de RR.HH.', asunto: 'Cierre de la semana 1' },
-    body: (n, F) => `<p>Ya estoy de vuelta de la tienda 4. ${F.has('teodoro_fuera') ? 'Revisé la pila de contratos y no encuentro el del maestro panadero. ¿Qué pasó con don Teodoro? ' : ''}Mándame cómo cerramos la semana: <mark class="clave">lo firmado, lo pendiente y lo que te preocupa</mark>.</p><p>Betty</p>`,
+    id: 'k7', t: '18:20', ch: 'correo', who: null, titulo: 'El cierre del día', banner: 'assets/foto/reunion-jefa.webp', show: ['confianza', 'calidad'],
+    mail: { from: 'Betty Seminario', to: 'Asistente de RR.HH.', asunto: 'Cierre de hoy' },
+    body: (n, F) => `<p>Ya estoy de vuelta de la tienda 4. ${F.has('teodoro_fuera') ? 'Revisé la pila de contratos y no encuentro el del maestro panadero. ¿Qué pasó con don Teodoro? ' : ''}Mándame cómo cerramos hoy: <mark class="clave">lo firmado, lo pendiente y lo que te preocupa</mark>.</p><p>Betty</p>`,
     type: 'choice',
     choices: [
       { id: 'a', label: 'Lo firmado y lo pendiente en números, los errores que encontraste y la vacante de Jorge.',
-        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: firmaron 11 de 15. Cuatro contratos tenían errores (tres fechas o documentos y un sueldo de otro puesto): se corrigen y firman el lunes. Corregí la plantilla con la RMV vigente. Jorge desistió; propongo llamar al siguiente finalista. Me preocupa que las tallas de uniforme aún no se piden.',
-          out: 'Betty responde en cinco minutos: «Excelente semana. El lunes vemos uniformes a primera hora». Sales a la avenida y el calor por fin afloja. El bus a casa va lleno, pero hoy no te importa.',
-          kusi: ['celebra', 'Semana 1 cerrada. ¡Qué bacán!'] } },
-      { id: 'b', label: 'Que firmaron casi todos y que el lunes terminas.',
-        res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Betty: firmaron casi todos, el lunes termino con el resto 👍',
-          out: 'Betty se queda sin saber de la plantilla vieja ni de la vacante. El lunes te preguntará por qué Wilmer le dice que «falta un reponedor».',
+        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: firmaron 11 de 15. Cuatro contratos tenían errores (tres fechas o documentos y un sueldo de otro puesto): se corrigen y firman mañana. Corregí la plantilla con la RMV vigente. Jorge desistió; propongo llamar al siguiente finalista. Me preocupa que las tallas de uniforme aún no se piden.',
+          out: 'Betty responde en cinco minutos: «Excelente día. Mañana vemos uniformes a primera hora». Sales a la avenida y el calor por fin afloja. El bus a casa va lleno, pero hoy no te importa.',
+          kusi: ['celebra', 'Día cerrado. ¡Qué bacán!'] } },
+      { id: 'b', label: 'Que firmaron casi todos y que mañana terminas.',
+        res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Betty: firmaron casi todos, mañana termino con el resto 👍',
+          out: 'Betty se queda sin saber de la plantilla vieja ni de la vacante. Mañana te preguntará por qué Wilmer le dice que «falta un reponedor».',
           kusi: ['pensando', '¿Y lo que te preocupa?'] } },
     ],
-    mirada: { ve: 'Cerrar la semana por escrito sirve para dos cosas: que tu jefa sepa dónde está parada y que tú veas lo que viene. Hoy, lo que viene son los uniformes.' },
+    mirada: { ve: 'Cerrar el día por escrito sirve para dos cosas: que tu jefa sepa dónde está parada y que tú veas lo que viene. Hoy, lo que viene son los uniformes.' },
   },
 ];

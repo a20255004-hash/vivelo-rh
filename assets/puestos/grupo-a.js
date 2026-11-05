@@ -177,7 +177,7 @@ export const DATOS = {
   'asistente-rrhh': {
     PUESTO: {
       id: 'asistente-rrhh', nombre: 'Asistente de RR.HH.', temporada: 'La tienda 13', foto: 'assets/cargos/asistente-rrhh.webp',
-      completa: false, listos: 5, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
+      completa: false, listos: 10, primero: 'betty', ciudad: 'Piura', nota: ['Piura', 'Cadena de supermercados del norte, 12 tiendas.'], correo: 'rrhh@supernorte.pe',
       sinopsis: 'Una cadena de supermercados de Piura abre su tienda 13 en menos de dos semanas. Eres la asistente de RR.HH. que hace que todo pase: contratos, exámenes médicos, uniformes, credenciales, inducción y la cola de dudas de 45 personas nuevas. Nadie ve tu trabajo hasta que algo falla.',
       escenario: 'Supermercados Norte S.A.C. (ficticia) · Piura · 12 tiendas · 900 colaboradores',
       duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',
@@ -205,7 +205,7 @@ export const DATOS = {
       ],
       competencias: [['Planificar', [1, 7]], ['Coordinar con proveedores', [2, 4]], ['Formalizar ingresos', [3]], ['Recibir a las personas', [5, 8, 9]], ['Escuchar y derivar casos', [6, 9]], ['Resolver imprevistos', [7, 8, 10]]],
       entregables: ['Cronograma de apertura', 'Agenda de exámenes médicos', 'Checklist de contratos', 'Control de uniformes', 'Programa de inducción', 'Registro de atención de casos'],
-      fin: { hora: '08:00', titulo: 'Tu primer día empieza ya', txt: 'Betty te espera en la oficina central con un cronograma pegado en la pared: faltan 28 días.' },
+      fin: { hora: '08:00', titulo: 'Tu primer día empieza ya', txt: 'Betty te espera en la oficina central con un cronograma pegado en la pared: faltan 9 días.' },
     },
     PERSONAS: {
       betty: { n: 'Betty Seminario', r: 'Jefa de RR.HH. · tu jefa', quiere: 'Abrir a tiempo y sin sorpresas.', preocupa: 'Que la tienda 13 abra con gente sin capacitar.', habla: 'Cálida y organizada.', av: { skin: '#B07A52', hair: 'cola', hc: '#22150F', top: '#2F6B3F', gl: true, bg: '#CFE6D5' } },

@@ -1,5 +1,5 @@
-// Asistente de RR.HH. · Capítulo 5 · «La inducción» · Semana 2, jueves.
-// Hilo del mes: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
+// Asistente de RR.HH. · Capítulo 5 · «La inducción» · Semana 1, viernes.
+// Hilo de las dos semanas: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
 // Normas citadas (texto de la Ley 29783 y su Reglamento, D.S. 005-2012-TR, en «Normas legales actualizadas»):
 //   https://www.ugel02.gob.pe/sites/default/files/PRCCSST/ley29783.pdf
 // - Ley 29783, art. 27: programas de capacitación como parte de la jornada laboral.
@@ -13,19 +13,19 @@
 // - Reglamento, art. 98: las capacitaciones fuera de la jornada se remuneran.
 
 export const CAP = {
-  n: 5, titulo: 'La inducción', dia: 'Semana 2, jueves', foto: 'assets/foto/capacitacion.webp',
+  n: 5, titulo: 'La inducción', dia: 'Semana 1, viernes', foto: 'assets/foto/capacitacion.webp',
   lugar: 'Tienda 13 · Almacén, Castilla',
   inicio: '06:30', fin: '19:00', cierreHora: '18:30',
   apertura: 'Castilla, 6:30 de la mañana. El almacén de la tienda 13 es un galpón de techo alto, con un proyector prestado, un parlante con pilas y cero sillas. A las 8:00 llegan 45 personas.', boton: 'Entrar al almacén',
   kusi: 'El primer día en un trabajo no se olvida nunca. ¡Que el de ellos sea bueno!',
   lead: 'Armaste el programa de inducción, conseguiste dónde sentar a 45 personas, defendiste la capacitación de seguridad y le diste a cada persona una forma clara de pedir ayuda.',
   reflexion: '¿Qué te habría gustado que te dijeran en tu primer día de trabajo?',
-  siguiente: { n: 6, titulo: 'La queja', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La queja', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
-  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 18 días' },
-  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Cerrando rezagados' },
+  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Faltan 5 días' },
+  { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Grupos 4 y 5 la próxima semana' },
   { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: 'Casi todos firmados' },
   { id: 'uniformes', p: 'Uniformes y credenciales', j: 'Logística', d: 0, e: 'Entrega hoy' },
   { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Hoy, de 8:00 a 14:00' },
@@ -33,7 +33,7 @@ export const CARTERA = [
 
 export const FUTURO = {
   programa_bueno: ['Tu programa de inducción tiene lo que de verdad hace falta.', 'Betty lo usará en las próximas aperturas.'],
-  programa_flojo: ['Tu programa de inducción se quedó corto en lo práctico.', 'Llegarán más dudas a tu WhatsApp la semana 3.'],
+  programa_flojo: ['Tu programa de inducción se quedó corto en lo práctico.', 'Llegarán más dudas a tu WhatsApp la próxima semana.'],
   induccion_sentados: ['La inducción se hizo con todos sentados y a tiempo.', 'La gente lo comentará bien.'],
   sst_completa: ['Nadie salió de la inducción sin la capacitación de seguridad.', 'Wilmer se quedó con la descarga a medias.'],
   sst_saltada: ['Diez reponedores descargaron sin capacitación de seguridad.', 'Eso se notará en el simulacro del capítulo 7.'],
@@ -60,7 +60,7 @@ export const WSP = [
   { chat: 'nuevos', t: '07:05', de: 'Valentina', txt: 'Buenos días a todos 🙋‍♀️ Nos vemos en la tienda.', si: 'credencial_nombre' },
   { chat: 'nuevos', t: '07:10', de: 'Jhonatan', txt: '¿El polo XL igual me lo pongo? 😂', si: 'tallas_xl' },
   { chat: 'wilmer', t: '09:20', de: 'Wilmer', txt: 'Llegó el camión de abarrotes. Necesito gente. YA.' },
-  { chat: 'betty', t: '15:10', de: 'Betty', txt: 'Hoy se sintió como una empresa de verdad. Gracias. Mañana descansa un poco, ¿ya? 💚', si: 'induccion_sentados' },
+  { chat: 'betty', t: '15:10', de: 'Betty', txt: 'Hoy se sintió como una empresa de verdad. Gracias. Descansa este fin de semana, ¿ya? 💚', si: 'induccion_sentados' },
 ];
 
 export const CORREOS = [
@@ -185,7 +185,7 @@ export const ESCENAS = [
     doc: { t: 'Registro de inducción y cargo de entrega del RISST', sub: 'Tienda 13 · Capacitación de ingreso en SST' },
     lines: [
       { id: 'tema', t: 'Tema: inducción en seguridad y salud en el trabajo · Capacitador: Ing. Óscar Alvarado.' },
-      { id: 'hora', t: 'Fecha y horario: jueves, de 8:45 a 10:45, presencial.' },
+      { id: 'hora', t: 'Fecha y horario: viernes, de 8:45 a 10:45, presencial.' },
       { id: 'cols', t: 'Columnas: nombre, DNI, puesto y firma.' },
       { id: 'cargo', t: '«Recibí copia del Reglamento Interno de Seguridad y Salud en el Trabajo.»' },
       { id: 'faltan', t: 'Nota al pie: «Los que faltaron reciben el RISST por WhatsApp y la capacitación se da por cumplida».', bad: LEY, why: 'La capacitación al momento de la contratación es presencial. Los que faltaron deben recibirla antes de su primer turno.' },
@@ -231,7 +231,7 @@ export const ESCENAS = [
     },
     rules: [[LEY, 'Todo trabajador puede comunicarse libremente con los inspectores de trabajo (Ley 29783, art. 72).'], [LEY, 'Los empleadores con 20 o más trabajadores tienen un comité de SST (Ley 29783, art. 29).'], [BP, 'Ofrece siempre una vía confidencial que no pase por el jefe directo.']],
     mirada: {
-      ve: 'El primer día, nadie cuenta sus problemas. Pero en la semana 3, cuando aparezcan, la persona recordará si alguien le dijo a quién acudir. Una tarjeta pequeña es una puerta que se deja abierta.',
+      ve: 'El primer día, nadie cuenta sus problemas. Pero la próxima semana, cuando aparezcan, la persona recordará si alguien le dijo a quién acudir. Una tarjeta pequeña es una puerta que se deja abierta.',
       visual: { tipo: 'mensaje', titulo: 'Lo que dice tu tarjeta', txt: '¿Tienes un problema? Escríbele a RR.HH. (lunes a viernes, de 8 a 6), usa el correo confidencial de la empresa o busca al comité de seguridad. Nadie te puede castigar por preguntar.' },
     },
   },
@@ -273,7 +273,7 @@ export const ESCENAS = [
         { id: 'g2', t: 'Recuerden que todavía están en periodo de prueba, así que cuidado.', ok: false, por: 'Es verdad, pero dicho así suena a amenaza el primer día.' },
       ] },
       { id: 'que', t: 'Qué viene', ops: [
-        { id: 'q1', t: 'El lunes les llega su horario. Los polos que faltan llegan en la semana 3, y los entregamos en la tienda.', ok: true, por: 'Fechas concretas para las dudas más repetidas.' },
+        { id: 'q1', t: 'El lunes les llega su horario. Los polos que faltan llegan el martes, y los entregamos en la tienda.', ok: true, por: 'Fechas concretas para las dudas más repetidas.' },
         { id: 'q2', t: 'Ya les iremos avisando todo.', ok: false, por: 'No responde a nadie y vuelven las mismas preguntas.' },
       ] },
       { id: 'donde', t: 'Para dudas', ops: [
@@ -295,7 +295,7 @@ export const ESCENAS = [
     rules: [[BP, 'En los grupos, información general. Lo personal, por interno.']],
     mirada: {
       ve: 'El día termina, pero la experiencia de la persona nueva sigue en su celular. Un mensaje de cierre claro, cálido y con fechas convierte la inducción en el inicio de una relación de confianza con RR.HH.',
-      visual: { tipo: 'mensaje', titulo: 'Tu mensaje de cierre', txt: '¡Gracias por el día de hoy! Ya son parte del equipo de la tienda 13. El lunes les llega su horario y los polos que faltan llegan en la semana 3. Si tienen una duda personal, escríbanme por interno.' },
+      visual: { tipo: 'mensaje', titulo: 'Tu mensaje de cierre', txt: '¡Gracias por el día de hoy! Ya son parte del equipo de la tienda 13. El lunes les llega su horario y los polos que faltan llegan el martes. Si tienen una duda personal, escríbanme por interno.' },
     },
   },
 ];

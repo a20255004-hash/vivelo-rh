@@ -1,31 +1,31 @@
-// Asistente de RR.HH. · Capítulo 1 · «Faltan 28 días» · Semana 1, lunes.
-// Hilo del mes: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
+// Asistente de RR.HH. · Capítulo 1 · «Faltan 9 días» · Semana 1, lunes.
+// Hilo de las dos semanas: la apertura de la tienda 13 de Supermercados Norte con 45 ingresos.
 // Normas citadas: T-Registro (alta dentro del día de ingreso, SUNAT); Ley 29783 (exámenes médicos ocupacionales a
 // cargo del empleador); Ley 29733 (datos personales).
 
 export const CAP = {
-  n: 1, titulo: 'Faltan 28 días', dia: 'Semana 1, lunes', foto: 'assets/foto2/pasillo.webp',
+  n: 1, titulo: 'Faltan 9 días', dia: 'Semana 1, lunes', foto: 'assets/foto2/pasillo.webp',
   lugar: 'Supermercados Norte · Oficina central de Piura',
   inicio: '08:00', fin: '19:00', cierreHora: '18:45',
-  apertura: 'Piura, oficina central de Supermercados Norte. La tienda 13 abre en 28 días y tú eres la nueva asistente de RR.HH.', boton: 'Entrar a la oficina',
+  apertura: 'Piura, oficina central de Supermercados Norte. La tienda 13 abre en 9 días y tú eres la nueva asistente de RR.HH.', boton: 'Entrar a la oficina',
   kusi: 'Nadie ve tu trabajo… hasta que algo falla. ¡Hoy que no falle nada!',
   lead: 'Armaste el checklist de un ingreso completo, llamaste a la gente nueva, frenaste un «ingreso por recomendación» y ordenaste lo que César necesita para pagar bien.',
   reflexion: '¿Qué detalle pequeño de hoy podría haber arruinado el primer día de alguien?',
-  siguiente: { n: 2, titulo: 'Los exámenes médicos', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Los exámenes médicos', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
-  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Apertura en 28 días' },
+  { id: 'ingresos', p: '45 ingresos de la tienda 13', j: 'Betty · RR.HH.', d: 0, e: 'Apertura en 9 días' },
   { id: 'examenes', p: 'Exámenes médicos de ingreso', j: 'Clínica San Miguel', d: 0, e: 'Sin agenda' },
   { id: 'contratos', p: 'Contratos', j: 'Betty · Legal', d: 0, e: 'Plantillas por revisar' },
   { id: 'uniformes', p: 'Uniformes y credenciales', j: 'Logística', d: 0, e: 'Tallas sin pedir' },
-  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Semana 2' },
+  { id: 'induccion', p: 'Inducción', j: 'Betty · RR.HH.', d: 0, e: 'Este viernes' },
 ];
 
 export const FUTURO = {
   checklist_bueno: ['Tu checklist de ingreso tiene lo que de verdad hace falta.', 'Te ahorrará devoluciones de César en el capítulo 3.'],
   checklist_flojo: ['Tu checklist se quedó corto.', 'César te devolverá 12 fichas en el capítulo 3.'],
-  llamadas_wsp: ['Avisaste a todos por llamada y por WhatsApp.', 'La clínica tendrá agenda llena el miércoles.'],
+  llamadas_wsp: ['Avisaste a todos por llamada y por WhatsApp.', 'La clínica tendrá agenda llena mañana.'],
   sobrino_proceso: ['El sobrino de Wilmer irá al proceso como cualquier postulante.', 'Wilmer no lo olvidará. Capítulo 8.'],
   sobrino_dentro: ['Metiste al sobrino de Wilmer sin proceso.', 'Karina lo notará en el capítulo 6.'],
   cesar_ok: ['César recibirá los datos en el formato que necesita.', 'Te lo agradecerá el capítulo 3.'],
@@ -40,16 +40,16 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'grupo', t: '08:02', de: 'Betty', txt: '¡Bienvenida! 🛒 Te dejé el cronograma en la pared. Faltan 28 días.' },
+  { chat: 'grupo', t: '08:02', de: 'Betty', txt: '¡Bienvenida! 🛒 Te dejé el cronograma en la pared. Faltan 9 días.' },
   { chat: 'grupo', t: '08:10', de: 'César', txt: 'Bienvenida. Una sola regla conmigo: DNI bien escrito o no hay pago 😅' },
   { chat: 'wilmer', t: '11:48', de: 'Wilmer', txt: 'Oe, ¿tú eres la nueva de RR.HH.? Te llamo en 5.' },
-  { chat: 'karina', t: '15:20', de: 'Karina', txt: 'Buenas tardes, señorita. Sí puedo ir a la clínica el miércoles a las 8. Gracias por avisarme 😊', si: 'llamadas_wsp' },
+  { chat: 'karina', t: '15:20', de: 'Karina', txt: 'Buenas tardes, señorita. Sí puedo ir a la clínica mañana a las 8. Gracias por avisarme 😊', si: 'llamadas_wsp' },
   { chat: 'cesar', t: '17:30', de: 'César', txt: 'Ese formato es justo lo que necesitaba. Te debo un café ☕', si: 'cesar_ok' },
   { chat: 'wilmer', t: '18:05', de: 'Wilmer', txt: 'Ya, que postule mi sobrino nomás. Pero que no se demoren.', si: 'sobrino_proceso' },
 ];
 
 export const CORREOS = [
-  { t: '08:05', de: 'Betty Seminario', para: 'Asistente de RR.HH.', asunto: 'Tienda 13 · lo que viene', html: '<p>¡Hola y bienvenida! Este mes es la apertura de la tienda 13 en Castilla: 45 personas nuevas, entre cajeras, reponedores, panaderos y seguridad.</p><p>Tu misión: que el día 28 cada una tenga contrato, examen médico, alta, uniforme, credencial e inducción. Nada de eso se ve… hasta que falta.</p><p>Betty</p>' },
+  { t: '08:05', de: 'Betty Seminario', para: 'Asistente de RR.HH.', asunto: 'Tienda 13 · lo que viene', html: '<p>¡Hola y bienvenida! El miércoles de la próxima semana es la apertura de la tienda 13 en Castilla: 45 personas nuevas, entre cajeras, reponedores, panaderos y seguridad.</p><p>Tu misión: que ese día cada una tenga contrato, examen médico, alta, uniforme, credencial e inducción. Nada de eso se ve… hasta que falta.</p><p>Betty</p>' },
   { t: '10:30', de: 'Clínica San Miguel · Salud Ocupacional', para: 'RR.HH. Supermercados Norte', asunto: 'Disponibilidad para exámenes de ingreso', html: '<p>Podemos atender hasta 10 evaluaciones por día, de lunes a viernes, de 7:30 a 11:00. Se requiere la lista con nombres, DNI y puesto con 24 horas de anticipación.</p>' },
 ];
 
@@ -66,12 +66,12 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'h1', t: '08:15', ch: 'presencial', who: 'betty', titulo: 'El cronograma en la pared', banner: 'assets/foto2/reunion-circulos.webp', show: ['confianza', 'tiempo'],
-    body: (n) => `<p>En la pared hay un cronograma de cuatro semanas pegado con cinta: cada casilla es una tarea y cada tarea tiene un color. Betty te recibe con una sonrisa y un termo de café.</p><p>«Bienvenida${n ? ', ' + n : ''}. Tengo diez minutos antes de la reunión con gerencia. <mark class="clave">Pregúntame lo que necesites</mark>.»</p>`,
+    body: (n) => `<p>En la pared hay un cronograma de dos semanas pegado con cinta: cada casilla es una tarea y cada tarea tiene un color. Betty te recibe con una sonrisa y un termo de café.</p><p>«Bienvenida${n ? ', ' + n : ''}. Tengo diez minutos antes de la reunión con gerencia. <mark class="clave">Pregúntame lo que necesites</mark>.»</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas. Decide qué información te sirve más hoy.',
     opts: [
       { id: 'fallo', label: '¿Qué falló en la última apertura?', info: '«En la tienda 12 abrimos con cinco personas sin examen médico y dos sin alta. Una cajera se desmayó el tercer día y no sabíamos si tenía seguro. No quiero repetir eso.»' },
       { id: 'quien', label: '¿Con quién me tengo que coordinar?', info: '«Con César, de Planillas: sin datos completos no paga. Con la clínica, que tiene cupos limitados. Y con Wilmer, el jefe de la tienda 13… que es buena gente, pero acelerado.»' },
-      { id: 'exito', label: '¿Cómo sé si lo estoy haciendo bien?', info: '«Si el día 28 cada persona tiene sus seis cosas: contrato, examen, alta, uniforme, credencial e inducción. Y si nadie viene a mi oficina a quejarse de ti.»' },
+      { id: 'exito', label: '¿Cómo sé si lo estoy haciendo bien?', info: '«Si el día de la apertura cada persona tiene sus seis cosas: contrato, examen, alta, uniforme, credencial e inducción. Y si nadie viene a mi oficina a quejarse de ti.»' },
       { id: 'herram', label: '¿Qué herramientas uso?', info: '«Un Excel compartido de ingresos, el correo y el WhatsApp de la empresa. El sistema de planillas lo maneja César.»' },
     ],
     res: picks => ({
@@ -125,27 +125,27 @@ export const ESCENAS = [
   },
   {
     id: 'h3', t: '10:45', ch: 'llamada', who: null, titulo: 'Agenda de la clínica', banner: 'assets/foto/llamada.webp', show: ['personas', 'tiempo', 'calidad'],
-    body: () => `<p>La clínica atiende 10 exámenes por día y necesita la lista con 24 horas de anticipación. Empiezas a llamar a las primeras cinco personas de la lista para el miércoles a las 8:00.</p>`,
+    body: () => `<p>La clínica atiende 10 exámenes por día y necesita la lista con 24 horas de anticipación. Empiezas a llamar a las primeras cinco personas de la lista para mañana a las 8:00.</p>`,
     type: 'calls',
-    calls: [['Karina Zapata', 'Contesta: puede el miércoles', 'Sí, señorita, el miércoles a las ocho puedo. ¿Tengo que ir en ayunas?'], ['Luis Yarlequé', 'No contesta'], ['Rosa Chiroque', 'Contesta: trabaja de mañana hasta el viernes', 'Ay, es que hasta el viernes trabajo en una pollería de mañana. ¿No hay otro día?'], ['Jorge Ramos', 'El número está apagado'], ['Milagros Peña', 'Contesta: puede el miércoles', 'Ya, perfecto, ahí estaré.']],
-    prompt: 'Luis y Jorge no contestaron, y Rosa no puede el miércoles. ¿Qué haces?',
+    calls: [['Karina Zapata', 'Contesta: puede mañana', 'Sí, señorita, mañana a las ocho puedo. ¿Tengo que ir en ayunas?'], ['Luis Yarlequé', 'No contesta'], ['Rosa Chiroque', 'Contesta: trabaja de mañana hasta el viernes', 'Ay, es que hasta el viernes trabajo en una pollería de mañana. ¿No hay otro día?'], ['Jorge Ramos', 'El número está apagado'], ['Milagros Peña', 'Contesta: puede mañana', 'Ya, perfecto, ahí estaré.']],
+    prompt: 'Luis y Jorge no contestaron, y Rosa no puede mañana. ¿Qué haces?',
     choices: [
       { id: 'a', label: 'Mandar un WhatsApp claro a Luis y Jorge, y pasar a Rosa al lunes.',
-        res: { q: 'buena', fx: { personas: 4, calidad: 2, tiempo: -1 }, flags: ['llamadas_wsp'], cartera: { examenes: 'Miércoles: 4 confirmados · Lunes: Rosa' },
-          envia: [['karina', 'Hola, Karina. Te confirmo tu examen médico de ingreso el miércoles a las 8:00 en Clínica San Miguel (Av. Grau 1020). Ve en ayunas y lleva tu DNI. Es gratuito para ti. Cualquier duda, escríbeme aquí.']],
+        res: { q: 'buena', fx: { personas: 4, calidad: 2, tiempo: -1 }, flags: ['llamadas_wsp'], cartera: { examenes: 'Martes: 4 confirmados · Lunes: Rosa' },
+          envia: [['karina', 'Hola, Karina. Te confirmo tu examen médico de ingreso mañana martes a las 8:00 en Clínica San Miguel (Av. Grau 1020). Ve en ayunas y lleva tu DNI. Es gratuito para ti. Cualquier duda, escríbeme aquí.']],
           out: 'Luis responde a la media hora: estaba en el colegio de su hija. Jorge sigue sin aparecer. Rosa respira aliviada con el cambio de fecha.',
           pro: { ok: 'Ajustas la agenda a la vida de las personas y usas varios canales.', info: 'Escribe dirección, hora, ayuno y que es gratuito: son las cuatro dudas de siempre.' },
           kusi: ['feliz', 'Agenda llena y nadie se quedó atrás.'] } },
       { id: 'b', label: 'Reemplazarlos por los siguientes de la lista: hay 45 personas y la clínica no espera a nadie.',
         res: { q: 'riesgosa', fx: { personas: -4, tiempo: 2 },
-          out: 'La agenda del miércoles se llena. Rosa, Luis y Jorge quedan para «después», sin que nadie les avise.',
-          pro: { ok: 'Llenas la agenda rápido.', risk: 'Tres personas contratadas no saben cuándo es su examen. Alguna llegará al día 28 sin él.' },
+          out: 'La agenda del martes se llena. Rosa, Luis y Jorge quedan para «después», sin que nadie les avise.',
+          pro: { ok: 'Llenas la agenda rápido.', risk: 'Tres personas contratadas no saben cuándo es su examen. Alguna llegará a la apertura sin él.' },
           kusi: ['preocupado', 'Rápido sí… ¿y ellos?'] } },
     ],
     rules: [[BP, 'Confirma por escrito hora, lugar, requisitos y costo (cero) del examen médico.']],
     mirada: {
       ve: 'Coordinar ingresos es coordinar vidas: gente que trabaja en otro lugar, que cuida a sus hijos o que no tiene saldo. Una buena asistente de RR.HH. no solo llena cupos: se asegura de que nadie quede sin fecha.',
-      visual: { tipo: 'embudo', titulo: 'Tu agenda de hoy', niveles: [['Llamadas', 5], ['Contestaron', 3], ['Confirmaron el miércoles', 2]] },
+      visual: { tipo: 'embudo', titulo: 'Tu agenda de hoy', niveles: [['Llamadas', 5], ['Contestaron', 3], ['Confirmaron para mañana', 2]] },
     },
   },
   {
@@ -160,7 +160,7 @@ export const ESCENAS = [
           kusi: ['animo', 'Las mismas reglas para todos. ¡Así!'] } },
       { id: 'b', label: 'Incluirlo: es el jefe de la tienda, necesita gente de confianza y una persona más no cambia mucho entre 45.',
         res: { q: 'riesgosa', fx: { etica: -5, cumplimiento: -3 }, rel: { wilmer: 1 }, flags: ['sobrino_dentro'],
-          out: 'Brayan entra a la lista sin entrevista. Dentro de dos semanas, su jefe directo será su tío. Y todos en la tienda lo sabrán.',
+          out: 'Brayan entra a la lista sin entrevista. En pocos días, su jefe directo será su tío. Y todos en la tienda lo sabrán.',
           pro: { ok: 'Wilmer queda contento.', risk: 'Un ingreso sin proceso, supervisado por un familiar, abre la puerta a favoritismos y quejas del equipo.' },
           kusi: ['preocupado', '¿Y los que sí pasaron el proceso?'] } },
       { id: 'c', label: 'Decirle que los familiares no pueden trabajar en la empresa.',
@@ -218,12 +218,12 @@ export const ESCENAS = [
     type: 'choice',
     choices: [
       { id: 'a', label: 'Avance en números, un riesgo y un pedido.',
-        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: checklist de ingreso listo; 20 fichas enviadas a César; 4 exámenes confirmados para el miércoles. Riesgo: con 10 cupos por día, la clínica no llega a los 45 antes de la semana 3. ¿Podemos pedir un segundo proveedor?',
-          out: 'Betty responde: «Buenísimo. Mañana llamo a otra clínica». El riesgo que viste hoy no será un problema en la semana 3.', kusi: ['celebra', 'Viste el cuello de botella antes que nadie.'] } },
+        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { betty: 1 }, responde: 'Betty: checklist de ingreso listo; 20 fichas enviadas a César; 4 exámenes confirmados para mañana. Riesgo: con 10 cupos por día y la inducción del viernes en medio, la clínica termina recién el martes de la próxima semana, un día antes de abrir. ¿Podemos pedir un segundo proveedor?',
+          out: 'Betty responde: «Buenísimo. Mañana llamo a otra clínica». El riesgo que viste hoy ya no la tomará por sorpresa.', kusi: ['celebra', 'Viste el cuello de botella antes que nadie.'] } },
       { id: 'b', label: 'Que todo va bien y que la tienda abre a tiempo.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Betty: todo bien, vamos a tiempo 💪',
-          out: 'Betty se queda tranquila. En la semana 3 descubrirá que la clínica no da abasto.', kusi: ['pensando', 'Hiciste la cuenta de los cupos?'] } },
+          out: 'Betty se queda tranquila. La próxima semana descubrirá que la clínica llega con las justas.', kusi: ['pensando', 'Hiciste la cuenta de los cupos?'] } },
     ],
-    mirada: { ve: 'Con 10 cupos al día, 45 exámenes toman más de una semana hábil. Hacer esa cuenta el primer día es lo que distingue a quien ejecuta tareas de quien cuida un proceso.' },
+    mirada: { ve: 'Con 10 cupos al día, 45 exámenes toman cinco días hábiles, y antes de la apertura quedan seis, con la inducción en medio. Hacer esa cuenta el primer día es lo que distingue a quien ejecuta tareas de quien cuida un proceso.' },
   },
 ];
