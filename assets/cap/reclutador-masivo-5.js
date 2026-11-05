@@ -10,14 +10,14 @@
 // - Ley 26772, modificada por la Ley 27270 (oferta de empleo sin requisitos discriminatorios): https://faolex.fao.org/docs/pdf/per201903.pdf
 
 export const CAP = {
-  n: 5, titulo: 'Los referidos', dia: 'Semana 2, jueves', foto: 'assets/foto/equipo-rojo.webp',
+  n: 5, titulo: 'Los referidos', dia: 'Semana 1, viernes', foto: 'assets/foto/equipo-rojo.webp',
   lugar: 'Contacta Perú · Cercado de Lima',
   inicio: '08:20', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Jueves. El lunes lanzaste el programa de referidos en el piso de operaciones. Hoy hay 64 nombres en la lista… y muchos apellidos se repiten.', boton: 'Abrir la lista de referidos',
+  apertura: 'Viernes. El lunes Jessica pidió referidos en el piso de operaciones. Hoy hay 64 nombres en la lista… y muchos apellidos se repiten.', boton: 'Abrir la lista de referidos',
   kusi: 'Los referidos son el mejor canal… si tienen reglas claras. ¡Dale!',
   lead: 'Revisaste la lista de referidos, respondiste a alguien que no sabía de dónde salió su número, pusiste reglas al bono, se lo explicaste al piso y mediste qué canal trae a la gente que se queda.',
   reflexion: '¿Qué diferencia hay entre recomendar a alguien y meterlo por la ventana?',
-  siguiente: { n: 6, titulo: 'La capacitación inicial', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La capacitación inicial', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
@@ -36,10 +36,10 @@ export const FUTURO = {
   walter_misma_valla: ['Los referidos de Wálter pasaron por la misma simulación.', 'Dos de sus primos aprobaron. Wálter lo recordará en el capítulo 7.'],
   walter_directo: ['Los referidos de Wálter entraron sin simulación.', 'En el capítulo 6, tres no volverán al segundo día.'],
   walter_prohibido: ['Prohibiste los referidos familiares.', 'Wálter dejará de recomendar a nadie. Capítulo 7.'],
-  reglas_buenas: ['El bono se paga a los 30 días y todos pasan la misma evaluación.', 'Los referidos tendrán la mejor retención del mes. Capítulo 9.'],
+  reglas_buenas: ['El bono se paga a los 30 días y todos pasan la misma evaluación.', 'Los referidos tendrán la mejor retención de la campaña. Capítulo 10.'],
   reglas_debiles: ['El programa de referidos quedó con reglas débiles.', 'Aparecerán más «primos» en el capítulo 7.'],
   piso_informado: ['Explicaste las reglas de referidos en el grupo del piso.', 'Los asesores pedirán permiso antes de pasar números. Capítulo 6.'],
-  mide_retencion: ['Mediste los canales por retención, no por volumen.', 'El reporte de retención del capítulo 9 tendrá datos reales.'],
+  mide_retencion: ['Mediste los canales por retención, no por volumen.', 'El balance del capítulo 10 tendrá datos reales.'],
 };
 
 export const CHATS = {
@@ -53,10 +53,10 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'grupo', t: '08:22', de: 'Jessica', txt: '64 referidos en tres días 🔥 Pero antes de llamar a nadie, revisamos la lista. Café pasado en la cocina.' },
+  { chat: 'grupo', t: '08:22', de: 'Jessica', txt: '64 referidos en cinco días 🔥 Pero antes de llamar a nadie, revisamos la lista. Café pasado en la cocina.' },
   { chat: 'walter', t: '08:50', de: 'Wálter', txt: 'Señorita, a las 11 le llevo a mis seis. Gente seria, de confianza. Yo respondo.' },
   { chat: 'fiorella', t: '10:40', de: 'Fiorella', txt: 'Hola 😊 Le pasé su contacto a mi prima Daniela. Ella sí es buena hablando. Le dije que pida permiso antes, como usted dijo.', si: 'rechazo_cuidado' },
-  { chat: 'alexandra', t: '12:30', de: 'Alexandra', txt: 'Señorita, me llegó su mensaje. ¡Gracias, gracias! El martes estoy ahí con mi constancia del CEBA 😭🙏', si: 'alexandra_excepcion' },
+  { chat: 'alexandra', t: '12:30', de: 'Alexandra', txt: 'Señorita, me llegó su mensaje. ¡Gracias, gracias! El lunes estoy ahí con mi constancia del CEBA 😭🙏', si: 'alexandra_excepcion' },
   { chat: 'alexandra', t: '12:30', de: 'Alexandra', txt: 'Hola. Quería avisarle que me contrataron en otro call, en Jesús María. No pedían secundaria completa. Gracias por todo.', si: 'alexandra_descartada' },
   { chat: 'bruno', t: '17:55', de: 'Bruno', txt: 'Wálter me dice que le trabaste a sus primos. ¿Qué pasó?', si: 'walter_misma_valla' },
   { chat: 'bruno', t: '17:55', de: 'Bruno', txt: 'Wálter está furioso: dice que le prohibiste recomendar a su familia. Explícame.', si: 'walter_prohibido' },
@@ -82,7 +82,7 @@ export const ESCENAS = [
     id: 'f1', t: '08:35', ch: 'documento', who: null, titulo: 'La lista de los 64', banner: 'assets/foto2/revisan.webp', show: ['cumplimiento', 'etica', 'calidad'],
     body: (n, F) => `<p>La lista de referidos es una pestaña nueva del Excel, «REFERIDOS (no borrar)». La armaron los supervisores con lo que les pasaron los asesores por WhatsApp. ${F.has('sabe_referidos') ? 'Recuerdas lo que te contó Jessica en el menú: en 2024 salió mal.' : ''}</p><p>Antes de llamar a nadie, <mark class="clave">revisa qué no puede pasar así</mark>.</p>`,
     type: 'flag', prompt: 'Marca lo que hay que corregir antes de llamar a los referidos.',
-    doc: { t: 'Referidos · Campaña Cobranzas Banco Sur', sub: 'Contacta Perú · al jueves de la semana 2' },
+    doc: { t: 'Referidos · Campaña Cobranzas Banco Sur', sub: 'Contacta Perú · al viernes de la semana 1' },
     lines: [
       { id: 'ccori', t: 'Wálter Ccori, supervisor, refiere a 6 personas; 4 se apellidan Ccori.', duda: 'Que sean familiares no es ilegal en una empresa privada. Lo que importa es que pasen la misma evaluación.' },
       { id: 'hermano', t: 'Joel Ccori, hermano de Wálter, iría a su mismo equipo, bajo su supervisión.', bad: BP, why: 'Supervisar a un familiar crea un conflicto de interés: quién evalúa, quién sanciona, quién da los turnos.' },
@@ -90,7 +90,7 @@ export const ESCENAS = [
       { id: 'vecina', t: 'Lucía Paz mandó el CV de su vecina «para darle la sorpresa»; la vecina no sabe que postuló.', bad: LEY, why: 'Se están usando datos personales sin el consentimiento de su titular (Ley 29733).' },
       { id: 'menor', t: 'Renato Quispe, 17 años: «cumple 18 en enero».', bad: BP, why: 'La convocatoria es para mayores de edad: hoy no puede entrar al proceso.' },
       { id: 'ex', t: 'Yesenia Ríos, ex asesora de Contacta; renunció en 2025 porque se mudó.' },
-      { id: 'kiara', t: 'Kiara Llanos, que no pasó la simulación del martes, vuelve como referida de un asesor.', duda: 'Puede volver a postular, pero pasa por la misma simulación que todos.' },
+      { id: 'kiara', t: 'Kiara Llanos, que no pasó la simulación de ayer, vuelve como referida de un asesor.', duda: 'Puede volver a postular, pero pasa por la misma simulación que todos.' },
       { id: 'directo', t: 'Nota del supervisor: «Los referidos pasan directo a la capacitación».', bad: BP, why: 'Un referido trae confianza, no la evaluación hecha.' },
       { id: 'permiso', t: 'Daniela Gamarra, prima de una postulante, escribió ella misma para dar su número.' },
     ],
@@ -110,7 +110,7 @@ export const ESCENAS = [
   {
     id: 'f2', t: '09:45', ch: 'llamada', who: null, titulo: '«¿De dónde sacó mi número?»', banner: 'assets/esc/alarma.webp', show: ['etica', 'cumplimiento', 'confianza'],
     body: (n, F) => F.has('base_comprada')
-      ? `<p>Suena la central. Es Renzo Valdivia, de Surquillo, y está molesto: «Ayer me llamó una chica de Contacta por un trabajo de cobranzas. <mark class="clave">Yo nunca postulé ahí. ¿De dónde sacaron mi número?</mark>».</p><p>Buscas su nombre: está en la base de 5,000 CV que compraste el lunes de la primera semana.</p>`
+      ? `<p>Suena la central. Es Renzo Valdivia, de Surquillo, y está molesto: «Ayer me llamó una chica de Contacta por un trabajo de cobranzas. <mark class="clave">Yo nunca postulé ahí. ¿De dónde sacaron mi número?</mark>».</p><p>Buscas su nombre: está en la base de 5,000 CV que compraste el lunes.</p>`
       : `<p>Suena la central. Es Carmen Torres, la vecina de una asesora: «Ayer me llamaron de Contacta por un trabajo. <mark class="clave">Yo nunca postulé. ¿De dónde sacaron mi número?</mark>».</p><p>Buscas su nombre: está en la lista de referidos, sin ninguna nota de permiso.</p>`,
     type: 'choice', dilema: true,
     choices: [
@@ -202,7 +202,7 @@ export const ESCENAS = [
     prompt: 'Arma el mensaje eligiendo una frase de cada parte.',
     slots: [
       { id: 'abre', t: 'Apertura', ops: [
-        { id: 'a1', t: '¡Hola, equipo! Gracias: en tres días nos recomendaron a 64 personas. 🙌', ok: true, por: 'Reconoce lo que ya hicieron.' },
+        { id: 'a1', t: '¡Hola, equipo! Gracias: esta semana nos recomendaron a 64 personas. 🙌', ok: true, por: 'Reconoce lo que ya hicieron.' },
         { id: 'a2', t: 'Se les recuerda que los referidos tienen nuevas condiciones.', ok: false, por: 'Suena a sanción y no a programa.' },
       ] },
       { id: 'como', t: 'Cómo recomendar', ops: [
@@ -232,12 +232,12 @@ export const ESCENAS = [
     rules: [[LEY, 'Ley 29733: el referido da sus propios datos; nadie los entrega por él.']],
     mirada: {
       ve: 'Las reglas que no se comunican no existen. En un piso de 212 personas, el grupo de WhatsApp es el tablero de anuncios: un mensaje corto, que explique el porqué, vale más que un correo que nadie abre.',
-      visual: { tipo: 'mensaje', titulo: 'Programa de referidos', txt: '¡Hola, equipo! Gracias: en tres días nos recomendaron a 64 personas. 🙌 Para recomendar a alguien, pídele que escriba él mismo al 987 654 321 y diga tu nombre. Todos pasan la misma simulación de llamada de 20 minutos. Si aprueban, van a un equipo distinto al de su familiar. Tu bono se paga cuando tu referido cumple 30 días en piso. ¡Recomienda a quien sabes que se va a quedar!' },
+      visual: { tipo: 'mensaje', titulo: 'Programa de referidos', txt: '¡Hola, equipo! Gracias: esta semana nos recomendaron a 64 personas. 🙌 Para recomendar a alguien, pídele que escriba él mismo al 987 654 321 y diga tu nombre. Todos pasan la misma simulación de llamada de 20 minutos. Si aprueban, van a un equipo distinto al de su familiar. Tu bono se paga cuando tu referido cumple 30 días en piso. ¡Recomienda a quien sabes que se va a quedar!' },
     },
   },
   {
     id: 'f6', t: '17:05', ch: 'sistema', who: null, titulo: 'El tablero de canales', banner: 'assets/foto2/celebra-laptop.webp', show: ['calidad', 'tiempo', 'confianza'],
-    body: (n, F) => `<p>Mañana Bruno quiere un reporte de canales. Abres el tablero que armaste con datos de la última campaña y de estas dos semanas. ${F.has('base_comprada') ? 'La fila «base comprada» está en rojo.' : ''}</p><p>Solo tienes tiempo para revisar dos indicadores a fondo. <mark class="clave">Elige los que de verdad dicen qué canal funciona</mark>.</p>`,
+    body: (n, F) => `<p>Mañana Bruno quiere un reporte de canales. Abres el tablero que armaste con datos de la última campaña y de esta semana. ${F.has('base_comprada') ? 'La fila «base comprada» está en rojo.' : ''}</p><p>Solo tienes tiempo para revisar dos indicadores a fondo. <mark class="clave">Elige los que de verdad dicen qué canal funciona</mark>.</p>`,
     type: 'ask', max: 2, prompt: '¿Qué dos indicadores revisas?',
     opts: [
       { id: 'postula', label: 'Postulaciones por canal', info: 'Portal pagado: 900. Bolsa pública: 210. Ferias: 140. Referidos: 64. El portal gana por lejos… en volumen.' },
@@ -260,12 +260,12 @@ export const ESCENAS = [
   {
     id: 'f7', t: '18:35', ch: 'whatsapp', who: 'bruno', titulo: 'Bruno pregunta por Wálter', banner: 'assets/esc/decide.webp', show: ['confianza', 'calidad'],
     body: (n, F) => `<p>${F.has('walter_directo') ? 'Bruno te escribe contento: «Wálter me dijo que le diste una mano. Así me gusta». Debajo, otro mensaje.' : 'Bruno te escribe por lo de Wálter.'} Estás en el paradero de la avenida Grau, el bus no llega y el cielo de Lima se pone gris.</p>`,
-    chat: ['Ya tengo 34 aprobados para la capacitación del martes. ¿Con los referidos llegamos a 120 o no?'],
+    chat: ['Ya tengo 34 aprobados para la capacitación del lunes. ¿Con los referidos llegamos a 120 o no?'],
     type: 'choice', cotidiano: true,
     choices: [
-      { id: 'a', label: 'Responder con el número real y lo que falta: cuántos aprobados hay, cuántos se esperan el viernes y qué aporta el canal de referidos.',
+      { id: 'a', label: 'Responder con el número real y lo que falta: cuántos aprobados hay, cuántos se esperan el lunes y qué aporta el canal de referidos.',
         res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { bruno: 1 },
-          envia: ['bruno', 'Bruno: hoy tenemos 34 aprobados. Mañana evaluamos 70 citados y esperamos unos 15 más. Los referidos aprueban tres veces más que el portal, así que el lunes priorizamos esa lista. Para 120 todavía faltan dos evaluaciones grandes.'],
+          envia: ['bruno', 'Bruno: hoy tenemos 34 aprobados. El lunes evaluamos 70 citados más y esperamos unos 15. Los referidos aprueban tres veces más que el portal, así que la próxima semana priorizamos esa lista. Para 120 todavía faltan dos evaluaciones grandes.'],
           out: 'Bruno responde: «Dos más. Ok. Que sean buenas». No está feliz, pero sabe dónde está parado.', kusi: ['celebra', 'Número claro, plan claro.'] } },
       { id: 'b', label: 'Decirle que sí, que con los referidos se llega, para que deje de presionar al equipo esta semana.',
         res: { q: 'riesgosa', fx: { confianza: 1, calidad: -2 }, rel: { bruno: 1 },

@@ -11,14 +11,14 @@ export const CAP = {
   kusi: 'En selección masiva los números mandan… pero detrás de cada número hay alguien. ¡Dale!',
   lead: 'Hiciste la cuenta del embudo, limpiaste un aviso discriminatorio, sostuviste el criterio frente a Bruno y elegiste canales que traen a la gente correcta.',
   reflexion: '¿Qué número de hoy te sorprendió más?',
-  siguiente: { n: 2, titulo: 'El aviso', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'El aviso', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
   { id: 'meta', p: 'Campaña «Cobranzas Banco Sur»', j: 'Bruno · Operaciones', d: 0, e: '120 asesores en 21 días' },
   { id: 'aviso', p: 'Aviso de convocatoria', j: 'Jessica · Reclutamiento', d: 0, e: 'Plantilla de 2024' },
   { id: 'canales', p: 'Canales de atracción', j: 'Jessica · Reclutamiento', d: 0, e: 'Solo portal pagado' },
-  { id: 'evaluacion', p: 'Evaluación grupal del viernes', j: 'Jessica · Reclutamiento', d: 0, e: '80 citados' },
+  { id: 'evaluacion', p: 'Evaluación grupal del miércoles', j: 'Jessica · Reclutamiento', d: 0, e: '80 citados' },
 ];
 
 export const FUTURO = {
@@ -29,7 +29,7 @@ export const FUTURO = {
   criterio: ['Mantuviste la evaluación aunque Bruno quería «contratar a todos».', 'Él volverá a presionar en el capítulo 7.'],
   sin_filtro: ['Aceptaste contratar sin evaluar.', 'La deserción en capacitación será altísima. Capítulo 6.'],
   base_comprada: ['Usaste una base de CV comprada a un tercero.', 'Un postulante preguntará de dónde sacaste su número. Capítulo 5.'],
-  alexandra_citada: ['Alexandra recibió una citación clara.', 'La conocerás en el capítulo 4.'],
+  alexandra_citada: ['Alexandra recibió una citación clara.', 'La conocerás en el capítulo 3.'],
 };
 
 export const CHATS = {
@@ -42,9 +42,9 @@ export const CHATS = {
 export const WSP = [
   { chat: 'grupo', t: '08:32', de: 'Jessica', txt: '¡Llegó la nueva! 🎉 Hoy arrancamos «Cobranzas Banco Sur»: 120 en 21 días. Café en la cocina.' },
   { chat: 'bruno', t: '11:10', de: 'Bruno', txt: 'Hola. Bajo a reclutamiento a las 11:30. Tema campaña.' },
-  { chat: 'alexandra', t: '16:45', de: 'Alexandra', txt: '¡Hola! Sí, ahí estaré el viernes a las 9 con mi DNI. Gracias 😊', si: 'alexandra_citada' },
+  { chat: 'alexandra', t: '16:45', de: 'Alexandra', txt: '¡Hola! Sí, ahí estaré el miércoles a las 9 con mi DNI. Gracias 😊', si: 'alexandra_citada' },
   { chat: 'bruno', t: '17:20', de: 'Bruno', txt: 'Ok, evaluación rápida. Pero si el día 21 no tengo 120, hablamos.', si: 'criterio' },
-  { chat: 'jessica', t: '18:00', de: 'Jessica', txt: 'El aviso nuevo quedó bacán. Mañana lo publicamos 🙌', si: 'aviso_limpio' },
+  { chat: 'jessica', t: '18:00', de: 'Jessica', txt: 'El aviso nuevo quedó bacán. Lo publicamos hoy a las 7 de la noche 🙌', si: 'aviso_limpio' },
 ];
 
 export const CORREOS = [
@@ -180,7 +180,7 @@ export const ESCENAS = [
         { id: 'q2', t: 'Hola, ¿sigues buscando trabajo? 🤑', ok: false, por: 'Suena a mensaje de estafa.' },
       ] },
       { id: 'cuando', t: 'Cuándo y dónde', ops: [
-        { id: 'c1', t: 'Te esperamos el viernes a las 9:00 en Av. Nicolás de Piérola 860, piso 4, a dos cuadras de la estación Colmena.', ok: true, por: 'Fecha, hora, dirección y una referencia de transporte.' },
+        { id: 'c1', t: 'Te esperamos el miércoles a las 9:00 en Av. Nicolás de Piérola 860, piso 4, a dos cuadras de la estación Colmena.', ok: true, por: 'Fecha, hora, dirección y una referencia de transporte.' },
         { id: 'c2', t: 'Acércate esta semana a nuestras oficinas en el Centro.', ok: false, por: 'Sin día ni dirección: así la mitad no llega.' },
       ] },
       { id: 'que', t: 'Qué esperar', ops: [
@@ -198,7 +198,7 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 4 : 0, calidad: q === 'buena' ? 4 : -1 }, rel: { alexandra: q === 'buena' ? 1 : 0 },
         flags: q === 'buena' ? ['alexandra_citada'] : [], cartera: { evaluacion: q === 'buena' ? 'Plantilla de citación nueva' : 'Citación de siempre' },
-        out: q === 'buena' ? 'Alexandra responde en diez minutos. Guardas el mensaje como plantilla para los 80 citados del viernes.' : 'Alexandra deja el mensaje en visto. Mañana sabrás si viene.',
+        out: q === 'buena' ? 'Alexandra responde en diez minutos. Guardas el mensaje como plantilla para los 80 citados del miércoles.' : 'Alexandra deja el mensaje en visto. Mañana sabrás si viene.',
         pro: { ok: 'Una citación clara, con referencia y confirmación, puede subir la tasa de asistencia.', info: 'Manda un recordatorio la noche anterior: es lo que más reduce las inasistencias.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Así sí llega la gente.' : '¿Le quedó claro adónde ir?'],
       };
@@ -206,7 +206,7 @@ export const ESCENAS = [
     rules: [[BP, 'Una citación tiene quién, cuándo, dónde, qué esperar y cómo confirmar.']],
     mirada: {
       ve: 'Muchas inasistencias no son desinterés: son direcciones confusas, miedo a una estafa o no saber qué pasará. Mejorar la citación es la forma más barata de mejorar todo el embudo.',
-      visual: { tipo: 'mensaje', titulo: 'Una citación que se entiende', txt: 'Hola, Alexandra. Te escribe la reclutadora de Contacta Perú por tu postulación a asesora de cobranza. Te esperamos el viernes a las 9:00 en Av. Nicolás de Piérola 860, piso 4, a dos cuadras de la estación Colmena. La evaluación dura una hora e incluye una simulación de llamada. Trae tu DNI. ¿Me confirmas por aquí si puedes asistir?' },
+      visual: { tipo: 'mensaje', titulo: 'Una citación que se entiende', txt: 'Hola, Alexandra. Te escribe la reclutadora de Contacta Perú por tu postulación a asesora de cobranza. Te esperamos el miércoles a las 9:00 en Av. Nicolás de Piérola 860, piso 4, a dos cuadras de la estación Colmena. La evaluación dura una hora e incluye una simulación de llamada. Trae tu DNI. ¿Me confirmas por aquí si puedes asistir?' },
     },
   },
   {

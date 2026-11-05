@@ -6,36 +6,36 @@
 // - D.S. 015-2026-TR: RMV de S/ 1,230 desde el 1 de octubre de 2026.
 
 export const CAP = {
-  n: 2, titulo: 'El aviso', dia: 'Semana 1, miércoles', foto: 'assets/foto/oficina-abierta.webp',
+  n: 2, titulo: 'El aviso', dia: 'Semana 1, martes', foto: 'assets/foto/oficina-abierta.webp',
   lugar: 'Contacta Perú · Cercado de Lima',
   inicio: '08:15', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Miércoles. El aviso salió ayer a las 10 de la mañana y el portal ya muestra un número que asusta: 900 postulaciones.', boton: 'Abrir el portal de empleos',
+  apertura: 'Martes. Jessica publicó el aviso anoche a las 7 y, catorce horas después, el portal ya muestra un número que asusta: 900 postulaciones.', boton: 'Abrir el portal de empleos',
   kusi: '900 suena a fiesta… hasta que miras de dónde viene cada uno. ¡Dale!',
   lead: 'Filtraste 900 postulaciones sin perder a la gente valiosa, llamaste a postulantes lejanos, respondiste en redes y armaste un aviso segmentado por zona y turno.',
   reflexion: '¿Qué pesa más para que alguien llegue a su trabajo: el distrito donde vive o el tiempo que tarda en llegar?',
-  siguiente: { n: 3, titulo: 'El día de evaluación', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'El día de evaluación', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
-  { id: 'postulaciones', p: 'Postulaciones del aviso', j: 'Jessica · Reclutamiento', d: 0, e: '900 en un día y medio' },
+  { id: 'postulaciones', p: 'Postulaciones del aviso', j: 'Jessica · Reclutamiento', d: 0, e: '900 en una noche' },
   { id: 'lejanos', p: 'Postulantes de distritos lejanos', j: 'Jessica · Reclutamiento', d: 0, e: 'Unos 450 sin revisar' },
   { id: 'redes', p: 'El aviso en redes', j: 'Jessica · Reclutamiento', d: 0, e: 'Comentarios sin responder' },
   { id: 'segmentado', p: 'Aviso segmentado por zona', j: 'Jessica · Reclutamiento', d: 1, e: 'Por hacer' },
-  { id: 'viernes', p: 'Citación del viernes', j: 'Jessica · Reclutamiento', d: 2, e: '80 cupos' },
+  { id: 'viernes', p: 'Citación de mañana', j: 'Jessica · Reclutamiento', d: 2, e: '80 cupos' },
 ];
 
 export const FUTURO = {
   filtro_tiempo: ['Filtraste por tiempo de traslado y turno, no por distrito.', 'En el capítulo 3 llegará gente de San Juan de Lurigancho que vino en la Línea 1.'],
   filtro_rigido: ['Filtraste con requisitos que el puesto no necesita.', 'En el capítulo 3 tendrás menos gente de la que esperabas.'],
-  llamada_filtro: ['Llamaste para preguntar el tiempo de traslado y el turno.', 'Esos postulantes llegarán con más frecuencia el viernes. Capítulo 3.'],
+  llamada_filtro: ['Llamaste para preguntar el tiempo de traslado y el turno.', 'Esos postulantes llegarán con más frecuencia mañana. Capítulo 3.'],
   descarte_distrito: ['Descartaste por distrito.', 'Perdiste gente que vive lejos en el mapa, pero cerca en el Metropolitano.'],
-  redes_respondidas: ['Respondiste en redes con datos concretos.', 'Una postulante de 51 años llegará el viernes por ese comentario. Capítulo 3.'],
+  redes_respondidas: ['Respondiste en redes con datos concretos.', 'Una postulante de 51 años llegará mañana por ese comentario. Capítulo 3.'],
   redes_borradas: ['Borraste o ignoraste los comentarios.', 'Alguien guardó la captura. Volverá a aparecer.'],
   aviso_zonas: ['Armaste un aviso por zona y turno.', 'Los referidos del capítulo 5 tendrán con qué compararse.'],
-  bruno_advertido: ['Le explicaste a Bruno que 900 postulaciones no son 900 asesores.', 'El viernes entenderá más rápido por qué llegan 31. Capítulo 3.'],
+  bruno_advertido: ['Le explicaste a Bruno que 900 postulaciones no son 900 asesores.', 'Mañana entenderá más rápido por qué llegan 31. Capítulo 3.'],
   sabe_referidos: ['Jessica te contó que el bono de referidos se pagaba al firmar.', 'En el capítulo 5 diseñarás reglas para que no se repita.'],
-  recordatorio: ['Armaste la citación con recordatorio y lista de espera.', 'El viernes sabrás cuánto ayudó. Capítulo 3.'],
-  bruno_ilusionado: ['Bruno cree que 900 postulaciones resuelven la campaña.', 'El viernes se va a enojar. Capítulo 3.'],
+  recordatorio: ['Armaste la citación con recordatorio y lista de espera.', 'Mañana sabrás cuánto ayudó. Capítulo 3.'],
+  bruno_ilusionado: ['Bruno cree que 900 postulaciones resuelven la campaña.', 'Mañana se va a enojar. Capítulo 3.'],
 };
 
 export const CHATS = {
@@ -49,15 +49,15 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '08:16', de: 'Jessica', txt: '900 postulaciones 😱 ¡Buenos días! Hoy toca separar el trigo de la paja. Hay pan con chicharrón en la cocina, lo trajo Kenyi.' },
-  { chat: 'alexandra', t: '08:40', de: 'Alexandra', txt: 'Buenos días 😊 Solo para confirmar: el viernes a las 9 en Nicolás de Piérola, ¿cierto? Ya vi la ruta.', si: 'alexandra_citada' },
+  { chat: 'alexandra', t: '08:40', de: 'Alexandra', txt: 'Buenos días 😊 Solo para confirmar: mañana miércoles a las 9 en Nicolás de Piérola, ¿cierto? Ya vi la ruta.', si: 'alexandra_citada' },
   { chat: 'kenyi', t: '09:35', de: 'Kenyi', txt: 'Oye, el aviso está en el grupo «Chamba Lima Centro» y está lleno de comentarios. ¿Respondo yo o tú?' },
   { chat: 'bruno', t: '12:50', de: 'Bruno', txt: 'Vi en el portal 900 postulantes. ¡Eso es! Ya estamos, ¿no?' },
   { chat: 'gladys', t: '16:10', de: 'Gladys', txt: 'Señorita, leí su respuesta en el grupo. Tengo 51 años y vendí 20 años en el mercado Central. ¿Me puedo presentar?', si: 'redes_respondidas' },
-  { chat: 'jessica', t: '18:05', de: 'Jessica', txt: 'Ojo: la última campaña el turno tarde tuvo el doble de faltas que el de mañana. Lo vemos el viernes.' },
+  { chat: 'jessica', t: '18:05', de: 'Jessica', txt: 'Ojo: la última campaña el turno tarde tuvo el doble de faltas que el de mañana. Lo vemos mañana.' },
 ];
 
 export const CORREOS = [
-  { t: '08:20', de: 'Portal de empleos', para: 'reclutamiento@contactaperu.pe', asunto: 'Tu aviso «Asesores de cobranza telefónica» tiene 900 postulaciones', html: '<p>Tu aviso recibió <b>900 postulaciones</b> en 22 horas. Descarga el reporte en Excel desde tu panel.</p><p>Recuerda: tu plan incluye 30 días de publicación.</p>' },
+  { t: '08:20', de: 'Portal de empleos', para: 'reclutamiento@contactaperu.pe', asunto: 'Tu aviso «Asesores de cobranza telefónica» tiene 900 postulaciones', html: '<p>Tu aviso recibió <b>900 postulaciones</b> en 14 horas. Descarga el reporte en Excel desde tu panel.</p><p>Recuerda: tu plan incluye 30 días de publicación.</p>' },
   { t: '11:45', de: 'Jessica Torres', para: 'Reclutadora masiva', asunto: 'RV: Captura del aviso', html: '<p>Te reenvío lo que mandó Kenyi. <b>Hay que responder hoy.</b> Lo que se dice en ese grupo lo leen los mismos postulantes que queremos citar.</p><p>Jessica</p>' },
 ];
 
@@ -74,7 +74,7 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'v1', t: '08:30', ch: 'sistema', who: null, titulo: '900 filas', banner: 'assets/foto2/tablet-equipo.webp', show: ['calidad', 'tiempo', 'etica'],
-    body: (n, F) => `<p>Descargas el reporte. El Excel se llama «postulantes_FINAL_ahora_si.xlsx» y tiene tres pestañas: «Hoja1», «Hoja1 (2)» y «NO TOCAR». Café en mano, ordenas por distrito: <mark class="clave">casi la mitad vive en Carabayllo, Ventanilla, Villa El Salvador, San Juan de Lurigancho o Lurín</mark>.</p><p>${F.has('embudo_bien') ? 'Recuerdas tu cuenta del lunes: necesitas unas 1,700. Con 900 no alcanza, así que no puedes botar a nadie a la ligera.' : 'Jessica te recuerda que el embudo es más ancho de lo que parece.'} Antes de llamar, tienes que aplicar tres filtros.</p>`,
+    body: (n, F) => `<p>Descargas el reporte. El Excel se llama «postulantes_FINAL_ahora_si.xlsx» y tiene tres pestañas: «Hoja1», «Hoja1 (2)» y «NO TOCAR». Café en mano, ordenas por distrito: <mark class="clave">casi la mitad vive en Carabayllo, Ventanilla, Villa El Salvador, San Juan de Lurigancho o Lurín</mark>.</p><p>${F.has('embudo_bien') ? 'Recuerdas tu cuenta de ayer: necesitas unas 1,700. Con 900 no alcanza, así que no puedes botar a nadie a la ligera.' : 'Jessica te recuerda que el embudo es más ancho de lo que parece.'} Antes de llamar, tienes que aplicar tres filtros.</p>`,
     type: 'pick', n: 3, prompt: 'Elige los tres filtros que vas a aplicar a las 900 postulaciones.', boton: 'Aplicar los filtros', resumen: 'Filtraste por',
     cols: ['Filtro', 'Qué hace'],
     rows: [
@@ -118,16 +118,16 @@ export const ESCENAS = [
       { id: 'a', label: 'Llamarlos uno por uno con dos preguntas: cuánto tardan y qué turno pueden cumplir. Citar a quienes llegan en una hora o tienen un turno que les calza.',
         res: { q: 'buena', fx: { calidad: 4, personas: 4, tiempo: -3 }, rel: { jessica: 1 }, flags: ['llamada_filtro'], cartera: { lejanos: 'Llamada de filtro: tiempo y turno' },
           out: 'Te toma la tarde entera y te duele la oreja. Pero de 450 «lejanos», 190 llegan en menos de una hora. Yeny vive más cerca, en minutos, que muchos de La Victoria.',
-          pro: { ok: 'Decides con el dato real de cada persona, no con un mapa.', risk: 'Te costó horas: tendrás que reorganizar la agenda del jueves.', info: 'Pregunta también cuánto gasta en pasaje: es una causa frecuente de deserción en el primer mes.' },
+          pro: { ok: 'Decides con el dato real de cada persona, no con un mapa.', risk: 'Te costó horas: tendrás que reorganizar la agenda de la tarde.', info: 'Pregunta también cuánto gasta en pasaje: es una causa frecuente de deserción en el primer mes.' },
           kusi: ['celebra', 'El mapa engaña, el reloj no.'] } },
       { id: 'b', label: 'Descartarlos a todos: la distancia es la primera causa de deserción en centros de contacto y no hay tiempo para llamar a 450.',
         res: { q: 'riesgosa', fx: { calidad: -3, personas: -3, tiempo: 3 }, flags: ['descarte_distrito'], cartera: { lejanos: 'Descartados por distrito' },
           out: 'Ganas una tarde. Yeny, a 45 minutos en la Línea 1, queda fuera junto con otros 189 que sí podían llegar.',
           pro: { ok: 'Partes de un dato cierto: la distancia hace que la gente renuncie.', risk: 'Distrito no es lo mismo que distancia: el transporte cambia todo.' },
           kusi: ['triste', 'Yeny llegaba más rápido que muchos…'] } },
-      { id: 'c', label: 'Citarlos a todos el viernes: que cada uno decida si puede venir; así no le cierras la puerta a nadie.',
+      { id: 'c', label: 'Citarlos a todos mañana: que cada uno decida si puede venir; así no le cierras la puerta a nadie.',
         res: { q: 'aceptable', fx: { personas: 2, calidad: -2, tiempo: 1 }, flags: ['llamada_filtro'], cartera: { lejanos: 'Citados sin filtrar' },
-          out: 'No le cierras la puerta a nadie, pero el viernes tendrás 80 cupos y muchos de ellos los ocupará gente que no podrá cumplir el turno.',
+          out: 'No le cierras la puerta a nadie, pero mañana tendrás 80 cupos y muchos de ellos los ocupará gente que no podrá cumplir el turno.',
           pro: { ok: 'Eres inclusiva con quien vive lejos.', risk: 'Un cupo usado por alguien que no podrá llegar en marzo es un cupo que pierde otra persona.' },
           kusi: ['pensando', 'Abrir la puerta está bien… ¿y el turno?'] } },
     ],
@@ -238,15 +238,15 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'v6', t: '16:40', ch: 'documento', who: null, titulo: 'La lista del viernes', banner: 'assets/esc/escritorio.webp', show: ['calidad', 'tiempo', 'personas'],
-    body: () => `<p>Ya tienes candidatos para llenar los 80 cupos del viernes. La impresora del piso 4 se atasca dos veces mientras imprimes la lista. Entre atasco y atasco, Jessica te pide que <mark class="clave">ordenes los pasos para que el viernes llegue la mayor cantidad posible</mark>.</p>`,
+    id: 'v6', t: '16:40', ch: 'documento', who: null, titulo: 'La lista de mañana', banner: 'assets/esc/escritorio.webp', show: ['calidad', 'tiempo', 'personas'],
+    body: () => `<p>Ya tienes candidatos para llenar los 80 cupos de mañana. La impresora del piso 4 se atasca dos veces mientras imprimes la lista. Entre atasco y atasco, Jessica te pide que <mark class="clave">ordenes los pasos para que mañana llegue la mayor cantidad posible</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos de la citación, del primero al último. Usa las flechas.', boton: 'Mostrarle la lista a Jessica',
     items: [
       { id: 'dep', t: 'Depurar la lista: duplicados y números errados', por: 'Si no, llamas dos veces a la misma persona.' },
       { id: 'filtro', t: 'Llamada corta: traslado y turno', por: 'Confirma que puede cumplir antes de ocupar un cupo.' },
       { id: 'cita', t: 'Enviar la citación por WhatsApp con dirección y referencia', por: 'La plantilla que probaste con Alexandra.' },
       { id: 'conf', t: 'Pedir confirmación y anotarla en el Excel', por: 'Te dice cuántos esperar.' },
-      { id: 'reco', t: 'Recordatorio el jueves a las 7 de la noche', por: 'Es lo que más reduce las inasistencias.' },
+      { id: 'reco', t: 'Recordatorio la noche anterior, a las 7', por: 'Es lo que más reduce las inasistencias.' },
       { id: 'libera', t: 'Liberar cupos de quien no confirma y llamar a la lista de espera', por: 'Un cupo vacío es un cupo perdido.' },
     ],
     res: (bien, total) => {
@@ -263,7 +263,7 @@ export const ESCENAS = [
     rules: [[BP, 'Confirmar, recordar y liberar cupos son tres pasos distintos.']],
     mirada: {
       ve: 'Una citación masiva es logística: cada paso evita que un cupo se pierda. El recordatorio de la noche anterior y la lista de espera son las dos herramientas más baratas para subir la asistencia.',
-      visual: { tipo: 'flujo', titulo: 'De la lista al viernes', pasos: ['Depurar', 'Llamada corta', 'Citación', 'Confirmación', 'Recordatorio', 'Lista de espera'] },
+      visual: { tipo: 'flujo', titulo: 'De la lista a la evaluación', pasos: ['Depurar', 'Llamada corta', 'Citación', 'Confirmación', 'Recordatorio', 'Lista de espera'] },
     },
   },
   {
@@ -272,15 +272,15 @@ export const ESCENAS = [
     chat: ['Vi en el portal 900 postulantes. ¡Eso es! Ya estamos, ¿no?'],
     type: 'choice', cotidiano: true,
     choices: [
-      { id: 'a', label: 'Explicarle con números: cuántas son útiles, cuántas personas citas el viernes y cuántas se espera que lleguen.',
+      { id: 'a', label: 'Explicarle con números: cuántas son útiles, cuántas personas citas mañana y cuántas se espera que lleguen.',
         res: { q: 'buena', fx: { confianza: 3, calidad: 2 }, rel: { bruno: 1 }, flags: ['bruno_advertido'],
-          envia: ['bruno', 'Buenas noches, Bruno. De 900, unas 610 son útiles. El viernes citamos 80 y, con las tasas de la última campaña, llegarían unos 32. Estamos mejorando la citación para subir eso. Necesitamos varias evaluaciones más.'],
+          envia: ['bruno', 'Buenas noches, Bruno. De 900, unas 610 son útiles. Mañana citamos 80 y, con las tasas de la última campaña, llegarían unos 32. Estamos mejorando la citación para subir eso. Necesitamos varias evaluaciones más.'],
           out: 'Bruno tarda en responder. Luego: «32 de 80. Ok. Gracias por decírmelo antes». Nadie le había mostrado el embudo.', kusi: ['celebra', 'Mejor un número feo hoy que una sorpresa el viernes.'] } },
       { id: 'b', label: 'Darle la buena noticia corta: que el aviso funcionó y que el viernes hay evaluación.',
         res: { q: 'aceptable', fx: { confianza: 1 }, rel: { bruno: 0 }, flags: ['bruno_ilusionado'],
-          envia: ['bruno', '¡Sí! El aviso funcionó 💪 El viernes evaluamos.'],
-          out: 'Bruno responde con un pulgar. El viernes esperará ver 80 personas en la sala.', kusi: ['pensando', '¿Y cuando lleguen 31?'] } },
+          envia: ['bruno', '¡Sí! El aviso funcionó 💪 Mañana evaluamos.'],
+          out: 'Bruno responde con un pulgar. Mañana esperará ver 80 personas en la sala.', kusi: ['pensando', '¿Y cuando lleguen 31?'] } },
     ],
-    mirada: { ve: 'Las postulaciones son la boca del embudo. Si el gerente cree que 900 postulaciones son 900 asesores, cualquier número del viernes le parecerá un fracaso. Explicar el embudo antes es cuidar la relación.' },
+    mirada: { ve: 'Las postulaciones son la boca del embudo. Si el gerente cree que 900 postulaciones son 900 asesores, cualquier número de mañana le parecerá un fracaso. Explicar el embudo antes es cuidar la relación.' },
   },
 ];

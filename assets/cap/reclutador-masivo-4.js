@@ -9,14 +9,14 @@
 // - Ley 26772, modificada por la Ley 27270 (requisitos de la oferta de empleo): https://faolex.fao.org/docs/pdf/per201903.pdf
 
 export const CAP = {
-  n: 4, titulo: 'El rol de llamada', dia: 'Semana 2, martes', foto: 'assets/foto/llamada.webp',
+  n: 4, titulo: 'El rol de llamada', dia: 'Semana 1, jueves', foto: 'assets/foto/llamada.webp',
   lugar: 'Contacta Perú · Cercado de Lima',
   inicio: '08:15', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Martes de la segunda semana. El ascensor ya funciona. Hoy los aprobados del viernes hacen una llamada simulada… y tú haces de cliente.', boton: 'Ponerte la vincha',
+  apertura: 'Jueves. El ascensor ya funciona. Hoy los aprobados de ayer hacen una llamada simulada… y tú haces de cliente.', boton: 'Ponerte la vincha',
   kusi: 'Hoy escuchas cómo suena cada persona cuando el cliente se molesta. ¡Dale!',
   lead: 'Diseñaste una simulación de llamada con criterios claros, escuchaste a tres postulantes, conociste la historia de Alexandra y decidiste qué hacer con un requisito que deja fuera a tu mejor candidata.',
   reflexion: '¿Un requisito formal siempre dice algo sobre cómo hará alguien su trabajo?',
-  siguiente: { n: 5, titulo: 'Los referidos', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'Los referidos', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -24,14 +24,14 @@ export const CARTERA = [
   { id: 'aprobados', p: 'Aprobados de la simulación', j: 'Jessica · Reclutamiento', d: 0, e: '15 por evaluar' },
   { id: 'alexandra', p: 'Caso de Alexandra Rivas', j: 'Jessica · Reclutamiento', d: 0, e: 'Secundaria incompleta' },
   { id: 'banco', p: 'Pedido de Banco Sur', j: 'Banco Sur · Proveedores', d: 0, e: 'Sin responder' },
-  { id: 'ingreso', p: 'Paso a la capacitación', j: 'Personal · Contratos', d: 6, e: 'Capacitación del martes 3' },
+  { id: 'ingreso', p: 'Paso a la capacitación', j: 'Personal · Contratos', d: 2, e: 'Capacitación del lunes' },
 ];
 
 export const FUTURO = {
   simulacion_clara: ['Tu simulación mide lo que hace un asesor y respeta la Ley 29571.', 'En el capítulo 6, quienes la pasaron desertarán menos.'],
   simulacion_debil: ['Tu simulación dejó criterios a juicio de cada evaluador.', 'En el capítulo 7 Bruno dirá que «igual da».'],
   yeny_pasa: ['Pasaste a Yeny sabiendo que su error se entrena.', 'Llegará a la capacitación. Capítulo 6.'],
-  pasan_todos: ['Pasaste también a quien amenazó al cliente.', 'Kiara tendrá un reclamo en su primera semana. Capítulo 8.'],
+  pasan_todos: ['Pasaste también a quien amenazó al cliente.', 'Kiara tendrá un reclamo en su primer día en piso. Capítulo 9.'],
   sabe_ceba: ['Supiste que Alexandra termina la secundaria en un CEBA en diciembre.', 'Ese dato pesará en la respuesta del banco. Capítulo 5.'],
   alexandra_excepcion: ['Pediste a Banco Sur una excepción documentada para Alexandra.', 'La respuesta llegará en el capítulo 5.'],
   alexandra_descartada: ['Descartaste a Alexandra por el requisito del contrato.', 'Alexandra escribirá en el capítulo 5: otro call la contrató.'],
@@ -55,8 +55,8 @@ export const WSP = [
   { chat: 'mateo', t: '09:30', de: 'Mateo', txt: 'Buenos días. Ya estoy en el Metropolitano, llego 9:55. ¿Es en el mismo piso?', si: 'mateo_evaluado' },
   { chat: 'mateo', t: '09:30', de: 'Mateo', txt: 'Buenos días. Hoy sí vengo, como quedamos. Gracias por la movilidad.', si: 'mateo_reprogramado' },
   { chat: 'bruno', t: '11:00', de: 'Bruno', txt: 'Finanzas dice que pasajes no. Pero si la asistencia sube, lo vuelvo a pedir.', si: 'pide_pasajes' },
-  { chat: 'bruno', t: '11:05', de: 'Bruno', txt: 'Evaluaciones martes y viernes: ok. ¿Cuántos tienes hoy?', si: 'oferta_rapida' },
-  { chat: 'jessica', t: '14:40', de: 'Jessica', txt: 'Ojo con la guía: una postulante del viernes se quejó en el libro de reclamaciones porque le preguntaron cuántos hijos tiene 😬', si: 'guia_vieja' },
+  { chat: 'bruno', t: '11:05', de: 'Bruno', txt: 'Dos evaluaciones por semana: ok. ¿Cuántos tienes hoy?', si: 'oferta_rapida' },
+  { chat: 'jessica', t: '14:40', de: 'Jessica', txt: 'Ojo con la guía: una postulante de ayer se quejó en el libro de reclamaciones porque le preguntaron cuántos hijos tiene 😬', si: 'guia_vieja' },
 ];
 
 export const CORREOS = [
@@ -76,7 +76,7 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'r1', t: '08:40', ch: 'documento', who: null, titulo: 'Diseñar la llamada', banner: 'assets/esc/idea.webp', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Tienes hora y media para diseñar la simulación de llamada. ${F.has('criterio') ? 'Le prometiste a Bruno veinte minutos: ni uno más.' : 'Bruno no quería evaluación, así que tiene que ser corta y convincente.'} ${F.has('guia_ajustes') ? 'Partes de la guía que corregiste el viernes.' : ''}</p><p>Una buena simulación hace que <mark class="clave">dos evaluadores distintos lleguen a la misma conclusión</mark>.</p>`,
+    body: (n, F) => `<p>Tienes hora y media para diseñar la simulación de llamada. ${F.has('criterio') ? 'Le prometiste a Bruno veinte minutos: ni uno más.' : 'Bruno no quería evaluación, así que tiene que ser corta y convincente.'} ${F.has('guia_ajustes') ? 'Partes de la guía que corregiste ayer.' : ''}</p><p>Una buena simulación hace que <mark class="clave">dos evaluadores distintos lleguen a la misma conclusión</mark>.</p>`,
     type: 'builder', prompt: 'Elige las piezas de cada bloque de la simulación.', boton: 'Guardar la simulación',
     bloques: [
       { id: 'caso', t: 'El caso', n: 1, ops: [
@@ -185,7 +185,7 @@ export const ESCENAS = [
       { id: 'a', label: 'Escribirle hoy a Banco Sur: preguntar para qué piden secundaria completa y proponer una excepción documentada con su simulación y su constancia del CEBA. Si dicen que no, se respeta.',
         res: { q: 'buena', fx: { etica: 4, calidad: 3, tiempo: -3 }, rel: { jessica: 1, alexandra: 1 }, flags: ['alexandra_excepcion'], cartera: { alexandra: 'Excepción pedida a Banco Sur' },
           out: 'Jessica firma el correo contigo. «Puede que digan que no. Pero si dicen que sí, cambiamos el requisito para todos los que estudian en un CEBA.»',
-          pro: { ok: 'Cuestionas el requisito por el canal correcto y con evidencia, sin saltarte el contrato.', risk: 'La respuesta puede tardar y Alexandra puede perder la capacitación del martes 3.', info: 'Pregunta también cuántos postulantes más están en la misma situación: quizá el caso no sea solo de Alexandra.' },
+          pro: { ok: 'Cuestionas el requisito por el canal correcto y con evidencia, sin saltarte el contrato.', risk: 'La respuesta puede tardar y Alexandra puede perder la capacitación del lunes.', info: 'Pregunta también cuántos postulantes más están en la misma situación: quizá el caso no sea solo de Alexandra.' },
           kusi: ['animo', 'Preguntar el porqué también es criterio.'] } },
       { id: 'b', label: 'Descartarla con una explicación honesta: el requisito está en el contrato con el cliente y Contacta no puede incumplirlo. Que postule en enero, con su certificado.',
         res: { q: 'aceptable', fx: { cumplimiento: 3, personas: -2, calidad: -1 }, rel: { alexandra: -1 }, flags: ['alexandra_descartada'], cartera: { alexandra: 'Descartada por requisito contractual' },
@@ -236,7 +236,7 @@ export const ESCENAS = [
   },
   {
     id: 'r6', t: '16:50', ch: 'documento', who: null, titulo: 'Del «sí» a la capacitación', banner: 'assets/esc/camino.webp', show: ['calidad', 'tiempo', 'personas'],
-    body: (n, F) => `<p>${F.has('oferta_rapida') ? 'Como acordaste con Bruno, hoy avisas el resultado el mismo día.' : 'Hoy decides cómo avisas a los aprobados.'} Pero entre el «sí» y el primer día de capacitación hay una semana entera, y en la campaña pasada <mark class="clave">uno de cada cinco se perdió en ese camino</mark>.</p>`,
+    body: (n, F) => `<p>${F.has('oferta_rapida') ? 'Como acordaste con Bruno, hoy avisas el resultado el mismo día.' : 'Hoy decides cómo avisas a los aprobados.'} Pero entre el «sí» y el primer día de capacitación hay un fin de semana de por medio, y en la campaña pasada <mark class="clave">uno de cada cinco se perdió en ese camino</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos desde que alguien aprueba hasta su primer día de capacitación.', boton: 'Mandárselo a Personal',
     items: [
       { id: 'aviso', t: 'Avisarle el resultado el mismo día', por: 'Antes de que otro centro de contacto lo contrate.' },
@@ -260,7 +260,7 @@ export const ESCENAS = [
     rules: [[BP, 'El reclutamiento no termina con el «sí»: termina cuando la persona llega a su primer día.']],
     mirada: {
       ve: 'Entre la aprobación y el primer día hay un vacío peligroso: la persona sigue buscando, otro le ofrece algo, se pierde un documento. Acompañar ese tramo es parte del trabajo de una reclutadora masiva.',
-      visual: { tipo: 'linea', titulo: 'La semana del «sí»', hitos: [['Martes', 'Aviso y lista de documentos'], ['Jueves', 'Documentos revisados'], ['Viernes', 'Expediente en Personal'], ['Lunes', 'Recordatorio'], ['Martes 3', 'Primer día de capacitación']] },
+      visual: { tipo: 'linea', titulo: 'Del «sí» al lunes', hitos: [['Jueves', 'Aviso y lista de documentos'], ['Viernes mañana', 'Documentos revisados'], ['Viernes tarde', 'Expediente en Personal'], ['Domingo', 'Recordatorio'], ['Lunes', 'Primer día de capacitación']] },
     },
   },
   {
@@ -271,12 +271,12 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Decirle la verdad: que su simulación fue de las mejores, en qué está su caso y cuándo le darás una respuesta.',
         res: { q: 'buena', fx: { personas: 4, confianza: 3 }, rel: { alexandra: 1 }, flags: ['alexandra_honesta'],
-          envia: ['alexandra', 'Alexandra, tu simulación fue de las mejores del día. Lo de la secundaria lo estamos viendo con el cliente y el jueves te digo exactamente cómo queda. Gracias por contarme tu historia. Ahora sí, ¡almuerza! 😊'],
+          envia: ['alexandra', 'Alexandra, tu simulación fue de las mejores del día. Lo de la secundaria lo estamos viendo con el cliente y mañana te digo exactamente cómo queda. Gracias por contarme tu historia. Ahora sí, ¡almuerza! 😊'],
           out: 'Alexandra responde con un audio: se escucha que sonríe. «Pase lo que pase, gracias por decirme las cosas claras.»', kusi: ['feliz', 'La verdad con cariño también se agradece.'] } },
-      { id: 'b', label: 'Mandarle un «¡Te fue increíble! 🎉» para que pueda comer tranquila; los detalles se los cuentas el jueves.',
+      { id: 'b', label: 'Mandarle un «¡Te fue increíble! 🎉» para que pueda comer tranquila; los detalles se los cuentas mañana.',
         res: { q: 'aceptable', fx: { personas: 1, confianza: -1 }, rel: { alexandra: 1 },
-          envia: ['alexandra', '¡Te fue increíble! 🎉 El jueves te cuento todo.'],
-          out: 'Alexandra le cuenta a su mamá que entró. Todavía no ha entrado.', kusi: ['pensando', '¿Y si el jueves no son buenas noticias?'] } },
+          envia: ['alexandra', '¡Te fue increíble! 🎉 Mañana te cuento todo.'],
+          out: 'Alexandra le cuenta a su mamá que entró. Todavía no ha entrado.', kusi: ['pensando', '¿Y si mañana no son buenas noticias?'] } },
     ],
     mirada: { ve: 'Una postulante que espera una respuesta lee cada palabra. Decir la verdad con fecha y con cuidado sostiene su confianza, incluso si al final la respuesta es un no.' },
   },

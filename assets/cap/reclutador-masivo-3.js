@@ -10,19 +10,19 @@
 // - Ley 29733, Ley de Protección de Datos Personales (principios de finalidad y seguridad), ya citada en el capítulo 1.
 
 export const CAP = {
-  n: 3, titulo: 'El día de evaluación', dia: 'Semana 1, viernes', foto: 'assets/foto/taller.webp',
+  n: 3, titulo: 'El día de evaluación', dia: 'Semana 1, miércoles', foto: 'assets/foto/taller.webp',
   lugar: 'Contacta Perú · Cercado de Lima',
   inicio: '07:45', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Viernes, 7:45 a. m. Ochenta personas citadas a las 9:00. El ascensor del edificio tiene un papel pegado: «Malogrado».', boton: 'Preparar la sala de evaluación',
+  apertura: 'Miércoles, 7:45 a. m. Ochenta personas citadas a las 9:00. El ascensor del edificio tiene un papel pegado: «Malogrado».', boton: 'Preparar la sala de evaluación',
   kusi: 'Hoy conoces en persona a la gente que hasta ayer era una fila de Excel. ¡Dale!',
   lead: 'Corregiste la guía de evaluación, averiguaste por qué no llegó la gente, hiciste un ajuste razonable, elegiste con evidencia y le explicaste a Bruno el número del día.',
   reflexion: '¿Qué razón de inasistencia te sorprendió más?',
-  siguiente: { n: 4, titulo: 'El rol de llamada', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'El rol de llamada', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
   { id: 'guia', p: 'Guía de evaluación grupal', j: 'Jessica · Reclutamiento', d: 0, e: 'Versión de 2024' },
-  { id: 'asistencia', p: 'Asistencia del viernes', j: 'Jessica · Reclutamiento', d: 0, e: '80 citados' },
+  { id: 'asistencia', p: 'Asistencia de hoy', j: 'Jessica · Reclutamiento', d: 0, e: '80 citados' },
   { id: 'ajustes', p: 'Ajustes para postulantes', j: 'Jessica · Reclutamiento', d: 0, e: 'Sin protocolo' },
   { id: 'aprobados', p: 'Aprobados de tu mesa', j: 'Jessica · Reclutamiento', d: 0, e: 'Por decidir' },
   { id: 'bruno', p: 'Explicación a Bruno', j: 'Bruno · Operaciones', d: 0, e: 'Pendiente' },
@@ -33,7 +33,7 @@ export const FUTURO = {
   guia_vieja: ['La guía siguió pidiendo datos personales y sin ajustes.', 'Alguien se quejará del trato en el capítulo 4.'],
   causas_inasistencia: ['Llamaste a quienes no llegaron y supiste por qué.', 'La citación nueva incluirá «el proceso es gratuito». Capítulo 4.'],
   mateo_evaluado: ['Evaluaste a Mateo en el primer piso, con la misma prueba.', 'Mateo volverá en el capítulo 4 para la simulación de llamada.'],
-  mateo_reprogramado: ['Reprogramaste a Mateo con movilidad pagada.', 'Volverá el martes, si el ascensor funciona. Capítulo 4.'],
+  mateo_reprogramado: ['Reprogramaste a Mateo con movilidad pagada.', 'Volverá mañana, si el ascensor funciona. Capítulo 4.'],
   mateo_perdido: ['Mateo esperó tres horas y se fue.', 'No volverás a saber de él… o sí, en una reseña.'],
   alexandra_pasa: ['Alexandra pasó la evaluación grupal.', 'En el capítulo 4 descubrirás que no tiene secundaria completa.'],
   eleccion_evidencia: ['Elegiste con lo que observaste en el role-play.', 'Los aprobados de tu mesa rendirán mejor en la capacitación. Capítulo 6.'],
@@ -41,7 +41,7 @@ export const FUTURO = {
   oferta_rapida: ['Propusiste evaluar dos veces por semana y avisar el mismo día.', 'Bruno lo aprobó a medias. Capítulo 4.'],
   sobrecita: ['Decidiste sobrecitar sin atacar las causas.', 'Tu base de postulantes se gastará más rápido. Capítulo 5.'],
   pide_pasajes: ['Pediste pasajes para los citados.', 'Finanzas responderá en el capítulo 4.'],
-  promesa_200: ['Le prometiste a Bruno que el próximo viernes llegarían 80.', 'Te lo cobrará en el capítulo 7.'],
+  promesa_200: ['Le prometiste a Bruno que en la próxima evaluación llegarían 80.', 'Te lo cobrará en el capítulo 7.'],
   rechazo_cuidado: ['Les avisaste a los no seleccionados con respeto y con una razón.', 'Fiorella te recomendará con su prima. Capítulo 5.'],
 };
 
@@ -65,8 +65,8 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '07:50', de: 'Administración del edificio', para: 'Inquilinos piso 1 al 9', asunto: 'Ascensor fuera de servicio', html: '<p>Estimados inquilinos: el ascensor principal se encuentra fuera de servicio por mantenimiento correctivo. <b>El técnico llega el lunes.</b> Disculpen las molestias.</p><p>Administración</p>' },
-  { t: '16:30', de: 'Jessica Torres', para: 'Equipo de Reclutamiento', asunto: 'Resultados del viernes', html: '<p>Equipo: hoy llegaron <b>31 de 80</b>. Aprobaron la evaluación grupal <b>15</b>. Con eso, la capacitación del martes 2 arranca corta.</p><p>El martes hacemos la simulación de llamada con los aprobados. Buen trabajo con lo que tuvimos.</p><p>Jessica</p>' },
+  { t: '07:50', de: 'Administración del edificio', para: 'Inquilinos piso 1 al 9', asunto: 'Ascensor fuera de servicio', html: '<p>Estimados inquilinos: el ascensor principal se encuentra fuera de servicio por mantenimiento correctivo. <b>El técnico llega mañana temprano.</b> Disculpen las molestias.</p><p>Administración</p>' },
+  { t: '16:30', de: 'Jessica Torres', para: 'Equipo de Reclutamiento', asunto: 'Resultados de hoy', html: '<p>Equipo: hoy llegaron <b>31 de 80</b>. Aprobaron la evaluación grupal <b>15</b>. Con eso, la capacitación del lunes arranca corta.</p><p>Mañana hacemos la simulación de llamada con los aprobados. Buen trabajo con lo que tuvimos.</p><p>Jessica</p>' },
 ];
 
 export const QUIZ = [
@@ -105,7 +105,7 @@ export const ESCENAS = [
     }),
     rules: [[LEY, 'Ley 29973, art. 50: derecho a ajustes razonables en los procesos de selección.'], [LEY, 'Ley 29733: los datos personales se usan para su finalidad y con medidas de seguridad.'], [BP, 'Evalúa con criterios observables que estén ligados al puesto.']],
     mirada: {
-      ve: 'Una guía de evaluación grupal es el instrumento más repetido del mes. Cada pregunta innecesaria y cada criterio sin definir se multiplican por cada persona evaluada. Por eso se revisa antes de que entre el primer grupo.',
+      ve: 'Una guía de evaluación grupal es el instrumento más repetido de la campaña. Cada pregunta innecesaria y cada criterio sin definir se multiplican por cada persona evaluada. Por eso se revisa antes de que entre el primer grupo.',
       visual: { tipo: 'cambio', titulo: 'De la guía 2024 a la de hoy', pares: [['Edad, estado civil, hijos', 'Nombre y por qué postula'], ['«Actitud» del 1 al 10', 'Acuerda monto y fecha: sí o no'], ['Foto del DNI con el celular', 'Registro en la ficha oficial'], ['«Cuando funcione el ascensor»', 'Sala del piso 1 lista']] },
       normas: [{ ley: 'Ley 29973, art. 50 (modificado por el D.Leg. 1417), y su reglamento', dice: 'La persona con discapacidad tiene derecho a ajustes razonables en los procesos de selección y en el centro de trabajo. Los empleadores públicos y privados deben hacerlos, salvo que demuestren que son una carga desproporcionada.', practica: 'Un ascensor malogrado no es una carga desproporcionada: una sala en el primer piso lo resuelve.' }],
     },
@@ -116,12 +116,12 @@ export const ESCENAS = [
     type: 'calls',
     calls: [
       ['Luis Paredes · Comas', 'Contesta, desconfiado', '«Disculpe, señorita, pero el mes pasado un "call" de Jesús María me cobró 50 soles por el curso y nunca me contrató. Pensé que era lo mismo.»'],
-      ['Rosa Mendoza · Villa María del Triunfo', 'Contesta con voz bajita', '«Me pagan mañana sábado en la chamba de la panadería. Hoy no tenía para los dos pasajes, de ida y de vuelta.»'],
+      ['Rosa Mendoza · Villa María del Triunfo', 'Contesta con voz bajita', '«Me pagan el viernes en la chamba de la panadería. Hoy no tenía para los dos pasajes, de ida y de vuelta.»'],
       ['Kevin Sánchez · Breña', 'Contesta, contento', '«Ayer me evaluaron en otro call y me hicieron firmar ahí mismo. Empiezo el lunes. Gracias igual.»'],
     ],
     prompt: 'Tres razones distintas. ¿Qué haces con ellas?',
     choices: [
-      { id: 'a', label: 'Cambiar tres cosas para la próxima citación: decir que el proceso es gratuito y que nunca cobran, evaluar también un martes y avisar el resultado el mismo día.',
+      { id: 'a', label: 'Cambiar tres cosas para la próxima citación: decir que el proceso es gratuito y que nunca cobran, evaluar dos veces por semana y avisar el resultado el mismo día.',
         res: { q: 'buena', fx: { calidad: 5, personas: 3, tiempo: -1 }, rel: { jessica: 1 }, flags: ['causas_inasistencia'], cartera: { asistencia: '31 de 80 · causas: estafa, pasaje, otra oferta' },
           out: 'Jessica anota las tres en la pizarra: «Desconfianza, plata y velocidad. Eso sí se puede atacar».',
           pro: { ok: 'Cada cambio responde a una causa que escuchaste.', risk: 'Avisar el mismo día exige que los evaluadores decidan rápido y con criterio.', info: 'Lleva la cuenta de las causas: con veinte llamadas tendrás un patrón.' },
@@ -140,7 +140,7 @@ export const ESCENAS = [
     rules: [[BP, 'Llama a una muestra de quienes no llegaron: las causas de la inasistencia se pueden corregir.']],
     mirada: {
       ve: 'La tasa de asistencia no es un dato del clima: tiene causas. En Lima, muchos postulantes ya sufrieron falsas ofertas que cobran «el curso», viven al día con el pasaje y reciben ofertas de otros centros de contacto que contratan en el acto.',
-      visual: { tipo: 'embudo', titulo: 'El viernes', niveles: [['Citados', 80], ['Confirmaron', 58], ['Llegaron', 31], ['Aprobaron', 15]] },
+      visual: { tipo: 'embudo', titulo: 'El miércoles', niveles: [['Citados', 80], ['Confirmaron', 58], ['Llegaron', 31], ['Aprobaron', 15]] },
     },
   },
   {
@@ -153,9 +153,9 @@ export const ESCENAS = [
           out: 'Mateo hace el mejor role-play de la mañana: acuerda S/ 150 para el sábado sin levantar la voz. Jessica sube con la guía: «Desde hoy, toda evaluación tiene una sala abajo».',
           pro: { ok: 'Haces el ajuste en el momento, con la misma prueba que a los demás.', risk: 'Tu grupo de arriba espera media hora: avísales y dales agua.', info: 'Pregunta también cómo es el acceso al piso de operaciones: el ajuste no termina en la evaluación.' },
           kusi: ['celebra', '¡Eso es un ajuste razonable!'] } },
-      { id: 'b', label: 'Reprogramarlo para el martes, cuando el ascensor ya funcione, y pagarle la movilidad para que no le cueste venir dos veces.',
+      { id: 'b', label: 'Reprogramarlo para mañana, cuando el ascensor ya funcione, y pagarle la movilidad para que no le cueste venir dos veces.',
         res: { q: 'aceptable', fx: { etica: 2, cumplimiento: 1, tiempo: 2 }, flags: ['mateo_reprogramado'], cartera: { ajustes: 'Reprogramado con movilidad' },
-          out: 'Mateo acepta, cortés. Pero el martes otro centro de contacto ya lo habrá evaluado, y él vino hoy porque hoy podía.',
+          out: 'Mateo acepta, cortés. Pero mañana otro centro de contacto ya lo habrá evaluado, y él vino hoy porque hoy podía.',
           pro: { ok: 'Le ofreces una alternativa y cubres el costo.', risk: 'Reprogramar cuando puedes evaluar hoy lo pone en desventaja frente a los demás.' },
           kusi: ['pensando', 'Bienintencionado… ¿pero por qué no hoy?'] } },
       { id: 'c', label: 'Pedirle que espere en la recepción hasta el último grupo, por si el técnico llega antes y arreglan el ascensor.',
@@ -172,8 +172,8 @@ export const ESCENAS = [
   },
   {
     id: 'd4', t: '11:40', ch: 'presencial', who: 'alexandra', titulo: 'Tu mesa de siete', banner: 'assets/foto2/reunion-circulos.webp', show: ['calidad', 'etica', 'personas'],
-    body: () => `<p>Terminó el role-play. En tu mesa observaste a siete personas, y por los cupos del martes <mark class="clave">solo pueden pasar cuatro</mark>.</p><p>Tienes tus notas en la guía, con un poco de café derramado encima.</p>`,
-    type: 'pick', n: 4, prompt: 'Elige a las cuatro personas que pasan a la simulación de llamada del martes.', boton: 'Pasar a estas cuatro', resumen: 'Pasaron',
+    body: () => `<p>Terminó el role-play. En tu mesa observaste a siete personas, y por los cupos de mañana <mark class="clave">solo pueden pasar cuatro</mark>.</p><p>Tienes tus notas en la guía, con un poco de café derramado encima.</p>`,
+    type: 'pick', n: 4, prompt: 'Elige a las cuatro personas que pasan a la simulación de llamada de mañana.', boton: 'Pasar a estas cuatro', resumen: 'Pasaron',
     cols: ['Postulante', 'Lo que observaste'],
     rows: [
       { id: 'alexandra', cells: ['Alexandra Rivas, 19', 'Calmó al «cliente», le ofreció dos fechas y repitió el monto sin errores.'] },
@@ -192,7 +192,7 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, etica: picks.includes('fiorella') ? -1 : 2 },
         rel: { alexandra: picks.includes('alexandra') ? 1 : 0 }, flags: fl,
         cartera: { aprobados: picks.map(p => ({ alexandra: 'Alexandra', gladys: 'Gladys', yeny: 'Yeny', jhon: 'Jhon', fiorella: 'Fiorella', diego: 'Diego', brayan: 'Brayan' })[p]).join(', ') },
-        out: q === 'buena' ? 'Tus cuatro tienen algo en común: hicieron bien lo que hace un asesor de cobranza. Gladys sale secándose los ojos: «Hace años que nadie me decía que sí».' : picks.includes('fiorella') ? 'Pasa Fiorella, que cayó bien a todos. El martes tendrá que hacer sola una llamada, sin el grupo.' : 'Pasa alguien que amenazó al cliente. Eso se puede entrenar, pero también se puede repetir con un cliente de verdad.',
+        out: q === 'buena' ? 'Tus cuatro tienen algo en común: hicieron bien lo que hace un asesor de cobranza. Gladys sale secándose los ojos: «Hace años que nadie me decía que sí».' : picks.includes('fiorella') ? 'Pasa Fiorella, que cayó bien a todos. Mañana tendrá que hacer sola una llamada, sin el grupo.' : 'Pasa alguien que amenazó al cliente. Eso se puede entrenar, pero también se puede repetir con un cliente de verdad.',
         pro: { ok: 'Elegir con la evidencia del role-play hace que tu decisión se pueda explicar.', risk: 'La simpatía en grupo no es lo mismo que resolver una llamada difícil.', info: 'Anota por qué pasó cada uno: el martes lo vas a necesitar.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Elegiste con evidencia!' : '¿Qué viste en el role-play?'],
       };
@@ -210,17 +210,17 @@ export const ESCENAS = [
       : `<p>Bruno sube los cuatro pisos y llega sin aire, con el celular en la mano. «Me dijiste que el aviso funcionó. Novecientos postulantes y llegan 31. <mark class="clave">¿Por qué?</mark> El banco me pregunta el lunes.»</p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Mostrarle las tres causas que escuchaste y proponer cambios con su costo: evaluar martes y viernes, citar a las 10:00 para evitar la hora punta y avisar el resultado el mismo día.',
+      { id: 'a', label: 'Mostrarle las tres causas que escuchaste y proponer cambios con su costo: evaluar dos veces por semana, citar a las 10:00 para evitar la hora punta y avisar el resultado el mismo día.',
         res: { q: 'buena', fx: { confianza: 4, calidad: 3, tiempo: -2 }, rel: { bruno: 1 }, flags: ['oferta_rapida'], cartera: { bruno: 'Causas y tres cambios' },
           out: 'Bruno mastica en silencio. «¿Avisar el mismo día? Eso hacen los calls de Jesús María, y por eso nos ganan.» Aprueba dos evaluaciones por semana. Lo de las 10:00, «vemos».',
-          pro: { ok: 'Le das causas y soluciones, no excusas.', risk: 'Comprometes más evaluaciones con el mismo equipo: el martes será largo.', info: 'Lleva los números de la próxima evaluación para mostrarle si los cambios funcionaron.' },
+          pro: { ok: 'Le das causas y soluciones, no excusas.', risk: 'Comprometes más evaluaciones con el mismo equipo: mañana será largo.', info: 'Lleva los números de la próxima evaluación para mostrarle si los cambios funcionaron.' },
           kusi: ['feliz', 'Causa, propuesta y costo. ¡Así se habla con un gerente!'] } },
       { id: 'b', label: 'Pedirle presupuesto para pagar el pasaje a los citados: diez soles por persona que llegue es menos que la penalidad del banco.',
         res: { q: 'aceptable', fx: { confianza: 1, personas: 2, calidad: 1 }, flags: ['pide_pasajes'], cartera: { bruno: 'Pidió pasajes para citados' },
           out: 'Bruno levanta una ceja: «¿Y si vienen solo por los diez soles?». Lo va a consultar con finanzas. Atacas una causa real, pero solo una.',
           pro: { ok: 'Rosa habría llegado con ese pasaje.', risk: 'No resuelve la desconfianza ni la velocidad de la competencia.' },
           kusi: ['pensando', 'Buena idea… ¿y las otras causas?'] } },
-      { id: 'c', label: 'Asegurarle que el próximo viernes citarás a 200 y llegarán al menos 80: así lo calma y gana tiempo para mejorar el proceso.',
+      { id: 'c', label: 'Asegurarle que en la próxima evaluación citarás a 200 y llegarán al menos 80: así lo calma y gana tiempo para mejorar el proceso.',
         res: { q: 'riesgosa', fx: { confianza: 2, calidad: -3 }, rel: { bruno: 1 }, flags: ['promesa_200'], cartera: { bruno: 'Prometiste 80 el próximo viernes' },
           out: 'Bruno sonríe por primera vez en la semana: «Eso quiero escuchar». Acabas de prometer un número que no depende de ti.',
           pro: { ok: 'Bruno se va tranquilo.', risk: 'Una promesa sin base se convierte en la vara con la que te medirán.' },
@@ -272,19 +272,19 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'd7', t: '18:20', ch: 'whatsapp', who: 'jessica', titulo: 'El número del viernes', banner: 'assets/esc/reloj.webp', show: ['confianza', 'calidad'],
+    id: 'd7', t: '18:20', ch: 'whatsapp', who: 'jessica', titulo: 'El número del miércoles', banner: 'assets/esc/reloj.webp', show: ['confianza', 'calidad'],
     body: () => `<p>Te duelen las piernas de tanto subir y bajar. Jessica escribe desde el paradero de la avenida Abancay.</p>`,
     chat: ['¿Qué aprendimos hoy? En una línea, que se me acaba la batería 🔋'],
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'La tasa del día, la causa principal y el primer cambio para el martes.',
         res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { jessica: 1 },
-          envia: ['jessica', 'Llegó el 39 % y aprobó la mitad: 15. La causa que más se repite es la desconfianza. El martes la citación dirá «proceso gratuito» y avisaremos el resultado el mismo día.'],
-          out: 'Jessica responde con un audio de diez segundos. Se escucha el bus: «Eso. El martes medimos si funcionó».', kusi: ['celebra', '¡Dato, causa y cambio!'] } },
+          envia: ['jessica', 'Llegó el 39 % y aprobó la mitad: 15. La causa que más se repite es la desconfianza. La próxima citación dirá «proceso gratuito» y avisaremos el resultado el mismo día.'],
+          out: 'Jessica responde con un audio de diez segundos. Se escucha el bus: «Eso. El viernes medimos si funcionó».', kusi: ['celebra', '¡Dato, causa y cambio!'] } },
       { id: 'b', label: 'Que fue un día pesado pero salió bien.',
         res: { q: 'aceptable', fx: { confianza: 1 },
           envia: ['jessica', 'Día pesado, pero salió 💪'],
-          out: 'Jessica responde «sí, bacán». Cierto, pero el martes empezarán sin saber qué cambiar.', kusi: ['pensando', '¿Y qué cambia el martes?'] } },
+          out: 'Jessica responde «sí, bacán». Cierto, pero mañana empezarán sin saber qué cambiar.', kusi: ['pensando', '¿Y qué cambia el martes?'] } },
     ],
     mirada: { ve: 'Cada evaluación masiva es un experimento: se mide la tasa, se busca la causa y se cambia una cosa. Así, semana a semana, el embudo se vuelve menos ancho.' },
   },
