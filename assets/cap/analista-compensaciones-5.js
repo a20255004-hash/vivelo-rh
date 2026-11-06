@@ -12,14 +12,14 @@
 // - Ley 29733 (datos personales), ya citada en capítulos anteriores.
 
 export const CAP = {
-  n: 5, titulo: 'Los números de Claudia', dia: 'Semana 2, jueves', foto: 'assets/foto2/revisan.webp',
+  n: 5, titulo: 'Los números de Claudia', dia: 'Semana 1, viernes', foto: 'assets/foto2/revisan.webp',
   lugar: 'AndesTel · San Isidro, Lima',
   inicio: '08:00', fin: '19:15', cierreHora: '18:55',
-  apertura: 'Jueves. Hoy vence el plazo que le diste a Claudia. Llegas temprano: a las 8:00 el piso 9 todavía huele a limpiador de pino y el aire acondicionado no arranca.', boton: 'Revisar los números',
+  apertura: 'Viernes. Hoy vence el plazo que le diste a Claudia. Llegas temprano: a las 8:00 el piso 9 todavía huele a limpiador de pino y el aire acondicionado no arranca.', boton: 'Revisar los números',
   kusi: 'Hoy cada criterio tiene que demostrar lo que dice. ¡Cero adivinanzas!',
   lead: 'Verificaste antigüedad, experiencia, certificaciones y desempeño, calculaste cuánto de la brecha se explicaba, elegiste cómo corregir, limpiaste una carta y decidiste qué hacer con las demás analistas.',
   reflexion: '¿Corregir solo a quien se atrevió a preguntar es justo con quienes no preguntaron?',
-  siguiente: { n: 6, titulo: 'La excepción', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La excepción', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
@@ -55,7 +55,7 @@ export const WSP = [
   { chat: 'claudia', t: '08:30', de: 'Claudia', txt: 'Renzo me llamó ayer a su oficina a preguntarme «qué estaba haciendo». ¿Le contaste?', si: 'claudia_expuesta' },
   { chat: 'claudia', t: '08:30', de: 'Claudia', txt: 'Ayer me escribieron tres personas del chat de guardias preguntándome por el sueldo de Diego. Yo no dije nada.', si: 'claudia_dato_revelado' },
   { chat: 'renzo', t: '12:40', de: 'Renzo', txt: 'Ojo con lo de Claudia: si le subes a ella, me van a pedir lo mismo todos. Avísame antes de que salga algo.' },
-  { chat: 'fiorella', t: '18:40', de: 'Fiorella', txt: 'Leí tu resumen. El martes Renzo trae otro pedido. Prepárate.' },
+  { chat: 'fiorella', t: '18:40', de: 'Fiorella', txt: 'Leí tu resumen. El lunes Renzo trae otro pedido. Prepárate.' },
 ];
 
 export const CORREOS = [
@@ -165,7 +165,7 @@ export const ESCENAS = [
   },
   {
     id: 'n4', t: '13:05', ch: 'whatsapp', who: 'claudia', titulo: 'Un mensaje a la hora del almuerzo', banner: 'assets/esc/dudas.webp', lugar: 'Comedor del piso 3, con un ceviche de la concesionaria', show: ['personas', 'confianza', 'etica'],
-    body: (n, F) => `<p>Estás en el comedor con un ceviche de la concesionaria cuando llega un mensaje de Claudia.</p><p>${F.has('renzo_cede') ? '«Me acabo de enterar de que a Diego le dieron un 20 % hace dos semanas porque “tenía una oferta”. ¿Eso también es un criterio objetivo?»' : F.has('politica_sucia') ? '«Mi compañera Karina volvió de su licencia de maternidad en marzo y le dijeron que este año no entra al incremento por desempeño. ¿Eso es legal?»' : '«En el chat de guardias dicen que “Compensaciones ya está revisando a las analistas”. ¿Es verdad? No le he contado a nadie.»'}</p><p><mark class="clave">Faltan cuatro horas para tu reunión con ella</mark>.</p>`,
+    body: (n, F) => `<p>Estás en el comedor con un ceviche de la concesionaria cuando llega un mensaje de Claudia.</p><p>${F.has('renzo_cede') ? '«Me acabo de enterar de que a Diego le dieron un 20 % el lunes porque “tenía una oferta”. ¿Eso también es un criterio objetivo?»' : F.has('politica_sucia') ? '«Mi compañera Karina volvió de su licencia de maternidad en marzo y le dijeron que este año no entra al incremento por desempeño. ¿Eso es legal?»' : '«En el chat de guardias dicen que “Compensaciones ya está revisando a las analistas”. ¿Es verdad? No le he contado a nadie.»'}</p><p><mark class="clave">Faltan cuatro horas para tu reunión con ella</mark>.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Responderle que lo recibiste, que lo verán hoy a las 5 en la reunión, y escribirle de inmediato a Gustavo y a Fiorella con lo que te contó.',
@@ -223,8 +223,8 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Decirle que revisarás a las once con los mismos criterios, y que quien tenga una brecha sin justificar entrará en el mismo plan de dos años, aunque eso apriete el 4 %.',
         res: { q: 'buena', fx: { etica: 5, personas: 4, calidad: 2, confianza: -1 }, rel: { claudia: 1, renzo: -1 }, flags: ['analistas_todas'], cartera: { analistas: 'Revisión de las 11 analistas en curso' },
-          out: 'Claudia sonríe por primera vez en dos semanas. «Eso es lo que quería escuchar.» Al día siguiente, Gustavo te dirá que hay que rehacer la mitad del simulador.',
-          pro: { ok: 'La equidad no depende de quién se atrevió a preguntar.', risk: 'El costo es mayor y Renzo lo usará en tu contra.', info: 'Calcula el costo total antes del martes: lo vas a necesitar.' },
+          out: 'Claudia sonríe por primera vez en toda la semana. «Eso es lo que quería escuchar.» El lunes, Gustavo te dirá que hay que rehacer la mitad del simulador.',
+          pro: { ok: 'La equidad no depende de quién se atrevió a preguntar.', risk: 'El costo es mayor y Renzo lo usará en tu contra.', info: 'Calcula el costo total antes del lunes: lo vas a necesitar.' },
           kusi: ['celebra', '¡Equidad para las once, no solo para una!'] } },
       { id: 'b', label: 'Corregir solo a Claudia, que es la que presentó la consulta. Las demás pueden escribir si lo consideran.',
         res: { q: 'riesgosa', fx: { etica: -4, personas: -3 }, rel: { claudia: -1 }, flags: ['solo_claudia'], cartera: { analistas: 'Solo se corrige a Claudia' },
@@ -267,9 +267,9 @@ export const ESCENAS = [
       const q = buenas === 3 ? 'buena' : buenas === 2 ? 'aceptable' : 'riesgosa';
       return {
         q, fx: { confianza: q === 'buena' ? 5 : 1, calidad: q === 'buena' ? 2 : 0 }, rel: { fiorella: q === 'buena' ? 1 : 0 },
-        out: q === 'buena' ? 'Fiorella responde: «Tienes mi respaldo. Y prepárate: el martes Renzo viene con una “excepción”».' : 'Fiorella responde: «¿Y qué necesitas de mí?». Le explicas de nuevo, ya en el bus.',
+        out: q === 'buena' ? 'Fiorella responde: «Tienes mi respaldo. Y prepárate: el lunes Renzo viene con una “excepción”».' : 'Fiorella responde: «¿Y qué necesitas de mí?». Le explicas de nuevo, ya en el bus.',
         pro: { ok: 'Hallazgo, causa y pedido: un mensaje que una gerenta puede usar tal cual.', info: 'Guarda la tabla de criterios: será tu anexo para el comité.' },
-        kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Semana 2 cerrada con respaldo!' : 'Faltó el pedido concreto.'],
+        kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Semana 1 cerrada con respaldo!' : 'Faltó el pedido concreto.'],
       };
     },
     mirada: { ve: 'Una buena analista no solo encuentra la brecha: consigue el respaldo para corregirla. Pedir apoyo con datos es parte del trabajo.' },

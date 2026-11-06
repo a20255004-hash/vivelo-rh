@@ -13,14 +13,14 @@
 //   cómo justifican la diferencia. https://lpderecho.pe/discriminacion-salarial-basta-enunciar-criterios-salariales-explicados-justificados-correctamente-resolucion-0047-2025-sunafil-tfl-primera-sala/
 
 export const CAP = {
-  n: 4, titulo: 'La pregunta de Claudia', dia: 'Semana 2, martes', foto: 'assets/foto/frente-a-frente.webp',
+  n: 4, titulo: 'La pregunta de Claudia', dia: 'Semana 1, jueves', foto: 'assets/foto/frente-a-frente.webp',
   lugar: 'AndesTel · San Isidro, Lima',
   inicio: '08:10', fin: '19:00', cierreHora: '18:45',
-  apertura: 'Martes de la segunda semana. Anoche, a las 11:48 p. m., llegó un correo de Claudia Puma con un asunto corto: «Consulta sobre mi remuneración». Lo leíste en el bus y no pudiste dejar de pensar en él.', boton: 'Responder a Claudia',
+  apertura: 'Jueves. Anoche, a las 11:48 p. m., llegó un correo de Claudia Puma con un asunto corto: «Consulta sobre mi remuneración». Lo leíste en el bus y no pudiste dejar de pensar en él.', boton: 'Responder a Claudia',
   kusi: 'Hoy un número tiene voz propia. ¡A escuchar antes de calcular!',
   lead: 'Recibiste una consulta salarial, preparaste los datos correctos, escuchaste a Claudia, protegiste la información de otros, frenaste una presión y separaste criterios objetivos de prejuicios.',
   reflexion: '¿Qué te costaría más: decirle a alguien que gana menos de lo que debería, o decirle que no puedes contarle cuánto gana su compañero?',
-  siguiente: { n: 5, titulo: 'Los números de Claudia', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'Los números de Claudia', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -31,14 +31,14 @@ export const CARTERA = [
 ];
 
 export const FUTURO = {
-  claudia_escuchada: ['Claudia sintió que su consulta fue tomada en serio y supo cuándo tendría respuesta.', 'Llegará al jueves con confianza.'],
+  claudia_escuchada: ['Claudia sintió que su consulta fue tomada en serio y supo cuándo tendría respuesta.', 'Llegará al viernes con confianza.'],
   claudia_dato_revelado: ['Le contaste a Claudia el sueldo de un compañero.', 'Ese dato saldrá de la sala, y no será por ti.'],
   claudia_apurada: ['Le adelantaste a Claudia una conclusión antes de analizar.', 'Ella espera esa respuesta por escrito.'],
   renzo_frenado: ['Le pusiste límites a Renzo: la consulta de Claudia no se comenta ni tiene represalias.', 'Renzo lo recordará en «La excepción».'],
   claudia_expuesta: ['Le contaste a Renzo lo que Claudia te dijo.', 'Claudia lo sentirá en su trabajo.'],
-  argumentos_limpios: ['Descartaste los argumentos que no eran criterios objetivos, como la maternidad.', 'El análisis del jueves partirá de criterios verificables.'],
+  argumentos_limpios: ['Descartaste los argumentos que no eran criterios objetivos, como la maternidad.', 'El análisis del viernes partirá de criterios verificables.'],
   argumento_maternidad: ['Dejaste pasar «es mamá» como explicación de la brecha.', 'Ese papel puede aparecer en una inspección.'],
-  plan_brecha: ['Armaste un plan de análisis con criterios y plazo.', 'El jueves harás los números con él.'],
+  plan_brecha: ['Armaste un plan de análisis con criterios y plazo.', 'Mañana harás los números con él.'],
 };
 
 export const CHATS = {
@@ -52,11 +52,11 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'gustavo', t: '08:12', de: 'Gustavo', txt: 'Vi el correo de Claudia. Tú llevas la reunión; yo te respaldo. Escucha más de lo que hablas.' },
-  { chat: 'fiorella', t: '08:40', de: 'Fiorella', txt: 'El directorio aprobó revisar la categoría de redes. Buen trabajo el viernes.', si: 'cuadro_unificado' },
+  { chat: 'fiorella', t: '08:40', de: 'Fiorella', txt: 'El directorio aprobó revisar la categoría de redes. Buen trabajo ayer.', si: 'cuadro_unificado' },
   { chat: 'fiorella', t: '08:40', de: 'Fiorella', txt: 'En el directorio preguntaron por qué redes tiene dos categorías. No supe qué decir.', si: 'cuadro_sesgado' },
   { chat: 'wilber', t: '09:10', de: 'Wilber', txt: 'Esta semana renunciaron dos más. Ya no sé qué decirles a los chicos.', si: 'tecnicos_promesa' },
   { chat: 'renzo', t: '13:05', de: 'Renzo', txt: 'Me dicen que Claudia estuvo en tu sala toda la mañana. ¿Qué quería? Llámame.' },
-  { chat: 'claudia', t: '18:30', de: 'Claudia', txt: 'Gracias por escucharme hoy. Espero el jueves.', si: 'claudia_escuchada' },
+  { chat: 'claudia', t: '18:30', de: 'Claudia', txt: 'Gracias por escucharme hoy. Espero mañana.', si: 'claudia_escuchada' },
 ];
 
 export const CORREOS = [
@@ -110,7 +110,7 @@ export const ESCENAS = [
   },
   {
     id: 'd2', t: '09:10', ch: 'documento', who: null, titulo: 'Qué llevar a la reunión', banner: 'assets/esc/mesa.webp', lugar: 'Tu escritorio', show: ['calidad', 'etica'],
-    body: () => `<p>Tienes una hora para preparar la reunión. El sistema de planillas tarda en cargar: ruedita girando, como todos los martes de cierre.</p><p>Elige <mark class="clave">los tres datos</mark> que llevarías impresos.</p>`,
+    body: () => `<p>Tienes una hora para preparar la reunión. El sistema de planillas tarda en cargar: ruedita girando, como todos los jueves de cierre.</p><p>Elige <mark class="clave">los tres datos</mark> que llevarías impresos.</p>`,
     type: 'pick', n: 3, prompt: 'Elige los tres datos para preparar la reunión.', boton: 'Imprimir', resumen: 'Llevaste',
     cols: ['Dato', 'Para qué sirve'],
     rows: [
@@ -153,7 +153,7 @@ export const ESCENAS = [
       fx: { personas: 3, calidad: picks.includes('puesto') || picks.includes('antes') ? 4 : 2 },
       rel: { claudia: 1 },
       cartera: { claudia: picks.includes('puesto') ? 'Entró como «analista» por el nombre del sistema' : 'Consulta escuchada' },
-      out: picks.includes('puesto') ? 'Claudia confirma lo que encontraste el viernes: el nombre del puesto vino del sistema, no de su trabajo. Lo anotas sin decir nada todavía.' : 'Claudia habla más tranquila. Ya no aprieta la laptop.',
+      out: picks.includes('puesto') ? 'Claudia confirma lo que encontraste ayer: el nombre del puesto vino del sistema, no de su trabajo. Lo anotas sin decir nada todavía.' : 'Claudia habla más tranquila. Ya no aprieta la laptop.',
       kusi: ['curioso', 'Escuchar también es analizar.'],
     }),
     rules: [[BP, 'En una consulta salarial, primero entiende qué sabe y qué espera la persona; después explica.']],
@@ -167,16 +167,16 @@ export const ESCENAS = [
     body: () => `<p>Claudia abre la laptop. «Una sola cosa, directa: <mark class="clave">¿cuánto gana Diego?</mark> Hacemos lo mismo. Si me lo dices, entiendo todo.»</p><p>Tienes la cifra en tu hoja. También sabes, por el cuadro, por qué su puesto quedó en otra categoría. Pero el análisis completo todavía no está hecho.</p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'No darle el sueldo de Diego. Mostrarle su compa-ratio, su banda y el promedio de su categoría, y comprometerte a una respuesta por escrito el jueves con los criterios.',
-        res: { q: 'buena', fx: { etica: 4, personas: 3, cumplimiento: 3 }, rel: { claudia: 1 }, flags: ['claudia_escuchada'], cartera: { claudia: 'Respuesta escrita comprometida para el jueves' },
-          out: 'Claudia mira el gráfico de la banda un buen rato. «Estoy en el mínimo.» Respira. «Está bien. El jueves.» Al salir te da la mano.',
-          pro: { ok: 'Eres transparente con su caso y con las reglas, y proteges los datos de otro.', risk: 'Puede sentir que le escondes algo.', info: 'Cumple el plazo: si el jueves no hay respuesta, pierdes todo lo ganado hoy.' },
+      { id: 'a', label: 'No darle el sueldo de Diego. Mostrarle su compa-ratio, su banda y el promedio de su categoría, y comprometerte a una respuesta por escrito mañana con los criterios.',
+        res: { q: 'buena', fx: { etica: 4, personas: 3, cumplimiento: 3 }, rel: { claudia: 1 }, flags: ['claudia_escuchada'], cartera: { claudia: 'Respuesta escrita comprometida para mañana' },
+          out: 'Claudia mira el gráfico de la banda un buen rato. «Estoy en el mínimo.» Respira. «Está bien. Mañana.» Al salir te da la mano.',
+          pro: { ok: 'Eres transparente con su caso y con las reglas, y proteges los datos de otro.', risk: 'Puede sentir que le escondes algo.', info: 'Cumple el plazo: si mañana no hay respuesta, pierdes todo lo ganado hoy.' },
           kusi: ['animo', 'Transparente con ella, reservada con los demás.'] } },
       { id: 'b', label: 'Decirle que sí, que su brecha existe y se debe a que su puesto quedó mal categorizado, aunque falte terminar el análisis.',
         res: { q: 'aceptable', fx: { personas: 4, cumplimiento: -2, calidad: -2 }, rel: { claudia: 1 }, flags: ['claudia_apurada'], cartera: { claudia: 'Conclusión adelantada sin análisis' },
-          out: 'A Claudia se le humedecen los ojos. «Lo sabía.» Sale aliviada. Tú te quedas pensando: ¿y si el jueves aparece otro factor?',
+          out: 'A Claudia se le humedecen los ojos. «Lo sabía.» Sale aliviada. Tú te quedas pensando: ¿y si mañana aparece otro factor?',
           pro: { ok: 'Eres honesta con lo que ya encontraste.', risk: 'Una conclusión antes del análisis compromete a la empresa y a ti si luego hay matices.' },
-          kusi: ['sorpresa', '¿No era el jueves la respuesta?'] } },
+          kusi: ['sorpresa', '¿No era mañana la respuesta?'] } },
       { id: 'c', label: 'Decirle la cifra de Diego: ella ya la intuye, y la transparencia genera confianza.',
         res: { q: 'riesgosa', fx: { etica: -4, cumplimiento: -5 }, flags: ['claudia_dato_revelado'], cartera: { claudia: 'Sueldo de un tercero revelado' },
           out: 'Claudia anota la cifra. «Gracias por ser sincera.» Esa tarde, en el chat de guardias, alguien escribe: «¿Es cierto que Diego gana…?».',
@@ -245,8 +245,8 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'd7', t: '17:30', ch: 'documento', who: null, titulo: 'El plan para el jueves', banner: 'assets/esc/meta.webp', lugar: 'Tu escritorio, con la oficina vaciándose', show: ['calidad', 'tiempo', 'cumplimiento'],
-    body: (n, F) => `<p>Prometiste ${F.has('claudia_escuchada') ? 'una respuesta escrita para el jueves' : 'darle una respuesta a Claudia'}. Fiorella quiere ver mañana el plan del informe antes de que hagas los números.</p><p>Arma la estructura. <mark class="clave">Cada pieza tiene que poder probarse</mark>.</p>`,
+    id: 'd7', t: '17:30', ch: 'documento', who: null, titulo: 'El plan para mañana', banner: 'assets/esc/meta.webp', lugar: 'Tu escritorio, con la oficina vaciándose', show: ['calidad', 'tiempo', 'cumplimiento'],
+    body: (n, F) => `<p>Prometiste ${F.has('claudia_escuchada') ? 'una respuesta escrita para mañana' : 'darle una respuesta a Claudia'}. Fiorella quiere ver el plan del informe esta noche, antes de que hagas los números.</p><p>Arma la estructura. <mark class="clave">Cada pieza tiene que poder probarse</mark>.</p>`,
     type: 'builder', prompt: 'Arma el plan del informe de brecha.', boton: 'Enviar el plan a Fiorella',
     bloques: [
       { id: 'preg', t: 'Pregunta que respondes', n: 1, ops: [
@@ -265,7 +265,7 @@ export const ESCENAS = [
         { id: 'k2', t: 'Solo con Diego.', ok: false, por: 'Un solo caso no muestra si hay un patrón.' },
       ] },
       { id: 'plazo', t: 'Plazo y salida', n: 1, ops: [
-        { id: 'z1', t: 'Respuesta escrita a Claudia el jueves, y propuesta de corrección para la revisión salarial si la brecha no se justifica.', ok: true, por: 'Cumples tu palabra y conectas el caso con el presupuesto del 4 %.' },
+        { id: 'z1', t: 'Respuesta escrita a Claudia mañana, y propuesta de corrección para la revisión salarial si la brecha no se justifica.', ok: true, por: 'Cumples tu palabra y conectas el caso con el presupuesto del 4 %.' },
         { id: 'z2', t: 'Respuesta cuando termine la revisión salarial.', ok: false, por: 'Rompe el plazo que le diste.' },
       ] },
     ],
@@ -275,9 +275,9 @@ export const ESCENAS = [
         q, fx: { calidad: q === 'buena' ? 5 : 1, cumplimiento: q === 'buena' ? 3 : 0, tiempo: q === 'buena' ? 2 : -1 },
         rel: { fiorella: q === 'buena' ? 1 : 0 }, flags: q === 'buena' ? ['plan_brecha'] : [],
         cartera: { plan: q === 'buena' ? 'Plan con pregunta, criterios, grupo y plazo' : 'Plan con huecos' },
-        out: q === 'buena' ? 'Fiorella lo aprueba desde su celular, camino a su casa en La Molina: «Así. Y que el jueves cada número tenga su fuente».' : 'Fiorella responde: «¿Contra quién comparas? ¿Y cuándo le respondemos?».',
+        out: q === 'buena' ? 'Fiorella lo aprueba desde su celular, camino a su casa en La Molina: «Así. Y que mañana cada número tenga su fuente».' : 'Fiorella responde: «¿Contra quién comparas? ¿Y cuándo le respondemos?».',
         pro: { ok: 'Pregunta clara, criterios verificables, grupo correcto y plazo cumplido.', info: 'Pide hoy los datos de antigüedad y certificaciones: mañana Selección y Capacitación estarán en otra cosa.' },
-        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Plan listo para el jueves!' : 'Le faltan piezas al plan.'],
+        kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Plan listo para mañana!' : 'Le faltan piezas al plan.'],
       };
     },
     rules: [[BP, 'Un análisis de brecha compara a todas las personas que hacen el mismo trabajo y verifica cada criterio con datos.']],

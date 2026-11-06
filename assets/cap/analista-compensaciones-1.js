@@ -11,7 +11,7 @@ export const CAP = {
   kusi: 'Aquí los números hablan de justicia. ¡Ojo con cada decimal!',
   lead: 'Entendiste cómo se hace una revisión salarial, calculaste tu primer compa-ratio, limpiaste una política que discriminaba y no cediste a un aumento por presión.',
   reflexion: '¿Qué te parece más difícil: hacer el cálculo o explicar por qué alguien gana lo que gana?',
-  siguiente: { n: 2, titulo: 'La encuesta', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'La encuesta', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -22,7 +22,7 @@ export const CARTERA = [
 ];
 
 export const FUTURO = {
-  politica_limpia: ['La política ya no castiga a quienes tuvieron licencia de maternidad.', 'Fiorella lo defenderá ante el comité en el capítulo 9.'],
+  politica_limpia: ['La política ya no castiga a quienes tuvieron licencia de maternidad.', 'Fiorella lo defenderá ante el comité en el capítulo 8.'],
   politica_sucia: ['La política sigue excluyendo a las mujeres con licencia de maternidad.', 'Una ingeniera lo descubrirá en el capítulo 5.'],
   renzo_criterio: ['No aprobaste el 20 % para el favorito de Renzo sin mirar la equidad.', 'Renzo volverá con más presión en el capítulo 6.'],
   renzo_cede: ['Aprobaste un 20 % sin criterio para un ingeniero que amenazó con irse.', 'Claudia se enterará en el capítulo 5.'],
@@ -44,7 +44,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '08:40', de: 'Gustavo Herrera', para: 'Analista de Compensaciones', asunto: 'Revisión salarial 2027', html: '<p>Bienvenida. Este mes cerramos la revisión salarial: el directorio aprobó un presupuesto del <b>4 % de la planilla</b>.</p><p>Nuestro trabajo es que ese 4 % se reparta con criterio: mercado, desempeño y equidad. Y que cada gerente pueda explicar a su gente por qué recibió lo que recibió.</p><p>Gustavo</p>' },
+  { t: '08:40', de: 'Gustavo Herrera', para: 'Analista de Compensaciones', asunto: 'Revisión salarial 2027', html: '<p>Bienvenida. En estas dos semanas cerramos la revisión salarial: el directorio aprobó un presupuesto del <b>4 % de la planilla</b>.</p><p>Nuestro trabajo es que ese 4 % se reparta con criterio: mercado, desempeño y equidad. Y que cada gerente pueda explicar a su gente por qué recibió lo que recibió.</p><p>Gustavo</p>' },
 ];
 
 export const QUIZ = [

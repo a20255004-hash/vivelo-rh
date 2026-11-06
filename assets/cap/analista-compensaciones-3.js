@@ -10,14 +10,14 @@
 //   (referida en https://juris.pe/blog/igualdad-salarial-cuadro-categorias-funciones-politica-salarial/).
 
 export const CAP = {
-  n: 3, titulo: 'El cuadro de categorías', dia: 'Semana 1, viernes', foto: 'assets/foto/mesa-papeles.webp',
+  n: 3, titulo: 'El cuadro de categorías', dia: 'Semana 1, miércoles', foto: 'assets/foto/mesa-papeles.webp',
   lugar: 'AndesTel · San Isidro, Lima',
   inicio: '08:00', fin: '18:45', cierreHora: '18:30',
-  apertura: 'Viernes de vestimenta casual en AndesTel: medio piso llegó en zapatillas. Gustavo te recibe con un archivo de 2019 que nadie actualizó desde la fusión con CableSur.', boton: 'Abrir el cuadro',
+  apertura: 'Miércoles de cumpleaños del mes en AndesTel: hay torta en el comedor a la una. Gustavo te recibe con un archivo de 2019 que nadie actualizó desde la fusión con CableSur.', boton: 'Abrir el cuadro',
   kusi: 'Hoy ordenamos puestos, no personas. ¡A mirar qué hace cada uno de verdad!',
   lead: 'Encontraste dos puestos iguales con nombres distintos, lo confirmaste con las áreas, elegiste factores objetivos, resististe una presión para mantener la diferencia y pusiste en orden cómo se comunica el cuadro.',
   reflexion: 'Si mañana te cambiaran el nombre del puesto sin cambiar tu trabajo, ¿cómo te enterarías de que eso afecta tu sueldo?',
-  siguiente: { n: 4, titulo: 'La pregunta de Claudia', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'La pregunta de Claudia', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
@@ -49,9 +49,9 @@ export const WSP = [
   { chat: 'grupo', t: '08:02', de: 'Gustavo', txt: 'Hoy: «CUADRO_CATEGORIAS_2019_def.xlsx». Prepárate para sufrir un poquito 😅' },
   { chat: 'wilber', t: '08:15', de: 'Wilber', txt: 'Ingeniera, los chicos ya preguntan cuánto es el aumento. Les dije que pronto. ¿Pronto es cuánto?', si: 'tecnicos_promesa' },
   { chat: 'wilber', t: '08:15', de: 'Wilber', txt: 'Ayer les dije lo que conversamos. Nadie renunció. Hasta me aplaudieron un poco 😄', si: 'tecnicos_honesto' },
-  { chat: 'fiorella', t: '09:05', de: 'Fiorella', txt: 'Me contaron que la planilla de Tecnología apareció en una carpeta de Finanzas. ¿Sabes algo? Lo vemos el lunes.', si: 'sueldos_filtrados' },
+  { chat: 'fiorella', t: '09:05', de: 'Fiorella', txt: 'Me contaron que la planilla de Tecnología apareció en una carpeta de Finanzas. ¿Sabes algo? Lo vemos esta semana.', si: 'sueldos_filtrados' },
   { chat: 'renzo', t: '12:55', de: 'Renzo', txt: '¿Estás en tu sitio? Bajo un ratito, es sobre el cuadro.' },
-  { chat: 'gustavo', t: '18:20', de: 'Gustavo', txt: 'Buen viernes. El martes tienes reunión con Claudia Puma: pidió hablar con Compensaciones.' },
+  { chat: 'gustavo', t: '18:20', de: 'Gustavo', txt: 'Buen día. Mañana tienes reunión con Claudia Puma: pidió hablar con Compensaciones.' },
 ];
 
 export const CORREOS = [
@@ -120,7 +120,7 @@ export const ESCENAS = [
           kusi: ['triste', 'Ocho años de guardias… y «junior».'] } },
       { id: 'c', label: 'Las llamadas no bastan: esperar a tener descripciones de puesto formales antes de concluir nada.',
         res: { q: 'aceptable', fx: { calidad: 1, tiempo: -2 }, cartera: { redes: 'Pendiente de descripciones formales' },
-          out: 'Pides las descripciones. Marco responde: «¿Descripciones? La última es de 2017». El comité es en tres semanas.',
+          out: 'Pides las descripciones. Marco responde: «¿Descripciones? La última es de 2017». El comité es la próxima semana.',
           pro: { ok: 'Buscas documentar.', risk: 'Esperar un documento que no existe paraliza una corrección que ya tiene pruebas.' },
           kusi: ['pensando', 'A veces la prueba ya la tienes.'] } },
     ],
@@ -244,18 +244,18 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'c7', t: '18:10', ch: 'correo', who: null, titulo: 'Antes del fin de semana', banner: 'assets/foto2/caminan.webp', show: ['confianza', 'calidad'],
+    id: 'c7', t: '18:10', ch: 'correo', who: null, titulo: 'Antes del directorio', banner: 'assets/foto2/caminan.webp', show: ['confianza', 'calidad'],
     mail: { from: 'Fiorella Gamarra', to: 'Analista de Compensaciones', asunto: 'RE: Cuadro de categorías' },
-    body: (n, F) => `<p>¿Qué es lo más importante que encontraste hoy? Una línea, por favor. El lunes tengo directorio.</p><p>F.</p><p>${F.has('cuadro_sesgado') ? 'Piensas en la fila de redes, que quedó como estaba.' : 'Piensas en la fila de redes y en Lucía.'} <mark class="clave">Una línea</mark>.</p>`,
+    body: (n, F) => `<p>¿Qué es lo más importante que encontraste hoy? Una línea, por favor. Mañana temprano tengo directorio.</p><p>F.</p><p>${F.has('cuadro_sesgado') ? 'Piensas en la fila de redes, que quedó como estaba.' : 'Piensas en la fila de redes y en Lucía.'} <mark class="clave">Una línea</mark>.</p>`,
     type: 'choice',
     choices: [
       { id: 'a', label: 'El puesto de analista de redes es el de ingeniero con otro nombre, y casi todas sus ocupantes son mujeres.',
         res: { q: 'buena', fx: { confianza: 5, cumplimiento: 2 }, rel: { fiorella: 1 }, responde: 'Fiorella: «Analista de redes» e «Ingeniero de redes» son el mismo puesto (funciones, requisitos y guardias confirmados), pero estaban en categorías distintas; 9 de 11 analistas son mujeres. Es nuestro mayor riesgo frente a la Ley 30709.',
-          out: 'Fiorella responde: «Eso va al directorio. Y el martes, cuando hables con Claudia, ya sabes por dónde empezar».', kusi: ['celebra', 'Una línea que pesa.'] } },
+          out: 'Fiorella responde: «Eso va al directorio. Y mañana, cuando hables con Claudia, ya sabes por dónde empezar».', kusi: ['celebra', 'Una línea que pesa.'] } },
       { id: 'b', label: 'El cuadro de 2019 estaba muy desordenado, pero ya avanzamos bastante.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Fiorella: el cuadro de 2019 estaba muy desordenado, pero ya avanzamos bastante.',
           out: 'Fiorella responde: «Ok, gracias». El hallazgo más importante del día no llegó al directorio.', kusi: ['pensando', '¿Y lo de redes?'] } },
     ],
-    mirada: { ve: 'Una gerenta con poco tiempo necesita el riesgo principal, con su prueba. Lo demás puede esperar al lunes.' },
+    mirada: { ve: 'Una gerenta con poco tiempo necesita el riesgo principal, con su prueba. Lo demás puede esperar.' },
   },
 ];

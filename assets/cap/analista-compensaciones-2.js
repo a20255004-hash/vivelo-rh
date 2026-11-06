@@ -7,14 +7,14 @@
 // - Ley 30709 (igualdad remunerativa), ya citada en el capítulo 1.
 
 export const CAP = {
-  n: 2, titulo: 'La encuesta', dia: 'Semana 1, miércoles', foto: 'assets/foto/revisa.webp',
+  n: 2, titulo: 'La encuesta', dia: 'Semana 1, martes', foto: 'assets/foto/revisa.webp',
   lugar: 'AndesTel · San Isidro, Lima',
   inicio: '08:20', fin: '19:30', cierreHora: '19:15',
-  apertura: 'Miércoles. El Corredor Rojo por Javier Prado avanza a paso de tortuga y llegas con el café a medio tomar. Sobre tu teclado hay un USB con una etiqueta: «Encuesta 2026 · CONFIDENCIAL».', boton: 'Abrir la encuesta',
+  apertura: 'Martes. El Corredor Rojo por Javier Prado avanza a paso de tortuga y llegas con el café a medio tomar. Sobre tu teclado hay un USB con una etiqueta: «Encuesta 2026 · CONFIDENCIAL».', boton: 'Abrir la encuesta',
   kusi: 'Hoy el mercado te dice cuánto vale cada puesto afuera. ¡A escucharlo con lupa!',
   lead: 'Interrogaste una encuesta de mercado, corregiste un match de puestos, escuchaste a campo, cuidaste datos confidenciales y armaste tu primer análisis de mercado.',
   reflexion: 'Si tú fueras técnica de campo y supieras que el mercado paga 25 % más, ¿qué esperarías de tu empresa?',
-  siguiente: { n: 3, titulo: 'El cuadro de categorías', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'El cuadro de categorías', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -46,7 +46,7 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '08:21', de: 'Gustavo', txt: 'Te dejé el USB de la encuesta. No sale de la oficina, ni en foto 🙏' },
-  { chat: 'gustavo', t: '08:24', de: 'Gustavo', txt: 'Lo del lunes con Renzo sigue dando vueltas: Diego ya firmó su aumento. Hoy no es tema, pero tenlo en cuenta.', si: 'renzo_cede' },
+  { chat: 'gustavo', t: '08:24', de: 'Gustavo', txt: 'Lo de ayer con Renzo sigue dando vueltas: Diego ya firmó su aumento. Hoy no es tema, pero tenlo en cuenta.', si: 'renzo_cede' },
   { chat: 'fiorella', t: '08:30', de: 'Fiorella', txt: 'La política corregida ya está con los gerentes. Nadie preguntó por la cláusula que quitamos. Mejor así.', si: 'politica_limpia' },
   { chat: 'patricia', t: '13:12', de: 'Patricia', txt: 'Holaa, soy Patricia de Presupuesto 😊 ¿Me pasas rapidito los sueldos de todo Tecnología? Es para cuadrar 2027, lo necesito antes de las 3.' },
   { chat: 'wilber', t: '16:05', de: 'Wilber', txt: 'Ingeniera, ¿tiene 5 minutos? Estoy en el piso 2, acabo de llegar de Huachipa.' },
@@ -71,7 +71,7 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'e1', t: '08:40', ch: 'presencial', who: 'gustavo', titulo: 'Interrogar a la encuesta', banner: 'assets/esc/lupa.webp', lugar: 'Piso 9, cubículo de Compensaciones', show: ['calidad', 'tiempo'],
-    body: (n, F) => `<p>Gustavo abre el informe: 412 páginas, tablas en soles, percentiles P25, P50 y P75. ${F.has('compa_bien') ? '«Con el compa-ratio del lunes ya sabes mirar adentro. Hoy miramos afuera.»' : '«El lunes miramos adentro. Hoy miramos afuera.»'}</p><p>«Antes de creerle a un número, <mark class="clave">pregúntale de dónde sale</mark>. Tienes tiempo para dos preguntas; a las nueve tengo comité.»</p>`,
+    body: (n, F) => `<p>Gustavo abre el informe: 412 páginas, tablas en soles, percentiles P25, P50 y P75. ${F.has('compa_bien') ? '«Con el compa-ratio de ayer ya sabes mirar adentro. Hoy miramos afuera.»' : '«El lunes miramos adentro. Hoy miramos afuera.»'}</p><p>«Antes de creerle a un número, <mark class="clave">pregúntale de dónde sale</mark>. Tienes tiempo para dos preguntas; a las nueve tengo comité.»</p>`,
     type: 'ask', max: 2, prompt: '¿Qué le preguntas a Gustavo sobre la encuesta?',
     opts: [
       { id: 'fecha', label: '¿Cuándo se recogieron los datos?', info: '«En abril. Y nuestra revisión rige desde enero. Entre abril y enero el mercado sigue moviéndose: hay que proyectar el dato, con un supuesto que todos puedan ver.»' },
@@ -226,7 +226,7 @@ export const ESCENAS = [
     body: () => `<p>Wilber llega con el chaleco naranja todavía puesto y polvo de obra en las botas. Habla bajito, junto a la máquina de café que solo da café aguado.</p><p>«Ingeniera, mañana tengo reunión con los técnicos a las seis de la mañana. <mark class="clave">Si les digo que viene un aumento, se me quedan</mark>. ¿Les puedo decir que sí?»</p><p>La revisión no está aprobada. Nadie sabe todavía cuánto tocará a los técnicos.</p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Decirle que puede contar que la empresa está revisando los sueldos de campo frente al mercado y que en un mes habrá respuesta, sin dar cifras ni prometer montos.',
+      { id: 'a', label: 'Decirle que puede contar que la empresa está revisando los sueldos de campo frente al mercado y que en unos diez días habrá respuesta, sin dar cifras ni prometer montos.',
         res: { q: 'buena', fx: { etica: 4, personas: 2, confianza: 2 }, flags: ['tecnicos_honesto'], cartera: { tecnicos: 'Mensaje honesto acordado con Wilber' },
           out: 'Wilber lo piensa. «No es lo que quería… pero es verdad. Prefiero eso a mentirles.» Anota la frase en su libreta de tapa dura.',
           pro: { ok: 'Das una señal real sin comprometer lo que no está aprobado.', risk: 'Puede que alguno se vaya igual esta semana.', info: 'Cuéntale a Gustavo y a Fiorella qué se dirá: que nadie se sorprenda.' },
@@ -245,7 +245,7 @@ export const ESCENAS = [
     rules: [[BP, 'No prometas incrementos antes de su aprobación; sí puedes comunicar que hay una revisión en curso y cuándo habrá respuesta.']],
     mirada: {
       ve: 'Entre el secreto total y la promesa hay un punto medio honesto: decir lo que es verdad hoy. Los equipos aguantan la incertidumbre mejor que una promesa incumplida.',
-      visual: { tipo: 'linea', titulo: 'Qué se puede decir y cuándo', hitos: [['Hoy', 'Hay una revisión en curso'], ['Semana 4', 'El comité decide'], ['Fin de mes', 'Cada técnico recibe su carta']] },
+      visual: { tipo: 'linea', titulo: 'Qué se puede decir y cuándo', hitos: [['Hoy', 'Hay una revisión en curso'], ['Semana 2', 'El comité decide'], ['Fin de la semana 2', 'Cada técnico recibe su carta']] },
     },
   },
   {
@@ -272,7 +272,7 @@ export const ESCENAS = [
       const q = buenas === 3 ? 'buena' : buenas === 2 ? 'aceptable' : 'riesgosa';
       return {
         q, fx: { confianza: q === 'buena' ? 4 : 1, calidad: q === 'buena' ? 3 : 0 }, rel: { gustavo: q === 'buena' ? 1 : 0 },
-        out: q === 'buena' ? 'Gustavo responde: «Perfecto. Y sí: antes de repartir, el viernes ordenamos el cuadro de categorías. Vas a ver qué desorden».' : 'Gustavo responde: «Ok. Mañana lo afinamos». Sales a buscar el bus con la sensación de que faltó algo.',
+        out: q === 'buena' ? 'Gustavo responde: «Perfecto. Y sí: antes de repartir, mañana ordenamos el cuadro de categorías. Vas a ver qué desorden».' : 'Gustavo responde: «Ok. Mañana lo afinamos». Sales a buscar el bus con la sensación de que faltó algo.',
         pro: { ok: 'Dato, contexto y propuesta: tres líneas que un jefe puede reenviar tal cual.', info: 'Guarda este mensaje: será el borrador de tu presentación al comité.' },
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Mensaje redondo!' : 'Casi: dato, contexto y propuesta.'],
       };
