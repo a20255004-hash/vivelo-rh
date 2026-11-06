@@ -12,19 +12,19 @@ export const CAP = {
   kusi: 'Aquí cuidamos que todos vuelvan a casa. ¡Con casco y con voz firme!',
   lead: 'Preparaste y diste tu primera charla, recorriste la obra con ojos de prevencionista, paraste una tarea insegura y escuchaste a quien representa a los trabajadores.',
   reflexion: '¿Qué viste hoy en la obra que antes no habrías notado?',
-  siguiente: { n: 2, titulo: 'La matriz', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'La matriz', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
   { id: 'charlas', p: 'Charlas de 5 minutos', j: 'Ingrid · SSOMA', d: 0, e: 'Cada día a las 7:00' },
-  { id: 'piso12', p: 'Vaciado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'En 3 semanas' },
+  { id: 'piso12', p: 'Vaciado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'Jueves de la semana 2' },
   { id: 'iperc', p: 'Matriz IPERC', j: 'Ingrid · SSOMA', d: 0, e: 'Última revisión: hace 5 meses' },
   { id: 'comite', p: 'Comité de SST', j: 'Marleny · Trabajadores', d: 0, e: 'Sin reunión desde junio' },
   { id: 'epp', p: 'Equipos de protección', j: 'Almacén', d: 0, e: 'Sin inventario' },
 ];
 
 export const FUTURO = {
-  charla_viva: ['Tu charla terminó con una pregunta que alguien respondió.', 'Los obreros te escucharán mejor el miércoles.'],
+  charla_viva: ['Tu charla terminó con una pregunta que alguien respondió.', 'Los obreros te escucharán mejor mañana.'],
   charla_leida: ['Leíste la charla del papel y nadie te miró.', 'Tendrás que ganarte la atención otra vez en el capítulo 2.'],
   borde_reportado: ['Reportaste el borde sin baranda del piso 11.', 'Ingrid lo llevará a la matriz IPERC en el capítulo 2.'],
   tarea_parada: ['Paraste el corte con amoladora hasta que Jhonatan tuvo lentes y guantes.', 'Don Segundo no lo olvidará. Capítulo 3.'],
@@ -47,7 +47,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '06:30', de: 'Ing. Ingrid Delgado', para: 'Asistente SSOMA', asunto: 'Tu primera semana en obra', html: '<p>Bienvenida. En tres semanas vaciamos el piso 12 y la presión por avanzar va a ser enorme. Nuestro trabajo es que el avance no cueste una vida.</p><p>Tu rutina: charla a las 7:00, recorrido de la obra, registros y apoyo al comité. Si ves algo que pueda matar o herir a alguien, lo paras y me llamas. En ese orden.</p><p>Ingrid</p>' },
+  { t: '06:30', de: 'Ing. Ingrid Delgado', para: 'Asistente SSOMA', asunto: 'Tu primera semana en obra', html: '<p>Bienvenida. El jueves de la próxima semana vaciamos el piso 12 y la presión por avanzar va a ser enorme. Nuestro trabajo es que el avance no cueste una vida.</p><p>Tu rutina: charla a las 7:00, recorrido de la obra, registros y apoyo al comité. Si ves algo que pueda matar o herir a alguien, lo paras y me llamas. En ese orden.</p><p>Ingrid</p>' },
 ];
 
 export const QUIZ = [

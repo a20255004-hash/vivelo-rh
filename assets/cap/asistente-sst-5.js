@@ -13,22 +13,22 @@
 //   https://buenaventura.com/wp-content/uploads/2024/10/NORMA-G.050-Seguridad-durante-la-construccion-DS-N°-010-2009.pdf
 
 export const CAP = {
-  n: 5, titulo: 'El accidente', dia: 'Semana 2, jueves', foto: 'assets/esc/alarma.webp',
+  n: 5, titulo: 'El accidente', dia: 'Semana 1, viernes', foto: 'assets/esc/alarma.webp',
   lugar: 'Constructora Lambayeque · Obra en Chiclayo',
   inicio: '07:00', fin: '18:45', cierreHora: '18:25',
-  apertura: 'Jueves. A las diez y veinte, un grito en el piso 3 corta el ruido de la obra.', boton: 'Empezar el día',
+  apertura: 'Viernes. A las diez y veinte, un grito en el piso 3 corta el ruido de la obra.', boton: 'Empezar el día',
   kusi: 'Hoy toca lo más difícil: responder rápido y decir la verdad. ¡Respira, que tú puedes!',
   lead: 'Revisaste la amoladora temprano, atendiste el accidente de Jhonatan, enfrentaste la presión para no registrarlo, acompañaste a su familia, corregiste el registro y preparaste una alerta sin culpables.',
   reflexion: '¿Qué le debe la empresa a alguien que se lastima trabajando para ella?',
-  siguiente: { n: 6, titulo: 'La investigación', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La investigación', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
   { id: 'accidente', p: 'Accidente de Jhonatan', j: 'Ingrid · SSOMA', d: 0, e: 'Hoy, 10:20' },
   { id: 'registro', p: 'Registro de accidentes', j: 'Ingrid · SSOMA', d: 0, e: 'Sin registros este año' },
   { id: 'capacitacion', p: 'Capacitación en altura', j: 'Ingrid · SSOMA', d: 0, e: 'Hoy a las 7:00' },
-  { id: 'piso12', p: 'Encofrado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'Día 3 de 4' },
-  { id: 'comite', p: 'Comité de SST', j: 'Marleny · Trabajadores', d: 0, e: 'Fecha tentativa: semana 3' },
+  { id: 'piso12', p: 'Encofrado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'Día 2 de 4' },
+  { id: 'comite', p: 'Comité de SST', j: 'Marleny · Trabajadores', d: 0, e: 'Fecha tentativa: martes de la semana 2' },
 ];
 
 export const FUTURO = {
@@ -38,7 +38,7 @@ export const FUTURO = {
   guarda_retirada: ['Sabes que alguien sacó la guarda de la amoladora y puso un disco más grande.', 'Capítulo 6: ¿quién lo hizo y por qué?'],
   registro_corregido: ['Corregiste el registro: ya no dice «descuido del trabajador».', 'Renzo y Segundo esperan otra cosa de la investigación. Capítulo 6.'],
   registro_culpa: ['El registro quedó con «descuido del trabajador» como causa.', 'Tendrás que desmontarlo en el capítulo 6.'],
-  alerta_sin_culpa: ['Preparaste una alerta de seguridad que explica qué falló sin señalar a Jhonatan.', 'Mañana la obra entera hablará de la guarda, no de él.'],
+  alerta_sin_culpa: ['Preparaste una alerta de seguridad que explica qué falló sin señalar a Jhonatan.', 'El lunes la obra entera hablará de la guarda, no de él.'],
   jhonatan_tranquilo: ['Le escribiste a Jhonatan que su trabajo no está en riesgo y que querías escuchar su versión.', 'Te la contará en el capítulo 6.'],
 };
 
@@ -77,7 +77,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'e1', t: '07:15', ch: 'presencial', who: 'jhonatan', titulo: 'Piso 3, temprano', banner: 'assets/foto/plano-equipo.webp', lugar: 'Piso 3', show: ['calidad', 'personas', 'tiempo'],
-    body: (n, F) => `<p>${F.has('amoladora_aviso') ? 'Subrayaste dos veces en tu libreta: «Jueves, piso 3, Jhonatan, amoladora». ' : ''}Antes de ir a la capacitación de altura pasas por el piso 3. Jhonatan corta platinas sobre un caballete, con lentes, careta y guantes. A su lado, una pila de platinas marcadas con tiza.${F.has('tarea_sigue') ? ' Esta vez sí tiene su equipo completo, aunque todavía le falta práctica.' : ''}</p><p>«Don Segundo quiere sesenta para el mediodía, ingeniera.» Sesenta platinas en cinco horas. <mark class="clave">Tienes diez minutos antes de que empiece la capacitación</mark>.</p>`,
+    body: (n, F) => `<p>${F.has('amoladora_aviso') ? 'Subrayaste dos veces en tu libreta: «Viernes, piso 3, Jhonatan, amoladora». ' : ''}Antes de ir a la capacitación de altura pasas por el piso 3. Jhonatan corta platinas sobre un caballete, con lentes, careta y guantes. A su lado, una pila de platinas marcadas con tiza.${F.has('tarea_sigue') ? ' Esta vez sí tiene su equipo completo, aunque todavía le falta práctica.' : ''}</p><p>«Don Segundo quiere sesenta para el mediodía, ingeniera.» Sesenta platinas en cinco horas. <mark class="clave">Tienes diez minutos antes de que empiece la capacitación</mark>.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
       { id: 'a', label: 'Revisar la amoladora con él: guarda puesta, disco de corte de 4½ pulgadas como dice la herramienta, y anotarlo con la hora en tu libreta.',
@@ -195,12 +195,12 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'e6', t: '16:30', ch: 'documento', who: null, titulo: 'La alerta de mañana', banner: 'assets/esc/idea.webp', lugar: 'Caseta de SSOMA', show: ['calidad', 'personas', 'confianza'],
-    body: (n, F) => `<p>En el grupo de la obra ya circulan versiones: que Jhonatan «estaba jugando», que «era nuevo», que «se le cayó la amoladora». Ingrid te pide preparar la alerta de seguridad para la charla de mañana a las 7:00.</p><p>${F.has('guarda_retirada') || F.has('escena_preservada') ? 'Tú viste la amoladora sin guarda. ' : ''}<mark class="clave">Lo que digas mañana va a definir qué recuerda la obra de este día</mark>.</p>`,
+    id: 'e6', t: '16:30', ch: 'documento', who: null, titulo: 'La alerta del lunes', banner: 'assets/esc/idea.webp', lugar: 'Caseta de SSOMA', show: ['calidad', 'personas', 'confianza'],
+    body: (n, F) => `<p>En el grupo de la obra ya circulan versiones: que Jhonatan «estaba jugando», que «era nuevo», que «se le cayó la amoladora». Ingrid te pide preparar la alerta de seguridad para la charla del lunes a las 7:00.</p><p>${F.has('guarda_retirada') || F.has('escena_preservada') ? 'Tú viste la amoladora sin guarda. ' : ''}<mark class="clave">Lo que digas el lunes va a definir qué recuerda la obra de este día</mark>.</p>`,
     type: 'builder', prompt: 'Elige las piezas de la alerta de seguridad.', boton: 'Enviar la alerta a Ingrid',
     bloques: [
       { id: 'que', t: 'Qué pasó', n: 1, ops: [
-        { id: 'q1', t: 'Ayer a las 10:20, un compañero se cortó la mano con una amoladora en el piso 3. Está bien y se está recuperando.', ok: true, por: 'Hechos, sin nombre y con lo que todos quieren saber: que está bien.' },
+        { id: 'q1', t: 'El viernes a las 10:20, un compañero se cortó la mano con una amoladora en el piso 3. Está bien y se está recuperando.', ok: true, por: 'Hechos, sin nombre y con lo que todos quieren saber: que está bien.' },
         { id: 'q2', t: 'Jhonatan se descuidó y se cortó la mano.', ok: false, por: 'Nombre y culpa en la misma frase: nadie volverá a reportar nada.' },
       ] },
       { id: 'falla', t: 'Qué falló', n: 2, ops: [
@@ -219,7 +219,7 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : 1, personas: q === 'buena' ? 4 : -2, confianza: q === 'buena' ? 2 : 0 },
         flags: q === 'riesgosa' ? [] : ['alerta_sin_culpa'], cartera: { accidente: q === 'riesgosa' ? 'Alerta con culpables' : 'Alerta lista: guarda y disco; revisión de amoladoras' },
-        out: q === 'buena' ? 'Ingrid responde: «Así. Mañana la doy contigo». A las 5:40, Wilmer te manda una foto: dos amoladoras más sin guarda, separadas con cinta roja.' : q === 'aceptable' ? 'Ingrid te pide ajustar una frase: «Nada que suene a culpa antes de investigar».' : 'Ingrid te llama: «Si mañana decimos esto, el próximo accidente no nos lo cuenta nadie».',
+        out: q === 'buena' ? 'Ingrid responde: «Así. El lunes la doy contigo». A las 5:40, Wilmer te manda una foto: dos amoladoras más sin guarda, separadas con cinta roja.' : q === 'aceptable' ? 'Ingrid te pide ajustar una frase: «Nada que suene a culpa antes de investigar».' : 'Ingrid te llama: «Si mañana decimos esto, el próximo accidente no nos lo cuenta nadie».',
         pro: { ok: 'Una alerta cuenta lo que pasó, lo que falló y lo que cambia, sin señalar a nadie.', risk: 'Si la alerta culpa al herido, la obra aprende a esconder y no a prevenir.', info: 'Las causas de fondo, como por qué alguien cambió la amoladora, se buscan en la investigación.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Una alerta que enseña, no que culpa!' : 'Hechos, fallas y acciones. Sin nombres.'],
       };
@@ -246,7 +246,7 @@ export const ESCENAS = [
       ] },
       { id: 'pide', t: 'Lo que le pides', ops: [
         { id: 'p1', t: 'Cuando te sientas bien, me gustaría escuchar cómo fue lo de la amoladora. Nadie te está buscando culpa: queremos que no le pase a otro.', ok: true, por: 'Invita a contar, explica para qué y quita el miedo.' },
-        { id: 'p2', t: 'El martes te espero en la oficina para tu descargo.', ok: false, por: '«Descargo» suena a proceso disciplinario.' },
+        { id: 'p2', t: 'El lunes te espero en la oficina para tu descargo.', ok: false, por: '«Descargo» suena a proceso disciplinario.' },
       ] },
     ],
     res: sel => {
@@ -255,7 +255,7 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, confianza: q === 'buena' ? 3 : 0 }, rel: { jhonatan: q === 'buena' ? 1 : q === 'riesgosa' ? -1 : 0 },
         flags: q === 'riesgosa' ? [] : ['jhonatan_tranquilo'], cartera: { accidente: q === 'riesgosa' ? 'Jhonatan sin responder' : 'Jhonatan dispuesto a contar su versión' },
-        out: q === 'buena' ? 'A los veinte minutos llega un audio. Se escucha a su mamá de fondo: «Gracias, ingeniera. Ya me duele menos. El martes le cuento todo, hay cosas que usted tiene que saber».' : q === 'aceptable' ? 'Jhonatan responde con un «ok, gracias ingeniera 🙏».' : 'Jhonatan lee el mensaje y no contesta.',
+        out: q === 'buena' ? 'A los veinte minutos llega un audio. Se escucha a su mamá de fondo: «Gracias, ingeniera. Ya me duele menos. El lunes le cuento todo, hay cosas que usted tiene que saber».' : q === 'aceptable' ? 'Jhonatan responde con un «ok, gracias ingeniera 🙏».' : 'Jhonatan lee el mensaje y no contesta.',
         pro: { ok: 'Un mensaje que cuida a la persona abre la puerta a la verdad que la investigación necesita.', risk: 'Si suena a proceso disciplinario, la versión de Jhonatan será «fue mi culpa».' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '«Hay cosas que usted tiene que saber.» ¡Uy!' : 'Primero la persona, después el informe.'],
       };

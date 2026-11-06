@@ -12,14 +12,14 @@
 //   Transcrito en una sentencia de la Corte Suprema: https://img.lpderecho.pe/wp-content/uploads/2022/01/Casacion-Laboral-26849-2018-Moquegua-LPDerecho.pdf
 
 export const CAP = {
-  n: 4, titulo: 'El permiso de altura', dia: 'Semana 2, martes', foto: 'assets/foto/supervisa.webp',
+  n: 4, titulo: 'El permiso de altura', dia: 'Semana 1, jueves', foto: 'assets/foto/supervisa.webp',
   lugar: 'Constructora Lambayeque · Obra en Chiclayo',
   inicio: '06:25', fin: '18:30', cierreHora: '18:10',
-  apertura: 'Martes. Hoy empieza el encofrado del piso 12: catorce personas a más de treinta metros del suelo.', boton: 'Subir al piso 12',
+  apertura: 'Jueves. Hoy empieza el encofrado del piso 12: catorce personas a más de treinta metros del suelo.', boton: 'Subir al piso 12',
   kusi: 'Un permiso de altura es una conversación antes del riesgo. ¡Sin firma no se sube!',
   lead: 'Revisaste los anclajes, encontraste a una cuadrilla trabajando sin permiso, revisaste el permiso línea por línea, resolviste lo de dos encofradores sin capacitación y paraste el trabajo cuando sopló el viento.',
   reflexion: '¿Qué hace que un permiso sea una protección y no solo una firma?',
-  siguiente: { n: 5, titulo: 'El accidente', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'El accidente', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -31,11 +31,11 @@ export const CARTERA = [
 ];
 
 export const FUTURO = {
-  permiso_firme: ['Bajaste a la cuadrilla hasta tener el permiso completo y firmado.', 'Ya nadie sube al 12 sin permiso. Lo verás en el vaciado, capítulo 8.'],
+  permiso_firme: ['Bajaste a la cuadrilla hasta tener el permiso completo y firmado.', 'Ya nadie sube al 12 sin permiso. Lo verás en el vaciado, capítulo 9.'],
   permiso_regularizado: ['Dejaste trabajar a la cuadrilla y firmaste el permiso después, «para regularizar».', 'Ese papel aparecerá en la investigación del capítulo 6.'],
-  dos_reasignados: ['Los dos encofradores sin capacitación trabajaron en tierra, con su jornal completo.', 'El jueves reciben su capacitación de altura.'],
+  dos_reasignados: ['Los dos encofradores sin capacitación trabajaron en tierra, con su jornal completo.', 'Mañana reciben su capacitación de altura.'],
   dos_a_casa: ['Los dos encofradores sin capacitación se fueron a su casa sin jornal.', 'La cuadrilla ya sabe lo que cuesta decir que no sabe. Capítulo 6.'],
-  viento_parado: ['Detuviste el trabajo en el borde cuando el viento levantó los paneles.', 'La cuadrilla aprendió que puede parar. Capítulo 8.'],
+  viento_parado: ['Detuviste el trabajo en el borde cuando el viento levantó los paneles.', 'La cuadrilla aprendió que puede parar. Capítulo 9.'],
   amoladora_aviso: ['Ingrid te contó que Jhonatan ahora corta platinas con amoladora para los anclajes.', 'Capítulo 5.'],
   marleny_agenda: ['Marleny anotó en la agenda del comité la presión sobre los encofradores.', 'La llevará a la reunión del capítulo 7.'],
 };
@@ -74,7 +74,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'p1', t: '06:30', ch: 'presencial', who: 'segundo', titulo: '¿Dónde se engancha?', banner: 'assets/esc/escalera.webp', lugar: 'Piso 12, en obra gruesa', show: ['calidad', 'cumplimiento', 'personas'],
-    body: (n, F) => `<p>Amanece con neblina sobre Chiclayo. Desde el 12 se ven los techos de calamina, el humo de las primeras picanterías y, a lo lejos, la carretera a Pimentel.${F.has('segundo_anclajes') ? ' Don Segundo ya está arriba, con un termo de café: «A ver ese checklist, ingeniera».' : ' Don Segundo sube a las 6:30 sin saludar: no contestó tu mensaje del viernes.'}</p><p>Antes de que suba la cuadrilla, hay que decidir <mark class="clave">dónde se van a enganchar catorce personas</mark>.</p>`,
+    body: (n, F) => `<p>Amanece con neblina sobre Chiclayo. Desde el 12 se ven los techos de calamina, el humo de las primeras picanterías y, a lo lejos, la carretera a Pimentel.${F.has('segundo_anclajes') ? ' Don Segundo ya está arriba, con un termo de café: «A ver ese checklist, ingeniera».' : ' Don Segundo sube a las 6:30 sin saludar: no contestó tu mensaje de anoche.'}</p><p>Antes de que suba la cuadrilla, hay que decidir <mark class="clave">dónde se van a enganchar catorce personas</mark>.</p>`,
     type: 'pick', n: 2, prompt: 'Elige los dos puntos de anclaje que aprobarías.', boton: 'Aprobar estos anclajes', resumen: 'Aprobaste',
     cols: ['Punto de anclaje', 'Qué sabes de él'],
     rows: [
@@ -135,7 +135,7 @@ export const ESCENAS = [
     doc: { t: 'Permiso de trabajo en altura N.° 012', sub: 'Encofrados del Norte · Piso 12 · Edificio Los Algarrobos' },
     lines: [
       { id: 'firmas', t: 'Firmas: capataz de turno (Elmer Chapoñán). Jefe de obra: en blanco. Supervisión de seguridad: en blanco.', bad: LEY, why: 'El formato de la G.050 pide las firmas del supervisor de turno, el jefe de obra y el supervisor de seguridad.' },
-      { id: 'curso', t: 'Personal: 8 encofradores. Capacitación en altura: «sí» para todos.', bad: LEY, why: 'Elmer te dijo la semana pasada que su gente no llevó curso de altura este año. Dos no lo tienen: el «sí» no es verdad.' },
+      { id: 'curso', t: 'Personal: 8 encofradores. Capacitación en altura: «sí» para todos.', bad: LEY, why: 'Elmer te dijo el martes que su gente no llevó curso de altura este año. Dos no lo tienen: el «sí» no es verdad.' },
       { id: 'medico', t: 'Trabajo a 33 m de altura. Certificación médica: «no aplica».', bad: LEY, why: 'El formato de la G.050 pide certificación médica cuando se trabaja a más de 15 m.' },
       { id: 'epp', t: 'Inspección visual de arneses en tierra firme: realizada, 7:15 a. m.' },
       { id: 'abajo', t: 'Área inferior aislada y señalizada: «no».', bad: LEY, why: 'Debajo del borde pasa la gente que va al comedor. El área se acordona y se señaliza contra caída de objetos.' },
@@ -160,11 +160,11 @@ export const ESCENAS = [
     id: 'p4', t: '10:40', ch: 'llamada', who: null, titulo: 'Wilson y Brayan', banner: 'assets/foto/llamada.webp', lugar: 'Caseta de SSOMA', show: ['personas', 'etica', 'cumplimiento'],
     body: (n, F) => `<p>Wilson, de Chota, y Brayan, de Mórrope, esperan sentados en un balde volteado. Tienen 19 y 23 años. Elmer quiere mandarlos a su casa: «Si no suben, no me sirven hoy».${F.has('permiso_regularizado') && !F.has('permiso_revisado') ? ' Hasta hace una hora estaban en el borde.' : ''}</p><p>Haces tres llamadas antes de decidir. <mark class="clave">Lo que decidas, ellos lo van a sentir en el bolsillo</mark>.</p>`,
     type: 'calls',
-    calls: [['Ing. Ingrid Delgado', 'Contesta desde la carretera', '«El jueves a las 7 doy la capacitación de altura para toda la subcontrata. Que vengan. Y que hoy trabajen en algo de tierra, que no los castiguen por algo que es culpa de la empresa.»'], ['Elmer Chapoñán · capataz', 'Contesta en el piso 11', '«Ingeniera, yo les pago por día. Si no encofran, ¿qué hacen? Además, ellos sabían que no tenían curso.» Pausa. «Bueno… yo tampoco les pregunté.»'], ['Don Segundo Vílchez', 'Contesta con ruido de mezcladora', '«Me faltan dos para habilitar fierro en el patio. Mándemelos, que trabajan bajo mi cuenta hoy.»']],
+    calls: [['Ing. Ingrid Delgado', 'Contesta desde la carretera', '«Mañana a las 7 doy la capacitación de altura para toda la subcontrata. Que vengan. Y que hoy trabajen en algo de tierra, que no los castiguen por algo que es culpa de la empresa.»'], ['Elmer Chapoñán · capataz', 'Contesta en el piso 11', '«Ingeniera, yo les pago por día. Si no encofran, ¿qué hacen? Además, ellos sabían que no tenían curso.» Pausa. «Bueno… yo tampoco les pregunté.»'], ['Don Segundo Vílchez', 'Contesta con ruido de mezcladora', '«Me faltan dos para habilitar fierro en el patio. Mándemelos, que trabajan bajo mi cuenta hoy.»']],
     prompt: '¿Qué pasa con Wilson y Brayan hoy?',
     choices: [
-      { id: 'a', label: 'Que trabajen hoy habilitando fierro con Don Segundo, en tierra, con su jornal completo, y que el jueves lleven la capacitación de altura antes de volver al borde.',
-        res: { q: 'buena', fx: { personas: 5, etica: 4, cumplimiento: 3 }, rel: { segundo: 1 }, flags: ['dos_reasignados'], cartera: { capacitacion: 'Wilson y Brayan: curso el jueves 7:00' },
+      { id: 'a', label: 'Que trabajen hoy habilitando fierro con Don Segundo, en tierra, con su jornal completo, y que mañana lleven la capacitación de altura antes de volver al borde.',
+        res: { q: 'buena', fx: { personas: 5, etica: 4, cumplimiento: 3 }, rel: { segundo: 1 }, flags: ['dos_reasignados'], cartera: { capacitacion: 'Wilson y Brayan: curso mañana 7:00' },
           out: 'Brayan suelta una risa nerviosa: «Pensé que nos botaban». Elmer acepta a regañadientes cuando Don Segundo le dice que él se encarga. Al mediodía, los dos están cubiertos de óxido y contentos.',
           pro: { ok: 'Nadie trabaja en altura sin capacitación y nadie paga por una falta que no es suya.', info: 'Registra en el permiso por qué no subieron: el registro también protege a quien dice «no sé».' },
           kusi: ['celebra', '¡Seguros y con su jornal!'] } },
@@ -182,12 +182,12 @@ export const ESCENAS = [
     rules: [[LEY, 'Norma G.050, Anexo J.2: solo sube personal con capacitación en trabajos en altura.'], [BP, 'Que la persona no pague por la falta de capacitación que debía darle la empresa.']],
     mirada: {
       ve: 'En construcción mucha gente trabaja por jornal y para subcontratas. Una decisión de seguridad puede dejar a alguien sin el pago del día. Buscar una tarea segura mientras se capacita protege a la persona y también a la cultura de reportar.',
-      visual: { tipo: 'balanza', a: { t: 'A su casa', items: ['La subcontrata no paga el día', 'Elmer conforme', 'La cuadrilla aprende a callar'] }, b: { t: 'Tarea en tierra', items: ['Jornal completo', 'Curso el jueves', 'Decir «no sé» no se castiga'] } },
+      visual: { tipo: 'balanza', a: { t: 'A su casa', items: ['La subcontrata no paga el día', 'Elmer conforme', 'La cuadrilla aprende a callar'] }, b: { t: 'Tarea en tierra', items: ['Jornal completo', 'Curso mañana', 'Decir «no sé» no se castiga'] } },
     },
   },
   {
     id: 'p5', t: '14:10', ch: 'presencial', who: null, titulo: 'Sopla el viento', banner: 'assets/esc/alarma.webp', lugar: 'Borde del piso 12', show: ['cumplimiento', 'personas', 'tiempo'],
-    body: (n, F) => `<p>A las dos, como dijo Don Segundo, el viento del norte entra de golpe. Un panel de triplay se levanta del borde y se queda colgando de un clavo. Abajo, la gente sale del comedor.${F.has('permiso_revisado') ? ' Teodoro, de observador, grita «¡atención arriba!» y aparta a dos ayudantes del pasadizo acordonado.' : ' No hay nadie mirando hacia arriba.'}</p><p>Tienes que parar el trabajo en el borde. <mark class="clave">El orden en que lo haces decide si el panel cae sobre alguien</mark>.</p>`,
+    body: (n, F) => `<p>A las dos, como dijo Don Segundo, el viento del sur entra de golpe. Un panel de triplay se levanta del borde y se queda colgando de un clavo. Abajo, la gente sale del comedor.${F.has('permiso_revisado') ? ' Teodoro, de observador, grita «¡atención arriba!» y aparta a dos ayudantes del pasadizo acordonado.' : ' No hay nadie mirando hacia arriba.'}</p><p>Tienes que parar el trabajo en el borde. <mark class="clave">El orden en que lo haces decide si el panel cae sobre alguien</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos para detener el trabajo por el viento.', boton: 'Dar las indicaciones',
     items: [
       { id: 'aviso', t: 'Avisar con el silbato y la radio: alto en el borde', por: 'Primero, todos se detienen al mismo tiempo.' },
@@ -234,21 +234,21 @@ export const ESCENAS = [
     body: (n, F) => `<p>Ingrid llega con la camioneta llena de polvo de la carretera. Se sienta, se saca el casco y lee el permiso del día.${F.has('permiso_firme') ? ' «Renzo me llamó tres veces por la media hora. Le dije que yo habría hecho lo mismo.»' : F.has('permiso_regularizado') ? ' «Este permiso lo firmaste a las 9:05. La cuadrilla subió a las 7:40. ¿Qué pasó?»' : ''}</p><p>«Tengo diez minutos antes de ir a la reunión con el cliente. <mark class="clave">Pregúntame lo que necesites para esta semana</mark>.»</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Ingrid.',
     opts: [
-      { id: 'vaciado', label: '¿Cuándo es el vaciado del 12?', info: '«Martes de la semana 4. El cliente ya contrató la bomba de concreto y no quiere moverla. Ese día vamos a tener veinte personas arriba y mucha presión.»' },
-      { id: 'amoladora', label: '¿Qué otras tareas de riesgo hay esta semana?', info: '«Corte de platinas para más anclajes. Lo está haciendo Jhonatan con la amoladora en el piso 3. Ya tiene lentes y careta, pero corta rápido porque Segundo lo apura. Échale un ojo el jueves.»' },
-      { id: 'comite', label: '¿Cuándo podemos convocar al comité?', info: '«El viernes de la semana 3. Necesito que el gerente confirme. Marleny ya me pidió fecha dos veces.»' },
-      { id: 'renzo', label: '¿Renzo está molesto conmigo?', info: '«Renzo está molesto con todo. Tiene penalidades si no llegamos al 13 a fin de mes. No es personal, pero no le des motivos para que lo sea.»' },
+      { id: 'vaciado', label: '¿Cuándo es el vaciado del 12?', info: '«El jueves de la otra semana. El cliente ya contrató la bomba de concreto y no quiere moverla. Ese día vamos a tener veinte personas arriba y mucha presión.»' },
+      { id: 'amoladora', label: '¿Qué otras tareas de riesgo hay esta semana?', info: '«Corte de platinas para más anclajes. Lo está haciendo Jhonatan con la amoladora en el piso 3. Ya tiene lentes y careta, pero corta rápido porque Segundo lo apura. Échale un ojo mañana.»' },
+      { id: 'comite', label: '¿Cuándo podemos convocar al comité?', info: '«El martes de la otra semana. Necesito que el gerente confirme. Marleny ya me pidió fecha dos veces.»' },
+      { id: 'renzo', label: '¿Renzo está molesto conmigo?', info: '«Renzo está molesto con todo. Tiene penalidades si no llegamos al 13 en dos semanas. No es personal, pero no le des motivos para que lo sea.»' },
     ],
     res: picks => ({
       q: null, fx: { confianza: 2, calidad: picks.includes('amoladora') ? 3 : 1 }, rel: { ingrid: 1 },
       flags: picks.includes('amoladora') ? ['amoladora_aviso'] : [],
-      cartera: picks.includes('vaciado') ? { piso12: 'Vaciado: martes de la semana 4, con bomba' } : picks.includes('comite') ? { comite: 'Fecha tentativa: viernes de la semana 3' } : {},
-      out: picks.includes('amoladora') ? 'Anotas en tu libreta: «Jueves: piso 3, Jhonatan, amoladora». Lo subrayas dos veces.' : 'Ingrid se pone el casco de nuevo y sale. La obra se apaga: solo queda el ruido de la mezcladora que lavan con manguera.',
+      cartera: picks.includes('vaciado') ? { piso12: 'Vaciado: jueves de la semana 2, con bomba' } : picks.includes('comite') ? { comite: 'Fecha tentativa: martes de la semana 2' } : {},
+      out: picks.includes('amoladora') ? 'Anotas en tu libreta: «Viernes: piso 3, Jhonatan, amoladora». Lo subrayas dos veces.' : 'Ingrid se pone el casco de nuevo y sale. La obra se apaga: solo queda el ruido de la mezcladora que lavan con manguera.',
       kusi: ['curioso', 'Cada respuesta dibuja la semana que viene…'],
     }),
     mirada: {
       ve: 'Una buena jefa de SST sabe dónde estará el riesgo la próxima semana. Preguntar por lo que viene es tan importante como resolver lo de hoy: así se prepara la prevención antes de que el peligro llegue.',
-      visual: { tipo: 'linea', titulo: 'Lo que viene', hitos: [['Jueves', 'Capacitación de altura y corte de platinas'], ['Semana 3', 'Comité de SST'], ['Semana 4, martes', 'Vaciado del piso 12']] },
+      visual: { tipo: 'linea', titulo: 'Lo que viene', hitos: [['Mañana', 'Capacitación de altura y corte de platinas'], ['Semana 2, martes', 'Comité de SST'], ['Semana 2, jueves', 'Vaciado del piso 12']] },
     },
   },
 ];

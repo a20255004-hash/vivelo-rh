@@ -261,7 +261,7 @@ export const DATOS = {
   'asistente-sst': {
     PUESTO: {
       id: 'asistente-sst', nombre: 'Asistente de Seguridad y Salud en el Trabajo', temporada: 'El piso doce', foto: 'assets/cargos/asistente-sst.webp',
-      completa: false, listos: 5, primero: 'ingrid', ciudad: 'Chiclayo', nota: ['Chiclayo', 'Constructora: edificio de 14 pisos en obra.'], correo: 'sst@constructoralambayeque.pe',
+      completa: false, listos: 10, primero: 'ingrid', ciudad: 'Chiclayo', nota: ['Chiclayo', 'Constructora: edificio de 14 pisos en obra.'], correo: 'sst@constructoralambayeque.pe',
       sinopsis: 'Una constructora de Chiclayo levanta un edificio de 14 pisos y en dos semanas vacía el piso doce. La presión por avanzar es enorme. Tú haces charlas, inspecciones, matrices y registros; y un día, un accidente leve pone a prueba todo lo que el papel decía.',
       escenario: 'Constructora Lambayeque S.A.C. (ficticia) · Chiclayo · 140 trabajadores en obra',
       duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',

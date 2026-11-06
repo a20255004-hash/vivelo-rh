@@ -10,20 +10,20 @@
 // - Norma G.050, Seguridad durante la construcción: protecciones colectivas en bordes con riesgo de caída.
 
 export const CAP = {
-  n: 2, titulo: 'La matriz', dia: 'Semana 1, miércoles', foto: 'assets/foto/revisa.webp',
+  n: 2, titulo: 'La matriz', dia: 'Semana 1, martes', foto: 'assets/foto/revisa.webp',
   lugar: 'Constructora Lambayeque · Obra en Chiclayo',
   inicio: '06:50', fin: '18:40', cierreHora: '18:20',
-  apertura: 'Miércoles. La matriz IPERC de la obra tiene cinco meses y el edificio creció cinco pisos desde entonces.', boton: 'Abrir la matriz',
+  apertura: 'Martes. La matriz IPERC de la obra tiene cinco meses y el edificio creció cinco pisos desde entonces.', boton: 'Abrir la matriz',
   kusi: 'Una matriz es un mapa de lo que puede salir mal. ¡Que el mapa se parezca al terreno!',
   lead: 'Diste tu segunda charla, auditaste la matriz IPERC, preguntaste cómo se hará el piso 12, aguantaste la presión del residente y ordenaste los controles para los bordes.',
   reflexion: '¿Qué diferencia hay entre una matriz que se firma y una matriz que se usa?',
-  siguiente: { n: 3, titulo: 'El arnés', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'El arnés', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
   { id: 'charlas', p: 'Charlas de 5 minutos', j: 'Ingrid · SSOMA', d: 0, e: 'Hoy: caídas de altura' },
-  { id: 'iperc', p: 'Matriz IPERC', j: 'Ingrid · SSOMA', d: 0, e: 'Auditoría del cliente el viernes' },
-  { id: 'piso12', p: 'Vaciado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'Encofrado empieza la próxima semana' },
+  { id: 'iperc', p: 'Matriz IPERC', j: 'Ingrid · SSOMA', d: 0, e: 'Auditoría del cliente mañana a las 9:00' },
+  { id: 'piso12', p: 'Vaciado del piso 12', j: 'Don Segundo · Obra', d: 0, e: 'Encofrado empieza el jueves' },
   { id: 'epp', p: 'Equipos de protección', j: 'Almacén', d: 0, e: 'Pedido de lentes en curso' },
   { id: 'comite', p: 'Comité de SST', j: 'Marleny · Trabajadores', d: 0, e: 'Sin reunión desde junio' },
 ];
@@ -31,8 +31,8 @@ export const CARTERA = [
 export const FUTURO = {
   matriz_real: ['Actualizaste la IPERC con el trabajo en altura del piso 12 y con lo que dijo la cuadrilla.', 'Ingrid la usará para exigir arneses en buen estado en el capítulo 3.'],
   matriz_fecha: ['Solo cambiaste la fecha de la matriz para la auditoría.', 'El papel dirá una cosa y la obra otra. Capítulo 4.'],
-  arneses_alerta: ['Wilmer, del almacén, te avisó que hay arneses «viejitos».', 'El viernes los inspeccionarás. Capítulo 3.'],
-  controles_colectivos: ['Propusiste baranda y línea de vida antes que confiar todo al arnés.', 'Esa propuesta pesará cuando se firme el permiso de altura. Capítulo 4.'],
+  arneses_alerta: ['Wilmer, del almacén, te avisó que hay arneses «viejitos».', 'Mañana los inspeccionarás. Capítulo 3.'],
+  controles_colectivos: ['Propusiste baranda y línea de vida antes que confiar todo al arnés.', 'Esa propuesta pesará el jueves, cuando se firme el permiso de altura. Capítulo 4.'],
   teodoro_aliado: ['Teodoro contó su historia otra vez y ahora te ayuda con las charlas.', 'Su voz te servirá cuando la cuadrilla dude.'],
 };
 
@@ -45,16 +45,16 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'grupo', t: '06:35', de: 'Ingrid', txt: 'Hoy la charla es sobre caídas de altura. Y después, la matriz IPERC: el viernes viene la auditoría del cliente 📋' },
-  { chat: 'grupo', t: '06:37', de: 'Ingrid', txt: 'Llegaron los 40 lentes. Gracias por avisar el lunes 👓', si: 'tarea_parada' },
-  { chat: 'renzo', t: '12:50', de: 'Renzo', txt: 'Ingeniera, ¿podemos hablar a la 1:30 en la oficina de obra? Es sobre la matriz para el viernes.' },
+  { chat: 'grupo', t: '06:35', de: 'Ingrid', txt: 'Hoy la charla es sobre caídas de altura. Y después, la matriz IPERC: mañana viene la auditoría del cliente 📋' },
+  { chat: 'grupo', t: '06:37', de: 'Ingrid', txt: 'Llegaron los 40 lentes. Gracias por avisar ayer 👓', si: 'tarea_parada' },
+  { chat: 'renzo', t: '12:50', de: 'Renzo', txt: 'Ingeniera, ¿podemos hablar a la 1:30 en la oficina de obra? Es sobre la matriz para mañana.' },
   { chat: 'marleny', t: '11:20', de: 'Marleny', txt: 'Ya pregunté a los de encofrado como me pidió. Le cuento en persona 👍', si: 'marleny_aliada' },
   { chat: 'segundo', t: '16:10', de: 'Don Segundo', txt: 'La baranda del 11 ya está. Para el 12 vamos a necesitar más tablones, avise a almacén.', si: 'borde_reportado' },
 ];
 
 export const CORREOS = [
-  { t: '07:40', de: 'Ing. Ingrid Delgado', para: 'Asistente SSOMA', asunto: 'Matriz IPERC · revisión antes del viernes', html: '<p>Te adjunto la matriz IPERC vigente. La hizo una consultora de Lima en mayo, cuando íbamos en el piso 6. Revísala como si fueras la auditora del cliente.</p><p>Lo que más me preocupa es el piso 12: encofrado, vaciado y bordes abiertos. Pregúntale a Segundo cómo lo piensan hacer. Él lo sabe mejor que nadie, aunque no le guste el papeleo.</p><p>Ingrid</p>' },
-  { t: '14:05', de: 'Ing. Renzo Cáceres', para: 'Asistente SSOMA', asunto: 'RE: Matriz para auditoría', html: '<p>Ingeniera, como conversamos: el cliente revisa documentos el viernes a las 9:00. Necesito la matriz firmada el jueves en la noche.</p><p>Renzo Cáceres · Residente de obra</p>' },
+  { t: '07:40', de: 'Ing. Ingrid Delgado', para: 'Asistente SSOMA', asunto: 'Matriz IPERC · revisión antes de la auditoría', html: '<p>Te adjunto la matriz IPERC vigente. La hizo una consultora de Lima en mayo, cuando íbamos en el piso 6. Revísala como si fueras la auditora del cliente.</p><p>Lo que más me preocupa es el piso 12: encofrado, vaciado y bordes abiertos. Pregúntale a Segundo cómo lo piensan hacer. Él lo sabe mejor que nadie, aunque no le guste el papeleo.</p><p>Ingrid</p>' },
+  { t: '14:05', de: 'Ing. Renzo Cáceres', para: 'Asistente SSOMA', asunto: 'RE: Matriz para auditoría', html: '<p>Ingeniera, como conversamos: el cliente revisa documentos mañana a las 9:00. Necesito la matriz firmada mañana a primera hora.</p><p>Renzo Cáceres · Residente de obra</p>' },
 ];
 
 export const QUIZ = [
@@ -70,10 +70,10 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'm1', t: '06:55', ch: 'presencial', who: null, titulo: 'Caídas de altura', banner: 'assets/foto2/aplausos-verde.webp', lugar: 'Patio de la obra', show: ['confianza', 'personas'],
-    body: (n, F) => `<p>Amanece nublado en Chiclayo, pero a las diez el sol va a pegar fuerte. Sesenta cascos otra vez en semicírculo.${F.has('charla_viva') ? ' Teodoro, el operario que contó lo del disco, te saluda con la cabeza desde la primera fila.' : ' Algunos ya tienen el celular en la mano antes de que empieces: el lunes aprendieron que tu charla era para firmar.'}</p><p>Hoy hablas de caídas de altura. Detrás de ti, el esqueleto del edificio: once pisos y <mark class="clave">el 12 que empieza la próxima semana</mark>.</p>`,
+    body: (n, F) => `<p>Amanece nublado en Chiclayo, pero a las diez el sol va a pegar fuerte. Sesenta cascos otra vez en semicírculo.${F.has('charla_viva') ? ' Teodoro, el operario que contó lo del disco, te saluda con la cabeza desde la primera fila.' : ' Algunos ya tienen el celular en la mano antes de que empieces: el lunes aprendieron que tu charla era para firmar.'}</p><p>Hoy hablas de caídas de altura. Detrás de ti, el esqueleto del edificio: once pisos y <mark class="clave">el 12, que empieza el jueves</mark>.</p>`,
     type: 'choice', cotidiano: true,
     choices: [
-      { id: 'a', label: 'Señalar el borde del piso 11 y preguntar: «¿Quién de ustedes va a trabajar allá arriba la otra semana?». Que levanten la mano y pedirle a uno que diga qué le da miedo.',
+      { id: 'a', label: 'Señalar el borde del piso 11 y preguntar: «¿Quién de ustedes va a trabajar allá arriba desde el jueves?». Que levanten la mano y pedirle a uno que diga qué le da miedo.',
         res: { q: null, fx: { confianza: 4, personas: 3 }, flags: ['teodoro_aliado'], cartera: { charlas: 'Charla 2: caídas, 58 asistentes, con preguntas' },
           out: 'Se levantan catorce manos, casi todas de encofrado. Un joven de Ferreñafe dice: «El viento, ingeniera. En la tarde sopla fuerte allá arriba». Teodoro remata: «Y los tablones sueltos». Ya tienes dos peligros para la matriz que no estaban en el papel.',
           kusi: ['celebra', '¡Te dieron datos para la matriz sin darse cuenta!'] } },
@@ -109,7 +109,7 @@ export const ESCENAS = [
     rules: [[LEY, 'Ley 29783, art. 57: la evaluación de riesgos se actualiza una vez al año como mínimo o cuando cambian las condiciones de trabajo.'], [LEY, 'Ley 29783, art. 21: el EPP es la última medida, no la primera.']],
     mirada: {
       ve: 'La IPERC es el documento base de la prevención: dice qué puede hacer daño, cuán grave es y qué se hará para evitarlo. Si se queda en el piso 6 mientras la obra va en el 11, protege al papel y no a la gente.',
-      visual: { tipo: 'cambio', titulo: 'Lo que dice la matriz y lo que hay en la obra', pares: [['Estructuras hasta el piso 8', 'Encofrado del piso 12 la próxima semana'], ['Control: «uso de arnés»', 'No hay dónde engancharlo'], ['Hecha en Lima', 'Viento fuerte en las tardes de Chiclayo']] },
+      visual: { tipo: 'cambio', titulo: 'Lo que dice la matriz y lo que hay en la obra', pares: [['Estructuras hasta el piso 8', 'Encofrado del piso 12 desde el jueves'], ['Control: «uso de arnés»', 'No hay dónde engancharlo'], ['Hecha en Lima', 'Viento fuerte en las tardes de Chiclayo']] },
       normas: [{ ley: 'Ley 29783, art. 57', dice: 'El empleador actualiza la evaluación de riesgos una vez al año como mínimo, o cuando cambien las condiciones de trabajo o se hayan producido daños.', practica: 'Subir cinco pisos es un cambio de condiciones: la matriz de mayo ya no alcanza.' }],
     },
   },
@@ -119,7 +119,7 @@ export const ESCENAS = [
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Don Segundo.',
     opts: [
       { id: 'bordes', label: '¿Cómo van a proteger los bordes mientras encofran?', info: '«Como siempre: con el arnés. Aunque la verdad, en el 12 no hay columnas todavía donde amarrar la línea. Los muchachos se enganchan al fierro, nomás.»' },
-      { id: 'cuantos', label: '¿Cuánta gente va a estar arriba y cuántos días?', info: '«Catorce de encofrado, cuatro días. El vaciado es un solo día, con bomba, unas veinte personas. El cliente quiere que sea antes de fin de mes, sí o sí.»' },
+      { id: 'cuantos', label: '¿Cuánta gente va a estar arriba y cuántos días?', info: '«Catorce de encofrado, cuatro días. El vaciado es un solo día, con bomba, unas veinte personas. El cliente lo quiere el jueves de la otra semana, sí o sí.»' },
       { id: 'viento', label: '¿A qué hora sopla más fuerte el viento allá arriba?', info: '«Después de las dos. En setiembre se nos voló una plancha de triplay del 9. Gracias a Dios cayó en el techo de la caseta.»' },
       { id: 'antes', label: '¿Cómo lo hacían en las otras obras?', info: '«Toda la vida igual, ingeniera. Treinta años y nunca se me ha caído nadie.» Hace una pausa. «Bueno… en Piura, un muchacho. Pero no era mi cuadrilla.»' },
     ],
@@ -143,7 +143,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Agregar las filas del piso 12 con lo que dijeron la cuadrilla, Wilmer, Elmer y Marleny, y proponer a Ingrid revisar el borrador con Don Segundo y dos encofradores antes de firmar.',
         res: { q: 'buena', fx: { calidad: 5, cumplimiento: 3, personas: 3, tiempo: -2 }, rel: { marleny: 1 }, flags: ['arneses_alerta', 'matriz_con_cuadrilla'], cartera: { epp: '14 arneses, varios dañados; sin líneas de vida', iperc: 'Borrador con 6 filas nuevas del piso 12' },
-          out: 'Sumas seis filas: borde sin anclaje, viento de la tarde, triplay suelto, arneses dañados, falta de líneas de vida y subcontrata sin capacitación de altura. Ingrid te responde con un audio: «Eso es una matriz. El jueves en la tarde la revisamos con ellos».',
+          out: 'Sumas seis filas: borde sin anclaje, viento de la tarde, triplay suelto, arneses dañados, falta de líneas de vida y subcontrata sin capacitación de altura. Ingrid te responde con un audio: «Eso es una matriz. Hoy a las 6:30 la revisamos con ellos».',
           pro: { ok: 'Construyes la matriz con quienes conocen el trabajo y con datos verificados.', risk: 'Consultar toma tiempo, y el residente quiere el documento ya.', info: 'Lo que dijo Marleny sobre el capataz es un tema para el comité, no para la matriz.' },
           kusi: ['celebra', '¡Una matriz con olor a obra!'] } },
       { id: 'b', label: 'Copiar las filas de trabajo en altura de una plantilla que encontraste en internet y ajustarlas a la obra.',
@@ -160,22 +160,22 @@ export const ESCENAS = [
   },
   {
     id: 'm5', t: '13:30', ch: 'presencial', who: null, titulo: '«Solo cambia la fecha»', banner: 'assets/foto2/tension.webp', lugar: 'Oficina de obra', show: ['etica', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>No terminaste tu arroz con pato: lo dejaste tapado en la caseta. El ingeniero Renzo Cáceres, residente de obra, 34 años, limeño, con la camisa ya sudada a esta hora, te espera con la matriz de mayo en la mano.</p><p>«Mira, el cliente revisa documentos el viernes. Si ve una matriz en borrador, nos observa y se retrasa el pago de la valorización. <mark class="clave">Cámbiale la fecha, la firmamos y el 12 lo agregamos la otra semana</mark>. Nadie va a subir al 12 antes del lunes.»</p>`,
+    body: (n, F) => `<p>No terminaste tu arroz con pato: lo dejaste tapado en la caseta. El ingeniero Renzo Cáceres, residente de obra, 34 años, limeño, con la camisa ya sudada a esta hora, te espera con la matriz de mayo en la mano.</p><p>«Mira, el cliente revisa documentos mañana. Si ve una matriz en borrador, nos observa y se retrasa el pago de la valorización. <mark class="clave">Cámbiale la fecha, la firmamos y el 12 lo agregamos después</mark>. Nadie va a subir al 12 antes del jueves.»</p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Decirle que no vas a firmar una matriz que no incluye el piso 12, pero ofrecerle tener la versión actualizada el jueves a las 6 p. m., revisada con la cuadrilla, para que llegue completa a la auditoría.',
-        res: { q: 'buena', fx: { etica: 5, cumplimiento: 4, tiempo: -3, confianza: 2 }, flags: ['matriz_real'], cartera: { iperc: 'Versión real comprometida para el jueves 18:00' },
-          out: 'Renzo suspira y se pasa la mano por la cara. «Jueves a las seis. Si a las seis y uno no está, la firmo yo como está.» Sales con el compromiso y con una noche larga por delante.',
+      { id: 'a', label: 'Decirle que no vas a firmar una matriz que no incluye el piso 12, pero ofrecerle tener la versión actualizada mañana a las 7:30, antes de la auditoría, revisada hoy con la cuadrilla, para que llegue completa a la auditoría.',
+        res: { q: 'buena', fx: { etica: 5, cumplimiento: 4, tiempo: -3, confianza: 2 }, flags: ['matriz_real'], cartera: { iperc: 'Versión real comprometida para mañana 7:30' },
+          out: 'Renzo suspira y se pasa la mano por la cara. «Siete y media. Si a las siete y treinta y uno no está, la firmo yo como está.» Sales con el compromiso y con una noche larga por delante.',
           pro: { ok: 'No firmas algo falso y le das al residente una salida concreta.', risk: 'Te comprometiste a un plazo muy corto: si no lo cumples, él tendrá razón.', info: 'Avísale a Ingrid hoy mismo del acuerdo, para que no te contradigan.' },
           kusi: ['animo', 'Firme en el qué, flexible en el cómo.'] } },
-      { id: 'b', label: 'Cambiar la fecha como pide: él es el residente, y es verdad que nadie sube al 12 hasta el lunes.',
+      { id: 'b', label: 'Cambiar la fecha como pide: él es el residente, y es verdad que nadie sube al 12 hasta el jueves.',
         res: { q: 'riesgosa', fx: { etica: -5, cumplimiento: -4, tiempo: 3 }, flags: ['matriz_fecha'], cartera: { iperc: 'Firmada con fecha nueva, contenido de mayo' },
           out: 'Renzo te da una palmada en el hombro: «Así se trabaja en equipo». La matriz dice «octubre» arriba y «piso 8» adentro. Las filas del piso 12 se quedan en tu libreta.',
           pro: { ok: 'Evitas un conflicto con el residente y la valorización no se retrasa.', risk: 'Firmaste un documento que no describe la obra. Si pasa algo en el 12, esa firma será lo primero que revisen.' },
           kusi: ['preocupado', 'La fecha cambió… la obra también.'] } },
-      { id: 'c', label: 'Pedirle que lo decida Ingrid: ella es la supervisora y tú recién llevas tres días.',
+      { id: 'c', label: 'Pedirle que lo decida Ingrid: ella es la supervisora y tú recién llevas dos días.',
         res: { q: 'aceptable', fx: { etica: 1, confianza: -2 }, flags: ['matriz_real'], cartera: { iperc: 'Escalado a Ingrid' },
-          out: 'Renzo llama a Ingrid delante de ti. Ella contesta: «No se firma así. Jueves a las seis la tenemos actualizada». Renzo cuelga, serio. A la salida comenta: «Pensé que tú tenías criterio propio».',
+          out: 'Renzo llama a Ingrid delante de ti. Ella contesta: «No se firma así. Mañana a las 7:30 la tenemos actualizada». Renzo cuelga, serio. A la salida comenta: «Pensé que tú tenías criterio propio».',
           pro: { ok: 'Escalar a tu jefa es válido cuando la presión viene de más arriba.', risk: 'Renzo ahora te ve como alguien que no decide. La próxima vez irá directo a Ingrid.' },
           kusi: ['pensando', 'Tenías razón… pero no la dijiste tú.'] } },
     ],
@@ -215,7 +215,7 @@ export const ESCENAS = [
   },
   {
     id: 'm7', t: '17:55', ch: 'whatsapp', who: null, titulo: 'Para Ingrid', banner: 'assets/esc/meta.webp', lugar: 'Paradero de la avenida Bolognesi', show: ['confianza', 'calidad', 'tiempo'],
-    body: (n, F) => `<p>Esperas la combi en la avenida Bolognesi con el polvo del día en la ropa. Un señor vende King Kong de manjar en una carretilla y el olor te recuerda que no almorzaste.${F.has('matriz_fecha') ? ' En tu mochila va una matriz firmada que no dice la verdad.' : ' Mañana tienes que tener la matriz lista antes de las seis.'}</p><p>Ingrid está en otra obra. <mark class="clave">Necesita saber en un mensaje lo que pasó hoy</mark>.</p>`,
+    body: (n, F) => `<p>Esperas la combi en la avenida Bolognesi con el polvo del día en la ropa. Un señor vende King Kong de manjar en una carretilla y el olor te recuerda que no almorzaste.${F.has('matriz_fecha') ? ' En tu mochila va una matriz firmada que no dice la verdad.' : ' A las 6:30 revisas la matriz con la cuadrilla y mañana a las 7:30 tiene que estar firmada.'}</p><p>Ingrid está en otra obra. <mark class="clave">Necesita saber en un mensaje lo que pasó hoy</mark>.</p>`,
     type: 'compose', enviaA: 'ingrid', para: 'Para: Ing. Ingrid Delgado · Supervisora SSOMA', boton: 'Enviar el WhatsApp',
     prompt: 'Arma tu mensaje eligiendo una frase de cada parte.',
     slots: [
@@ -224,11 +224,11 @@ export const ESCENAS = [
         { id: 'h2', t: 'Ingrid: la matriz está bastante mal.', ok: false, por: 'No dice qué, ni qué hacer.' },
       ] },
       { id: 'renzo', t: 'Lo de Renzo', ops: [
-        { id: 'r1', t: 'Renzo quería firmar la matriz de mayo con otra fecha. Quedamos en entregar la actualizada el jueves a las 6 p. m.', ok: true, por: 'Le cuentas la presión y el acuerdo, sin acusar.' },
+        { id: 'r1', t: 'Renzo quería firmar la matriz de mayo con otra fecha. Quedamos en entregar la actualizada mañana a las 7:30.', ok: true, por: 'Le cuentas la presión y el acuerdo, sin acusar.' },
         { id: 'r2', t: 'Renzo es un irresponsable, quiere falsificar la matriz.', ok: false, por: 'Etiquetar al residente no ayuda a Ingrid a negociar con él.' },
       ] },
       { id: 'pedido', t: 'Lo que necesitas', ops: [
-        { id: 'p1', t: '¿Me ayudas a pedir dos líneas de vida certificadas y hacemos la revisión del borrador con Segundo y dos encofradores el jueves a las 3?', ok: true, por: 'Un pedido concreto, con hora y participantes.' },
+        { id: 'p1', t: '¿Me ayudas a pedir dos líneas de vida certificadas y hacemos la revisión del borrador con Segundo y dos encofradores hoy a las 6:30?', ok: true, por: 'Un pedido concreto, con hora y participantes.' },
         { id: 'p2', t: 'Mañana te cuento mejor.', ok: false, por: 'Mañana es un día menos para conseguir los equipos.' },
       ] },
     ],
@@ -238,7 +238,7 @@ export const ESCENAS = [
       return {
         q, fx: { confianza: q === 'buena' ? 5 : q === 'aceptable' ? 1 : -3, calidad: q === 'buena' ? 2 : 0 }, rel: { ingrid: q === 'buena' ? 1 : q === 'riesgosa' ? -1 : 0 },
         flags: q === 'riesgosa' ? [] : ['lineas_pedidas'], cartera: { epp: q === 'riesgosa' ? 'Sin pedido de líneas de vida' : 'Pedido: 2 líneas de vida certificadas' },
-        out: q === 'buena' ? 'Ingrid responde antes de que llegue la combi: «Pido las líneas ahora. Jueves a las 3 con Segundo. Y bien parada con Renzo 💪».' : q === 'aceptable' ? 'Ingrid responde: «Ok. Mañana temprano me explicas qué necesitas exactamente».' : 'Ingrid deja el mensaje en visto. Está en otra emergencia.',
+        out: q === 'buena' ? 'Ingrid responde antes de que llegue la combi: «Pido las líneas ahora. A las 6:30 con Segundo. Y bien parada con Renzo 💪».' : q === 'aceptable' ? 'Ingrid responde: «Ok. Mañana temprano me explicas qué necesitas exactamente».' : 'Ingrid deja el mensaje en visto. Está en otra emergencia.',
         pro: { ok: 'Un buen reporte dice qué es grave, qué presión hay y qué necesitas, en ese orden.', risk: 'Un mensaje vago hace que lo urgente espere un día más.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Mensaje claro y con pedido!' : 'Dato, contexto y pedido.'],
       };
@@ -246,7 +246,7 @@ export const ESCENAS = [
     rules: [[BP, 'Reporta el mismo día lo que puede causar un accidente grave, con un pedido concreto.']],
     mirada: {
       ve: 'La asistente de SST pasa mucho tiempo comunicando: a la cuadrilla, al almacén, al residente y a su jefa. Un mensaje claro convierte un hallazgo en una compra o en un cambio antes de que alguien suba al piso 12.',
-      visual: { tipo: 'mensaje', titulo: 'Tu mensaje', txt: 'Sin anclaje en el 12, sin líneas de vida, arneses con cintas peladas. Renzo quería cambiar la fecha: quedamos el jueves a las 6. ¿Pedimos dos líneas de vida y revisamos con Segundo el jueves a las 3?' },
+      visual: { tipo: 'mensaje', titulo: 'Tu mensaje', txt: 'Sin anclaje en el 12, sin líneas de vida, arneses con cintas peladas. Renzo quería cambiar la fecha: quedamos mañana a las 7:30. ¿Pedimos dos líneas de vida y revisamos con Segundo hoy a las 6:30?' },
     },
   },
 ];
