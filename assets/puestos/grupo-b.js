@@ -260,7 +260,7 @@ export const DATOS = {
   'jefe-rrhh': {
     PUESTO: {
       id: 'jefe-rrhh', nombre: 'Jefe/a de RR.HH.', temporada: 'La empresa familiar', foto: 'assets/cargos/jefe-rrhh.webp',
-      completa: false, listos: 1, primero: 'don-alberto', ciudad: 'Huancayo', nota: ['Huancayo', 'Empresa familiar de transporte interprovincial, 280 trabajadores.'], correo: 'jefatura.rrhh@transportesmantaro.pe',
+      completa: false, listos: 10, primero: 'don-alberto', ciudad: 'Huancayo', nota: ['Huancayo', 'Empresa familiar de transporte interprovincial, 280 trabajadores.'], correo: 'jefatura.rrhh@transportesmantaro.pe',
       sinopsis: 'Te contratan como primera jefa de RR.HH. de una empresa familiar de transporte en Huancayo. El fundador quiere «ordenar la casa», pero sus hijos no se ponen de acuerdo, los conductores trabajan jornadas imposibles y llega una inspección tras un accidente en carretera. Dos semanas para construir un área desde cero sin perder la confianza del dueño.',
       escenario: 'Transportes Mantaro S.A.C. (ficticia) · Huancayo · 280 trabajadores, 90 conductores',
       duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',

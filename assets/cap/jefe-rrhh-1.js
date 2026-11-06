@@ -1,5 +1,5 @@
 // Jefe/a de RR.HH. · Capítulo 1 · «Ordenar la casa» · Semana 1, lunes.
-// Hilo del mes: crear desde cero el área de RR.HH. de una empresa familiar de transporte interprovincial.
+// Hilo de las dos semanas: crear desde cero el área de RR.HH. de una empresa familiar de transporte interprovincial.
 // Normas citadas: D.S. 039-91-TR (Reglamento Interno de Trabajo obligatorio con más de 100 trabajadores);
 // Ley 29783 (comité de SST con 20 o más trabajadores); D.S. 004-2006-TR (registro de control de asistencia);
 // TUO del D.Leg. 728, art. 77 (el contrato sujeto a modalidad se desnaturaliza si se sigue trabajando después de su
@@ -13,7 +13,7 @@ export const CAP = {
   kusi: 'Ahora tienes un equipo y una casa por ordenar. ¡Una cosa a la vez!',
   lead: 'Escuchaste al fundador, hiciste un diagnóstico con la ley en la mano, frenaste un despido por represalia, empezaste a liderar a Patty y priorizaste un plan realista.',
   reflexion: '¿Qué cambia cuando ya no solo haces el trabajo, sino que diriges a alguien que lo hace?',
-  siguiente: { n: 2, titulo: 'Las jornadas', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Las jornadas', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -150,13 +150,13 @@ export const ESCENAS = [
     rules: [[BP, 'Como jefa, tu primer trabajo con tu equipo es dar prioridades claras y quitar lo que no suma.']],
     mirada: {
       ve: 'El salto de especialista a jefa es pasar de hacer a lograr que otros hagan bien. Una persona sobrecargada no necesita más tareas: necesita prioridades, permiso para dejar cosas y alguien que la respalde.',
-      visual: { tipo: 'embudo', titulo: 'Las tareas de Patty', niveles: [['Todo lo que hace', 27], ['Lo que aporta valor', 12], ['Prioridades del mes', 3]] },
+      visual: { tipo: 'embudo', titulo: 'Las tareas de Patty', niveles: [['Todo lo que hace', 27], ['Lo que aporta valor', 12], ['Prioridades de estas semanas', 3]] },
     },
   },
   {
     id: 'j5', t: '17:30', ch: 'documento', who: null, titulo: 'El plan de 90 días', banner: 'assets/esc/decide.webp', show: ['calidad', 'cumplimiento', 'confianza'],
     body: () => `<p>Don Alberto quiere ver tu plan mañana. No puedes hacerlo todo a la vez: eliges <mark class="clave">las dos prioridades</mark> de los primeros 30 días.</p>`,
-    type: 'pick', n: 2, prompt: 'Elige las dos prioridades del primer mes.', boton: 'Proponer estas dos', resumen: 'Priorizaste',
+    type: 'pick', n: 2, prompt: 'Elige las dos prioridades de los primeros 30 días.', boton: 'Proponer estas dos', resumen: 'Priorizaste',
     cols: ['Prioridad', 'Qué protege'],
     rows: [
       { id: 'fatiga', cells: ['Registrar las horas reales de manejo y frenar jornadas excesivas', 'Vidas en la carretera'] },
@@ -170,7 +170,7 @@ export const ESCENAS = [
       const q = sc >= 6 ? 'buena' : sc >= 3 ? 'aceptable' : 'riesgosa';
       return {
         q, fx: { calidad: q === 'buena' ? 5 : 1, cumplimiento: q === 'buena' ? 4 : 0, confianza: q === 'buena' ? 2 : 0 },
-        out: picks.includes('fatiga') ? 'Tu plan empieza por lo que más temía Don Alberto: saber cuántas horas manejan de verdad. El miércoles empezarás por ahí.' : 'Tu plan ordena papeles, pero los conductores seguirán manejando sin control.',
+        out: picks.includes('fatiga') ? 'Tu plan empieza por lo que más temía Don Alberto: saber cuántas horas manejan de verdad. Mañana empezarás por ahí.' : 'Tu plan ordena papeles, pero los conductores seguirán manejando sin control.',
         pro: { ok: 'Primero lo que puede costar una vida; luego, lo que puede costar un juicio.', info: 'El reglamento interno tomará meses: empiézalo, pero no lo pongas como primera meta.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Vidas primero, papeles después.' : '¿Qué podía costar una vida?'],
       };
