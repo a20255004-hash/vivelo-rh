@@ -1,5 +1,5 @@
-// Generalista de RR.HH. · Capítulo 2 · «Contratos de temporada» · Semana 1, miércoles.
-// Hilo del mes: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
+// Generalista de RR.HH. · Capítulo 2 · «Contratos de temporada» · Semana 1, martes.
+// Hilo de las dos semanas: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
 // Normas citadas (TUO del D.Leg. 728, Ley de Productividad y Competitividad Laboral, D.S. 003-97-TR):
 //   Guía LP Derecho que transcribe el régimen de contratos modales (arts. 53 a 83):
 //   https://img.lpderecho.pe/wp-content/uploads/2024/03/Guia-Contratos-de-trabajo-sujetos-a-modalidad-en-la-actividad-privada-LPDerecho.pdf
@@ -15,14 +15,14 @@
 // - Primacía de la realidad y RMV de S/ 1,230 (D.S. 015-2026-TR), ya citadas en el capítulo 1.
 
 export const CAP = {
-  n: 2, titulo: 'Contratos de temporada', dia: 'Semana 1, miércoles', foto: 'assets/foto/mesa-papeles.webp',
+  n: 2, titulo: 'Contratos de temporada', dia: 'Semana 1, martes', foto: 'assets/foto/mesa-papeles.webp',
   lugar: 'Oficina de RR.HH. · Hotel Inti Wasi, Cusco',
   inicio: '07:00', fin: '19:00', cierreHora: '18:40',
-  apertura: 'Cusco, miércoles. Amaneció despejado, pero a las tres de la tarde, como todos los días de noviembre, va a llover. Tu oficina es un antiguo depósito de lencería junto a la lavandería: huele a jabón y a vapor.', boton: 'Abrir la carpeta de contratos',
+  apertura: 'Cusco, martes. Amaneció despejado, pero a las tres de la tarde, como todos los días de noviembre, va a llover. Tu oficina es un antiguo depósito de lencería junto a la lavandería: huele a jabón y a vapor.', boton: 'Abrir la carpeta de contratos',
   kusi: 'Un contrato no es un papel: es la promesa que le haces a alguien. ¡Dale!',
   lead: 'Corregiste un modelo de contrato que no resistía una inspección, le explicaste a Verónica qué modalidad corresponde a la temporada, armaste la matriz de contratos, decidiste qué hacer con los tres trabajadores escondidos en recibos y llamaste a tus primeras contrataciones.',
   reflexion: '¿Qué le dirías a alguien que te pide trabajar «por recibo» para que no le descuenten nada?',
-  siguiente: { n: 3, titulo: 'La cocina', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'La cocina', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -67,7 +67,7 @@ export const WSP = [
 export const CORREOS = [
   { t: '07:20', de: 'Verónica Quispe', para: 'Generalista de RR.HH.', asunto: 'Contratos', html: '<p>Para no complicarnos: hagamos contratos por tres meses a los 18, como hace mi amiga Carmen en su hotel de Aguas Calientes. Su abogado los pone como «necesidad de mercado». Si alguien no funciona, no renovamos y listo.</p><p>Conversamos a las 8:15 en mi oficina.</p><p>V.</p>' },
   { t: '09:10', de: 'CPC Iván Mendoza', para: 'Generalista de RR.HH.', asunto: 'Casos de recibos por honorarios', html: '<p>Estimada:</p><p>Adjunto la fecha real en que empezó cada uno: recepcionista nocturna (Yaneth Huallpa), hace dos años; mozo (Edwin Ttito), hace dos años; camarera (Norma Mamani), hace catorce meses. Puedo calcular los beneficios pendientes, pero necesito saber qué decide la gerencia.</p><p>Atentamente,<br>CPC Iván Mendoza</p>' },
-  { t: '14:20', de: 'Instituto de Turismo del Cusco', para: 'RR.HH. Hotel Inti Wasi', asunto: 'Postulantes para su convocatoria', html: '<p>Les enviamos los datos de 12 egresados interesados. Tres ya confirmaron que pueden empezar el lunes.</p>', si: 'canales_locales' },
+  { t: '14:20', de: 'Instituto de Turismo del Cusco', para: 'RR.HH. Hotel Inti Wasi', asunto: 'Postulantes para su convocatoria', html: '<p>Les enviamos los datos de 12 egresados interesados. Tres ya confirmaron que pueden empezar el jueves.</p>', si: 'canales_locales' },
 ];
 
 export const QUIZ = [
@@ -83,7 +83,7 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'c1', t: '07:10', ch: 'documento', who: null, titulo: 'El modelo del contador anterior', banner: 'assets/foto/mesa-papeles.webp', lugar: 'Oficina de RR.HH., junto a la lavandería', show: ['cumplimiento', 'calidad'],
-    body: (n, F) => `<p>La secadora industrial retumba al otro lado de la pared. En la carpeta de Verónica encuentras el único modelo de contrato que usaba el hotel, en Word, con el logo pixelado.${F.has('chef_informal') ? ' Mientras tanto, Kevin ya está en la cocina sin haber firmado nada.' : F.has('chef_formal') ? ' Con este mismo modelo firmó Kevin ayer: hay que revisarlo.' : ''}</p><p>De aquí saldrán los 18 contratos de la temporada. <mark class="clave">Si el modelo está mal, los 18 estarán mal</mark>.</p>`,
+    body: (n, F) => `<p>La secadora industrial retumba al otro lado de la pared. En la carpeta de Verónica encuentras el único modelo de contrato que usaba el hotel, en Word, con el logo pixelado.${F.has('chef_informal') ? ' Mientras tanto, Kevin ya está en la cocina sin haber firmado nada.' : F.has('chef_formal') ? ' Con este mismo modelo firmó Kevin esta mañana, en su primer día: hay que revisarlo.' : ''}</p><p>De aquí saldrán los 18 contratos de la temporada. <mark class="clave">Si el modelo está mal, los 18 estarán mal</mark>.</p>`,
     type: 'flag', prompt: 'Marca las cláusulas que no se pueden quedar así.',
     doc: { t: 'CONTRATO DE TRABAJO POR TRES MESES', sub: 'Hotel Inti Wasi S.A.C. · modelo 2021' },
     lines: [
@@ -173,7 +173,7 @@ export const ESCENAS = [
   },
   {
     id: 'c4', t: '11:30', ch: 'presencial', who: 'contador', titulo: 'Yaneth, Edwin y Norma', banner: 'assets/3d/scenes/reunion.webp', lugar: 'Sala de reuniones, con vista al patio colonial', show: ['cumplimiento', 'etica', 'personas'],
-    body: (n, F) => `<p>${F.has('honorarios_alerta') ? 'Es la reunión que le propusiste a Verónica el lunes.' : 'El lunes no se lo contaste a Verónica; hoy fue Edwin, el mozo, quien le preguntó por su CTS, y ella convocó a esta reunión.'} Iván llega con su laptop y una hoja de cálculo; Verónica, con un café pasado.</p><p>Iván explica: «Si los pasamos a planilla reconociendo desde cuándo trabajan, hay que pagar vacaciones, CTS y gratificaciones pendientes». Verónica suspira: «<mark class="clave">Justo ahora, antes de la temporada</mark>».</p>`,
+    body: (n, F) => `<p>${F.has('honorarios_alerta') ? 'Es la reunión que le propusiste ayer a Verónica.' : 'Ayer no se lo contaste a Verónica; hoy fue Edwin, el mozo, quien le preguntó por su CTS, y ella convocó a esta reunión.'} Iván llega con su laptop y una hoja de cálculo; Verónica, con un café pasado.</p><p>Iván explica: «Si los pasamos a planilla reconociendo desde cuándo trabajan, hay que pagar vacaciones, CTS y gratificaciones pendientes». Verónica suspira: «<mark class="clave">Justo ahora, antes de la temporada</mark>».</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Planilla desde ya con contrato indeterminado, reconociendo su fecha real de ingreso. Pedirle a Iván el cálculo exacto y conversar con los tres un plan para pagar lo pendiente.',
@@ -200,7 +200,7 @@ export const ESCENAS = [
   },
   {
     id: 'c5', t: '13:30', ch: 'documento', who: null, titulo: 'El primer día de los nuevos', banner: 'assets/esc/reloj.webp', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Almuerzas un caldo de gallina en el comedor del personal, de pie, con el celular en la mano. ${F.has('canales_locales') ? 'Tres egresados del instituto pueden empezar el lunes.' : 'Los primeros candidatos podrían empezar el lunes.'}</p><p>Para que el lunes no sea un caos, <mark class="clave">escribes el orden de lo que debe pasar con cada ingreso</mark>.</p>`,
+    body: (n, F) => `<p>Almuerzas un caldo de gallina en el comedor del personal, de pie, con el celular en la mano. ${F.has('canales_locales') ? 'Tres egresados del instituto pueden empezar el jueves.' : 'Los primeros candidatos podrían empezar el jueves.'}</p><p>Para que el jueves no sea un caos, <mark class="clave">escribes el orden de lo que debe pasar con cada ingreso</mark>.</p>`,
     type: 'secuencia', prompt: 'Ordena los pasos para cada ingreso de la temporada. Usa las flechas.', boton: 'Guardar el procedimiento',
     items: [
       { id: 'confirma', t: 'Confirmar con el jefe del área el puesto, el turno y el sueldo', por: 'Sin esto, el contrato sale con datos equivocados.' },
@@ -214,7 +214,7 @@ export const ESCENAS = [
       const q = bien === total ? 'buena' : bien >= total - 2 ? 'aceptable' : 'riesgosa';
       return {
         q, fx: { calidad: q === 'buena' ? 4 : q === 'aceptable' ? 1 : -2, tiempo: q === 'riesgosa' ? -3 : 2 },
-        out: q === 'buena' ? 'Tu procedimiento cabe en media hoja. Lo pegas con cinta en la pared, al lado de un afiche de Machu Picchu descolorido.' : 'Tienes un procedimiento, aunque algún paso quedó en un orden que te hará correr el lunes.',
+        out: q === 'buena' ? 'Tu procedimiento cabe en media hoja. Lo pegas con cinta en la pared, al lado de un afiche de Machu Picchu descolorido.' : 'Tienes un procedimiento, aunque algún paso quedó en un orden que te hará correr el jueves.',
         pro: { ok: 'Un procedimiento simple evita que la prisa de la temporada se salte lo esencial.', risk: 'Si la firma o el alta quedan para después, alguien trabajará sin protección.', info: 'Con 18 ingresos en tres semanas, una lista de verificación por persona vale más que tu memoria.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Cada ingreso, paso a paso!' : 'El orden también protege.'],
       };
@@ -222,7 +222,7 @@ export const ESCENAS = [
     rules: [[LEY, 'El alta en el T-Registro se registra el día de ingreso.'], [BP, 'Ningún trabajador empieza sin contrato firmado y sin inducción de seguridad.']],
     mirada: {
       ve: 'En temporada alta todo el mundo tiene prisa por que «el nuevo entre ya». El procedimiento de ingreso es lo que permite ir rápido sin dejar a nadie desprotegido.',
-      visual: { tipo: 'linea', titulo: 'Un ingreso de temporada', hitos: [['Viernes', 'Confirmar puesto y firmar'], ['Lunes, 7:00', 'Alta e inducción'], ['Primera semana', 'Registrar el contrato'], ['Fin de mes', 'Primera boleta']] },
+      visual: { tipo: 'linea', titulo: 'Un ingreso de temporada', hitos: [['Miércoles', 'Confirmar puesto y firmar'], ['Jueves, 7:00', 'Alta e inducción'], ['Primera semana', 'Registrar el contrato'], ['Fin de mes', 'Primera boleta']] },
     },
   },
   {
@@ -232,7 +232,7 @@ export const ESCENAS = [
     calls: [
       ['Luz Clarita Apaza · 21 años · egresada de Cocina · Urubamba', 'Contesta desde la combi', '«¿Me van a dar contrato? En mi otro trabajo me tuvieron un mes "a prueba" y la última semana nunca me la pagaron.»'],
       ['Rubén Ccori · 38 años · mozo · Ollantaytambo', 'Contesta con niños de fondo', '«Yo he trabajado tres temporadas en otro hotel. Si vengo este año y el que viene, ¿me vuelven a llamar o empiezo de cero?»'],
-      ['Milagros Torres · 26 años · recepcionista · de Pucallpa, vive en Cusco', 'Contesta en inglés y luego se ríe', '«Puedo empezar el lunes. Pero ¿me pueden pagar por recibo? Así no me descuentan la AFP y me alcanza para el cuarto.»'],
+      ['Milagros Torres · 26 años · recepcionista · de Pucallpa, vive en Cusco', 'Contesta en inglés y luego se ríe', '«Puedo empezar el jueves. Pero ¿me pueden pagar por recibo? Así no me descuentan la AFP y me alcanza para el cuarto.»'],
     ],
     prompt: 'Escuchaste las tres respuestas. ¿Qué les ofreces?',
     choices: [
@@ -259,13 +259,13 @@ export const ESCENAS = [
     },
   },
   {
-    id: 'c7', t: '18:20', ch: 'correo', who: 'veronica', titulo: 'El resumen del miércoles', banner: 'assets/foto/revisa.webp', show: ['confianza', 'calidad'],
+    id: 'c7', t: '18:20', ch: 'correo', who: 'veronica', titulo: 'El resumen del martes', banner: 'assets/foto/revisa.webp', show: ['confianza', 'calidad'],
     body: (n, F) => `<p>La lluvia paró y la plaza brilla bajo los faroles. ${F.has('milagros_recibo') ? 'Te queda una incomodidad por lo de Milagros.' : 'Tienes tres aceptaciones y una matriz impresa.'}</p><p>Verónica te pidió un resumen antes de las siete. <mark class="clave">Lo leerá en el celular, entre dos reuniones</mark>.</p>`,
     type: 'choice',
     choices: [
       { id: 'a', label: 'La modalidad decidida, lo que pasa con los tres regularizados, las tres contrataciones y lo que necesitas de ella mañana.',
-        res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { veronica: 1 }, responde: 'Verónica: los 18 ingresos tendrán contrato con la causa por escrito; el modelo ya está corregido (sueldo, prueba y beneficios). Yaneth, Edwin y Norma: Iván envía el cálculo el viernes. Tres aceptaciones para el lunes: cocina, salón y recepción. Necesito su firma en los contratos el viernes a las 9.',
-          out: 'Verónica responde a las 18:50: «Clarito. Viernes a las 9». Bajas a recepción a despedirte y Wendy te invita un mate de muña.', kusi: ['feliz', 'Corto, claro y con un pedido. ¡Así!'] } },
+        res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { veronica: 1 }, responde: 'Verónica: los 18 ingresos tendrán contrato con la causa por escrito; el modelo ya está corregido (sueldo, prueba y beneficios). Yaneth, Edwin y Norma: Iván envía el cálculo el viernes. Tres aceptaciones para el jueves: cocina, salón y recepción. Necesito su firma en los contratos mañana a las 9.',
+          out: 'Verónica responde a las 18:50: «Clarito. Mañana a las 9». Bajas a recepción a despedirte y Wendy te invita un mate de muña.', kusi: ['feliz', 'Corto, claro y con un pedido. ¡Así!'] } },
       { id: 'b', label: 'Adjuntarle la matriz y el modelo para que los revise ella.',
         res: { q: 'aceptable', fx: { confianza: 0, tiempo: -1 }, responde: 'Verónica: le adjunto la matriz de contratos y el nuevo modelo para su revisión.',
           out: 'Verónica responde a las 22:10: «No puedo abrir Excel en el celular. Mañana me cuentas». La firma de los contratos queda en el aire.', kusi: ['pensando', 'Le mandaste trabajo, no un resumen.'] } },

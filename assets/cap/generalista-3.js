@@ -1,5 +1,5 @@
-// Generalista de RR.HH. · Capítulo 3 · «La cocina» · Semana 1, viernes.
-// Hilo del mes: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
+// Generalista de RR.HH. · Capítulo 3 · «La cocina» · Semana 1, miércoles.
+// Hilo de las dos semanas: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
 // Normas citadas (TUO del D.Leg. 728, D.S. 003-97-TR):
 //   https://lpderecho.pe/jurisprudencia-articulo-30-tuo-decreto-legislativo-728-despido-hostilidad
 //   https://img.lpderecho.pe/wp-content/uploads/2022/08/Resolucion-676-2022-Sunafil-TFL-Primera-Sala-LPDerecho.pdf
@@ -10,14 +10,14 @@
 //   exige un procedimiento con derecho de defensa (se explica el principio, sin plazos).
 
 export const CAP = {
-  n: 3, titulo: 'La cocina', dia: 'Semana 1, viernes', foto: 'assets/foto2/tension.webp',
+  n: 3, titulo: 'La cocina', dia: 'Semana 1, miércoles', foto: 'assets/foto2/tension.webp',
   lugar: 'Cocina del Hotel Inti Wasi, Cusco',
   inicio: '07:00', fin: '19:00', cierreHora: '18:45',
-  apertura: 'Cusco, viernes. Anoche, a las once, alguien escribió en el grupo de cocina: «Ya no voy a recibir órdenes a gritos». Era Marleny. El chef respondió con un solo mensaje: «El que no aguanta, que se vaya».', boton: 'Bajar a la cocina',
+  apertura: 'Cusco, miércoles. Anoche, a las once, alguien escribió en el grupo de cocina: «Ya no voy a recibir órdenes a gritos». Era Marleny. El chef respondió con un solo mensaje: «El que no aguanta, que se vaya».', boton: 'Bajar a la cocina',
   kusi: 'En una cocina caliente, las palabras queman más que el aceite. Hoy escuchas primero.',
   lead: 'Escuchaste a los testigos, contuviste al chef, separaste los hechos de las opiniones, preparaste y condujiste una mediación, y dejaste por escrito lo que se acordó.',
   reflexion: '¿Qué parte de un conflicto se puede conversar y qué parte necesita una sanción?',
-  siguiente: { n: 4, titulo: 'Los turnos', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'Los turnos', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
@@ -33,11 +33,11 @@ export const FUTURO = {
   marleny_movida: ['Le ofreciste al chef sacar a Marleny de la cocina principal.', 'Marleny lo vivió como un castigo.'],
   hechos_separados: ['Separaste los hechos de las opiniones y viste que el insulto no se resuelve solo conversando.', 'Tu acta será sólida.'],
   insulto_minimizado: ['Trataste el insulto como un roce más.', 'Volverá a pasar.'],
-  mediacion_acuerdo: ['El chef y Marleny firmaron acuerdos concretos para la cocina.', 'Se revisan el martes.'],
+  mediacion_acuerdo: ['El chef y Marleny firmaron acuerdos concretos para la cocina.', 'Se revisan mañana jueves.'],
   insulto_registrado: ['El insulto se trató aparte y por escrito, con Verónica.', 'El chef sabe que hay un límite.'],
   tregua_falsa: ['Cerraste el conflicto con un apretón de manos.', 'En la temporada, la tensión volverá a la cocina.'],
   chef_despido_pedido: ['Pediste el despido del chef el mismo día.', 'Verónica lo frenó, y el chef lo sabe.'],
-  gerencia_informada: ['Le contaste a Verónica el insulto reiterado y le propusiste una llamada de atención escrita.', 'Se verá el lunes a las 8:00.'],
+  gerencia_informada: ['Le contaste a Verónica el insulto reiterado y le propusiste una llamada de atención escrita.', 'Se verá mañana a las 8:00.'],
   insulto_oculto: ['No le contaste a Verónica el insulto reiterado del chef.', 'Se enterará por otro lado.'],
 };
 
@@ -51,7 +51,7 @@ export const CHATS = {
 };
 
 export const WSP = [
-  { chat: 'veronica', t: '07:05', de: 'Verónica', txt: '¿Viste el grupo de cocina? Arréglalo antes de que lleguen los franceses del lunes. No quiero perder ni al chef ni a Marleny.' },
+  { chat: 'veronica', t: '07:05', de: 'Verónica', txt: '¿Viste el grupo de cocina? Arréglalo antes del fin de semana: el sábado hay boda. No quiero perder ni al chef ni a Marleny.' },
   { chat: 'joel', t: '09:50', de: 'Joel', txt: 'Gracias por escribirme a mí también. Casi nadie me pregunta 🙌' },
   { chat: 'marleny', t: '17:20', de: 'Marleny', txt: 'Hija, gracias. Dieciséis años aquí y es la primera vez que alguien me escucha en una sala con la puerta cerrada.', si: 'mediacion_acuerdo' },
   { chat: 'chef', t: '17:40', de: 'Chef Rolando', txt: 'Me pasé. Ya sé. Pero que conste que las recetas las decido yo.', si: 'insulto_registrado' },
@@ -60,7 +60,7 @@ export const WSP = [
 
 export const CORREOS = [
   { t: '08:00', de: 'TripAdvisor · notificación', para: 'Gerencia Inti Wasi', asunto: 'Nueva reseña: ★★☆☆☆ «Lovely staff, but lunch took forever»', html: '<p>«The view is amazing and the receptionist Wendy was wonderful, but we waited 50 minutes for lunch and the rocoto relleno was not what we expected.»</p>' },
-  { t: '12:15', de: 'Verónica Quispe', para: 'Generalista de RR.HH.', asunto: 'Contratos firmados', html: '<p>Firmé los contratos de los tres que empiezan el lunes. Lo de la cocina me preocupa más que cualquier contrato. Avísame cómo sale.</p><p>V.</p>' },
+  { t: '12:15', de: 'Verónica Quispe', para: 'Generalista de RR.HH.', asunto: 'Contratos firmados', html: '<p>Firmé los contratos de los tres que empiezan mañana. Lo de la cocina me preocupa más que cualquier contrato. Avísame cómo sale.</p><p>V.</p>' },
 ];
 
 export const QUIZ = [
@@ -184,21 +184,21 @@ export const ESCENAS = [
           out: 'El chef se pone rojo: «¿Me va a sancionar?». Le explicas que eso lo verá la gerencia con un procedimiento, y que él podrá dar su versión. Luego, para sorpresa de los dos, acuerdan cómo avisar los cambios de receta en diez minutos.',
           pro: { ok: 'Proteges a Marleny sin destruir la posibilidad de que trabajen juntos.', risk: 'El chef saldrá molesto. Pero sabe dónde está el límite.', info: 'La sanción, si corresponde, sigue un procedimiento con derecho de defensa: no la decides tú en la sala.' },
           kusi: ['celebra', 'Lo que se conversa, se conversa. Lo que no, no.'] } },
-      { id: 'b', label: 'Aprovechar que el chef se disculpó: que se den la mano y cerrar el tema. A tres días de la temporada, la cocina necesita paz más que papeles.',
+      { id: 'b', label: 'Aprovechar que el chef se disculpó: que se den la mano y cerrar el tema. A dos semanas de la temporada, la cocina necesita paz más que papeles.',
         res: { q: 'riesgosa', fx: { personas: -2, etica: -4, tiempo: 2 }, rel: { chef: 1 }, flags: ['tregua_falsa'], cartera: { cocina: 'Apretón de manos, sin acuerdos' },
           out: 'Se dan la mano. Marleny sale primero, sin decir nada. El chef te da una palmada en el hombro: «Ve, era fácil».',
           pro: { ok: 'La cocina recupera una calma aparente.', risk: 'Un insulto que se repite y se cierra con un apretón de manos le enseña a todos que no pasa nada.' },
           kusi: ['triste', 'Ella dijo «no es la primera vez»…'] } },
       { id: 'c', label: 'Cortar la reunión y pedirle a Verónica que despida hoy al chef por falta grave.',
         res: { q: 'riesgosa', fx: { etica: 1, personas: -2, confianza: -3, cumplimiento: -2 }, rel: { chef: -1, veronica: -1 }, flags: ['chef_despido_pedido'], cartera: { cocina: 'Despido pedido sin procedimiento' },
-          out: 'Verónica te frena por teléfono: «¿Hoy? ¿Sin escucharlo y a tres días de la temporada?». El chef se entera en una hora. Marleny, en vez de aliviada, está asustada: «Ahora me van a culpar a mí».',
+          out: 'Verónica te frena por teléfono: «¿Hoy? ¿Sin escucharlo y a dos semanas de la temporada?». El chef se entera en una hora. Marleny, en vez de aliviada, está asustada: «Ahora me van a culpar a mí».',
           pro: { ok: 'Tomas en serio la gravedad.', risk: 'Una falta grave se sanciona con un procedimiento y derecho de defensa. Saltártelo pone en riesgo al hotel y no protege a Marleny.' },
           kusi: ['sorpresa', '¡Del cero al cien en un minuto!'] } },
     ],
     rules: [[LEY, 'La injuria y el faltamiento de palabra a otros trabajadores son faltas graves (D.S. 003-97-TR, art. 25), y su sanción exige un procedimiento con derecho de defensa.']],
     mirada: {
       ve: 'El momento más difícil de una mediación es cuando aparece algo que no se puede mediar. Seguir como si nada, o explotarlo todo, son las dos salidas fáciles. La difícil es separar los temas sin soltar a ninguno.',
-      visual: { tipo: 'balanza', a: { t: 'Se acuerda en la sala', items: ['Cómo se avisan los cambios de receta', 'Órdenes directas, sin intermediarios', 'Revisión el martes'] }, b: { t: 'Se trata aparte', items: ['El insulto reiterado', 'Con la gerencia y por escrito', 'Con derecho de defensa'] } },
+      visual: { tipo: 'balanza', a: { t: 'Se acuerda en la sala', items: ['Cómo se avisan los cambios de receta', 'Órdenes directas, sin intermediarios', 'Revisión mañana'] }, b: { t: 'Se trata aparte', items: ['El insulto reiterado', 'Con la gerencia y por escrito', 'Con derecho de defensa'] } },
       normas: [{ ley: 'D.S. 003-97-TR, arts. 25 y 30 g)', dice: 'La injuria y el faltamiento de palabra verbal o escrita en agravio de otros trabajadores son faltas graves. Y son actos de hostilidad los actos que afecten la dignidad del trabajador.', practica: 'Cuando quien insulta es un jefe, el hotel responde por lo que hace en su nombre: no basta con que «se disculpe».' }],
     },
   },
@@ -217,7 +217,7 @@ export const ESCENAS = [
         { id: 'a3', t: 'Ambos se comprometen a llevarse bien.', ok: false, por: 'Es un deseo, no un acuerdo que se pueda verificar.' },
       ] },
       { id: 'seguimiento', t: 'Seguimiento', n: 1, ops: [
-        { id: 's1', t: 'Revisión el martes a las 15:00, con la generalista. Firman ambos.', ok: true, por: 'Fecha, hora y responsables.' },
+        { id: 's1', t: 'Revisión el jueves a las 15:00, con la generalista. Firman ambos.', ok: true, por: 'Fecha, hora y responsables.' },
         { id: 's2', t: 'Si hay problemas, que avisen.', ok: false, por: 'Nadie va a avisar.' },
       ] },
     ],
@@ -233,8 +233,8 @@ export const ESCENAS = [
     },
     rules: [[BP, 'El acta de mediación registra hechos, acuerdos verificables y una fecha de revisión.']],
     mirada: {
-      ve: 'El acta de mediación es uno de los entregables del mes. No sirve para decidir quién ganó: sirve para que, el martes, todos sepan qué se prometió.',
-      visual: { tipo: 'cambio', titulo: 'De la queja al acuerdo', pares: [['«Me cambió la receta»', 'Avisa antes de servir'], ['«Me grita»', 'Órdenes directas y sin gritos'], ['«Ya veremos»', 'Revisión el martes, 15:00']] },
+      ve: 'El acta de mediación es uno de los entregables de las dos semanas. No sirve para decidir quién ganó: sirve para que, el jueves, todos sepan qué se prometió.',
+      visual: { tipo: 'cambio', titulo: 'De la queja al acuerdo', pares: [['«Me cambió la receta»', 'Avisa antes de servir'], ['«Me grita»', 'Órdenes directas y sin gritos'], ['«Ya veremos»', 'Revisión el jueves, 15:00']] },
     },
   },
   {
@@ -245,7 +245,7 @@ export const ESCENAS = [
     prompt: 'Arma tu respuesta eligiendo una frase de cada parte.',
     slots: [
       { id: 'estado', t: 'Cómo quedó', ops: [
-        { id: 'e1', t: 'Sí, siguen los dos. Hay dos acuerdos para la cocina firmados y revisión el martes.', ok: true, por: 'Responde su pregunta con hechos.' },
+        { id: 'e1', t: 'Sí, siguen los dos. Hay dos acuerdos para la cocina firmados y revisión mañana.', ok: true, por: 'Responde su pregunta con hechos.' },
         { id: 'e2', t: 'Todo arreglado, ya se dieron la mano 🙌', ok: null, por: 'Tranquiliza, pero no es toda la verdad.' },
       ] },
       { id: 'pendiente', t: 'Lo que ella tiene que saber', ops: [
@@ -253,7 +253,7 @@ export const ESCENAS = [
         { id: 'p2', t: 'Lo demás fueron cosas de cocina, nada grave.', ok: false, por: 'Ocultarle a la gerencia un insulto reiterado de un jefe la deja expuesta.' },
       ] },
       { id: 'pide', t: 'Lo que le pides', ops: [
-        { id: 'r1', t: '¿Lo vemos el lunes temprano? Le propongo una llamada de atención por escrito, escuchándolo antes.', ok: true, por: 'Una propuesta concreta, proporcional y con derecho de defensa.' },
+        { id: 'r1', t: '¿Lo vemos mañana temprano? Le propongo una llamada de atención por escrito, escuchándolo antes.', ok: true, por: 'Una propuesta concreta, proporcional y con derecho de defensa.' },
         { id: 'r2', t: 'Cualquier cosa le aviso.', ok: null, por: 'No le pides ninguna decisión.' },
       ] },
     ],
@@ -263,7 +263,7 @@ export const ESCENAS = [
       return {
         q, fx: { confianza: q === 'buena' ? 4 : mal ? -2 : 1, etica: mal ? -4 : 2 }, rel: { veronica: q === 'buena' ? 1 : 0 },
         flags: mal ? ['insulto_oculto'] : ['gerencia_informada'],
-        out: q === 'buena' ? 'Verónica responde: «Uf. Gracias por decírmelo así. Lunes 8:00, los tres». Sales del hotel y en la esquina compras un choclo con queso para el camino.' : mal ? 'Verónica responde con un pulgar. Lo que pasó en la cocina se queda entre tú, Marleny y el chef.' : 'Verónica responde: «Ok, ¿pero entonces qué hago?». Te toca escribirle otra vez.',
+        out: q === 'buena' ? 'Verónica responde: «Uf. Gracias por decírmelo así. Mañana 8:00, los tres». Sales del hotel y en la esquina compras un choclo con queso para el camino.' : mal ? 'Verónica responde con un pulgar. Lo que pasó en la cocina se queda entre tú, Marleny y el chef.' : 'Verónica responde: «Ok, ¿pero entonces qué hago?». Te toca escribirle otra vez.',
         pro: { ok: 'Informas a la gerencia lo que es su responsabilidad y le propones un camino.', risk: 'Si la gerencia se entera tarde de un insulto reiterado de un jefe, la confianza en RR.HH. se rompe.', info: 'Una llamada de atención escrita es proporcional para una primera falta formal, y deja registro si se repite.' },
         kusi: [q === 'buena' ? 'celebra' : mal ? 'indignado' : 'pensando', q === 'buena' ? '¡Clarito y valiente!' : mal ? '¡Eso sí era grave!' : 'Le faltó saber qué decidir.'],
       };

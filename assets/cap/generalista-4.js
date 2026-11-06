@@ -1,5 +1,5 @@
-// Generalista de RR.HH. · Capítulo 4 · «Los turnos» · Semana 2, martes.
-// Hilo del mes: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
+// Generalista de RR.HH. · Capítulo 4 · «Los turnos» · Semana 1, jueves.
+// Hilo de las dos semanas: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
 // Normas citadas:
 // - D.Leg. 713 (descansos remunerados): descanso semanal mínimo de 24 horas consecutivas, que puede fijarse en un
 //   día distinto al domingo; si se trabaja el día de descanso sin sustituirlo, se paga la labor más una sobretasa
@@ -11,14 +11,14 @@
 // - Las horas extra son voluntarias y se pagan con sobretasa (se explica el principio; las tasas se ven en el capítulo 5).
 
 export const CAP = {
-  n: 4, titulo: 'Los turnos', dia: 'Semana 2, martes', foto: 'assets/esc/reloj.webp',
+  n: 4, titulo: 'Los turnos', dia: 'Semana 1, jueves', foto: 'assets/esc/reloj.webp',
   lugar: 'Oficina de housekeeping · Hotel Inti Wasi, Cusco',
   inicio: '07:00', fin: '19:00', cierreHora: '18:50',
-  apertura: 'Cusco, martes de la segunda semana. Ayer empezaron los primeros ingresos de la temporada y el hotel ya está al 80 %. En el panel de corcho de housekeeping hay un cuadro de turnos impreso, con manchas de café y correcciones en lapicero.', boton: 'Mirar el cuadro',
+  apertura: 'Cusco, jueves. Hoy empiezan los primeros ingresos de la temporada y el hotel ya está al 80 %. En el panel de corcho de housekeeping hay un cuadro de turnos impreso, con manchas de café y correcciones en lapicero.', boton: 'Mirar el cuadro',
   kusi: 'Un cuadro de turnos es un mapa del cansancio de la gente. ¡A leerlo bien!',
   lead: 'Detectaste los turnos imposibles, decidiste qué hacer con las camareras que querían trabajar siete días, armaste un cuadro legal, repartiste el banquete de la boda, escuchaste a quienes viven los turnos y publicaste el cuadro nuevo.',
   reflexion: '¿Qué harías si alguien te pide trabajar sin descanso porque necesita la plata?',
-  siguiente: { n: 5, titulo: 'La planilla externa', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'La planilla externa', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -78,9 +78,9 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 't1', t: '07:15', ch: 'documento', who: null, titulo: 'El cuadro del corcho', banner: 'assets/esc/planilla.webp', lugar: 'Oficina de housekeeping, junto a los carritos de limpieza', show: ['cumplimiento', 'personas', 'calidad'],
-    body: (n, F) => `<p>Huele a lavanda industrial y a sábanas recién planchadas. El archivo se llama «Turnos HK y recepción semana 2 FINAL (2).xlsx». ${F.has('wendy_no') ? 'Wendy aparece trabajando seis días por semana hasta diciembre, sin vacaciones a la vista.' : F.has('wendy_acuerdo') ? 'Las vacaciones de Wendy están marcadas en verde; Milagros la cubrirá.' : ''}</p><p>Antes de que llegue Haydée, lo revisas fila por fila. <mark class="clave">Algunas filas no son un turno: son un riesgo</mark>.</p>`,
+    body: (n, F) => `<p>Huele a lavanda industrial y a sábanas recién planchadas. El archivo se llama «Turnos HK y recepción temporada FINAL (2).xlsx». ${F.has('wendy_no') ? 'Wendy aparece trabajando seis días por semana hasta diciembre, sin vacaciones a la vista.' : F.has('wendy_acuerdo') ? 'Las vacaciones de Wendy están marcadas en verde; Milagros la cubrirá.' : ''}</p><p>Antes de que llegue Haydée, lo revisas fila por fila. <mark class="clave">Algunas filas no son un turno: son un riesgo</mark>.</p>`,
     type: 'flag', prompt: 'Marca las filas del cuadro que no se pueden quedar así.',
-    doc: { t: 'TURNOS · Semana 2 · Housekeeping, recepción y cocina', sub: 'Hotel Inti Wasi · versión de Haydée' },
+    doc: { t: 'TURNOS · Próximas semanas · Housekeeping, recepción y cocina', sub: 'Hotel Inti Wasi · versión de Haydée' },
     lines: [
       { id: 'hk7', t: 'Camareras Norma, Fortunata, Rocío y Elsa: lunes a domingo, de 7:00 a 15:00, sin día libre, durante las tres semanas de temporada.', bad: LEY, why: 'Cada trabajador tiene derecho a un descanso semanal de 24 horas consecutivas. Y siete días de 8 horas son 56 horas: más de 48.' },
       { id: 'noche', t: 'Recepción nocturna: Yaneth, de 19:00 a 07:00, seis noches por semana, sola.', bad: LEY, why: 'Son 72 horas semanales, muy por encima del máximo de 48. Y sola en la madrugada, con grupos llegando del aeropuerto.' },
@@ -131,7 +131,7 @@ export const ESCENAS = [
   },
   {
     id: 't3', t: '10:00', ch: 'documento', who: null, titulo: 'El cuadro nuevo', banner: 'assets/3d/scenes/oficina.webp', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Haydée te presta su escritorio y se va a revisar habitaciones. ${F.has('canales_locales') ? 'Con los egresados del instituto que empezaron ayer, por fin tienes gente para rotar.' : 'Tienes menos gente nueva de la que quisieras, pero alcanza para rotar.'}</p><p>Armas el cuadro de la temporada. <mark class="clave">Cada decisión del cuadro es una decisión sobre el cansancio de alguien</mark>.</p>`,
+    body: (n, F) => `<p>Haydée te presta su escritorio y se va a revisar habitaciones. ${F.has('canales_locales') ? 'Con los egresados del instituto que empiezan hoy, por fin tienes gente para rotar.' : 'Tienes menos gente nueva de la que quisieras, pero alcanza para rotar.'}</p><p>Armas el cuadro de la temporada. <mark class="clave">Cada decisión del cuadro es una decisión sobre el cansancio de alguien</mark>.</p>`,
     type: 'builder', prompt: 'Elige qué va en cada parte del cuadro de turnos.', boton: 'Guardar el cuadro',
     bloques: [
       { id: 'hk', t: 'Housekeeping', n: 1, ops: [
@@ -156,20 +156,20 @@ export const ESCENAS = [
       return {
         q, fx: { calidad: q === 'buena' ? 5 : q === 'aceptable' ? 2 : -3, cumplimiento: q === 'riesgosa' ? -3 : 4, personas: q === 'buena' ? 2 : 0 },
         flags: q === 'riesgosa' ? [] : ['cuadro_legal'], cartera: { turnos: q === 'riesgosa' ? 'Cuadro con huecos' : 'Cuadro legal armado', noche: q === 'riesgosa' ? 'Sigue sola' : 'Dos turnos de noche' },
-        out: q === 'buena' ? 'Sumas las horas: nadie pasa de 48, todos tienen un día libre y la madrugada ya no está sola. Llamas a Sonia: puede empezar el jueves.' : q === 'aceptable' ? 'El cuadro mejora, aunque una parte todavía no aguantaría una inspección.' : 'El cuadro se ve más ordenado, pero repite los mismos problemas con otros colores.',
+        out: q === 'buena' ? 'Sumas las horas: nadie pasa de 48, todos tienen un día libre y la madrugada ya no está sola. Llamas a Sonia: puede empezar esta misma noche.' : q === 'aceptable' ? 'El cuadro mejora, aunque una parte todavía no aguantaría una inspección.' : 'El cuadro se ve más ordenado, pero repite los mismos problemas con otros colores.',
         pro: { ok: 'Un cuadro legal no es un cuadro perfecto: es uno donde nadie se queda sin descanso ni pasa del máximo.', risk: 'Si las horas extra no se registran, Iván no podrá pagarlas.', info: 'Guarda una versión por semana: si alguien reclama, sabrás qué turno tenía.' },
         kusi: [q === 'buena' ? 'celebra' : 'pensando', q === 'buena' ? '¡Cuarenta y ocho para todos!' : 'Suma las horas otra vez.'],
       };
     },
     rules: [[BP, 'Arma el cuadro sumando horas por persona y por semana, no solo cubriendo puestos.']],
     mirada: {
-      ve: 'El cuadro de turnos legal es uno de los entregables del mes. Detrás de cada casilla hay alguien que cuida a un hijo, estudia de noche o viaja una hora en combi.',
+      ve: 'El cuadro de turnos legal es uno de los entregables de las dos semanas. Detrás de cada casilla hay alguien que cuida a un hijo, estudia de noche o viaja una hora en combi.',
       visual: { tipo: 'cambio', titulo: 'Antes y después', pares: [['Cuatro camareras, siete días', 'Seis camareras, un día libre cada una'], ['Yaneth sola, 12 horas', 'Dos turnos de 8 horas'], ['Horas «de favor»', 'Horas extra autorizadas y registradas'], ['Asistencia de memoria', 'Registro firmado']] },
     },
   },
   {
     id: 't4', t: '11:45', ch: 'presencial', who: 'chef', titulo: 'La boda de los Pacheco', banner: 'assets/foto/supervisa.webp', lugar: 'Cocina, entre el desayuno y el almuerzo', show: ['personas', 'cumplimiento', 'confianza'],
-    body: (n, F) => `<p>${F.has('chef_escuchado') ? 'El chef te recibe con un café: «Usted me escuchó el viernes. Ahora ayúdeme con esto».' : F.has('chef_a_la_defensiva') ? 'El chef te recibe sin mirarte: «Ya sé que usted no me tiene simpatía, pero necesito resolver el sábado».' : 'El chef te espera con la lista del banquete en la mano.'} ${F.has('chef_formal') ? '«Kevin salió bueno; usted lo hizo entrar rápido y bien.' : '«Kevin salió bueno.'} Quiero que el sábado haga doble: de siete a once de la noche. Él dice que sí.»</p>${F.has('chef_informal') ? '<p>Mientras habla, te das cuenta de algo: <mark class="clave">Kevin sigue sin contrato y sin alta</mark>. Lleva dos semanas trabajando «a prueba».</p>' : '<p>Son 120 invitados. <mark class="clave">El chef necesita manos, y Kevin quiere la plata</mark>.</p>'}`,
+    body: (n, F) => `<p>${F.has('chef_escuchado') ? 'El chef te recibe con un café: «Usted me escuchó ayer. Ahora ayúdeme con esto».' : F.has('chef_a_la_defensiva') ? 'El chef te recibe sin mirarte: «Ya sé que usted no me tiene simpatía, pero necesito resolver el sábado».' : 'El chef te espera con la lista del banquete en la mano.'} ${F.has('chef_formal') ? '«Kevin salió bueno; usted lo hizo entrar rápido y bien.' : '«Kevin salió bueno.'} Quiero que el sábado haga doble: de siete a once de la noche. Él dice que sí.»</p>${F.has('chef_informal') ? '<p>Mientras habla, te das cuenta de algo: <mark class="clave">Kevin sigue sin contrato y sin alta</mark>. Lleva tres días trabajando «a prueba».</p>' : '<p>Son 120 invitados. <mark class="clave">El chef necesita manos, y Kevin quiere la plata</mark>.</p>'}`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Aceptar el doble turno de Kevin: es joven, lo pide él y es un solo sábado.',
@@ -217,7 +217,7 @@ export const ESCENAS = [
           kusi: ['pensando', 'Escuchaste… pero no cambiaste nada.'] } },
       { id: 'c', label: 'Para no perder a Fortunata, dejarla trabajar los siete días como pedía.',
         res: { q: 'riesgosa', fx: { cumplimiento: -3, personas: -1 }, flags: ['siete_dias'], cartera: { turnos: 'Una excepción que se vuelve regla' },
-          out: 'Fortunata está feliz. El jueves, Rocío y Elsa te preguntan por qué a ella sí y a ellas no.',
+          out: 'Fortunata está feliz. Mañana, Rocío y Elsa te preguntan por qué a ella sí y a ellas no.',
           pro: { ok: 'Atiendes la necesidad de Fortunata.', risk: 'Una excepción sin límite rompe el cuadro y abre reclamos entre compañeras.' },
           kusi: ['preocupado', 'La excepción ya es la regla…'] } },
     ],
@@ -261,11 +261,11 @@ export const ESCENAS = [
     type: 'choice',
     choices: [
       { id: 'a', label: 'Qué cambió, cuánta gente más necesitas, qué riesgo evitaste y qué decisión le toca a ella.',
-        res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { veronica: 1 }, responde: 'Verónica: el cuadro nuevo da un día libre a cada persona y nadie pasa de 48 horas. Para lograrlo sumamos a Sonia en la noche y dos camareras de la temporada. La boda queda cubierta sin dobles turnos. Decisión para usted: aprobar el ingreso de Sonia el jueves.',
+        res: { q: 'buena', fx: { confianza: 4, calidad: 2 }, rel: { veronica: 1 }, responde: 'Verónica: el cuadro nuevo da un día libre a cada persona y nadie pasa de 48 horas. Para lograrlo sumamos a Sonia en la noche y dos camareras de la temporada. La boda queda cubierta sin dobles turnos. Decisión para usted: aprobar que Sonia empiece esta noche.',
           out: 'Verónica responde: «Aprobado lo de Sonia. ¿Y Yaneth estaba sola de noche todo este tiempo?». Le dices que sí. «No lo sabía.»', kusi: ['feliz', 'Ahora la gerencia ve lo que antes no veía.'] } },
       { id: 'b', label: 'Que todo está bajo control y que la boda saldrá perfecta.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Verónica: todo bajo control con los turnos y la boda 👍',
-          out: 'Verónica responde con un corazón. El jueves pregunta por qué hay una recepcionista nueva en la noche que ella no aprobó.', kusi: ['pensando', 'Bajo control… ¿pero ella lo sabe?'] } },
+          out: 'Verónica responde con un corazón. Mañana pregunta por qué hay una recepcionista nueva en la noche que ella no aprobó.', kusi: ['pensando', 'Bajo control… ¿pero ella lo sabe?'] } },
     ],
     mirada: { ve: 'Cuando el cambio cuesta, la gerencia necesita ver el riesgo que se evita. Que Yaneth estaba sola de noche, 72 horas por semana, es el argumento que ningún número reemplaza.' },
   },

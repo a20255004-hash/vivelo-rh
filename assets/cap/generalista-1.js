@@ -1,5 +1,5 @@
 // Generalista de RR.HH. · Capítulo 1 · «Faltan 18 personas» · Semana 1, lunes.
-// Hilo del mes: preparar un hotel del Cusco para la temporada alta, siendo la única persona de RR.HH.
+// Hilo de las dos semanas: preparar un hotel del Cusco para la temporada alta, siendo la única persona de RR.HH.
 // Normas citadas: T-Registro (alta dentro del día de ingreso); D.Leg. 713 (vacaciones de 30 días; la oportunidad del
 // goce se acuerda y, a falta de acuerdo, la decide el empleador); principio de primacía de la realidad (cuando hay
 // subordinación, los recibos por honorarios no evitan que exista una relación laboral).
@@ -12,18 +12,18 @@ export const CAP = {
   kusi: '¡Aquí eres todo RR.HH. a la vez! Respira hondo… y a la altura.',
   lead: 'Entendiste qué espera la gerencia, decidiste por dónde empezar con 18 vacantes, frenaste una contratación informal, equilibraste unas vacaciones y descubriste trabajadores escondidos en recibos por honorarios.',
   reflexion: '¿Qué tarea de hoy no habrías imaginado que hacía alguien de RR.HH.?',
-  siguiente: { n: 2, titulo: 'Contratos de temporada', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Contratos de temporada', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
-  { id: 'vacantes', p: '18 vacantes para temporada alta', j: 'Verónica · Gerencia', d: 0, e: 'En 3 semanas' },
+  { id: 'vacantes', p: '18 vacantes para temporada alta', j: 'Verónica · Gerencia', d: 0, e: 'En 2 semanas' },
   { id: 'cocina', p: 'Ayudantes de cocina', j: 'Chef Rolando', d: 0, e: '4 vacantes' },
   { id: 'vacaciones', p: 'Vacaciones pendientes', j: 'Verónica · Gerencia', d: 0, e: '9 personas con vacaciones vencidas' },
   { id: 'honorarios', p: 'Personal con recibos por honorarios', j: 'Iván · Contabilidad', d: 0, e: '6 personas' },
 ];
 
 export const FUTURO = {
-  canales_locales: ['Activaste institutos de hotelería y referidos del personal.', 'Llegarán los primeros candidatos el miércoles.'],
+  canales_locales: ['Activaste institutos de hotelería y referidos del personal.', 'Llegarán los primeros candidatos esta semana.'],
   chef_formal: ['El ayudante del chef entrará con alta desde el primer día.', 'El chef lo recordará en el capítulo 4.'],
   chef_informal: ['Aceptaste a un ayudante «a prueba» sin alta y pagado en efectivo.', 'Se cortará la mano en el capítulo 5.'],
   wendy_acuerdo: ['Acordaste con Wendy y Verónica una fecha de vacaciones razonable.', 'Wendy será tu aliada en recepción.'],
@@ -49,7 +49,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '07:15', de: 'Verónica Quispe', para: 'Generalista de RR.HH.', asunto: 'Bienvenida a Inti Wasi', html: '<p>Bienvenida. Somos 150 personas y hasta hoy no teníamos a nadie de RR.HH.: lo hacíamos entre el contador y yo.</p><p>En tres semanas empieza la temporada alta y nos faltan 18 personas: cocina, housekeeping, recepción y mozos. Además, quiero ordenar la casa. Confío en ti.</p><p>Verónica</p>' },
+  { t: '07:15', de: 'Verónica Quispe', para: 'Generalista de RR.HH.', asunto: 'Bienvenida a Inti Wasi', html: '<p>Bienvenida. Somos 150 personas y hasta hoy no teníamos a nadie de RR.HH.: lo hacíamos entre el contador y yo.</p><p>En dos semanas empieza la temporada alta y nos faltan 18 personas: cocina, housekeeping, recepción y mozos. Además, quiero ordenar la casa. Confío en ti.</p><p>Verónica</p>' },
   { t: '10:00', de: 'Instituto de Turismo del Cusco', para: 'RR.HH. Hotel Inti Wasi', asunto: 'Bolsa de egresados', html: '<p>Tenemos 35 egresados de Hotelería y Cocina disponibles. Podemos difundir sus convocatorias sin costo.</p>' },
 ];
 
@@ -58,7 +58,7 @@ export const QUIZ = [
   { q: 'Si trabajador y empleador no se ponen de acuerdo en la fecha de vacaciones…', ops: ['Decide el trabajador', 'Decide el empleador', 'No se toman', 'Decide SUNAFIL'], ok: 1, por: 'La oportunidad del descanso se fija de común acuerdo; a falta de acuerdo, la decide el empleador.' },
   { q: 'Una recepcionista con horario fijo, uniforme y jefa, ¿puede estar con recibos por honorarios?', ops: ['Sí, si ella acepta', 'No: si hay subordinación, hay relación laboral', 'Sí, en temporada', 'Solo en hoteles'], ok: 1, por: 'Por primacía de la realidad, si hay subordinación hay contrato de trabajo, aunque se firmen recibos por honorarios.' },
   { q: 'El chef quiere un ayudante «a prueba una semana» sin alta. ¿Qué pasa si se accidenta?', ops: ['Nada', 'No tiene cobertura y la empresa responde', 'Lo cubre su familia', 'Lo cubre el chef'], ok: 1, por: 'Sin alta no hay cobertura de salud: el riesgo y la responsabilidad recaen en la empresa.' },
-  { q: 'Con 18 vacantes en tres semanas, ¿qué canales suelen funcionar mejor en hotelería?', ops: ['Solo portales nacionales', 'Institutos locales y referidos del personal', 'Anuncios en otra ciudad', 'Esperar a que lleguen CV'], ok: 1, por: 'Los canales locales traen gente con formación y disponibilidad inmediata.' },
+  { q: 'Con 18 vacantes en dos semanas, ¿qué canales suelen funcionar mejor en hotelería?', ops: ['Solo portales nacionales', 'Institutos locales y referidos del personal', 'Anuncios en otra ciudad', 'Esperar a que lleguen CV'], ok: 1, por: 'Los canales locales traen gente con formación y disponibilidad inmediata.' },
 ];
 
 const LEY = 'ley', POL = 'politica', BP = 'bp';
@@ -81,12 +81,12 @@ export const ESCENAS = [
     }),
     mirada: {
       ve: 'Una generalista hace de todo: selección, contratos, planilla, clima y conflictos. Por eso su primera tarea es entender qué le importa más a la gerencia y qué está desordenado, para no perderse en lo urgente.',
-      visual: { tipo: 'flujo', titulo: 'Lo que hace una generalista en un mes', pasos: ['Contratar', 'Formalizar', 'Pagar bien', 'Cuidar el clima', 'Ordenar la casa'] },
+      visual: { tipo: 'flujo', titulo: 'Lo que hace una generalista en dos semanas', pasos: ['Contratar', 'Formalizar', 'Pagar bien', 'Cuidar el clima', 'Ordenar la casa'] },
     },
   },
   {
     id: 'g2', t: '09:00', ch: 'documento', who: null, titulo: 'Dieciocho vacantes', banner: 'assets/foto2/collage.webp', show: ['tiempo', 'calidad', 'personas'],
-    body: () => `<p>Tienes tres semanas para 18 personas y nadie más en RR.HH. Hoy puedes activar <mark class="clave">dos frentes</mark>.</p>`,
+    body: () => `<p>Tienes dos semanas para 18 personas y nadie más en RR.HH. Hoy puedes activar <mark class="clave">dos frentes</mark>.</p>`,
     type: 'pick', n: 2, prompt: 'Elige los dos frentes con los que empiezas.', boton: 'Activar estos frentes', resumen: 'Activaste',
     cols: ['Frente', 'Qué esperas'],
     rows: [
@@ -102,14 +102,14 @@ export const ESCENAS = [
       return {
         q, fx: { tiempo: q === 'buena' ? 4 : 0, calidad: q === 'buena' ? 3 : 1 },
         flags: q === 'buena' ? ['canales_locales'] : [], cartera: { vacantes: q === 'buena' ? 'Institutos y referidos activados' : 'Búsqueda iniciada' },
-        out: q === 'buena' ? 'El instituto responde en una hora: 35 egresados recibirán tu convocatoria. Y el personal ya te pasa nombres de primos y vecinos.' : 'Tu búsqueda arranca, pero lenta para tres semanas.',
+        out: q === 'buena' ? 'El instituto responde en una hora: 35 egresados recibirán tu convocatoria. Y el personal ya te pasa nombres de primos y vecinos.' : 'Tu búsqueda arranca, pero lenta para dos semanas.',
         pro: { ok: 'En hotelería, los canales locales traen gente formada y disponible ya.', risk: 'Los perfiles completos son útiles, pero escribir 18 antes de buscar te deja sin tiempo.', info: 'Con referidos, define una regla: quien refiere no evalúa.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Gente del Cusco para el Cusco!' : '¿Dónde está la gente que necesitas ya?'],
       };
     },
     rules: [[BP, 'Con poco tiempo, empieza por los canales con gente disponible y cercana.']],
     mirada: {
-      ve: 'Una generalista no puede hacer un proceso perfecto para 18 puestos en tres semanas. Elige los canales que traen gente rápido y bien, y simplifica sin saltarse lo esencial.',
+      ve: 'Una generalista no puede hacer un proceso perfecto para 18 puestos en dos semanas. Elige los canales que traen gente rápido y bien, y simplifica sin saltarse lo esencial.',
       visual: { tipo: 'matriz', x: 'Velocidad', y: 'Ajuste al hotel', cuadrantes: ['Actívalo ya', 'Actívalo', 'Complemento', 'Después'], items: [['Institutos locales', .75, .8], ['Referidos', .8, .75], ['Portal nacional', .4, .35], ['Perfiles completos', .15, .6], ['Instagram', .6, .3]] },
     },
   },
@@ -191,8 +191,8 @@ export const ESCENAS = [
     type: 'choice',
     choices: [
       { id: 'a', label: 'Avance en vacantes, el riesgo de los honorarios y una propuesta.',
-        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { veronica: 1 }, envia: ['veronica', 'Bien 🙌 Institutos y referidos activados para las 18 vacantes; Kevin entra mañana con contrato. Riesgo: 3 personas con recibos por honorarios trabajan como empleados. ¿Le parece si el miércoles le presento cuánto costaría regularizarlos?'],
-          out: 'Verónica responde: «Me preocupaba eso. Sí, el miércoles». Llevas un día y ya tienes agenda con la gerenta.', kusi: ['feliz', '¡Generalista con todo!'] } },
+        res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { veronica: 1 }, envia: ['veronica', 'Bien 🙌 Institutos y referidos activados para las 18 vacantes; Kevin entra mañana con contrato. Riesgo: 3 personas con recibos por honorarios trabajan como empleados. ¿Le parece si mañana le presento cuánto costaría regularizarlos?'],
+          out: 'Verónica responde: «Me preocupaba eso. Sí, mañana». Llevas un día y ya tienes agenda con la gerenta.', kusi: ['feliz', '¡Generalista con todo!'] } },
       { id: 'b', label: 'Que fue un día movido pero bonito.',
         res: { q: 'aceptable', fx: { confianza: 1 }, envia: ['veronica', '¡Movido pero bonito! Mañana sigo 😊'],
           out: 'Verónica responde con un corazón. El riesgo de los honorarios sigue en tu cabeza, no en la suya.', kusi: ['pensando', 'Había algo importante que contar.'] } },

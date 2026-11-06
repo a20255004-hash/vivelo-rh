@@ -1,5 +1,5 @@
-// Generalista de RR.HH. · Capítulo 5 · «La planilla externa» · Semana 2, jueves.
-// Hilo del mes: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
+// Generalista de RR.HH. · Capítulo 5 · «La planilla externa» · Semana 1, viernes.
+// Hilo de las dos semanas: preparar el Hotel Inti Wasi (Cusco) para la temporada alta, siendo la única persona de RR.HH.
 // Normas citadas:
 // - TUO de la Ley de Jornada de Trabajo, D.S. 007-2002-TR, art. 8: el horario nocturno va de 22:00 a 06:00, y quien
 //   trabaja en ese horario no puede percibir menos que la remuneración mínima vigente con una sobretasa del 35 %.
@@ -11,14 +11,14 @@
 // - Las horas extra se pagan con sobretasa (se explica el principio, sin tasas).
 
 export const CAP = {
-  n: 5, titulo: 'La planilla externa', dia: 'Semana 2, jueves', foto: 'assets/3d/scenes/boleta.webp',
+  n: 5, titulo: 'La planilla externa', dia: 'Semana 1, viernes', foto: 'assets/3d/scenes/boleta.webp',
   lugar: 'Oficina de RR.HH. · Hotel Inti Wasi, Cusco',
   inicio: '07:00', fin: '19:00', cierreHora: '18:45',
-  apertura: 'Cusco, jueves. A las 6:40, Iván te mandó la pre-planilla del mes: un Excel de 150 filas y un mensaje: «Necesito su conformidad antes de las 12 para mandar los pagos al banco».', boton: 'Abrir la pre-planilla',
+  apertura: 'Cusco, viernes. A las 6:40, Iván te mandó la pre-planilla del mes: un Excel de 150 filas y un mensaje: «Necesito su conformidad antes de las 12 para mandar los pagos al banco».', boton: 'Abrir la pre-planilla',
   kusi: 'Tercerizar la planilla no es tercerizar la responsabilidad. ¡Ojo de águila!',
   lead: 'Elegiste qué revisar con poco tiempo, encontraste los errores en los pagos nocturnos y en los descansos trabajados, controlaste al contador sin romper la relación, atendiste un accidente en la cocina y armaste un control de planilla para los próximos meses.',
   reflexion: '¿Quién responde ante un trabajador cuando el contador externo se equivoca?',
-  siguiente: { n: 6, titulo: 'Wendy', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'Wendy', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [
@@ -82,7 +82,7 @@ const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   {
     id: 'p1', t: '07:20', ch: 'documento', who: null, titulo: 'Cinco horas para 150 filas', banner: 'assets/esc/planilla.webp', lugar: 'Oficina de RR.HH., con el termo de café', show: ['tiempo', 'calidad', 'cumplimiento'],
-    body: (n, F) => `<p>El Excel se llama «PREPLANILLA_INTIWASI_v3_final.xlsx» y tiene siete pestañas; una se llama «Hoja1 (2)». ${F.has('horas_a_ivan') ? 'Iván usó la pestaña de horas que le mandaste el martes.' : 'Iván no recibió de ti las horas extra ni los descansos trabajados.'}</p><p>No puedes revisar 150 filas a mano antes de las 12. <mark class="clave">Eliges tres controles</mark>, los de más riesgo.</p>`,
+    body: (n, F) => `<p>El Excel se llama «PREPLANILLA_INTIWASI_v3_final.xlsx» y tiene siete pestañas; una se llama «Hoja1 (2)». ${F.has('horas_a_ivan') ? 'Iván usó la pestaña de horas que le mandaste ayer.' : 'Iván no recibió de ti las horas extra ni los descansos trabajados.'}</p><p>No puedes revisar 150 filas a mano antes de las 12. <mark class="clave">Eliges tres controles</mark>, los de más riesgo.</p>`,
     type: 'pick', n: 3, prompt: 'Elige los tres controles que harás antes de dar conformidad.', boton: 'Hacer estos controles', resumen: 'Revisaste',
     cols: ['Control', 'Qué detecta'],
     rows: [
@@ -117,7 +117,7 @@ export const ESCENAS = [
     doc: { t: 'PRE-PLANILLA · extracto', sub: 'Hotel Inti Wasi · preparada por CPC Iván Mendoza' },
     lines: [
       { id: 'teofilo', t: 'Teófilo Ayma · auditor nocturno · 23:00 a 07:00 · remuneración S/ 1,450.', bad: LEY, why: 'Trabaja casi toda su jornada entre las 22:00 y las 06:00. No puede ganar menos que la RMV más 35 %: S/ 1,660.50.' },
-      { id: 'sonia', t: 'Sonia Quispe · recepcionista nocturna (ingresa hoy) · 23:00 a 07:00 · remuneración S/ 1,230.', bad: LEY, why: 'La RMV es el mínimo para el día. De noche, el mínimo es S/ 1,660.50.' },
+      { id: 'sonia', t: 'Sonia Quispe · recepcionista nocturna (entró anoche) · 23:00 a 07:00 · remuneración S/ 1,230.', bad: LEY, why: 'La RMV es el mínimo para el día. De noche, el mínimo es S/ 1,660.50.' },
       { id: 'fortunata', t: 'Fortunata Mamani · camarera · 2 domingos trabajados (eran su día libre) · pagados como días simples.', bad: LEY, why: 'Si el día de descanso se trabaja sin sustituirlo, se paga la labor más una sobretasa del 100 %.' },
       { id: 'extras', t: 'Cocina · 14 horas extra autorizadas · pagadas al valor de la hora simple.', bad: LEY, why: 'Las horas extra se pagan con sobretasa, no al valor simple.' },
       { id: 'ruben', t: 'Rubén Ccori · mozo · turno partido diurno · S/ 1,400.' },
@@ -139,7 +139,7 @@ export const ESCENAS = [
   },
   {
     id: 'p3', t: '10:00', ch: 'llamada', who: 'contador', titulo: 'La llamada con Iván', banner: 'assets/foto/llamada.webp', show: ['confianza', 'cumplimiento', 'calidad'],
-    body: (n, F) => `<p>Llamas a Iván. Escucha en silencio y luego responde, tenso: ${F.has('horas_a_ivan') ? '«Tiene razón en lo de la noche: puse el mínimo general. Lo de las horas… usted sí me las mandó, debí cruzarlas».' : '«Con todo respeto: yo pago con lo que me dan. Usted nunca me mandó quién trabaja de noche ni qué domingos eran libres».'}</p><p>«Si quiere que reprocese, <mark class="clave">los pagos salen mañana y no hoy</mark>. Verónica se va a molestar.»</p>`,
+    body: (n, F) => `<p>Llamas a Iván. Escucha en silencio y luego responde, tenso: ${F.has('horas_a_ivan') ? '«Tiene razón en lo de la noche: puse el mínimo general. Lo de las horas… usted sí me las mandó, debí cruzarlas».' : '«Con todo respeto: yo pago con lo que me dan. Usted nunca me mandó quién trabaja de noche ni qué domingos eran libres».'}</p><p>«Si quiere que reprocese, <mark class="clave">los pagos salen el lunes y no hoy</mark>. Verónica se va a molestar.»</p>`,
     type: 'choice', dilema: true,
     choices: [
       { id: 'a', label: 'Exigirle que lo corrija hoy mismo y avisarle que Verónica evaluará si sigue con el hotel.',
@@ -147,10 +147,10 @@ export const ESCENAS = [
           out: 'Iván reprocesa en dos horas, sin decir una palabra más. A partir de hoy, todo lo que te escriba vendrá con copia a Verónica.',
           pro: { ok: 'La planilla sale corregida.', risk: 'Si parte del error vino de la información que no le diste, la amenaza es injusta, y un proveedor a la defensiva esconde los errores en vez de avisarlos.' },
           kusi: ['pensando', 'Corregido… pero ¿a qué costo?'] } },
-      { id: 'b', label: 'Asumir la parte que te toca, pedirle que reprocese aunque el pago salga mañana, y acordar un calendario de cierre con fecha de corte y lista de control.',
-        res: { q: 'buena', fx: { cumplimiento: 5, confianza: 3, calidad: 3, tiempo: -2 }, rel: { contador: 1 }, flags: ['planilla_corregida', 'calendario_cierre'], cartera: { preplanilla: 'Reprocesada; pago mañana', control: 'Calendario de cierre acordado' },
-          out: 'Iván suelta el aire: «Gracias por no echarme toda la culpa». Le avisas tú misma a Verónica que el pago sale mañana y por qué. Ella responde: «Mejor un día tarde que mal».',
-          pro: { ok: 'Corriges el error, reconoces tu parte y conviertes el problema en un sistema.', risk: 'Un día de retraso en el pago incomoda: avisa al personal antes de que pregunte.', info: 'Un proveedor que se siente tratado con justicia te avisa de los errores antes de que los encuentres.' },
+      { id: 'b', label: 'Asumir la parte que te toca, pedirle que reprocese aunque el pago salga el lunes, y acordar un calendario de cierre con fecha de corte y lista de control.',
+        res: { q: 'buena', fx: { cumplimiento: 5, confianza: 3, calidad: 3, tiempo: -2 }, rel: { contador: 1 }, flags: ['planilla_corregida', 'calendario_cierre'], cartera: { preplanilla: 'Reprocesada; pago el lunes', control: 'Calendario de cierre acordado' },
+          out: 'Iván suelta el aire: «Gracias por no echarme toda la culpa». Le avisas tú misma a Verónica que el pago sale el lunes y por qué. Ella responde: «Mejor tarde que mal».',
+          pro: { ok: 'Corriges el error, reconoces tu parte y conviertes el problema en un sistema.', risk: 'Pagar el lunes y no hoy incomoda: avisa al personal antes de que pregunte.', info: 'Un proveedor que se siente tratado con justicia te avisa de los errores antes de que los encuentres.' },
           kusi: ['celebra', '¡Controlar no es pelear!'] } },
       { id: 'c', label: 'Pagar así hoy para no retrasar a nadie, y regularizar la diferencia el próximo mes.',
         res: { q: 'riesgosa', fx: { cumplimiento: -4, personas: -3, tiempo: 2 }, flags: ['reintegro_postergado'], cartera: { preplanilla: 'Pagada con errores' },
@@ -226,7 +226,7 @@ export const ESCENAS = [
     },
     rules: [[BP, 'El control de planilla define fechas, insumos, controles fijos y un responsable alterno.']],
     mirada: {
-      ve: 'El control de planilla es uno de los entregables del mes. Sirve para algo simple: que un error de información no llegue a la cuenta de un trabajador.',
+      ve: 'El control de planilla es uno de los entregables de las dos semanas. Sirve para algo simple: que un error de información no llegue a la cuenta de un trabajador.',
       visual: { tipo: 'linea', titulo: 'El ciclo mensual', hitos: [['Día 20', 'Novedades de RR.HH.'], ['Día 24', 'Pre-planilla'], ['Día 25', 'Conformidad'], ['Día 27', 'Pago y boletas']] },
     },
   },
@@ -246,7 +246,7 @@ export const ESCENAS = [
         { id: 'p2', t: 'Es un tema legal complicado, mejor se lo explico otro día.', ok: false, por: 'Él tiene derecho a entender su propio pago.' },
       ] },
       { id: 'cuando', t: 'Qué pasa ahora', ops: [
-        { id: 'c1', t: 'Su pago de este mes ya sale corregido, y revisaremos con el contador los meses anteriores. Mañana a las 22:00 paso por recepción y lo vemos juntos.', ok: true, por: 'Fecha, compromiso y presencia.' },
+        { id: 'c1', t: 'Su pago de este mes ya sale corregido, y revisaremos con el contador los meses anteriores. El lunes a las 22:00 paso por recepción y lo vemos juntos.', ok: true, por: 'Fecha, compromiso y presencia.' },
         { id: 'c2', t: 'Más adelante le avisamos.', ok: null, por: 'Sin fecha, la duda sigue.' },
       ] },
     ],
@@ -265,7 +265,7 @@ export const ESCENAS = [
     mirada: { ve: 'Detrás de cada fila de la planilla hay alguien que hace cuentas en su casa. Explicarle a Teófilo su pago con un número y una fecha vale tanto como corregir el Excel.' },
   },
   {
-    id: 'p7', t: '18:30', ch: 'correo', who: 'veronica', titulo: 'El jueves, para Verónica', banner: 'assets/foto/revisa.webp', show: ['confianza', 'calidad', 'etica'],
+    id: 'p7', t: '18:30', ch: 'correo', who: 'veronica', titulo: 'El viernes, para Verónica', banner: 'assets/foto/revisa.webp', show: ['confianza', 'calidad', 'etica'],
     body: (n, F) => `<p>${F.has('accidente_atendido') ? 'Kevin te escribió desde su casa: le duele, pero está bien.' : F.has('accidente_ocultado') ? 'Kevin no ha vuelto a escribir.' : 'Kevin terminó el turno con la mano hinchada.'} Afuera, la garúa moja las piedras de la calle Plateros.</p><p>Verónica pidió saber qué pasó con Kevin y con la planilla. <mark class="clave">Hoy tienes dos noticias difíciles</mark>.</p>`,
     type: 'choice',
     choices: [
