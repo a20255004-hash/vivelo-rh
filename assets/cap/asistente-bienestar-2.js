@@ -14,14 +14,14 @@
 // - Ley 29733, de Protección de Datos Personales: los datos de salud son datos sensibles.
 
 export const CAP = {
-  n: 2, titulo: 'El subsidio', dia: 'Semana 1, miércoles', foto: 'assets/3d/scenes/agro.webp',
+  n: 2, titulo: 'El subsidio', dia: 'Semana 1, martes', foto: 'assets/3d/scenes/agro.webp',
   lugar: 'Agroindustrial Sipán · Lambayeque',
   inicio: '07:15', fin: '18:15', cierreHora: '18:00',
-  apertura: 'Miércoles. Llovizna de ceniza: anoche quemaron caña cerca de la planta. Don Héctor ya está en la puerta, con su bolsa de papeles.', boton: 'Abrir el caso de Don Héctor',
+  apertura: 'Martes. Llovizna de ceniza: anoche quemaron caña cerca de la planta. Don Héctor ya está en la puerta, con su bolsa de papeles.', boton: 'Abrir el caso de Don Héctor',
   kusi: 'Hoy toca seguir un papel hasta donde se trabó. ¡Paciencia y lupa!',
   lead: 'Seguiste el trámite de Don Héctor de la puerta a Planillas, de Planillas a EsSalud y de vuelta a su casa, y dejaste un expediente que cualquiera puede continuar.',
   reflexion: '¿Qué sentiste cuando entendiste que a Don Héctor le debían plata que nadie le había pagado?',
-  siguiente: { n: 3, titulo: 'La visita', dia: 'Semana 1, viernes' },
+  siguiente: { n: 3, titulo: 'La visita', dia: 'Semana 1, miércoles' },
 };
 
 export const CARTERA = [
@@ -29,15 +29,15 @@ export const CARTERA = [
   { id: 'certificado', p: 'Certificado particular sin canjear', j: 'Héctor · EsSalud', d: 0, e: '10 días sin CITT' },
   { id: 'planillas', p: 'Acuerdo con Planillas', j: 'Wilmer · Planillas', d: 0, e: '«Pagamos cuando EsSalud devuelve»' },
   { id: 'familia', p: 'Situación de la familia Llontop', j: 'Bienestar', d: 0, e: 'Por conocer' },
-  { id: 'visita', p: 'Visita del viernes', j: 'Nelly · Bienestar', d: 0, e: 'Por coordinar' },
+  { id: 'visita', p: 'Visita de mañana', j: 'Nelly · Bienestar', d: 0, e: 'Por coordinar' },
 ];
 
 export const FUTURO = {
-  subsidio_pagado: ['Planillas pagará el subsidio de Don Héctor en la planilla y pedirá el reembolso a EsSalud.', 'El viernes la familia ya sabrá cuándo entra la plata.'],
-  subsidio_prestamo: ['Don Héctor recibirá un préstamo del fondo de emergencia mientras Planillas espera el reembolso.', 'El viernes verás que el préstamo también se descuenta.'],
+  subsidio_pagado: ['Planillas pagará el subsidio de Don Héctor en la planilla y pedirá el reembolso a EsSalud.', 'Mañana la familia ya sabrá cuándo entra la plata.'],
+  subsidio_prestamo: ['Don Héctor recibirá un préstamo del fondo de emergencia mientras Planillas espera el reembolso.', 'Mañana verás que el préstamo también se descuenta.'],
   planillas_dolida: ['Escalaste el caso a Gerencia y Wilmer, de Planillas, se sintió expuesto.', 'Te costará pedirle favores en los próximos capítulos.'],
   gota_a_gota: ['Doña Rosa te contó que pidieron un préstamo «gota a gota».', 'Lo verás con tus propios ojos en la visita del viernes.'],
-  citt_en_marcha: ['Don Héctor irá el viernes a canjear su certificado particular, con movilidad de la empresa.', 'Te contará cómo le fue en la visita.'],
+  citt_en_marcha: ['Don Héctor irá mañana a canjear su certificado particular, con movilidad de la empresa.', 'Te contará cómo le fue en la visita.'],
   expediente_ordenado: ['Dejaste un expediente de subsidio con qué se debe, qué falta y quién hace qué.', 'Nelly lo usará como modelo para otros casos.'],
   hector_informado: ['Don Héctor sabe exactamente qué pasa con su plata y qué le toca hacer.', 'Te recibirá en su casa con confianza.'],
 };
@@ -58,9 +58,9 @@ export const WSP = [
   { chat: 'hector', t: '07:12', de: 'Don Héctor', txt: 'Señorita disculpe, mi señora me hizo venir. Estoy en la puerta.', no: 'hector_claro' },
   { chat: 'maribel', t: '12:50', de: 'Maribel', txt: 'Hoy pude a las 10:30 😊 Pero en el depósito hace un calor terrible y no hay dónde guardar la leche.', si: 'maribel_hora' },
   { chat: 'maribel', t: '12:50', de: 'Maribel', txt: 'Todo bien, gracias. Me estoy acostumbrando.', si: 'maribel_fin' },
-  { chat: 'augusto', t: '14:20', de: 'Augusto', txt: 'Lo del depósito junto al tópico lo veo la otra semana. Ahorita estamos con la caldera 2 parada.' },
+  { chat: 'augusto', t: '14:20', de: 'Augusto', txt: 'Lo del depósito junto al tópico lo veo en estos días. Ahorita estamos con la caldera 2 parada.' },
   { chat: 'wilmer', t: '16:45', de: 'Wilmer', txt: 'Ya lo cargué. Si se cuelga el sistema otra vez lo vuelvo a meter mañana a las 6. No me lo vayan a reclamar a mí después.', si: 'subsidio_pagado' },
-  { chat: 'rosa', t: '17:55', de: 'Rosa', txt: 'Señorita gracias, Héctor llegó hablando más tranquilo. Aquí la esperamos el viernes.', si: 'hector_informado' },
+  { chat: 'rosa', t: '17:55', de: 'Rosa', txt: 'Señorita gracias, Héctor llegó hablando más tranquilo. Aquí la esperamos mañana.', si: 'hector_informado' },
 ];
 
 export const CORREOS = [
@@ -80,7 +80,7 @@ const LEY = 'ley', POL = 'politica', BP = 'bp';
 export const ESCENAS = [
   {
     id: 's1', t: '07:20', ch: 'presencial', who: 'hector', titulo: 'La bolsa de papeles', banner: 'assets/foto2/pasillo.webp', lugar: 'Banca de la puerta de Bienestar', show: ['personas', 'confianza', 'tiempo'],
-    body: (n, F) => `<p>${F.has('hector_claro') ? 'Don Héctor llegó en la primera combi desde Tumán, como quedaron el lunes.' : 'Don Héctor llegó en la primera combi desde Tumán. El lunes se fue sin entender bien qué pasaba, y su señora lo mandó de vuelta.'} Tiene ceniza de caña en los hombros de la camisa y una bolsa de plástico del mercado Modelo llena de papeles doblados.</p><p>Wilmer, de Planillas, solo te atiende hasta las once. <mark class="clave">Tienes tiempo para dos preguntas</mark> antes de abrir los papeles.</p>`,
+    body: (n, F) => `<p>${F.has('hector_claro') ? 'Don Héctor llegó en la primera combi desde Tumán, como quedaron ayer.' : 'Don Héctor llegó en la primera combi desde Tumán. Ayer se fue sin entender bien qué pasaba, y su señora lo mandó de vuelta.'} Tiene ceniza de caña en los hombros de la camisa y una bolsa de plástico del mercado Modelo llena de papeles doblados.</p><p>Wilmer, de Planillas, solo te atiende hasta las once. <mark class="clave">Tienes tiempo para dos preguntas</mark> antes de abrir los papeles.</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas para Don Héctor.',
     opts: [
       { id: 'donde', label: '¿Dónde lo operaron y quién le dio cada descanso?', info: '«En el Almanzor, de EsSalud, ahí me dieron el primer papel. Después me dolía mucho y fui donde un traumatólogo particular en Chiclayo, por la Balta. Él me dio diez días más en un papelito de su consultorio.»' },
@@ -146,7 +146,7 @@ export const ESCENAS = [
           kusi: ['pensando', 'Le prestaron su propia plata…'] } },
       { id: 'c', label: 'Escribir un correo a la gerente de Recursos Humanos, con copia a Wilmer, diciendo que Planillas incumple la ley con los subsidios.',
         res: { q: 'riesgosa', fx: { cumplimiento: 3, confianza: -5, personas: -1 }, flags: ['planillas_dolida'], cartera: { planillas: 'Escalado a Gerencia; relación tensa' },
-          out: 'La gerente responde en una hora: «Wilmer, regularízalo hoy». Wilmer lo carga sin mirarte. A la salida le dice a otra analista, sin bajar la voz: «Tres días tiene y ya me acusa».',
+          out: 'La gerente responde en una hora: «Wilmer, regularízalo hoy». Wilmer lo carga sin mirarte. A la salida le dice a otra analista, sin bajar la voz: «Dos días tiene y ya me acusa».',
           pro: { ok: 'Consigues el pago rápido.', risk: 'Expusiste a alguien que tenía razones y que necesitarás todo el mes.', info: 'Antes de escalar, intenta resolver el miedo que sostiene la mala práctica.' },
           kusi: ['preocupado', 'Ganaste el caso, perdiste un aliado.'] } },
     ],
@@ -167,9 +167,9 @@ export const ESCENAS = [
     ],
     prompt: 'Escuchaste las tres llamadas. ¿Qué haces ahora?',
     choices: [
-      { id: 'a', label: 'Pedir la camioneta de la empresa para que Don Héctor vaya el viernes a canjear su certificado, y anotar lo del préstamo para conversarlo con calma en la visita, sin contárselo a nadie más.',
-        res: { q: 'buena', fx: { calidad: 4, personas: 4, etica: 3, tiempo: -2 }, flags: ['citt_en_marcha', 'gota_a_gota'], cartera: { certificado: 'Canje el viernes, con movilidad de la empresa', familia: 'Préstamo «gota a gota»: conversarlo en la visita', visita: 'Viernes, después del canje' },
-          out: 'Logística te da la camioneta de las 8. Don Héctor no tendrá que ir parado en la combi con la rodilla operada. Lo del préstamo queda en tu libreta, con una sola palabra: «viernes».',
+      { id: 'a', label: 'Pedir la camioneta de la empresa para que Don Héctor vaya mañana a canjear su certificado, y anotar lo del préstamo para conversarlo con calma en la visita, sin contárselo a nadie más.',
+        res: { q: 'buena', fx: { calidad: 4, personas: 4, etica: 3, tiempo: -2 }, flags: ['citt_en_marcha', 'gota_a_gota'], cartera: { certificado: 'Canje mañana, con movilidad de la empresa', familia: 'Préstamo «gota a gota»: conversarlo en la visita', visita: 'Mañana, después del canje' },
+          out: 'Logística te da la camioneta de las 8. Don Héctor no tendrá que ir parado en la combi con la rodilla operada. Lo del préstamo queda en tu libreta, con una sola palabra: «mañana».',
           pro: { ok: 'Quitas una barrera concreta y guardas lo que te confiaron para el lugar y el momento adecuados.', info: 'Los préstamos «gota a gota» suelen cobrar intereses muy altos y presionar a las familias. Averigua qué alternativas formales existen.' },
           kusi: ['feliz', 'Un problema a la vez, y con cuidado.'] } },
       { id: 'b', label: 'Ir tú misma al consultorio con copias de su DNI para sacar el informe y adelantar el canje.',
@@ -223,7 +223,7 @@ export const ESCENAS = [
     bloques: [
       { id: 'dias', t: 'Qué días y con qué respaldo', n: 2, ops: [
         { id: 'd1', t: '30 días con CITT de EsSalud desde la operación.', ok: true, por: 'Dato verificable.' },
-        { id: 'd2', t: '10 días con certificado particular, pendiente de canje el viernes.', ok: true, por: 'Dice qué falta y cuándo se resuelve.' },
+        { id: 'd2', t: '10 días con certificado particular, pendiente de canje mañana.', ok: true, por: 'Dice qué falta y cuándo se resuelve.' },
         { id: 'd3', t: 'Diagnóstico completo y medicación que toma.', ok: false, por: 'No hace falta para el trámite y es un dato sensible.' },
       ] },
       { id: 'pago', t: 'Qué se pagó y qué no', n: 1, ops: [
@@ -231,7 +231,7 @@ export const ESCENAS = [
         { id: 'p2', t: 'Subsidio: aproximadamente lo mismo que su sueldo.', ok: false, por: 'Una cifra al ojo en un expediente genera reclamos.' },
       ] },
       { id: 'quien', t: 'Quién hace qué', n: 2, ops: [
-        { id: 'q1', t: 'Don Héctor: canje del certificado el viernes, con movilidad de la empresa.', ok: true, por: 'Tarea concreta con fecha.' },
+        { id: 'q1', t: 'Don Héctor: canje del certificado mañana, con movilidad de la empresa.', ok: true, por: 'Tarea concreta con fecha.' },
         { id: 'q2', t: 'Planillas: pago en la planilla y solicitud de reembolso por ViVa con el expediente completo.', ok: true, por: 'Deja claro que el pago no espera.' },
         { id: 'q3', t: 'Supervisor: confirmar si el trabajador de verdad está enfermo.', ok: false, por: 'El certificado médico ya lo acredita. No es tarea del supervisor.' },
       ] },
@@ -272,12 +272,12 @@ export const ESCENAS = [
         { id: 'q2', t: 'Hubo un retraso administrativo en el reembolso del subsidio por incapacidad temporal.', ok: null, por: 'Es cierto, pero no se entiende.' },
       ] },
       { id: 'toca', t: 'Qué le toca', ops: [
-        { id: 't1', t: 'El viernes a las 8 lo recoge la camioneta para ir a EsSalud. Lleve su DNI y el papel del doctor particular.', ok: true, por: 'Una tarea, una hora, dos cosas que llevar.' },
+        { id: 't1', t: 'Mañana a las 8 lo recoge la camioneta para ir a EsSalud. Lleve su DNI y el papel del doctor particular.', ok: true, por: 'Una tarea, una hora, dos cosas que llevar.' },
         { id: 't2', t: 'Debe regularizar su certificado particular a la brevedad.', ok: false, por: 'No dice dónde, cuándo ni cómo.' },
       ] },
       { id: 'cierre', t: 'Cierre', ops: [
         { id: 'c1', t: 'Después paso por su casa a conversar con usted y la señora Rosa.', ok: true, por: 'Anuncias la visita sin sorpresa.' },
-        { id: 'c2', t: 'Le aseguro que el viernes ya tiene su plata completa.', ok: false, por: 'No prometas lo que depende de otros.' },
+        { id: 'c2', t: 'Le aseguro que mañana ya tiene su plata completa.', ok: false, por: 'No prometas lo que depende de otros.' },
       ] },
     ],
     res: sel => {
@@ -286,8 +286,8 @@ export const ESCENAS = [
       return {
         q, fx: { personas: q === 'buena' ? 5 : 1, confianza: q === 'buena' ? 3 : 0 }, rel: { hector: q === 'buena' ? 1 : 0 },
         flags: q === 'buena' ? ['hector_informado'] : [],
-        cartera: { visita: q === 'buena' ? 'Viernes, anunciada y esperada' : 'Viernes, por confirmar' },
-        out: q === 'buena' ? 'A las nueve de la noche llega un audio. Es el hijo de Don Héctor: «Señorita, mi papá dice gracias. Que el viernes lo espera listo».' : sel.cierre === 'c2' ? 'Don Héctor responde con un «Dios le pague». Ahora el viernes tiene que llegar la plata completa, o perderás su confianza.' : 'Don Héctor responde «ok». Al día siguiente llama a Nelly para preguntarle qué quisiste decir.',
+        cartera: { visita: q === 'buena' ? 'Mañana, anunciada y esperada' : 'Mañana, por confirmar' },
+        out: q === 'buena' ? 'A las nueve de la noche llega un audio. Es el hijo de Don Héctor: «Señorita, mi papá dice gracias. Que mañana lo espera listo».' : sel.cierre === 'c2' ? 'Don Héctor responde con un «Dios le pague». Ahora mañana tiene que llegar la plata completa, o perderás su confianza.' : 'Don Héctor responde «ok». Al día siguiente llama a Nelly para preguntarle qué quisiste decir.',
         pro: { ok: 'Le quitas la culpa, le das una sola tarea con hora y no prometes lo que no controlas.', info: 'Si la persona no lee bien, un audio corto también es buena idea.' },
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? 'Corto, claro y con cariño. ¡Qué bacán!' : '¿Lo entendería su hijo a las once de la noche?'],
       };
@@ -295,7 +295,7 @@ export const ESCENAS = [
     rules: [[BP, 'Comunica en palabras de la persona: qué pasó, qué le toca y qué viene, sin prometer lo que no depende de ti.']],
     mirada: {
       ve: 'Un trabajador que no recibe su pago suele pensar que hizo algo mal o que lo van a despedir. El primer alivio es quitarle esa culpa. El segundo, darle una sola tarea clara.',
-      visual: { tipo: 'mensaje', titulo: 'Un mensaje que se entiende', txt: 'Don Héctor, buenas tardes. Ya revisé todo su caso. Usted no hizo nada mal: la empresa tenía que pagarle el subsidio y lo estaba esperando de EsSalud. Ya lo estamos corrigiendo. El viernes a las 8 lo recoge la camioneta para ir a EsSalud. Lleve su DNI y el papel del doctor particular. Después paso por su casa a conversar con usted y la señora Rosa.' },
+      visual: { tipo: 'mensaje', titulo: 'Un mensaje que se entiende', txt: 'Don Héctor, buenas tardes. Ya revisé todo su caso. Usted no hizo nada mal: la empresa tenía que pagarle el subsidio y lo estaba esperando de EsSalud. Ya lo estamos corrigiendo. Mañana a las 8 lo recoge la camioneta para ir a EsSalud. Lleve su DNI y el papel del doctor particular. Después paso por su casa a conversar con usted y la señora Rosa.' },
     },
   },
 ];

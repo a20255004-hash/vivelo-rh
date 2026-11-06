@@ -12,7 +12,7 @@ export const CAP = {
   kusi: 'Detrás de cada carpeta hay una familia. ¡Con cariño y con orden!',
   lead: 'Priorizaste los casos que no podían esperar, cuidaste información de salud, le explicaste a Don Héctor qué pasa con su subsidio y defendiste el tiempo de lactancia de Maribel.',
   reflexion: '¿Qué caso de hoy te costó dejar en la oficina al irte?',
-  siguiente: { n: 2, titulo: 'El subsidio', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'El subsidio', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -26,7 +26,7 @@ export const FUTURO = {
   urgentes_primero: ['Atendiste primero a Don Héctor y la visita pendiente.', 'El subsidio será tu tema del capítulo 2.'],
   registro_cuidado: ['Sacaste los diagnósticos del Excel que veían 40 supervisores.', 'Te servirá cuando alguien pregunte por un caso en el capítulo 6.'],
   registro_expuesto: ['El Excel con diagnósticos sigue abierto para 40 supervisores.', 'Alguien lo reenviará en el capítulo 6.'],
-  hector_claro: ['Don Héctor entendió quién paga qué y cuándo.', 'Te esperará con sus papeles el miércoles.'],
+  hector_claro: ['Don Héctor entendió quién paga qué y cuándo.', 'Te esperará mañana con sus papeles.'],
   maribel_hora: ['Maribel tendrá su hora de lactancia en el horario que necesita.', 'Te contará cómo le va en el capítulo 4.'],
   maribel_fin: ['Aceptaste que Maribel tome su hora solo al final del día.', 'Volverá a buscarte en el capítulo 4.'],
   lactario_pedido: ['Le planteaste a Augusto que la planta necesita un lactario.', 'Él responderá en el capítulo 5.'],
@@ -126,7 +126,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Explicarle que los primeros 20 días los pagó la empresa y desde el día 21 corresponde el subsidio de EsSalud, y revisar con él si su trámite se presentó.',
         res: { q: 'buena', fx: { personas: 5, cumplimiento: 4, tiempo: -2 }, rel: { hector: 1 }, flags: ['hector_claro'], cartera: { hector: 'Revisando si se presentó la solicitud de subsidio' },
-          out: 'Revisas su carpeta: su certificado de incapacidad está, pero nadie presentó la solicitud de subsidio. Don Héctor no está despedido: el trámite se atascó. Le dices que el miércoles lo verás con Planillas.',
+          out: 'Revisas su carpeta: su certificado de incapacidad está, pero nadie presentó la solicitud de subsidio. Don Héctor no está despedido: el trámite se atascó. Le dices que mañana lo verás con Planillas.',
           pro: { ok: 'Explicas con claridad, sin culpar a nadie, y encuentras dónde se trabó el trámite.', risk: 'Ahora tienes que hacer que el trámite avance.', info: 'En muchas empresas la solicitud de subsidio la gestiona el empleador: si nadie la presenta, el trabajador queda en el aire.' },
           kusi: ['celebra', 'No lo habían botado: se trabó un papel.'] } },
       { id: 'b', label: 'Decirle que eso es un tema de EsSalud y que tiene que ir él a sus oficinas a reclamar.',
@@ -217,7 +217,7 @@ export const ESCENAS = [
     type: 'choice',
     choices: [
       { id: 'a', label: 'Lo que encontraste y lo que necesitas de ella.',
-        res: { q: 'buena', fx: { confianza: 5 }, rel: { nelly: 1 }, responde: 'Nelly: 1) A Don Héctor nadie le presentó la solicitud de subsidio: lo vemos el miércoles con Planillas. 2) El Excel de casos tenía diagnósticos visibles para 40 supervisores; ya lo restringimos con TI. 3) Le propuse a Augusto un lactario. Necesito saber cómo funciona el fondo de emergencia.',
+        res: { q: 'buena', fx: { confianza: 5 }, rel: { nelly: 1 }, responde: 'Nelly: 1) A Don Héctor nadie le presentó la solicitud de subsidio: lo vemos mañana con Planillas. 2) El Excel de casos tenía diagnósticos visibles para 40 supervisores; ya lo restringimos con TI. 3) Le propuse a Augusto un lactario. Necesito saber cómo funciona el fondo de emergencia.',
           out: 'Nelly responde: «Lo de Don Héctor me lo voy a reprochar toda la semana. Gracias. Mañana te explico el fondo».', kusi: ['feliz', 'Primer día y ya cambiaste tres cosas.'] } },
       { id: 'b', label: 'Que todo bien y que mañana sigues con las carpetas.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Nelly: todo bien, mañana sigo con las carpetas 😊',

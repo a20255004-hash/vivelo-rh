@@ -8,7 +8,7 @@ export const DATOS = {
   'asistente-bienestar': {
     PUESTO: {
       id: 'asistente-bienestar', nombre: 'Asistente de Bienestar Social', temporada: 'Las personas detrás del azúcar', foto: 'assets/cargos/asistente-bienestar.webp',
-      completa: false, listos: 5, primero: 'nelly', ciudad: 'Chiclayo', nota: ['Lambayeque', 'Agroindustria azucarera, 1,500 trabajadores.'], correo: 'bienestar@azucarerasipan.pe',
+      completa: false, listos: 10, primero: 'nelly', ciudad: 'Chiclayo', nota: ['Lambayeque', 'Agroindustria azucarera, 1,500 trabajadores.'], correo: 'bienestar@azucarerasipan.pe',
       sinopsis: 'En una azucarera de Lambayeque, eres quien atiende lo que no sale en la planilla: un trabajador con una enfermedad larga, una madre que vuelve de su licencia y no tiene dónde extraer leche, una denuncia que nadie quiere tocar. Dos semanas para aprender que el bienestar es concreto, no una campaña con globos.',
       escenario: 'Agroindustrial Sipán S.A.A. (ficticia) · Lambayeque · 1,500 trabajadores',
       duracion: 'Dos semanas, diez capítulos (uno por día hábil) y unas cuatro horas para vivirlo, a tu ritmo.',

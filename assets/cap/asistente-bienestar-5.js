@@ -11,14 +11,14 @@
 //   https://busquedas.elperuano.pe/dispositivo/NL/1976374-4
 
 export const CAP = {
-  n: 5, titulo: 'La campaña de salud', dia: 'Semana 2, jueves', foto: 'assets/3d/scenes/hospital.webp',
+  n: 5, titulo: 'La campaña de salud', dia: 'Semana 1, viernes', foto: 'assets/3d/scenes/hospital.webp',
   lugar: 'Agroindustrial Sipán · Lambayeque',
   inicio: '06:15', fin: '19:30', cierreHora: '19:15',
-  apertura: 'Jueves. La campaña de salud que Nelly coordinó con la red de salud empieza a las 8 en el auditorio. El turno noche sale a las 7. Algo no cuadra.', boton: 'Revisar el plan de la campaña',
+  apertura: 'Viernes. La campaña de salud que Nelly coordinó con la red de salud empieza a las 8 en el auditorio. El turno noche sale a las 7. Algo no cuadra.', boton: 'Revisar el plan de la campaña',
   kusi: 'Una campaña sirve si llega a quien más la necesita. ¡A mover horarios!',
   lead: 'Moviste la campaña hacia el turno noche, defendiste la confidencialidad de los resultados frente al gerente y cuidaste a un trabajador que no estaba en condiciones de entrar a su turno.',
   reflexion: '¿A quién no habrías visto hoy si la campaña se quedaba de 8 a 1?',
-  siguiente: { n: 6, titulo: 'La denuncia', dia: 'Semana 3, martes' },
+  siguiente: { n: 6, titulo: 'La denuncia', dia: 'Semana 2, lunes' },
 };
 
 export const CARTERA = [

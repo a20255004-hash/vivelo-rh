@@ -10,14 +10,14 @@
 // - Ley 29733, de Protección de Datos Personales: los datos de salud son datos sensibles.
 
 export const CAP = {
-  n: 3, titulo: 'La visita', dia: 'Semana 1, viernes', foto: 'assets/3d/scenes/cooperativa.webp',
+  n: 3, titulo: 'La visita', dia: 'Semana 1, miércoles', foto: 'assets/3d/scenes/cooperativa.webp',
   lugar: 'Tumán · Lambayeque',
   inicio: '07:45', fin: '18:00', cierreHora: '17:45',
-  apertura: 'Viernes. La camioneta de la empresa sale a las 8 hacia Tumán, entre cañaverales y humo de quema. Hoy el caso de Don Héctor deja de ser una carpeta.', boton: 'Subir a la camioneta',
+  apertura: 'Miércoles. La camioneta de la empresa sale a las 8 hacia Tumán, entre cañaverales y humo de quema. Hoy el caso de Don Héctor deja de ser una carpeta.', boton: 'Subir a la camioneta',
   kusi: 'En una casa se escucha con los ojos también. ¡Con respeto y sin apuro!',
   lead: 'Entraste a la casa de los Llontop, viste lo que no estaba en los papeles, cuidaste lo que te confiaron y escribiste un informe social que describe sin juzgar.',
   reflexion: '¿Qué viste hoy en la casa de Don Héctor que no vas a olvidar?',
-  siguiente: { n: 4, titulo: 'El lactario', dia: 'Semana 2, martes' },
+  siguiente: { n: 4, titulo: 'El lactario', dia: 'Semana 1, jueves' },
 };
 
 export const CARTERA = [
@@ -53,7 +53,7 @@ export const CHATS = {
 
 export const WSP = [
   { chat: 'grupo', t: '07:40', de: 'Nelly', txt: 'Buena visita 💛 Recuerda: vas a escuchar, no a inspeccionar. Y avísame cuando salgas de Tumán.' },
-  { chat: 'wilmer', t: '08:05', de: 'Wilmer', txt: 'Ayer salió el depósito del subsidio del Sr. Llontop en la quincena. Cuando tenga el CITT nuevo me lo pasan.', si: 'subsidio_pagado' },
+  { chat: 'wilmer', t: '08:05', de: 'Wilmer', txt: 'Ya salió el depósito del subsidio del Sr. Llontop. Cuando tenga el CITT nuevo me lo pasan.', si: 'subsidio_pagado' },
   { chat: 'wilmer', t: '08:05', de: 'Wilmer', txt: 'Subsidio Llontop cargado.', si: 'planillas_dolida' },
   { chat: 'hector', t: '09:50', de: 'Don Héctor', txt: 'Ya salí de EsSalud señorita. Me dieron mi cargo. Ya estoy yendo para la casa.', si: 'citt_en_marcha' },
   { chat: 'maribel', t: '13:30', de: 'Maribel', txt: 'Hoy guardé la leche en el cooler de mi almuerzo, con hielo de la cafetería. Algo es algo 😅', si: 'maribel_hora' },
@@ -207,7 +207,7 @@ export const ESCENAS = [
   },
   {
     id: 'v6', t: '15:30', ch: 'llamada', who: null, titulo: 'Buscar salidas', banner: 'assets/foto2/callcenter.webp', lugar: 'Oficina de Bienestar', show: ['personas', 'calidad', 'tiempo'],
-    body: (n, F) => `<p>Vuelves a la oficina con las zapatillas llenas de tierra. ${F.has('hector_orientado') ? 'Le prometiste a Rosa una salida para el préstamo, y es viernes: si no la encuentras hoy, el lunes a las 8 vuelve la moto azul.' : 'Aunque las cosas no quedaron bien en la casa, el cobro diario sigue ahí.'}</p><p>Haces tres llamadas. <mark class="clave">Bienestar no presta plata: conecta a la gente con las salidas que existen</mark>.</p>`,
+    body: (n, F) => `<p>Vuelves a la oficina con las zapatillas llenas de tierra. ${F.has('hector_orientado') ? 'Le prometiste a Rosa una salida para el préstamo, y si no la encuentras hoy, mañana a las 8 vuelve la moto azul.' : 'Aunque las cosas no quedaron bien en la casa, el cobro diario sigue ahí.'}</p><p>Haces tres llamadas. <mark class="clave">Bienestar no presta plata: conecta a la gente con las salidas que existen</mark>.</p>`,
     type: 'calls',
     calls: [
       ['Cooperativa de ahorro y crédito de los trabajadores de Sipán', 'Contesta la asesora, la señora Capuñay', '«Si es socio, podemos darle un préstamo con descuento por planilla y a una tasa normal. Don Héctor es socio desde hace años, pero nunca pidió nada. Tiene que venir con su esposa y su boleta.»'],

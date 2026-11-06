@@ -14,14 +14,14 @@
 // - Ley 27240 y modificatorias: una hora diaria de permiso por lactancia hasta que el hijo cumpla un año.
 
 export const CAP = {
-  n: 4, titulo: 'El lactario', dia: 'Semana 2, martes', foto: 'assets/3d/scenes/planta.webp',
+  n: 4, titulo: 'El lactario', dia: 'Semana 1, jueves', foto: 'assets/3d/scenes/planta.webp',
   lugar: 'Agroindustrial Sipán · Lambayeque',
   inicio: '07:20', fin: '18:30', cierreHora: '18:15',
-  apertura: 'Martes de la segunda semana. Administración «ya habilitó el lactario»: te mandaron una foto de una puerta con un letrero impreso.', boton: 'Ir a ver el lactario',
+  apertura: 'Jueves. Administración «ya habilitó el lactario»: te mandaron una foto de una puerta con un letrero impreso.', boton: 'Ir a ver el lactario',
   kusi: 'Un letrero no hace un lactario. ¡Vamos a ver qué hay detrás de la puerta!',
   lead: 'Revisaste el «lactario» con el reglamento en la mano, le explicaste a Maribel todos sus derechos, escuchaste a las madres de otros turnos y armaste una propuesta que se puede aprobar.',
   reflexion: '¿Qué pensaste al ver dónde se extraía leche Maribel antes de hoy?',
-  siguiente: { n: 5, titulo: 'La campaña de salud', dia: 'Semana 2, jueves' },
+  siguiente: { n: 5, titulo: 'La campaña de salud', dia: 'Semana 1, viernes' },
 };
 
 export const CARTERA = [
@@ -36,7 +36,7 @@ export const FUTURO = {
   maribel_informada: ['Maribel sabe que su hora de lactancia y su tiempo de lactario son derechos distintos.', 'Te dirá cómo le va con su jefe.'],
   maribel_callada: ['No le contaste a Maribel que el tiempo de lactario es independiente de su hora de lactancia.', 'Se enterará por otra persona.'],
   lactario_propuesta: ['Enviaste una propuesta completa de lactario, con espacio, equipamiento y acceso por turnos.', 'Augusto responderá en la campaña de salud.'],
-  lactario_noche: ['Tu propuesta incluye el acceso al lactario en el turno noche.', 'El turno noche volverá a ser un problema el jueves.'],
+  lactario_noche: ['Tu propuesta incluye el acceso al lactario en el turno noche.', 'El turno noche volverá a ser un problema mañana.'],
   csst_lactario: ['El comité de SST evaluará la ubicación del lactario.', 'Su secretario te buscará en el capítulo 5.'],
   gonzalo_acuerdo: ['Acordaste con el jefe del laboratorio cómo cubrir los tiempos de Maribel sin recortar sus derechos.', 'Gonzalo será menos duro la próxima vez.'],
   derecho_negociado: ['Aceptaste que el lactario se use dentro de la hora de lactancia.', 'Maribel perdió media jornada de derechos a la semana.'],
@@ -61,7 +61,7 @@ export const WSP = [
   { chat: 'maribel', t: '07:25', de: 'Maribel', txt: 'Buenos días. Me dijeron que ya hay lactario. ¿Igual tengo que tomar mi hora al final?', si: 'maribel_fin' },
   { chat: 'yesenia', t: '12:10', de: 'Yesenia', txt: 'Señorita soy Yesenia de envasado, me pasó su número Maribel. ¿El lactario va a estar abierto de noche? Yo entro a las 7 de la noche.' },
   { chat: 'gonzalo', t: '17:05', de: 'Gonzalo', txt: 'Lo conversamos mañana con Maribel. Pero necesito que alguien me cubra los análisis de las 11.', si: 'gonzalo_acuerdo' },
-  { chat: 'augusto', t: '17:50', de: 'Augusto', txt: 'Recibí la propuesta. El jueves en la campaña lo vemos, que voy a estar ahí.', si: 'lactario_propuesta' },
+  { chat: 'augusto', t: '17:50', de: 'Augusto', txt: 'Recibí la propuesta. Mañana en la campaña lo vemos, que voy a estar ahí.', si: 'lactario_propuesta' },
 ];
 
 export const CORREOS = [
@@ -138,7 +138,7 @@ export const ESCENAS = [
   },
   {
     id: 'l3', t: '10:40', ch: 'llamada', who: null, titulo: 'Los números y el lugar', banner: 'assets/foto2/revisan.webp', lugar: 'Oficina de Bienestar', show: ['calidad', 'cumplimiento', 'tiempo'],
-    body: (n, F) => `<p>Para que la propuesta no se discuta, necesitas tres cosas: cuántas mujeres podrían usarlo, dónde ponerlo y quién lo aprueba. ${F.has('planillas_dolida') ? 'Wilmer todavía te saluda seco desde lo del correo a Gerencia.' : 'Wilmer te dijo el viernes: «Para lo que necesite, me escribe».'}</p><p><mark class="clave">Tres llamadas antes del almuerzo</mark>.</p>`,
+    body: (n, F) => `<p>Para que la propuesta no se discuta, necesitas tres cosas: cuántas mujeres podrían usarlo, dónde ponerlo y quién lo aprueba. ${F.has('planillas_dolida') ? 'Wilmer todavía te saluda seco desde lo del correo a Gerencia.' : 'Wilmer te dijo el martes: «Para lo que necesite, me escribe».'}</p><p><mark class="clave">Tres llamadas antes del almuerzo</mark>.</p>`,
     type: 'calls',
     calls: [
       ['Wilmer Sandoval · Planillas', 'Contesta al tercer timbre', 'Saca el reporte del T-Registro: «Doscientas doce mujeres en planilla, ciento sesenta y ocho entre 15 y 49 años. Y en el turno noche de envasado hay treinta y tantas».'],
@@ -149,7 +149,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Proponer la antigua oficina del segundo piso del laboratorio, con el frigobar del almacén, y pedir que el comité de SST la evalúe antes de adecuarla.',
         res: { q: 'buena', fx: { cumplimiento: 5, calidad: 4 }, flags: ['csst_lactario'], cartera: { lactario: 'Oficina del 2.º piso del laboratorio, con lavadero; evaluación del comité de SST', propuesta: '168 mujeres en edad fértil; espacio identificado' },
-          out: 'El Ing. Pisfil agenda la evaluación para la próxima reunión del comité. Logística te manda fotos de la oficina: tiene ventana, lavadero y tomacorriente. Solo hay que sacar dos escritorios viejos.',
+          out: 'El Ing. Pisfil agenda la evaluación para mañana temprano, antes de la campaña. Logística te manda fotos de la oficina: tiene ventana, lavadero y tomacorriente. Solo hay que sacar dos escritorios viejos.',
           pro: { ok: 'Un espacio que ya tiene lavadero, un frigobar que ya se compró y la evaluación de quien debe hacerla.', risk: 'Es un segundo piso: revisa que el acceso sea rápido y que no haya escaleras peligrosas.', info: 'El reglamento prefiere el primer o segundo piso.' },
           kusi: ['celebra', '¡El lactario ya existía, solo había que encontrarlo!'] } },
       { id: 'b', label: 'Mantener el depósito y pedir que lo arreglen: sacar las cajas, poner otra silla y cambiar la puerta. Es lo más rápido.',
