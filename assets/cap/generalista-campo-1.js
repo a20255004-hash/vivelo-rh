@@ -1,5 +1,5 @@
 // Generalista de RR.HH. en operación minera · Capítulo 1 · «La subida» · Semana 1, lunes.
-// Hilo del mes: RR.HH. dentro de una mina de altura, entre trabajadores propios, contratistas y una comunidad.
+// Hilo de las dos semanas: RR.HH. dentro de una mina de altura, entre trabajadores propios, contratistas y una comunidad.
 // Normas citadas: D.S. 007-2002-TR (jornadas atípicas: el promedio del ciclo no puede superar la jornada máxima);
 // Ley 26790 y D.S. 003-98-SA (SCTR obligatorio en actividades de riesgo como la minería); Ley 29245 (tercerización y
 // responsabilidad solidaria de la empresa principal).
@@ -12,7 +12,7 @@ export const CAP = {
   kusi: 'Despacito y con agua, que la altura no perdona. ¡Vamos arriba!',
   lead: 'Preguntaste lo que importa en la mina, respetaste la vida comunal de Yuri sin romper el turno, detectaste trabajadores de contratista sin SCTR y no dejaste subir a nadie sin seguro.',
   reflexion: '¿Qué te sorprendió de hacer RR.HH. a cuatro mil metros?',
-  siguiente: { n: 2, titulo: 'El comedor', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'El comedor', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -158,7 +158,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'Lo de Yuri, lo del contratista y lo que escuchas del comedor.',
         res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { percy: 1 },
-          out: 'Percy asiente: «Y lo del comedor, apúntalo. El miércoles te va a explotar en la cara». Mira la mesa de al lado. «Ya está empezando».', kusi: ['feliz', 'Escuchar el comedor también es RR.HH.'] } },
+          out: 'Percy asiente: «Y lo del comedor, apúntalo. Mañana te va a explotar en la cara». Mira la mesa de al lado. «Ya está empezando».', kusi: ['feliz', 'Escuchar el comedor también es RR.HH.'] } },
       { id: 'b', label: 'Que te duele la cabeza y no entiendes cómo se vive aquí.',
         res: { q: 'aceptable', fx: { confianza: 1 },
           out: 'Percy se ríe: «Es el soroche. Toma agua y duerme. Mañana lo ves distinto». No le cuentas lo del contratista.', kusi: ['pensando', 'El soroche pasa… lo del SCTR hay que contarlo.'] } },
