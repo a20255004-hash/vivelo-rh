@@ -3,14 +3,14 @@
 export const CAP = {
   n: 1, titulo: 'Sesenta técnicas', dia: 'Semana 1, lunes', foto: 'assets/foto2/entrevista-cv.webp', lugar: 'Clínica del Misti · Arequipa',
   inicio: '07:30', fin: '18:30', cierreHora: '18:20',
-  apertura: 'Arequipa, Clínica del Misti. El piso nuevo abre en un mes y faltan 60 técnicas de enfermería. Hoy empiezas como asistente de Selección.', boton: 'Entrar por Emergencia',
+  apertura: 'Arequipa, Clínica del Misti. El piso nuevo abre en tres semanas y faltan 60 técnicas de enfermería: la selección tiene que cerrarse en dos. Hoy empiezas como asistente de Selección.', boton: 'Entrar por Emergencia',
   kusi: 'En una clínica, contratar bien es cuidar pacientes. ¡Dale!',
   lead: 'Entendiste el plan, ordenaste los CV con criterio, cuidaste datos ajenos y escuchaste a quien de verdad conoce el puesto.',
   reflexion: '¿Qué te dijo Sor Elena que no está en ningún perfil?',
-  siguiente: { n: 2, titulo: 'El aviso', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'El aviso', dia: 'Semana 1, martes' },
 };
 export const CARTERA = [
-  { id: 'tecnicas', p: '60 técnicas de enfermería', j: 'Milena · Selección', d: 0, e: 'Piso nuevo en 30 días' },
+  { id: 'tecnicas', p: '60 técnicas de enfermería', j: 'Milena · Selección', d: 0, e: 'Selección en 10 días hábiles' },
   { id: 'cv', p: 'Bandeja de CV', j: 'Milena · Selección', d: 0, e: '214 sin revisar' },
 ];
 export const FUTURO = {
@@ -29,7 +29,7 @@ export const WSP = [
   { chat: 'sor', t: '17:10', de: 'Sor Elena', txt: 'Gracias por preguntar, hija. Pocos lo hacen.', si: 'sor_escuchada' },
 ];
 export const CORREOS = [
-  { t: '07:40', de: 'Milena Cáceres', asunto: 'Plan del mes', html: '<p>Bienvenida. Piso nuevo de hospitalización: 60 técnicas en 30 días. Semana 1: aviso y filtro. Semana 2: evaluaciones. Semana 3: entrevistas con Enfermería. Semana 4: ingresos.</p><p>Milena</p>' },
+  { t: '07:40', de: 'Milena Cáceres', asunto: 'Plan de las dos semanas', html: '<p>Bienvenida. Piso nuevo de hospitalización: 60 técnicas en 10 días hábiles. Semana 1: aviso, filtro, verificación de títulos, agenda y evaluaciones. Semana 2: entrevistas con Enfermería, referencias, cierre y papeles de ingreso. El lunes de la semana 3 entran las primeras.</p><p>Milena</p>' },
 ];
 export const QUIZ = [
   { q: '¿Qué ley prohíbe requisitos discriminatorios en un aviso?', ops: ['Ley 26772', 'Ley 31110', 'Ley 28518', 'Ley 27942'], ok: 0, por: 'La Ley 26772 prohíbe la discriminación en las ofertas de empleo.' },
@@ -40,10 +40,10 @@ export const QUIZ = [
 const LEY = 'ley', BP = 'bp';
 export const ESCENAS = [
   { id: 'a1', t: '07:45', ch: 'presencial', who: 'milena', titulo: 'Café en Emergencia', banner: 'assets/foto/cafe.webp', show: ['confianza', 'tiempo'],
-    body: () => `<p>Milena te da un café mientras pasan dos camillas. «Sesenta técnicas en un mes. <mark class="clave">Pregúntame lo que quieras</mark>, tengo diez minutos.»</p>`,
+    body: () => `<p>Milena te da un café mientras pasan dos camillas. «Sesenta técnicas en dos semanas. <mark class="clave">Pregúntame lo que quieras</mark>, tengo diez minutos.»</p>`,
     type: 'ask', max: 2, prompt: 'Elige dos preguntas.',
     opts: [
-      { id: 'urg', label: '¿Qué es lo más urgente?', info: '«Filtrar los 214 CV antes del miércoles, cuando sale el aviso grande.»' },
+      { id: 'urg', label: '¿Qué es lo más urgente?', info: '«Filtrar los 214 CV hoy: mañana sale el aviso grande.»' },
       { id: 'quien', label: '¿Con quién debo llevarme bien?', info: '«Con Sor Elena, la jefa de Enfermería. Si ella no confía en ti, no aprueba a nadie.»' },
       { id: 'error', label: '¿Qué salió mal la última vez?', info: '«Contratamos rápido y 9 renunciaron en el primer mes: no sabían lo que era el turno noche.»' },
     ],
@@ -81,7 +81,7 @@ export const ESCENAS = [
     mail: { from: 'Milena Cáceres', to: 'Asistente de Selección', asunto: '¿Cómo vamos?' },
     body: () => `<p>Dime en corto <mark class="clave">cómo quedó el filtro</mark>.</p><p>Milena</p>`,
     type: 'choice', choices: [
-      { id: 'a', label: 'Cifra, hallazgo y siguiente paso.', res: { q: 'buena', fx: { confianza: 4 }, rel: { milena: 1 }, responde: '71 de 214 cumplen título, experiencia en hospitalización y turno noche. Sor Elena pide que sepan avisar cuando algo va mal: propongo incluirlo en el aviso del miércoles.', out: 'Milena: «Perfecto. El miércoles lo escribimos juntas».', kusi: ['feliz', '¡Corto y útil!'] } },
+      { id: 'a', label: 'Cifra, hallazgo y siguiente paso.', res: { q: 'buena', fx: { confianza: 4 }, rel: { milena: 1 }, responde: '71 de 214 cumplen título, experiencia en hospitalización y turno noche. Sor Elena pide que sepan avisar cuando algo va mal: propongo incluirlo en el aviso de mañana.', out: 'Milena: «Perfecto. Mañana lo escribimos juntas».', kusi: ['feliz', '¡Corto y útil!'] } },
       { id: 'b', label: 'Que avanzaste bastante.', res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Avancé bastante con los CV 👍', out: 'Milena responde con un pulgar. No sabe qué encontraste.', kusi: ['pensando', '¿Y el dato?'] } },
     ], mirada: { ve: 'Un reporte útil tiene un número y un siguiente paso.' } },
 ];
