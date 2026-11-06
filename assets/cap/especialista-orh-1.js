@@ -12,7 +12,7 @@ export const CAP = {
   kusi: 'En el Estado, cada paso deja huella… y cada huella se audita. ¡Con orden!',
   lead: 'Entendiste las etapas de un concurso CAS, respondiste a la presión de un regidor con la ley, atendiste a un postulante que nadie había escuchado y preparaste lo que sostiene un concurso limpio.',
   reflexion: '¿En qué se parece y en qué se diferencia contratar en el Estado y en una empresa?',
-  siguiente: { n: 2, titulo: 'Las bases', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Las bases', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -45,7 +45,7 @@ export const WSP = [
 ];
 
 export const CORREOS = [
-  { t: '08:10', de: 'Marisol Chávez', para: 'Especialista de la ORH', asunto: 'El concurso CAS', html: '<p>Bienvenida. Este mes tenemos el concurso CAS para 12 plazas: asistentes administrativos, un ingeniero civil, dos fiscalizadores y personal de serenazgo.</p><p>En el Estado todo se publica, todo se documenta y todo puede ser auditado. Si un paso no está escrito, es como si no hubiera ocurrido.</p><p>Marisol</p>' },
+  { t: '08:10', de: 'Marisol Chávez', para: 'Especialista de la ORH', asunto: 'El concurso CAS', html: '<p>Bienvenida. En estas dos semanas sacamos el concurso CAS para 12 plazas: asistentes administrativos, un ingeniero civil, dos fiscalizadores y personal de serenazgo.</p><p>En el Estado todo se publica, todo se documenta y todo puede ser auditado. Si un paso no está escrito, es como si no hubiera ocurrido.</p><p>Marisol</p>' },
   { t: '15:00', de: 'Mesa de partes', para: 'ORH', asunto: 'Documento ingresado: reclamo de Eder Rojas', html: '<p>Se adjunta el escrito del Sr. Eder Rojas, postulante del concurso CAS 004-2026, quien solicita conocer los motivos de su descalificación en la evaluación curricular.</p>' },
 ];
 
