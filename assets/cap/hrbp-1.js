@@ -1,5 +1,5 @@
 // HR Business Partner · Capítulo 1 · «El nuevo gerente» · Semana 1, lunes.
-// Hilo del mes: acompañar a un gerente comercial nuevo que quiere reestructurar 12 zonas en 8.
+// Hilo de las dos semanas: acompañar a un gerente comercial nuevo que quiere reestructurar 12 zonas en 8.
 // Normas citadas: TUO del D.Leg. 728 (D.S. 003-97-TR): el despido requiere causa justa relacionada con la capacidad o
 // la conducta; el cese colectivo por motivos económicos, tecnológicos, estructurales o análogos tiene un procedimiento
 // propio ante la Autoridad de Trabajo. Ley 26772 (no discriminación por edad).
@@ -12,7 +12,7 @@ export const CAP = {
   kusi: 'Un HRBP no es el que dice «sí» ni el que dice «no»: es el que pregunta «¿para qué?». ¡Dale!',
   lead: 'Llevaste a Mauricio del «a quién sacamos» al «qué problema resolvemos», buscaste datos antes de opinar, no le mentiste a Susana y calmaste un rumor sin revelar nada.',
   reflexion: '¿Cuándo sentiste hoy que eras «socia» del negocio y cuándo «defensora» de las personas?',
-  siguiente: { n: 2, titulo: 'Los datos', dia: 'Semana 1, miércoles' },
+  siguiente: { n: 2, titulo: 'Los datos', dia: 'Semana 1, martes' },
 };
 
 export const CARTERA = [
@@ -23,11 +23,11 @@ export const CARTERA = [
 ];
 
 export const FUTURO = {
-  problema_primero: ['Mauricio aceptó definir el problema antes de cortar zonas.', 'Te pedirá datos el miércoles. Capítulo 2.'],
-  antiguos_fuera: ['No frenaste la idea de sacar «a los más antiguos».', 'Andrea te preguntará por qué en el capítulo 3.'],
+  problema_primero: ['Mauricio aceptó definir el problema antes de cortar zonas.', 'Te pedirá datos mañana, martes. Capítulo 2.'],
+  antiguos_fuera: ['No frenaste la idea de sacar «a los más antiguos».', 'Andrea te preguntará por qué en el capítulo 2.'],
   susana_honesta: ['Le dijiste a Susana la verdad que podías decir.', 'Confiará en ti en el capítulo 5.'],
   susana_mentira: ['Le aseguraste a Susana que no habría cambios.', 'Se sentirá engañada en el capítulo 5.'],
-  rumor_calmado: ['El rumor se calmó con un mensaje honesto de Mauricio.', 'Kenji te escribirá en el capítulo 4.'],
+  rumor_calmado: ['El rumor se calmó con un mensaje honesto de Mauricio.', 'Kenji te lo recordará en la ruta, capítulo 3.'],
 };
 
 export const CHATS = {
@@ -42,7 +42,7 @@ export const WSP = [
   { chat: 'grupo', t: '07:50', de: 'Andrea', txt: 'Bienvenida 💜 Hoy conoces a Mauricio. Viene con todo. Tú acompáñalo, no le tengas miedo.' },
   { chat: 'susana', t: '12:05', de: 'Susana', txt: '¿Me regalas 10 minutos? Estoy en la cafetería.' },
   { chat: 'kenji', t: '16:40', de: 'Kenji', txt: 'Oye, en el grupo dicen que van a botar a 100 vendedores. ¿Es verdad? 😟' },
-  { chat: 'mauricio', t: '17:50', de: 'Mauricio', txt: 'Ok, el miércoles revisamos los datos antes de mover zonas. Pero tráeme números, no opiniones.', si: 'problema_primero' },
+  { chat: 'mauricio', t: '17:50', de: 'Mauricio', txt: 'Ok, mañana revisamos los datos antes de mover zonas. Pero tráeme números, no opiniones.', si: 'problema_primero' },
   { chat: 'kenji', t: '19:00', de: 'Kenji', txt: 'Ya vi el mensaje de Mauricio. Al menos dijo algo 🙏', si: 'rumor_calmado' },
 ];
 
@@ -85,13 +85,13 @@ export const ESCENAS = [
     rules: [[LEY, 'El despido requiere causa justa relacionada con la capacidad o la conducta del trabajador (TUO del D.Leg. 728).'], [LEY, 'Discriminar por edad está prohibido (Ley 26772).']],
     mirada: {
       ve: 'Un HRBP no es el que obedece ni el que bloquea: es el que pregunta para qué. Si la reestructuración busca vender más, los datos dirán dónde está el problema; quizás no está en las zonas, sino en por qué se van los vendedores.',
-      visual: { tipo: 'cambio', titulo: 'De la pregunta del gerente a la del HRBP', pares: [['¿A quién sacamos?', '¿Qué problema resolvemos?'], ['Los más antiguos y caros', 'Los datos de ventas y rotación'], ['Una lista para el viernes', 'Un diagnóstico para el miércoles']] },
+      visual: { tipo: 'cambio', titulo: 'De la pregunta del gerente a la del HRBP', pares: [['¿A quién sacamos?', '¿Qué problema resolvemos?'], ['Los más antiguos y caros', 'Los datos de ventas y rotación'], ['Una lista para el viernes', 'Un diagnóstico para mañana']] },
       normas: [{ ley: 'TUO del D.Leg. 728, D.S. 003-97-TR', dice: 'El despido debe fundarse en una causa justa relacionada con la capacidad o la conducta del trabajador. Las reducciones por motivos económicos o estructurales tienen un procedimiento de cese colectivo propio.', practica: 'Antigüedad y costo no son causas justas de despido individual.' }],
     },
   },
   {
     id: 'p2', t: '10:30', ch: 'documento', who: null, titulo: 'Qué mirar primero', banner: 'assets/esc/lupa.webp', show: ['calidad', 'tiempo'],
-    body: () => `<p>Tienes hasta el miércoles para llevarle datos a Mauricio. Hoy solo te da para pedir y revisar <mark class="clave">dos fuentes</mark>.</p>`,
+    body: () => `<p>Tienes hasta mañana para llevarle datos a Mauricio. Hoy solo te da para pedir y revisar <mark class="clave">dos fuentes</mark>.</p>`,
     type: 'pick', n: 2, prompt: 'Elige las dos fuentes de datos que pedirás hoy.', boton: 'Pedir estos datos', resumen: 'Pediste',
     cols: ['Fuente', 'Qué te podría decir'],
     rows: [
@@ -190,7 +190,7 @@ export const ESCENAS = [
     choices: [
       { id: 'a', label: 'El criterio que frenaste, la pista de los supervisores y el riesgo del rumor.',
         res: { q: 'buena', fx: { confianza: 5, calidad: 2 }, rel: { andrea: 1 }, responde: 'Andrea: 1) Mauricio quería reducir zonas empezando por los más antiguos; le propuse definir el problema con datos antes de decidir. 2) Pista: tres supervisores concentran el 60 % de las renuncias. 3) Riesgo: el rumor de 100 despidos ya corre; Mauricio envió hoy un mensaje honesto.',
-          out: 'Andrea responde: «Excelente primer día. El miércoles entro contigo a la reunión de datos».', kusi: ['feliz', '¡Socia del negocio y de las personas!'] } },
+          out: 'Andrea responde: «Excelente primer día. Mañana entro contigo a la reunión de datos».', kusi: ['feliz', '¡Socia del negocio y de las personas!'] } },
       { id: 'b', label: 'Que Mauricio es complicado pero que lo vas a manejar.',
         res: { q: 'aceptable', fx: { confianza: 0 }, responde: 'Andrea: Mauricio es complicado, pero lo voy a manejar 💪',
           out: 'Andrea responde con un emoji. No sabe que el plan pasaba por sacar a los más antiguos.', kusi: ['pensando', 'Andrea necesitaba saber el riesgo.'] } },
