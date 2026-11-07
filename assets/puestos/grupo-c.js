@@ -241,7 +241,7 @@ export const DATOS = {
   'especialista-clima': {
     PUESTO: { ...MES,
       id: 'especialista-clima', nombre: 'Analista de Clima y Cultura', temporada: 'La encuesta que nadie quería leer', foto: 'assets/cargos/especialista-clima.webp',
-      completa: false, listos: 0, primero: 'sofia', ciudad: 'Lima', nota: ['Lima', 'Aseguradora con 900 colaboradores.'], correo: 'cultura@aseguraplus.pe',
+      completa: false, listos: 10, primero: 'sofia', ciudad: 'Lima', nota: ['Lima', 'Aseguradora con 900 colaboradores.'], correo: 'cultura@aseguraplus.pe',
       sinopsis: 'Llegan los resultados de la encuesta de clima y un área sale muy mal. En dos semanas analizas los datos, conversas con las personas, enfrentas a un gerente que se siente atacado y armas un plan que no sea solo un desayuno.',
       escenario: 'AseguraPlus S.A. (ficticia) · Lima · 900 colaboradores',
       rel0: { sofia: 0, gerente: -1, colaboradora: 0 },
