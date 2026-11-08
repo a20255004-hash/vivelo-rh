@@ -2,7 +2,7 @@
 // Hilo de las dos semanas: el concurso CAS de 12 plazas de una municipalidad provincial de Cajamarca, hasta su publicación.
 // Final abierto: la historia sigue en la Semana 3 (capítulo 11, en escritura).
 // Normas citadas (todas ya verificadas en capítulos anteriores):
-// - D.Leg. 1057 (acceso al CAS por concurso público de méritos), capítulo 1.
+// - D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público), capítulo 1.
 // - D.S. 003-2018-TR (difusión mínima de diez días hábiles en Talento Perú), capítulo 9.
 // - Ley 29248, art. 61 (bonificación a licenciados de las FF.AA.), capítulo 8.
 // - TUO de la Ley 27444, art. 99 (abstención por parentesco), capítulo 6.

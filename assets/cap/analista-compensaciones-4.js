@@ -1,7 +1,7 @@
 // Analista de Compensaciones y Beneficios · Capítulo 4 · «La pregunta de Claudia» · Semana 2, martes.
 // Hilo: Claudia Puma pregunta por qué gana 18 % menos que sus pares. Escucharla, cuidar la confidencialidad y planificar el análisis.
 // Normas citadas:
-// - Ley 30709, art. 2 y su reglamento, D.S. 002-2018-TR: dentro de una misma categoría, la diferencia de remuneración
+// - Ley 30709 (art. 2: cuadros de categorías y funciones) y su reglamento, D.S. 002-2018-TR: dentro de una misma categoría, la diferencia de remuneración
 //   solo se admite por criterios objetivos (por ejemplo, antigüedad, desempeño, negociación colectiva, escasez de mano
 //   de obra calificada, experiencia); el empleador debe demostrar que el criterio es objetivo, verificable y se aplica
 //   de forma consistente. El Peruano: https://elperuano.pe/noticia/305005-igualdad-salarial-estas-son-las-reglas-que-deben-considerar-las-empresas-al-determinar-las-remuneraciones
@@ -65,7 +65,7 @@ export const CORREOS = [
 ];
 
 export const QUIZ = [
-  { q: 'Dos personas de la misma categoría pueden ganar distinto si…', ops: ['El gerente lo decide', 'Hay un criterio objetivo, verificable y aplicado igual a todos (antigüedad, desempeño, experiencia, etc.)', 'Una de ellas negoció mejor', 'Una tiene hijos'], ok: 1, por: 'La Ley 30709 admite diferencias por criterios objetivos, y el empleador debe poder demostrarlos.' },
+  { q: 'Dos personas de la misma categoría pueden ganar distinto si…', ops: ['El gerente lo decide', 'Hay un criterio objetivo, verificable y aplicado igual a todos (antigüedad, desempeño, experiencia, etc.)', 'Una de ellas negoció mejor', 'Una tiene hijos'], ok: 1, por: 'La Ley 30709 y su reglamento (D.S. 002-2018-TR) admiten diferencias por criterios objetivos, y el empleador debe poder demostrarlos.' },
   { q: 'Una trabajadora te pregunta cuánto gana un compañero. Lo correcto es…', ops: ['Decírselo, para ser transparente', 'No revelar sueldos individuales, pero explicarle su posición, su banda y los criterios', 'Negarse a hablar del tema', 'Mandarle la planilla'], ok: 1, por: 'La transparencia es sobre criterios y sobre su propio caso, no sobre los datos de otros.' },
   { q: '¿Cuál de estas NO es una explicación válida para una brecha salarial?', ops: ['Mayor antigüedad en el puesto', 'Mejor desempeño evaluado', 'Que ella es mamá y «tiene menos disponibilidad»', 'Una certificación exigida para el puesto'], ok: 2, por: 'La maternidad no es un criterio objetivo; usarla es discriminatorio.' },
   { q: 'Un gerente te pregunta qué te dijo la trabajadora que consultó por su sueldo. Lo adecuado es…', ops: ['Contarle todo, es su jefe', 'Decirle que es una consulta en análisis, pedirle solo los datos que se necesiten y recordarle que no puede haber represalias', 'Negar que hubo reunión', 'Pedirle que la convenza de no seguir'], ok: 1, por: 'La consulta es confidencial y la trabajadora no debe sufrir consecuencias por hacerla.' },
@@ -237,7 +237,7 @@ export const ESCENAS = [
       pro: { ok: 'Un criterio objetivo se puede medir y se aplica igual a todos.', risk: 'Un argumento como «es mamá», escrito en un documento, es una prueba de discriminación.', info: 'Para cada criterio que quedó, pide el dato que lo prueba.' },
       kusi: missLey ? ['indignado', '¿«Tiene una hija»? ¡Eso no es un criterio!'] : ['celebra', '¡Criterios, no prejuicios!'],
     }),
-    rules: [[LEY, 'Ley 30709: dentro de una misma categoría, la diferencia se justifica solo con criterios objetivos, como antigüedad, desempeño, negociación colectiva, escasez de mano de obra calificada o experiencia. El empleador debe poder demostrarlos.']],
+    rules: [[LEY, 'Ley 30709 y su reglamento (D.S. 002-2018-TR): dentro de una misma categoría, la diferencia se justifica solo con criterios objetivos, como antigüedad, desempeño, negociación colectiva, escasez de mano de obra calificada o experiencia. El empleador debe poder demostrarlos.']],
     mirada: {
       ve: 'Los prejuicios suelen llegar disfrazados de «contexto». La prueba es simple: ¿se puede medir?, ¿se aplica igual a todos?, ¿tiene que ver con el trabajo? Si falla una, no es un criterio objetivo.',
       visual: { tipo: 'matriz', x: '¿Se puede medir?', y: '¿Tiene que ver con el trabajo?', cuadrantes: ['Del trabajo, pero no medible', 'Criterio objetivo', 'Ni medible ni del trabajo', 'Medible, pero ajeno al trabajo'], items: [['Desempeño', .85, .85], ['Certificación', .8, .8], ['Antigüedad', .9, .7], ['«Se vende bien»', .15, .45], ['Tiene una hija', .7, .1], ['Nombre del cargo', .6, .3]] },

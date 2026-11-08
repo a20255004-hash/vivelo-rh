@@ -8,7 +8,7 @@
 //   https://cdn.www.gob.pe/uploads/document/file/5587337/4962848-resolucion-n-003835-2023-jus-ttaip-segunda-sala.pdf
 // - Ley 29733, Ley de Protección de Datos Personales: los datos personales de terceros (domicilio, teléfono, DNI)
 //   se protegen al entregar documentos.
-// - D.Leg. 1057 (acceso al CAS por concurso público de méritos), ya citado en el capítulo 1.
+// - D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público), ya citado en el capítulo 1.
 
 export const CAP = {
   n: 5, titulo: 'El reclamo', dia: 'Semana 1, viernes', foto: 'assets/esc/dudas.webp',

@@ -1,6 +1,6 @@
 // Especialista en RR.HH. de entidad pública · Capítulo 1 · «Doce plazas» · Semana 1, lunes.
 // Hilo del mes: un concurso CAS de 12 plazas en una municipalidad provincial, con presiones y una auditoría.
-// Normas citadas: D.Leg. 1057 (acceso al CAS por concurso público de méritos); D.S. 003-2018-TR (difusión de las ofertas
+// Normas citadas: D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público); D.S. 003-2018-TR (difusión de las ofertas
 // laborales del Estado en el portal Talento Perú de SERVIR); Ley 26771 modificada por la Ley 31299 (nepotismo);
 // Ley 29973 (bonificación del 15 % a personas con discapacidad) y Ley 29248 (10 % a licenciados de las FF.AA.).
 
@@ -50,7 +50,7 @@ export const CORREOS = [
 ];
 
 export const QUIZ = [
-  { q: '¿Cómo se accede a un puesto CAS?', ops: ['Por invitación del alcalde', 'Por concurso público de méritos', 'Por sorteo', 'Por recomendación de un regidor'], ok: 1, por: 'El D.Leg. 1057 establece el acceso mediante concurso público.' },
+  { q: '¿Cómo se accede a un puesto CAS?', ops: ['Por invitación del alcalde', 'Por concurso público de méritos', 'Por sorteo', 'Por recomendación de un regidor'], ok: 1, por: 'El D.Leg. 1057 (art. 1) garantiza los principios de méritos y capacidad e igualdad de oportunidades; por eso el acceso es por concurso público.' },
   { q: '¿Dónde deben difundirse las ofertas laborales del Estado?', ops: ['Solo en el periódico mural', 'En el portal Talento Perú de SERVIR, además del portal institucional', 'En Facebook del alcalde', 'No es necesario difundirlas'], ok: 1, por: 'El D.S. 003-2018-TR dispone su registro y difusión en Talento Perú.' },
   { q: 'Un regidor pide contratar a su sobrino. Según la Ley 26771 y la Ley 31299…', ops: ['Se puede, si es por CAS', 'Está prohibido cuando el funcionario tiene injerencia en la contratación', 'Se puede si el sobrino es bueno', 'Solo está prohibido para hijos'], ok: 1, por: 'La ley prohíbe el nepotismo hasta el cuarto grado de consanguinidad cuando hay injerencia directa o indirecta.' },
   { q: '¿Qué bonificación recibe una persona con discapacidad acreditada en un concurso público?', ops: ['5 %', '10 %', '15 %', 'Ninguna'], ok: 2, por: 'La Ley 29973 otorga una bonificación del 15 % en concursos públicos.' },
@@ -81,7 +81,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : 'animo', q === 'buena' ? '¡Orden de funcionaria!' : 'El presupuesto va primero.'],
       };
     },
-    rules: [[LEY, 'El acceso al CAS es por concurso público de méritos (D.Leg. 1057).'], [LEY, 'Las ofertas laborales del Estado se difunden en el portal Talento Perú (D.S. 003-2018-TR).']],
+    rules: [[LEY, 'El CAS garantiza los principios de méritos y capacidad e igualdad de oportunidades (D.Leg. 1057, art. 1); por eso se accede por concurso público.'], [LEY, 'Las ofertas laborales del Estado se difunden en el portal Talento Perú (D.S. 003-2018-TR).']],
     mirada: {
       ve: 'En el sector público, el procedimiento es la garantía de que el puesto es de quien lo merece y no de quien conoce a alguien. Por eso el orden importa tanto.',
       visual: { tipo: 'flujo', titulo: 'Un concurso CAS', pasos: ['Requerimiento', 'Presupuesto', 'Bases', 'Publicación', 'Evaluación', 'Resultados y contrato'] },

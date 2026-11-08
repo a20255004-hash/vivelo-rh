@@ -224,7 +224,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : 'triste', q === 'buena' ? '¡Kenji espera, y su hoja suma!' : 'Kenji está más cerca de la puerta.'],
       };
     },
-    rules: [[LEY, 'La comisión ganada es remuneración y se paga aunque el trabajador renuncie (TUO del D.Leg. 728, art. 6).']],
+    rules: [[LEY, 'La comisión ganada es remuneración (TUO del D.Leg. 728, art. 6); por eso se paga aunque el trabajador renuncie.']],
     mirada: { ve: 'Kenji no amenaza con irse: está haciendo lo que haría cualquiera con su sueldo en juego. Retener no es convencerlo de quedarse; es lograr que la empresa le ofrezca algo que tenga sentido quedarse a esperar.' },
   },
   {

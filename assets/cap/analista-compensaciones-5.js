@@ -7,7 +7,8 @@
 // - Resolución 0047-2025-SUNAFIL/TFL-Primera Sala: no basta enumerar factores; hay que explicar cómo justifican la diferencia.
 //   https://lpderecho.pe/discriminacion-salarial-basta-enunciar-criterios-salariales-explicados-justificados-correctamente-resolucion-0047-2025-sunafil-tfl-primera-sala/
 // - Ley 30709, Primera Disposición Complementaria Modificatoria: modificó el literal b) del art. 30 del TUO del D. Leg. 728
-//   (D.S. 003-97-TR), sobre la reducción de remuneración o de categoría como acto de hostilidad.
+//   (D.S. 003-97-TR): «b) La reducción de la categoría y de la remuneración. Asimismo, el incumplimiento de requisitos
+//   objetivos para el ascenso del trabajador.»
 //   Referencia: https://core.ac.uk/download/489428393.pdf
 // - Ley 29733 (datos personales), ya citada en capítulos anteriores.
 
@@ -66,7 +67,7 @@ export const CORREOS = [
 export const QUIZ = [
   { q: 'Si una brecha de 18 % solo se explica en 1 punto por antigüedad, el resto…', ops: ['Se considera justificado', 'No tiene un criterio objetivo que la respalde', 'Se explica por el mercado', 'Desaparece sola'], ok: 1, por: 'La parte que ningún criterio explica es la que hay que corregir.' },
   { q: 'Para cerrar una brecha salarial sin justificación, lo más sólido es…', ops: ['Un bono único', 'Ajustar el sueldo base, en una o varias revisiones', 'Bajarle el sueldo al que gana más', 'Esperar a que la persona renuncie'], ok: 1, por: 'Un bono no cambia la base: la brecha reaparece el mes siguiente.' },
-  { q: 'Reducir sin motivo la remuneración de alguien para «igualar»…', ops: ['Es la forma más barata de corregir', 'Puede constituir un acto de hostilidad según el art. 30 de la ley laboral', 'Es obligatorio', 'Solo requiere avisar'], ok: 1, por: 'La reducción inmotivada de remuneración o categoría está prevista como acto de hostilidad.' },
+  { q: 'Reducir sin motivo la remuneración de alguien para «igualar»…', ops: ['Es la forma más barata de corregir', 'Puede constituir un acto de hostilidad según el art. 30 de la ley laboral', 'Es obligatorio', 'Solo requiere avisar'], ok: 1, por: 'La reducción de la categoría y de la remuneración está prevista como acto de hostilidad (art. 30 b), texto modificado por la Ley 30709).' },
   { q: 'Una carta de respuesta a una consulta salarial NO debería…', ops: ['Explicar los criterios revisados', 'Indicar qué se corregirá y cuándo', 'Advertir que difundir información salarial podría ser sancionado', 'Ofrecer un espacio para nuevas preguntas'], ok: 2, por: 'Una advertencia así suena a represalia y desalienta futuras consultas.' },
   { q: 'Si diez personas tienen la misma brecha que la persona que consultó…', ops: ['Se corrige solo a quien preguntó', 'Se revisa a todas con los mismos criterios', 'Se espera a que cada una reclame', 'Se corrige a quien tenga mejor relación con el jefe'], ok: 1, por: 'La equidad no puede depender de quién se atreve a preguntar.' },
 ];
@@ -101,7 +102,7 @@ export const ESCENAS = [
           pro: { ok: 'Cuidas la calidad del dato.', risk: 'Los datos que faltan no cambian el caso de Claudia, y el plazo es tu palabra.' },
           kusi: ['preocupado', 'El plazo es hoy…'] } },
     ],
-    rules: [[LEY, 'Ley 30709: el empleador debe acreditar que el criterio que justifica la diferencia es objetivo, verificable y se aplica de forma consistente.']],
+    rules: [[LEY, 'Ley 30709 y su reglamento (D.S. 002-2018-TR): el empleador debe acreditar que el criterio que justifica la diferencia es objetivo, verificable y se aplica de forma consistente.']],
     mirada: {
       ve: 'Verificar criterios no es buscar algo que justifique la brecha: es revisar con honestidad hacia dónde apunta cada dato. A veces los criterios, bien mirados, agravan el caso.',
       visual: { tipo: 'balanza', a: { t: 'A favor de los pares', items: ['Antigüedad: 6.5 años vs. 6'] }, b: { t: 'A favor de Claudia', items: ['Certificación senior (solo 4 de 9 pares)', 'Desempeño: supera, tres años seguidos', '«Referente técnica»'] } },
@@ -157,7 +158,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Causa y consecuencia corregidas!' : 'Eso no cambia la base.'],
       };
     },
-    rules: [[LEY, 'TUO del D. Leg. 728 (D.S. 003-97-TR), art. 30 b), modificado por la Ley 30709: la reducción inmotivada de la remuneración o de la categoría es un acto de hostilidad.'], [BP, 'Una brecha se cierra en el sueldo base; un bono no la corrige.']],
+    rules: [[LEY, 'TUO del D. Leg. 728 (D.S. 003-97-TR), art. 30 b), modificado por la Ley 30709: la reducción de la categoría y de la remuneración, y el incumplimiento de requisitos objetivos para el ascenso, son actos de hostilidad.'], [BP, 'Una brecha se cierra en el sueldo base; un bono no la corrige.']],
     mirada: {
       ve: 'Corregir una brecha no significa hacerlo todo de golpe ni igualar por abajo. Significa corregir la causa, fijar un plan para el sueldo y cumplirlo.',
       visual: { tipo: 'linea', titulo: 'El plan para Claudia', hitos: [['Enero 2027', 'Categoría correcta + primer incremento de equidad'], ['Enero 2028', 'Segundo incremento: brecha cerrada'], ['Siempre', 'Diferencias solo por criterios objetivos']] },

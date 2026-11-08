@@ -3,7 +3,8 @@
 // Normas citadas:
 // - Ley 29733, Ley de Protección de Datos Personales (titular y encargado del tratamiento; medidas de seguridad y
 //   confidencialidad): https://www.gob.pe/institucion/anpd/normas-legales/2018346-29733-2011
-//   y su reglamento, D.S. 003-2013-JUS (texto difundido por la ANPD en gob.pe).
+//   y su reglamento vigente, D.S. 016-2024-JUS (que derogó el D.S. 003-2013-JUS). Ley 29733, arts. 16 (seguridad) y 17
+//   (confidencialidad del titular y del encargado).
 // - Ley 30709 (igualdad remunerativa), ya citada en el capítulo 1.
 
 export const CAP = {
@@ -117,7 +118,7 @@ export const ESCENAS = [
     rules: [[LEY, 'Ley 29733: el titular del banco de datos y el encargado del tratamiento deben adoptar medidas de seguridad y guardar confidencialidad.'], [BP, 'El match se hace por funciones y nivel, no por el nombre del cargo.']],
     mirada: {
       ve: 'El error del año pasado no estaba en la encuesta, sino en el match: los técnicos se compararon con un puesto de oficina que paga distinto. Y en compensaciones, cuidar los datos de las personas es tan importante como cuidar los números.',
-      normas: [{ ley: 'Ley 29733, Ley de Protección de Datos Personales, y D.S. 003-2013-JUS', dice: 'El titular del banco de datos y el encargado deben proteger los datos personales con medidas técnicas, organizativas y legales, y guardar confidencialidad.', practica: 'Para un estudio salarial basta enviar datos sin identificar a las personas.' }],
+      normas: [{ ley: 'Ley 29733, Ley de Protección de Datos Personales, arts. 16 y 17, y D.S. 016-2024-JUS', dice: 'El titular del banco de datos y el encargado deben proteger los datos personales con medidas técnicas, organizativas y legales, y guardar confidencialidad.', practica: 'Para un estudio salarial basta enviar datos sin identificar a las personas.' }],
     },
   },
   {

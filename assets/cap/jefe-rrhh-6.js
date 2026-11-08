@@ -3,7 +3,7 @@
 // Normas citadas (ya verificadas en capítulos anteriores):
 // - Ley 28806, arts. 9 y 14 (colaboración con la inspección, medida de requerimiento), citada en el capítulo 5.
 //   https://lpderecho.pe/ley-28806-ley-general-de-inspeccion-del-trabajo-actualizada/
-// - D.S. 019-2006-TR: entregar información falsa al inspector es una infracción a la labor inspectiva (capítulo 5).
+// - D.S. 019-2006-TR, art. 45.2: perturbar o retrasar la labor del inspector es infracción a la labor inspectiva (capítulo 5).
 // - TUO del D.Leg. 728: el despido exige causa justa; la sanción disciplinaria debe ser razonable y proporcional
 //   a la falta (principio, sin citar artículos ni plazos).
 // No se citan cifras nuevas.
@@ -106,7 +106,7 @@ export const ESCENAS = [
           pro: { ok: 'Evitas un momento incómodo hoy.', risk: 'Dos versiones distintas en el mismo expediente: si la inspectora las cruza, parecerá un intento de engaño.' },
           kusi: ['indignado', 'Dos versiones… y una es falsa.'] } },
     ],
-    rules: [[LEY, 'Entregar información falsa a la inspección es una infracción (D.S. 019-2006-TR); rectificar a tiempo demuestra buena fe.']],
+    rules: [[LEY, 'Perturbar o retrasar la labor inspectiva es infracción (D.S. 019-2006-TR, art. 45.2); rectificar a tiempo demuestra buena fe.']],
     mirada: {
       ve: 'La tentación de callar es humana: nadie quiere admitir un error ante una autoridad. Pero un error que se corrige es un error; uno que se esconde se convierte en otra cosa. En una inspección, la credibilidad es lo único que no se recupera.',
       visual: { tipo: 'balanza', a: { t: 'Callar', items: ['Sin vergüenza hoy', 'Dos versiones en el expediente', 'Riesgo de parecer engaño'] }, b: { t: 'Rectificar', items: ['Un momento incómodo', 'Buena fe acreditada', 'Credibilidad intacta'] } },
@@ -196,7 +196,7 @@ export const ESCENAS = [
         kusi: [q === 'riesgosa' ? 'triste' : 'celebra', q === 'riesgosa' ? 'Se fue la memoria del área…' : '¡Una jefa que corrige y sostiene!'],
       };
     },
-    rules: [[LEY, 'Una sanción disciplinaria debe ser razonable y proporcional a la falta (TUO del D.Leg. 728).'], [BP, 'Feedback difícil: hechos, impacto, consecuencia y lo que cambia.']],
+    rules: [[LEY, 'El empleador sanciona dentro de los límites de la razonabilidad (TUO del D.Leg. 728, art. 9); la sanción debe ser proporcional a la falta.'], [BP, 'Feedback difícil: hechos, impacto, consecuencia y lo que cambia.']],
     mirada: {
       ve: 'Patty esperaba que la despidieras porque así lo vio pasar con otros. Mostrarle que un error tiene consecuencia, pero no destruye a la persona, es lo que construye un equipo que te dirá la verdad la próxima vez.',
       visual: { tipo: 'flujo', titulo: 'Una conversación difícil', pasos: ['Hechos', 'Responsabilidades', 'Consecuencia proporcional', 'Qué cambia', 'Registro'] },

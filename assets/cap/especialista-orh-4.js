@@ -6,7 +6,7 @@
 //   https://www.congreso.gob.pe/Docs/Directivas/files/generales/ley27815-ley-codigoetica-funcionpublica.pdf
 //   https://www.sunat.gob.pe/institucional/integridad/normas/Ley-27815.pdf
 // - Ley 26771, modificada por la Ley 31299 (nepotismo), ya citada en el capítulo 1.
-// - D.Leg. 1057 (acceso al CAS por concurso público de méritos), ya citado en el capítulo 1.
+// - D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público), ya citado en el capítulo 1.
 
 export const CAP = {
   n: 4, titulo: 'La recomendación', dia: 'Semana 1, jueves', foto: 'assets/foto/frente-a-frente.webp',
@@ -117,7 +117,7 @@ export const ESCENAS = [
           pro: { ok: 'Evitas el roce y parece inofensivo.', risk: 'Avisar en privado a los recomendados de un regidor es darles una ventaja, y la lista en tu cajón es evidencia.' },
           kusi: ['preocupado', 'Ese fólder en tu cajón pesa más de lo que parece.'] } },
     ],
-    rules: [[LEY, 'Ley 27815, art. 8: prohibiciones éticas de la función pública, como mantener intereses en conflicto.'], [LEY, 'El acceso al CAS es por concurso público de méritos (D.Leg. 1057).']],
+    rules: [[LEY, 'Ley 27815, art. 8: prohibiciones éticas de la función pública, como mantener intereses en conflicto.'], [LEY, 'El CAS garantiza los principios de méritos y capacidad e igualdad de oportunidades (D.Leg. 1057, art. 1); por eso se accede por concurso público.']],
     mirada: {
       ve: 'El regidor tiene votantes y promesas que cumplir; por eso insiste. La presión no siempre es ilegal en la forma: «tenerlos presentes» no es una orden. Pero cualquier ventaja para esos seis es una desventaja para todos los demás.',
       visual: { tipo: 'matriz', x: 'Riesgo de favorecer', y: 'Transparencia', cuadrantes: ['Transparente y sin ventaja', 'Transparente con ventaja', 'Opaco sin ventaja', 'Opaco con ventaja'], items: [['No recibirla', .1, .75], ['Mesa de partes', .4, .9], ['Guardarla', .85, .15]] },

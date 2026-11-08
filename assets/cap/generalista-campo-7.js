@@ -154,7 +154,7 @@ export const ESCENAS = [
     type: 'flag', prompt: 'Marca lo que incumple o hay que corregir en el plan.',
     doc: { t: 'Plan de continuidad operativa', sub: 'Operaciones Mina · mientras dure el bloqueo' },
     lines: [
-      { id: 'gratis', t: 'Las horas adicionales se consideran parte de la emergencia y no se pagan como sobretiempo.', bad: LEY, why: 'Aunque el sobretiempo sea obligatorio por fuerza mayor (D.S. 007-2002-TR, art. 9), sigue siendo sobretiempo y se paga.' },
+      { id: 'gratis', t: 'Las horas adicionales se consideran parte de la emergencia y no se pagan como sobretiempo.', bad: LEY, why: 'Aunque el sobretiempo sea obligatorio por fuerza mayor (D.S. 007-2002-TR, art. 9), sigue siendo sobretiempo y se paga con su sobretasa (art. 10).' },
       { id: 'todos', t: 'Todas las áreas trabajan sobretiempo obligatorio, incluidas Administración y Bienestar.', bad: LEY, why: 'La excepción del art. 9 cubre la labor indispensable por la emergencia, no a todas las áreas por igual.' },
       { id: 'seguridad', t: 'Se mantiene el descanso mínimo entre turnos y la rotación de operadores de equipo pesado.' },
       { id: 'sancion', t: 'Quien se niegue a extender su turno será sancionado.', bad: BP, why: 'Antes de sancionar, hay que ver si la labor es indispensable y si la persona está en condiciones. Un operador agotado es un riesgo.' },

@@ -4,7 +4,7 @@
 // - Ley 29783, art. 31: los trabajadores eligen a sus representantes, titulares y suplentes, ante el comité de SST,
 //   salvo el personal de dirección y de confianza; votación secreta y directa; el proceso está a cargo de la
 //   organización sindical mayoritaria.
-// - D.S. 005-2012-TR, art. 49: la elección es presencial o no presencial, por votación secreta y directa, sin
+// - D.S. 005-2012-TR, art. 49: la elección se realiza por votación secreta y directa, sin
 //   participación del personal de dirección y de confianza; si no hay organización sindical, el empleador convoca.
 //   https://cdn.www.gob.pe/uploads/document/file/5686893/5050275-informe-tecnico-1380-2018-servir-gpgsc.pdf
 //   https://cdn.www.gob.pe/uploads/document/file/916363/RESOLUCION-DE-JEFATURA-00025-2020-OSINFOR-01.1_1_.pdf
@@ -67,7 +67,7 @@ export const QUIZ = [
   { q: 'Según la Ley 29783 y su reglamento, ¿cómo se eligen los representantes de los trabajadores ante el comité de SST?', ops: ['Los designa el gerente', 'Por votación secreta y directa de los trabajadores', 'Por sorteo', 'Por antigüedad'], ok: 1, por: 'El art. 31 de la Ley 29783 y el art. 49 del reglamento lo establecen.' },
   { q: '¿Quiénes no participan en esa elección?', ops: ['Los conductores', 'El personal de dirección y de confianza', 'Las terramozas', 'Los mecánicos'], ok: 1, por: 'La elección es de los trabajadores, sin el personal de dirección y confianza.' },
   { q: 'Si no hay sindicato, ¿quién convoca la elección?', ops: ['Nadie', 'El empleador', 'SUNAFIL', 'La municipalidad'], ok: 1, por: 'Sin organización sindical, el empleador convoca (D.S. 005-2012-TR, art. 49).' },
-  { q: '31 conductores están en ruta el día de la elección. Lo correcto es…', ops: ['Que no voten', 'Organizar el voto en las agencias con sobre cerrado, para que nadie quede fuera', 'Votar por ellos', 'Postergar la elección un año'], ok: 1, por: 'La elección puede ser presencial o no presencial; lo importante es que sea secreta y para todos.' },
+  { q: '31 conductores están en ruta el día de la elección. Lo correcto es…', ops: ['Que no voten', 'Organizar el voto en las agencias con sobre cerrado, para que nadie quede fuera', 'Votar por ellos', 'Postergar la elección un año'], ok: 1, por: 'La norma exige votación secreta y directa (D.S. 005-2012-TR, art. 49); organizar el voto donde están los trabajadores es una buena práctica para que nadie quede fuera.' },
   { q: 'Un conductor teme postular porque «después lo botan». RR.HH. debe…', ops: ['Convencerlo de no postular', 'Respetar su decisión y dejar claro que postular no puede traerle represalias', 'Postularlo sin preguntarle', 'Ignorarlo'], ok: 1, por: 'Postular es un derecho; protegerlo es parte de una elección limpia.' },
 ];
 

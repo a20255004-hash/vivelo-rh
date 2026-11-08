@@ -4,7 +4,7 @@
 // - Ley 26772, modificada por la Ley 27270: las ofertas de empleo no pueden contener requisitos que constituyan
 //   discriminación, anulación o alteración de la igualdad de oportunidades o de trato. Reglamento: D.S. 002-98-TR.
 //   https://faolex.fao.org/docs/pdf/per201903.pdf  ·  https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=46908
-// - D.Leg. 1057 (acceso al CAS por concurso público de méritos), ya citado en el capítulo 1.
+// - D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público), ya citado en el capítulo 1.
 // - Ley 29973 (bonificación del 15 % a personas con discapacidad), ya citada en el capítulo 1.
 
 export const CAP = {
@@ -142,7 +142,7 @@ export const ESCENAS = [
           pro: { ok: 'Parece un punto medio.', risk: 'Sigue siendo un filtro de entrada que no mide si la persona puede hacer el trabajo.' },
           kusi: ['preocupado', 'Un DNI no dice si alguien conoce la ciudad.'] } },
     ],
-    rules: [[LEY, 'El acceso al CAS es por concurso público de méritos (D.Leg. 1057).'], [BP, 'Lo que el puesto necesita se evalúa con criterios escritos; no se usa como filtro para dejar a gente fuera.']],
+    rules: [[LEY, 'El CAS garantiza los principios de méritos y capacidad e igualdad de oportunidades (D.Leg. 1057, art. 1); por eso se accede por concurso público.'], [BP, 'Lo que el puesto necesita se evalúa con criterios escritos; no se usa como filtro para dejar a gente fuera.']],
     mirada: {
       ve: 'Detrás de la promesa del alcalde hay algo legítimo: que el servidor conozca la ciudad que sirve. El trabajo de ORH es traducir esa necesidad a algo que se pueda medir igual para todos.',
       visual: { tipo: 'matriz', x: 'Riesgo legal', y: 'Responde a la necesidad del área', cuadrantes: ['Defendible y útil', 'Útil pero riesgoso', 'Seguro pero corto', 'Riesgoso y poco útil'], items: [['Conocimiento evaluado', .2, .8], ['Quitarlo sin más', .1, .3], ['Residencia en la provincia', .75, .55]] },

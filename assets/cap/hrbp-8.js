@@ -1,8 +1,8 @@
 // HR Business Partner · Capítulo 8 · «El día del anuncio» · Semana 2, miércoles.
 // Hilo de las dos semanas: acompañar a Mauricio, gerente comercial nuevo, que quiere pasar de 12 zonas a 8.
 // Normas citadas:
-// - TUO del D.Leg. 728 (D.S. 003-97-TR), art. 30: actos de hostilidad equiparables al despido; entre ellos, la reducción
-//   inmotivada de la remuneración o de la categoría (inc. b). Antes de accionar, el trabajador emplaza por escrito al
+// - TUO del D.Leg. 728 (D.S. 003-97-TR), art. 30: actos de hostilidad equiparables al despido; entre ellos, «la reducción de
+//   la categoría y de la remuneración» (inc. b, texto modificado por la Ley 30709). Antes de accionar, el trabajador emplaza por escrito al
 //   empleador y le otorga un plazo razonable no menor de seis días naturales.
 //   https://lpderecho.pe/hostilidad-laboral-como-denunciarla/
 //   https://lpderecho.pe/modelo-carta-cese-actos-hostilidad/
@@ -63,7 +63,7 @@ export const CORREOS = [
 export const QUIZ = [
   { q: 'En una conversación de salida, si la persona llora, lo mejor es…', ops: ['Hablar de la estrategia para distraerla', 'Callarse, esperar y ofrecer agua', 'Terminar rápido', 'Pedirle que se calme'], ok: 1, por: 'El silencio respeta el momento.' },
   { q: 'Una persona se entera de su situación por una captura de pantalla. Lo primero es…', ops: ['Averiguar quién la filtró', 'Hablar con ella en persona cuanto antes', 'Esperar a la hora prevista', 'Negar la captura'], ok: 1, por: 'Primero la persona; después, el origen de la filtración.' },
-  { q: 'Bajar a alguien de supervisor a vendedor sin su aceptación y sin motivo…', ops: ['Es una reubicación normal', 'Puede ser un acto de hostilidad: reducción inmotivada de categoría', 'Es obligatorio en una reorganización', 'Es legal si se mantiene el sueldo un mes'], ok: 1, por: 'TUO del D.Leg. 728, art. 30 b).' },
+  { q: 'Bajar a alguien de supervisor a vendedor sin su aceptación y sin motivo…', ops: ['Es una reubicación normal', 'Puede ser un acto de hostilidad: reducción de la categoría', 'Es obligatorio en una reorganización', 'Es legal si se mantiene el sueldo un mes'], ok: 1, por: 'TUO del D.Leg. 728, art. 30 b).' },
   { q: 'Ante un acto de hostilidad, el trabajador primero…', ops: ['Renuncia', 'Emplaza por escrito al empleador y le da un plazo razonable', 'Va directo a juicio', 'Publica en redes'], ok: 1, por: 'El art. 30 exige emplazar por escrito con un plazo no menor de seis días naturales.' },
   { q: 'El día del anuncio, el rol del HRBP es sobre todo…', ops: ['Dar todas las noticias', 'Acompañar a quien decide, cuidar a las personas y corregir lo que se sale del plan', 'Quedarse en su escritorio', 'Calcular las liquidaciones'], ok: 1, por: 'Estar presente y ajustar en tiempo real.' },
 ];
@@ -186,11 +186,11 @@ export const ESCENAS = [
           pro: { ok: 'Marco conserva un empleo.', risk: 'Bajar la categoría y el sueldo sin motivo ni aceptación puede ser un acto de hostilidad (art. 30 b).' },
           kusi: ['indignado', '¿«Conserva el empleo» o lo empujan a irse?'] } },
     ],
-    rules: [[LEY, 'TUO del D.Leg. 728, art. 30 b): la reducción inmotivada de la remuneración o de la categoría es un acto de hostilidad.'], [LEY, 'El trabajador emplaza por escrito al empleador con un plazo no menor de seis días naturales antes de accionar.']],
+    rules: [[LEY, 'TUO del D.Leg. 728, art. 30 b), modificado por la Ley 30709: la reducción de la categoría y de la remuneración es un acto de hostilidad.'], [LEY, 'El trabajador emplaza por escrito al empleador con un plazo no menor de seis días naturales antes de accionar.']],
     mirada: {
       ve: 'Para Mauricio, ofrecer a Marco un puesto de vendedor es generoso: no lo está despidiendo. Para la ley, bajar a alguien de categoría sin su aceptación puede ser una forma de empujarlo a irse. La diferencia está en una sola palabra: «acepta».',
       visual: { tipo: 'balanza', a: { t: 'Imponerle el puesto', items: ['Rápido', 'Menos categoría y sueldo sin acuerdo', 'Riesgo de hostilidad'] }, b: { t: 'Ofrecérselo como opción', items: ['Por escrito', 'Cinco días para decidir', 'Si no acepta, se queda y se busca'] } },
-      normas: [{ ley: 'TUO del D.Leg. 728, art. 30', dice: 'Son actos de hostilidad equiparables al despido, entre otros, la reducción inmotivada de la remuneración o de la categoría. El trabajador, antes de accionar, emplaza por escrito al empleador y le da un plazo razonable no menor de seis días naturales.', practica: 'Pasar a Marco a vendedor con sueldo de vendedor solo es válido si él lo acepta. Si se le impone, puede reclamar.' }],
+      normas: [{ ley: 'TUO del D.Leg. 728, art. 30', dice: 'Son actos de hostilidad equiparables al despido, entre otros, la reducción de la categoría y de la remuneración (inc. b, modificado por la Ley 30709). El trabajador, antes de accionar, emplaza por escrito al empleador y le da un plazo razonable no menor de seis días naturales.', practica: 'Pasar a Marco a vendedor con sueldo de vendedor solo es válido si él lo acepta. Si se le impone, puede reclamar.' }],
     },
   },
   {

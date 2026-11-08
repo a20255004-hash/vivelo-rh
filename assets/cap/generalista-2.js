@@ -7,8 +7,8 @@
 //   Modelo de contrato de temporada del MTPE: https://cdn.www.gob.pe/uploads/document/file/7780022/6570958-contrato_de_temporada.pdf
 // - Art. 67: el contrato de temporada atiende necesidades propias del giro que se cumplen solo en determinadas
 //   épocas del año y se repiten en cada ciclo.
-// - Arts. 69 y 70: quien fue contratado en temporadas sucesivas tiene derecho preferente a ser contratado en las
-//   siguientes; debe presentarse dentro de los 15 días anteriores al inicio de la temporada.
+// - Arts. 69 y 70: quien fue contratado por el mismo empleador dos temporadas consecutivas o tres alternadas tiene
+//   derecho a ser contratado en las siguientes; debe presentarse dentro de los 15 días anteriores al inicio de la temporada.
 // - Art. 58: la necesidad de mercado excluye las variaciones cíclicas o de temporada.
 // - Art. 72: el contrato modal consta por escrito, con su duración y la causa objetiva.
 // - Art. 10: periodo de prueba de tres meses (ampliable por escrito solo para calificados, de confianza o dirección).
@@ -74,7 +74,7 @@ export const QUIZ = [
   { q: 'Un hotel del Cusco necesita más personal cada temporada alta, que se repite todos los años. ¿Qué modalidad encaja mejor?', ops: ['Necesidad de mercado', 'Contrato de temporada', 'Locación de servicios', 'Contrato verbal a prueba'], ok: 1, por: 'El contrato de temporada (art. 67 del D.S. 003-97-TR) atiende necesidades del giro que se repiten en determinadas épocas de cada año.' },
   { q: '¿Por qué «necesidad de mercado» no sirve para la temporada alta?', ops: ['Porque es más cara', 'Porque excluye las variaciones cíclicas o de temporada', 'Porque solo es para minería', 'Porque dura un mes'], ok: 1, por: 'La necesidad de mercado cubre incrementos temporales e imprevisibles, no los que se repiten cada año por temporada.' },
   { q: '¿Qué debe decir siempre un contrato sujeto a modalidad?', ops: ['Solo el sueldo', 'Su duración y la causa objetiva que justifica la contratación temporal', 'Que el trabajador renuncia a beneficios', 'Nada: puede ser verbal'], ok: 1, por: 'El contrato modal consta por escrito, con su duración y la causa objetiva (art. 72).' },
-  { q: 'Un mozo trabajó con el hotel dos temporadas seguidas. ¿Qué derecho gana?', ops: ['Ninguno', 'Un bono', 'Derecho preferente a ser contratado en las temporadas siguientes', 'Pasar a gerente'], ok: 2, por: 'Quien trabaja temporadas sucesivas tiene derecho preferente a volver, si se presenta dentro de los 15 días anteriores al inicio de la temporada.' },
+  { q: 'Un mozo trabajó con el hotel dos temporadas seguidas. ¿Qué derecho gana?', ops: ['Ninguno', 'Un bono', 'Derecho a ser contratado en las temporadas siguientes', 'Pasar a gerente'], ok: 2, por: 'Quien trabaja dos temporadas consecutivas (o tres alternadas) con el mismo empleador tiene derecho a ser contratado en las siguientes, si se presenta dentro de los 15 días anteriores al inicio de la temporada (D.S. 003-97-TR, arts. 69 y 70).' },
   { q: 'Tres personas trabajan hace años con horario y jefe, pero con recibos por honorarios. Al pasarlas a planilla…', ops: ['Se las trata como nuevas desde hoy', 'Se reconoce su fecha real de ingreso', 'Se les hace contrato de temporada', 'Se espera a que lo pidan'], ok: 1, por: 'Por primacía de la realidad, la relación laboral ya existía: su antigüedad empieza el día en que empezaron a trabajar.' },
 ];
 
@@ -112,7 +112,7 @@ export const ESCENAS = [
     body: () => `<p>Verónica atiende dos llamadas a la vez: una agencia francesa y el proveedor de truchas. Cuelga y te mira.</p><p>«Carmen hace así en Aguas Calientes y nunca tuvo problemas: <mark class="clave">tres meses, necesidad de mercado, y si no sirven, no renuevo</mark>. ¿Por qué lo complicaríamos?»</p>`,
     type: 'choice', dilema: true,
     choices: [
-      { id: 'a', label: 'Proponerle contrato de temporada: la causa es la temporada alta que se repite cada año. Y advertirle que quien repita temporadas seguidas tendrá derecho preferente a volver.',
+      { id: 'a', label: 'Proponerle contrato de temporada: la causa es la temporada alta que se repite cada año. Y advertirle que quien trabaje dos temporadas consecutivas tendrá derecho a ser contratado en las siguientes.',
         res: { q: 'buena', fx: { cumplimiento: 5, confianza: 2, tiempo: -1 }, rel: { veronica: 0 }, flags: ['contrato_temporada'], cartera: { modalidad: 'Contrato de temporada, con causa y derecho preferente explicado' },
           out: 'Verónica frunce el ceño: «¿O sea que si repiten tengo que volver a llamarlos?». Le respondes que sí, y que eso significa empezar cada temporada con gente ya entrenada. Se queda pensando. «Bueno. Pero que el contrato diga bien hasta cuándo.»',
           pro: { ok: 'Eliges la modalidad que corresponde y le cuentas a la gerencia todo lo que implica, también lo incómodo.', risk: 'A Verónica no le gusta sentirse «amarrada». Tendrás que mostrarle la ventaja.', info: 'Para hacerlo valer, el trabajador debe presentarse dentro de los 15 días anteriores al inicio de la temporada.' },
@@ -132,7 +132,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'Que «a otro hotel nunca le pasó nada» no prueba que esté bien: prueba que nadie lo revisó. La modalidad de un contrato depende de la causa real, y en hotelería la temporada alta es la causa más clara que existe.',
       visual: { tipo: 'balanza', a: { t: 'Necesidad de mercado', items: ['Incremento temporal e imprevisible', 'Excluye lo cíclico', 'Lo que usa Carmen'] }, b: { t: 'Contrato de temporada', items: ['Necesidad que se repite cada año', 'Duración atada a la temporada', 'Derecho preferente a volver'] } },
-      normas: [{ ley: 'D.S. 003-97-TR, arts. 67, 69 y 70', dice: 'El contrato de temporada atiende necesidades propias del giro de la empresa que se cumplen solo en determinadas épocas del año y que se repiten en cada ciclo. Quien es contratado en temporadas sucesivas tiene derecho preferente a ser contratado en las siguientes.', practica: 'Para un hotel, ese derecho es una ventaja: la gente que vuelve ya conoce el trabajo.' }],
+      normas: [{ ley: 'D.S. 003-97-TR, arts. 67, 69 y 70', dice: 'El contrato de temporada atiende necesidades propias del giro de la empresa que se cumplen solo en determinadas épocas del año y que se repiten en cada ciclo. Quien es contratado por el mismo empleador dos temporadas consecutivas o tres alternadas tiene derecho a ser contratado en las siguientes.', practica: 'Para un hotel, ese derecho es una ventaja: la gente que vuelve ya conoce el trabajo.' }],
     },
   },
   {
@@ -252,7 +252,7 @@ export const ESCENAS = [
           pro: { ok: 'Cierras las tres contrataciones.', risk: 'Las dudas que no respondes hoy vuelven como desconfianza el día de la primera boleta.' },
           kusi: ['pensando', 'Preguntaron por algo… y no les contestaste.'] } },
     ],
-    rules: [[LEY, 'Quien es contratado en temporadas sucesivas tiene derecho preferente a volver (D.S. 003-97-TR, arts. 69 y 70).'], [LEY, 'Si hay horario, jefe y labor subordinada, es una relación laboral, aunque la persona prefiera el recibo.']],
+    rules: [[LEY, 'Quien es contratado dos temporadas consecutivas o tres alternadas tiene derecho a ser contratado en las siguientes (D.S. 003-97-TR, arts. 69 y 70).'], [LEY, 'Si hay horario, jefe y labor subordinada, es una relación laboral, aunque la persona prefiera el recibo.']],
     mirada: {
       ve: 'Las preguntas de los candidatos dicen mucho del mercado laboral en el Cusco: gente que trabajó «a prueba» sin cobrar, gente que encadena temporadas sin saber sus derechos, gente que prefiere el recibo para que le alcance. Contratar bien también es explicar.',
       visual: { tipo: 'mensaje', titulo: 'Lo que le dirías a Milagros', txt: 'El recibo parece más plata hoy, pero no te da seguro si te enfermas, ni CTS, ni gratificación, ni vacaciones pagadas. En recepción vas a tener horario y jefa: eso es un trabajo en planilla.' },

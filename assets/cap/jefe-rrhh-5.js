@@ -5,8 +5,9 @@
 //   art. 14: medidas inspectivas de recomendación, advertencia y requerimiento.
 //   https://lpderecho.pe/ley-28806-ley-general-de-inspeccion-del-trabajo-actualizada/
 //   https://diariooficial.elperuano.pe/Normas/obtenerDocumento?idNorma=47
-// - D.S. 019-2006-TR (Reglamento de la Ley 28806): tipifica infracciones a la labor inspectiva, como negarse a dar
-//   información o entregarla falsa. No citamos montos de multa.
+// - D.S. 019-2006-TR (Reglamento de la Ley 28806): tipifica infracciones a la labor inspectiva, como incumplir el deber
+//   de colaboración del art. 9 de la Ley o perturbar la labor del inspector (art. 45.1 y 45.2) y negarse a facilitarle
+//   la información y documentación necesarias (art. 46.3). No citamos montos de multa.
 // - D.S. 017-2009-MTC, art. 30; Ley 29783 y D.S. 005-2012-TR; D.S. 004-2006-TR: citados en capítulos anteriores.
 
 export const CAP = {
@@ -141,7 +142,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : q === 'riesgosa' ? 'indignado' : 'pensando', q === 'buena' ? '¡La verdad, ordenada!' : q === 'riesgosa' ? '¡Eso no se fabrica!' : 'Casi todo real.'],
       };
     },
-    rules: [[LEY, 'Entregar información falsa al inspector es una infracción a la labor inspectiva (D.S. 019-2006-TR).'], [BP, 'Se presenta lo que existe, con un plan para lo que falta.']],
+    rules: [[LEY, 'Negarse a facilitar al inspector la información necesaria, o perturbar su labor, es infracción a la labor inspectiva (D.S. 019-2006-TR, arts. 45.2 y 46.3).'], [BP, 'Se presenta lo que existe, con un plan para lo que falta.']],
     mirada: {
       ve: 'La tentación de «arreglar» papeles la noche anterior es enorme, y casi siempre la pide alguien con poder a alguien sin poder. RR.HH. protege a su equipo cuando dice que no: Patty no tiene por qué firmar con su letra una mentira de la empresa.',
       visual: { tipo: 'balanza', a: { t: 'Expediente maquillado', items: ['Parece completo', 'Firmas que no cuadran', 'Falta de buena fe'] }, b: { t: 'Expediente honesto', items: ['Incumplimientos reconocidos', 'Plan con fechas', 'Credibilidad'] } },

@@ -1,7 +1,7 @@
 // Jefe/a de RR.HH. · Capítulo 7 · «El reglamento» · Semana 2, martes.
 // Hilo de las dos semanas: crear desde cero el área de RR.HH. de una empresa familiar de transporte interprovincial.
 // Normas citadas:
-// - D.S. 039-91-TR (Reglamento Interno de Trabajo): obligatorio con más de 100 trabajadores; art. 2: el RIT regula,
+// - D.S. 039-91-TR (Reglamento Interno de Trabajo): art. 3: obligatorio con más de 100 trabajadores; art. 2: el RIT regula,
 //   entre otras materias, la admisión, las jornadas y horarios, el control de asistencia y las medidas disciplinarias;
 //   art. 4: se presenta a la Autoridad Administrativa de Trabajo, su aprobación es automática con la presentación,
 //   y se entrega a los trabajadores (no citamos el plazo de entrega).
@@ -95,7 +95,7 @@ export const ESCENAS = [
       pro: { ok: 'Un reglamento sin cláusulas ilegales es un reglamento que se puede aplicar.', risk: 'Una cláusula ilegal no se puede usar y desacredita todo el documento.', info: 'Usa lo que sirve como estructura, pero escribe pensando en un terminal de buses.' },
       kusi: missLey ? ['pensando', 'Algo ilegal se quedó…'] : ['celebra', '¡Adiós, socavones!'],
     }),
-    rules: [[LEY, 'El RIT es obligatorio con más de 100 trabajadores y regula admisión, jornadas, asistencia y disciplina (D.S. 039-91-TR, art. 2).'], [LEY, 'Los derechos laborales son irrenunciables y las causas de despido las fija la ley.']],
+    rules: [[LEY, 'El RIT es obligatorio con más de 100 trabajadores (D.S. 039-91-TR, art. 3) y regula admisión, jornadas, asistencia y disciplina (art. 2).'], [LEY, 'Los derechos laborales son irrenunciables y las causas de despido las fija la ley.']],
     mirada: {
       ve: 'Copiar un reglamento parece eficiente, pero trae reglas de otro mundo y, a veces, ilegalidades que nadie revisó. En una empresa que nunca tuvo reglas escritas, el primer reglamento enseña qué tipo de empresa quiere ser.',
       visual: { tipo: 'cambio', titulo: 'Del reglamento copiado al propio', pares: [['Despido por tres tardanzas', 'Sanciones graduales'], ['Guardias de minería', 'Jornadas y relevos de conducción'], ['Celular 24 horas', 'Contacto solo en la jornada'], ['Prohibir parejas', 'Conflictos de interés y hostigamiento']] },

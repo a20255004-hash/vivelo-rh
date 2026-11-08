@@ -4,8 +4,9 @@
 // - TUO de la Ley de Jornada de Trabajo, Horario y Trabajo en Sobretiempo (D.S. 007-2002-TR), art. 5: no están
 //   comprendidos en la jornada máxima los trabajadores de dirección, los no sujetos a fiscalización inmediata y los que
 //   prestan servicios intermitentes de espera, vigilancia o custodia.
-// - Su reglamento (D.S. 008-2002-TR), art. 10: la exclusión se basa en una fiscalización real y efectiva, no en la sola
-//   posibilidad de supervisar.
+// - Su reglamento (D.S. 008-2002-TR), art. 10 c): no sujetos a fiscalización inmediata son quienes realizan sus labores
+//   o parte de ellas sin supervisión inmediata del empleador, o parcial o totalmente fuera del centro de trabajo,
+//   acudiendo a él para dar cuenta de su trabajo.
 //   https://noticierocontable.com/decreto-supremo-007-2002-tr
 //   https://lpderecho.pe/existe-precision-alcance-normativo-exclusion-trabajadores-sujetos-fiscalizacion-inmediata/
 
@@ -177,7 +178,7 @@ export const ESCENAS = [
     doc: { t: 'Contrato de vendedor de ruta · extracto', sub: 'Nutrimás S.A. · modelo vigente desde 2023' },
     lines: [
       { id: 'funcion', t: 'Primera: el trabajador realizará la venta y distribución de productos en la zona asignada.' },
-      { id: 'septima', t: 'Séptima: por la naturaleza de sus labores, el trabajador no está sujeto a fiscalización inmediata y no está comprendido en la jornada máxima.', bad: LEY, why: 'Kenji tiene formación obligatoria a las 6:50, GPS, reportes con foto cada hora y aviso de «fuera de ruta». La exclusión de la jornada máxima depende de que no haya una supervisión real y efectiva, no de lo que diga el contrato (D.S. 007-2002-TR, art. 5; D.S. 008-2002-TR, art. 10).' },
+      { id: 'septima', t: 'Séptima: por la naturaleza de sus labores, el trabajador no está sujeto a fiscalización inmediata y no está comprendido en la jornada máxima.', bad: LEY, why: 'Kenji tiene formación obligatoria a las 6:50, GPS, reportes con foto cada hora y aviso de «fuera de ruta». La exclusión de la jornada máxima depende de que trabaje sin supervisión inmediata del empleador, no de lo que diga el contrato (D.S. 007-2002-TR, art. 5; D.S. 008-2002-TR, art. 10).' },
       { id: 'formacion', t: 'Octava: el trabajador asistirá a la formación diaria de su supervisor a la hora que este indique.', bad: LEY, why: 'Una hora de ingreso fija y obligatoria es control inmediato. Contradice la cláusula séptima.' },
       { id: 'moto', t: 'Novena: los gastos de mantenimiento del vehículo de reparto corren por cuenta del trabajador.', bad: BP, duda: 'Es un acuerdo que conviene revisar con Relaciones Laborales y Compensaciones.', why: 'Si la moto es la herramienta de trabajo, que la pague el vendedor traslada a él un costo del negocio y empuja la rotación.' },
       { id: 'meta', t: 'Décima: las metas comerciales serán fijadas mensualmente por la Gerencia Comercial.' },
@@ -189,11 +190,11 @@ export const ESCENAS = [
       pro: { ok: 'Viste que el riesgo no está en el papel, sino en la distancia entre el papel y el día real.', risk: 'Una cláusula que no se cumple en la práctica es un riesgo para la empresa y una injusticia para el vendedor.', info: 'La solución no es quitarle el GPS a Kenji: es decidir si se le controla o no, y pagar en consecuencia.' },
       kusi: missLey ? ['preocupado', 'El papel decía una cosa y la calle otra…'] : ['celebra', '¡El contrato no aguanta un día de ruta!'],
     }),
-    rules: [[LEY, 'D.S. 007-2002-TR, art. 5: quedan fuera de la jornada máxima los trabajadores no sujetos a fiscalización inmediata.'], [LEY, 'D.S. 008-2002-TR, art. 10: esa exclusión supone que no haya una supervisión real y efectiva.']],
+    rules: [[LEY, 'D.S. 007-2002-TR, art. 5: quedan fuera de la jornada máxima los trabajadores no sujetos a fiscalización inmediata.'], [LEY, 'D.S. 008-2002-TR, art. 10: no sujeto a fiscalización inmediata es quien trabaja sin supervisión inmediata del empleador.']],
     mirada: {
       ve: 'Llamar a alguien «no fiscalizado» no lo vuelve libre de horario. Si la empresa decide a qué hora entra, por dónde va y le pide fotos cada hora, lo está controlando. Y el control tiene un costo que el contrato no puede esconder.',
       visual: { tipo: 'balanza', a: { t: 'Lo que dice el contrato', items: ['Sin fiscalización inmediata', 'Sin jornada máxima'] }, b: { t: 'Lo que pasa en la calle', items: ['Formación a las 6:50', 'GPS y «fuera de ruta»', 'Fotos cada hora', 'Trece horas de jornada'] } },
-      normas: [{ ley: 'D.S. 007-2002-TR, art. 5, y D.S. 008-2002-TR, art. 10', dice: 'No están comprendidos en la jornada máxima los trabajadores de dirección, los no sujetos a fiscalización inmediata y los que prestan servicios intermitentes. El reglamento exige mirar si hay una fiscalización real y efectiva.', practica: 'Si al vendedor se le fija la hora de ingreso y se le sigue por GPS, la cláusula no basta para excluirlo de la jornada máxima.' }],
+      normas: [{ ley: 'D.S. 007-2002-TR, art. 5, y D.S. 008-2002-TR, art. 10', dice: 'No están comprendidos en la jornada máxima los trabajadores de dirección, los no sujetos a fiscalización inmediata y los que prestan servicios intermitentes. El reglamento los define como quienes trabajan sin supervisión inmediata del empleador, o fuera del centro de trabajo y acuden a él para dar cuenta de su labor.', practica: 'Si al vendedor se le fija la hora de ingreso y se le sigue por GPS, la cláusula no basta para excluirlo de la jornada máxima.' }],
     },
   },
   {

@@ -200,7 +200,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : 'preocupado', q === 'buena' ? '¡Rutas que se pueden explicar!' : '¿Quién se queda con las rutas feas?'],
       };
     },
-    rules: [[LEY, 'TUO del D.Leg. 728, art. 9: el cambio de zona debe ser razonable y no perjudicar sin motivo.'], [LEY, 'Asignar rutas peores por la nacionalidad es discriminación.']],
+    rules: [[LEY, 'TUO del D.Leg. 728, art. 9: el cambio debe ser razonable; y trasladar a alguien con el propósito de perjudicarlo es acto de hostilidad (art. 30 c).'], [LEY, 'Asignar rutas peores por la nacionalidad es discriminación.']],
     mirada: {
       ve: 'Para el vendedor, la reorganización no es un organigrama: es a qué hora sale de su casa y si sus bodegueras lo conocen. Unas rutas bien asignadas son la parte más visible, y la más concreta, de que el cambio fue justo.',
       visual: { tipo: 'embudo', titulo: 'Reasignación con criterios', niveles: [['Vendedores', 240], ['Conservan la mayoría de sus clientes', 190], ['Cambian a una zona más lejos de su casa', 18]] },

@@ -6,7 +6,7 @@
 //   https://www.lamolina.edu.pe/eventos/planeamiento/2025/OP-002-2025.pdf (resolución que cita el art. 41.1)
 //   https://mef.gob.pe/contenidos/presu_publ/capacita/2023/24012023_ORIENTACIONES_CERTIFICACION_PRESUPUESTARIA_PREVISIONES_4TO_TRIM_2022..pdf
 // - Ley 26772, modificada por la Ley 27270 (requisitos no discriminatorios), ya citada en el capítulo 2.
-// - D.Leg. 1057 (acceso al CAS por concurso público de méritos), ya citado en el capítulo 1.
+// - D.Leg. 1057, art. 1 (principios de méritos y capacidad e igualdad de oportunidades; de ahí el concurso público), ya citado en el capítulo 1.
 
 export const CAP = {
   n: 3, titulo: 'La certificación', dia: 'Semana 1, miércoles', foto: 'assets/foto/mesa-papeles.webp',
@@ -147,7 +147,7 @@ export const ESCENAS = [
           pro: { ok: 'Todo el concurso sale con certificación.', risk: 'Las áreas que ya tenían todo listo pagan el retraso.' },
           kusi: ['pensando', 'Legal, pero doce esperan por tres.'] } },
     ],
-    rules: [[LEY, 'D.Leg. 1440, art. 41: no se compromete un gasto sin certificación del crédito presupuestario.'], [LEY, 'El acceso al CAS es por concurso público de méritos (D.Leg. 1057).']],
+    rules: [[LEY, 'D.Leg. 1440, art. 41: no se compromete un gasto sin certificación del crédito presupuestario.'], [LEY, 'El CAS garantiza los principios de méritos y capacidad e igualdad de oportunidades (D.Leg. 1057, art. 1); por eso se accede por concurso público.']],
     mirada: {
       ve: 'El gerente tiene un problema real: la ciudad sin serenos en diciembre. La regla presupuestal no está para negarle la seguridad a la gente, sino para que nadie prometa sueldos que no existen.',
       visual: { tipo: 'balanza', a: { t: 'Meter las 15 ahora', items: ['El gerente contento hoy', 'Serenos en diciembre… si aparece el dinero'] }, b: { t: '12 ahora, 3 después', items: ['Concurso sin observaciones', 'Fecha concreta para el segundo', 'Ningún ganador sin contrato'] } },

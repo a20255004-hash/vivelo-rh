@@ -210,7 +210,7 @@ export const ESCENAS = [
           pro: { ok: 'Mauricio queda contento.', risk: 'Una etiqueta que no se corresponde con la realidad repite el problema de la cláusula séptima, ahora con los jefes.' },
           kusi: ['preocupado', 'Otra etiqueta que no aguanta un día de calle…'] } },
     ],
-    rules: [[LEY, 'D.S. 007-2002-TR, art. 5: la exclusión de la jornada máxima depende de la naturaleza real del puesto.']],
+    rules: [[LEY, 'D.S. 007-2002-TR, art. 5, y D.S. 008-2002-TR, arts. 10 y 11: quedan fuera de la jornada máxima el personal de dirección, de confianza, no fiscalizado o intermitente; la calificación depende de lo que el puesto realmente es.']],
     mirada: { ve: 'Las etiquetas laborales no se eligen por conveniencia. Ayer viste que el papel y la calle no coincidían; hoy tienes la oportunidad de que el nuevo rol nazca sin esa trampa.' },
   },
   {

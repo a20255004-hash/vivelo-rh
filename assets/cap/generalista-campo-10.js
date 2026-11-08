@@ -92,7 +92,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'feliz' : 'pensando', q === 'buena' ? '¡Mañana ordenada!' : '¿Y el registro de horas?'],
       };
     },
-    rules: [[LEY, 'El sobretiempo, aun obligatorio por fuerza mayor, se registra y se paga (D.S. 007-2002-TR, art. 9).']],
+    rules: [[LEY, 'El sobretiempo, aun obligatorio por fuerza mayor (D.S. 007-2002-TR, art. 9), se paga y se registra (arts. 10 y 10-A).']],
     mirada: {
       ve: 'Después de una crisis, todos quieren descansar. Pero lo que no se cierra hoy —las horas, los buses, los ingresos nuevos— es el próximo reclamo. La generalista de campo cierra antes de celebrar.',
       visual: { tipo: 'matriz', x: 'Esfuerzo', y: 'Importancia para la semana 3', cuadrantes: ['Hazlo ya', 'Hazlo hoy', 'Puede esperar', 'No es urgente'], items: [['Registro de horas', .5, .95], ['Buses de la guardia B', .3, .85], ['Inducción de Rosa', .4, .8], ['Reporte a Lima', .3, .4], ['Mural', .2, .1], ['Fotos', .2, .05]] },
@@ -221,7 +221,7 @@ export const ESCENAS = [
           pro: { ok: 'Descansar también es necesario.', risk: 'Una inspección a primera hora del lunes no deja tiempo para buscar papeles.' },
           kusi: ['pensando', 'El lunes llega rápido…'] } },
     ],
-    rules: [[LEY, 'El sobretiempo, aun obligatorio por fuerza mayor, se registra y se paga (D.S. 007-2002-TR, art. 9).'], [LEY, 'Tercerización: responsabilidad solidaria de la empresa principal en ciertos supuestos (Ley 29245).']],
+    rules: [[LEY, 'El sobretiempo, aun obligatorio por fuerza mayor (D.S. 007-2002-TR, art. 9), se paga y se registra (arts. 10 y 10-A).'], [LEY, 'Tercerización: responsabilidad solidaria de la empresa principal en ciertos supuestos (Ley 29245).']],
     mirada: {
       ve: 'Una inspección no es un castigo: es una pregunta de la autoridad sobre lo que hiciste. Si registraste las horas, corregiste el plan y controlaste a las contratistas, la respuesta está en tus carpetas. Si no, el lunes será largo.',
       visual: { tipo: 'flujo', titulo: 'La carpeta para SUNAFIL', pasos: ['Registro de horas', 'Plan de continuidad', 'Pólizas SCTR', 'Expedientes de contratistas', 'Investigación del accidente'] },

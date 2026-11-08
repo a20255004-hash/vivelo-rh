@@ -151,7 +151,7 @@ export const ESCENAS = [
           out: 'Concluyes que el sueldo no importa. Álvaro te dijo que sí importa, solo que no es lo único.',
           pro: { risk: 'Escuchar a medias lleva a la conclusión equivocada.' }, kusi: ['triste', 'Escuchaste solo la mitad.'] } },
     ],
-    rules: [[LEY, 'Ley 30709: la escasez de mano de obra calificada es un criterio objetivo, si se acredita con datos y se aplica de forma consistente.']],
+    rules: [[LEY, 'Ley 30709 y su reglamento (D.S. 002-2018-TR): la escasez de mano de obra calificada es un criterio objetivo, si se acredita con datos y se aplica de forma consistente.']],
     mirada: {
       ve: 'La escasez de talento es un criterio legítimo, pero hay que probarla con datos, no con urgencia. Y escuchar a la persona suele revelar que la solución no está solo en Compensaciones.',
     },
@@ -202,7 +202,7 @@ export const ESCENAS = [
           pro: { ok: 'Aseguras, quizás, el proyecto.', risk: 'Una excepción sin criterio desarma todo el trabajo de equidad de la semana pasada.' },
           kusi: ['preocupado', '¿Y el criterio?'] } },
     ],
-    rules: [[LEY, 'Ley 30709: la diferencia salarial dentro de una categoría debe apoyarse en un criterio objetivo, verificable y aplicado de forma consistente.'], [BP, 'Una excepción bien hecha se puede explicar a cualquier otro trabajador.']],
+    rules: [[LEY, 'Ley 30709 y su reglamento (D.S. 002-2018-TR): la diferencia salarial dentro de una categoría debe apoyarse en un criterio objetivo, verificable y aplicado de forma consistente.'], [BP, 'Una excepción bien hecha se puede explicar a cualquier otro trabajador.']],
     mirada: {
       ve: 'La prueba de una excepción es simple: ¿podrías explicársela a Claudia, a Yesenia o a cualquier otro trabajador sin incomodarte? Si sí, probablemente tiene criterio. Si no, es un favor.',
       normas: [{ ley: 'Ley 30709 y D.S. 002-2018-TR', dice: 'La escasez de mano de obra calificada puede justificar diferencias dentro de una categoría si se acredita y se aplica de forma consistente.', practica: 'El dato de mercado de Álvaro justifica acercarlo a su P50; el resto necesita otra razón.' }],
