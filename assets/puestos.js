@@ -13,7 +13,7 @@ export const ORDEN = [
   // Senior
   'supervisor-sst', 'generalista-campo', 'hrbp', 'coordinador-gh', 'jefe-rrhh', 'jefe-relaciones-laborales', 'gerente-gestion-humana',
 ];
-export const GRATIS = ['practicante', 'analista-seleccion', 'asistente-personal', 'analista-capacitacion', 'analista-relaciones'];
+export const GRATIS = []; // ya no hay puestos completos gratis: el día 1 de cada puesto es gratis (ver assets/acceso.js)
 
 const reg = (id, archivo) => ({ mod: archivo, clave: `vivelo-p-${id}`, cap: n => `./assets/cap/${id}-${n}.js` });
 export const PUESTOS = {

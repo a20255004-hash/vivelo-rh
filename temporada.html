@@ -271,7 +271,8 @@ syncTema();
 
 // Contenido
 document.title = `${P.nombre} · VÍVELO RH`;
-$('tag').textContent = P.completa ? 'Mes completo, gratis' : 'El capítulo 1 es gratis';
+const { tieneAcceso, linkPrecios, PRECIOS } = await import('./assets/acceso.js');
+$('tag').textContent = 'El día 1 es gratis';
 const palabras = P.nombre.split(' ');
 const corte = palabras.length > 2 ? Math.ceil(palabras.length / 2) : 1;
 $('h').innerHTML = [palabras.slice(0, corte).join(' '), palabras.slice(corte).join(' ')].filter(Boolean).map(t => `<span class="w"><span>${esc(t)}</span></span>`).join('');
@@ -284,7 +285,7 @@ $('ft').textContent = P.fin.titulo;
 $('finTxt').textContent = P.fin.txt;
 const listos = P.listos || 0;
 if (listos >= 1) { $('cta1').href = linkCap(1); $('cta2').href = linkCap(1); }
-else { [$('cta1'), $('cta2')].forEach(a => { a.textContent = 'Ver los capítulos'; a.href = '#trimestre'; }); $('pronto').hidden = false; $('pronto').textContent = 'Estamos escribiendo esta temporada capítulo por capítulo. Ya puedes conocer el puesto, su gente y su mes.'; }
+else { [$('cta1'), $('cta2')].forEach(a => { a.textContent = 'Ver los capítulos'; a.href = '#trimestre'; }); $('pronto').hidden = false; $('pronto').textContent = 'Estamos escribiendo esta temporada capítulo por capítulo. Ya puedes conocer el puesto y su gente.'; }
 $('sub').textContent = P.temporada;
 $('sinopsis').textContent = P.sinopsis;
 $('duracion').textContent = P.duracion;
@@ -314,13 +315,14 @@ let hecho = 0; try { hecho = +(JSON.parse(localStorage.getItem(REG.clave) || '{}
 const LOCK = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 const estado = c => {
   if (c.n <= hecho && c.n <= listos) return `<span class="cap__estado">Completado</span><a class="btn btn--go" href="${linkCap(c.n)}">Volver a jugar</a>`;
-  if (!P.completa && c.n > 1) return `<span class="cap__estado">${LOCK}Incluido en el pase anual</span>`;
+  if (c.n > listos) return `<span class="cap__estado">${LOCK}Se está escribiendo</span>`;
+  if (!tieneAcceso(pid, c.n)) return `<span class="cap__estado">${LOCK}Desbloquéalo</span><a class="btn btn--go" href="${linkPrecios(pid)}">Desde S/ ${PRECIOS.puesto}</a>`;
   if (c.n > listos) return `<span class="cap__estado">${LOCK}Se está escribiendo</span>`;
   if (c.n === hecho + 1) return `<a class="btn btn--go" href="${linkCap(c.n)}">Empezar</a>`;
   return `<span class="cap__estado">${LOCK}Se abre al terminar el capítulo ${c.n - 1}</span>`;
 };
 $('track').innerHTML = P.capitulos.map(c => `
-  <article class="cap ${c.n === hecho + 1 && c.n <= listos && (P.completa || c.n === 1) ? 'cap--abierto' : ''}" data-semana="${c.semana}" aria-label="Capítulo ${c.n}: ${esc(c.titulo)}">
+  <article class="cap ${c.n === hecho + 1 && c.n <= listos && tieneAcceso(pid, c.n) ? 'cap--abierto' : ''}" data-semana="${c.semana}" aria-label="Capítulo ${c.n}: ${esc(c.titulo)}">
     <span class="cap__dia">${esc(c.dia)}</span>
     <span class="cap__n" aria-hidden="true">${c.n}</span>
     <h3>${esc(c.titulo)}</h3>
@@ -329,7 +331,7 @@ $('track').innerHTML = P.capitulos.map(c => `
     ${estado(c)}
   </article>`).join('');
 const semanasCap = new Set(P.capitulos.map(c => c.semana));
-$('regla').insertAdjacentHTML('beforeend', Array.from({ length: 4 }, (_, i) => `<span class="regla__s ${semanasCap.has(i + 1) ? 'cap-en' : ''}" style="left:${(i / 3) * 100}%">Semana ${i + 1}</span>`).join(''));
+$('regla').insertAdjacentHTML('beforeend', Array.from({ length: 2 }, (_, i) => `<span class="regla__s ${semanasCap.has(i + 1) ? 'cap-en' : ''}" style="left:${i * 100}%">Semana ${i + 1}</span>`).join(''));
 
 // Matriz de competencias
 $('matriz').innerHTML = `<thead><tr><th scope="col">Competencia</th>${P.capitulos.map(c => `<th scope="col" title="${esc(c.titulo)}">${c.n}</th>`).join('')}</tr></thead><tbody>${P.competencias.map(([nombre, caps]) => `<tr><th scope="row" style="font-weight:500">${esc(nombre)}</th>${P.capitulos.map(c => { const i = caps.indexOf(c.n); return `<td>${i === 0 ? '<i class="punto punto--nueva" title="La aprendes aquí"></i>' : i > 0 ? '<i class="punto" title="La vuelves a usar"></i>' : ''}</td>`; }).join('')}</tr>`).join('')}</tbody>`;

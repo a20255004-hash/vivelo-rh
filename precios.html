@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precios · VÍVELO RH</title>
+<meta name="description" content="El día 1 de cada puesto es gratis. Desbloquea un puesto por S/ 20 para siempre o todos por S/ 49 durante 30 días.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--noche:#0F2A3D;--celeste:#7CC6EA;--verde:#2F6B3F;--azafran:#F2A900;--bg:#EEF7FC;--surface:#FFFFFF;--ink:#0F2A3D;--ink-2:#3C5568;--line:rgba(15,42,61,.14);--accent:#1F6F9E;
+  --f-display:'Bricolage Grotesque',system-ui,sans-serif;--f-voice:'Newsreader',Georgia,serif;--f-body:'Onest',system-ui,sans-serif;--f-mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.2,.7,.1,1);--gut:clamp(16px,4vw,48px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}}
+:root[data-theme="dark"]{--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}:focus-visible{outline:2px solid var(--azafran);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px var(--gut);border-bottom:1px solid var(--line)}
+.logo{font:800 18px/1 var(--f-display);text-decoration:none}
+.chip{font:500 13px/1 var(--f-body);border:1px solid currentColor;border-radius:999px;padding:10px 14px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+main{padding:clamp(40px,7vw,96px) var(--gut);max-width:1120px;margin:0 auto}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+h1{font:800 clamp(44px,7vw,104px)/.92 var(--f-display);letter-spacing:-.04em;margin:0;text-wrap:balance}
+h1 em{font:400 1em/1 var(--f-voice);color:var(--accent)}
+.lead{font:400 clamp(19px,2vw,26px)/1.35 var(--f-voice);max-width:36ch;margin:22px 0 48px;color:var(--ink-2)}
+.planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan--top{background:var(--noche);color:#EEF7FC;border-color:var(--noche)}
+.plan--top .plan__nota{color:#A9C3D4}
+.plan h2{font:800 24px/1.1 var(--f-display);margin:0}
+.precio{font:800 clamp(48px,6vw,72px)/1 var(--f-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.precio small{font:500 15px/1 var(--f-body);letter-spacing:0;margin-left:6px}
+.plan ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.plan__nota{font-size:14px;color:var(--ink-2);margin:0}
+.btn{margin-top:auto;display:inline-flex;justify-content:center;align-items:center;min-height:50px;padding:0 22px;border-radius:999px;border:0;background:var(--azafran);color:var(--noche);font:600 16px/1 var(--f-body);text-decoration:none;cursor:pointer}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.btn--sec{background:transparent;border:1px solid currentColor;color:inherit}
+.aviso{margin-top:28px;padding:16px 20px;border-left:4px solid var(--azafran);background:var(--surface);border-radius:0 14px 14px 0;max-width:70ch}
+.faq{margin-top:64px;max-width:70ch}
+.faq h2{font:800 clamp(28px,3.4vw,44px)/1 var(--f-display);letter-spacing:-.03em;margin:0 0 20px}
+.faq details{border-top:1px solid var(--line);padding:16px 0}
+.faq summary{font-weight:600;cursor:pointer}
+footer{padding:32px var(--gut);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--ink-2)}
+@media (max-width:860px){.planes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="index.html">VÍVELO RH</a>
+  <a class="chip" href="index.html#temporadas">Ver los puestos</a>
+</header>
+<main>
+  <p class="eyebrow">Precios</p>
+  <h1>Prueba gratis.<br>Sigue si te <em>engancha.</em></h1>
+  <p class="lead">El día 1 de cada puesto es gratis. Si quieres vivir las dos semanas completas, elige cómo seguir.</p>
+
+  <div class="planes">
+    <article class="plan">
+      <h2>Día 1</h2>
+      <p class="precio">S/ 0</p>
+      <ul><li>El primer día de los 30 puestos</li><li>Laboratorio: quiz, retos, academia, mapa y empresas</li><li>Tu brújula vocacional</li></ul>
+      <a class="btn btn--sec" href="index.html#temporadas">Empezar gratis</a>
+    </article>
+    <article class="plan" id="plan-puesto">
+      <h2>Un puesto</h2>
+      <p class="precio">S/ 20 <small>pago único</small></p>
+      <ul><li>Los 10 días del puesto que elijas</li><li>Para siempre, sin vencimiento</li><li>Incluye los días nuevos que se agreguen a ese puesto</li></ul>
+      <p class="plan__nota" id="puestoElegido">Elige el puesto desde su página.</p>
+      <a class="btn comprar" href="#" data-plan="puesto" aria-disabled="true">Comprar este puesto</a>
+    </article>
+    <article class="plan plan--top" id="plan-pase">
+      <h2>Todos los puestos</h2>
+      <p class="precio">S/ 49 <small>por 30 días</small></p>
+      <ul><li>Todos los puestos disponibles, completos</li><li>Los puestos y días nuevos que salgan en esos 30 días</li><li>Sin renovación automática: pagas solo si quieres seguir</li></ul>
+      <p class="plan__nota">Ideal para explorar varias áreas antes de decidir.</p>
+      <a class="btn comprar" href="#" data-plan="pase" aria-disabled="true">Comprar 30 días</a>
+    </article>
+  </div>
+
+  <p class="aviso" id="aviso">El pago en línea se habilitará muy pronto, con tarjeta y Yape a través de Mercado Pago. Mientras tanto, todos los días están abiertos para que pruebes la plataforma.</p>
+
+  <section class="faq" aria-labelledby="faqT">
+    <h2 id="faqT">Preguntas frecuentes</h2>
+    <details><summary>¿Necesito una cuenta?</summary><p>Sí, para pagar inicias sesión con Google. Así tu compra queda guardada y puedes seguir desde cualquier dispositivo.</p></details>
+    <details><summary>¿Qué pasa cuando terminan mis 30 días?</summary><p>Los días que no compraste por separado se vuelven a bloquear. Tu progreso y tus decisiones quedan guardados por si vuelves.</p></details>
+    <details><summary>¿Puedo pedir una devolución?</summary><p>Sí, en los casos de nuestra <a href="legal.html#devoluciones">política de devoluciones</a>.</p></details>
+    <details><summary>¿Emiten comprobante?</summary><p>Sí. Cada compra tiene su boleta electrónica.</p></details>
+  </section>
+</main>
+<footer>
+  <a href="legal.html#terminos">Términos y condiciones</a>
+  <a href="legal.html#privacidad">Privacidad</a>
+  <a href="legal.html#devoluciones">Devoluciones</a>
+  <a href="legal.html#reclamaciones">Libro de Reclamaciones</a>
+</footer>
+<script type="module">
+import { COBRO_ACTIVO } from './assets/acceso.js';
+const pid = location.hash.slice(1);
+try {
+  const c = pid && (await fetch('assets/cargos.json').then(r => r.json())).find(x => x.id === pid);
+  if (c) document.getElementById('puestoElegido').textContent = `Puesto elegido: ${c.n}`;
+} catch {}
+if (COBRO_ACTIVO) document.getElementById('aviso').hidden = true;
+document.querySelectorAll('.comprar').forEach(b => b.addEventListener('click', e => {
+  e.preventDefault();
+  if (!COBRO_ACTIVO) return;
+  // Se conectará a la función de Supabase que crea la preferencia de Mercado Pago.
+}));
+</script>
+</body>
+</html>
