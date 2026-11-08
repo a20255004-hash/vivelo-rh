@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 *.log
 assets/3d/kusi/.tmp/
+
+docs/normas/*.pdf
+docs/normas/txt/
