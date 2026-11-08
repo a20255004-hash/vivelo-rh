@@ -1,9 +1,9 @@
 // Analista de Desarrollo Organizacional · Capítulo 5 · «El rumor» · Semana 1, viernes.
 // Hilo de las dos semanas: la fusión de la Cooperativa Misti y la Cooperativa Characato en la Cooperativa del Sur (Arequipa).
 // Normas citadas:
-// - D.S. 003-97-TR (TUO del D. Leg. 728), arts. 46 y 48: el cese colectivo por causas objetivas procede solo cuando
-//   comprende a no menos del 10 % del personal y sigue un procedimiento ante la Autoridad Administrativa de Trabajo
-//   (información, nómina de afectados, reuniones de conciliación).
+// - D.S. 003-97-TR (TUO del D. Leg. 728), arts. 46 b) y 48: el cese colectivo por motivos económicos, tecnológicos,
+//   estructurales o análogos procede solo cuando comprende a no menos del 10 % del personal y sigue un procedimiento ante
+//   la Autoridad Administrativa de Trabajo (información y nómina de afectados, negociación, pericia, reuniones de conciliación).
 //   https://www.tc.gob.pe/jurisprudencia/2007/08141-2006-AA.pdf
 //   https://lpderecho.pe/cese-colectivo-supuestos-procede/
 // Empresas y personas son ficticias.
@@ -64,7 +64,7 @@ export const CORREOS = [
 ];
 
 export const QUIZ = [
-  { q: 'El cese colectivo por causas objetivas, según el art. 48 del D.S. 003-97-TR, procede cuando comprende…', ops: ['A cualquier número de trabajadores', 'A no menos del 10 % del personal, con procedimiento ante la Autoridad de Trabajo', 'Solo a trabajadores con menos de un año', 'A quien el gerente elija, sin trámite'], ok: 1, por: 'Exige un umbral del 10 % y un procedimiento ante la Autoridad Administrativa de Trabajo.' },
+  { q: 'El cese colectivo por motivos económicos o estructurales, según el art. 48 del D.S. 003-97-TR, procede cuando comprende…', ops: ['A cualquier número de trabajadores', 'A no menos del 10 % del personal, con procedimiento ante la Autoridad de Trabajo', 'Solo a trabajadores con menos de un año', 'A quien el gerente elija, sin trámite'], ok: 1, por: 'Para motivos económicos, tecnológicos, estructurales o análogos (art. 46 b), exige un umbral del 10 % y un procedimiento ante la Autoridad Administrativa de Trabajo.' },
   { q: 'Corre el rumor de 50 despidos y no hay decisión tomada. ¿Qué dice un buen comunicado?', ops: ['«Nadie será despedido»', 'Lo que se sabe, lo que no y cuándo se sabrá', 'Nada: mejor no hablar', '«Los que no se adapten saldrán»'], ok: 1, por: 'No prometes lo que no controlas, pero llenas el vacío que alimenta al rumor.' },
   { q: '¿A quién se informa primero en un plan de comunicación del cambio?', ops: ['A la prensa', 'A los jefes, que recibirán las preguntas de sus equipos', 'A los socios', 'A nadie hasta el final'], ok: 1, por: 'Los jefes son el primer canal: si no saben qué decir, el rumor gana.' },
   { q: 'El gerente quiere una lista de 50 personas para «invitarlas» a renunciar. ¿Cuál es el riesgo?', ops: ['Ninguno: es voluntario', 'Que la presión vuelva involuntaria la renuncia y se cuestione', 'Que cueste poco', 'Que sea demasiado rápido'], ok: 1, por: 'Un retiro con lista y presión deja de ser voluntario; lo voluntario es abierto y sin presión.' },
@@ -117,11 +117,11 @@ export const ESCENAS = [
       out: 'Sales con una certeza: no hay lista, hay un escenario de costos. Y un comunicado que hay que leer antes de que salga.',
       kusi: ['curioso', 'De dónde salió el 50 ya lo sabes. ¡Eso desarma un rumor!'],
     }),
-    rules: [[LEY, 'El cese colectivo por causas objetivas requiere que comprenda al menos al 10 % del personal y un procedimiento ante la Autoridad Administrativa de Trabajo (D.S. 003-97-TR, art. 48).']],
+    rules: [[LEY, 'El cese colectivo por motivos económicos, tecnológicos, estructurales o análogos requiere que comprenda al menos al 10 % del personal y un procedimiento ante la Autoridad Administrativa de Trabajo (D.S. 003-97-TR, art. 48).']],
     mirada: {
       ve: 'Casi todos los rumores tienen un grano de verdad deformado. Aquí el grano es un escenario de costos de Finanzas. Saber de dónde salió el número te permite comunicar con precisión: no hay lista, hay un análisis que todavía no es una decisión.',
       visual: { tipo: 'embudo', titulo: 'Del escenario al rumor', niveles: [['Escenarios de Finanzas: 0, 25 y 50', 3], ['Alguien ve «50»', 1], ['Audio: «botan a 50 el lunes»', 1]] },
-      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 48', dice: 'El cese colectivo por causas objetivas procede cuando comprende a no menos del 10 % del personal, y sigue un procedimiento ante la Autoridad Administrativa de Trabajo con información, nómina y conciliación.', practica: 'Nadie puede «botar a 50 el lunes»: ni la ley lo permite así, ni el consejo lo ha decidido.' }],
+      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 48', dice: 'El cese colectivo por motivos económicos, tecnológicos, estructurales o análogos (art. 46 b) procede cuando comprende a no menos del 10 % del personal, y sigue un procedimiento ante la Autoridad Administrativa de Trabajo con información, nómina y conciliación.', practica: 'Nadie puede «botar a 50 el lunes»: ni la ley lo permite así, ni el consejo lo ha decidido.' }],
     },
   },
   {

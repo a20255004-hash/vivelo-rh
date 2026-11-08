@@ -3,7 +3,7 @@
 // Normas citadas:
 // - Ley 27735 y su reglamento (D.S. 005-2002-TR): gratificación de Navidad equivalente a una remuneración si se laboró el
 //   semestre completo; proporcional por meses calendario completos si no; los conceptos variables entran en la base si son
-//   regulares; los descansos subsidiados (como la licencia por maternidad) se consideran tiempo laborado (Ley 27735, art. 6).
+//   regulares; quien está de licencia percibiendo subsidios de la seguridad social (como la maternidad) conserva el derecho (Ley 27735, art. 6).
 //   https://lpderecho.pe/gratificaciones-laborales-concepto-calculo
 //   https://lpderecho.pe/reglamento-ley-gratificiaciones-fiestas-patrias-navidad-decreto-supremo-005-2002-tr/
 // - Ley 30334: la gratificación no está afecta a aportes ni descuentos de seguridad social; lo que se aportaría a EsSalud
@@ -68,7 +68,7 @@ export const QUIZ = [
   { q: 'Jhoan ingresó el 1 de agosto. Su gratificación de diciembre es…', ops: ['Completa', 'Proporcional: 5 de 6 meses', 'Cero: no trabajó el semestre completo', 'La mitad'], ok: 1, por: 'Quien no laboró el semestre completo recibe la gratificación en proporción a los meses calendario completos laborados.' },
   { q: 'La bonificación extraordinaria de la Ley 30334 equivale…', ops: ['A lo que se aportaría a EsSalud por la gratificación', 'A un sueldo más', 'A la CTS', 'A las horas extra'], ok: 0, por: 'Como la gratificación no está afecta a EsSalud, ese monto (9 %, o 6.75 % si hay EPS) se le paga al trabajador.' },
   { q: '¿Se descuenta AFP u ONP de la gratificación?', ops: ['Sí, como cualquier sueldo', 'No: la gratificación no está afecta a aportes de seguridad social', 'Solo AFP', 'Solo si el trabajador lo pide'], ok: 1, por: 'La gratificación está inafecta a aportes y descuentos de seguridad social; sí puede tener la retención del impuesto que corresponda.' },
-  { q: 'Yesenia estuvo de licencia por maternidad en julio y agosto. Para su gratificación, esos meses…', ops: ['No cuentan', 'Cuentan como tiempo laborado', 'Cuentan a la mitad', 'Depende del administrador'], ok: 1, por: 'La Ley 27735 considera tiempo laborado los descansos que originan subsidios de la seguridad social, como la maternidad.' },
+  { q: 'Yesenia estuvo de licencia por maternidad en julio y agosto. Para su gratificación, esos meses…', ops: ['No cuentan', 'Cuentan como tiempo laborado', 'Cuentan a la mitad', 'Depende del administrador'], ok: 1, por: 'La Ley 27735 (art. 6) reconoce la gratificación a quien está de licencia percibiendo subsidios de la seguridad social, como la maternidad: esos meses no se descuentan.' },
   { q: 'Las horas extra entran en la base de la gratificación cuando…', ops: ['Nunca', 'Son regulares en el semestre', 'Las pide el trabajador', 'Son de diciembre'], ok: 1, por: 'Los conceptos variables entran en la base si se perciben con regularidad en el semestre.' },
 ];
 
@@ -135,7 +135,7 @@ export const ESCENAS = [
         kusi: [q === 'buena' ? 'celebra' : 'preocupado', q === 'buena' ? '¡Le ganaste al sistema!' : 'Yesenia merece su grati completa.'],
       };
     },
-    rules: [[LEY, 'Proporcional por meses calendario completos si no se laboró el semestre completo (Ley 27735).'], [LEY, 'Los descansos subsidiados, como la maternidad, cuentan como tiempo laborado (Ley 27735, art. 6).'], [LEY, 'Bonificación extraordinaria: 9 %, o 6.75 % con EPS (Ley 30334).']],
+    rules: [[LEY, 'Proporcional por meses calendario completos si no se laboró el semestre completo (Ley 27735).'], [LEY, 'Quien está de licencia percibiendo subsidios de la seguridad social, como la maternidad, conserva el derecho a la gratificación (Ley 27735, art. 6).'], [LEY, 'Bonificación extraordinaria: 9 %, o 6.75 % con EPS (Ley 30334).']],
     mirada: {
       ve: 'El sistema calcula bien lo que alguien configuró bien. Por eso Planillas prueba siempre con casos difíciles: los «normales» casi nunca fallan.',
       visual: { tipo: 'flujo', titulo: 'La gratificación de Jhoan', pasos: ['S/ 1,230', '× 5/6', 'S/ 1,025.00', '+ 9 % = S/ 92.25', 'S/ 1,117.25'] },

@@ -3,11 +3,11 @@
 // Normas citadas:
 // - D.S. 007-2002-TR, TUO de la Ley de Jornada de Trabajo, Horario y Trabajo en Sobretiempo: art. 9, el trabajo en
 //   sobretiempo es voluntario, en su otorgamiento y en su prestación; art. 10, el sobretiempo se paga con un recargo
-//   o, por acuerdo, se compensa con descanso, y el empleador debe registrarlo.
+//   o, por acuerdo, se compensa con descanso; art. 10-A, el empleador debe registrarlo.
 //   https://lpderecho.pe/no-firmar-formato-de-autorizacion-de-horas-extra-no-impide-reconocer-autorizacion-tacita-resolucion-613-2020-sunafil/
 //   https://img.lpderecho.pe/wp-content/uploads/2021/05/Casacion-Laboral-12439-2017-La-Libertad-LP.pdf
-// - D.S. 008-2002-TR (Reglamento), art. 22: el sobretiempo prestado sin disposición expresa del empleador puede
-//   entenderse autorizado (autorización tácita), según la resolución de SUNAFIL citada arriba.
+// - D.S. 008-2002-TR (Reglamento), art. 22: el sobretiempo prestado sin disposición expresa del empleador se entiende
+//   prestado con su autorización tácita y en forma voluntaria (criterio aplicado en la resolución de SUNAFIL citada arriba).
 // - Ley 30709 (igualdad remunerativa), ya citada en el capítulo 5.
 
 export const CAP = {
@@ -66,7 +66,7 @@ export const CORREOS = [
 
 export const QUIZ = [
   { q: 'Una reseña dice que las horas extra no se pagan. Lo primero es…', ops: ['Pedir que la borren', 'Verificar si es cierto y, si lo es, corregirlo con quien corresponda', 'Responder que es falso', 'Ignorarla'], ok: 1, por: 'Una reseña negativa es información. Si señala un incumplimiento, el problema no es la reseña.' },
-  { q: 'Según el D.S. 007-2002-TR, el trabajo en sobretiempo…', ops: ['Es obligatorio si el jefe lo pide', 'Es voluntario y se paga con un recargo, o se compensa con descanso si hay acuerdo', 'No se paga en tecnología', 'Solo se paga los domingos'], ok: 1, por: 'Los arts. 9 y 10 del TUO establecen que es voluntario, se paga con recargo o se compensa por acuerdo, y debe registrarse.' },
+  { q: 'Según el D.S. 007-2002-TR, el trabajo en sobretiempo…', ops: ['Es obligatorio si el jefe lo pide', 'Es voluntario y se paga con un recargo, o se compensa con descanso si hay acuerdo', 'No se paga en tecnología', 'Solo se paga los domingos'], ok: 1, por: 'Los arts. 9, 10 y 10-A del TUO establecen que es voluntario, se paga con recargo o se compensa por acuerdo, y debe registrarse.' },
   { q: 'Pedir al equipo que publique reseñas positivas «voluntarias» con un incentivo…', ops: ['Es buena práctica', 'Es una forma de reseñas falsas que la comunidad detecta y daña la credibilidad', 'Es obligatorio', 'No tiene efecto'], ok: 1, por: 'La marca empleadora se construye con hechos, no con reseñas fabricadas.' },
   { q: 'La mejor respuesta pública a una reseña crítica…', ops: ['Niega todo', 'Agradece, reconoce lo que es cierto y dice qué se está cambiando', 'Revela quién la escribió', 'Ataca al exempleado'], ok: 1, por: 'Los candidatos leen la respuesta tanto como la reseña.' },
   { q: 'Una propuesta de valor al empleado (EVP) honesta incluye…', ops: ['Solo lo bueno', 'El reto, las condiciones reales y también lo que la empresa está mejorando', 'Frases como «somos una familia»', 'Fotos de la mesa de ping-pong'], ok: 1, por: 'Prometer de más termina en renuncias rápidas.' },
@@ -96,10 +96,10 @@ export const ESCENAS = [
       pro: { ok: 'Una reseña es información que la empresa no pagó por recibir.', risk: 'Tratar todas las críticas como ataques impide ver las que señalan incumplimientos.', info: 'Contrasta con Renzo: él sabe qué pasó en agosto.' },
       kusi: missLey ? ['preocupado', 'Algunas reseñas dicen la verdad…'] : ['curioso', '¡Encontraste la aguja en el pajar!'],
     }),
-    rules: [[LEY, 'El trabajo en sobretiempo es voluntario (D.S. 007-2002-TR, art. 9).'], [LEY, 'El sobretiempo se paga con un recargo o se compensa con descanso por acuerdo, y debe registrarse (D.S. 007-2002-TR, art. 10).']],
+    rules: [[LEY, 'El trabajo en sobretiempo es voluntario (D.S. 007-2002-TR, art. 9).'], [LEY, 'El sobretiempo se paga con un recargo o se compensa con descanso por acuerdo, y debe registrarse (D.S. 007-2002-TR, arts. 10 y 10-A).']],
     mirada: {
       ve: 'El employer branding empieza por escuchar. Las reseñas de exempleados son incómodas, pero muchas veces señalan exactamente lo que los candidatos van a preguntar. Un Talent Acquisition Partner que las lee como información sabe qué hay que arreglar antes de contar la empresa.',
-      normas: [{ ley: 'D.S. 007-2002-TR, TUO de la Ley de Jornada de Trabajo, Horario y Trabajo en Sobretiempo, arts. 9 y 10', dice: 'El trabajo en sobretiempo es voluntario, tanto en su otorgamiento como en su prestación. Se paga con un recargo o, por acuerdo, se compensa con descanso, y el empleador debe registrarlo.', practica: 'Las noches de agosto no son un tema de marca: son horas que hay que revisar y pagar o compensar.' }],
+      normas: [{ ley: 'D.S. 007-2002-TR, TUO de la Ley de Jornada de Trabajo, Horario y Trabajo en Sobretiempo, arts. 9, 10 y 10-A', dice: 'El trabajo en sobretiempo es voluntario, tanto en su otorgamiento como en su prestación. Se paga con un recargo o, por acuerdo, se compensa con descanso, y el empleador debe registrarlo.', practica: 'Las noches de agosto no son un tema de marca: son horas que hay que revisar y pagar o compensar.' }],
     },
   },
   {

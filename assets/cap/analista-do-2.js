@@ -1,8 +1,8 @@
 // Analista de Desarrollo Organizacional · Capítulo 2 · «Los duplicados» · Semana 1, martes.
 // Hilo de las dos semanas: la fusión de la Cooperativa Misti y la Cooperativa Characato en la Cooperativa del Sur (Arequipa).
 // Normas citadas:
-// - D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b): la reducción de la remuneración o de la categoría dispuesta
-//   unilateralmente por el empleador puede configurar un acto de hostilidad. Se cita el principio, sin transcribir el texto.
+// - D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b), texto modificado por la Ley 30709: «la reducción de la categoría y de
+//   la remuneración» es acto de hostilidad. La jurisprudencia lo aplica a la rebaja dispuesta unilateralmente por el empleador.
 //   https://lpderecho.pe/jurisprudencia-articulo-30-tuo-decreto-legislativo-728-despido-hostilidad
 //   https://lpderecho.pe/rebajar-categoria-trabajador-califica-acto-hostilidad-cas-lab-1744-2017-lima
 // - Constitución Política del Perú, art. 2.2: nadie debe ser discriminado (criterios de edad o cargas familiares).
@@ -127,7 +127,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'En una fusión, los primeros documentos se escriben con prisa y viajan lejos. Una sola línea como «priorizar a los menores de 45» puede terminar en un juicio y en la portada del periódico local. Revisar no es desconfiar: es cuidar.',
       visual: { tipo: 'cambio', titulo: 'Del borrador al cuadro limpio', pares: [['Menores de 45 años', 'Cartera, alcance y proceso'], ['Hijos pequeños', 'Requisitos del puesto'], ['Pasa a analista desde el lunes', 'Opciones conversadas y acordadas']] },
-      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b)', dice: 'Entre los actos de hostilidad está la reducción de la remuneración o de la categoría dispuesta unilateralmente por el empleador.', practica: 'Al jefe que no quede no se le «pasa» a otro cargo: se le ofrecen opciones y se acuerdan.' }],
+      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b)', dice: 'Entre los actos de hostilidad equiparables al despido está «la reducción de la categoría y de la remuneración» (texto modificado por la Ley 30709).', practica: 'Al jefe que no quede no se le «pasa» a otro cargo: se le ofrecen opciones y se acuerdan.' }],
     },
   },
   {

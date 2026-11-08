@@ -4,7 +4,8 @@
 // - Ley 27806, Ley de Transparencia y Acceso a la Información Pública (TUO aprobado por D.S. 021-2019-JUS): toda persona puede pedir
 //   información que tenga la entidad, sin expresar la causa; la entidad responde dentro del plazo legal; se exceptúa la información
 //   confidencial, como los datos personales cuya publicidad afecte la intimidad; la entidad no está obligada a crear información que no tiene.
-//   No se cita aquí el número de días del plazo: no se pudo verificar en una fuente oficial en esta sesión.
+//   TUO (D.S. 021-2019-JUS), art. 7: sin expresión de causa; art. 11 b): plazo no mayor de diez (10) días hábiles;
+//   art. 13: no hay obligación de crear o producir información con la que no se cuente; art. 17.5: datos personales (intimidad).
 //   https://www.leyes.congreso.gob.pe/Documentos/Leyes/27806.pdf
 // - Ley 29733 (datos personales), ya citada en el capítulo 2.
 // Entidad, personas y casos son ficticios.

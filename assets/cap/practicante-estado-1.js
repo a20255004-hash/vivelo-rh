@@ -59,7 +59,7 @@ export const CORREOS = [
 
 export const QUIZ = [
   { q: '¿Cómo se accede a unas prácticas en una entidad pública, según el D.Leg. 1401?', ops: ['Por recomendación de un funcionario', 'Por concurso público', 'Por orden de llegada', 'Por convenio verbal con el jefe'], ok: 1, por: 'El D.Leg. 1401 establece que el acceso a las prácticas en el sector público es por concurso.' },
-  { q: '¿Cuál es la jornada máxima de unas prácticas profesionales en el Estado?', ops: ['6 horas diarias o 30 semanales', '8 horas diarias o 48 semanales', '10 horas diarias', 'La que pida el jefe'], ok: 1, por: 'SERVIR, sobre el D.Leg. 1401: las prácticas profesionales tienen una jornada máxima de 8 horas diarias o 48 semanales.' },
+  { q: '¿Cuál es la jornada máxima de unas prácticas profesionales en el Estado?', ops: ['6 horas diarias o 30 semanales', '8 horas diarias o 48 semanales', '10 horas diarias', 'La que pida el jefe'], ok: 1, por: 'El D.Leg. 1401 (art. 13) fija para las prácticas profesionales una jornada máxima de 8 horas diarias o 48 semanales.' },
   { q: '¿Se pueden hacer prácticas en el Estado sin subvención económica?', ops: ['Sí, si el practicante acepta', 'Sí, en los primeros tres meses', 'No: SERVIR señala que no hay prácticas bajo el D.Leg. 1401 sin subvención', 'Solo en municipalidades'], ok: 2, por: 'SERVIR ha señalado que no es posible realizar prácticas bajo el D.Leg. 1401 sin pagar la subvención.' },
   { q: 'El sistema de trámite se cae y llega un ciudadano con su escrito. ¿Qué haces?', ops: ['Le pides que vuelva mañana', 'Lo recibes y le das un cargo con sello, fecha, hora y folios; lo registras cuando vuelva el sistema', 'Lo dejas en la pila sin sello', 'Le dices que lo mande por WhatsApp'], ok: 1, por: 'El cargo es la prueba del ciudadano de que presentó su escrito ese día. Una caída del sistema no es su problema.' },
   { q: '¿Para qué sirve foliar un expediente?', ops: ['Para que se vea ordenado', 'Para saber cuántas hojas tiene y que ninguna se pierda o se agregue después', 'Para cobrar por hoja', 'No sirve para nada'], ok: 1, por: 'La foliación numera cada hoja: si alguien saca o mete una, se nota.' },
@@ -236,7 +236,7 @@ export const ESCENAS = [
           pro: { ok: 'Respetas tu horario.', risk: 'Sin avisar ni dejar tu avance ordenado, otros cargan con lo que falta.' },
           kusi: ['pensando', 'Tu horario, sí. ¿Y tu pendiente?'] } },
     ],
-    rules: [[LEY, 'D.Leg. 1401: las prácticas profesionales tienen una jornada máxima de 8 horas diarias o 48 semanales, y se pagan con una subvención (SERVIR).'], [LEY, 'Ley 31396: las prácticas profesionales cuentan como experiencia laboral.']],
+    rules: [[LEY, 'D.Leg. 1401: las prácticas profesionales tienen una jornada máxima de 8 horas diarias o 48 semanales (art. 13) y se pagan con una subvención económica mensual (art. 16).'], [LEY, 'Ley 31396: las prácticas profesionales cuentan como experiencia laboral.']],
     mirada: {
       ve: 'Las prácticas existen para que aprendas haciendo, no para cubrir con horas gratis la falta de personal. Rubén se queda porque teme que lo vean como «el practicante». Tu forma de cuidar tu jornada también puede cuidar la suya.',
       visual: { tipo: 'linea', titulo: 'Tu jornada de practicante', hitos: [['08:00', 'Entrada'], ['13:00', 'Almuerzo'], ['17:00', 'Fin de la jornada'], ['20:00', 'La costumbre de Rubén']] },

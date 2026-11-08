@@ -5,7 +5,7 @@
 //   https://cdn.www.gob.pe/uploads/document/file/6532302/5693975-bases-proceso-cas-n-012-2024.pdf
 // - Ley 29973, art. 48, y D.S. 002-2014-MIMP, num. 51.1: 15 % sobre el puntaje final aprobatorio (capítulo 5).
 //   https://cdn.www.gob.pe/uploads/document/file/8090935/6784703-informe-tecnico-n-121-2025-servir-gpgsc.pdf
-// - TUO de la Ley 27444: la notificación cierra el procedimiento para el administrado (capítulo 3).
+// - TUO de la Ley 27444, art. 16.1: el acto administrativo es eficaz a partir de que la notificación legalmente realizada produce sus efectos (capítulo 3).
 //   https://cdn.www.gob.pe/uploads/document/file/5320370/4770872-decreto-supremo-n-004-2019-jus.pdf
 // Entidad, personas y casos son ficticios.
 

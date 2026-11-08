@@ -1,8 +1,8 @@
 // Analista de Desarrollo Organizacional · Capítulo 7 · «La conversación» · Semana 2, martes.
 // Hilo de las dos semanas: la fusión de la Cooperativa Misti y la Cooperativa Characato en la Cooperativa del Sur (Arequipa).
 // Normas citadas:
-// - D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b): la reducción de la remuneración o de la categoría dispuesta
-//   unilateralmente por el empleador puede configurar un acto de hostilidad. Ya citada en el capítulo 2.
+// - D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b), texto modificado por la Ley 30709: «la reducción de la categoría y de
+//   la remuneración» es acto de hostilidad; se aplica a la rebaja dispuesta unilateralmente. Ya citada en el capítulo 2.
 //   https://lpderecho.pe/jurisprudencia-articulo-30-tuo-decreto-legislativo-728-despido-hostilidad
 //   https://lpderecho.pe/rebajar-categoria-trabajador-califica-acto-hostilidad-cas-lab-1744-2017-lima
 // Empresas y personas son ficticias.
@@ -92,7 +92,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'Linares quiere terminar rápido con algo incómodo. Pero las conversaciones mal hechas se pagan después: en reclamos, en desconfianza del equipo y en la historia que se cuenta en los pasillos durante años.',
       visual: { tipo: 'cambio', titulo: 'Del guion de Linares al guion final', pares: [['«No dio la talla»', 'El panel eligió por puntaje'], ['«Ya está firmado»', 'Te ofrecemos un cargo'], ['«Decida hoy»', 'Tómate dos días']] },
-      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b)', dice: 'Entre los actos de hostilidad está la reducción de la remuneración o de la categoría dispuesta unilateralmente por el empleador.', practica: 'A Rocío no se le notifica un cargo menor: se le ofrece, se le explica y se acuerda por escrito.' }],
+      normas: [{ ley: 'D.S. 003-97-TR (TUO del D. Leg. 728), art. 30 b)', dice: 'Entre los actos de hostilidad equiparables al despido está «la reducción de la categoría y de la remuneración» (texto modificado por la Ley 30709).', practica: 'A Rocío no se le notifica un cargo menor: se le ofrece, se le explica y se acuerda por escrito.' }],
     },
   },
   {

@@ -219,7 +219,7 @@ export const ESCENAS = [
           out: 'Gladys se encoge de hombros. «Lo que aprendiste aquí te sirve en cualquier lado: escuchar, dejar todo escrito, aplicar la misma regla a todos. Pero antes de decidir, quédate a ver la semana que viene.»',
           kusi: ['pensando', 'Todavía hay mucho por ver.'] } },
     ],
-    rules: [[LEY, 'D.Leg. 1401: el acceso a un puesto en el Estado, incluso después de unas prácticas, es por concurso.']],
+    rules: [[LEY, 'D.Leg. 1401: a las prácticas se accede por concurso (art. 18) y no generan relación laboral con la entidad (art. 24). Un puesto en el Estado también se gana por concurso, no por haber hecho prácticas.']],
     mirada: {
       ve: 'Dos semanas no alcanzan para conocer el Estado, pero sí para saber si te importa lo que hace. Y el lunes empieza otra parte: la que revisa si lo que hiciste estuvo bien. Esa también es tu historia.',
       visual: { tipo: 'mensaje', titulo: 'El lunes, Semana 3', txt: 'A las 9:00 se instala en la ORH la comisión del Órgano de Control Institucional para revisar el concurso CAS 012-2026. Todo lo que dejaste escrito estará sobre la mesa.' },
