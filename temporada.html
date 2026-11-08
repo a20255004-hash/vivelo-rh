@@ -271,7 +271,8 @@ syncTema();
 
 // Contenido
 document.title = `${P.nombre} · VÍVELO RH`;
-const { tieneAcceso, linkPrecios, PRECIOS } = await import('./assets/acceso.js');
+const { tieneAcceso, linkPrecios, PRECIOS, cargarAccesos } = await import('./assets/acceso.js');
+await cargarAccesos();
 $('tag').textContent = 'El día 1 es gratis';
 const palabras = P.nombre.split(' ');
 const corte = palabras.length > 2 ? Math.ceil(palabras.length / 2) : 1;

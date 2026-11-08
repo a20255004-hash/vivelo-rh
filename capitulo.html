@@ -660,9 +660,10 @@ const P = PM.PUESTO, PERSONAS = PM.PERSONAS;
 const LISTOS = P.listos || 0;
 const linkCap = k => pid === 'analista-seleccion' ? `capitulo.html#c${k}` : `capitulo.html#${pid}-c${k}`;
 $('salir').href = `temporada.html#${pid}`;
-const { tieneAcceso, linkPrecios, TXT_BLOQUEO, PRECIOS } = await import('./assets/acceso.js');
+const { tieneAcceso, linkPrecios, textoBloqueo, PRECIOS, cargarAccesos } = await import('./assets/acceso.js');
+if (n > 1) await cargarAccesos();
 if (n <= LISTOS && !tieneAcceso(pid, n)) {
-  document.body.innerHTML = `<div class="no-cap"><div><h1>Este día es parte del puesto completo</h1><p>${TXT_BLOQUEO}</p><a class="btn" href="${linkPrecios(pid)}">Ver precios</a> <a class="btn" href="temporada.html#${pid}">Volver a la temporada</a></div></div>`;
+  document.body.innerHTML = `<div class="no-cap"><div><h1>Este día es parte del puesto completo</h1><p>${textoBloqueo()}</p><a class="btn" href="${linkPrecios(pid)}">Ver precios</a> <a class="btn" href="temporada.html#${pid}">Volver a la temporada</a></div></div>`;
   throw new Error('capítulo bloqueado');
 }
 let mod = null;

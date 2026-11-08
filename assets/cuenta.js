@@ -20,6 +20,7 @@ async function cliente() {
     return sb;
   } catch { return null; }
 }
+export const db = () => cliente();
 const volverA = () => location.origin + location.pathname;
 
 export async function sesionActual() {

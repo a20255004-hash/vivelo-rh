@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Administración · VÍVELO RH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--noche:#0F2A3D;--azafran:#F2A900;--verde:#2F6B3F;--rojo:#B3261E;--bg:#EEF7FC;--surface:#FFFFFF;--ink:#0F2A3D;--ink-2:#3C5568;--line:rgba(15,42,61,.14);--accent:#1F6F9E;
+  --f-display:'Bricolage Grotesque',system-ui,sans-serif;--f-body:'Onest',system-ui,sans-serif;--f-mono:'JetBrains Mono',monospace;--gut:clamp(16px,3vw,32px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA;--rojo:#F2B8B5}}
+:root[data-theme="dark"]{--bg:#0B1F2D;--surface:#122F44;--ink:#EEF7FC;--ink-2:#A9C3D4;--line:rgba(238,247,252,.14);--accent:#7CC6EA;--rojo:#F2B8B5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--f-body)}
+a{color:var(--accent)}:focus-visible{outline:2px solid var(--azafran);outline-offset:2px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px var(--gut);border-bottom:1px solid var(--line);background:var(--surface)}
+.logo{font:800 18px/1 var(--f-display);text-decoration:none;color:inherit}
+.quien{font-size:13px;color:var(--ink-2)}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:12px var(--gut);border-bottom:1px solid var(--line)}
+nav button{font:500 14px/1 var(--f-body);border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:10px 14px;cursor:pointer;min-height:40px}
+nav button[aria-selected="true"]{background:var(--noche);color:#EEF7FC;border-color:var(--noche)}
+main{padding:24px var(--gut);max-width:1200px;margin:0 auto}
+h1{font:800 clamp(28px,4vw,44px)/1 var(--f-display);letter-spacing:-.03em;margin:0 0 18px}
+h2{font:800 22px/1.2 var(--f-display);margin:28px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.kpi b{display:block;font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums;margin-top:6px}
+.kpi span{font-size:13px;color:var(--ink-2)}
+.tabla{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.btn{font:600 14px/1 var(--f-body);border:0;border-radius:999px;padding:10px 16px;min-height:40px;background:var(--azafran);color:var(--noche);cursor:pointer}
+.btn--sec{background:transparent;border:1px solid currentColor;color:inherit}
+.btn--peq{min-height:32px;padding:6px 12px;font-size:13px}
+.form{display:flex;flex-wrap:wrap;gap:10px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+label{display:grid;gap:4px;font-size:13px;color:var(--ink-2)}
+input,select,textarea{font:400 15px/1.3 var(--f-body);padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-width:0}
+textarea{width:100%;min-height:90px}
+.estado{font:500 12px/1 var(--f-mono);padding:4px 8px;border-radius:6px;background:var(--bg);white-space:nowrap}
+.ok{color:var(--verde)}.mal{color:var(--rojo)}
+.msg{min-height:22px;margin:10px 0;font-size:14px}
+.vacio{padding:20px;color:var(--ink-2)}
+.puerta{max-width:460px;margin:12vh auto;text-align:center;padding:0 var(--gut)}
+.interruptor{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div id="puerta" class="puerta"><h1>Administración</h1><p id="puertaTxt">Cargando…</p><div id="puertaAcc"></div></div>
+<div id="app" hidden>
+  <header><a class="logo" href="index.html">VÍVELO RH · Admin</a><span class="quien" id="quien"></span><button class="btn btn--sec btn--peq" id="salir" type="button">Cerrar sesión</button></header>
+  <nav role="tablist" aria-label="Secciones">
+    <button role="tab" data-t="resumen" aria-selected="true">Resumen</button>
+    <button role="tab" data-t="usuarios" aria-selected="false">Usuarios</button>
+    <button role="tab" data-t="accesos" aria-selected="false">Compras y accesos</button>
+    <button role="tab" data-t="reclamos" aria-selected="false">Reclamos</button>
+    <button role="tab" data-t="puestos" aria-selected="false">Puestos</button>
+    <button role="tab" data-t="ajustes" aria-selected="false">Ajustes</button>
+  </nav>
+  <main id="vista" aria-live="polite"></main>
+</div>
+<script type="module">
+import { db, sesionActual, entrarGoogle, salir } from './assets/cuenta.js';
+import { ORDEN, cargarPuesto } from './assets/puestos.js';
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fecha = d => d ? new Date(d).toLocaleString('es-PE', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
+const soles = n => 'S/ ' + Number(n || 0).toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const c = await db();
+const s = await sesionActual();
+if (!c) { $('puertaTxt').textContent = 'No se pudo conectar con la base de datos.'; throw 0; }
+if (!s) {
+  $('puertaTxt').textContent = 'Inicia sesión con tu cuenta de administradora.';
+  $('puertaAcc').innerHTML = '<button class="btn" id="entrar" type="button">Entrar con Google</button>';
+  $('entrar').onclick = () => entrarGoogle().catch(e => ($('puertaTxt').textContent = 'Error: ' + e.message));
+  throw 0;
+}
+const { data: esAdmin } = await c.rpc('es_admin');
+if (!esAdmin) {
+  $('puertaTxt').innerHTML = `La cuenta <b>${esc(s.user.email)}</b> no tiene permisos de administración.`;
+  $('puertaAcc').innerHTML = '<button class="btn btn--sec" id="otra" type="button">Usar otra cuenta</button>';
+  $('otra').onclick = async () => { await salir(); location.reload(); };
+  throw 0;
+}
+$('puerta').hidden = true; $('app').hidden = false;
+$('quien').textContent = s.user.email;
+$('salir').onclick = async () => { await salir(); location.reload(); };
+
+const CARGOS = await fetch('assets/cargos.json').then(r => r.json());
+const nombreP = id => CARGOS.find(x => x.id === id)?.n || id;
+let USUARIOS = [];
+const cargarUsuarios = async () => { const { data } = await c.rpc('admin_usuarios'); USUARIOS = data || []; return USUARIOS; };
+const correoDe = uid => USUARIOS.find(u => u.id === uid)?.email || uid;
+
+const V = {
+  async resumen(el) {
+    const [us, { data: acc }, { data: rec }] = await Promise.all([cargarUsuarios(), c.from('accesos').select('tipo, vence, monto, activo, creado'), c.from('reclamos').select('estado')]);
+    const ahora = Date.now(), activos = (acc || []).filter(a => a.activo && (a.tipo === 'puesto' || Date.parse(a.vence) > ahora));
+    const ingresos = (acc || []).filter(a => a.activo).reduce((t, a) => t + Number(a.monto || 0), 0);
+    const semana = us.filter(u => Date.parse(u.creado) > ahora - 7 * 864e5).length;
+    el.innerHTML = `<h1>Resumen</h1><div class="kpis">
+      <div class="kpi"><span>Usuarios registrados</span><b>${us.length}</b><span>${semana} nuevos en 7 días</span></div>
+      <div class="kpi"><span>Accesos vigentes</span><b>${activos.length}</b><span>${activos.filter(a => a.tipo === 'pase').length} pases de 30 días</span></div>
+      <div class="kpi"><span>Ingresos registrados</span><b>${soles(ingresos)}</b><span>Suma de compras activas</span></div>
+      <div class="kpi"><span>Reclamos pendientes</span><b>${(rec || []).filter(r => r.estado !== 'respondido').length}</b><span>De ${(rec || []).length} en total</span></div></div>`;
+  },
+  async usuarios(el) {
+    const us = await cargarUsuarios();
+    el.innerHTML = `<h1>Usuarios</h1><div class="tabla"><table><thead><tr><th>Correo</th><th>Nombre</th><th>Registro</th><th>Último acceso</th><th></th></tr></thead><tbody>${us.map(u => `<tr><td>${esc(u.email)}</td><td>${esc(u.nombre)}</td><td class="num">${fecha(u.creado)}</td><td class="num">${fecha(u.ultimo_acceso)}</td><td><button class="btn btn--sec btn--peq" data-dar="${u.id}" type="button">Dar acceso</button></td></tr>`).join('') || '<tr><td colspan="5" class="vacio">Aún no hay usuarios.</td></tr>'}</tbody></table></div>`;
+    el.querySelectorAll('[data-dar]').forEach(b => b.onclick = () => { sel('accesos'); setTimeout(() => { $('fUser').value = b.dataset.dar; }, 300); });
+  },
+  async accesos(el) {
+    if (!USUARIOS.length) await cargarUsuarios();
+    const { data } = await c.from('accesos').select('*').order('creado', { ascending: false });
+    el.innerHTML = `<h1>Compras y accesos</h1>
+      <h2>Dar acceso manual</h2>
+      <form class="form" id="fAcc">
+        <label>Usuario<select id="fUser" required>${USUARIOS.map(u => `<option value="${u.id}">${esc(u.email)}</option>`).join('')}</select></label>
+        <label>Tipo<select id="fTipo"><option value="puesto">Un puesto (de por vida)</option><option value="pase">Todos los puestos (días)</option></select></label>
+        <label id="lPuesto">Puesto<select id="fPuesto">${ORDEN.map(id => `<option value="${id}">${esc(nombreP(id))}</option>`).join('')}</select></label>
+        <label id="lDias" hidden>Días<input id="fDias" type="number" min="1" max="366" value="30"></label>
+        <label>Monto (S/)<input id="fMonto" type="number" min="0" step="0.01" value="0"></label>
+        <label>Origen<select id="fOrigen"><option value="manual">Pago manual (Yape, transferencia)</option><option value="cortesia">Cortesía</option></select></label>
+        <label>Nota<input id="fNota" maxlength="300" placeholder="Ej.: Yape 07/11, operación 1234"></label>
+        <button class="btn" type="submit">Dar acceso</button>
+      </form><p class="msg" id="msgAcc" role="status"></p>
+      <h2>Historial</h2>
+      <div class="tabla"><table><thead><tr><th>Fecha</th><th>Usuario</th><th>Acceso</th><th>Monto</th><th>Origen</th><th>Estado</th><th></th></tr></thead><tbody>${(data || []).map(a => {
+        const vencido = a.tipo === 'pase' && Date.parse(a.vence) < Date.now();
+        return `<tr><td class="num">${fecha(a.creado)}</td><td>${esc(correoDe(a.user_id))}</td><td>${a.tipo === 'puesto' ? esc(nombreP(a.puesto)) : 'Todos, hasta ' + fecha(a.vence)}${a.nota ? `<br><small>${esc(a.nota)}</small>` : ''}</td><td class="num">${soles(a.monto)}</td><td>${esc(a.origen)}</td><td><span class="estado ${a.activo && !vencido ? 'ok' : 'mal'}">${!a.activo ? 'Anulado' : vencido ? 'Vencido' : 'Vigente'}</span></td><td>${a.activo ? `<button class="btn btn--sec btn--peq" data-anular="${a.id}" type="button">Anular</button>` : ''}</td></tr>`;
+      }).join('') || '<tr><td colspan="7" class="vacio">Aún no hay compras.</td></tr>'}</tbody></table></div>`;
+    $('fTipo').onchange = () => { const p = $('fTipo').value === 'puesto'; $('lPuesto').hidden = !p; $('lDias').hidden = p; };
+    $('fAcc').onsubmit = async e => {
+      e.preventDefault();
+      const tipo = $('fTipo').value, fila = { user_id: $('fUser').value, tipo, monto: +$('fMonto').value || 0, origen: $('fOrigen').value, nota: $('fNota').value || null };
+      if (tipo === 'puesto') fila.puesto = $('fPuesto').value; else fila.vence = new Date(Date.now() + (+$('fDias').value || 30) * 864e5).toISOString();
+      const { error } = await c.from('accesos').insert(fila);
+      $('msgAcc').textContent = error ? 'No se pudo guardar: ' + error.message : 'Acceso guardado.';
+      if (!error) V.accesos(el);
+    };
+    el.querySelectorAll('[data-anular]').forEach(b => b.onclick = async () => {
+      if (b.dataset.ok !== '1') { b.dataset.ok = '1'; b.textContent = '¿Confirmar?'; return; }
+      const { error } = await c.from('accesos').update({ activo: false }).eq('id', b.dataset.anular);
+      if (error) $('msgAcc').textContent = 'No se pudo anular: ' + error.message; else V.accesos(el);
+    });
+  },
+  async reclamos(el) {
+    const { data } = await c.from('reclamos').select('*').order('creado', { ascending: false });
+    el.innerHTML = `<h1>Libro de Reclamaciones</h1><p>Indecopi exige responder en un plazo máximo; revisa el plazo vigente en el Código de Protección y Defensa del Consumidor y su reglamento.</p>${(data || []).map(r => `
+      <article class="form" style="display:block;margin-bottom:12px">
+        <p><b>N.° ${r.id}</b> · ${esc(r.tipo)} · ${fecha(r.creado)} · <span class="estado ${r.estado === 'respondido' ? 'ok' : 'mal'}">${esc(r.estado)}</span></p>
+        <p><b>${esc(r.nombre)}</b> · Doc. ${esc(r.documento)} · ${esc(r.correo)} ${r.telefono ? '· ' + esc(r.telefono) : ''}</p>
+        ${r.bien ? `<p><b>Bien o servicio:</b> ${esc(r.bien)} ${r.monto ? '· ' + soles(r.monto) : ''}</p>` : ''}
+        <p><b>Detalle:</b> ${esc(r.detalle)}</p><p><b>Pedido:</b> ${esc(r.pedido)}</p>
+        <label>Respuesta<textarea data-resp="${r.id}">${esc(r.respuesta)}</textarea></label>
+        <p style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn btn--peq" data-guardar="${r.id}" type="button">Guardar como respondido</button><button class="btn btn--sec btn--peq" data-revisar="${r.id}" type="button">Marcar en revisión</button></p>
+      </article>`).join('') || '<p class="vacio">No hay reclamos.</p>'}<p class="msg" id="msgRec" role="status"></p>`;
+    el.querySelectorAll('[data-guardar]').forEach(b => b.onclick = async () => {
+      const id = b.dataset.guardar, respuesta = el.querySelector(`[data-resp="${id}"]`).value.trim();
+      if (!respuesta) { $('msgRec').textContent = 'Escribe la respuesta antes de guardar.'; return; }
+      const { error } = await c.from('reclamos').update({ respuesta, estado: 'respondido', respondido: new Date().toISOString() }).eq('id', id);
+      $('msgRec').textContent = error ? 'Error: ' + error.message : `Reclamo ${id} respondido. Envía también la respuesta al correo de la persona.`;
+      if (!error) V.reclamos(el);
+    });
+    el.querySelectorAll('[data-revisar]').forEach(b => b.onclick = async () => { await c.from('reclamos').update({ estado: 'en_revision' }).eq('id', b.dataset.revisar); V.reclamos(el); });
+  },
+  async puestos(el) {
+    el.innerHTML = '<h1>Puestos</h1><p>Cargando…</p>';
+    const filas = await Promise.all(ORDEN.map(async id => { try { const { PUESTO } = await cargarPuesto(id); return { id, n: PUESTO.nombre, listos: PUESTO.listos || 0, total: PUESTO.capitulos?.length || 0, ciudad: PUESTO.ciudad }; } catch { return { id, n: nombreP(id), listos: 0, total: 0 }; } }));
+    const pub = filas.filter(f => f.listos >= 10).length;
+    el.innerHTML = `<h1>Puestos</h1><p>${pub} de ${filas.length} puestos con sus 10 días publicados.</p><div class="tabla"><table><thead><tr><th>Puesto</th><th>Ciudad</th><th>Días publicados</th><th>Estado</th><th></th></tr></thead><tbody>${filas.map(f => `<tr><td>${esc(f.n)}</td><td>${esc(f.ciudad)}</td><td class="num">${f.listos} / 10</td><td><span class="estado ${f.listos >= 10 ? 'ok' : 'mal'}">${f.listos >= 10 ? 'Completo' : f.listos ? 'En curso' : 'Se está escribiendo'}</span></td><td><a href="temporada.html#${f.id}">Ver</a></td></tr>`).join('')}</tbody></table></div><p class="msg">Los capítulos se publican desde el repositorio; aquí ves su estado.</p>`;
+  },
+  async ajustes(el) {
+    const { data } = await c.from('config').select('clave, valor');
+    const cfg = Object.fromEntries((data || []).map(r => [r.clave, r.valor]));
+    const p = cfg.precios || { puesto: 20, pase: 49, dias: 30 };
+    el.innerHTML = `<h1>Ajustes</h1>
+      <div class="interruptor"><div><b>Cobro</b><br><span id="cobroTxt">${cfg.cobro_activo ? 'Activo: los días 2 a 10 requieren compra.' : 'Desactivado: todos los días están abiertos.'}</span></div>
+      <button class="btn ${cfg.cobro_activo ? 'btn--sec' : ''}" id="cobroBtn" type="button">${cfg.cobro_activo ? 'Desactivar cobro' : 'Activar cobro'}</button></div>
+      <p class="msg">Activa el cobro solo cuando el pago con Mercado Pago esté conectado y probado.</p>
+      <h2>Precios</h2>
+      <form class="form" id="fPrecios"><label>Un puesto (S/)<input id="pPuesto" type="number" min="1" step="0.1" value="${p.puesto}"></label><label>Todos los puestos (S/)<input id="pPase" type="number" min="1" step="0.1" value="${p.pase}"></label><label>Días del pase<input id="pDias" type="number" min="1" max="366" value="${p.dias}"></label><button class="btn" type="submit">Guardar precios</button></form>
+      <p class="msg" id="msgAj" role="status"></p>`;
+    $('cobroBtn').onclick = async () => {
+      const b = $('cobroBtn');
+      if (b.dataset.ok !== '1') { b.dataset.ok = '1'; b.textContent = '¿Confirmar?'; return; }
+      const { error } = await c.from('config').update({ valor: !cfg.cobro_activo, actualizado: new Date().toISOString() }).eq('clave', 'cobro_activo');
+      $('msgAj').textContent = error ? 'Error: ' + error.message : 'Guardado.'; if (!error) V.ajustes(el);
+    };
+    $('fPrecios').onsubmit = async e => {
+      e.preventDefault();
+      const valor = { puesto: +$('pPuesto').value, pase: +$('pPase').value, dias: +$('pDias').value };
+      const { error } = await c.from('config').upsert({ clave: 'precios', valor, actualizado: new Date().toISOString() });
+      $('msgAj').textContent = error ? 'Error: ' + error.message : 'Precios guardados. La página de precios los toma al cargar.';
+    };
+  },
+};
+function sel(t) {
+  document.querySelectorAll('nav button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.t === t)));
+  const el = $('vista'); el.innerHTML = '<p>Cargando…</p>';
+  V[t](el).catch(err => (el.innerHTML = `<p class="mal">Error: ${esc(err.message)}</p>`));
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => sel(b.dataset.t));
+sel('resumen');
+</script>
+</body>
+</html>

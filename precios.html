@@ -94,7 +94,13 @@ footer{padding:32px var(--gut);border-top:1px solid var(--line);display:flex;fle
   <a href="legal.html#reclamaciones">Libro de Reclamaciones</a>
 </footer>
 <script type="module">
-import { COBRO_ACTIVO } from './assets/acceso.js';
+import * as A from './assets/acceso.js';
+await A.cargarAccesos();
+const COBRO_ACTIVO = A.COBRO_ACTIVO;
+const pp = document.querySelector('#plan-puesto .precio'), pa = document.querySelector('#plan-pase .precio');
+pp && (pp.firstChild.textContent = `S/ ${A.PRECIOS.puesto} `);
+pa && (pa.firstChild.textContent = `S/ ${A.PRECIOS.pase} `);
+const sm = pa?.querySelector('small'); if (sm) sm.textContent = `por ${A.PRECIOS.dias} días`;
 const pid = location.hash.slice(1);
 try {
   const c = pid && (await fetch('assets/cargos.json').then(r => r.json())).find(x => x.id === pid);
