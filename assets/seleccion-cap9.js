@@ -238,7 +238,7 @@ export const ESCENAS = [
       pro: { ok: 'Una ficha que pide solo lo necesario protege a la persona y a la empresa.', risk: 'Las fichas viejas suelen acumular preguntas que nadie se atreve a borrar.', info: 'El contacto de emergencia verificado es la lección de ayer convertida en regla.' },
       kusi: v.missLey ? ['indignado', '¡¿Si piensa tener hijos?!'] : ['celebra', 'Ficha corta, limpia y útil.'],
     }),
-    rules: [[LEY, 'Los datos deben ser adecuados, pertinentes y no excesivos para su finalidad (Ley 29733).'], [LEY, 'No se discrimina por sexo ni religión (Ley 26772).'], [LEY, 'A quien ingresa sin estar afiliado se le entrega el Boletín Informativo de pensiones (Ley 28991).']],
+    rules: [[LEY, 'Los datos deben ser adecuados, relevantes y no excesivos para su finalidad (Ley 29733).'], [LEY, 'No se discrimina por sexo ni religión (Ley 26772).'], [LEY, 'A quien ingresa sin estar afiliado se le entrega el Boletín Informativo de pensiones (Ley 28991).']],
     mirada: {
       ve: 'La ficha de ingreso es el primer documento que la persona llena como trabajadora. Una profesional la lee como si fuera ella quien la llena: ¿por qué me preguntan esto?, ¿qué harán con este dato?',
       visual: { tipo: 'cambio', titulo: 'De la ficha vieja a la ficha nueva', pares: [['Religión', '(se elimina)'], ['¿Planea tener hijos?', '(se elimina)'], ['Para cualquier fin', 'Para la relación laboral, la planilla y la seguridad'], ['Un número de emergencia', 'Dos números, verificados al llenar']] },

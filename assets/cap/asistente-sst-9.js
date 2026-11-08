@@ -222,7 +222,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'Por cada accidente hay muchos sucesos que estuvieron a punto de serlo. Un tablón que cae donde no hay nadie no es suerte: es la zona de exclusión funcionando, y también un aviso de que había material suelto arriba.',
       visual: { tipo: 'cambio', titulo: 'De «no pasó nada» a incidente peligroso', pares: [['«No hagamos un drama»', 'Registro y notificación en 24 horas'], ['Suerte', 'Zona de exclusión que funcionó'], ['Tablón suelto', 'Material asegurado antes del viento']] },
-      normas: [{ ley: 'D.S. 005-2012-TR, glosario y art. 110 (modificado por el D.S. 006-2022-TR)', dice: 'Incidente peligroso es un suceso potencialmente riesgoso que pudiera causar lesiones a las personas en su trabajo o a la población. El empleador lo notifica dentro de las 24 horas.', practica: 'El tablón que cayó en el patio se registra, se notifica y se investiga, aunque nadie se haya lastimado.' }],
+      normas: [{ ley: 'D.S. 005-2012-TR, glosario y art. 110 (modificado por el D.S. 006-2022-TR)', dice: 'Incidente peligroso es un suceso potencialmente riesgoso que pudiera causar lesiones o enfermedades a las personas en su trabajo o a la población. El empleador lo notifica dentro de las 24 horas.', practica: 'El tablón que cayó en el patio se registra, se notifica y se investiga, aunque nadie se haya lastimado.' }],
     },
   },
   {

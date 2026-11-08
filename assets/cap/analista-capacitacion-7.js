@@ -5,9 +5,9 @@
 // - Reglamento de la Ley 29783 (D.S. 005-2012-TR), art. 28: dentro de la jornada, en cualquier modalidad, directamente o mediante terceros.
 //   https://lpderecho.pe/capacitaciones-seguridad-salud-trabajo-deben-realizarse-durante-jornada-laboral-informe-82-2015-mtpe/
 //   https://noticierocontable.com/?p=51169
-// - Reglamento de la Ley General de Inspección del Trabajo (D.S. 019-2006-TR), art. 27: el Tribunal de Fiscalización Laboral
-//   ha tratado como infracción grave no acreditar las capacitaciones de SST. Se cita sin numeral ni monto, porque la numeración
-//   y las multas deben verificarse en la versión vigente.
+// - Reglamento de la Ley General de Inspección del Trabajo (D.S. 019-2006-TR), art. 27.8: no cumplir las obligaciones de formación
+//   e información a los trabajadores sobre los riesgos del puesto es infracción grave (verificado en el texto oficial). Se cita
+//   sin monto: las multas deben verificarse en la versión vigente.
 //   https://img.lpderecho.pe/wp-content/uploads/2020/08/Res.-304-2020-Sunafil-capacitacion-seguridad-salud-LP.pdf
 //   https://img.lpderecho.pe/wp-content/uploads/2022/12/Resolucion-1053-2022-Sunafil-TFL-LPDerecho.pdf
 // Las personas, el requerimiento y los plazos del caso son ficticios.
@@ -73,7 +73,7 @@ export const QUIZ = [
   { q: '¿Cuántas capacitaciones de SST al año exige como mínimo la Ley 29783?', ops: ['Una', 'Dos', 'No menos de cuatro', 'Solo si hay accidentes'], ok: 2, por: 'El artículo 35, literal b), de la Ley 29783 exige no menos de cuatro capacitaciones al año.' },
   { q: 'Hay charlas que sí ocurrieron, pero sin lista. ¿Qué haces para SUNAFIL?', ops: ['Haces firmar hoy las listas con las fechas de entonces', 'Presentas lo que puedes probar, explicas el resto y das un plan correctivo', 'Dices que no sabes nada', 'Inventas temas para completar cuatro'], ok: 1, por: 'Fabricar evidencia convierte un incumplimiento en un engaño. Un plan correctivo real se puede defender.' },
   { q: '¿De dónde deberían salir los temas de las capacitaciones de SST?', ops: ['De un catálogo de proveedor', 'De los riesgos reales de cada puesto', 'De lo que quiera el gerente', 'De las redes sociales'], ok: 1, por: 'Una asesora en moto y un cajero no enfrentan los mismos riesgos: el programa debe responder a ellos.' },
-  { q: 'El Tribunal de Fiscalización Laboral ha tratado no acreditar las capacitaciones de SST como…', ops: ['Una simple falta de forma', 'Una infracción grave', 'Algo que no se sanciona', 'Una falta solo del trabajador'], ok: 1, por: 'Sus resoluciones han tipificado este incumplimiento como infracción grave en el artículo 27 del reglamento de inspección.' },
+  { q: 'Según el reglamento de inspección, no cumplir con la formación en SST de los trabajadores es…', ops: ['Una simple falta de forma', 'Una infracción grave', 'Algo que no se sanciona', 'Una falta solo del trabajador'], ok: 1, por: 'El art. 27.8 del D.S. 019-2006-TR lo tipifica como infracción grave.' },
   { q: '¿Una capacitación de SST virtual cumple la ley?', ops: ['Nunca', 'Sí, si se realiza dentro de la jornada de trabajo', 'Solo si dura un día', 'Sí, aunque se vea de noche'], ok: 1, por: 'El artículo 28 del reglamento admite cualquier modalidad, siempre dentro de la jornada.' },
 ];
 
@@ -128,7 +128,7 @@ export const ESCENAS = [
           pro: { ok: 'No fabricas nada.', risk: 'Sin plan correctivo, solo muestras el incumplimiento, y pierdes la oportunidad de demostrar que ya estás actuando.' },
           kusi: ['pensando', 'Honesto… pero solo a medias.'] } },
     ],
-    rules: [[LEY, 'El Tribunal de Fiscalización Laboral ha tratado como infracción grave no acreditar las capacitaciones de SST (D.S. 019-2006-TR, art. 27).'], [BP, 'Nunca firmes ni hagas firmar listas con fechas falsas. Lo que no se registró, se explica.']],
+    rules: [[LEY, 'No cumplir con la formación e información a los trabajadores sobre los riesgos del puesto es infracción grave (D.S. 019-2006-TR, art. 27.8).'], [BP, 'Nunca firmes ni hagas firmar listas con fechas falsas. Lo que no se registró, se explica.']],
     mirada: {
       ve: 'Las empresas reales pasan por este momento más seguido de lo que parece. La tentación se presenta como «ordenar papeles», no como falsificar. Una analista de capacitación firma con su nombre lo que dicen sus registros: por eso los llena el mismo día.',
       visual: { tipo: 'cambio', titulo: 'Qué presentar', pares: [['Listas con fechas pasadas', 'Evidencia real, con su fecha'], ['Silencio', 'Explicación breve y por escrito'], ['«Ya veremos»', 'Plan correctivo con fechas']] },

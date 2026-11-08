@@ -234,7 +234,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'El primer día heredaste un Excel con claves, columnas que no debían existir y notas sin sentido. Una profesional cierra el ciclo: deja el archivo mejor de lo que lo encontró, porque sabe lo que cuesta empezar sin él.',
       visual: { tipo: 'cambio', titulo: 'Del Excel heredado al Excel que dejas', pares: [['Seguimiento_Seleccion_MB_v7_ok', 'Seguimiento_Seleccion_2026'], ['Clave del portal en una pestaña', 'Cuenta del área, clave en un gestor'], ['Edad y estado civil', 'Fuente, etapa y motivo de descarte'], ['140 CV para siempre', 'Solo los autorizados, con plazo']] },
-      normas: [{ ley: 'Ley 29733, de Protección de Datos Personales', dice: 'Los datos personales deben ser adecuados, pertinentes y no excesivos para su finalidad, conservarse solo el tiempo necesario y protegerse frente a accesos no autorizados.', practica: 'Una columna de estado civil de 2022 o una clave en una pestaña no tienen ninguna finalidad hoy: solo riesgo.' }],
+      normas: [{ ley: 'Ley 29733, de Protección de Datos Personales', dice: 'Los datos personales deben ser adecuados, relevantes y no excesivos para su finalidad, conservarse solo el tiempo necesario y protegerse frente a accesos no autorizados.', practica: 'Una columna de estado civil de 2022 o una clave en una pestaña no tienen ninguna finalidad hoy: solo riesgo.' }],
     },
   },
   {

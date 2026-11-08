@@ -192,7 +192,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'Cuando un trabajador comete una falta siguiendo el material oficial, el problema no es solo suyo. Revisar los materiales que ya existen es parte del trabajo de capacitación, tanto como diseñar cursos nuevos.',
       visual: { tipo: 'cambio', titulo: 'El guion, antes y después', pares: [['Recado con el vecino', 'Hablar solo con el cliente o su garante'], ['Llamar de noche', 'Llamar entre las 07:00 y las 20:00'], ['Carta con sello «judicial»', 'Carta clara, sin aparentar un juicio'], ['«Nunca más le prestarán»', '«¿Cuánto puede pagar y cuándo?»']] },
-      normas: [{ ley: 'Ley 29571, Código de Protección y Defensa del Consumidor, art. 62', dice: 'Prohíbe, entre otros, gestionar la cobranza con personas ajenas a la deuda, llamar o visitar entre las 20:00 y las 07:00 y enviar documentos que aparenten ser notificaciones o escritos judiciales.', practica: 'Un guion que lo ordena convierte a cada asesor nuevo en un reclamo en potencia.' }],
+      normas: [{ ley: 'Ley 29571, Código de Protección y Defensa del Consumidor, art. 62', dice: 'Prohíbe, entre otros, comunicar o llamar a terceros ajenos a la deuda para informarles de la morosidad, llamar o visitar entre las 20:00 y las 07:00 o los sábados, domingos y feriados, y enviar documentos que aparenten ser notificaciones o escritos judiciales.', practica: 'Un guion que lo ordena convierte a cada asesor nuevo en un reclamo en potencia.' }],
     },
   },
   {

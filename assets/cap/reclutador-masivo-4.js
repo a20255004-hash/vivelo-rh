@@ -119,7 +119,7 @@ export const ESCENAS = [
     mirada: {
       ve: 'Una simulación es una muestra del trabajo: si es realista y tiene criterios claros, predice mejor que una entrevista. Y si incluye una pequeña prueba de criterio, como la llamada a las 9 de la noche, también te dice quién cobrará dentro de la ley.',
       visual: { tipo: 'flujo', titulo: 'Simulación de 20 minutos', pasos: ['Instrucciones (5)', 'Llamada (8)', 'Devolución (7)'] },
-      normas: [{ ley: 'Ley 29571, Código de Protección y Defensa del Consumidor, art. 62', dice: 'Considera métodos abusivos de cobranza, entre otros, las gestiones con personas ajenas a la deuda y las visitas o llamadas entre las 20:00 y las 07:00.', practica: 'Un asesor que no lo sabe expone al banco y al centro de contacto a sanciones de Indecopi.' }],
+      normas: [{ ley: 'Ley 29571, Código de Protección y Defensa del Consumidor, art. 62', dice: 'Considera métodos abusivos de cobranza, entre otros, las comunicaciones o llamadas a terceros ajenos a la deuda para informarles de la morosidad, y las visitas o llamadas entre las 20:00 y las 07:00 o los sábados, domingos y feriados.', practica: 'Un asesor que no lo sabe expone al banco y al centro de contacto a sanciones de Indecopi.' }],
     },
   },
   {

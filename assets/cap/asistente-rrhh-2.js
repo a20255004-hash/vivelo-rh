@@ -3,7 +3,7 @@
 // Normas citadas (texto de «Normas legales actualizadas», Ley 29783 y su Reglamento, D.S. 005-2012-TR):
 //   https://www.ugel02.gob.pe/sites/default/files/PRCCSST/ley29783.pdf
 // - Ley 29783, art. 49 d) (modificado por Ley 30222): los costos de los exámenes médicos los asume el empleador.
-// - Reglamento D.S. 005-2012-TR, art. 101 d): en ningún caso el costo del examen médico lo asume el trabajador.
+// - Reglamento D.S. 005-2012-TR, art. 101: en ningún caso el costo del examen médico lo asume el trabajador.
 // - Ley 29783, art. 71 b): los resultados son confidenciales y no pueden usarse para discriminar.
 // - Reglamento, art. 102 (mod. D.S. 001-2021-TR): el médico entrega los resultados al trabajador e informa al
 //   empleador solo las condiciones generales de salud colectiva.
