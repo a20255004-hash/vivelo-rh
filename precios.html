@@ -102,15 +102,36 @@ pp && (pp.firstChild.textContent = `S/ ${A.PRECIOS.puesto} `);
 pa && (pa.firstChild.textContent = `S/ ${A.PRECIOS.pase} `);
 const sm = pa?.querySelector('small'); if (sm) sm.textContent = `por ${A.PRECIOS.dias} días`;
 const pid = location.hash.slice(1);
+let elegido = null;
 try {
-  const c = pid && (await fetch('assets/cargos.json').then(r => r.json())).find(x => x.id === pid);
-  if (c) document.getElementById('puestoElegido').textContent = `Puesto elegido: ${c.n}`;
+  elegido = pid && (await fetch('assets/cargos.json').then(r => r.json())).find(x => x.id === pid);
+  if (elegido) document.getElementById('puestoElegido').textContent = `Puesto elegido: ${elegido.n}`;
 } catch {}
-if (COBRO_ACTIVO) document.getElementById('aviso').hidden = true;
-document.querySelectorAll('.comprar').forEach(b => b.addEventListener('click', e => {
+const aviso = document.getElementById('aviso');
+const btnPuesto = document.querySelector('[data-plan="puesto"]'), btnPase = document.querySelector('[data-plan="pase"]');
+if (COBRO_ACTIVO) {
+  aviso.hidden = true;
+  btnPase.setAttribute('aria-disabled', 'false');
+  if (elegido) btnPuesto.setAttribute('aria-disabled', 'false');
+  else { btnPuesto.textContent = 'Elegir un puesto'; btnPuesto.href = 'index.html#temporadas'; btnPuesto.setAttribute('aria-disabled', 'false'); btnPuesto.classList.remove('comprar'); }
+}
+const decir = t => { aviso.hidden = false; aviso.textContent = t; aviso.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+document.querySelectorAll('.comprar').forEach(b => b.addEventListener('click', async e => {
   e.preventDefault();
-  if (!COBRO_ACTIVO) return;
-  // Se conectará a la función de Supabase que crea la preferencia de Mercado Pago.
+  if (!COBRO_ACTIVO || b.getAttribute('aria-disabled') === 'true' || b.dataset.ocupado) return;
+  const { db, sesionActual, entrarGoogle } = await import('./assets/cuenta.js');
+  const s = await sesionActual();
+  if (!s) { decir('Para comprar, primero inicia sesión con Google. Te llevamos ahora; al volver, pulsa otra vez el botón.'); setTimeout(() => entrarGoogle().catch(() => decir('No se pudo iniciar sesión. Inténtalo de nuevo.')), 1200); return; }
+  b.dataset.ocupado = '1'; const txt = b.textContent; b.textContent = 'Preparando el pago…';
+  try {
+    const c = await db();
+    const { data, error } = await c.functions.invoke('crear-pago', { body: { plan: b.dataset.plan, puesto: elegido?.id } });
+    if (error || !data?.url) throw error || new Error('sin url');
+    location.href = data.url;
+  } catch {
+    decir('No se pudo iniciar el pago. Inténtalo en unos minutos o escribe a lmamanicam@unjbg.edu.pe.');
+    b.textContent = txt; delete b.dataset.ocupado;
+  }
 }));
 </script>
 </body>
