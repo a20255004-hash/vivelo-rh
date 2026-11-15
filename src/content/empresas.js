@@ -181,6 +181,76 @@ export const empresas = {
         { area: "bienestar", t: "#EstadoSinAcoso", d: "Campaña con dramatizaciones e instructivos para prevenir y atender denuncias de hostigamiento sexual laboral en las entidades públicas, publicada en su canal de YouTube.", url: "https://www.youtube.com/playlist?list=PLF1cLZO8dRvJsKi52oVCjtlAGxdGK1BCZ" }
       ],
       learn: "En el Estado, buena parte de la gestión de personas se aprende entre pares: una comunidad de práctica permite copiar lo que ya funcionó en otra entidad sin grandes presupuestos. Si te interesa el sector público, la gestión del rendimiento, la capacitación y la prevención del hostigamiento son espacios donde RR.HH. cambia el servicio al ciudadano."
+    },
+    // Añadidas el 15/11/2026: casos breves del concurso Buenas Prácticas Laborales del MTPE (ediciones 2024 y 2025)
+    {
+      id: "pluspetrol", n: "Pluspetrol Perú", mono: "PP", sector: "Energía · gas natural", sectorIcon: "engranaje", scene: "planta", tone: "cuidar",
+      region: "Lima y Cusco · operadora de Camisea", city: "Lima", coords: [-12.046, -77.043],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2025 · 1.er lugar en Promoción del equilibrio trabajo – familia", year: 2025, url: "https://proactivo.com.pe/pluspetrol-recibe-reconocimiento-del-ministerio-de-trabajo-por-buenas-practicas-laborales/" }
+      ],
+      practices: [
+        { area: "bienestar", t: "TU PLUS+: licencias que van más allá de la ley", d: "Según ProActivo, el programa suma 30 días a la licencia de maternidad legal, un retorno escalonado de medio tiempo durante dos semanas y una licencia de paternidad de 21 días, además de permisos por duelo y mudanza y reintegros por guardería.", url: "https://proactivo.com.pe/pluspetrol-recibe-reconocimiento-del-ministerio-de-trabajo-por-buenas-practicas-laborales/" },
+        { area: "experiencia", t: "«Modo Blend»: trabajo híbrido", d: "La misma nota describe un esquema híbrido que combina días presenciales y teletrabajo como parte de TU PLUS+.", url: "https://proactivo.com.pe/pluspetrol-recibe-reconocimiento-del-ministerio-de-trabajo-por-buenas-practicas-laborales/" }
+      ],
+      learn: "Una política de familia se diseña como un paquete: licencias, regreso gradual y flexibilidad. Cuando RR.HH. pone cifras claras (cuántos días, cuántas semanas), el beneficio se entiende, se usa y se puede evaluar."
+    },
+    {
+      id: "tcs", n: "Tata Consultancy Services Perú", mono: "TCS", sector: "Tecnología · servicios de TI", sectorIcon: "auricular", scene: "oficina", tone: "estrategia",
+      region: "Lima · sucursal en el Perú", city: "Lima", coords: [-12.046, -77.043],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2025 · 1.er lugar en Prevención y gestión de ceses (modelo RMG)", year: 2025, url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" },
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2024 · 1.er lugar en Prevención, gestión de ceses y preparación para la jubilación", year: 2024, url: "https://andina.pe/ingles/noticia-mtpe-premio-a-empresas-y-mypes-promueven-buenas-practicas-laborales-1008773.aspx" }
+      ],
+      practices: [
+        { area: "desempeno", t: "Modelo RMG: reubicar antes que despedir", d: "Según El Peruano, cuando un proyecto termina la empresa acompaña, forma y reubica internamente a la persona, y mantiene su salario mientras espera nueva asignación. En 2025 reubicó a 61 personas.", url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" },
+        { area: "capacitacion", t: "Primero, el talento de casa", d: "La misma nota indica que en 2025 el 48 % de sus vacantes se cubrió con talento interno.", url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      learn: "Un cese también se gestiona: antes de despedir se puede capacitar y mover a la persona a otro proyecto. La movilidad interna ahorra costos de selección y cuida la confianza del equipo."
+    },
+    {
+      id: "sodexo", n: "Sodexo Perú", mono: "SX", sector: "Servicios · alimentación y facilities", sectorIcon: "carrito", scene: "oficina", tone: "cuidar",
+      region: "Lima", city: "Lima", coords: [-12.046, -77.043],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2025 · 1.er lugar en Preparación para la jubilación", year: 2025, url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      practices: [
+        { area: "bienestar", t: "«Un nuevo comienzo»: prepararse para jubilarse", d: "Según El Peruano, acompaña a colaboradores de 60 años a más con bienestar en salud y finanzas, orientación previsional y actividades de integración; desde 2021 ha beneficiado a más de 500 personas.", url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      learn: "La salida por jubilación es parte del ciclo de vida del trabajador. Prepararla con tiempo (pensión, salud, proyecto de vida) es una forma concreta de cuidar a quien deja la organización."
+    },
+    {
+      id: "tanos", n: "Constructora Tanos", mono: "CT", sector: "Construcción · mype", sectorIcon: "engranaje", scene: "planta", tone: "cuidar",
+      region: "Lima · micro y pequeña empresa", city: "Lima", coords: [-12.046, -77.043],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2025 · 1.er lugar (mype) en Prevención del acoso sexual y/o hostigamiento laboral", year: 2025, url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      practices: [
+        { area: "bienestar", t: "«Tolerancia cero» al hostigamiento", d: "Según El Peruano, la práctica reúne políticas preventivas, capacitaciones, campañas y canales confidenciales de denuncia; la empresa reporta cero casos formales de hostigamiento.", url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      learn: "Una pyme no necesita un gran área de RR.HH. para prevenir el hostigamiento: basta una política clara, capacitación y un canal de denuncia confidencial que la gente conozca y en el que confíe."
+    },
+    {
+      id: "southern", n: "Southern Perú", mono: "SP", sector: "Minería · cobre", sectorIcon: "pico", scene: "mineria", tone: "cuidar",
+      region: "Tacna y Moquegua · operaciones en el sur", city: "Moquegua", coords: [-17.194, -70.935],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2024 · 1.er lugar en Promoción y prevención en salud mental en ámbitos laborales (categoría nueva ese año)", year: 2024, url: "https://andina.pe/ingles/noticia-mtpe-premio-a-empresas-y-mypes-promueven-buenas-practicas-laborales-1008773.aspx" }
+      ],
+      practices: [
+        { area: "bienestar", t: "Salud mental y riesgos psicosociales", d: "Según Andina, ganó con su programa de promoción de la salud mental y gestión de los factores de riesgo psicosocial, en la primera edición de esa categoría del concurso del MTPE.", url: "https://andina.pe/ingles/noticia-mtpe-premio-a-empresas-y-mypes-promueven-buenas-practicas-laborales-1008773.aspx" }
+      ],
+      learn: "La seguridad en una mina no es solo física: turnos largos, altura y distancia de la familia también pesan. Gestionar los riesgos psicosociales es parte del sistema de SST."
+    },
+    {
+      id: "abb", n: "ABB Perú", mono: "ABB", sector: "Tecnología eléctrica y automatización", sectorIcon: "engranaje", scene: "planta", tone: "admin",
+      region: "Lima", city: "Lima", coords: [-12.046, -77.043],
+      recognitions: [
+        { k: "mtpe", name: "Buenas Prácticas Laborales 2025 · 1.er lugar en Beneficios a los trabajadores (programa ABB Plus)", year: 2025, url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      practices: [
+        { area: "bienestar", t: "ABB Plus: un paquete de beneficios", d: "Según El Peruano, incluye flexibilidad laboral, programas de salud, seguros, licencias parentales, apoyo educativo, celebraciones internas y cultura inclusiva.", url: "https://elperuano.pe/noticia/284851-premio-a-empresas-con-rostro-humano" }
+      ],
+      learn: "Un programa de beneficios funciona mejor con nombre y paquete propio: la gente entiende qué recibe y RR.HH. puede medir cuánto se usa cada beneficio."
     }
   ]
 };
