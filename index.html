@@ -448,6 +448,13 @@ h2 em{color:var(--accent)}
   .who{min-width:40px;justify-content:center}
   .moods .chip{min-height:40px;padding:8px 12px}
 }
+@media (max-width:430px){
+  .top{padding-inline:12px}
+  .top nav{gap:4px}
+  .top nav .chip{padding:8px 8px;font-size:12px}
+  .sm-oculto{display:none}
+  .top nav:has(.who:not([hidden])) #tema{display:none}
+}
 /* Movimiento reducido */
 .rm *,.rm *::before,.rm *::after{animation:none!important;transition:none!important}
 .rm .title .w>span,.rm .voice,.rm .hero .btn,.rm .hk,.rm .intro__kusi,.rm .intro__brand,.rm .intro__acts{transform:none;opacity:1}
@@ -528,7 +535,7 @@ h2 em{color:var(--accent)}
   <nav>
     <button class="chip who" id="who" type="button" hidden aria-haspopup="true"><i aria-hidden="true"></i><span id="whoTxt"></span></button>
     <a class="chip" href="#laboratorio">Laboratorio</a>
-    <a class="chip" href="brujula.html">Mi brújula</a>
+    <a class="chip" href="brujula.html"><span class="sm-oculto">Mi </span>brújula</a>
     <button class="chip" id="tema" type="button">Modo oscuro</button>
     <a class="chip" href="#temporadas">Puestos</a>
   </nav>
