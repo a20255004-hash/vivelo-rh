@@ -84,7 +84,7 @@ export const DATOS = {
   'analista-analytics': {
     PUESTO: { ...MES,
       id: 'analista-analytics', nombre: 'Analista de People Analytics', temporada: '¿Por qué se van?', foto: 'assets/cargos/analista-analytics.webp',
-      completa: false, listos: 0, primero: 'diego-pa', ciudad: 'Lima', nota: ['Lima', 'Cadena de mejoramiento del hogar, 4,000 colaboradores.'], correo: 'peopleanalytics@hogarplus.pe',
+      completa: false, listos: 10, primero: 'diego-pa', ciudad: 'Lima', nota: ['Lima', 'Cadena de mejoramiento del hogar, 4,000 colaboradores.'], correo: 'peopleanalytics@hogarplus.pe',
       sinopsis: 'La rotación de vendedores llegó a 60 % y la gerencia quiere saber por qué en dos semanas. Tú limpias datos, cruzas planillas con encuestas, construyes un tablero y descubres algo que nadie quería ver. Aprendes que los datos de personas exigen cuidado ético.',
       escenario: 'HogarPlus S.A. (ficticia) · Lima y provincias · 4,000 colaboradores',
       rel0: { 'diego-pa': 0, gerente: -1, ti: 0 },
