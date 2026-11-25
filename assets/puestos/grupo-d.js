@@ -236,7 +236,7 @@ export const DATOS = {
   'gerente-gestion-humana': {
     PUESTO: { ...MES,
       id: 'gerente-gestion-humana', nombre: 'Gerente/a de Gestión Humana', temporada: 'El presupuesto y las personas', foto: 'assets/cargos/gerente-gestion-humana.webp',
-      completa: false, listos: 0, primero: 'directorio', ciudad: 'Lima', nota: ['Lima', 'Grupo de clínicas con 3,000 colaboradores.'], correo: 'gerencia.gh@grupovida.pe',
+      completa: false, listos: 10, primero: 'directorio', ciudad: 'Lima', nota: ['Lima', 'Grupo de clínicas con 3,000 colaboradores.'], correo: 'gerencia.gh@grupovida.pe',
       sinopsis: 'Diriges Gestión Humana en un grupo de clínicas mientras el directorio pide recortar costos un 10 %. Tienes que proponer un presupuesto, sostener un sindicato de enfermería, cuidar a tu equipo y decidir qué no se recorta. Tienes dos semanas para llevar tu propuesta al directorio, y aprendes que en la gerencia las decisiones tienen nombres y apellidos.',
       escenario: 'Grupo Vida S.A. (ficticio) · Lima · 3,000 colaboradores en 5 clínicas',
       rel0: { directorio: 0, sindicato: -1, equipo: 0 },
