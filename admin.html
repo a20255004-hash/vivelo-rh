@@ -153,7 +153,7 @@ const V = {
   },
   async reclamos(el) {
     const { data } = await c.from('reclamos').select('*').order('creado', { ascending: false });
-    el.innerHTML = `<h1>Libro de Reclamaciones</h1><p>Indecopi exige responder en un plazo máximo; revisa el plazo vigente en el Código de Protección y Defensa del Consumidor y su reglamento.</p>${(data || []).map(r => `
+    el.innerHTML = `<h1>Libro de Reclamaciones</h1><p>Responde cada reclamo por correo en un plazo no mayor de 15 días hábiles improrrogables (Ley 29571, art. 24.1). Envía también a la persona una copia de su reclamo con su número.</p>${(data || []).map(r => `
       <article class="form" style="display:block;margin-bottom:12px">
         <p><b>N.° ${r.id}</b> · ${esc(r.tipo)} · ${fecha(r.creado)} · <span class="estado ${r.estado === 'respondido' ? 'ok' : 'mal'}">${esc(r.estado)}</span></p>
         <p><b>${esc(r.nombre)}</b> · Doc. ${esc(r.documento)} · ${esc(r.correo)} ${r.telefono ? '· ' + esc(r.telefono) : ''}</p>
