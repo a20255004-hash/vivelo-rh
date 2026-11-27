@@ -12,7 +12,9 @@ export function fijarAccesos(a) { ACC = { puestos: a?.puestos || [], paseHasta: 
 let cargado = null;
 export function cargarAccesos() {
   if (cargado) return cargado;
-  cargado = (async () => {
+  // Si Supabase no responde (por ejemplo, si está pausado), la página sigue a los 4 segundos.
+  const limite = new Promise(r => setTimeout(r, 4000));
+  cargado = Promise.race([limite, (async () => {
     try {
       const { db, sesionActual } = await import('./cuenta.js');
       const c = await db(); if (!c) return;
@@ -30,7 +32,7 @@ export function cargarAccesos() {
       }
       fijarAccesos({ puestos, paseHasta: paseHasta > ahora ? paseHasta : 0 });
     } catch {}
-  })();
+  })()]);
   return cargado;
 }
 

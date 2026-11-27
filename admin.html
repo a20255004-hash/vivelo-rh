@@ -73,9 +73,11 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const fecha = d => d ? new Date(d).toLocaleString('es-PE', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
 const soles = n => 'S/ ' + Number(n || 0).toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-const c = await db();
-const s = await sesionActual();
-if (!c) { $('puertaTxt').textContent = 'No se pudo conectar con la base de datos.'; throw 0; }
+const conTope = (p, ms) => Promise.race([p, new Promise((_, no) => setTimeout(() => no(new Error('tiempo')), ms))]);
+let c = null, s = null;
+try { c = await conTope(db(), 8000); s = await conTope(sesionActual(), 8000); await conTope(c.from('config').select('clave').limit(1), 8000); }
+catch { c = null; }
+if (!c) { $('puertaTxt').innerHTML = 'No se pudo conectar con la base de datos. Si Supabase está pausado, reactívalo en <a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com</a> y vuelve a cargar esta página.'; throw 0; }
 if (!s) {
   $('puertaTxt').textContent = 'Inicia sesión con tu cuenta de administradora.';
   $('puertaAcc').innerHTML = '<button class="btn" id="entrar" type="button">Entrar con Google</button>';
